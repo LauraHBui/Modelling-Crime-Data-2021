@@ -1,0 +1,31 @@
+---
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+  #bookdown::pdf_book: default
+---
+
+# Preface {-}
+
+#### Course Director: Dr Reka Solymosi {-}
+
+#### Co-Lecturer & Graduate Teaching Assistants: Dr Laura Bui, Carlos Iglesias, Ioana Macoveciuc, and Denny Vlaeva {-}
+
+Welcome to Modelling Criminological Data. The class aims to introduce you to some basic principles and ideas that are required to understand how data analysis works so that you develop a better appreciation of the stories you read about in the media, the arguments made by politicians, and the claims made by scientists around a variety of issues. In this class, we use the data analysis software `R` to explore and analyse data, interpret statistical results, and to encourage curiosity.
+
+Data is ubiquitous today and affects all aspects of everyday life. Moreover, criminal justice agencies are increasingly adopting a 'problem solving' and 'evidence-led' discourse that requires them to employ individuals with the skills required to perform basic data analytical tasks in order to document patterns of problems, factors associated with them, and to evaluate responses to these problems. For particular positions, for example, crime analyst jobs, these skills are absolutely essential. More generally there is an increasing recognition that data analysis skills are helpful in many other professional sectors.
+
+Taking this course is an eligibility criterion to benefit from the University of Manchester Q-Step summer internships.
+
+
+
+
+
+
+
+
+
+
+
+*Site edited and compiled by Laura Bui, based on previous teaching material from Reka Solymosi and Juanjo Medina Ariza and Wooditch et al.'s (forthcoming) 'A Beginner's Guide to Statistics for Criminology and Criminal Justice Using R'*
