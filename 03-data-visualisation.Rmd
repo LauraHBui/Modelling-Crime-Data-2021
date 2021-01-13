@@ -93,7 +93,7 @@ It is a layered approach to describe and build graphics in a structured manner. 
 <div style="margin-bottom:30px;">
 </div>
 
-![**C. Integrating layers of Table 3 together**](Images/grammar3.png)
+![**C. Integrating layers of Table 3**](Images/grammar3.png)
 
 
 <div style="margin-bottom:35px;">
