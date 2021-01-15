@@ -28,4 +28,4 @@ Taking this course meets the eligibility criterion to apply for the University o
 
 
 
-*Site edited and compiled by Laura Bui, based on previous teaching material from Reka Solymosi and Juanjo Medina Ariza and Wooditch et al.'s (forthcoming) 'A Beginner's Guide to Statistics for Criminology and Criminal Justice Using R'*
+*Site edited and compiled by Laura Bui, based on previous teaching material from Reka Solymosi and Juanjo Medina-Ariza and Wooditch et al.'s (forthcoming) 'A Beginner's Guide to Statistics for Criminology and Criminal Justice Using R'*
