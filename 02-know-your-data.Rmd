@@ -13,7 +13,7 @@ output:
 ---
 
 ##### **Learning Outcomes:** {-}
--	Create a project in R to refer back to for each session
+-	Create a project in `R` to refer back to for each session
 -	Learn what variables are and how to examine them 
 -	Learn how to label variables 
 -	Learn how to subset select cases 
@@ -93,12 +93,12 @@ Although today is focused on tidying data, it is also helpful if your work is ti
 <div style="margin-bottom:30px;">
 </div>
 
--	Click on *New Project*. A window with different option appears. Create your project in *New Directory* and then click *New Project*
+-	Click on *New Project*. A window with different options appears. Create your project in *New Directory* and then click *New Project*
 
 <div style="margin-bottom:15px;">
 </div>
 
--	Choose a name for your project (e.g., r_crim_course) and a location (working directory) where your project will be created.
+-	Choose a name for your project (e.g., r_crim_course) and a location (working directory) where your project will be created
 
 <div style="margin-bottom:15px;">
 </div>
@@ -114,7 +114,7 @@ Inside your project, you can organise it by having separate files, one for scrip
 </div>
 ```{r, eval=FALSE}
 
-# For example, to make a sub-folder called *Datasets* in your project folder, type this into your console pane:
+# For example, to make a sub-folder called 'Datasets' in your project folder, type this into your console pane:
 dir.create("Datasets")
 
 ```
@@ -156,7 +156,7 @@ library(haven)
 <div style="margin-bottom:50px;">
 </div>
 
-Haven enables `R` to understand various data formats used by other statistical packages such as SPSS and STATA. We will need this package to open data in its diverse forms. 
+`Haven` enables `R` to understand various data formats used by other statistical packages such as SPSS and STATA. We will need this package to open data in its diverse forms. 
 
 You will have saved the NCVS in a relevant file in your project, so now let us load this data using `read_spss()` from `Haven`:
 <div style="margin-bottom:35px;">
@@ -229,7 +229,7 @@ class(ncvs$injured)
 <div style="margin-bottom:50px;">
 </div>
 
-You may have noticed that many of the vectors in our data frame were classed as `haven_labelled`. What this, you ask? When we use the `haven()` function to import data, `R` keeps the information associated with that file type -- the SPSS variable information and value labels that were in the dataset. In practice, therefore, you can find categorical data in R embedded in very different type of vectors (character, factor, or haven labelled) depending on decisions taken by whomever created the data frame.
+You may have noticed that many of the vectors in our data frame were classed as `haven_labelled`. What is this, you ask? When we use the `haven()` function to import data, `R` keeps the information associated with that file type -- the SPSS variable information and value labels that were in the dataset. In practice, therefore, you can find categorical data in `R` embedded in very different types of vectors (character, factor, or haven labelled) depending on decisions taken by whomever created the data frame.
 
 <div style="margin-bottom:30px;">
 </div>
@@ -340,9 +340,9 @@ ncvs %>% select(injured, weaponpresent, severity) %>% sample_n(10)
 
 Notice that `%>%` . This is known as the **pipe operator**, which is a nifty shortcut in `R` coding. It means that we only need to specify the data frame object once at the beginning as opposed to typing out the name of the data frame repeatedly. In all subsequent functions, notice that the object is ‘piped’ through.
 
-The *severity* variable is ordinal-level, where 0 is the least severe (neither a weapon was used nor the victim injured), 1 is more severe (either the offender wielded a weapon or the victim reported being injured), and 2 is the most severe (the respondent and reported being injured and the offender had a weapon). You can then add value labels to reflect this understanding.
+The `severity` variable is ordinal-level, where 0 is the least severe (neither a weapon was used nor the victim injured), 1 is more severe (either the offender wielded a weapon or the victim reported being injured), and 2 is the most severe (the respondent reported being injured and the offender had a weapon). You can then add value labels to reflect this understanding.
 
-The above example was simple, but often, we will want to make more complex combinations of variables. This is known as **recoding**. For example, we want to turn the variable in the NCVS dataset, called *relationship*, into a dichotomous variable called `notstranger` whereby the offender was a stranger (0) or was known to the victim (1). Before doing this, we again use the `count ()` function to understand the variable of interest, *relationship*, and it has four categories. We then use `mutate ()` and `case_when ()`. Think of `case_when()` like an ‘if’ logical statement. It allows us to make changes to a variable that are conditional on some requirement. Note below that this turns our new categories into character values.
+The above example was simple, but often, we will want to make more complex combinations of variables. This is known as **recoding**. For example, we want to turn the variable in the NCVS dataset, called `relationship`, into a dichotomous variable called `notstranger` whereby the offender was a stranger (0) or was known to the victim (1). Before doing this, we again use the `count ()` function to understand the variable of interest, `relationship`, and it has four categories. We then use `mutate ()` and `case_when ()`. Think of `case_when()` like an ‘if’ logical statement. It allows us to make changes to a variable that are conditional on some requirement. Note below that this turns our new categories into character values.
 
 <div style="margin-bottom:35px;">
 </div>
@@ -410,7 +410,7 @@ library(sjlabelled)
 <div style="margin-bottom:50px;">
 </div>
 
-After loading the two new packages we remove variable and value labels:
+After loading the two new packages, we remove variable and value labels:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -519,7 +519,7 @@ filter(relationship > 0 & injured == 1)
 <div style="margin-bottom:30px;">
 </div>
 
-Today you were further introduced to **tidyverse** packages that helped you to tidy your data. First, we learned to put our work into a **project** and then how to import data using a package called *haven*. Whenever we specify a data frame, we learned a nifty short-cut: the **pipe operator** - `%>%` - which allows us to specify the data frame only once when we code. 
+Today you were further introduced to **tidyverse** packages that helped you to tidy your data. First, we learned to put our work into a **project** and then how to import data using a package called `haven`. Whenever we specify a data frame, we learned a nifty short-cut: the **pipe operator** - `%>%` - which allows us to specify the data frame only once when we code. 
 
 Our three main topics today had to do with helping us tidy. One were the variables themselves where we learned about the **factor** and **numeric** classes, and how to make and **recode** new variables. Two, we learned how to remove and add variable and value labels so that we can understand what our variables are measuring.  Three, we then learned to subset our data, whereby we make new dataframes that include only the columns – variables – or rows – cases – we want. We tidied our data using the TIDYVERSE WAY! 
 
