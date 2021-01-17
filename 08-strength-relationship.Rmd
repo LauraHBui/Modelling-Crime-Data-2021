@@ -66,9 +66,9 @@ output:
 
 So far in the course, we have learned ways of measuring whether there is a relationship between variables. If there is a relationship between variables, it means that the value of IV can be used to predict the value of the DV. Although we are able to test for statistical significance, we are unable to say anything about how *strong* these associations between variables are. 
 
-In crime and criminal justice research, not only are we interested in whether there is a relationship between variables, but we are also interested in the size of that relationship. Knowing the strength of the relationship is useful because it indicates the size of the difference and addresses the question of ‘To what extent is this relationship generalisable?’ 
+In crime and criminal justice research, not only are we interested in whether there is a relationship between variables, but we are also interested in the size of that relationship. Knowing the strength of the relationship is useful because it indicates the size of the difference. It addresses the question of ‘To what extent is this relationship generalisable?’ instead of merely ‘Is there a relationship or not?’ 
 
-Instead of merely ‘Is there a relationship or not?’, the strength of relationship is known more as the **effect size**, and simply quantifies the magnitude of difference between two variables. Today’s lesson is about the effect size for relationships between categorical variables, and then ones between numeric variables. 
+The strength of relationship is known more as the **effect size**, and simply quantifies the magnitude of difference between two variables. Today’s lesson is about the effect size for relationships between categorical variables, and then ones between numeric variables. 
 
 We begin by :
 
@@ -114,7 +114,7 @@ seattle_df <- read_dta(here("Datasets", "Seattle_Neighborhoods_Crime_RandomSampl
 <div style="margin-bottom:50px;">
 </div>
 
-We will learn how to run effect sizes and how to interpret them. First, we learn how to do so among categorical, nominal variables, and then, second, with categorical, ordinal variables, and, last, with numeric variables. 
+We will learn how to run effect sizes and how to interpret them. First, we learn how to do so among categorical, nominal variables; then, second, with categorical, ordinal variables; and, third, with numeric variables. 
 
 <div style="margin-bottom:50px;">
 </div>
@@ -233,7 +233,7 @@ Like the phi, the value shows a relatively small relationship between residents�
 
 In some common situations in crime and criminal justice research, we work with survey data that have ordered response categories. For example, a likert scale of how strongly someone feels about abolishing the death penalty. 
 
-We learn two measures that deal with relationships between categorical, ordinal variables: Goodman-Kruskal Gamma and Somers’ D. Both use concordant and discordant pairs of observations to estimate the effect size. **Concordant pairs** are observations where the rankings are consistent for both variables, and **discordant pairs** are observations whose rankings are inconsistent for both variables. If a pair of observations has the same rank on the variables of interest, they are considered a **tied pair**. 
+We learn two measures that deal with relationships between categorical, ordinal variables: Goodman-Kruskal's Gamma and Somers’ D. Both use concordant and discordant pairs of observations to estimate the effect size. **Concordant pairs** are observations where the rankings are consistent for both variables, and **discordant pairs** are observations whose rankings are inconsistent for both variables. If a pair of observations has the same rank on the variables of interest, they are considered a **tied pair**. 
 
 <div style="margin-bottom:50px;">
 </div>
@@ -343,7 +343,7 @@ Somers’ D is positive, but close to 0, meaning that perception of neighbours�
 <div style="margin-bottom:35px;">
 </div>
 
-This section is about measuring the strength of relationships between two ratio/ interval variables. Load Professor Patrick Sharkey’s dataset (sharkey.csv), which is a study on the effect of nonprofit organisations in the levels of crime, using the `read_csv()` function. Alternatively, you can load the dataset from the [Dataverse website](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/46WIH0). 
+This section is about measuring the strength of relationships between two ratio/ interval variables. Load Professor Patrick Sharkey’s dataset (sharkey.csv), which is a study on the effect of nonprofit organisations on the levels of crime, using the `read_csv()` function. Alternatively, you can load the dataset from the [Dataverse website](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/46WIH0). 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 sharkey <- read.csv(here("Datasets", "sharkey.csv"))
@@ -351,11 +351,11 @@ options(scipen=999)
                  
 ```
 
-Name the data frame `sharkey`, and if you dislike scientific notation, you can turn it off in R by using `options(scipen=999)`.
+Name the data frame `sharkey`, and if you dislike scientific notation, you can turn it off in `R` by using `options(scipen=999)`.
 
 First, we examine our bivariate relationship between variables of interest through a scatterplot. The reason for this is we need to figure out if the variables have a **linear relationship**, and this determines what test we need to use. The extent to which two variables move together is called **covariation**: one variable can increase and so will the other (positive linear relationship); one variable can decrease while the other increases (negative linear relationship).
 
-We focus on the 2012, which is the most recent year in the dataset and only a few select variables. We will place them in a data frame named, `df`. To do this, we will use the `filter()` and `select()` functions from the `dplyr` package. Then, we will remove the dataset from R using the `rm()` function.
+We focus on the year 2012, which is the most recent year in the dataset, and on only a few select variables. We will place them in a data frame named, `df`. To do this, we will use the `filter()` and `select()` functions from the `dplyr` package. Then, we will remove the dataset from `R` using the `rm()` function.
 
 <div style="margin-bottom:35px;">
 </div>
