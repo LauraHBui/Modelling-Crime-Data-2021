@@ -15,8 +15,8 @@ output:
 ---
 
 ##### **Learning Outcomes:** {-}
--	Understand what Grammar of Graphics and its corresponding package ggplot2 are
--	Learn how to use ggplot2 to create different visualizations
+-	Understand what Grammar of Graphics and its corresponding package `ggplot2` are
+-	Learn how to use `ggplot2` to create different visualizations
 
 <div style="margin-bottom:30px;">
 </div>
@@ -68,7 +68,7 @@ output:
 
 Today we learn the basics of data visualization in `R` using a package called `ggplot2` within the `tidyverse`, one of the most popular packages for making high-quality, reproducible graphics. The framework on which `ggplot2` is based derives from [Hadley Wickham’s (2010) A Layered Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.pdf). 
 
-It is a layered approach to describe and build graphics in a structured manner. Layers, according to Wickham, are used to describe any graphic or visualization. The three primary layers are (1) the data, (2) the aesthetics, and (3) the geometric objects:
+Wickham advances the work of *Grammar of Graphics* by proposing a layered approach to describe and build graphics in a structured manner. Layers, according to Wickham, are used to describe any graphic or visualization. The three primary layers are (1) the data, (2) the aesthetics, and (3) the geometric objects:
 
 <div style="margin-bottom:15px;">
 </div>
@@ -77,7 +77,7 @@ It is a layered approach to describe and build graphics in a structured manner. 
 <div style="margin-bottom:15px;">
 </div>
 
-2.	Aesthetics: the visual characteristics that represent the data, or variables. At its simplest, these could be an x- and y-axis, and can extend to other aesthetics like color, size, and shape, which are mapped to variables. 
+2.	Aesthetics: the visual characteristics that represent the data, or variables. At its simplest, these could be an x- and y-axis, and can extend to other aesthetics like colour, size, and shape, which are mapped to variables. 
 <div style="margin-bottom:15px;">
 </div>
 
@@ -113,7 +113,7 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:15px;">
 </div>
 
-3.	Open the datasets containing crime data from Greater Manchester, England, (gmp_2017.csv and gmp_monthly_2017.csv) using the `read_csv()` function to import the datasets, specifying the working directory with `here()`. Respectively name the data frames 'burglary_df' and 'monthly_df' by using the '<-' assignment operator:
+3.	Open the datasets containing crime data from Greater Manchester, England, (gmp_2017.csv and gmp_monthly_2017.csv) using the `read_csv()` function to import the datasets, specifying the working directory with `here()`. Respectively name the data frames `burglary_df` and `monthly_df` by using the `<-` assignment operator:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -176,7 +176,7 @@ To understand layers and how they are generated in `ggplot2`, we begin with a sc
 
 Our research question, therefore, is: *What is the relationship between income and burglary counts?* 
 
-Following the grammar of graphics layered approach, let’s first make the data layer:
+Following the grammar of graphics layered approach, let us first make the data layer:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -194,7 +194,7 @@ ggplot(data = burglary_df)
 
 The *Plots* window will appear and will be blank. The graphic will need the other two layers, aesthetics and a geometric object.
 
-The second layer is the aesthetics. Recall that these are about mapping the visual properties. Since our research question is about the relationship between income and burglary count, it would make sense to map these variables to the x and y-axis:
+The second layer is the aesthetics. Recall that these are about mapping the visual properties. Since our research question is about the relationship between income and burglary count, it would make sense to map these variables to the x and y axes:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -240,7 +240,7 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 <div style="margin-bottom:50px;">
 </div>
 
-As previously mentioned, a number of other functions are available for the geom_ function such as shape, linetype, size, fill, and alpha (transparency). But these depend on the geometry being used and the class of variable being mapped to the aesthetic. For example, try the shape aesthetic for `LAname`, which will vary the shape of each point according to local authority. A warning message appears – what is it telling you? 
+As previously mentioned, a number of other functions are available for the `geom_` function such as shape, linetype, size, fill, and alpha (transparency). But these depend on the geometry being used and the class of variable being mapped to the aesthetic. For example, try the shape aesthetic for `LAname`, which will vary the shape of each point according to local authority. A warning message appears – what is it telling you? 
 
 This relates to the grammar of graphics philosophy on how people understand information, and `ggplot2` will warn you when it thinks the graphic is difficult to interpret or, worse, misleading. 
 
@@ -249,7 +249,7 @@ This relates to the grammar of graphics philosophy on how people understand info
 
 ---
 
-#### **Colours !** 
+#### **Colours!** 
 
 <div style="margin-bottom:35px;">
 </div>
@@ -333,13 +333,13 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 <div style="margin-bottom:35px;">
 </div>
 
-A final touch to your graphic can be the use of **themes**. These change the overall appearance of your graphic. The default theme we have for our graphic is `theme_gray()`, but we can go for a minimalist look by using `theme_minimal ()`. There are a number of these customized themes like one that is inspired by *The Economist* ( `theme_economist ()` )
+A final touch to your graphic can be the use of **themes**. These change the overall appearance of your graphic. The default theme we have for our graphic is `theme_gray()`, but we can go for a minimalist look by using `theme_minimal ()`. There are a number of these customised themes like one that is inspired by *The Economist* ( `theme_economist ()` )
 
 <div style="margin-bottom:35px;">
 </div>
 ```{r}
 
-#changing graphic to the minimal theme with the last line of code
+# Changing graphic to the minimal theme with the last line of code
 ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color = LAname)) + 
   geom_point(size = 3, alpha = 0.5) + 
   scale_color_brewer(palette = "Spectral") + 
@@ -385,7 +385,7 @@ ggplot(data = burglary_df) +
 <div style="margin-bottom:35px;">
 </div>
 
-If we are interested in the distribution of deprivation like the previous bar graph but would like to see it by local authority, we can use the grouped bar graph. The subsequent example is filling the colour of each bar by local authority and arranging the bars side by side using the arguments *fill* and *position*:
+If we are interested in the distribution of deprivation like the previous bar graph but would like to see it by local authority, we can use the grouped bar graph. The subsequent example is filling the colour of each bar by local authority and arranging the bars side by side using the arguments `fill` and `position`:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -454,7 +454,7 @@ ggplot(data = burglary_df, mapping = aes(x = IMDscore)) +
 <div style="margin-bottom:50px;">
 </div>
 
-How the histogram looks, and therefore, the conclusions drawn from the visual, are sensitive to the number of **bins**. You should try different specifications of the bin-width until you find one that tells the complete and concise story of the data. Specifying the size of bins is done using the argument *bin_width*; the default size is 30 and you can change this to get a rougher or a more granular idea:
+How the histogram looks, and therefore, the conclusions drawn from the visual, are sensitive to the number of **bins**. You should try different specifications of the bin-width until you find one that tells the complete and concise story of the data. Specifying the size of bins is done using the argument `bin_width`; the default size is 30 and you can change this to get a rougher or a more granular idea:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -474,11 +474,11 @@ ggplot(data = burglary_df, mapping = aes(x = IMDscore)) +
 <div style="margin-bottom:35px;">
 </div>
 
-A very good way of visualizing trends over time are line graphs. For this, let us use the `monthly_df` data frame. Ensure it is loaded into your environment. Have a look at the structure of these data to get to know it. 
+A very good way of visualizing trends over time are line graphs. For this, let us use the `monthly_df` data frame. Ensure it is loaded into your environment. Have a look at the structure of these data to get to know them. 
 
-The data is in long format: we have a single month variable for 12 months’ worth of data (rather than one variable or column for each month). Setting longitudinal data up in long format allows us to specify the aesthetics (e.g., x- and y-axis) easily.
+The data is in long format: we have a single month variable for 12 months’ worth of data (rather than one variable or column for each month). Setting longitudinal data up in long format allows us to specify the aesthetics (e.g., x- and y-axes) easily.
 
-For a line graph, we use the function `geom_line()`.We plan to plot the counts to show the trends of different crimes over the course of the year. Our time variable, `month`, should run along the x-axis, and the count variable, `n`, should run on the y-axis. 
+For a line graph, we use the function `geom_line()`. We plan to plot the counts to show the trends of different crimes over the course of the year. Our time variable, `month`, should run along the x-axis, and the count variable, `n`, should run on the y-axis. 
 
 To show each crime type separately, we use the group aesthetic and a new aesthetic, `linetype`, which uses different patterns for each group. To show our time measurement points, we also add `geom_point ()`: 
 
@@ -531,9 +531,9 @@ MyWhiskerPlot +
 <div style="margin-bottom:30px;">
 </div>
 
-Today was about using a popular package called `ggplot2` for effectively visualizing data. We learn this because it is important to understand our data before embarking on more complex analyses. If we do not undertsand our data beforehand, we risk misinterpreting what the data are trying to tell us. The package is based on this approach called *Grammar of Graphics*, which sees the creation of data visuals accomplished through **layers**. 
+Today was about using a popular package called `ggplot2` for effectively visualizing data. We learn this because it is important to understand our data before embarking on more complex analyses. If we do not undertsand our data beforehand, we risk misinterpreting what the data are trying to tell us. The package is based on this approach called *Grammar of Graphics*, which proposes a 'grammar' to describe and construct statistical graphics. The package, however, sees the creation of data visuals accomplished through **layers**. 
 
-Our first topic we learned was about these layers, specifically data, aesthetics, and geometric objects. As a final touch, **themes** changed the overall appearance of your graphic. Our second and third topics introduced us to **graphs** that we can use for all types of variables, and how to create them in ggplot2. One example was the histogram, whereby adjusting the width of the **bins** helped for better interpretation of the data. 
+Our first topic we learned was about these layers, specifically data, aesthetics, and geometric objects. As a final touch, **themes** changed the overall appearance of your graphic. Our second and third topics introduced us to **graphs** that we can use for all types of variables, and how to create them in `ggplot2`. One example was the histogram, whereby adjusting the width of the **bins** helped for better interpretation of the data. 
 
 <div style="margin-bottom:50px;">
 </div>
