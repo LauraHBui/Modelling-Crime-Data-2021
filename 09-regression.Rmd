@@ -84,7 +84,7 @@ Another major drawback of previous analyses on bivariate relationships is that y
 <div style="margin-bottom:50px;">
 </div>
 
-Our main topic of the day is **regression** and we learn two forms: ordinary least squares (OLS) and logistic. The former is applied to dependent variables that are measured at interval or numeric level, while the latter is applied to dependent variables that are binary and measured at the nominal level. 
+Our main topic of the day is **regression** and we learn two forms: ordinary least squares (OLS) and logistic. The former is applied to dependent variables that are measured at interval or numeric level, while the latter is applied to dependent variables that are binary and measured at the nominal level. The three topics are: assumptions of OLS regression; interpreting OLS regression; and logistic regression.
 
 <div style="margin-bottom:50px;">
 </div>
@@ -99,7 +99,7 @@ Our main topic of the day is **regression** and we learn two forms: ordinary lea
 <div style="margin-bottom:50px;">
 </div>
 
-**Ordinary least squares (OLS)** regression is a popular technique used to explore whether one or multiple independent variables (X) can predict or explain the variation in the dependent variable (Y).  When multiple independent variables are included simultaneously, they are called **covariates**; when only one independent variable is used, the OLS regression is called **bivariate regression**. OLS regression has been the mainstay analysis in the social sciences and belongs to a family of techniques called **generalized linear models**. 
+**Ordinary least squares (OLS)** regression is a popular technique used to explore whether one or multiple independent variables (X) can predict or explain the variation in the dependent variable (Y).  When multiple independent variables are included simultaneously, they are called **covariates**; when only one independent variable is used, the OLS regression is called **bivariate regression**. OLS regression has been the mainstay analysis in the social sciences. 
 
 <div style="margin-bottom:35px;">
 </div>
@@ -275,7 +275,7 @@ The VIF values are below 5 and indicate that including both variables, `age` and
 
 Similar to Pearson’s correlation, a linear relationship must be established before conducting the analysis. If the relationship is non-linear, your predicted values will be wrong, and it will systematically miss the true pattern of the mean of Y. 
 
-As this is a subsample of the CSEW dataset, say if you randomly drew a case from the wider dataset. What would be your best guess on the value of that case’s perceived antisocial behaviour in the neighbourhood (`antisocx`)? Likely, you say a value near the mean (M = −0.099) of the subsample. Next, we visualise our variable distributions:
+Say, for example, you randomly drew a case from the dataset. What would be your best guess on the value of that case’s perceived antisocial behaviour in the neighbourhood (`antisocx`)? Likely, you say a value near the mean (M = 0.001823) of the sample. Next, we visualise our variable distributions:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -311,7 +311,7 @@ ggplot() +
 <div style="margin-bottom:50px;">
 </div>
 
-Plotting the conditional means shows us that the mean of perceived antisocial behaviour for those respondents around the age of 30 is around −0.3. This would be a better guess than the mean for all ages, -0.09. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:
+Plotting the conditional means shows us that the mean of perceived antisocial behaviour for those respondents around the age of 30 is around −0.3. This would be a better guess than the mean for all ages, 0.0018. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -432,7 +432,7 @@ Now let us interpret the regression output. There are several points to focus on
 <div style="margin-bottom:15px;">
 </div>
 
-2.	P-value: The p-value for each beta coefficient tests the null hypothesis that the coefficient is equal to zero. A low p-value ( < 0.05) means you can reject the null hypothesis and that the changes in the predictor’s value are significantly related to changes in the DV value. For statistically non-significant coefficients, it is not recommended that you interpret them; you can, however, make statements about their general trend (positive or negative). In our output, the p-value is very small ( p < .001). We conclude that age significantly predicts level of perceived antisocial behavior and that we can reject the null hypothesis.  
+2.	P-value: The p-value for each beta coefficient tests the null hypothesis that the coefficient is equal to zero. A low p-value ( < 0.05) means you can reject the null hypothesis and that the changes in the predictor’s value are significantly related to changes in the DV value. For statistically non-significant coefficients, it is not recommended that you interpret them; you can, however, make statements about their general trend (positive or negative). In our output, the p-value is very small ( p < .001). We conclude that age significantly predicts level of perceived antisocial behaviour and that we can reject the null hypothesis.  
 
 <div style="margin-bottom:15px;">
 </div>
@@ -517,9 +517,7 @@ We return to those four points to focus on when confronted with a regression out
 <div style="margin-bottom:35px;">
 </div>
 
-1.	Regression coefficients: The usual interpretation is to state that Y changes for every one-unit increase in X *when the other variables in the model are held constant* (or are 'controlled for'). Therefore, a 0.01 increase in level of perceived antisocial behaviour in the neighbourhood is associated with a one-year increase in age, for example. This is similar to the bivariate regression. For categorical variables, however, the interpretation is different; notice how these variables have an additional label attached it in the output. For example, `gender` includes 'male' and `bcsvictim` includes 'yes victim'. Labels that do not appear next to the variable name in the model are called the *reference category*. This category is the lowest value. You can select your reference category based on the modal category or if it is a category in which you are least interested.
-
-We interpret them as the following: males have a perceived antisocial behaviour level that averages 0.10 units higher than that of females; victims have a perceived antisocial behaviour level that averages .43 units lower than that of non-victims. A one-point score increase for confidence in neighbourhood police is related to .20 increase in level of perceived antisocial behaviour.For each interpretation, covariates in the model are controlled for.  
+1.	Regression coefficients: The usual interpretation is to state that Y changes for every one-unit increase in X *when the other variables in the model are held constant* (or are 'controlled for'). Therefore, a 0.01 increase in level of perceived antisocial behaviour in the neighbourhood is associated with a one-year increase in age, for example. This is similar to the bivariate regression. For categorical variables, however, the interpretation is different; notice how these variables have an additional label attached to them in the output. For example, `gender` includes 'male' and `bcsvictim` includes 'yes victim'. Labels that do not appear next to the name of the categorical variable in the model are called the *reference category*. This category is the lowest value. You can select your reference category based on the modal category or if it is a category in which you are least interested. We interpret them as the following: males have a perceived antisocial behaviour level that averages 0.10 units higher than that of females; victims have a perceived antisocial behaviour level that averages .43 units lower than that of non-victims. A one-point score increase for confidence in neighbourhood police is related to .20 increase in level of perceived antisocial behaviour. For each interpretation, covariates in the model are controlled for.  
 
 <div style="margin-bottom:15px;">
 </div>
@@ -569,7 +567,7 @@ tab_model(fit_2, pred.labels = c("(Intercept)", "Age", "Sex", "Victimisation", "
 <div style="margin-bottom:50px;">
 </div>
 
-Now, what if our dependent variable is categorical and binary? This is where **logistic regression**, another model from generalised linear models, is appropriate. Those assumptions of linearity and normality are not issues because this technique, itself, is not based on the normal distribution. 
+Now, what if our dependent variable is categorical and binary? This is where **logistic regression**, a technique belonging to a family of techniques called **generalized linear models**, is appropriate. Those assumptions of linearity and normality are not issues because this technique, itself, is not based on the normal distribution. 
 
 In criminology, it is often the case that our DV has only two categories. For example, victim or not a victim; arrested or not arrested. This form of regression models the probability of belonging to one of the levels of the binary outcome. 
 
@@ -620,7 +618,7 @@ table(Arrests$race)
 <div style="margin-bottom:50px;">
 </div>
 
-Now that we have arranged the codes of our variables of interest, we fit the logistic regression model using the `glm ()` function and specify a logit model (`family=”binomial”`). We include three other variables in the model to see what extent race seems to matter in harsher police treatment even when we adjust or consider sex, employment, and previous police contacts:
+Now that we have arranged the codes of our variables of interest, we fit the logistic regression model using the `glm ()` function and specify a logit model (`family=”binomial”`). We include three other variables in the model to see to what extent race seems to matter in harsher police treatment even when we adjust or consider sex, employment, and previous police contacts:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -681,9 +679,9 @@ Now, how well is the fit of our logistic regression model? In order words, how w
 <div style="margin-bottom:35px;">
 </div>
 
-A common measure for evaluating model fit is the **deviance**, also known as -2LL. It measures how good the prediction is by multiplying the log likelihood statistic by -2. This *log-likelihood statistic* measures how much unexplained variance remains after the model is fitted, whereby larger values reflect poorer fit. Larger values of -2LL, similarly, indicate worse prediction. 
+A common measure for evaluating model fit is the **deviance**, also known as -2LL. It measures how accurate the prediction is by multiplying the log likelihood statistic by -2. This *log-likelihood statistic* measures how much unexplained variance remains after the model is fitted, whereby larger values reflect poorer fit. Larger values of -2LL, similarly, indicate worse prediction. 
 
-The logistic regression model can be estimated using an approach of probability called *maximum likelihood estimation*, which calculates the probability of obtaining a certain result given the IVs in the model. It does so by minimising that -2LL. This is like what OLS regression does with the error sum of squares -- try to minimise it. Thus, -2LL is to logistic regression as the error sum of squares is to OLS regression. 
+The logistic regression model can be estimated using an approach of probability called *maximum likelihood estimation*, which calculates the probability of obtaining a certain result given the IVs in the model. It does so by minimising that -2LL. This is like what OLS regression does with the error sum of squares -- tries to minimise it. Thus, -2LL is to logistic regression as the error sum of squares is to OLS regression. 
 
 When we re-run our model, we find that -2LL is in the form of *null* and *residual* deviances towards the bottom of the output:
 
@@ -762,7 +760,7 @@ This particular $R^2$ is considered a 'pseudo- $R^2$' as it is not the same as t
 <div style="margin-bottom:50px;">
 </div>
 
-Regression allows us to look at relationships between variables while including other variables, called **covariates**, in the model. Both ordinary least squares regression (OLS or linear regression) and logistic regression belong to the family of models called **generalized linear models**. For OLS regression, assumptions must be met before embarking on fitting this model, and has to do with building the **regression line** whereby the line starts at the **intercept** and its angle is determined by the **slope**. **Residuals** form the equation to determine the $R^2$ and is the error of the model. When the DV is binary, logistic regression is appropriate. The **odds ratio** is an easier way to interpret logistic regression. We assess model fit through quantitative prediction measures of deviance, and it is recommended to use the likelihood ratio $R^2$ instead of other pseudo $R^2s$
+Regression allows us to look at relationships between variables while including other variables, called **covariates**, in the model. For OLS regression, assumptions must be met before embarking on fitting this model, and has to do with building the **regression line** whereby the line starts at the **intercept** and its angle is determined by the **slope**. **Residuals** form the equation to determine the $R^2$ and is the error of the model. When the DV is binary, logistic regression is appropriate. The **odds ratio** is an easier way to interpret logistic regression. We assess model fit through quantitative prediction measures of deviance, and it is recommended to use the likelihood ratio $R^2$ instead of other pseudo $R^2s$
 
 <div style="margin-bottom:100px;">
 </div>
