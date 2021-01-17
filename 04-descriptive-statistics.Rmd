@@ -96,7 +96,7 @@ We start by doing the usual routine, but with new data on police body-worn camer
 <div style="margin-bottom:15px;">
 </div>
 
-3.	Open only the 2016 LEMAS-BWCS dataset (37302-0001-Data.rda). These data are from the [Inter-university Consortium for Political and Social Research (ICPSR) website] (https://www.icpsr.umich.edu/web/pages/) and you can find them by using the dataset name, which refers to the ICPSR study number. The data are stored in an R data file format (.rda). 
+3.	Open only the 2016 LEMAS-BWCS dataset (37302-0001-Data.rda). These data are from the [Inter-university Consortium for Political and Social Research (ICPSR) website](https://www.icpsr.umich.edu/web/pages/) and you can find them by using the dataset name, which refers to the ICPSR study number. The data are stored in an `R` data file format (.rda). 
 <div style="margin-bottom:15px;">
 </div>
 
@@ -173,7 +173,7 @@ mode_adopted
 <div style="margin-bottom:50px;">
 </div>
 
-The `mlv ()` function (acronym for most likely values) from the modeest package is used to obtain the mode. The modal response of all agencies was ‘No’, meaning that they had not adopted BWCs as of the 2016 survey. 
+The `mlv ()` function (acronym for most likely values) from the `modeest` package is used to obtain the mode. The modal response of all agencies was ‘No’, meaning that they had not adopted BWCs as of the 2016 survey. 
 
 Our exploration into the adoption of BWCs has so far yielded the knowledge that the majority of agencies had not adopted BWCs as of 2016. But how about those that have done so? To what extent do they use BWCs? This is where variable `Q_12` comes in handy:
 
@@ -194,14 +194,14 @@ max(bwcs$Q_12, na.rm=TRUE)
 
 # table() provides a count for each unique value of a variable. 
 # Since we see all values with the table() function, 
-# we do not need the na.rm=TRUE code 
+# We do not need the na.rm=TRUE code 
 table(bwcs$Q_12)
 
 ```
 <div style="margin-bottom:50px;">
 </div>
 
-What the heck is `na.rm`? When calculating measures of central tendency, you need to tell R that you have missing (NA) cases. Using `na.rm = TRUE` will exclude cases that have already been defined as missing. If we do not specify this code, it will return `NaN` for agencies that have acquired BWCs because `Q_12` has missing data. If you have `NaN`, however, for the row defining agencies that have not acquired BWCs, this is all right because there would be no cases for them. 
+What the heck is `na.rm`? When calculating measures of central tendency, you need to tell `R` that you have missing (NA) cases. Using `na.rm = TRUE` will exclude cases that have already been defined as missing. If we do not specify this code, it will return `NaN` for agencies that have acquired BWCs because `Q_12` has missing data. If you have `NaN`, however, for the row defining agencies that have not acquired BWCs, this is all right because there would be no cases for them. 
 
 Now let us find the average number of BWCs used by agencies that have responded ‘Yes’ in `Q10_A`. We will use two ways to determine the mean: the `dplyr` way and the `base R` way.
 
@@ -287,7 +287,7 @@ Recall the main disadvantage of the mean; it is not robust to extreme values, ot
 
 What exactly constitutes an *outlier*? This is where we will need to define what is meant by outlier. 
 
-One way of determining whether a case is an outlier is if it is above or below 1.5 * by the **interquartile range** (IQR), or for extreme outliers, above or below 3 * IQR. 
+One way of determining whether a case is an outlier is if it is above or below 1.5 multiplied by the **interquartile range** (IQR), or for extreme outliers, above or below 3 multiplied by IQR. 
 
 The IQR is another robust estimate and is the 75th percentile observation (the third quartile) minus the 25th percentile observation (the first quartile) in your distribution. The first and third quartiles are known as **Tukey fences**. 
 
@@ -380,9 +380,9 @@ Another way of checking for skewness is through the `skewness ()` function from 
 <div style="margin-bottom:30px;">
 </div>
 
-0 = no skewness as it is a symmetrical distribution
-+ value = means distribution is positively skewed or skewed right
-- value = means distribution is negatively skewed or skewed left 
+- 0 = no skewness as it is a symmetrical distribution
+- positive value = means distribution is positively skewed or skewed right
+- negative value = means distribution is negatively skewed or skewed left 
 
 <div style="margin-bottom:30px;">
 </div>
@@ -452,7 +452,7 @@ $$VR = 1 – ({\frac {N~modalcat~} {N~total~}})$$
 
 $N~modalcat$ refers to the frequency of cases in the modal category, and $N~total~$ refers to the total number of cases. This formula states that VR is equal to 1 minus the proportion of cases that are in the modal category, which is the same as saying the proportion of cases that are not in the modal category. 
 
-Now, for example, we are interested in knowing whether the modal category describes the overall work histories prior to arrest of federal inmates well, or if there is a lot of variation in responses from inmates. To do so, we use the variable `V1748`:
+Now, for example, we are interested in knowing whether the modal category describes the overall work histories prior to arrest of federal inmates pretty accurately, or if there is a lot of variation in responses from inmates. To do so, we use the variable `V1748`:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -543,7 +543,7 @@ The value is 0.1729, meaning that there is not much dispersion across the catego
 <div style="margin-bottom:30px;">
 </div>
 
----
+
 #### **Dispersion in Interval and Ratio Variables**
 
 <div style="margin-bottom:35px;">
