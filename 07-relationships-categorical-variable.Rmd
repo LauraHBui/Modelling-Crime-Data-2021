@@ -173,7 +173,7 @@ An important point to remember is that although the independent variable (IV) is
 <div style="margin-bottom:35px;">
 </div> 
 
-We return to that previous example of sex and alcohol consumption. We would like to know whether there is a difference between the mean alcohol consumption level of males and females. In this example, we use the **independent sample t-test** or *unpaired t-test*. This test requires that the IV be a binary factor while the DV be either a ratio or interval variable and be normally distributed unless **N** (the number of the sample) is large. Both variables meet the assumptions. We are interested in knowing whether there is significant difference between males and females in the mean number of times they reported being drunk in the past year. Our null and alternative hypothesis is as follows:
+We return to that previous example of sex and alcohol consumption. We would like to know whether there is a difference between the mean alcohol consumption level of males and females. In this example, we use the **independent sample t-test** or *unpaired t-test*. This test requires that the IV be a binary factor while the DV be either a ratio or interval variable and be normally distributed -- unless **N** (the number of the sample) is large. Both variables meet the assumptions. We are interested in knowing whether there is a significant difference between males and females in the mean number of times they reported being drunk in the past year. Our null and alternative hypotheses are as follows:
 
 <div style="margin-bottom:35px;">
 </div> 
@@ -188,7 +188,7 @@ $H_A$: There is a significant difference in frequency of getting drunk between m
 <div style="margin-bottom:35px;">
 </div> 
 
-We use the data frame, `nys_1` to address our research question: Is there a difference in the amount of drunkenness between males and females? Before conducting our t-test, we need to check our variables of interest to see if they need any recoding. We use the function `summarize ()` to examine the sex variable ( `sex` ) and use the function `n ()` to obtain frequencies:
+We use the data frame, `nys_1`, to address our research question: Is there a difference in the amount of drunkenness between males and females? Before conducting our t-test, we need to check our variables of interest to see if they need any recoding. We use the function `summarize ()` to examine the sex variable ( `sex` ) and use the function `n ()` to obtain frequencies:
 
 <div style="margin-bottom:35px;">
 </div> 
@@ -246,7 +246,7 @@ From the output, it seems that most youth did not report getting drunk in the pa
 
 Our observation of a difference between means prompts us to test whether this difference is an actual difference, or if it is attributed to chance. 
 
-Before we conduct the test to tell us this this, we conduct the **test for equality of variance**. This is an F-test that evaluates the null hypothesis that the variances of the two groups are equal. When we want to compare variances, we conduct this test as the variances may affect how we specify our t-test.
+Before we conduct the test to tell us this, we conduct the **test for equality of variance**. This is an F-test that evaluates the null hypothesis that the variances of the two groups are equal. When we want to compare variances, we conduct this test as the variances may affect how we specify our t-test.
 
 <div style="margin-bottom:35px;">
 </div> 
@@ -284,7 +284,7 @@ t_test_results
 
 From the output, focus on the means, alternative hypothesis, the t-statistics, the p-value, and the 95% confidence interval (CI). 
 
-First, the means show that males got drunk an average of 1.6 times the year before, whereas females got drunk an average of 0.8 times, similar to the output of our descriptive statistics. Second, the alternative hypothesis (a true difference in means) is not equal to 0, which is what we expect. Third, the t-statistic reports 1.5994 with an associated p-value of 0.1099, which is greater than α = 0.05, so we fail to reject the null hypothesis. Fourth, the 95% CI tells us that 95% of the time the true t-value in the population will fall between -0.1801 and 1.772. We conclude that the true difference in means is not significantly different from 0 – there is *no significant difference in frequency of getting drunk between males and females in the past year*.
+First, the means show that males got drunk an average of 1.6 times the year before, whereas females got drunk an average of 0.8 times, similar to the output of our descriptive statistics. Second, the alternative hypothesis (a true difference in means) is not equal to 0, which is what we expect. Third, the t-statistic reports 1.5994 with an associated p-value of 0.1099, which is greater than α = 0.05, so we fail to reject the null hypothesis. Fourth, the 95% CI tells us that, 95% of the time, the true t-value in the population will fall between -0.1801 and 1.772. We conclude that the true difference in means is not significantly different from 0 – there is *no significant difference in frequency of getting drunk between males and females in the past year*.
 
 <div style="margin-bottom:50px;">
 </div> 
@@ -303,12 +303,12 @@ We return to our NYS sample, which is drawn from a longitudinal study whereby th
 <div style="margin-bottom:35px;">
 </div> 
 
-$H_0$: There is no significant difference in the number of times a youth reported stealing something worth more than $50 between Wave 1 and in Wave 2. 
+$H_0$: There is no significant difference in the number of times a youth reported stealing something worth more than $50 between Wave 1 and Wave 2. 
 
 <div style="margin-bottom:15px;">
 </div> 
 
-$H_A$: There is a significant difference in the number of times a youth reported stealing something worth more than $50 between Wave 1 and in Wave 2.
+$H_A$: There is a significant difference in the number of times a youth reported stealing something worth more than $50 between Wave 1 and Wave 2.
 
 <div style="margin-bottom:35px;">
 </div> 
@@ -358,7 +358,7 @@ t.test(nys_merged$thftg50_w2, nys_merged$thftg50, paired= TRUE)
 <div style="margin-bottom:50px;">
 </div> 
 
-The results indicate that we fail to reject the null hypothesis as the p-value is above α = 0.05. We conclude that there is not a significant difference in thefts of items totaling more than $50 between the paired Waves 1 and 2 responses.
+The results indicate that we fail to reject the null hypothesis as the p-value is above α = 0.05. We conclude that there is no significant difference in thefts of items totaling more than $50 between the paired Waves 1 and 2 responses.
 
 <div style="margin-bottom:50px;">
 </div> 
@@ -444,7 +444,7 @@ results
 
 The `dplyr` coding seems more complicated than that of `basic R` but its output is clearer to read than the one produced by `R`, and it is more detailed. The proportion of victimised individuals are within each of the levels of the categorical, ordered measure of rubbish in the area. Victimisation appears higher (31%) in the areas where rubbish in the streets is a very common problem. 
 
-To further explore contingency tables, the best package for this is `gmodels`. It allows you to produce cross tabulations in a format similar to the one used by commercial statistical packages `SPSS` and `SAS`. We use the function `CrossTable ()` , then the `with ()` function to identify the data frame at the outset instead of having to include it with each variable. 
+To further explore contingency tables, the best package for this is `gmodels`. It allows you to produce cross tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. We use the function `CrossTable ()` , then the `with ()` function to identify the data frame at the outset instead of having to include it with each variable. 
 
 <div style="margin-bottom:35px;">
 </div> 
@@ -522,7 +522,7 @@ $H_A$: Victimisation and how common rubbish is in the area are significantly rel
 </div> 
 
 The test does the following: 
-(1) compares these expected frequencies with the ones we actually observe in each of the cells, (2) then averages the differences across the cells, and (3) produces a standardised value, *χ*$^2$
+(1) compares these expected frequencies with the ones we actually observe in each of the cells, (2) then averages the differences across the cells, and (3) produces a standardised value, *χ*$^2$ (the chi-square statistic).
 
 We then look at a chi-square distribution to see how probable or improbable this value is. But, in practice, the p-value helps us ascertain this more quickly. 
 
