@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 A First Lesson About R | bookdown-demo.utf8</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 A First Lesson About R | bookdown-demo.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 A First Lesson About R | bookdown-demo.utf8" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="getting-to-know-your-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a><ul>
+<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#open-and-explore-r-studio"><i class="fa fa-check"></i><b>1.1.1</b> Open and explore R Studio</a></li>
+<li class="chapter" data-level="1.1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#customising-r-studio"><i class="fa fa-check"></i><b>1.1.2</b> Customising R Studio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.2</b> Today’s 3 (TOPICS)</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#operators"><i class="fa fa-check"></i><b>1.2.1</b> Operators</a></li>
+<li class="chapter" data-level="1.2.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.2.2</b> Objects</a></li>
+<li class="chapter" data-level="1.2.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.2.3</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.3</b> SUMMARY</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.1</b> R Projects – Getting Your Work Files Organised</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.2</b> Importing Data</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.3</b> Today’s 3 (TOPICS)</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#variables"><i class="fa fa-check"></i><b>2.3.1</b> Variables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.3.2</b> Labels</a></li>
+<li class="chapter" data-level="2.3.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#subsetting"><i class="fa fa-check"></i><b>2.3.3</b> Subsetting</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.4</b> SUMMARY</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="3.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>3.2</b> ggplot2</a></li>
+<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-visualization.html"><a href="data-visualization.html#layers"><i class="fa fa-check"></i><b>3.3.1</b> Layers</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-nominal-and-ordinal-data"><i class="fa fa-check"></i><b>3.3.2</b> Graphs for Nominal and Ordinal Data</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-interval-and-ratio-data"><i class="fa fa-check"></i><b>3.3.3</b> Graphs for Interval and Ratio Data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a></li>
+<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#central-tendency"><i class="fa fa-check"></i><b>4.2.1</b> Central Tendency</a></li>
+<li class="chapter" data-level="4.2.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#outliers"><i class="fa fa-check"></i><b>4.2.2</b> Outliers</a></li>
+<li class="chapter" data-level="4.2.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#measures-of-dispersion"><i class="fa fa-check"></i><b>4.2.3</b> Measures of Dispersion</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a><ul>
+<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a></li>
+<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#samples"><i class="fa fa-check"></i><b>5.2.1</b> Samples</a></li>
+<li class="chapter" data-level="5.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#standard-errors"><i class="fa fa-check"></i><b>5.2.2</b> Standard Errors</a></li>
+<li class="chapter" data-level="5.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#confidence-intervals"><i class="fa fa-check"></i><b>5.2.3</b> Confidence Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#summary-4"><i class="fa fa-check"></i><b>5.3</b> SUMMARY</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a><ul>
+<li class="chapter" data-level="6.1" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-testing"><i class="fa fa-check"></i><b>6.1</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="hypotheses.html"><a href="hypotheses.html#statistical-significance"><i class="fa fa-check"></i><b>6.2.1</b> Statistical Significance</a></li>
+<li class="chapter" data-level="6.2.2" data-path="hypotheses.html"><a href="hypotheses.html#a-binomial-test"><i class="fa fa-check"></i><b>6.2.2</b> A Binomial Test</a></li>
+<li class="chapter" data-level="6.2.3" data-path="hypotheses.html"><a href="hypotheses.html#single-sample-significance-tests"><i class="fa fa-check"></i><b>6.2.3</b> Single-sample significance tests</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="hypotheses.html"><a href="hypotheses.html#summary-5"><i class="fa fa-check"></i><b>6.3</b> SUMMARY</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a><ul>
+<li class="chapter" data-level="7.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#associating-with-categorical-variables"><i class="fa fa-check"></i><b>7.1</b> Associating with Categorical Variables</a></li>
+<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#independent-and-dependent-variables"><i class="fa fa-check"></i><b>7.2.1</b> Independent and Dependent Variables</a></li>
+<li class="chapter" data-level="7.2.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#the-t-test"><i class="fa fa-check"></i><b>7.2.2</b> The T-Test</a></li>
+<li class="chapter" data-level="7.2.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#chi-square"><i class="fa fa-check"></i><b>7.2.3</b> Chi-square</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#summary-6"><i class="fa fa-check"></i><b>7.3</b> SUMMARY</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a><ul>
+<li class="chapter" data-level="8.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#measures-of-association"><i class="fa fa-check"></i><b>8.1</b> Measures of Association</a></li>
+<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-nominal-variables"><i class="fa fa-check"></i><b>8.2.1</b> Between Categorical, Nominal Variables</a></li>
+<li class="chapter" data-level="8.2.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-ordinal-variables"><i class="fa fa-check"></i><b>8.2.2</b> Between Categorical, Ordinal Variables</a></li>
+<li class="chapter" data-level="8.2.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-numeric-variables"><i class="fa fa-check"></i><b>8.2.3</b> Between Numeric Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#summary-7"><i class="fa fa-check"></i><b>8.3</b> SUMMARY</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a><ul>
+<li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#multiple-and-simultaneous-relationships"><i class="fa fa-check"></i><b>9.1</b> Multiple and Simultaneous Relationships</a></li>
+<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="regression.html"><a href="regression.html#assumptions-of-ols-regression"><i class="fa fa-check"></i><b>9.2.1</b> Assumptions of OLS Regression</a></li>
+<li class="chapter" data-level="9.2.2" data-path="regression.html"><a href="regression.html#interpreting-ols-regression"><i class="fa fa-check"></i><b>9.2.2</b> Interpreting OLS Regression</a></li>
+<li class="chapter" data-level="9.2.3" data-path="regression.html"><a href="regression.html#logistic-regression"><i class="fa fa-check"></i><b>9.2.3</b> Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="regression.html"><a href="regression.html#summary-8"><i class="fa fa-check"></i><b>9.3</b> SUMMARY</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="a-first-lesson-about-r" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> A First Lesson About R</h1>
+<div id="operators-objects-and-packages" class="section level4 unnumbered">
+<h4><em>Operators, Objects, and Packages</em></h4>
+<hr />
+<div id="learning-outcomes" class="section level5 unnumbered">
+<h5><strong>Learning Outcomes:</strong></h5>
+<ul>
+<li>Install R and R Studio</li>
+<li>Understand how R Studio is set up</li>
+<li>Learn what operators and objects are and their relevance in R</li>
+<li>Understand the purpose of packages</li>
+<li>Install your first package</li>
+</ul>
+<div style="margin-bottom:30px;">
+
+</div>
+</div>
+<div id="todays-learning-tools" class="section level5 unnumbered">
+<h5><strong>Today’s learning tools</strong>:</h5>
+<div style="margin-bottom:15px;">
+
+</div>
+</div>
+<div id="data" class="section level5 unnumbered">
+<h5><em>Data</em>:</h5>
+<ul>
+<li>N/A</li>
+</ul>
+<div style="margin-bottom:15px;">
+
+</div>
+</div>
+<div id="packages" class="section level5 unnumbered">
+<h5><em>Packages</em>:</h5>
+<ul>
+<li><code>dplyr</code></li>
+</ul>
+<div style="margin-bottom:15px;">
+
+</div>
+</div>
+<div id="functions-introduced-and-packages-to-which-they-belong" class="section level5 unnumbered">
+<h5><em>Functions introduced (and packages to which they belong)</em></h5>
+<ul>
+<li><code>c()</code> : Concatenates elements to create vectors (<code>base R</code>)</li>
+<li><code>class()</code> : Check the class of an object (<code>base R</code>)</li>
+<li><code>data.frame()</code> : Create a new data frame object (<code>base R</code>)</li>
+<li><code>install.packages()</code> : Installs non-base R packages (<code>base R</code>)</li>
+<li><code>library()</code> : Loads the installed non-base R package (<code>base R</code>)</li>
+<li><code>list()</code> : Create a list (<code>base R</code>)</li>
+<li><code>log()</code> : Computes the natural logarithm (<code>base R</code>)</li>
+<li><code>View()</code> : View data in new window (<code>base R</code>)</li>
+</ul>
+<hr />
+<p>In this lesson, you will be introduced to the programming language, <code>R</code>. After installing the related software and getting a basic idea of the R Studio interface, you will learn three <code>R</code> basics: operators, objects, and packages.</p>
+<p>Unlike other statistical software like SPSS and STATA, <code>R</code> is a free, open-source software for performing statistical analysis and data visualization. In addition, <code>R</code> offers more analytical solutions, flexibility, and customization than these commonly used statistical software, and its popularity has increased substantially over the years.</p>
+<p>We learn <code>R</code> because we hope that this is an important tool that you will continue to use in future. As it is free and has a community feel to it where anyone can create and upload new techniques, the idea is that you can use <code>R</code> long after this course. Even if data analysis is not in the future for you, learning how to conduct and interpret statistical output is a good skill to have – much of our knowledge of the world includes statistics, so understanding the numbers and how they were derived are advantages. <code>R</code> uses a language called <strong>object-oriented programming</strong>, and though it may seem daunting at first, practice makes familiarity. Also, you can impress your friends with all your coding.</p>
+<hr />
+</div>
+</div>
+<div id="install-r-r-studio" class="section level2">
+<h2><span class="header-section-number">1.1</span> Install R &amp; R Studio</h2>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>All computers in lab will have <code>R</code> and <code>Rstudio</code> installed, but we recommend that you download both of these, in the order below, onto your own personal desktop:</p>
+<div style="margin-bottom:30px;">
+
+</div>
+<div id="install-r" class="section level5 unnumbered">
+<h5>Install <code>R</code>:</h5>
+<ol style="list-style-type: decimal">
+<li><p>Go to <a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a></p></li>
+<li><p>Click the <a href="https://cran.r-project.org/mirrors.html">download R</a> link under the <em>Getting Started</em> heading</p></li>
+<li><p>You will be asked to select a Comprehensive R Archive Network (CRAN) mirror. Click the URL closest to your location</p></li>
+<li><p>Click whichever download link is appropriate for your operating system.</p></li>
+<li><p>Then click the <em>install R for the first-time</em> link and proceed to install <code>R</code></p></li>
+</ol>
+<div style="margin-bottom:30px;">
+
+</div>
+</div>
+<div id="install-r-studio" class="section level5 unnumbered">
+<h5>Install R Studio:</h5>
+<ol style="list-style-type: decimal">
+<li><p>Go to <a href="https://rstudio.com/" class="uri">https://rstudio.com/</a></p></li>
+<li><p>Click the <em>Download</em> link</p></li>
+<li><p>Scroll down and then click the DOWNLOAD button for the free version of
+<code>RStudio</code></p></li>
+<li><p>You will be taken to a website to download the free version of <code>RStudio</code> that is appropriate for your computer. Download and then install it.</p></li>
+</ol>
+<hr />
+</div>
+<div id="open-and-explore-r-studio" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Open and explore R Studio</h3>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>You only need to open <code>Rstudio</code>, and not both <code>R</code> and <code>RStudio</code>; <code>R</code> runs automatically in the background when <code>RStudio</code> is open. Using <code>RStudio</code> makes it easier to work with <code>R</code> than using <code>R</code> itself. If you do not believe this, try working directly in <code>R</code>!</p>
+<div style="margin-bottom:30px;">
+
+</div>
+<div class="figure">
+<img src="Images/rstudio.PNG" style="width:80.0%" alt="" />
+<p class="caption"><strong>Figure 1.1</strong> RStudio interface</p>
+</div>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>Figure 1.1 shows you what <code>RStudio</code> looks like when you first open it: three open panes.</p>
+<p>The biggest one to your left is the main console, and it tells you what version of <code>R</code> you have.</p>
+<p>When you start working in <code>Rstudio</code>, it is best to have <em>four</em> open panes. <strong>How?</strong></p>
+<p>Figure 1.2: Click in the <em>File</em> drop down Menu, select <em>New File</em>, then <em>R Script</em>.</p>
+<div style="margin-bottom:30px;">
+
+</div>
+<div class="figure">
+<img src="Images/R%20script.png" style="width:70.0%" alt="" />
+<p class="caption"><strong>Figure 1.2</strong> Creating an R Script</p>
+</div>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>You can shift between different panes and re-size them with your mouse too.</p>
+<div style="margin-bottom:30px;">
+
+</div>
+<div class="figure">
+<img src="Images/main%20window.png" style="width:70.0%" alt="" />
+<p class="caption"><strong>Figure 1.3</strong> Main window in <code>RStudio</code></p>
+</div>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>The purposes of the four panes in Figure 1.3 are the following:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Script and data view</strong>: where you type your programming code that tells <code>R</code> what you want to do. These are essentially instructions that you type and save as a <strong>script</strong>, so that you can return to it later to remember what you did and to share it with others so that they can reproduce what you did.</li>
+</ol>
+<div style="margin-bottom:15px;">
+
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Environment and history view</strong>:</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li><p><em>2.1 Environment</em> tab- gives you the names of all the (data) objects that you have defined during your current <code>R</code> session, including number of observations and rows in those objects. We learn more about objects later.</p></li>
+<li><p><em>2.2 History</em> tab- shows you a history of all the code you have previously evaluated in the main console.</p></li>
+</ol>
+<div style="margin-bottom:15px;">
+
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Main console</strong>: this is considered <code>R's</code> heart, and it is where <code>R</code> evaluates the codes that you run. You can type your codes directly in the console, but for the sake of good habits, type them in the script and data view so you can save a record of them. Only type and run code from here if you want to debug or do some quick analysis.</li>
+</ol>
+<div style="margin-bottom:15px;">
+
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>File directory, Plots, Packages, Help</strong>:</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li><p><em>4.1 Files</em> tab- allows you to see the files in the folder that is currently set as your working directory.</p></li>
+<li><p><em>4.2 Plots</em> tab- you will see any data visualizations that you produce here. You have not produced any yet, so it is empty now.</p></li>
+<li><p><em>4.3 Packages</em> tab- you will see the packages that are currently available to install. We will explain what these are soon, but know that they are an essential feature when working with <code>R</code>.</p></li>
+<li><p><em>4.4 Help</em> tab- you can access further information on the various packages.</p></li>
+</ol>
+<hr />
+</div>
+<div id="customising-r-studio" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Customising R Studio</h3>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>You can change the way <code>RStudio</code> looks: click in the <em>Tools</em> menu and select <em>Global options</em>. A pop up window appears with various options.</p>
+<p>Select <em>Appearance</em>. In this section you can change the font type and size, but also the theme background that <code>R</code> will use as the interface.</p>
+<p><em>Tomorrow Night Bright</em> theme is a recommendation because it is easier on your eyes with its dark background. You can preview and then click <em>Apply</em> to select the one you like (Figure 1.4).</p>
+<div style="margin-bottom:30px;">
+
+</div>
+<div class="figure">
+<img src="Images/tomorrow%20night%20bright.png" style="width:55.0%" alt="" />
+<p class="caption"><strong>Figure 1.4</strong> Tomorrow Night Bright Theme</p>
+</div>
+<hr />
+</div>
+</div>
+<div id="todays-3-topics" class="section level2">
+<h2><span class="header-section-number">1.2</span> Today’s 3 (TOPICS)</h2>
+<p>Now that we have a basic understanding of <code>R</code>, we are ready to learn some basic building blocks. Each session of <em>Modelling Criminological Data</em> will focus on three substantive topics. Today’s topics are <strong>operators</strong>, <strong>objects</strong>, and <strong>packages</strong>.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<hr />
+<div id="operators" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Operators</h3>
+<div style="margin-bottom:30px;">
+
+</div>
+<p><strong>Operators</strong> are symbols that tell <code>R</code> to do something specific like assigning values to vectors. They fall into four categories: arithmetic, relational, logical, and assignment. For now, let us type out and run some arithmetic operators:</p>
+<div style="margin-bottom:35px;">
+
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="a-first-lesson-about-r.html#cb1-1"></a><span class="co"># Addition</span></span>
+<span id="cb1-2"><a href="a-first-lesson-about-r.html#cb1-2"></a><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="a-first-lesson-about-r.html#cb3-1"></a><span class="co"># Subtraction</span></span>
+<span id="cb3-2"><a href="a-first-lesson-about-r.html#cb3-2"></a><span class="dv">10</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="a-first-lesson-about-r.html#cb5-1"></a><span class="co"># Multiplication</span></span>
+<span id="cb5-2"><a href="a-first-lesson-about-r.html#cb5-2"></a><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="a-first-lesson-about-r.html#cb7-1"></a><span class="co"># Division</span></span>
+<span id="cb7-2"><a href="a-first-lesson-about-r.html#cb7-2"></a><span class="dv">6</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>Did you <em>Run</em> the arithmetic operators? The answers will have appeared, just like the above. If you are wondering what the # symbol means in the coding above, these are called <strong>comments</strong>. They are annotations you can use in your <code>R script</code> to tell <code>R</code> that what comes right after the <strong>#</strong> are not code to be ran. Comments are like your personal notes alongside your coding.</p>
+<p>Remember: <code>R</code> is case-sensitive! For example:</p>
+<div style="margin-bottom:35px;">
+
+</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="a-first-lesson-about-r.html#cb9-1"></a><span class="co"># Calculating the logarithm </span></span>
+<span id="cb9-2"><a href="a-first-lesson-about-r.html#cb9-2"></a><span class="kw">Log</span>(<span class="dv">100</span>)</span>
+<span id="cb9-3"><a href="a-first-lesson-about-r.html#cb9-3"></a></span>
+<span id="cb9-4"><a href="a-first-lesson-about-r.html#cb9-4"></a><span class="co"># ERROR!</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="a-first-lesson-about-r.html#cb10-1"></a><span class="co"># Instead, it should be:</span></span>
+<span id="cb10-2"><a href="a-first-lesson-about-r.html#cb10-2"></a><span class="kw">log</span>(<span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## [1] 4.60517</code></pre>
+<hr />
+</div>
+<div id="objects" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Objects</h3>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>Everything that exists in <code>R</code> is an <strong>object</strong>. Think of objects as boxes where you put things in. We make an object by using an <em>assignment operator</em> ( <code>&lt;-</code> ). In other words, we assign something to an object. For example:</p>
+<div style="margin-bottom:35px;">
+
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="a-first-lesson-about-r.html#cb12-1"></a><span class="co"># Putting &#39;10&#39; in the &#39;a&#39; box</span></span>
+<span id="cb12-2"><a href="a-first-lesson-about-r.html#cb12-2"></a>a &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb12-3"><a href="a-first-lesson-about-r.html#cb12-3"></a></span>
+<span id="cb12-4"><a href="a-first-lesson-about-r.html#cb12-4"></a><span class="co"># Putting &#39;Hello!&#39; in the &#39;abc123&#39; box</span></span>
+<span id="cb12-5"><a href="a-first-lesson-about-r.html#cb12-5"></a>abc123 &lt;-<span class="st"> &quot;Hello!&quot;</span></span></code></pre></div>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>Earlier, we introduced you to the Environment and History pane. We mentioned that it lists objects you defined. After making the ‘a’ and ‘abc123’ objects, they should appear in that very pane under the <code>Environment</code> tab.</p>
+<p><strong>Data structures</strong> are important objects that store your data, and there are five main types but we focus on three for this course:</p>
+<ol style="list-style-type: decimal">
+<li><em>(atomic) vector</em>: an ordered set of elements that are of the same <em>class</em>. Vectors are a basic data structure in <code>R</code>. Below are five different classes of vectors:</li>
+</ol>
+<div style="margin-bottom:35px;">
+
+</div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="a-first-lesson-about-r.html#cb13-1"></a><span class="co"># 1. numeric vector with three elements</span></span>
+<span id="cb13-2"><a href="a-first-lesson-about-r.html#cb13-2"></a>my_1st_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">8.9</span>, <span class="fl">0.6</span>) </span>
+<span id="cb13-3"><a href="a-first-lesson-about-r.html#cb13-3"></a></span>
+<span id="cb13-4"><a href="a-first-lesson-about-r.html#cb13-4"></a><span class="co"># 2. integer vector with addition of L at the end of the value</span></span>
+<span id="cb13-5"><a href="a-first-lesson-about-r.html#cb13-5"></a>my_2nd_vector &lt;-<span class="st"> </span><span class="kw">c</span>(1L, 2L, 3L)  </span>
+<span id="cb13-6"><a href="a-first-lesson-about-r.html#cb13-6"></a></span>
+<span id="cb13-7"><a href="a-first-lesson-about-r.html#cb13-7"></a><span class="co"># 3. logical vector</span></span>
+<span id="cb13-8"><a href="a-first-lesson-about-r.html#cb13-8"></a>my_3rd_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>) </span>
+<span id="cb13-9"><a href="a-first-lesson-about-r.html#cb13-9"></a><span class="co"># &#39;my_4th_vector&#39; creates a logical vector using abbreviations of True and False, but you should use the full words instead</span></span>
+<span id="cb13-10"><a href="a-first-lesson-about-r.html#cb13-10"></a>my_4th_vector &lt;-<span class="st"> </span><span class="kw">c</span>(T, F) </span>
+<span id="cb13-11"><a href="a-first-lesson-about-r.html#cb13-11"></a></span>
+<span id="cb13-12"><a href="a-first-lesson-about-r.html#cb13-12"></a><span class="co"># 4. character vector</span></span>
+<span id="cb13-13"><a href="a-first-lesson-about-r.html#cb13-13"></a>my_5th_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>) </span>
+<span id="cb13-14"><a href="a-first-lesson-about-r.html#cb13-14"></a></span>
+<span id="cb13-15"><a href="a-first-lesson-about-r.html#cb13-15"></a><span class="co"># 5. complex vector (we will not use this for our class)</span></span>
+<span id="cb13-16"><a href="a-first-lesson-about-r.html#cb13-16"></a>my_6th_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">+</span>0i, <span class="dv">2</span><span class="op">+</span>4i) </span></code></pre></div>
+<div style="margin-bottom:50px;">
+
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><em>lists</em>: technically they, too, are vectors but they are more complex because they are not restricted on the length, structure, or class of the included elements. For example, to create a list containing strings, numbers, vectors and a logical, use <code>list()</code>:</li>
+</ol>
+<div style="margin-bottom:35px;">
+
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="a-first-lesson-about-r.html#cb14-1"></a><span class="co">#&#39;list_data&#39; is an object that contains all those inside list()</span></span>
+<span id="cb14-2"><a href="a-first-lesson-about-r.html#cb14-2"></a>list_data &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;teal&quot;</span>, <span class="st">&quot;sky blue&quot;</span>, <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">10</span>), <span class="ot">TRUE</span>, <span class="fl">68.26</span>, <span class="fl">95.46</span>, <span class="fl">99.7</span>) </span>
+<span id="cb14-3"><a href="a-first-lesson-about-r.html#cb14-3"></a></span>
+<span id="cb14-4"><a href="a-first-lesson-about-r.html#cb14-4"></a></span>
+<span id="cb14-5"><a href="a-first-lesson-about-r.html#cb14-5"></a><span class="co"># Use class() to confirm that the objects have been defined as a list</span></span>
+<span id="cb14-6"><a href="a-first-lesson-about-r.html#cb14-6"></a><span class="kw">class</span>(list_data)</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<div style="margin-bottom:50px;">
+
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li><em>data frames</em>: also stores elements but differ from lists because they are defined by their number of columns and rows; the vectors (columns) must be of the same length. Data frames can contain different classes but each column must be of the same class. For example, if you want to combine some related vectors to make a data frame on violent American cities, use the function <code>data.frame()</code>:</li>
+</ol>
+<div style="margin-bottom:35px;">
+
+</div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="a-first-lesson-about-r.html#cb16-1"></a><span class="co"># Making some relevant vectors</span></span>
+<span id="cb16-2"><a href="a-first-lesson-about-r.html#cb16-2"></a>TopVioCities &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;St. Louis&quot;</span>, <span class="st">&quot;Detroit&quot;</span>, <span class="st">&quot;Baltimore&quot;</span>) <span class="co"># some violent US cities</span></span>
+<span id="cb16-3"><a href="a-first-lesson-about-r.html#cb16-3"></a>VioRatePer1k =<span class="st"> </span><span class="kw">c</span>(<span class="fl">20.8</span>, <span class="fl">20.6</span>, <span class="fl">20.3</span>) <span class="co"># their violence rates per 1,000 persons</span></span>
+<span id="cb16-4"><a href="a-first-lesson-about-r.html#cb16-4"></a>State &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Missouri&quot;</span>, <span class="st">&quot;Michigan&quot;</span>, <span class="st">&quot;Maryland&quot;</span>) <span class="co"># in what states are these cities found</span></span>
+<span id="cb16-5"><a href="a-first-lesson-about-r.html#cb16-5"></a></span>
+<span id="cb16-6"><a href="a-first-lesson-about-r.html#cb16-6"></a><span class="co">#Join them to make a data frame called &#39;df&#39;</span></span>
+<span id="cb16-7"><a href="a-first-lesson-about-r.html#cb16-7"></a>df&lt;-<span class="kw">data.frame</span>(TopVioCities, VioRatePer1k, State)</span>
+<span id="cb16-8"><a href="a-first-lesson-about-r.html#cb16-8"></a></span>
+<span id="cb16-9"><a href="a-first-lesson-about-r.html#cb16-9"></a><span class="co">#View the data frame, &#39;df&#39;, with the View() function</span></span>
+<span id="cb16-10"><a href="a-first-lesson-about-r.html#cb16-10"></a><span class="kw">View</span>(df)</span></code></pre></div>
+<div style="margin-bottom:50px;">
+
+</div>
+<hr />
+</div>
+<div id="packages-1" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> Packages</h3>
+<div style="margin-bottom:50px;">
+
+</div>
+<p><strong>Packages</strong> are a very important element of <code>R</code>. Throughout the course, and hopefully afterwards, you will find yourself installing numerous open source software packages that allow <code>R</code> to do new and different things. There are loads of packages out there. In early 2020, there were over 150,000 packages available. Anyone can write one, so you will need to be careful on which ones you use as the quality can vary. Official repositories, like <a href="https://cran.r-project.org/">CRAN</a>, are your best bet for packages as they will have passed some quality controls.</p>
+<p>You can see what packages are available in your local install by looking at the <em>packages</em> tab in the <em>File directory, Plots, Packages</em> pane (Figure 1.5).</p>
+<div style="margin-bottom:30px;">
+
+</div>
+<div class="figure">
+<img src="Images/packages.png" style="width:35.0%" alt="" />
+<p class="caption"><strong>Figure 1.5</strong> Packages Tab</p>
+</div>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>A number of the packages we will use belong to a set of packages called <strong>tidyverse</strong>. These packages help make your data tidy. According to Statistician and Chief Scientist at <code>RStudio</code>, Hadley Wickham, transforming your data into <em>tidy data</em> is one of the most important steps of the data analysis process. It will ensure your data are in the format you need to conduct your analyses.</p>
+<p>Packages can be installed using the <code>install.packages()</code> function. Remember that while you only need to install packages once, they need to be loaded with the <code>library()</code>function each time you open up <code>RStudio</code>. Let us install the package <code>dplyr</code> from <code>tidyverse</code> and load it:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="a-first-lesson-about-r.html#cb17-1"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.0.2</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>A lot of code and activity appears in the console. Warnings may manifest. Most of the time, the warnings explain what is being loaded and confirm that the package is successfully loaded. If there is an error, you will have to figure out what the warnings are telling you to successfully load the package. This happens and is normal.</p>
+<p>To double check that you have actually installed <code>dplyr</code>, go to that <em>File Directory, Plots, Packages</em> pane and click on the <em>Packages</em> tab. The list of packages is in alphabetical order and <code>dplyr</code> should be there. If there is a tick in its box, it means that this package is currently loaded and you can use it; if there is no tick, it means that it is inactive, and you will have to bring it up with <code>library()</code>, or just tick its box (Figure 1.6).</p>
+<div style="margin-bottom:30px;">
+
+</div>
+<div class="figure">
+<img src="Images/dplyr.png" style="width:35.0%" alt="" />
+<p class="caption"><strong>Figure 1.6</strong> dplyr Package Ticked</p>
+</div>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>On <em>masking</em>: sometimes packages introduce functions that have the same name as those that are already loaded into your session. When that happens, the newly loaded ones will override the previous ones. You can still use them but you will have to refer to them explicitly by bringing them up by specifying to which package they belong with <code>library()</code>.</p>
+<p>Keep <code>dplyr</code> in mind as next week we will learn more about it!</p>
+<div style="margin-bottom:30px;">
+
+</div>
+<hr />
+</div>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">1.3</span> SUMMARY</h2>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>Today you installed both <code>R</code> and <code>RStudio</code> and had a gander around the <code>RStudio</code> interface. If you were bored with its default look, you could customise the interface. When working with <code>RStudio</code>, it is best to have the four panes. One had to do with the all-important <strong>script</strong> and we use <code>#</code> in the coding when we want to make <strong>comments</strong>.</p>
+<p>We learned about some important features of <code>R</code>. First were the <strong>operators</strong>. These are symbols that tell <code>R</code> what to do and come in four types. One we will use quite a bit is the <em>assignment operator</em>, which is the symbol, <code>&lt;-</code>. Second were <strong>objects</strong>, which are pervasive when working with <code>R</code>. They are like boxes that you put stuff in, and we learned about three specific types of <strong>data structure</strong> objects: vectors, lists, and data frames. Third were packages. These are open source software that expand what <code>R</code> can do. We installed <code>dplyr</code> as an example, and we will use this <code>tidyverse</code> package in our next session.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>Don’t forget to do your homework!</p>
+<div style="margin-bottom:500px;">
+
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getting-to-know-your-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
