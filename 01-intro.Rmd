@@ -13,9 +13,9 @@ output:
 ---
 
 ##### **Learning Outcomes:** {-}
-- Install R and R Studio
-- Understand how R Studio is set up
-- Learn what operators and objects are and their relevance in R
+- Install `R` and `R Studio`
+- Understand how `R Studio` is set up
+- Learn what operators and objects are and their relevance in `R`
 - Understand the purpose of packages
 - Install your first package
 
