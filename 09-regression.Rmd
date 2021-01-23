@@ -449,6 +449,8 @@ Now let us interpret the regression output. There are several points to focus on
 
 ![**Figure 9.1** Residuals visualized](Images/residual.jpg)
 
+<div style="margin-bottom:35px;">
+</div>
 To understand $R^2$, we refer to **residuals** (*e*). These are the distance between each point in the dataset and the regression line. The distance represents the amount of error. Previously, this was mentioned in the context of least squares estimation. Residuals matter because it tells us how much variation is still unexplained and considers the fact that we cannot perfectly predict perceived antisocial behaviour each time by using the information on age. In actuality, our regression equation should be:
 
 <div style="margin-bottom:35px;">
