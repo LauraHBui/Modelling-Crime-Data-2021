@@ -1,8 +1,7 @@
 ---
 site: bookdown::bookdown_site
 documentclass: book
-output:
-  bookdown::gitbook: default
+output:bookdown::gitbook: default
   #bookdown::pdf_book: default
 ---
 
@@ -137,7 +136,7 @@ library(here)
 
 Doing so is better than typing out the exact location of your file, which can be tedious. The next section shows how to use the `here ()` function to import data from the National Crime Victimization Survey (NCVS).
 
-
+You can read on why projects are useful here: [https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/](https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/)
 
 ---
 
