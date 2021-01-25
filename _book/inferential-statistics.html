@@ -6,7 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Inferential Statistics | _main.utf8</title>
   <meta name="description" content="" />
+<<<<<<< HEAD
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+=======
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 
   <meta property="og:title" content="5 Inferential Statistics | _main.utf8" />
   <meta property="og:type" content="book" />
@@ -51,9 +55,15 @@
 
 
 <style type="text/css">
+<<<<<<< HEAD
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
+=======
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -62,6 +72,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
+<<<<<<< HEAD
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
@@ -70,6 +81,18 @@ pre.numberSource a.sourceLine::before
   { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
+=======
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -78,9 +101,15 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
+<<<<<<< HEAD
   {  }
 @media screen {
 a.sourceLine::before { text-decoration: underline; }
+=======
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -337,7 +366,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" title="1">prob_iq &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">3600000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="inferential-statistics.html#cb163-1"></a>prob_iq &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">3600000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <div style="margin-bottom:50px;">
 
 </div>
@@ -345,10 +378,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1"><span class="co"># As our data is in a single vector object, we do not need to specify a data frame (as these have multiple vectors), so leave ggplot() empty</span></a>
 <a class="sourceLine" id="cb163-2" title="2"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb163-3" title="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> prob_iq), <span class="dt">bins =</span> <span class="dv">60</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb163-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(prob_iq)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="co"># We add a red line in the code to show the mean of the population IQ</span></a></code></pre></div>
+=======
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="inferential-statistics.html#cb164-1"></a><span class="co"># As our data is in a single vector object, we do not need to specify a data frame (as these have multiple vectors), so leave ggplot() empty</span></span>
+<span id="cb164-2"><a href="inferential-statistics.html#cb164-2"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb164-3"><a href="inferential-statistics.html#cb164-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> prob_iq), <span class="dt">bins =</span> <span class="dv">60</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb164-4"><a href="inferential-statistics.html#cb164-4"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(prob_iq)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="co"># We add a red line in the code to show the mean of the population IQ</span></span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <p><img src="_main_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 <div style="margin-bottom:50px;">
 
@@ -357,12 +397,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1"><span class="kw">mean</span>(prob_iq) <span class="co"># 99.99508</span></a></code></pre></div>
 <pre><code>## [1] 99.99023</code></pre>
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1"><span class="kw">median</span>(prob_iq) <span class="co"># 99.99855</span></a></code></pre></div>
 <pre><code>## [1] 99.98771</code></pre>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="kw">sd</span>(prob_iq) <span class="co"># 14.99377</span></a></code></pre></div>
 <pre><code>## [1] 14.98973</code></pre>
+=======
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="inferential-statistics.html#cb165-1"></a><span class="kw">mean</span>(prob_iq) <span class="co"># 99.99508</span></span></code></pre></div>
+<pre><code>## [1] 99.99671</code></pre>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="inferential-statistics.html#cb167-1"></a><span class="kw">median</span>(prob_iq) <span class="co"># 99.99855</span></span></code></pre></div>
+<pre><code>## [1] 100.0069</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="inferential-statistics.html#cb169-1"></a><span class="kw">sd</span>(prob_iq) <span class="co"># 14.99377</span></span></code></pre></div>
+<pre><code>## [1] 15.00312</code></pre>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <div style="margin-bottom:50px;">
 
 </div>
@@ -371,6 +420,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1"><span class="kw">set.seed</span>(<span class="dv">1612</span>) <span class="co"># Use this number! </span></a>
 <a class="sourceLine" id="cb170-2" title="2"></a>
 <a class="sourceLine" id="cb170-3" title="3"><span class="co"># Creating the prob_off data frame with ID variable called ‘probationer_id’ for all 3.6 million cases and including the IQ variable</span></a>
@@ -383,6 +433,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" title="1"><span class="kw">median</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 100 </span></a></code></pre></div>
 <pre><code>## [1] 100</code></pre>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" title="1"><span class="kw">sd</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 14.99976</span></a></code></pre></div>
+=======
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="inferential-statistics.html#cb171-1"></a><span class="kw">set.seed</span>(<span class="dv">1612</span>) <span class="co"># Use this number! </span></span>
+<span id="cb171-2"><a href="inferential-statistics.html#cb171-2"></a></span>
+<span id="cb171-3"><a href="inferential-statistics.html#cb171-3"></a><span class="co"># Creating the prob_off data frame with ID variable called ‘probationer_id’ for all 3.6 million cases and including the IQ variable</span></span>
+<span id="cb171-4"><a href="inferential-statistics.html#cb171-4"></a><span class="co"># Rounding IQ variable to nearest whole number</span></span>
+<span id="cb171-5"><a href="inferential-statistics.html#cb171-5"></a>prob_off &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">probationer_id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3600000</span>, <span class="dt">IQ =</span> <span class="kw">round</span>(<span class="kw">rnorm</span>(<span class="dv">3600000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>) ) </span>
+<span id="cb171-6"><a href="inferential-statistics.html#cb171-6"></a></span>
+<span id="cb171-7"><a href="inferential-statistics.html#cb171-7"></a><span class="co"># Some descriptive statistics</span></span>
+<span id="cb171-8"><a href="inferential-statistics.html#cb171-8"></a><span class="kw">mean</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 100.0028 </span></span></code></pre></div>
+<pre><code>## [1] 100.0028</code></pre>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="inferential-statistics.html#cb173-1"></a><span class="kw">median</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 100 </span></span></code></pre></div>
+<pre><code>## [1] 100</code></pre>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="inferential-statistics.html#cb175-1"></a><span class="kw">sd</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 14.99976</span></span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## [1] 14.99976</code></pre>
 <div style="margin-bottom:50px;">
 
@@ -392,6 +456,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" title="1"><span class="co"># We take a sample of 100 from our data frame, ‘prob_off’, and put it into an object called ‘sample1’</span></a>
 <a class="sourceLine" id="cb176-2" title="2">sample1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">100</span>)</a>
 <a class="sourceLine" id="cb176-3" title="3"></a>
@@ -401,6 +466,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" title="1"><span class="kw">median</span>(sample1<span class="op">$</span>IQ) <span class="co"># 101.5 </span></a></code></pre></div>
 <pre><code>## [1] 101.5</code></pre>
 <div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" title="1"><span class="kw">sd</span>(sample1<span class="op">$</span>IQ) <span class="co"># 16.27485</span></a></code></pre></div>
+=======
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="inferential-statistics.html#cb177-1"></a><span class="co"># We take a sample of 100 from our data frame, ‘prob_off’, and put it into an object called ‘sample1’</span></span>
+<span id="cb177-2"><a href="inferential-statistics.html#cb177-2"></a>sample1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">100</span>)</span>
+<span id="cb177-3"><a href="inferential-statistics.html#cb177-3"></a></span>
+<span id="cb177-4"><a href="inferential-statistics.html#cb177-4"></a><span class="co"># Some descriptive statistics of ‘sample1’</span></span>
+<span id="cb177-5"><a href="inferential-statistics.html#cb177-5"></a><span class="kw">mean</span>(sample1<span class="op">$</span>IQ) <span class="co"># 101.59 </span></span></code></pre></div>
+<pre><code>## [1] 101.59</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="inferential-statistics.html#cb179-1"></a><span class="kw">median</span>(sample1<span class="op">$</span>IQ) <span class="co"># 101.5 </span></span></code></pre></div>
+<pre><code>## [1] 101.5</code></pre>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="inferential-statistics.html#cb181-1"></a><span class="kw">sd</span>(sample1<span class="op">$</span>IQ) <span class="co"># 16.27485</span></span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## [1] 16.27485</code></pre>
 <div style="margin-bottom:50px;">
 
@@ -413,6 +489,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" title="1"><span class="co"># We use the do () function to make 1,000 automatic resamples from the data frame ‘prob_off’</span></a>
 <a class="sourceLine" id="cb182-2" title="2"><span class="co"># Each resample comprises 100 cases </span></a>
 <a class="sourceLine" id="cb182-3" title="3"><span class="co"># We put our 1,000 resamples into an object called ‘sample100’</span></a>
@@ -431,6 +508,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb186-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> sample_means100) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb186-3" title="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> meanIQ)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb186-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(meanIQ)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="inferential-statistics.html#cb183-1"></a><span class="co"># We use the do () function to make 1,000 automatic resamples from the data frame ‘prob_off’</span></span>
+<span id="cb183-2"><a href="inferential-statistics.html#cb183-2"></a><span class="co"># Each resample comprises 100 cases </span></span>
+<span id="cb183-3"><a href="inferential-statistics.html#cb183-3"></a><span class="co"># We put our 1,000 resamples into an object called ‘sample100’</span></span>
+<span id="cb183-4"><a href="inferential-statistics.html#cb183-4"></a>sample100 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">100</span>)</span>
+<span id="cb183-5"><a href="inferential-statistics.html#cb183-5"></a></span>
+<span id="cb183-6"><a href="inferential-statistics.html#cb183-6"></a><span class="co"># Additional variables are now found in sample100, which helps us to calculate the mean IQ of each sample, for which there are now 1000 of them</span></span>
+<span id="cb183-7"><a href="inferential-statistics.html#cb183-7"></a></span>
+<span id="cb183-8"><a href="inferential-statistics.html#cb183-8"></a><span class="co"># Now select the sample100 data frame</span></span>
+<span id="cb183-9"><a href="inferential-statistics.html#cb183-9"></a>sample_means100 &lt;-<span class="st"> </span>sample100 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb183-10"><a href="inferential-statistics.html#cb183-10"></a><span class="st">  </span><span class="kw">group_by</span>(.index) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Group by .index  (the sample id)</span></span>
+<span id="cb183-11"><a href="inferential-statistics.html#cb183-11"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanIQ =</span> <span class="kw">mean</span>(IQ)) <span class="co"># Creating new variable of mean IQ</span></span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="inferential-statistics.html#cb185-1"></a><span class="kw">mean</span>(sample_means100<span class="op">$</span>meanIQ)</span></code></pre></div>
+<pre><code>## [1] 100.1112</code></pre>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="inferential-statistics.html#cb187-1"></a><span class="co"># We can visualise this sampling distribution to compare to the previous population distribution</span></span>
+<span id="cb187-2"><a href="inferential-statistics.html#cb187-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> sample_means100) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb187-3"><a href="inferential-statistics.html#cb187-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> meanIQ)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb187-4"><a href="inferential-statistics.html#cb187-4"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(meanIQ)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <img src="_main_files/figure-html/unnamed-chunk-82-1.png" width="672" />
 <div style="margin-bottom:50px;">
@@ -442,6 +539,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" title="1"><span class="co"># 1000 probationers in each sample </span></a>
 <a class="sourceLine" id="cb188-2" title="2">sample1000 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">1000</span>) </a>
 <a class="sourceLine" id="cb188-3" title="3"></a>
@@ -464,6 +562,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb192-5" title="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> sample.means.total) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb192-6" title="6"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> meanIQ, <span class="dt">fill =</span> sample.size), <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb192-7" title="7"><span class="st">  </span><span class="kw">scale_fill_discrete</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;30&quot;</span>,<span class="st">&quot;100&quot;</span>,<span class="st">&quot;1000&quot;</span>))</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="inferential-statistics.html#cb189-1"></a><span class="co"># 1000 probationers in each sample </span></span>
+<span id="cb189-2"><a href="inferential-statistics.html#cb189-2"></a>sample1000 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">1000</span>) </span>
+<span id="cb189-3"><a href="inferential-statistics.html#cb189-3"></a></span>
+<span id="cb189-4"><a href="inferential-statistics.html#cb189-4"></a><span class="co"># 30 probationers in each sample </span></span>
+<span id="cb189-5"><a href="inferential-statistics.html#cb189-5"></a>sample30 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">30</span>) </span>
+<span id="cb189-6"><a href="inferential-statistics.html#cb189-6"></a></span>
+<span id="cb189-7"><a href="inferential-statistics.html#cb189-7"></a><span class="co"># Calculate the means IQ scores for each sample </span></span>
+<span id="cb189-8"><a href="inferential-statistics.html#cb189-8"></a>sample_means1000 &lt;-<span class="st"> </span>sample1000 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb189-9"><a href="inferential-statistics.html#cb189-9"></a><span class="st">  </span><span class="kw">group_by</span>(.index) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb189-10"><a href="inferential-statistics.html#cb189-10"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanIQ =</span> <span class="kw">mean</span>(IQ)) </span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="inferential-statistics.html#cb191-1"></a>sample_means300 &lt;-<span class="st"> </span>sample30 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb191-2"><a href="inferential-statistics.html#cb191-2"></a><span class="st">  </span><span class="kw">group_by</span>(.index) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb191-3"><a href="inferential-statistics.html#cb191-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanIQ =</span> <span class="kw">mean</span>(IQ)) </span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="inferential-statistics.html#cb193-1"></a><span class="co"># Bind them with our first example, which had 100 probationers in each sample </span></span>
+<span id="cb193-2"><a href="inferential-statistics.html#cb193-2"></a>sample.means.total &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(sample_means300, sample_means100, sample_means1000, <span class="dt">.id =</span> <span class="st">&quot;sample.size&quot;</span>)</span>
+<span id="cb193-3"><a href="inferential-statistics.html#cb193-3"></a></span>
+<span id="cb193-4"><a href="inferential-statistics.html#cb193-4"></a><span class="co"># Density plot for comparison </span></span>
+<span id="cb193-5"><a href="inferential-statistics.html#cb193-5"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> sample.means.total) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb193-6"><a href="inferential-statistics.html#cb193-6"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> meanIQ, <span class="dt">fill =</span> sample.size), <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb193-7"><a href="inferential-statistics.html#cb193-7"></a><span class="st">  </span><span class="kw">scale_fill_discrete</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;30&quot;</span>,<span class="st">&quot;100&quot;</span>,<span class="st">&quot;1000&quot;</span>))</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <img src="_main_files/figure-html/unnamed-chunk-83-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
@@ -486,11 +608,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" title="1"><span class="kw">sd</span>(sample_means300<span class="op">$</span>meanIQ)</a></code></pre></div>
 <pre><code>## [1] 2.695511</code></pre>
 <div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1"><span class="kw">sd</span>(sample_means100<span class="op">$</span>meanIQ)</a></code></pre></div>
 <pre><code>## [1] 1.485388</code></pre>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" title="1"><span class="kw">sd</span>(sample_means1000<span class="op">$</span>meanIQ)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="inferential-statistics.html#cb194-1"></a><span class="kw">sd</span>(sample_means300<span class="op">$</span>meanIQ)</span></code></pre></div>
+<pre><code>## [1] 2.695511</code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="inferential-statistics.html#cb196-1"></a><span class="kw">sd</span>(sample_means100<span class="op">$</span>meanIQ)</span></code></pre></div>
+<pre><code>## [1] 1.485388</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="inferential-statistics.html#cb198-1"></a><span class="kw">sd</span>(sample_means1000<span class="op">$</span>meanIQ)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## [1] 0.4774102</code></pre>
 <div style="margin-bottom:50px;">
 
@@ -500,10 +630,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" title="1"><span class="co"># Select our data frame with all 1000 samples</span></a>
 <a class="sourceLine" id="cb199-2" title="2">sample1000 <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb199-3" title="3"><span class="st">  </span><span class="kw">filter</span>(.index <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Filter the first one (choose any)</span></a>
 <a class="sourceLine" id="cb199-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">SE =</span> <span class="kw">sd</span>(IQ)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1000</span>)) <span class="co"># Calculate the error</span></a></code></pre></div>
+=======
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="inferential-statistics.html#cb200-1"></a><span class="co"># Select our data frame with all 1000 samples</span></span>
+<span id="cb200-2"><a href="inferential-statistics.html#cb200-2"></a>sample1000 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb200-3"><a href="inferential-statistics.html#cb200-3"></a><span class="st">  </span><span class="kw">filter</span>(.index <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Filter the first one (choose any)</span></span>
+<span id="cb200-4"><a href="inferential-statistics.html#cb200-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">SE =</span> <span class="kw">sd</span>(IQ)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1000</span>)) <span class="co"># Calculate the error</span></span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>##          SE
 ## 1 0.4783743</code></pre>
 <div style="margin-bottom:50px;">
@@ -527,6 +664,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" title="1"><span class="co"># One-off sample containing 1000 probationers </span></a>
 <a class="sourceLine" id="cb201-2" title="2">sample1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">1000</span>) </a>
 <a class="sourceLine" id="cb201-3" title="3"></a>
@@ -534,6 +672,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb201-5" title="5">sample1 <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb201-6" title="6"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">lower =</span> <span class="kw">mean</span>(IQ)<span class="op">-</span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ), <span class="dt">meaniq =</span> <span class="kw">mean</span>(IQ), <span class="dt">upper =</span></a>
 <a class="sourceLine" id="cb201-7" title="7">              <span class="kw">mean</span>(IQ)<span class="op">+</span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ))</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="inferential-statistics.html#cb202-1"></a><span class="co"># One-off sample containing 1000 probationers </span></span>
+<span id="cb202-2"><a href="inferential-statistics.html#cb202-2"></a>sample1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">1000</span>) </span>
+<span id="cb202-3"><a href="inferential-statistics.html#cb202-3"></a></span>
+<span id="cb202-4"><a href="inferential-statistics.html#cb202-4"></a><span class="co"># Constructing the confidence interval using what we know about SDs and normal distributions</span></span>
+<span id="cb202-5"><a href="inferential-statistics.html#cb202-5"></a>sample1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb202-6"><a href="inferential-statistics.html#cb202-6"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">lower =</span> <span class="kw">mean</span>(IQ)<span class="op">-</span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ), <span class="dt">meaniq =</span> <span class="kw">mean</span>(IQ), <span class="dt">upper =</span></span>
+<span id="cb202-7"><a href="inferential-statistics.html#cb202-7"></a>              <span class="kw">mean</span>(IQ)<span class="op">+</span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ))</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>##      lower  meaniq   upper
 ## 1 69.72398 100.539 131.354</code></pre>
 <div style="margin-bottom:50px;">
@@ -543,12 +690,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> sample1) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb203-2" title="2"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> IQ)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb203-3" title="3"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb203-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb203-5" title="5"><span class="st">                             </span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb203-6" title="6"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ) <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="inferential-statistics.html#cb204-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> sample1) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb204-2"><a href="inferential-statistics.html#cb204-2"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> IQ)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb204-3"><a href="inferential-statistics.html#cb204-3"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></span>
+<span id="cb204-4"><a href="inferential-statistics.html#cb204-4"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb204-5"><a href="inferential-statistics.html#cb204-5"></a><span class="st">                             </span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></span>
+<span id="cb204-6"><a href="inferential-statistics.html#cb204-6"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ) <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <img src="_main_files/figure-html/unnamed-chunk-87-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
@@ -557,6 +713,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1"><span class="co"># Create a vector containing the true population mean from prob_off</span></a>
 <a class="sourceLine" id="cb204-2" title="2">true.mean &lt;-<span class="st"> </span><span class="kw">mean</span>(prob_off<span class="op">$</span>IQ)</a>
 <a class="sourceLine" id="cb204-3" title="3"></a>
@@ -570,6 +727,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb204-11" title="11"></a>
 <a class="sourceLine" id="cb204-12" title="12"><span class="co"># Produce table to show new variable and how many Cis captured population mean</span></a>
 <a class="sourceLine" id="cb204-13" title="13"><span class="kw">table</span>(new.sample.ci100<span class="op">$</span>capture.mean)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="inferential-statistics.html#cb205-1"></a><span class="co"># Create a vector containing the true population mean from prob_off</span></span>
+<span id="cb205-2"><a href="inferential-statistics.html#cb205-2"></a>true.mean &lt;-<span class="st"> </span><span class="kw">mean</span>(prob_off<span class="op">$</span>IQ)</span>
+<span id="cb205-3"><a href="inferential-statistics.html#cb205-3"></a></span>
+<span id="cb205-4"><a href="inferential-statistics.html#cb205-4"></a><span class="co"># Select the sample of 1,000 samples, each with 100 probationers and place in object, ‘new.sample.ci100’</span></span>
+<span id="cb205-5"><a href="inferential-statistics.html#cb205-5"></a>new.sample.ci100 &lt;-<span class="st"> </span>sample_means100 <span class="op">%&gt;%</span></span>
+<span id="cb205-6"><a href="inferential-statistics.html#cb205-6"></a><span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#Take the first 100 means </span></span>
+<span id="cb205-7"><a href="inferential-statistics.html#cb205-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lower =</span> meanIQ<span class="fl">-1.96</span><span class="op">*</span><span class="kw">sd</span>(meanIQ), <span class="dt">upper =</span> meanIQ<span class="fl">+1.96</span><span class="op">*</span><span class="kw">sd</span>(meanIQ), <span class="co"># Compute lower and upper boundaries to create a new variable called ‘capture.mean’</span></span>
+<span id="cb205-8"><a href="inferential-statistics.html#cb205-8"></a>         <span class="dt">capture.mean =</span> <span class="kw">if_else</span>(<span class="dt">condition =</span> lower <span class="op">&gt;</span><span class="st"> </span>true.mean <span class="op">|</span><span class="st"> </span>upper <span class="op">&lt;</span><span class="st"> </span>true.mean, <span class="dt">true =</span> <span class="st">&quot;no&quot;</span>, <span class="dt">false =</span> <span class="st">&quot;yes&quot;</span>)) <span class="co"># Specify code below to be: If lower &gt; true mean or upper &lt; true mean then capture.mean will #be &quot;yes&quot; </span></span>
+<span id="cb205-9"><a href="inferential-statistics.html#cb205-9"></a><span class="co"># If not, capture.mean will be &quot;no&quot;</span></span>
+<span id="cb205-10"><a href="inferential-statistics.html#cb205-10"></a></span>
+<span id="cb205-11"><a href="inferential-statistics.html#cb205-11"></a></span>
+<span id="cb205-12"><a href="inferential-statistics.html#cb205-12"></a><span class="co"># Produce table to show new variable and how many Cis captured population mean</span></span>
+<span id="cb205-13"><a href="inferential-statistics.html#cb205-13"></a><span class="kw">table</span>(new.sample.ci100<span class="op">$</span>capture.mean)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## 
 ##  no yes 
 ##   4  96</code></pre>
@@ -580,10 +752,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> new.sample.ci100) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb206-2" title="2"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> true.mean), <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb206-3" title="3"><span class="st">  </span><span class="kw">geom_errorbarh</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xmin =</span> lower, <span class="dt">xmax =</span> upper, <span class="dt">y =</span> .index, <span class="dt">colour =</span> capture.mean)) <span class="op">+</span><span class="st"> </span><span class="co"># Creating error bars to represent CIs and colouring in which ones captured population mean #and did not by ‘capture.mean’</span></a>
 <a class="sourceLine" id="cb206-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> .index, <span class="dt">x =</span> meanIQ, <span class="dt">colour =</span> capture.mean))</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="inferential-statistics.html#cb207-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> new.sample.ci100) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb207-2"><a href="inferential-statistics.html#cb207-2"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> true.mean), <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></span>
+<span id="cb207-3"><a href="inferential-statistics.html#cb207-3"></a><span class="st">  </span><span class="kw">geom_errorbarh</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xmin =</span> lower, <span class="dt">xmax =</span> upper, <span class="dt">y =</span> .index, <span class="dt">colour =</span> capture.mean)) <span class="op">+</span><span class="st"> </span><span class="co"># Creating error bars to represent CIs and colouring in which ones captured population mean #and did not by ‘capture.mean’</span></span>
+<span id="cb207-4"><a href="inferential-statistics.html#cb207-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> .index, <span class="dt">x =</span> meanIQ, <span class="dt">colour =</span> capture.mean))</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <img src="_main_files/figure-html/unnamed-chunk-89-1.png" width="672" />
 <div style="margin-bottom:50px;">
 

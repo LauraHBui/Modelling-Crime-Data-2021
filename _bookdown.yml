@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: "_bookdown.yml"
 author: "Laura Bui"
@@ -6,3 +7,11 @@ output: html_document
 rmd_files: [ "index.Rmd", "01-intro.Rmd", "02-know-your-data.Rmd", "03-data-visualisation.Rmd", "04-descriptive-statistics.Rmd", "05-inferential-statistics.Rmd", "06-hypotheses.Rmd", "07-relationships-categorical-variable.Rmd", "08-strength-relationship.Rmd", "09-regression.Rmd"]
 ---
 
+=======
+book_filename: "bookdown-demo"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true
+output_dir: "docs"
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6

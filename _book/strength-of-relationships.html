@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Strength of Relationships | _main.utf8</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Strength of Relationships | _main.utf8" />
   <meta property="og:type" content="book" />
@@ -51,9 +51,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -62,14 +62,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -78,9 +80,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -359,6 +361,7 @@ What this measure does is account for the sample size under observation, as the 
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" title="1"><span class="co"># Create copies of the variables, rename them so it is easier to remember </span></a>
 <a class="sourceLine" id="cb288-2" title="2"><span class="co"># sex is variable ‘QDEM3’</span></a>
 <a class="sourceLine" id="cb288-3" title="3"><span class="kw">table</span>(seattle_df<span class="op">$</span>QDEM3)</a></code></pre></div>
@@ -383,15 +386,48 @@ What this measure does is account for the sample size under observation, as the 
 <a class="sourceLine" id="cb292-7" title="7">chi&lt;-<span class="kw">table</span>(seattle_df<span class="op">$</span>sex, seattle_df<span class="op">$</span>reported_to_police) </a>
 <a class="sourceLine" id="cb292-8" title="8"><span class="co"># Make sure the relationship is significant first</span></a>
 <a class="sourceLine" id="cb292-9" title="9"><span class="kw">chisq.test</span>(chi)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="strength-of-relationships.html#cb290-1"></a><span class="co"># Create copies of the variables, rename them so it is easier to remember </span></span>
+<span id="cb290-2"><a href="strength-of-relationships.html#cb290-2"></a><span class="co"># sex is variable ‘QDEM3’</span></span>
+<span id="cb290-3"><a href="strength-of-relationships.html#cb290-3"></a><span class="kw">table</span>(seattle_df<span class="op">$</span>QDEM3)</span></code></pre></div>
+<pre><code>## 
+##    1    2 
+## 1145 1075</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="strength-of-relationships.html#cb292-1"></a><span class="co"># Use factor () function to create factor variable ‘sex’</span></span>
+<span id="cb292-2"><a href="strength-of-relationships.html#cb292-2"></a>seattle_df<span class="op">$</span>sex &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>QDEM3, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;female&quot;</span> ,</span>
+<span id="cb292-3"><a href="strength-of-relationships.html#cb292-3"></a>                                                                        <span class="st">&quot;male&quot;</span>))</span>
+<span id="cb292-4"><a href="strength-of-relationships.html#cb292-4"></a></span>
+<span id="cb292-5"><a href="strength-of-relationships.html#cb292-5"></a><span class="co"># Reported victimisation to police is ‘Q58E’</span></span>
+<span id="cb292-6"><a href="strength-of-relationships.html#cb292-6"></a><span class="kw">table</span>(seattle_df<span class="op">$</span>Q58E)</span></code></pre></div>
+<pre><code>## 
+##   -1    0    1    8    9 
+## 1582  379  255    2    2</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="strength-of-relationships.html#cb294-1"></a><span class="co"># Use factor () function to create factor variable ‘reported_to_police’</span></span>
+<span id="cb294-2"><a href="strength-of-relationships.html#cb294-2"></a>seattle_df<span class="op">$</span>reported_to_police &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>Q58E, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">labels =</span></span>
+<span id="cb294-3"><a href="strength-of-relationships.html#cb294-3"></a>                                          <span class="kw">c</span>(<span class="st">&quot;no&quot;</span> , <span class="st">&quot;yes&quot;</span>))</span>
+<span id="cb294-4"><a href="strength-of-relationships.html#cb294-4"></a></span>
+<span id="cb294-5"><a href="strength-of-relationships.html#cb294-5"></a><span class="co"># Chi-square analysis </span></span>
+<span id="cb294-6"><a href="strength-of-relationships.html#cb294-6"></a><span class="co"># Place variable objects into new object ‘chi’</span></span>
+<span id="cb294-7"><a href="strength-of-relationships.html#cb294-7"></a>chi&lt;-<span class="kw">table</span>(seattle_df<span class="op">$</span>sex, seattle_df<span class="op">$</span>reported_to_police) </span>
+<span id="cb294-8"><a href="strength-of-relationships.html#cb294-8"></a><span class="co"># Make sure the relationship is significant first</span></span>
+<span id="cb294-9"><a href="strength-of-relationships.html#cb294-9"></a><span class="kw">chisq.test</span>(chi)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
 ## data:  chi
 ## X-squared = 5.8156, df = 1, p-value = 0.01588</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" title="1"><span class="co"># Chi-square is significant ( p= 0.01588)</span></a>
 <a class="sourceLine" id="cb294-2" title="2"></a>
 <a class="sourceLine" id="cb294-3" title="3"><span class="co"># Calculate the phi coefficient </span></a>
 <a class="sourceLine" id="cb294-4" title="4"><span class="kw">Phi</span>(seattle_df<span class="op">$</span>sex, seattle_df<span class="op">$</span>reported_to_police)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="strength-of-relationships.html#cb296-1"></a><span class="co"># Chi-square is significant ( p= 0.01588)</span></span>
+<span id="cb296-2"><a href="strength-of-relationships.html#cb296-2"></a></span>
+<span id="cb296-3"><a href="strength-of-relationships.html#cb296-3"></a><span class="co"># Calculate the phi coefficient </span></span>
+<span id="cb296-4"><a href="strength-of-relationships.html#cb296-4"></a><span class="kw">Phi</span>(seattle_df<span class="op">$</span>sex, seattle_df<span class="op">$</span>reported_to_police)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## [1] 0.09903062</code></pre>
 <div style="margin-bottom:50px;">
 
@@ -425,6 +461,7 @@ What this measure does is account for the sample size under observation, as the 
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" title="1"><span class="co"># Recode the variable Q7 </span></a>
 <a class="sourceLine" id="cb296-2" title="2">seattle_df<span class="op">$</span>miss_neigh &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>Q7, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;very likely&quot;</span> , <span class="st">&quot;likely&quot;</span>, <span class="st">&quot;unlikely&quot;</span>, <span class="st">&quot;very unlikely&quot;</span>)) </a>
 <a class="sourceLine" id="cb296-3" title="3"></a>
@@ -440,6 +477,23 @@ What this measure does is account for the sample size under observation, as the 
 <a class="sourceLine" id="cb298-5" title="5"><span class="co"># ‘direction’ tells R which variable should be considered the IV</span></a>
 <a class="sourceLine" id="cb298-6" title="6"><span class="co"># It defaults to row, so if you excluded this option, the function would still provide you with a value</span></a>
 <a class="sourceLine" id="cb298-7" title="7"><span class="kw">SomersDelta</span>(z, <span class="dt">direction =</span> <span class="st">&quot;row&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="strength-of-relationships.html#cb298-1"></a><span class="co"># Recode the variable Q7 </span></span>
+<span id="cb298-2"><a href="strength-of-relationships.html#cb298-2"></a>seattle_df<span class="op">$</span>miss_neigh &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>Q7, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;very likely&quot;</span> , <span class="st">&quot;likely&quot;</span>, <span class="st">&quot;unlikely&quot;</span>, <span class="st">&quot;very unlikely&quot;</span>)) </span>
+<span id="cb298-3"><a href="strength-of-relationships.html#cb298-3"></a></span>
+<span id="cb298-4"><a href="strength-of-relationships.html#cb298-4"></a><span class="co"># Check our newly coded variable </span></span>
+<span id="cb298-5"><a href="strength-of-relationships.html#cb298-5"></a><span class="kw">table</span>(seattle_df<span class="op">$</span>miss_neigh)</span></code></pre></div>
+<pre><code>## 
+##   very likely        likely      unlikely very unlikely 
+##          1094           760           244           102</code></pre>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="strength-of-relationships.html#cb300-1"></a><span class="co"># To run Somers&#39; D, first save the contingency table in the R object &quot;z&quot; </span></span>
+<span id="cb300-2"><a href="strength-of-relationships.html#cb300-2"></a>z &lt;-<span class="st"> </span><span class="kw">table</span>(seattle_df<span class="op">$</span>intv.graff, seattle_df<span class="op">$</span>miss_neigh) </span>
+<span id="cb300-3"><a href="strength-of-relationships.html#cb300-3"></a></span>
+<span id="cb300-4"><a href="strength-of-relationships.html#cb300-4"></a><span class="co"># Now run the Somers&#39; D measure </span></span>
+<span id="cb300-5"><a href="strength-of-relationships.html#cb300-5"></a><span class="co"># ‘direction’ tells R which variable should be considered the IV</span></span>
+<span id="cb300-6"><a href="strength-of-relationships.html#cb300-6"></a><span class="co"># It defaults to row, so if you excluded this option, the function would still provide you with a value</span></span>
+<span id="cb300-7"><a href="strength-of-relationships.html#cb300-7"></a><span class="kw">SomersDelta</span>(z, <span class="dt">direction =</span> <span class="st">&quot;row&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>##    somers    lwr.ci    upr.ci 
 ## 0.1867064 0.1502957 0.2231171</code></pre>
 <div style="margin-bottom:50px;">
@@ -464,6 +518,7 @@ What this measure does is account for the sample size under observation, as the 
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" title="1">df &lt;-<span class="st"> </span><span class="kw">filter</span>(sharkey, year <span class="op">==</span><span class="st"> &quot;2012&quot;</span>) </a>
 <a class="sourceLine" id="cb300-2" title="2">df &lt;-<span class="st"> </span><span class="kw">select</span>(df, place_name, state_name, black, lesshs, unemployed, fborn,</a>
 <a class="sourceLine" id="cb300-3" title="3">             incarceration, log_viol_r, largest50) </a>
@@ -473,6 +528,17 @@ What this measure does is account for the sample size under observation, as the 
 <a class="sourceLine" id="cb300-7" title="7"></a>
 <a class="sourceLine" id="cb300-8" title="8"><span class="co"># View the number of cities located in each of the 44 states</span></a>
 <a class="sourceLine" id="cb300-9" title="9"><span class="kw">table</span>(df<span class="op">$</span>state_name)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="strength-of-relationships.html#cb302-1"></a>df &lt;-<span class="st"> </span><span class="kw">filter</span>(sharkey, year <span class="op">==</span><span class="st"> &quot;2012&quot;</span>) </span>
+<span id="cb302-2"><a href="strength-of-relationships.html#cb302-2"></a>df &lt;-<span class="st"> </span><span class="kw">select</span>(df, place_name, state_name, black, lesshs, unemployed, fborn,</span>
+<span id="cb302-3"><a href="strength-of-relationships.html#cb302-3"></a>             incarceration, log_viol_r, largest50) </span>
+<span id="cb302-4"><a href="strength-of-relationships.html#cb302-4"></a></span>
+<span id="cb302-5"><a href="strength-of-relationships.html#cb302-5"></a><span class="co"># Goodbye sharkey</span></span>
+<span id="cb302-6"><a href="strength-of-relationships.html#cb302-6"></a><span class="kw">rm</span>(sharkey)</span>
+<span id="cb302-7"><a href="strength-of-relationships.html#cb302-7"></a></span>
+<span id="cb302-8"><a href="strength-of-relationships.html#cb302-8"></a><span class="co"># View the number of cities located in each of the 44 states</span></span>
+<span id="cb302-9"><a href="strength-of-relationships.html#cb302-9"></a><span class="kw">table</span>(df<span class="op">$</span>state_name)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## 
 ##              Alabama               Alaska              Arizona 
 ##                    4                    1                    9 
@@ -512,10 +578,17 @@ What this measure does is account for the sample size under observation, as the 
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" title="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> unemployed, <span class="dt">y =</span> log_viol_r)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb302-2" title="2"><span class="co"># Jitter adds a little random noise </span></a>
 <a class="sourceLine" id="cb302-3" title="3"><span class="co"># This makes points less likely to overlap one another in the plot </span></a>
 <a class="sourceLine" id="cb302-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">2</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="strength-of-relationships.html#cb304-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> unemployed, <span class="dt">y =</span> log_viol_r)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb304-2"><a href="strength-of-relationships.html#cb304-2"></a><span class="co"># Jitter adds a little random noise </span></span>
+<span id="cb304-3"><a href="strength-of-relationships.html#cb304-3"></a><span class="co"># This makes points less likely to overlap one another in the plot </span></span>
+<span id="cb304-4"><a href="strength-of-relationships.html#cb304-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">2</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <p><img src="_main_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
 <div style="margin-bottom:50px;">
 
@@ -545,9 +618,15 @@ What this measure does is account for the sample size under observation, as the 
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" title="1"><span class="kw">cor</span>(df<span class="op">$</span>log_viol_r, df<span class="op">$</span>unemployed)</a></code></pre></div>
 <pre><code>## [1] 0.5368416</code></pre>
 <div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" title="1"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="strength-of-relationships.html#cb305-1"></a><span class="kw">cor</span>(df<span class="op">$</span>log_viol_r, df<span class="op">$</span>unemployed)</span></code></pre></div>
+<pre><code>## [1] 0.5368416</code></pre>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="strength-of-relationships.html#cb307-1"></a><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -569,6 +648,7 @@ What this measure does is account for the sample size under observation, as the 
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" title="1"><span class="co"># We purposely add an outlier so that the relationship is no longer linear</span></a>
 <a class="sourceLine" id="cb307-2" title="2"><span class="co"># This will produce a fictitious city with a very high level of unemployment and the lowest level of violence</span></a>
 <a class="sourceLine" id="cb307-3" title="3"><span class="co"># For convenience, we will first further reduce the number of variables </span></a>
@@ -579,6 +659,18 @@ What this measure does is account for the sample size under observation, as the 
 <a class="sourceLine" id="cb307-8" title="8"></a>
 <a class="sourceLine" id="cb307-9" title="9"><span class="co"># Conducting a Kendall</span></a>
 <a class="sourceLine" id="cb307-10" title="10"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df_<span class="dv">1</span>, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="strength-of-relationships.html#cb309-1"></a><span class="co"># We purposely add an outlier so that the relationship is no longer linear</span></span>
+<span id="cb309-2"><a href="strength-of-relationships.html#cb309-2"></a><span class="co"># This will produce a fictitious city with a very high level of unemployment and the lowest level of violence</span></span>
+<span id="cb309-3"><a href="strength-of-relationships.html#cb309-3"></a><span class="co"># For convenience, we will first further reduce the number of variables </span></span>
+<span id="cb309-4"><a href="strength-of-relationships.html#cb309-4"></a>df_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">select</span>(df, unemployed, log_viol_r) </span>
+<span id="cb309-5"><a href="strength-of-relationships.html#cb309-5"></a></span>
+<span id="cb309-6"><a href="strength-of-relationships.html#cb309-6"></a><span class="co"># To add cases to data frame, use the add_row() function from the tibble package</span></span>
+<span id="cb309-7"><a href="strength-of-relationships.html#cb309-7"></a>df_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">add_row</span>(df_<span class="dv">1</span>, <span class="dt">unemployed =</span> <span class="dv">20</span>, <span class="dt">log_viol_r =</span> <span class="dv">1</span>)</span>
+<span id="cb309-8"><a href="strength-of-relationships.html#cb309-8"></a></span>
+<span id="cb309-9"><a href="strength-of-relationships.html#cb309-9"></a><span class="co"># Conducting a Kendall</span></span>
+<span id="cb309-10"><a href="strength-of-relationships.html#cb309-10"></a><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df_<span class="dv">1</span>, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## 
 ##  Kendall&#39;s rank correlation tau
 ## 
@@ -588,8 +680,13 @@ What this measure does is account for the sample size under observation, as the 
 ## sample estimates:
 ##      tau 
 ## 0.345979</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" title="1"><span class="co"># Conducting a Spearman</span></a>
 <a class="sourceLine" id="cb309-2" title="2"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df_<span class="dv">1</span>, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="strength-of-relationships.html#cb311-1"></a><span class="co"># Conducting a Spearman</span></span>
+<span id="cb311-2"><a href="strength-of-relationships.html#cb311-2"></a><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df_<span class="dv">1</span>, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## Warning in cor.test.default(x = c(7.2830276, 6.79316, 6.478019, 5.949461, :
 ## Cannot compute exact p-value with ties</code></pre>
 <pre><code>## 

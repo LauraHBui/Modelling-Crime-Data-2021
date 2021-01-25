@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9 Regression | _main.utf8</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9 Regression | _main.utf8" />
   <meta property="og:type" content="book" />
@@ -51,9 +51,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -62,14 +62,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -78,9 +80,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -378,12 +380,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># Age variable</span></a>
 <a class="sourceLine" id="cb1-2" title="2"><span class="kw">summary</span>(df<span class="op">$</span>age)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   16.00   36.00   51.00   51.19   66.00   99.00     118</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># Antisocial variable</span></a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="kw">summary</span>(df<span class="op">$</span>antisocx)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="regression.html#cb314-1"></a><span class="co"># Age variable</span></span>
+<span id="cb314-2"><a href="regression.html#cb314-2"></a><span class="kw">summary</span>(df<span class="op">$</span>age)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##   16.00   36.00   51.00   51.19   66.00   99.00     118</code></pre>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="regression.html#cb316-1"></a><span class="co"># Antisocial variable</span></span>
+<span id="cb316-2"><a href="regression.html#cb316-2"></a><span class="kw">summary</span>(df<span class="op">$</span>antisocx)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##  -4.015  -0.559   0.177   0.000   0.788   1.215   26695</code></pre>
 <div style="margin-bottom:50px;">
@@ -393,6 +404,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># Start with 35,371 cases</span></a>
 <a class="sourceLine" id="cb5-2" title="2"><span class="kw">nrow</span>(df) </a></code></pre></div>
 <pre><code>## [1] 35371</code></pre>
@@ -407,6 +419,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   16.00   36.00   50.00   50.82   66.00   98.00</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">summary</span>(df<span class="op">$</span>antisocx)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="regression.html#cb318-1"></a><span class="co"># Start with 35,371 cases</span></span>
+<span id="cb318-2"><a href="regression.html#cb318-2"></a><span class="kw">nrow</span>(df) </span></code></pre></div>
+<pre><code>## [1] 35371</code></pre>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="regression.html#cb320-1"></a><span class="co"># Retain only complete cases</span></span>
+<span id="cb320-2"><a href="regression.html#cb320-2"></a>df &lt;-<span class="st"> </span>df[(<span class="kw">complete.cases</span>(df<span class="op">$</span>age) <span class="op">&amp;</span><span class="st"> </span><span class="kw">complete.cases</span>(df<span class="op">$</span>antisocx)), ]</span>
+<span id="cb320-3"><a href="regression.html#cb320-3"></a></span>
+<span id="cb320-4"><a href="regression.html#cb320-4"></a><span class="co"># Left with 8,650 cases after dropping NAs</span></span>
+<span id="cb320-5"><a href="regression.html#cb320-5"></a><span class="kw">nrow</span>(df) </span></code></pre></div>
+<pre><code>## [1] 8650</code></pre>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="regression.html#cb322-1"></a><span class="co"># Summaries of just the 8,650 cases </span></span>
+<span id="cb322-2"><a href="regression.html#cb322-2"></a><span class="kw">summary</span>(df<span class="op">$</span>age)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   16.00   36.00   50.00   50.82   66.00   98.00</code></pre>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="regression.html#cb324-1"></a><span class="kw">summary</span>(df<span class="op">$</span>antisocx)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 ## -4.014557 -0.552077  0.178767  0.001823  0.788219  1.215267</code></pre>
 <div style="margin-bottom:50px;">
@@ -461,9 +489,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">cal_vif &lt;-<span class="st"> </span><span class="kw">lm</span>(antisocx <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>confx, <span class="dt">data =</span> df) </a>
 <a class="sourceLine" id="cb13-2" title="2"></a>
 <a class="sourceLine" id="cb13-3" title="3"><span class="kw">vif</span>(cal_vif)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="regression.html#cb326-1"></a>cal_vif &lt;-<span class="st"> </span><span class="kw">lm</span>(antisocx <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>confx, <span class="dt">data =</span> df) </span>
+<span id="cb326-2"><a href="regression.html#cb326-2"></a></span>
+<span id="cb326-3"><a href="regression.html#cb326-3"></a><span class="kw">vif</span>(cal_vif)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>##      age    confx 
 ## 1.003988 1.003988</code></pre>
 <div style="margin-bottom:50px;">
@@ -484,6 +518,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">qplot</span>(<span class="dt">x =</span> age, <span class="dt">data =</span> df)</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
@@ -496,6 +531,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb19-4" title="4"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb19-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">2</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>)</a></code></pre></div>
 <img src="_main_files/figure-html/unnamed-chunk-6-3.png" width="672" />
+=======
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="regression.html#cb328-1"></a><span class="kw">qplot</span>(<span class="dt">x =</span> age, <span class="dt">data =</span> df)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-142-1.png" width="672" /></p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="regression.html#cb330-1"></a><span class="kw">qplot</span>(<span class="dt">x =</span> antisocx, <span class="dt">data =</span> df)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-142-2.png" width="672" /></p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="regression.html#cb332-1"></a><span class="co"># antisocx is negatively skewed</span></span>
+<span id="cb332-2"><a href="regression.html#cb332-2"></a></span>
+<span id="cb332-3"><a href="regression.html#cb332-3"></a><span class="co"># Checking out how the variables covary together</span></span>
+<span id="cb332-4"><a href="regression.html#cb332-4"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb332-5"><a href="regression.html#cb332-5"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">2</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>)</span></code></pre></div>
+<img src="_main_files/figure-html/unnamed-chunk-142-3.png" width="672" />
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <div style="margin-bottom:50px;">
 
 </div>
@@ -504,10 +553,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb20-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb20-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="dt">fun.y=</span>mean,</a>
 <a class="sourceLine" id="cb20-4" title="4">            <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">size=</span><span class="dv">1</span>)  </a></code></pre></div>
+=======
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="regression.html#cb333-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb333-2"><a href="regression.html#cb333-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb333-3"><a href="regression.html#cb333-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="dt">fun.y=</span>mean,</span>
+<span id="cb333-4"><a href="regression.html#cb333-4"></a>            <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">size=</span><span class="dv">1</span>)  </span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## No summary function supplied, defaulting to `mean_se()`</code></pre>
 <img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 <div style="margin-bottom:50px;">
@@ -517,11 +573,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="co"># Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years</span></a>
 <a class="sourceLine" id="cb22-2" title="2"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb22-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb22-4" title="4"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">round</span>(age<span class="op">/</span><span class="dv">5</span>)<span class="op">*</span><span class="dv">5</span>, <span class="dt">y =</span> antisocx), <span class="dt">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="dt">fun.y=</span>mean,</a>
 <a class="sourceLine" id="cb22-5" title="5">            <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">size=</span><span class="dv">1</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="regression.html#cb335-1"></a><span class="co"># Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years</span></span>
+<span id="cb335-2"><a href="regression.html#cb335-2"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb335-3"><a href="regression.html#cb335-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb335-4"><a href="regression.html#cb335-4"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">round</span>(age<span class="op">/</span><span class="dv">5</span>)<span class="op">*</span><span class="dv">5</span>, <span class="dt">y =</span> antisocx), <span class="dt">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="dt">fun.y=</span>mean,</span>
+<span id="cb335-5"><a href="regression.html#cb335-5"></a>            <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">size=</span><span class="dv">1</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## No summary function supplied, defaulting to `mean_se()`</code></pre>
 <img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 <div style="margin-bottom:50px;">
@@ -531,12 +595,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="co"># method=lm asks for the linear regression line </span></a>
 <a class="sourceLine" id="cb24-2" title="2"><span class="co"># se=FALSE asks not to print confidence interval </span></a>
 <a class="sourceLine" id="cb24-3" title="3"><span class="co"># Other arguments specify the colour, thickness of the line </span></a>
 <a class="sourceLine" id="cb24-4" title="4"><span class="kw">ggplot</span>(<span class="dt">data =</span> df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb24-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">.2</span>, <span class="dt">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb24-6" title="6"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="regression.html#cb337-1"></a><span class="co"># method=lm asks for the linear regression line </span></span>
+<span id="cb337-2"><a href="regression.html#cb337-2"></a><span class="co"># se=FALSE asks not to print confidence interval </span></span>
+<span id="cb337-3"><a href="regression.html#cb337-3"></a><span class="co"># Other arguments specify the colour, thickness of the line </span></span>
+<span id="cb337-4"><a href="regression.html#cb337-4"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb337-5"><a href="regression.html#cb337-5"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">.2</span>, <span class="dt">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb337-6"><a href="regression.html#cb337-6"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 <div style="margin-bottom:50px;">
@@ -599,12 +672,21 @@ As Bock et al. (2012) highlight:</p>
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">fit_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(antisocx <span class="op">~</span><span class="st"> </span>age, <span class="dt">data =</span> df)</a>
 <a class="sourceLine" id="cb26-2" title="2"></a>
 <a class="sourceLine" id="cb26-3" title="3"><span class="co"># Get to know the data</span></a>
 <a class="sourceLine" id="cb26-4" title="4"><span class="kw">class</span>(fit_<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;lm&quot;</code></pre>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">attributes</span>(fit_<span class="dv">1</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="regression.html#cb339-1"></a>fit_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(antisocx <span class="op">~</span><span class="st"> </span>age, <span class="dt">data =</span> df)</span>
+<span id="cb339-2"><a href="regression.html#cb339-2"></a></span>
+<span id="cb339-3"><a href="regression.html#cb339-3"></a><span class="co"># Get to know the data</span></span>
+<span id="cb339-4"><a href="regression.html#cb339-4"></a><span class="kw">class</span>(fit_<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;lm&quot;</code></pre>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="regression.html#cb341-1"></a><span class="kw">attributes</span>(fit_<span class="dv">1</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## $names
 ##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
 ##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
@@ -612,7 +694,11 @@ As Bock et al. (2012) highlight:</p>
 ## 
 ## $class
 ## [1] &quot;lm&quot;</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">summary</span>(fit_<span class="dv">1</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="regression.html#cb343-1"></a><span class="kw">summary</span>(fit_<span class="dv">1</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## 
 ## Call:
 ## lm(formula = antisocx ~ age, data = df)
@@ -629,8 +715,13 @@ As Bock et al. (2012) highlight:</p>
 ## Residual standard error: 0.9705 on 8648 degrees of freedom
 ## Multiple R-squared:  0.05616,    Adjusted R-squared:  0.05606 
 ## F-statistic: 514.6 on 1 and 8648 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="co"># A more concise display of results is using ‘display ()’ from arm package:</span></a>
 <a class="sourceLine" id="cb32-2" title="2"><span class="kw">display</span>(fit_<span class="dv">1</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="regression.html#cb345-1"></a><span class="co"># A more concise display of results is using ‘display ()’ from arm package:</span></span>
+<span id="cb345-2"><a href="regression.html#cb345-2"></a><span class="kw">display</span>(fit_<span class="dv">1</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## lm(formula = antisocx ~ age, data = df)
 ##             coef.est coef.se
 ## (Intercept) -0.65     0.03  
@@ -670,7 +761,7 @@ As Bock et al. (2012) highlight:</p>
 
 </div>
 <div class="figure">
-<img src="Images/residual.jpg" alt="Figure 9.1 Residuals visualized" />
+<img src="Images/residual.jpg" alt="" />
 <p class="caption"><strong>Figure 9.1</strong> Residuals visualized</p>
 </div>
 <div style="margin-bottom:35px;">
@@ -702,6 +793,7 @@ As Bock et al. (2012) highlight:</p>
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="co"># Checking out what type of class</span></a>
 <a class="sourceLine" id="cb34-2" title="2"></a>
 <a class="sourceLine" id="cb34-3" title="3"><span class="kw">class</span>(df<span class="op">$</span>confx) </a></code></pre></div>
@@ -731,6 +823,37 @@ As Bock et al. (2012) highlight:</p>
 <a class="sourceLine" id="cb44-2" title="2"></a>
 <a class="sourceLine" id="cb44-3" title="3">fit_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(antisocx <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>bcsvictim <span class="op">+</span><span class="st"> </span>confx, <span class="dt">data =</span> df)</a>
 <a class="sourceLine" id="cb44-4" title="4"><span class="kw">summary</span>(fit_<span class="dv">2</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="regression.html#cb347-1"></a><span class="co"># Checking out what type of class</span></span>
+<span id="cb347-2"><a href="regression.html#cb347-2"></a></span>
+<span id="cb347-3"><a href="regression.html#cb347-3"></a><span class="kw">class</span>(df<span class="op">$</span>confx) </span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="regression.html#cb349-1"></a><span class="kw">class</span>(df<span class="op">$</span>bcsvictim)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="regression.html#cb351-1"></a><span class="co"># attach labels to bcsvictim and make ordering false </span></span>
+<span id="cb351-2"><a href="regression.html#cb351-2"></a>df<span class="op">$</span>bcsvictim &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>bcsvictim, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;not victim&quot;</span>, <span class="st">&quot;Yes victim&quot;</span>), <span class="dt">ordered =</span> <span class="ot">FALSE</span>) </span>
+<span id="cb351-3"><a href="regression.html#cb351-3"></a></span>
+<span id="cb351-4"><a href="regression.html#cb351-4"></a><span class="co"># Sex</span></span>
+<span id="cb351-5"><a href="regression.html#cb351-5"></a><span class="kw">class</span> (df<span class="op">$</span>sex)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="regression.html#cb353-1"></a><span class="kw">table</span>(df<span class="op">$</span>sex)</span></code></pre></div>
+<pre><code>## 
+##    1    2 
+## 4064 4586</code></pre>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="regression.html#cb355-1"></a><span class="co"># Recode sex as dummy variable (0 and 1) where female is 0 and ordered is false</span></span>
+<span id="cb355-2"><a href="regression.html#cb355-2"></a>df<span class="op">$</span>gender &lt;-<span class="st"> </span>df<span class="op">$</span>sex</span>
+<span id="cb355-3"><a href="regression.html#cb355-3"></a>df<span class="op">$</span>gender[df<span class="op">$</span>gender<span class="op">==</span><span class="st">&quot;2&quot;</span>] &lt;-<span class="st"> &quot;0&quot;</span></span>
+<span id="cb355-4"><a href="regression.html#cb355-4"></a>df<span class="op">$</span>gender &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>gender, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>), <span class="dt">ordered =</span> <span class="ot">FALSE</span>) </span>
+<span id="cb355-5"><a href="regression.html#cb355-5"></a><span class="co"># Double check values match original variable</span></span>
+<span id="cb355-6"><a href="regression.html#cb355-6"></a><span class="kw">table</span>(df<span class="op">$</span>gender)</span></code></pre></div>
+<pre><code>## 
+## female   male 
+##   4586   4064</code></pre>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="regression.html#cb357-1"></a><span class="co"># Now let us run the multiple regression</span></span>
+<span id="cb357-2"><a href="regression.html#cb357-2"></a></span>
+<span id="cb357-3"><a href="regression.html#cb357-3"></a>fit_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(antisocx <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>bcsvictim <span class="op">+</span><span class="st"> </span>confx, <span class="dt">data =</span> df)</span>
+<span id="cb357-4"><a href="regression.html#cb357-4"></a><span class="kw">summary</span>(fit_<span class="dv">2</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## 
 ## Call:
 ## lm(formula = antisocx ~ age + gender + bcsvictim + confx, data = df)
@@ -786,7 +909,11 @@ As Bock et al. (2012) highlight:</p>
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">tab_model</span>(fit_<span class="dv">2</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="regression.html#cb359-1"></a><span class="kw">tab_model</span>(fit_<span class="dv">2</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -897,8 +1024,13 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 </td>
 </tr>
 </table>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="co"># Change name of DV</span></a>
 <a class="sourceLine" id="cb47-2" title="2"><span class="kw">tab_model</span>(fit_<span class="dv">2</span>, <span class="dt">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="regression.html#cb360-1"></a><span class="co"># Change name of DV</span></span>
+<span id="cb360-2"><a href="regression.html#cb360-2"></a><span class="kw">tab_model</span>(fit_<span class="dv">2</span>, <span class="dt">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -1009,8 +1141,13 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 </td>
 </tr>
 </table>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1"><span class="co"># Change name of IVs</span></a>
 <a class="sourceLine" id="cb48-2" title="2"><span class="kw">tab_model</span>(fit_<span class="dv">2</span>, <span class="dt">pred.labels =</span> <span class="kw">c</span>(<span class="st">&quot;(Intercept)&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Victimisation&quot;</span>, <span class="st">&quot;Confidence in Police&quot;</span>), <span class="dt">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="regression.html#cb361-1"></a><span class="co"># Change name of IVs</span></span>
+<span id="cb361-2"><a href="regression.html#cb361-2"></a><span class="kw">tab_model</span>(fit_<span class="dv">2</span>, <span class="dt">pred.labels =</span> <span class="kw">c</span>(<span class="st">&quot;(Intercept)&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Victimisation&quot;</span>, <span class="st">&quot;Confidence in Police&quot;</span>), <span class="dt">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -1141,6 +1278,7 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">library</span>(effects)</a>
 <a class="sourceLine" id="cb49-2" title="2"><span class="kw">data</span>(Arrests, <span class="dt">package=</span><span class="st">&quot;effects&quot;</span>) <span class="co"># It will tell you that the dataset are not found, but it is there</span></a>
 <a class="sourceLine" id="cb49-3" title="3"></a>
@@ -1151,6 +1289,18 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 ##  892 4334</code></pre>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1"><span class="co"># Checking out the order of the levels in the DV</span></a>
 <a class="sourceLine" id="cb51-2" title="2"><span class="kw">attributes</span>(Arrests<span class="op">$</span>released)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="regression.html#cb362-1"></a><span class="kw">library</span>(effects)</span>
+<span id="cb362-2"><a href="regression.html#cb362-2"></a><span class="kw">data</span>(Arrests, <span class="dt">package=</span><span class="st">&quot;effects&quot;</span>) <span class="co"># It will tell you that the dataset are not found, but it is there</span></span>
+<span id="cb362-3"><a href="regression.html#cb362-3"></a></span>
+<span id="cb362-4"><a href="regression.html#cb362-4"></a><span class="co"># Checking out our DV</span></span>
+<span id="cb362-5"><a href="regression.html#cb362-5"></a><span class="kw">table</span>(Arrests<span class="op">$</span>released)</span></code></pre></div>
+<pre><code>## 
+##   No  Yes 
+##  892 4334</code></pre>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="regression.html#cb364-1"></a><span class="co"># Checking out the order of the levels in the DV</span></span>
+<span id="cb364-2"><a href="regression.html#cb364-2"></a><span class="kw">attributes</span>(Arrests<span class="op">$</span>released)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## $levels
 ## [1] &quot;No&quot;  &quot;Yes&quot;
 ## 
@@ -1163,6 +1313,7 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1"><span class="co"># Reverse the order</span></a>
 <a class="sourceLine" id="cb53-2" title="2"><span class="co">#Rename the levels so that it is clear we now mean &#39;yes&#39; to harsh treatment</span></a>
 <a class="sourceLine" id="cb53-3" title="3">Arrests<span class="op">$</span>harsher &lt;-<span class="st"> </span><span class="kw">relevel</span>(Arrests<span class="op">$</span>released, <span class="st">&quot;Yes&quot;</span>)</a>
@@ -1187,6 +1338,32 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <a class="sourceLine" id="cb59-3" title="3"></a>
 <a class="sourceLine" id="cb59-4" title="4"><span class="co"># Check to see coding has changed</span></a>
 <a class="sourceLine" id="cb59-5" title="5"><span class="kw">table</span>(Arrests<span class="op">$</span>race)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="regression.html#cb366-1"></a><span class="co"># Reverse the order</span></span>
+<span id="cb366-2"><a href="regression.html#cb366-2"></a><span class="co">#Rename the levels so that it is clear we now mean &#39;yes&#39; to harsh treatment</span></span>
+<span id="cb366-3"><a href="regression.html#cb366-3"></a>Arrests<span class="op">$</span>harsher &lt;-<span class="st"> </span><span class="kw">relevel</span>(Arrests<span class="op">$</span>released, <span class="st">&quot;Yes&quot;</span>)</span>
+<span id="cb366-4"><a href="regression.html#cb366-4"></a>Arrests<span class="op">$</span>harsher &lt;-<span class="st"> </span><span class="kw">factor</span>(Arrests<span class="op">$</span>harsher, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>), <span class="dt">ordered =</span> <span class="ot">TRUE</span>) </span>
+<span id="cb366-5"><a href="regression.html#cb366-5"></a></span>
+<span id="cb366-6"><a href="regression.html#cb366-6"></a><span class="co">#  Check that it matches the original variable ‘released’ but in reverse order</span></span>
+<span id="cb366-7"><a href="regression.html#cb366-7"></a><span class="kw">table</span>(Arrests<span class="op">$</span>harsher)</span></code></pre></div>
+<pre><code>## 
+##   No  Yes 
+## 4334  892</code></pre>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="regression.html#cb368-1"></a><span class="kw">table</span>(Arrests<span class="op">$</span>released)</span></code></pre></div>
+<pre><code>## 
+##   No  Yes 
+##  892 4334</code></pre>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="regression.html#cb370-1"></a><span class="co"># We will also reverse the levels in our race variable so that ‘white’ is ‘0’</span></span>
+<span id="cb370-2"><a href="regression.html#cb370-2"></a><span class="kw">table</span>(Arrests<span class="op">$</span>colour)</span></code></pre></div>
+<pre><code>## 
+## Black White 
+##  1288  3938</code></pre>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="regression.html#cb372-1"></a>Arrests<span class="op">$</span>race &lt;-<span class="st"> </span>Arrests<span class="op">$</span>colour</span>
+<span id="cb372-2"><a href="regression.html#cb372-2"></a>Arrests<span class="op">$</span>race &lt;-<span class="st"> </span><span class="kw">relevel</span>(Arrests<span class="op">$</span>race, <span class="st">&quot;White&quot;</span>)</span>
+<span id="cb372-3"><a href="regression.html#cb372-3"></a></span>
+<span id="cb372-4"><a href="regression.html#cb372-4"></a><span class="co"># Check to see coding has changed</span></span>
+<span id="cb372-5"><a href="regression.html#cb372-5"></a><span class="kw">table</span>(Arrests<span class="op">$</span>race)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## 
 ## White Black 
 ##  3938  1288</code></pre>
@@ -1197,8 +1374,13 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1">fit_<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">glm</span>(harsher <span class="op">~</span><span class="st"> </span>race <span class="op">+</span><span class="st"> </span>checks <span class="op">+</span><span class="st"> </span>sex <span class="op">+</span><span class="st"> </span>employed, <span class="dt">data=</span>Arrests, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</a>
 <a class="sourceLine" id="cb61-2" title="2"><span class="kw">summary</span>(fit_<span class="dv">3</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="regression.html#cb374-1"></a>fit_<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">glm</span>(harsher <span class="op">~</span><span class="st"> </span>race <span class="op">+</span><span class="st"> </span>checks <span class="op">+</span><span class="st"> </span>sex <span class="op">+</span><span class="st"> </span>employed, <span class="dt">data=</span>Arrests, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb374-2"><a href="regression.html#cb374-2"></a><span class="kw">summary</span>(fit_<span class="dv">3</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## 
 ## Call:
 ## glm(formula = harsher ~ race + checks + sex + employed, family = &quot;binomial&quot;, 
@@ -1233,11 +1415,19 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1"><span class="kw">exp</span>(<span class="kw">coef</span>(fit_<span class="dv">3</span>))</a></code></pre></div>
 <pre><code>## (Intercept)   raceBlack      checks     sexMale employedYes 
 ##   0.1490516   1.6422658   1.4304108   1.0430528   0.4585312</code></pre>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1"><span class="co"># We can add confidence intervals</span></a>
 <a class="sourceLine" id="cb65-2" title="2"><span class="kw">exp</span>(<span class="kw">cbind</span>(<span class="dt">OR =</span> <span class="kw">coef</span>(fit_<span class="dv">3</span>), <span class="kw">confint</span>(fit_<span class="dv">3</span>)))</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="regression.html#cb376-1"></a><span class="kw">exp</span>(<span class="kw">coef</span>(fit_<span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## (Intercept)   raceBlack      checks     sexMale employedYes 
+##   0.1490516   1.6422658   1.4304108   1.0430528   0.4585312</code></pre>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="regression.html#cb378-1"></a><span class="co"># We can add confidence intervals</span></span>
+<span id="cb378-2"><a href="regression.html#cb378-2"></a><span class="kw">exp</span>(<span class="kw">cbind</span>(<span class="dt">OR =</span> <span class="kw">coef</span>(fit_<span class="dv">3</span>), <span class="kw">confint</span>(fit_<span class="dv">3</span>)))</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## Waiting for profiling to be done...</code></pre>
 <pre><code>##                    OR     2.5 %    97.5 %
 ## (Intercept) 0.1490516 0.1081600 0.2026495
@@ -1245,9 +1435,15 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 ## checks      1.4304108 1.3601419 1.5049266
 ## sexMale     1.0430528 0.7830594 1.4090622
 ## employedYes 0.4585312 0.3892103 0.5407210</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1"><span class="co"># Another way of getting the results, which uses less typing, is to use the Logit() function from the lessr package</span></a>
 <a class="sourceLine" id="cb68-2" title="2"></a>
 <a class="sourceLine" id="cb68-3" title="3"><span class="kw">Logit</span>(harsher <span class="op">~</span><span class="st"> </span>checks <span class="op">+</span><span class="st"> </span>colour <span class="op">+</span><span class="st"> </span>sex <span class="op">+</span><span class="st"> </span>employed, <span class="dt">data=</span>Arrests, <span class="dt">brief=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="regression.html#cb381-1"></a><span class="co"># Another way of getting the results, which uses less typing, is to use the Logit() function from the lessr package</span></span>
+<span id="cb381-2"><a href="regression.html#cb381-2"></a></span>
+<span id="cb381-3"><a href="regression.html#cb381-3"></a><span class="kw">Logit</span>(harsher <span class="op">~</span><span class="st"> </span>checks <span class="op">+</span><span class="st"> </span>colour <span class="op">+</span><span class="st"> </span>sex <span class="op">+</span><span class="st"> </span>employed, <span class="dt">data=</span>Arrests, <span class="dt">brief=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## 
 ## Response Variable:   harsher
 ## Predictor Variable 1:  checks
@@ -1337,7 +1533,11 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="kw">Logit</span>(harsher <span class="op">~</span><span class="st"> </span>checks <span class="op">+</span><span class="st"> </span>colour <span class="op">+</span><span class="st"> </span>sex <span class="op">+</span><span class="st"> </span>employed, <span class="dt">data=</span>Arrests, <span class="dt">brief=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="regression.html#cb383-1"></a><span class="kw">Logit</span>(harsher <span class="op">~</span><span class="st"> </span>checks <span class="op">+</span><span class="st"> </span>colour <span class="op">+</span><span class="st"> </span>sex <span class="op">+</span><span class="st"> </span>employed, <span class="dt">data=</span>Arrests, <span class="dt">brief=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## 
 ## Response Variable:   harsher
 ## Predictor Variable 1:  checks
@@ -1405,8 +1605,13 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="co"># All the information we need to calculate the model chi-squared is already in our model object</span></a>
 <a class="sourceLine" id="cb72-2" title="2"><span class="kw">names</span>(fit_<span class="dv">3</span>)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="regression.html#cb385-1"></a><span class="co"># All the information we need to calculate the model chi-squared is already in our model object</span></span>
+<span id="cb385-2"><a href="regression.html#cb385-2"></a><span class="kw">names</span>(fit_<span class="dv">3</span>)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>##  [1] &quot;coefficients&quot;      &quot;residuals&quot;         &quot;fitted.values&quot;    
 ##  [4] &quot;effects&quot;           &quot;R&quot;                 &quot;rank&quot;             
 ##  [7] &quot;qr&quot;                &quot;family&quot;            &quot;linear.predictors&quot;
@@ -1417,8 +1622,13 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 ## [22] &quot;call&quot;              &quot;formula&quot;           &quot;terms&quot;            
 ## [25] &quot;data&quot;              &quot;offset&quot;            &quot;control&quot;          
 ## [28] &quot;method&quot;            &quot;contrasts&quot;         &quot;xlevels&quot;</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="co"># We now calculate said chi-squared by taking the difference of the deviances </span></a>
 <a class="sourceLine" id="cb74-2" title="2"><span class="kw">with</span>(fit_<span class="dv">3</span>, null.deviance <span class="op">-</span><span class="st"> </span>deviance)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="regression.html#cb387-1"></a><span class="co"># We now calculate said chi-squared by taking the difference of the deviances </span></span>
+<span id="cb387-2"><a href="regression.html#cb387-2"></a><span class="kw">with</span>(fit_<span class="dv">3</span>, null.deviance <span class="op">-</span><span class="st"> </span>deviance)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## [1] 445.5594</code></pre>
 <div style="margin-bottom:35px;">
 
@@ -1427,11 +1637,19 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="co"># Obtaining the p-value</span></a>
 <a class="sourceLine" id="cb76-2" title="2"><span class="kw">with</span>(fit_<span class="dv">3</span>, <span class="kw">pchisq</span>(null.deviance <span class="op">-</span><span class="st"> </span>deviance, df.null <span class="op">-</span><span class="st"> </span>df.residual, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>))</a></code></pre></div>
 <pre><code>## [1] 3.961177e-95</code></pre>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1"><span class="co"># Incorporating previous calculation of difference between deviances</span></a>
 <a class="sourceLine" id="cb78-2" title="2"><span class="co"># df.null - df.residual: calculating the degrees of freedom (should equal the number of IVs in the model)</span></a></code></pre></div>
+=======
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="regression.html#cb389-1"></a><span class="co"># Obtaining the p-value</span></span>
+<span id="cb389-2"><a href="regression.html#cb389-2"></a><span class="kw">with</span>(fit_<span class="dv">3</span>, <span class="kw">pchisq</span>(null.deviance <span class="op">-</span><span class="st"> </span>deviance, df.null <span class="op">-</span><span class="st"> </span>df.residual, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>))</span></code></pre></div>
+<pre><code>## [1] 3.961177e-95</code></pre>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="regression.html#cb391-1"></a><span class="co"># Incorporating previous calculation of difference between deviances</span></span>
+<span id="cb391-2"><a href="regression.html#cb391-2"></a><span class="co"># df.null - df.residual: calculating the degrees of freedom (should equal the number of IVs in the model)</span></span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <div style="margin-bottom:35px;">
 
 </div>
@@ -1440,8 +1658,13 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="co">#Likelihood ratio R2</span></a>
 <a class="sourceLine" id="cb79-2" title="2"><span class="kw">with</span>(fit_<span class="dv">3</span>, (null.deviance <span class="op">-</span><span class="st"> </span>deviance)<span class="op">/</span>null.deviance)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="regression.html#cb392-1"></a><span class="co">#Likelihood ratio R2</span></span>
+<span id="cb392-2"><a href="regression.html#cb392-2"></a><span class="kw">with</span>(fit_<span class="dv">3</span>, (null.deviance <span class="op">-</span><span class="st"> </span>deviance)<span class="op">/</span>null.deviance)</span></code></pre></div>
+>>>>>>> 32f57d087858e5c7dd4c00eec4c93bf6c01c47a6
 <pre><code>## [1] 0.09328629</code></pre>
 <div style="margin-bottom:35px;">
 
