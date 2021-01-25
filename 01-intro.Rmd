@@ -349,7 +349,7 @@ So how can we find the function we need? Well throughout this module, we will be
 However, you are also welcome to use google, and the website stackoverflow in particular to help you find the function you need. But be wary, especially in the beginning, that you understand what they do. One good approach is to find a function, add it to your cookbook, and then highlight it to come ask the teaching team about what it does, and how it might be different to other ways of doing things. 
 
 
-#### Activity 6: Play around with operators
+#### Activity 6: Play around with functions
 
 Now that I've said that, have a google (or a guess) about what you think is the function to get the median. Once you have a guess or answer, write it in the shared google docs. Then, use it to get the median of the numbers 10, 34, 5, 3, 77. One you have the function, run it in R and tell me what is the answer! Write this in your shared google doc (or note down for yourself if in the quiet room)
 
