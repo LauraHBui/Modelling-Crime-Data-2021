@@ -334,7 +334,7 @@ We start by doing the usual routine, but with new data on police body-worn camer
 <div style="margin-bottom:15px;">
 
 </div></li>
-<li>Open only the 2016 LEMAS-BWCS dataset (37302-0001-Data.rda). These data are from the [Inter-university Consortium for Political and Social Research (ICPSR) website] (<a href="https://www.icpsr.umich.edu/web/pages/" class="uri">https://www.icpsr.umich.edu/web/pages/</a>) and you can find them by using the dataset name, which refers to the ICPSR study number. The data are stored in an R data file format (.rda).
+<li>Open only the 2016 LEMAS-BWCS dataset (37302-0001-Data.rda). These data are from the <a href="https://www.icpsr.umich.edu/web/pages/">Inter-university Consortium for Political and Social Research (ICPSR) website</a> and you can find them by using the dataset name, which refers to the ICPSR study number. The data are stored in an <code>R</code> data file format (.rda).
 <div style="margin-bottom:15px;">
 
 </div></li>
@@ -391,7 +391,7 @@ We start by doing the usual routine, but with new data on police body-worn camer
 <div style="margin-bottom:50px;">
 
 </div>
-<p>The <code>mlv ()</code> function (acronym for most likely values) from the modeest package is used to obtain the mode. The modal response of all agencies was ‘No’, meaning that they had not adopted BWCs as of the 2016 survey.</p>
+<p>The <code>mlv ()</code> function (acronym for most likely values) from the <code>modeest</code> package is used to obtain the mode. The modal response of all agencies was ‘No’, meaning that they had not adopted BWCs as of the 2016 survey.</p>
 <p>Our exploration into the adoption of BWCs has so far yielded the knowledge that the majority of agencies had not adopted BWCs as of 2016. But how about those that have done so? To what extent do they use BWCs? This is where variable <code>Q_12</code> comes in handy:</p>
 <div style="margin-bottom:35px;">
 
@@ -408,7 +408,7 @@ We start by doing the usual routine, but with new data on police body-worn camer
 <pre><code>## [1] 1200</code></pre>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="co"># table() provides a count for each unique value of a variable. </span></a>
 <a class="sourceLine" id="cb90-2" title="2"><span class="co"># Since we see all values with the table() function, </span></a>
-<a class="sourceLine" id="cb90-3" title="3"><span class="co"># we do not need the na.rm=TRUE code </span></a>
+<a class="sourceLine" id="cb90-3" title="3"><span class="co"># We do not need the na.rm=TRUE code </span></a>
 <a class="sourceLine" id="cb90-4" title="4"><span class="kw">table</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>)</a></code></pre></div>
 <pre><code>## 
 ##    0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15 
@@ -434,7 +434,7 @@ We start by doing the usual routine, but with new data on police body-worn camer
 <div style="margin-bottom:50px;">
 
 </div>
-<p>What the heck is <code>na.rm</code>? When calculating measures of central tendency, you need to tell R that you have missing (NA) cases. Using <code>na.rm = TRUE</code> will exclude cases that have already been defined as missing. If we do not specify this code, it will return <code>NaN</code> for agencies that have acquired BWCs because <code>Q_12</code> has missing data. If you have <code>NaN</code>, however, for the row defining agencies that have not acquired BWCs, this is all right because there would be no cases for them.</p>
+<p>What the heck is <code>na.rm</code>? When calculating measures of central tendency, you need to tell <code>R</code> that you have missing (NA) cases. Using <code>na.rm = TRUE</code> will exclude cases that have already been defined as missing. If we do not specify this code, it will return <code>NaN</code> for agencies that have acquired BWCs because <code>Q_12</code> has missing data. If you have <code>NaN</code>, however, for the row defining agencies that have not acquired BWCs, this is all right because there would be no cases for them.</p>
 <p>Now let us find the average number of BWCs used by agencies that have responded ‘Yes’ in <code>Q10_A</code>. We will use two ways to determine the mean: the <code>dplyr</code> way and the <code>base R</code> way.</p>
 <div style="margin-bottom:35px;">
 
@@ -598,7 +598,7 @@ We start by doing the usual routine, but with new data on police body-worn camer
 </div>
 <p>Recall the main disadvantage of the mean; it is not robust to extreme values, otherwise known as <strong>outliers</strong>.</p>
 <p>What exactly constitutes an <em>outlier</em>? This is where we will need to define what is meant by outlier.</p>
-<p>One way of determining whether a case is an outlier is if it is above or below 1.5 * by the <strong>interquartile range</strong> (IQR), or for extreme outliers, above or below 3 * IQR.</p>
+<p>One way of determining whether a case is an outlier is if it is above or below 1.5 multiplied by the <strong>interquartile range</strong> (IQR), or for extreme outliers, above or below 3 multiplied by IQR.</p>
 <p>The IQR is another robust estimate and is the 75th percentile observation (the third quartile) minus the 25th percentile observation (the first quartile) in your distribution. The first and third quartiles are known as <strong>Tukey fences</strong>.</p>
 <p>Now we use the IQR to find and save the outliers for the <code>Q_12</code> variable:</p>
 <div style="margin-bottom:35px;">
@@ -687,9 +687,11 @@ We start by doing the usual routine, but with new data on police body-worn camer
 <div style="margin-bottom:30px;">
 
 </div>
-<p>0 = no skewness as it is a symmetrical distribution
-+ value = means distribution is positively skewed or skewed right
-- value = means distribution is negatively skewed or skewed left</p>
+<ul>
+<li>0 = no skewness as it is a symmetrical distribution</li>
+<li>positive value = means distribution is positively skewed or skewed right</li>
+<li>negative value = means distribution is negatively skewed or skewed left</li>
+</ul>
 <div style="margin-bottom:30px;">
 
 </div>
@@ -745,7 +747,7 @@ We start by doing the usual routine, but with new data on police body-worn camer
 
 </div>
 <p><span class="math inline">\(N~modalcat\)</span> refers to the frequency of cases in the modal category, and <span class="math inline">\(N~total~\)</span> refers to the total number of cases. This formula states that VR is equal to 1 minus the proportion of cases that are in the modal category, which is the same as saying the proportion of cases that are not in the modal category.</p>
-<p>Now, for example, we are interested in knowing whether the modal category describes the overall work histories prior to arrest of federal inmates well, or if there is a lot of variation in responses from inmates. To do so, we use the variable <code>V1748</code>:</p>
+<p>Now, for example, we are interested in knowing whether the modal category describes the overall work histories prior to arrest of federal inmates pretty accurately, or if there is a lot of variation in responses from inmates. To do so, we use the variable <code>V1748</code>:</p>
 <div style="margin-bottom:35px;">
 
 </div>
@@ -886,6 +888,113 @@ We start by doing the usual routine, but with new data on police body-worn camer
 <div style="margin-bottom:30px;">
 
 </div>
+</div>
+<div id="dispersion-in-interval-and-ratio-variables" class="section level4">
+<h4><span class="header-section-number">4.2.3.3</span> <strong>Dispersion in Interval and Ratio Variables</strong></h4>
+<div style="margin-bottom:35px;">
+
+</div>
+<p>These measures of dispersion are the most familiar because they are defined as the spread of values around a <em>mean</em>. We revisit three of these: the range, variance, and standard deviation.</p>
+<p>The <strong>range</strong> is the difference between the maximum and minimum value in a given distribution. We use the ratio-level variable <code>V2254</code>, a measure of the age at which inmates stated they first started smoking cigarettes regularly, as an example:</p>
+<div style="margin-bottom:35px;">
+
+</div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1"><span class="co"># Examine the variable </span></a>
+<a class="sourceLine" id="cb142-2" title="2"><span class="kw">str</span>(V2254)</a></code></pre></div>
+<pre><code>##  num [1:3686] NA NA 19 NA 16 15 18 NA NA NA ...
+##  - attr(*, &quot;value.labels&quot;)= Named num [1:3] 98 97 0
+##   ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;Refused&quot; &quot;Don&#39;t know&quot; &quot;Never smoked regularly&quot;</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1"><span class="kw">attributes</span>(V2254)</a></code></pre></div>
+<pre><code>## $value.labels
+##                Refused             Don&#39;t know Never smoked regularly 
+##                     98                     97                      0</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1"><span class="co"># This variable has codes that do not indicate the number of times smoked. </span></a>
+<a class="sourceLine" id="cb146-2" title="2"><span class="co"># These are 0 - never smoked; 97 - Don&#39;t know; and 98 – Refused</span></a>
+<a class="sourceLine" id="cb146-3" title="3"><span class="kw">table</span>(V2254)</a></code></pre></div>
+<pre><code>## V2254
+##   0   1   2   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21 
+##  17   1   1   1   7  18  19  35  55  69 177 203 184 246 250 143 182 102  77  60 
+##  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  42 
+##  53  31  26  41  22  19  18   6  13   5  13   8   5  11   6   3   5   2   6   1 
+##  44  45  47  50  53  55  57  97  98 
+##   1   1   1   1   2   1   1  21   4</code></pre>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>We notice that some categories are not about smoking, such as ‘Don’t know’ and ‘Refused’, and including these will give us an incorrect result. To resolve this, we must convert irrelevant categories into missing data:</p>
+<div style="margin-bottom:35px;">
+
+</div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1"><span class="co"># Create a new variable so we do not write over the old one </span></a>
+<a class="sourceLine" id="cb148-2" title="2">AgeSmokerRange&lt;-V2254 </a>
+<a class="sourceLine" id="cb148-3" title="3"></a>
+<a class="sourceLine" id="cb148-4" title="4"><span class="co"># Code 0, 97, and 98 values as missing </span></a>
+<a class="sourceLine" id="cb148-5" title="5">AgeSmokerRange[AgeSmokerRange<span class="op">==</span><span class="dv">0</span>]&lt;-<span class="ot">NA</span> </a>
+<a class="sourceLine" id="cb148-6" title="6">AgeSmokerRange[AgeSmokerRange<span class="op">==</span><span class="dv">97</span>]&lt;-<span class="ot">NA</span> </a>
+<a class="sourceLine" id="cb148-7" title="7">AgeSmokerRange[AgeSmokerRange<span class="op">==</span><span class="dv">98</span>]&lt;-<span class="ot">NA</span></a>
+<a class="sourceLine" id="cb148-8" title="8"></a>
+<a class="sourceLine" id="cb148-9" title="9"><span class="co"># Now for the range</span></a>
+<a class="sourceLine" id="cb148-10" title="10"><span class="co"># range () function prints the minimum and maximum values </span></a>
+<a class="sourceLine" id="cb148-11" title="11"><span class="co"># Does not provide the actual range :-( </span></a>
+<a class="sourceLine" id="cb148-12" title="12"><span class="kw">range</span>(AgeSmokerRange, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## [1]  1 57</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" title="1"><span class="co"># Compute the range by assigning the min and max values to an object </span></a>
+<a class="sourceLine" id="cb150-2" title="2">SmokerRange&lt;-<span class="kw">range</span>(AgeSmokerRange, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) </a>
+<a class="sourceLine" id="cb150-3" title="3"></a>
+<a class="sourceLine" id="cb150-4" title="4"><span class="co"># Then, calculate the difference of that object </span></a>
+<a class="sourceLine" id="cb150-5" title="5"><span class="kw">diff</span>(SmokerRange)</a></code></pre></div>
+<pre><code>## [1] 56</code></pre>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>The range of the age when federal inmates started smoking is 56. But you can see something strange while figuring out the range: the minimum is one year old! This may be something we want to exclude in analyses as it might not be valid – maybe a mistake in coding – so conducting descriptive statistics can help with tidying your data.</p>
+<p>Now, the <strong>variance</strong> is about spread, specifically the sum of the squared deviations from the mean, then divided by the total number of cases. We use the function <code>var()</code> from the <code>stats</code> package that comes already preinstalled.</p>
+<p>We use the variable <code>V2529</code>, which records the number of times inmates reported being written up for verbally assaulting a prison staff member, as an example:</p>
+<div style="margin-bottom:35px;">
+
+</div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" title="1"><span class="co"># First, let us take a look at the variable </span></a>
+<a class="sourceLine" id="cb152-2" title="2"><span class="kw">summary</span>(V2529)</a></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##    1.00    1.00    1.00   31.45    3.00  998.00    3545</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1"><span class="kw">attributes</span>(V2529)</a></code></pre></div>
+<pre><code>## $value.labels
+##    Refused Don&#39;t know 
+##        998        997</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1"><span class="co"># Create a new variable so we do not write over the old one </span></a>
+<a class="sourceLine" id="cb156-2" title="2"><span class="co"># Then code 997 and 998 values as missing </span></a>
+<a class="sourceLine" id="cb156-3" title="3">VerbAssaultVar&lt;-V2529 </a>
+<a class="sourceLine" id="cb156-4" title="4">VerbAssaultVar[VerbAssaultVar<span class="op">&gt;=</span><span class="dv">997</span>]&lt;-<span class="ot">NA</span> </a>
+<a class="sourceLine" id="cb156-5" title="5"></a>
+<a class="sourceLine" id="cb156-6" title="6"><span class="co"># Now let us calculate the variance </span></a>
+<a class="sourceLine" id="cb156-7" title="7">var1 &lt;-<span class="st"> </span><span class="kw">var</span>(VerbAssaultVar, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) </a>
+<a class="sourceLine" id="cb156-8" title="8">var1</a></code></pre></div>
+<pre><code>## [1] 82.64384</code></pre>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>The variance is 82.6, which is fairly dispersed, but if you got to know this variable, you will notice that one inmate self-reported 99 verbal assaults, so this will have had an influence on the variance.</p>
+<p>Last, we learn about the <strong>standard deviation</strong> (SD), which is the square root of the variance. The smaller it is, the more concentrated cases are around the mean, while larger values reflect a wider distance from the mean. In other words, the SD tells us how well the mean represents our data. Too large, then the mean is a poor representation, because there is too much variability. We use the variable <code>VerbAssaultVar</code> as an example:</p>
+<div style="margin-bottom:35px;">
+
+</div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" title="1"><span class="co"># Calculate SD of the VerbAssaultVar variable and save it to an object </span></a>
+<a class="sourceLine" id="cb158-2" title="2">sd &lt;-<span class="st"> </span><span class="kw">sd</span>(VerbAssaultVar, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb158-3" title="3">sd</a></code></pre></div>
+<pre><code>## [1] 9.090866</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1"><span class="co"># Now to double check, we will see if the SD, squared, matches the variance</span></a>
+<a class="sourceLine" id="cb160-2" title="2"><span class="co"># We will call this var2. </span></a>
+<a class="sourceLine" id="cb160-3" title="3">var2 &lt;-<span class="st"> </span>sd<span class="op">^</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb160-4" title="4">var2 <span class="co"># Yes, it does match!</span></a></code></pre></div>
+<pre><code>## [1] 82.64384</code></pre>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>The SD is 9.09087 meaning that this number of verbal assaults is one standard deviation above and below the mean, so the majority of reported verbal assaults, about 68% of them (more on the 68-95-97 rule next week), should fall within 9.09 above and below the mean.</p>
+<div style="margin-bottom:30px;">
+
+</div>
+<hr />
 <div style="margin-bottom:50px;">
 
 </div>
