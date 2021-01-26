@@ -1,9 +1,3 @@
----
-site: bookdown::bookdown_site
-documentclass: book
-output:bookdown::gitbook: default
-#bookdown::pdf_book: default
----
 
 # Relationships with Categorical Variables
 #### *Independent and Dependent Variables, T-test, Chi-square* {-}

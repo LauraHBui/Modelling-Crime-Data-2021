@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 A First Lesson About R | bookdown-demo.utf8</title>
+  <title>Chapter 1 A First Lesson About R | ModellingCrimData.utf8</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 A First Lesson About R | bookdown-demo.utf8" />
+  <meta property="og:title" content="Chapter 1 A First Lesson About R | ModellingCrimData.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 A First Lesson About R | bookdown-demo.utf8" />
+  <meta name="twitter:title" content="Chapter 1 A First Lesson About R | ModellingCrimData.utf8" />
   
   
   
@@ -139,12 +139,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#operators-and-functions"><i class="fa fa-check"></i><b>1.3.1</b> Operators and Functions</a></li>
+<li class="chapter" data-level="1.3.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.3.2</b> Objects</a></li>
+<li class="chapter" data-level="1.3.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#great-lets-move-on-to-our-2nd-key-topic-for-today-objects"><i class="fa fa-check"></i><b>1.4</b> Great, let’s move on to our 2nd key topic for today, objects!</a><ul>
-<li class="chapter" data-level="1.4.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.4.1</b> Objects</a></li>
-<li class="chapter" data-level="1.4.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.4.2</b> Packages</a></li>
-</ul></li>
-<li class="chapter" data-level="1.5" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.5</b> SUMMARY</a></li>
+<li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.4</b> SUMMARY</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a><ul>
 <li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.1</b> R Projects – Getting Your Work Files Organised</a></li>
@@ -303,19 +301,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:30px;">
 
 </div>
-<p>R and R Studio are free software. Therefore you should be able to install on your own machines at home. Of course we realise everyone is working with different IT, so there are some options that mean that everyone will be able to participate. Our first activity for today will be to decide what approach to working with R and R Studio will be best for you.</p>
+<p>As <code>R</code> and <code>R Studio</code> are free software, you should be able to install these on your own machines at home. You may be working with different IT, so there are different options to allow a successful install. Our first activity will be to decide what approach to working with <code>R</code> and <code>R Studio</code> will be best for you.</p>
 <div id="activity-1-identifying-your-operating-system" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> Activity 1: Identifying your operating system</h3>
-<p>In this activity, you need to answer a question about your computer/IT that you will be working with throughout this module. That question is:</p>
+<p>In this activity, you need to answer a question about your computer/IT that you will be working with for this class. That question is:</p>
 <ul>
-<li><p><strong>What is your operating system</strong>? Operating system refers to the software that your computer is running to deliver the basic functions. You may have for example:</p>
+<li><p><strong>What is your operating system</strong>? Operating system refers to the software that your computer is running to deliver the basic functions. You may have, for example:</p>
 <ul>
-<li><em>Windows or Linux</em> - if you have these, you are most likely going to have an easy time installing R and R Studio, so you should give the installation instructions a try</li>
-<li><em>Apple</em> - if you have a Mac, it is still not too tough to install R and R Studio, but there are some additional hurdles you will have to cross. Specifically there will be an additional program to download (Xcode), and additional steps here and there. It’s not impossible, but you should be a little bit comfortable with computers.</li>
-<li><em>Chromebook</em> - Installing R and R Studio on a Chromebook involved installing Linux on your Chromebook. Again, like with a Mac, it’s not impossible, but just takes a little bit of resilience.</li>
+<li><em>Windows or Linux</em> - if you have these, you are most likely going to have an easy time installing <code>R</code> and <code>R Studio</code>, so you should give the installation instructions below a try</li>
+<li><em>Apple</em> - if you have a Mac, there are some extra steps to install <code>R</code> and <code>R Studio</code>. Specifically, there will be an additional programme to download called Xcode, and additional steps to take.<br />
+</li>
+<li><em>Chromebook</em> - Installing <code>R</code> and <code>R Studio</code> on a Chromebook involves installing Linux. Like with a Mac, there are some additional steps you will need to take, and some patience.</li>
 </ul></li>
 </ul>
-<p>In your group google sheets (or if you’re working alone, then in a notebook), write down which operating system you have. This will guide which directions to follow later.</p>
+<p>In your group google sheets, write down which operating system you have. This will guide which directions to follow later.</p>
 <div style="margin-bottom:30px;">
 
 </div>
@@ -324,14 +323,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">1.1.2</span> Activity 2: Install R &amp; R Studio</h3>
 <div id="some-notes-specific-to-your-operating-system." class="section level4">
 <h4><span class="header-section-number">1.1.2.1</span> Some notes specific to your operating system.</h4>
-<p>Remember that we spoke above about how installation will differ between your operating system? Well look back now, to your answer to activity 1, and based on that, before you move on to the installation steps below, read or watch the advice specific to your operating system here</p>
+<p>Before you move on to the installation steps, look at your answer from Activity 1, and read or watch the advice specific to your operating system:</p>
 <ul>
 <li>Windows: click <a href="https://www.youtube.com/watch?v=VLWaED9jTiA">here</a> for instructions</li>
 <li>Chromebook: read the tutorial <a href="https://blog.sellorm.com/2018/12/20/installing-r-and-rstudio-on-a-chromebook/">here</a></li>
 <li>Mac, follow the guidance in the video <a href="https://www.youtube.com/watch?v=cX532N_XLIs&amp;list=PLqzoL9-eJTNDw71zWePXyHx3_cm_fMP8S">here</a> and then, you will also need to install command line tools, for that you can watch another video <a href="https://www.youtube.com/watch?v=3Yd9J_dhSfY">here</a></li>
-<li>Linux: for ubuntu see the video <a href="https://www.youtube.com/watch?v=kF0-FH-xBiE">here</a>, but honestly, if you’re running Linux, I’m not worried about your ability to install R and R Studio, I feel like, you’ll tackle this easily. That said if you have questions, let the teaching team know!</li>
+<li>Linux: for ubuntu see the video <a href="https://www.youtube.com/watch?v=kF0-FH-xBiE">here</a> and if you have questions, let the teaching team know!</li>
 </ul>
-<p>Once you have watched/ read the instructions for your relevant operating system, you are now ready to actually have a go at downloading for yourself. Before you start, write in the google doc any questions/worries/etc, and once you’re ready, have a go.</p>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>Once you have watched or read the instructions for your relevant operating system, you are now ready to actually have a go at downloading the software for yourself. Before you start, write in the google doc any questions or concerns, and once ready, install!</p>
+<div style="margin-bottom:30px;">
+
+</div>
 </div>
 <div id="install-r" class="section level4 unnumbered">
 <h4>Install <code>R</code>:</h4>
@@ -358,10 +363,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="plan-b-accessing-r-studio-remotely-throught-a-web-browser" class="section level4">
 <h4><span class="header-section-number">1.1.2.2</span> Plan B: accessing R Studio remotely throught a web browser</h4>
-<p>It might be that after all the videos, and all the attempts, you find that there are some issues specific to your computer, or something just isn’t working for you. Unfortunately, there are many of you and few of us, so there is a chance that we just cannot get it working for you on your own machine. In that case, you have two options.</p>
+<p>It might be that the above does not work and you find that there are some issues specific to your computer, or something just is not working. In that case, you have two options:</p>
+<div style="margin-bottom:15px;">
+
+</div>
 <ul>
-<li><p><em>Option 1:</em> You can remotely access one of the university PCs from your browser (Firefox, Chrome, Safari, etc). You can find instructions how to do this <a href="https://www.itservices.manchester.ac.uk/students/pc-on-campus/remote-cluster-access/">here</a> And the university IT helpdesk can help you access this too. If you do this, you will be able to use the version of RStudio installed in the computer clusters.</p></li>
-<li><p><em>Option 2</em>: You can access an online version of R Studio, which you can access through any web browser (Firefox, Chrome, Safari, etc). To do this, you can visit <a href="https://rstudio.cloud/">https://rstudio.cloud/</a>, click on “get started for free”, choose the free account and click on “sign up”. Then you can always visit this website and log in in order to use R Studio in the cloud. Note that you should start a “New Project” and name is Modelling Crime Data, and then all your work will be saved in this project.</p></li>
+<li><p><em>Option 1:</em> You can remotely access one of the university PCs from your browser (Firefox, Chrome, Safari, etc). You can find instructions how to do this <a href="https://www.itservices.manchester.ac.uk/students/pc-on-campus/remote-cluster-access/">here</a> , and the university IT helpdesk can help you access this too. If you do this, you will be able to use the version of <code>RStudio</code> installed in the computer clusters.</p></li>
+<li><p><em>Option 2</em>: You can access an online version of <code>R Studio</code>, which you can access through any web browser (Firefox, Chrome, Safari, etc). To do this, you visit <a href="https://rstudio.cloud/">https://rstudio.cloud/</a>, click on ‘get started for free’, choose the free account, and click on ‘sign up’. Then you can always visit this website and log in to use <code>R Studio</code> in the cloud. Note that you should start a <code>New Project</code> and name it <em>Modelling Crime Data</em>, and then all your work will be saved in this project. More on projects will be found in Lesson Two, next week.</p></li>
 </ul>
 <hr />
 </div>
@@ -386,6 +394,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Figure 1.1 shows you what <code>RStudio</code> looks like when you first open it: three open panes.</p>
 <p>The biggest one to your left is the main console, and it tells you what version of <code>R</code> you have.</p>
 <p>When you start working in <code>Rstudio</code>, it is best to have <em>four</em> open panes. <strong>How?</strong> Let’s explore in the next activity.</p>
+<div style="margin-bottom:30px;">
+
+</div>
 <div id="activity-3-opening-up-the-script-pane" class="section level4">
 <h4><span class="header-section-number">1.2.0.1</span> Activity 3: Opening up the script pane</h4>
 <p>Figure 1.2: Click in the <em>File</em> drop down Menu, select <em>New File</em>, then <em>R Script</em>.</p>
@@ -445,17 +456,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><em>4.3 Packages</em> tab- you will see the packages that are currently available to install. We will explain what these are soon, but know that they are an essential feature when working with <code>R</code>.</p></li>
 <li><p><em>4.4 Help</em> tab- you can access further information on the various packages.</p></li>
 </ol>
+<div style="margin-bottom:30px;">
+
+</div>
 <div id="activity-4-interacting-with-the-4-panes" class="section level4">
 <h4><span class="header-section-number">1.2.1.1</span> Activity 4: Interacting with the 4 panes</h4>
-<p>In the previous activity, you opened up the ‘script’ pane. Not we are going to test out writing some code in there, and seeing what happens.</p>
-<p>To do this, go to your open version of R Studio, and type in the script pane the following:</p>
+<p>In the previous activity, you opened up the ‘script’ pane. We now write some code in it, and see what happens.</p>
+<p>To do this, go to your open version of <code>R Studio</code>, and type in the script pane the following:</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="a-first-lesson-about-r.html#cb1-1"></a><span class="kw">print</span>(<span class="st">&quot;Hello world!&quot;</span>)</span></code></pre></div>
-<p>When you have typed this, you will have typed your first bit of code. How exciting is that?! But wait, nothing is happening… you typed this… but it’s not getting printed!??</p>
-<p>Well, it is not enough to type your code, you also have to <strong>RUN</strong> the code.</p>
-<p>You can do this by highlighting the code you wish to run, and clicking on “run” in the top right hand corner. Like so:</p>
-<p><img src="Images/run_hello_world.gif" />
-Now you can see, if you do this, the result of your code (the printing of the text “Hello world” will print out in the bottom pane, the <strong>console</strong>)! You have now written and executed code!! Well done, eh?</p>
-<p>In the rest of the session we will be unpacking how this all works, and getting more familiar and comfortable with using R Studio.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>When you have typed this, you will have typed your first bit of code. Yet nothing is happening? That is because you also have to <strong>RUN</strong> the code.</p>
+<p>You can do this by highlighting the code you wish to run, and clicking on ‘run’ in the top right hand corner:</p>
+<div class="figure">
+<img src="Images/run_hello_world.gif" alt="" />
+<p class="caption"><strong>Figure 1.4</strong> Run ‘Hello World!’</p>
+</div>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>When you ‘run’ the code, it will print the text ‘Hello World!’ in the bottom pane, which is the <strong>console</strong>. That means you have written and executed your first line of code.</p>
+<p>In the rest of the session, we will be unpacking how this all works, and getting more familiar and comfortable with using <code>R Studio</code>.</p>
 <hr />
 </div>
 </div>
@@ -464,24 +489,36 @@ Now you can see, if you do this, the result of your code (the printing of the te
 <div style="margin-bottom:30px;">
 
 </div>
-<p>A bit of fun, before we move on. Did you know, you can change the way <code>RStudio</code> looks? Click in the <em>Tools</em> menu and select <em>Global options</em>. A pop up window appears with various options:</p>
-<p><img src="Images/tools_global_options.png" /></p>
-<p>Select <em>Appearance</em>. In this section you can change things related to the appearance of R Studio (e.g. the font type and size) including the theme background that <code>R</code> will use as the interface.</p>
-<p><img src="Images/appearance_choose_tomorrow_night_bright.png" /></p>
-<p><em>Tomorrow Night Bright</em> theme is a recommendation because it is easier on your eyes with its dark background. You can preview and then click <em>Apply</em> to select the one you like (Figure 1.4).</p>
+<p>Did you know you can change the way <code>RStudio</code> looks? Click in the <em>Tools</em> menu and select <em>Global Options</em>. A pop-up window appears with various options:</p>
+<div class="figure">
+<img src="Images/tools_global_options.png" alt="" />
+<p class="caption"><strong>Figure 1.5</strong> Selecting ‘Global Options’</p>
+</div>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>Select <em>Appearance</em>. Here, you can change things related to the appearance of <code>R Studio</code> like the font type and size, including the theme background that <code>R</code> will use as the interface.</p>
+<div class="figure">
+<img src="Images/appearance_choose_tomorrow_night_bright.png" alt="" />
+<p class="caption"><strong>Figure 1.6</strong> Choosing a theme background</p>
+</div>
+<div style="margin-bottom:30px;">
+
+</div>
+<p><em>Tomorrow Night Bright</em> theme in Figure 1.7 is a recommendation because it is easier on your eyes with its dark background. You can preview and then click <em>Apply</em> to select the one you like.</p>
 <div style="margin-bottom:30px;">
 
 </div>
 <div class="figure">
 <img src="Images/tomorrow%20night%20bright.png" style="width:55.0%" alt="" />
-<p class="caption"><strong>Figure 1.4</strong> Tomorrow Night Bright Theme</p>
+<p class="caption"><strong>Figure 1.7</strong> Tomorrow Night Bright Theme</p>
 </div>
 <hr />
 </div>
 </div>
 <div id="todays-3-topics" class="section level2">
 <h2><span class="header-section-number">1.3</span> Today’s 3 (TOPICS)</h2>
-<p>Now that we have a basic understanding of <code>R</code>, we are ready to learn some building blocks. Each session of <em>Modelling Criminological Data</em> will focus on three substantive topics, which are the key learning outcomes for each week. Today’s topics are <strong>operators and functions</strong>, <strong>objects</strong>, and <strong>packages</strong>. Once you have mastered these three topics, you will be ready to start using R for data analysis!</p>
+<p>Now that we have a basic understanding of <code>R</code>, we are ready to learn some building blocks. Each session of <em>Modelling Criminological Data</em> will focus on three substantive topics, which are the key learning outcomes for each week. Today’s topics are <strong>operators and functions</strong>, <strong>objects</strong>, and <strong>packages</strong>. Once you have mastered these three topics, you will be ready to start using <code>R</code> for data analysis!</p>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -507,39 +544,73 @@ Now you can see, if you do this, the result of your code (the printing of the te
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="a-first-lesson-about-r.html#cb8-1"></a><span class="co"># Division</span></span>
 <span id="cb8-2"><a href="a-first-lesson-about-r.html#cb8-2"></a><span class="dv">6</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<p>There are other operators we will come across like <em>and</em> operator (<code>&amp;</code>), and <em>or</em> operator (<code>|</code>), which will be handy when we start to manipulate our data sets.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>Did you <em>Run</em> the arithmetic operators? The answers will have appeared, just like the above. If you are wondering what the # symbol means in the coding above, these are called <strong>comments</strong>. They are annotations you can use in your <code>R script</code> to tell <code>R</code> that what comes right after the <strong>#</strong> are not code to be ran. Comments are like your personal notes alongside your coding.</p>
+<p>There are other operators we will come across like the <em>and</em> operator (<code>&amp;</code>) and the <em>or</em> operator (<code>|</code>), which will be useful when we start to manipulate our data sets.</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div id="activity-5-play-around-with-operators" class="section level4">
 <h4><span class="header-section-number">1.3.1.1</span> Activity 5: Play around with operators</h4>
-<p>Go back to your open version of R Studio, and use this to find the answer to the following:</p>
+<p>Return to your open version of <code>R Studio</code>, and use this to find the answer to the following:</p>
 <p><code>12329 + 342980</code>
 <code>18390 / 348</code></p>
-<p>DO not use the calculator on your phone! I want to see you copy the results copied from the console pane, where it should output (if you’re not sure how, look back up at Activity 4!)</p>
-<p><strong>Functions</strong> are similar to operators in that they <em>do</em> things. They are called by some name, usually a name which represents what it is that they do, and they are followed by brackets <code>()</code>, inside which you put whatever you want the thing the functions does done to. For example, the code we wrote in Activity 4 made use of the <code>print()</code> function. This function told R to print out into the console, whatever we put in the brackets.</p>
-<p>How would you get R to print out a personalised greeting? Well, the <code>print()</code> function will do the thing it does to whatever is inside it’s bracket’s right? So if you want to print “Hello Reka”, you will need to have “Hello Reka” inside the brackets. Like so:</p>
+<p>The results should appear in the console pane and is known as your output.</p>
+<div style="margin-bottom:35px;">
+
+</div>
+<p><strong>Functions</strong> are similar to operators in that they <em>do</em> things. The difference is that they are called by a certain name, usually a name which represents what they do, and they are followed by brackets <code>()</code>. Within the brackets, you can put whatever it is that you want the function to work with. For example, the code we wrote in Activity 4 was the <code>print()</code> function. This function told <code>R</code> to print into the console whatever we put in the brackets (“Hello World!”).</p>
+<p>Same idea with a personalised greeting: if you want to print ‘Hello Reka’, you will need to have “Hello Reka” inside the brackets:</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="a-first-lesson-about-r.html#cb10-1"></a><span class="kw">print</span>(<span class="st">&quot;Hello Reka&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Hello Reka&quot;</code></pre>
-<p>Ta-daa!</p>
-<p>R is full of functions, there are so many, and we will be learning many of them as the course goes. Print is fun, but most of the time, we will be using functions to help us with our data analysis. You might remember some Excel formulas we learned last semester if you took Making Sense of Criminological Data, for example getting the minimum, maximum, mean, etc of a list of numbers. R does this using functions, in a very similar way.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>Hello Reka.</p>
+<p>There are so many functions in <code>R</code>. We will be learning many of them throughout our class. <code>Print</code> is fun, but most of the time, we will be using functions to help us with our data analysis. You might remember some Excel formulas we learned last semester from <em>Making Sense of Criminological Data</em>. For example, getting the minimum, maximum, or mean of a list of numbers. <code>R</code> does this using functions in a very similar way.</p>
 <p>For example, if we have a bunch of numbers, we just find the appropriate function to get the summary we want:</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="a-first-lesson-about-r.html#cb12-1"></a><span class="kw">mean</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="a-first-lesson-about-r.html#cb14-1"></a><span class="kw">min</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="a-first-lesson-about-r.html#cb16-1"></a><span class="kw">max</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>)</span></code></pre></div>
 <pre><code>## [1] 77</code></pre>
-<p>So how can we find the function we need? Well throughout this module, we will be teaching you a long list of functions that you will be using. I recommend that for this, you create a “function cookbook”, where you write down a list of functions, and next to them what they do, maybe even some examples. Here is an example of mine:</p>
-<p><img src="Images/fn_cookbook.png" /></p>
-<p>However, you are also welcome to use google, and the website stackoverflow in particular to help you find the function you need. But be wary, especially in the beginning, that you understand what they do. One good approach is to find a function, add it to your cookbook, and then highlight it to come ask the teaching team about what it does, and how it might be different to other ways of doing things.</p>
-</div>
-<div id="activity-6-play-around-with-functions" class="section level4">
-<h4><span class="header-section-number">1.3.1.2</span> Activity 6: Play around with functions</h4>
-<p>Now that I’ve said that, have a google (or a guess) about what you think is the function to get the median. Once you have a guess or answer, write it in the shared google docs. Then, use it to get the median of the numbers 10, 34, 5, 3, 77. One you have the function, run it in R and tell me what is the answer! Write this in your shared google doc (or note down for yourself if in the quiet room)</p>
-<p>I will tell you the answer after the note below.</p>
 <div style="margin-bottom:50px;">
 
 </div>
-<p><strong>NOTE1 1: </strong> Did you <em>Run</em> the arithmetic operators? The answers will have appeared, just like the above. If you are wondering what the # symbol means in the coding above, these are called <strong>comments</strong>. They are annotations you can use in your <code>R script</code> to tell <code>R</code> that what comes right after the <strong>#</strong> are not code to be ran. Comments are like your personal notes alongside your coding.</p>
-<p><strong>NOTE1 2: </strong> <code>R</code> is case-sensitive! For example:</p>
+<p>How can you find the function you need? Throughout this class, you will learn a list that appears at the top of each lesson. A recommendation is to also create a ‘function cookbook’, where you write down a list of functions, what the functions do, and some examples. Here is an example:</p>
+<div style="margin-bottom:30px;">
+
+</div>
+<div class="figure">
+<img src="Images/fn_cookbook.png" alt="" />
+<p class="caption"><strong>Figure 1.8</strong> An example of a function cookbook</p>
+</div>
+<div style="margin-bottom:35px;">
+
+</div>
+<p>You can use google to make your cookbook, and the website <a href="https://stackoverflow.com/">stackoverflow</a>, in particular, can help you find the function you need. But be wary, especially in the beginning, that you understand what the function does. There can be several different functions for the same action. One good approach is to add a function of interest to your cookbook and ask the teaching team about what it does, and how it might be different to other functions that do the same thing.</p>
+<div style="margin-bottom:35px;">
+
+</div>
+</div>
+<div id="activity-6-play-around-with-functions" class="section level4">
+<h4><span class="header-section-number">1.3.1.2</span> Activity 6: Play around with functions</h4>
+<p>Have a guess (or google) about what you think is the function to get the median. Once you have your answer, write it in the shared google docs. Then, use it to get the median of the numbers 10, 34, 5, 3, 77.</p>
+<p>Write the answer in your shared google doc (or note it down for yourself if in the quiet room).</p>
+<p>The answer is further below, after the note:</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<p><strong>NOTE:</strong> <code>R</code> is case-sensitive! For example:</p>
 <div style="margin-bottom:35px;">
 
 </div>
@@ -550,32 +621,67 @@ Now you can see, if you do this, the result of your code (the printing of the te
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="a-first-lesson-about-r.html#cb19-1"></a><span class="co"># Instead, it should be:</span></span>
 <span id="cb19-2"><a href="a-first-lesson-about-r.html#cb19-2"></a><span class="kw">log</span>(<span class="dv">100</span>)</span></code></pre></div>
 <pre><code>## [1] 4.60517</code></pre>
-<p>Okay, now you know these, the answer to activity 6 was….</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>Okay, now you know these, the answer to Activity 6 was…</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="a-first-lesson-about-r.html#cb21-1"></a><span class="kw">median</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>Now let us move on to our second key topic for today: objects!</p>
+<hr />
 </div>
 </div>
-</div>
-<div id="great-lets-move-on-to-our-2nd-key-topic-for-today-objects" class="section level2">
-<h2><span class="header-section-number">1.4</span> Great, let’s move on to our 2nd key topic for today, objects!</h2>
 <div id="objects" class="section level3">
-<h3><span class="header-section-number">1.4.1</span> Objects</h3>
+<h3><span class="header-section-number">1.3.2</span> Objects</h3>
 <div style="margin-bottom:30px;">
 
 </div>
 <p>Everything that exists in <code>R</code> is an <strong>object</strong>. Think of objects as boxes where you put things in. Imagine a big, empty cardboard box. We can create this big empty box in R by simply giving it a name. Usually, you want your object/box to have a good descriptive name, which will tell people what is in it. Imagine moving house. If you have a cardboard box full of places, you might want to label it “plates”. That way, when carrying, you know to be careful, and when unpacking, you know its contents will go in the kitchen. On the other hand, if you named it “box1”, then this is a lot less helpful when it comes to unpacking.</p>
+<div style="margin-bottom:30px;">
+
+</div>
 <div id="activity-7-creating-an-object" class="section level4">
-<h4><span class="header-section-number">1.4.1.1</span> Activity 7: Creating an object</h4>
-<p>Anyway, let’s create this object. Let’s call it plates. To do this, you go to your console, and type plates.</p>
-<p><img src="Images/plates.png" /></p>
+<h4><span class="header-section-number">1.3.2.1</span> Activity 7: Creating an object</h4>
+<p>Let us create an object called ‘plates’. To do this, you go to your script, and type ‘plates’.</p>
+<div class="figure">
+<img src="Images/plates.png" alt="" />
+<p class="caption"><strong>Figure 1.9</strong> Typing ‘Plates’ in the script</p>
+</div>
+<div style="margin-bottom:35px;">
+
+</div>
 <p>But if you run this code, you will get an error. Let’s see:</p>
-<p><img src="Images/error_no_plates.gif" /></p>
-<p>You see the error “Error! Object plates not found”. This is because you have not yet put anything inside the plates box. By naming it, you create the empty vessel but that is <em>nothing</em> without having some contents. So in order for this object to exist, you have to put something inside it, or in R speak <em>assign it some value</em>.</p>
-<p>Thereofre, we make an object by using an <em>assignment operator</em> ( <code>&lt;-</code> ). In other words, we assign something to an object (put something in the box). For example:</p>
+<div class="figure">
+<img src="Images/error_no_plates.gif" alt="" />
+<p class="caption"><strong>Figure 1.10</strong> Error when Typing ‘Plates’</p>
+</div>
+<div style="margin-bottom:35px;">
+
+</div>
+<p>You see the error ‘Error! Object plates not found’. This is because you have not yet put anything inside the plates ‘box’. Remember objects are like boxes,so there must be something inside our object ‘plates’. In order for this object to exist, you have to put something inside it, or in <code>R</code>-speak <em>assign it some value</em>.</p>
+<p>Therefore, we make an object by using an <em>assignment operator</em> ( <code>&lt;-</code> ). In other words, we assign something to an object (i.e., put something in the box). For example:</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="a-first-lesson-about-r.html#cb23-1"></a>plates &lt;-<span class="st"> &quot;yellow plate&quot;</span></span></code></pre></div>
-<p>Now if we run this, we will see no error message, but instead, we will see the plates object appear in our <em>environment pane</em>:</p>
-<p><img src="Images/assign_plates.gif" />
-Well done, this concludes this activity where you had created an object! You’re getting the hang of this, eh? Here are some more examples to illustrate:</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>Now if we run this, we will see no error message, but instead, we will see the <code>plates</code> object appear in our <em>environment pane</em>:</p>
+<div class="figure">
+<img src="Images/assign_plates.gif" alt="" />
+<p class="caption"><strong>Figure 1.11</strong> The object plates appears</p>
+</div>
+<div style="margin-bottom:35px;">
+
+</div>
+<p>Here are some more examples to illustrate:</p>
 <div style="margin-bottom:35px;">
 
 </div>
@@ -584,15 +690,18 @@ Well done, this concludes this activity where you had created an object! You’r
 <span id="cb24-3"><a href="a-first-lesson-about-r.html#cb24-3"></a></span>
 <span id="cb24-4"><a href="a-first-lesson-about-r.html#cb24-4"></a><span class="co"># Putting &#39;Hello!&#39; in the &#39;abc123&#39; box</span></span>
 <span id="cb24-5"><a href="a-first-lesson-about-r.html#cb24-5"></a>abc123 &lt;-<span class="st"> &quot;Hello!&quot;</span></span></code></pre></div>
-<p>In these cases we are putting the value of 10 into the object <code>a</code>, and the value of “Hello” into the object <code>abc123</code>.</p>
 <div style="margin-bottom:50px;">
 
 </div>
+<p>In these examples, we are putting the value of <code>10</code> into the object <code>a</code>, and the value of ‘Hello!’ into the object <code>abc123</code>.</p>
 <p>Earlier, we introduced you to the Environment and History pane. We mentioned that it lists objects you defined. After making the ‘a’ and ‘abc123’ objects, they should appear in that very pane under the <code>Environment</code> tab.</p>
+<div style="margin-bottom:50px;">
+
+</div>
 </div>
 <div id="types-of-objects" class="section level4">
-<h4><span class="header-section-number">1.4.1.2</span> Types of objects</h4>
-<p>So why are objects important? Well we will be storing everything in our data analysis process in these objects. And depending on what is inside them, they are different type of objects. Here are some examples:</p>
+<h4><span class="header-section-number">1.3.2.2</span> Types of objects</h4>
+<p>Why are objects important? We will be storing everything in our data analysis process in these objects. Depending on what is inside them, they can become a different type of object. Here are some examples:</p>
 <p><strong>Data structures</strong> are important objects that store your data, and there are five main types but we focus on three for this course:</p>
 <ol style="list-style-type: decimal">
 <li><em>(atomic) vector</em>: an ordered set of elements that are of the same <em>class</em>. Vectors are a basic data structure in <code>R</code>. Below are five different classes of vectors:</li>
@@ -626,7 +735,10 @@ Well done, this concludes this activity where you had created an object! You’r
 
 </div>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="a-first-lesson-about-r.html#cb26-1"></a>list_data &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;teal&quot;</span>, <span class="st">&quot;sky blue&quot;</span>, <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">10</span>), <span class="ot">TRUE</span>, <span class="fl">68.26</span>, <span class="fl">95.46</span>, <span class="fl">99.7</span>) </span></code></pre></div>
-<p>Above we created ‘list_data’, an object that contains all those things that we put inside the <code>list()</code> function, this function which serves to create a list from combining everything that is put inside its brackets.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>Above, we created <code>list_data</code>, an object that contains all those things that we put inside the <code>list()</code> function. This function serves to create a list from combining everything that is put inside its brackets.</p>
 <p>Use the <code>class()</code> function to confirm that the objects have been defined as a list</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="a-first-lesson-about-r.html#cb27-1"></a><span class="kw">class</span>(list_data)</span></code></pre></div>
 <pre><code>## [1] &quot;list&quot;</code></pre>
@@ -646,7 +758,13 @@ Well done, this concludes this activity where you had created an object! You’r
 <span id="cb29-5"><a href="a-first-lesson-about-r.html#cb29-5"></a></span>
 <span id="cb29-6"><a href="a-first-lesson-about-r.html#cb29-6"></a><span class="co">#Join them to make a data frame called &#39;df&#39;</span></span>
 <span id="cb29-7"><a href="a-first-lesson-about-r.html#cb29-7"></a>df&lt;-<span class="kw">data.frame</span>(TopVioCities, VioRatePer1k, State)</span></code></pre></div>
+<div style="margin-bottom:50px;">
+
+</div>
 <p>We can then view the data frame, ‘df’, with the View() function:</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="a-first-lesson-about-r.html#cb30-1"></a><span class="kw">View</span>(df)</span></code></pre></div>
 <div style="margin-bottom:50px;">
 
@@ -654,37 +772,87 @@ Well done, this concludes this activity where you had created an object! You’r
 <hr />
 </div>
 <div id="activity-8-doing-things-to-objects" class="section level4">
-<h4><span class="header-section-number">1.4.1.3</span> Activity 8: Doing things to objects</h4>
-<p>So now we’ve learned about what are functions (things that do things) and what are objects (the boxes that hold things). We saw some functions which help us create objects (<code>list()</code> helps us make a list, and <code>data.frame()</code> helps us make a data frame (which is similar to the kinds of data we worked with in Making Sense of Crim data, that you saw in spreadsheets)). And functions can also do things to objects. For example, we saw the function <code>class()</code> that told us about what kind of object list_data was, and <code>View()</code> which allowed us to have a look at our dataframe we called df.</p>
-<p>Let’s look back at our plates object. Remember it was the object which held our kitchen items. We added “yellow plate” to it. Now let’s pack some more items, let’s use the concatenate <code>c()</code> function for this again like we saw above:</p>
+<h4><span class="header-section-number">1.3.2.3</span> Activity 8: Doing things to objects</h4>
+<p>We have learned what functions are (i.e., things that do things) and what are objects (i.e., the boxes that hold things). We also saw some functions which helped us create objects. Functions can also do things to objects. For example, we saw the function <code>class()</code> that told us about what kind of object list_data was, and <code>View()</code> which allowed us to have a look at our dataframe we called <code>df</code>.</p>
+<p>Let us look back at our <code>plates</code> object. Remember it was the object that held our kitchen items. We added ‘yellow plate’ to it. Now let us add some more items and let us use the concatenate <code>c()</code> function for this again:</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="a-first-lesson-about-r.html#cb31-1"></a>plates &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;yellow plate&quot;</span>, <span class="st">&quot;purple plate&quot;</span>, <span class="st">&quot;silver plate&quot;</span>, <span class="st">&quot;orange bowl&quot;</span>)</span></code></pre></div>
-<p>Now let’s say we’re all packed up, we’ve moved, and we see this box (object) labelled plates. We want to know what is inside it. Well earlier we learned of a function that can print some information into the console. This is “<code>print()</code>”. If we put our object name into the <code>print()</code> function, we can see what is inside it, it will print the contents of the object. Try this yourseves:</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>Let us say that we suddenly forgot what was in our object called ‘plates’. Like what we learned earlier, we use the function <code>print()</code> to see what is inside this object:</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="a-first-lesson-about-r.html#cb32-1"></a><span class="kw">print</span>(plates)</span></code></pre></div>
 <pre><code>## [1] &quot;yellow plate&quot; &quot;purple plate&quot; &quot;silver plate&quot; &quot;orange bowl&quot;</code></pre>
-<p>You see now we can see everything inside this box. We applied the <code>print()</code> function to the plates object, so this means we apply it to the contents of the vox, we print every content.</p>
-<p>Same when we talked about the mean and min and max. You could assign those numbers to an object, this time.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>This can apply to obtaining the mean, the minimum, and maximum. You could assign those statistics to an object this time:</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="a-first-lesson-about-r.html#cb34-1"></a>nums &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>)</span></code></pre></div>
-<p>Now if we want to know the mean, we can take the mean of the object <code>nums</code> which we just created:</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>Now if we want to know the mean, we can take the mean of the object <code>nums</code>, which we just created:</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="a-first-lesson-about-r.html#cb35-1"></a><span class="kw">mean</span>(nums)</span></code></pre></div>
 <pre><code>## [1] 25.8</code></pre>
-<p>The object we will use most frequently though is data frames. Much like how we worked with spreadsheets in Excel in Making Sense of Crim Data, our bread and butter this semester will be working with dataframes in R.</p>
-<p>We created a dataframe above, if you haven’t yet copied this over into your own R Studio, do this now. You should have the object <code>df</code> in your environment. When you run <code>View(df)</code> you should see this data set. Like so:</p>
-<p><img src="Images/df_view.png" /></p>
-<p>To do something to an entire dataframe, we would use the name of its box (df) to refer to it. In the case of the <code>View()</code> function, we want to see the whole thing, so we will call <code>View(df)</code>. On the other hand, if we want to refer to only one variable in the data, (remember back to term 1 - each varible is held in each column), there is special notation to do this.</p>
-<p>To refer to a variable (column) inside a dataframe, you use</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<p>The object we will use most frequently though is data frames. Much like how we worked with spreadsheets in Excel in *Making Sense of Criminological Data**, we will be working with dataframes in <code>R</code>.</p>
+<p>We had created a dataframe called <code>df</code> previously. If you have not yet copied this over into your own <code>R Studio</code>, do this now. You should have the object <code>df</code> in your environment. When you run <code>View(df)</code>, you should see this dataset:</p>
+<div class="figure">
+<img src="Images/df_view.png" alt="" />
+<p class="caption"><strong>Figure 1.12</strong> The data frame ‘df’</p>
+</div>
+<p>To do something to an entire dataframe, we would use the name of the object (<code>df</code>) to refer to it. In the case of the <code>View()</code> function, we want to see the whole thing, so we will call <code>View(df)</code>. On the other hand, if we want to refer to only one variable in the data, (remember back to term 1 - each varible is held in each column) there is a special notation to do this.</p>
+<p>To refer to a variable (column) inside a dataframe, you use:</p>
+<div style="margin-bottom:30px;">
+
+</div>
 <p><span class="math inline">\(dataframe name + \$ + variable name\)</span></p>
-<p>So to refer to the varaible <code>VioRatePer1k</code> we use the notation <code>df$VioRatePer1k</code>.</p>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>For example, to refer to the variable <code>VioRatePer1k</code>, we use the notation <code>df$VioRatePer1k</code>.</p>
 <p>And if we wanted to View only that column, we use:</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="a-first-lesson-about-r.html#cb37-1"></a><span class="kw">View</span>(df<span class="op">$</span>VioRatePer1k)</span></code></pre></div>
+<div style="margin-bottom:50px;">
+
+</div>
 <p>You should see:</p>
-<p><img src="Images/view_col_only.png" /></p>
-<p>While in the case of View, this might be strange, but if we want to find out, what is the mean violence rate across our units of analysis (the cities), we would take the numeric column to calculate this:</p>
+<div class="figure">
+<img src="Images/view_col_only.png" alt="" />
+<p class="caption"><strong>Figure 1.13</strong> Viewing df$VioRatePer1k</p>
+</div>
+<div style="margin-bottom:30px;">
+
+</div>
+<p>Say we wanted to know the mean violence rate across our units of analysis, the cities, for example, we would take the numeric column to calculate this:</p>
+<div style="margin-bottom:35px;">
+
+</div>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="a-first-lesson-about-r.html#cb38-1"></a><span class="kw">mean</span>(df<span class="op">$</span>VioRatePer1k)</span></code></pre></div>
 <pre><code>## [1] 20.56667</code></pre>
+<div style="margin-bottom:50px;">
+
+</div>
 </div>
 </div>
 <div id="packages-1" class="section level3">
-<h3><span class="header-section-number">1.4.2</span> Packages</h3>
+<h3><span class="header-section-number">1.3.3</span> Packages</h3>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -736,37 +904,54 @@ Well done, this concludes this activity where you had created an object! You’r
 </div>
 </div>
 <div id="summary" class="section level2">
-<h2><span class="header-section-number">1.5</span> SUMMARY</h2>
+<h2><span class="header-section-number">1.4</span> SUMMARY</h2>
 <div style="margin-bottom:50px;">
 
 </div>
 <p>Today you installed both <code>R</code> and <code>RStudio</code> and had a gander around the <code>RStudio</code> interface. If you were bored with its default look, you could customise the interface. When working with <code>RStudio</code>, it is best to have the four panes. One had to do with the all-important <strong>script</strong> and we use <code>#</code> in the coding when we want to make <strong>comments</strong>.</p>
-<p>We learned about some important features of <code>R</code>. First were the <strong>operators</strong>. These are symbols that tell <code>R</code> what to do and come in four types. One we will use quite a bit is the <em>assignment operator</em>, which is the symbol, <code>&lt;-</code>. Second were <strong>objects</strong>, which are pervasive when working with <code>R</code>. They are like boxes that you put stuff in, and we learned about three specific types of <strong>data structure</strong> objects: vectors, lists, and data frames. Third were packages. These are open source software that expand what <code>R</code> can do. We installed <code>dplyr</code> as an example, and we will use this <code>tidyverse</code> package in our next session.</p>
+<p>We learned about some important features of <code>R</code>. First were the <strong>operators</strong>. These are symbols that tell <code>R</code> what to do and come in four types. One we will use quite a bit is the <em>assignment operator</em>, which is the symbol, <code>&lt;-</code>. Second were <strong>objects and functions</strong>, which are pervasive when working with <code>R</code>. They are like boxes that you put stuff in, and we learned about three specific types of <strong>data structure</strong> objects: vectors, lists, and data frames. Third were packages. These are open source software that expand what <code>R</code> can do. We installed <code>dplyr</code> as an example, and we will use this <code>tidyverse</code> package in our next session.</p>
 <div style="margin-bottom:50px;">
 
 </div>
-<p>Now one last activity about saving your work, and of using projects.</p>
-<div id="activity-9-saving-your-work-and-projects" class="section level4">
-<h4><span class="header-section-number">1.5.0.1</span> Activity 9: Saving your work and projects</h4>
-<p>Finally, you want to keep your code, and you want to work in some nice orderly fashion. Remember in Making Sense of Criminological Data in term 1 we talked about workspaces. In R Studio, projects are a way to achieve this.</p>
-<p>Now, first things first, hopefully you have already created a separate folder on your desktop, or dropbox, or something like this. Now save the script you’ve been working on into this folder. By clicking on “File” and “Save as…”.</p>
-<p><img src="Images/save_script_as.png" /></p>
-<p>Then navigate to your folder for this module, and for your script make sure to give it some meaningful name like week1lab.R or something like this. Then click ‘save’.</p>
-<p><img src="Images/rename_and_save.png" /></p>
-<p>Now, go back to “File” and select “New project…”</p>
-<p><img src="Images/file_newproj.png" /></p>
-<p>Then in the options that appear choose “Existing Directory”. This is because you already have a folder for this work, this is where you saved your script just before. For me this was my folder called ‘modelling2021’ you saw above.</p>
-<p><img src="Images/existing_dir.png" /></p>
-<p>So select ‘Existing Directory’, and on the next page use the “Browse” button to select this folder (the directory) where you saved the script earlier. Once you have done this, click on ‘Create Project’ on the bottom.</p>
-<p><img src="Images/browse_proj_dir.png" /></p>
-<p>This will now open up a new R Studio window with your project. In the future, you can start right back up where you finished last time by navigating to the .Rproj file, and double clicking it. It helps you keep everything in one place, and lets R read everything from that folder.</p>
-<p>You can read up here on why projects are useful here: <a href="https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/">https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/</a></p>
-<p>That’s all for today, don’t forget to do your homework task, and the quiz by next week!</p>
+<p>That is all for today. Do not forget to do your homework task and the quiz by next week!</p>
 <div style="margin-bottom:500px;">
 
 </div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="a-first-lesson-about-r.html#cb45-1"></a><span class="co">#Now one last activity about saving your work, and of using projects. </span></span>
+<span id="cb45-2"><a href="a-first-lesson-about-r.html#cb45-2"></a></span>
+<span id="cb45-3"><a href="a-first-lesson-about-r.html#cb45-3"></a><span class="co">#### Activity 9: Saving your work and projects</span></span>
+<span id="cb45-4"><a href="a-first-lesson-about-r.html#cb45-4"></a></span>
+<span id="cb45-5"><a href="a-first-lesson-about-r.html#cb45-5"></a><span class="co">#Finally, you want to keep your code, and you want to work in some nice orderly fashion. Remember in Making Sense of Criminological Data in term 1 we talked about workspaces. In R Studio, projects are a way to achieve this. </span></span>
+<span id="cb45-6"><a href="a-first-lesson-about-r.html#cb45-6"></a></span>
+<span id="cb45-7"><a href="a-first-lesson-about-r.html#cb45-7"></a></span>
+<span id="cb45-8"><a href="a-first-lesson-about-r.html#cb45-8"></a><span class="co">#Now, first things first, hopefully you have already created a separate folder on your desktop, or dropbox, or something like this. Now save the script you&#39;ve been working on into this folder. By clicking on &quot;File&quot; and &quot;Save as...&quot;. </span></span>
+<span id="cb45-9"><a href="a-first-lesson-about-r.html#cb45-9"></a></span>
+<span id="cb45-10"><a href="a-first-lesson-about-r.html#cb45-10"></a><span class="co">#![](Images/save_script_as.png)</span></span>
+<span id="cb45-11"><a href="a-first-lesson-about-r.html#cb45-11"></a></span>
+<span id="cb45-12"><a href="a-first-lesson-about-r.html#cb45-12"></a><span class="co">#Then navigate to your folder for this module, and for your script make sure to give it some meaningful name like week1lab.R or something like this. Then click &#39;save&#39;.  </span></span>
+<span id="cb45-13"><a href="a-first-lesson-about-r.html#cb45-13"></a></span>
+<span id="cb45-14"><a href="a-first-lesson-about-r.html#cb45-14"></a><span class="co">#![](Images/rename_and_save.png)</span></span>
+<span id="cb45-15"><a href="a-first-lesson-about-r.html#cb45-15"></a></span>
+<span id="cb45-16"><a href="a-first-lesson-about-r.html#cb45-16"></a></span>
+<span id="cb45-17"><a href="a-first-lesson-about-r.html#cb45-17"></a><span class="co">#Now, go back to &quot;File&quot; and select &quot;New project...&quot;</span></span>
+<span id="cb45-18"><a href="a-first-lesson-about-r.html#cb45-18"></a></span>
+<span id="cb45-19"><a href="a-first-lesson-about-r.html#cb45-19"></a></span>
+<span id="cb45-20"><a href="a-first-lesson-about-r.html#cb45-20"></a><span class="co">#![](Images/file_newproj.png)</span></span>
+<span id="cb45-21"><a href="a-first-lesson-about-r.html#cb45-21"></a></span>
+<span id="cb45-22"><a href="a-first-lesson-about-r.html#cb45-22"></a><span class="co">#Then in the options that appear choose &quot;Existing Directory&quot;. This is because you already have a folder for this work, this is where you saved your script just before. For me this was my folder called &#39;modelling2021&#39; you saw above. </span></span>
+<span id="cb45-23"><a href="a-first-lesson-about-r.html#cb45-23"></a></span>
+<span id="cb45-24"><a href="a-first-lesson-about-r.html#cb45-24"></a></span>
+<span id="cb45-25"><a href="a-first-lesson-about-r.html#cb45-25"></a><span class="co">#![](Images/existing_dir.png)</span></span>
+<span id="cb45-26"><a href="a-first-lesson-about-r.html#cb45-26"></a></span>
+<span id="cb45-27"><a href="a-first-lesson-about-r.html#cb45-27"></a><span class="co">#So select &#39;Existing Directory&#39;, and on the next page use the &quot;Browse&quot; button to select this folder (the directory) where you saved the script earlier. Once you have done this, click on &#39;Create Project&#39; on the bottom. </span></span>
+<span id="cb45-28"><a href="a-first-lesson-about-r.html#cb45-28"></a></span>
+<span id="cb45-29"><a href="a-first-lesson-about-r.html#cb45-29"></a><span class="co">#![](Images/browse_proj_dir.png)</span></span>
+<span id="cb45-30"><a href="a-first-lesson-about-r.html#cb45-30"></a></span>
+<span id="cb45-31"><a href="a-first-lesson-about-r.html#cb45-31"></a><span class="co">#This will now open up a new R Studio window with your project. In the future, you can start right back up where you finished last time by navigating to the .Rproj file, and double clicking it. It helps you keep everything in one place, and lets R read everything from that folder.</span></span>
+<span id="cb45-32"><a href="a-first-lesson-about-r.html#cb45-32"></a></span>
+<span id="cb45-33"><a href="a-first-lesson-about-r.html#cb45-33"></a></span>
+<span id="cb45-34"><a href="a-first-lesson-about-r.html#cb45-34"></a><span class="co">#You can read up here on why projects are useful here: [https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/](https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/)</span></span></code></pre></div>
 
-</div>
 </div>
 </div>
             </section>

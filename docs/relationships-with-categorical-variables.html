@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Relationships with Categorical Variables | bookdown-demo.utf8</title>
+  <title>Chapter 7 Relationships with Categorical Variables | ModellingCrimData.utf8</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Relationships with Categorical Variables | bookdown-demo.utf8" />
+  <meta property="og:title" content="Chapter 7 Relationships with Categorical Variables | ModellingCrimData.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Relationships with Categorical Variables | bookdown-demo.utf8" />
+  <meta name="twitter:title" content="Chapter 7 Relationships with Categorical Variables | ModellingCrimData.utf8" />
   
   
   
@@ -139,12 +139,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#operators-and-functions"><i class="fa fa-check"></i><b>1.3.1</b> Operators and Functions</a></li>
+<li class="chapter" data-level="1.3.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.3.2</b> Objects</a></li>
+<li class="chapter" data-level="1.3.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#great-lets-move-on-to-our-2nd-key-topic-for-today-objects"><i class="fa fa-check"></i><b>1.4</b> Great, let’s move on to our 2nd key topic for today, objects!</a><ul>
-<li class="chapter" data-level="1.4.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.4.1</b> Objects</a></li>
-<li class="chapter" data-level="1.4.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.4.2</b> Packages</a></li>
-</ul></li>
-<li class="chapter" data-level="1.5" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.5</b> SUMMARY</a></li>
+<li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.4</b> SUMMARY</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a><ul>
 <li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.1</b> R Projects – Getting Your Work Files Organised</a></li>
@@ -241,9 +239,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 7</span> Relationships with Categorical Variables</h1>
 <div id="independent-and-dependent-variables-t-test-chi-square" class="section level4 unnumbered">
 <h4><em>Independent and Dependent Variables, T-test, Chi-square</em></h4>
-<div style="margin-bottom:50px;">
-
-</div>
+<hr />
 </div>
 <div id="learning-outcomes-6" class="section level4 unnumbered">
 <h4>Learning Outcomes:</h4>
@@ -407,8 +403,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="relationships-with-categorical-variables.html#cb258-1"></a><span class="co"># Examining distribution of sex variable</span></span>
-<span id="cb258-2"><a href="relationships-with-categorical-variables.html#cb258-2"></a>nys_<span class="dv">1</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="relationships-with-categorical-variables.html#cb263-1"></a><span class="co"># Examining distribution of sex variable</span></span>
+<span id="cb263-2"><a href="relationships-with-categorical-variables.html#cb263-2"></a>nys_<span class="dv">1</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 2 x 2
 ##          sex     n
@@ -422,19 +418,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="relationships-with-categorical-variables.html#cb261-1"></a><span class="co"># First, recode ‘sex’ and store it in a new variable called ‘female’</span></span>
-<span id="cb261-2"><a href="relationships-with-categorical-variables.html#cb261-2"></a>nys_<span class="dv">1</span><span class="op">$</span>female &lt;-<span class="st"> </span><span class="kw">recode</span>(nys_<span class="dv">1</span><span class="op">$</span>sex, <span class="st">&#39;2&#39;</span> =<span class="st"> </span><span class="dv">1</span>, <span class="st">&#39;1&#39;</span> =<span class="st"> </span><span class="dv">0</span>) </span>
-<span id="cb261-3"><a href="relationships-with-categorical-variables.html#cb261-3"></a></span>
-<span id="cb261-4"><a href="relationships-with-categorical-variables.html#cb261-4"></a><span class="co"># Next, label the values so that female is ‘1’ and male is ‘0’</span></span>
-<span id="cb261-5"><a href="relationships-with-categorical-variables.html#cb261-5"></a>nys_<span class="dv">1</span> &lt;-<span class="st"> </span>nys_<span class="dv">1</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">add_value_labels</span>(<span class="dt">female =</span> <span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>=<span class="dv">1</span>, <span class="st">&quot;Male&quot;</span>=<span class="dv">0</span>)) </span>
-<span id="cb261-6"><a href="relationships-with-categorical-variables.html#cb261-6"></a></span>
-<span id="cb261-7"><a href="relationships-with-categorical-variables.html#cb261-7"></a><span class="co"># Check they were added correctly by getting frequencies </span></span>
-<span id="cb261-8"><a href="relationships-with-categorical-variables.html#cb261-8"></a><span class="kw">count</span>(nys_<span class="dv">1</span>, female)</span></code></pre></div>
-<pre><code>## Warning: `count_()` is deprecated as of dplyr 0.7.0.
-## Please use `count()` instead.
-## See vignette(&#39;programming&#39;) for more help
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="relationships-with-categorical-variables.html#cb266-1"></a><span class="co"># First, recode ‘sex’ and store it in a new variable called ‘female’</span></span>
+<span id="cb266-2"><a href="relationships-with-categorical-variables.html#cb266-2"></a>nys_<span class="dv">1</span><span class="op">$</span>female &lt;-<span class="st"> </span><span class="kw">recode</span>(nys_<span class="dv">1</span><span class="op">$</span>sex, <span class="st">&#39;2&#39;</span> =<span class="st"> </span><span class="dv">1</span>, <span class="st">&#39;1&#39;</span> =<span class="st"> </span><span class="dv">0</span>) </span>
+<span id="cb266-3"><a href="relationships-with-categorical-variables.html#cb266-3"></a></span>
+<span id="cb266-4"><a href="relationships-with-categorical-variables.html#cb266-4"></a><span class="co"># Next, label the values so that female is ‘1’ and male is ‘0’</span></span>
+<span id="cb266-5"><a href="relationships-with-categorical-variables.html#cb266-5"></a>nys_<span class="dv">1</span> &lt;-<span class="st"> </span>nys_<span class="dv">1</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">add_value_labels</span>(<span class="dt">female =</span> <span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>=<span class="dv">1</span>, <span class="st">&quot;Male&quot;</span>=<span class="dv">0</span>)) </span>
+<span id="cb266-6"><a href="relationships-with-categorical-variables.html#cb266-6"></a></span>
+<span id="cb266-7"><a href="relationships-with-categorical-variables.html#cb266-7"></a><span class="co"># Check they were added correctly by getting frequencies </span></span>
+<span id="cb266-8"><a href="relationships-with-categorical-variables.html#cb266-8"></a><span class="kw">count</span>(nys_<span class="dv">1</span>, female)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##       female     n
 ##    &lt;dbl+lbl&gt; &lt;int&gt;
@@ -447,10 +438,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="relationships-with-categorical-variables.html#cb264-1"></a><span class="co"># Use skim() function from skimr package to examine drunk variable </span></span>
-<span id="cb264-2"><a href="relationships-with-categorical-variables.html#cb264-2"></a><span class="kw">skim</span>(nys_<span class="dv">1</span>, drunk)</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="relationships-with-categorical-variables.html#cb268-1"></a><span class="co"># Use skim() function from skimr package to examine drunk variable </span></span>
+<span id="cb268-2"><a href="relationships-with-categorical-variables.html#cb268-2"></a><span class="kw">skim</span>(nys_<span class="dv">1</span>, drunk)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-112">Table 7.1: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-6">Table 7.1: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -519,10 +510,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="relationships-with-categorical-variables.html#cb265-1"></a><span class="co"># Checking out DV by variable ‘female’</span></span>
-<span id="cb265-2"><a href="relationships-with-categorical-variables.html#cb265-2"></a>nys_<span class="dv">1</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(female) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">skim</span>(drunk)</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="relationships-with-categorical-variables.html#cb269-1"></a><span class="co"># Checking out DV by variable ‘female’</span></span>
+<span id="cb269-2"><a href="relationships-with-categorical-variables.html#cb269-2"></a>nys_<span class="dv">1</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(female) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">skim</span>(drunk)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-112">Table 7.1: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-6">Table 7.1: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -616,8 +607,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="relationships-with-categorical-variables.html#cb266-1"></a><span class="co"># DV comes first in code, then the IV</span></span>
-<span id="cb266-2"><a href="relationships-with-categorical-variables.html#cb266-2"></a><span class="kw">var.test</span>(nys_<span class="dv">1</span><span class="op">$</span>drunk<span class="op">~</span>nys_<span class="dv">1</span><span class="op">$</span>female)</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="relationships-with-categorical-variables.html#cb270-1"></a><span class="co"># DV comes first in code, then the IV</span></span>
+<span id="cb270-2"><a href="relationships-with-categorical-variables.html#cb270-2"></a><span class="kw">var.test</span>(nys_<span class="dv">1</span><span class="op">$</span>drunk<span class="op">~</span>nys_<span class="dv">1</span><span class="op">$</span>female)</span></code></pre></div>
 <pre><code>## 
 ##  F test to compare two variances
 ## 
@@ -636,8 +627,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="relationships-with-categorical-variables.html#cb268-1"></a><span class="co"># Run the t-test with var.equal option set to false </span></span>
-<span id="cb268-2"><a href="relationships-with-categorical-variables.html#cb268-2"></a><span class="kw">t.test</span>(nys_<span class="dv">1</span><span class="op">$</span>drunk<span class="op">~</span>nys_<span class="dv">1</span><span class="op">$</span>female, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="relationships-with-categorical-variables.html#cb272-1"></a><span class="co"># Run the t-test with var.equal option set to false </span></span>
+<span id="cb272-2"><a href="relationships-with-categorical-variables.html#cb272-2"></a><span class="kw">t.test</span>(nys_<span class="dv">1</span><span class="op">$</span>drunk<span class="op">~</span>nys_<span class="dv">1</span><span class="op">$</span>female, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -649,11 +640,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sample estimates:
 ## mean in group 0 mean in group 1 
 ##        1.614208        0.818408</code></pre>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="relationships-with-categorical-variables.html#cb270-1"></a><span class="co"># You can save your results in an object, too, to refer back to later:</span></span>
-<span id="cb270-2"><a href="relationships-with-categorical-variables.html#cb270-2"></a>t_test_results &lt;-<span class="st"> </span><span class="kw">t.test</span>(nys_<span class="dv">1</span><span class="op">$</span>drunk<span class="op">~</span>nys_<span class="dv">1</span><span class="op">$</span>female, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb270-3"><a href="relationships-with-categorical-variables.html#cb270-3"></a></span>
-<span id="cb270-4"><a href="relationships-with-categorical-variables.html#cb270-4"></a><span class="co"># Print independent t-test results </span></span>
-<span id="cb270-5"><a href="relationships-with-categorical-variables.html#cb270-5"></a>t_test_results</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="relationships-with-categorical-variables.html#cb274-1"></a><span class="co"># You can save your results in an object, too, to refer back to later:</span></span>
+<span id="cb274-2"><a href="relationships-with-categorical-variables.html#cb274-2"></a>t_test_results &lt;-<span class="st"> </span><span class="kw">t.test</span>(nys_<span class="dv">1</span><span class="op">$</span>drunk<span class="op">~</span>nys_<span class="dv">1</span><span class="op">$</span>female, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb274-3"><a href="relationships-with-categorical-variables.html#cb274-3"></a></span>
+<span id="cb274-4"><a href="relationships-with-categorical-variables.html#cb274-4"></a><span class="co"># Print independent t-test results </span></span>
+<span id="cb274-5"><a href="relationships-with-categorical-variables.html#cb274-5"></a>t_test_results</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -697,8 +688,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="relationships-with-categorical-variables.html#cb272-1"></a><span class="co"># View NYS wave 2 data </span></span>
-<span id="cb272-2"><a href="relationships-with-categorical-variables.html#cb272-2"></a><span class="kw">View</span>(nys_<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="relationships-with-categorical-variables.html#cb276-1"></a><span class="co"># View NYS wave 2 data </span></span>
+<span id="cb276-2"><a href="relationships-with-categorical-variables.html#cb276-2"></a><span class="kw">View</span>(nys_<span class="dv">2</span>)</span></code></pre></div>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -706,9 +697,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="relationships-with-categorical-variables.html#cb273-1"></a><span class="co"># Merging waves 1 and 2 of data together by CASEID</span></span>
-<span id="cb273-2"><a href="relationships-with-categorical-variables.html#cb273-2"></a><span class="co"># Putting this merged data into the data frame object called ‘nys_merged’</span></span>
-<span id="cb273-3"><a href="relationships-with-categorical-variables.html#cb273-3"></a>nys_merged &lt;-<span class="kw">merge</span>(nys_<span class="dv">1</span>, nys_<span class="dv">2</span>, <span class="dt">by=</span><span class="st">&quot;CASEID&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="relationships-with-categorical-variables.html#cb277-1"></a><span class="co"># Merging waves 1 and 2 of data together by CASEID</span></span>
+<span id="cb277-2"><a href="relationships-with-categorical-variables.html#cb277-2"></a><span class="co"># Putting this merged data into the data frame object called ‘nys_merged’</span></span>
+<span id="cb277-3"><a href="relationships-with-categorical-variables.html#cb277-3"></a>nys_merged &lt;-<span class="kw">merge</span>(nys_<span class="dv">1</span>, nys_<span class="dv">2</span>, <span class="dt">by=</span><span class="st">&quot;CASEID&quot;</span>)</span></code></pre></div>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -716,9 +707,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="relationships-with-categorical-variables.html#cb274-1"></a><span class="co"># Let us run the dependent samples t-test </span></span>
-<span id="cb274-2"><a href="relationships-with-categorical-variables.html#cb274-2"></a><span class="co"># Specify TRUE for the paired option </span></span>
-<span id="cb274-3"><a href="relationships-with-categorical-variables.html#cb274-3"></a><span class="kw">t.test</span>(nys_merged<span class="op">$</span>thftg50_w2, nys_merged<span class="op">$</span>thftg50, <span class="dt">paired=</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="relationships-with-categorical-variables.html#cb278-1"></a><span class="co"># Let us run the dependent samples t-test </span></span>
+<span id="cb278-2"><a href="relationships-with-categorical-variables.html#cb278-2"></a><span class="co"># Specify TRUE for the paired option </span></span>
+<span id="cb278-3"><a href="relationships-with-categorical-variables.html#cb278-3"></a><span class="kw">t.test</span>(nys_merged<span class="op">$</span>thftg50_w2, nys_merged<span class="op">$</span>thftg50, <span class="dt">paired=</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -752,13 +743,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="relationships-with-categorical-variables.html#cb276-1"></a><span class="co"># Seeing what class these variables are</span></span>
-<span id="cb276-2"><a href="relationships-with-categorical-variables.html#cb276-2"></a><span class="kw">class</span>(BCS0708<span class="op">$</span>bcsvictim)</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="relationships-with-categorical-variables.html#cb280-1"></a><span class="co"># Seeing what class these variables are</span></span>
+<span id="cb280-2"><a href="relationships-with-categorical-variables.html#cb280-2"></a><span class="kw">class</span>(BCS0708<span class="op">$</span>bcsvictim)</span></code></pre></div>
 <pre><code>## [1] &quot;haven_labelled&quot; &quot;vctrs_vctr&quot;     &quot;double&quot;</code></pre>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="relationships-with-categorical-variables.html#cb278-1"></a><span class="kw">class</span>(BCS0708<span class="op">$</span>rubbcomm)</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="relationships-with-categorical-variables.html#cb282-1"></a><span class="kw">class</span>(BCS0708<span class="op">$</span>rubbcomm)</span></code></pre></div>
 <pre><code>## [1] &quot;haven_labelled&quot; &quot;vctrs_vctr&quot;     &quot;double&quot;</code></pre>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="relationships-with-categorical-variables.html#cb280-1"></a><span class="co"># 0-Not victim of crime; 1-Victim of crime</span></span>
-<span id="cb280-2"><a href="relationships-with-categorical-variables.html#cb280-2"></a><span class="kw">attributes</span>(BCS0708<span class="op">$</span>bcsvictim) </span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="relationships-with-categorical-variables.html#cb284-1"></a><span class="co"># 0-Not victim of crime; 1-Victim of crime</span></span>
+<span id="cb284-2"><a href="relationships-with-categorical-variables.html#cb284-2"></a><span class="kw">attributes</span>(BCS0708<span class="op">$</span>bcsvictim) </span></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;experience of any crime in the previous 12 months&quot;
 ## 
@@ -771,8 +762,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $labels
 ## not a victim of crime       victim of crime 
 ##                     0                     1</code></pre>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="relationships-with-categorical-variables.html#cb282-1"></a><span class="co"># 5-point Likert-scale ranging from 1 (very common) to 4 (not common) </span></span>
-<span id="cb282-2"><a href="relationships-with-categorical-variables.html#cb282-2"></a><span class="kw">attributes</span>(BCS0708<span class="op">$</span>rubbcomm)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="relationships-with-categorical-variables.html#cb286-1"></a><span class="co"># 5-point Likert-scale ranging from 1 (very common) to 4 (not common) </span></span>
+<span id="cb286-2"><a href="relationships-with-categorical-variables.html#cb286-2"></a><span class="kw">attributes</span>(BCS0708<span class="op">$</span>rubbcomm)</span></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;in the immediate area how common is litter\\rubbish&quot;
 ## 
@@ -787,26 +778,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                 1                 2                 3                 4 
 ##         not coded 
 ##                 5</code></pre>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="relationships-with-categorical-variables.html#cb284-1"></a><span class="kw">table</span>(BCS0708<span class="op">$</span>bcsvictim)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="relationships-with-categorical-variables.html#cb288-1"></a><span class="kw">table</span>(BCS0708<span class="op">$</span>bcsvictim)</span></code></pre></div>
 <pre><code>## 
 ##    0    1 
 ## 9318 2358</code></pre>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="relationships-with-categorical-variables.html#cb286-1"></a><span class="co"># If you want the frequency distribution with labels, use ‘as_factor ()’</span></span>
-<span id="cb286-2"><a href="relationships-with-categorical-variables.html#cb286-2"></a><span class="kw">table</span>(<span class="kw">as_factor</span>(BCS0708<span class="op">$</span>bcsvictim))</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="relationships-with-categorical-variables.html#cb290-1"></a><span class="co"># If you want the frequency distribution with labels, use ‘as_factor ()’</span></span>
+<span id="cb290-2"><a href="relationships-with-categorical-variables.html#cb290-2"></a><span class="kw">table</span>(<span class="kw">as_factor</span>(BCS0708<span class="op">$</span>bcsvictim))</span></code></pre></div>
 <pre><code>## 
 ## not a victim of crime       victim of crime 
 ##                  9318                  2358</code></pre>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="relationships-with-categorical-variables.html#cb288-1"></a><span class="kw">table</span>(<span class="kw">as_factor</span>(BCS0708<span class="op">$</span>rubbcomm))</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="relationships-with-categorical-variables.html#cb292-1"></a><span class="kw">table</span>(<span class="kw">as_factor</span>(BCS0708<span class="op">$</span>rubbcomm))</span></code></pre></div>
 <pre><code>## 
 ##       very common     fairly common   not very common not at all common 
 ##               204              1244              4154              5463 
 ##         not coded 
 ##                 0</code></pre>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="relationships-with-categorical-variables.html#cb290-1"></a><span class="co"># Checking for any missing values using ‘sum ()’ to count number of NA data</span></span>
-<span id="cb290-2"><a href="relationships-with-categorical-variables.html#cb290-2"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(BCS0708<span class="op">$</span>bcsvictim))</span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="relationships-with-categorical-variables.html#cb294-1"></a><span class="co"># Checking for any missing values using ‘sum ()’ to count number of NA data</span></span>
+<span id="cb294-2"><a href="relationships-with-categorical-variables.html#cb294-2"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(BCS0708<span class="op">$</span>bcsvictim))</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="relationships-with-categorical-variables.html#cb292-1"></a><span class="co"># Value of 5 indicates missing</span></span>
-<span id="cb292-2"><a href="relationships-with-categorical-variables.html#cb292-2"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(BCS0708<span class="op">$</span>rubbcomm))</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="relationships-with-categorical-variables.html#cb296-1"></a><span class="co"># Value of 5 indicates missing</span></span>
+<span id="cb296-2"><a href="relationships-with-categorical-variables.html#cb296-2"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(BCS0708<span class="op">$</span>rubbcomm))</span></code></pre></div>
 <pre><code>## [1] 611</code></pre>
 <div style="margin-bottom:50px;">
 
@@ -816,9 +807,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="relationships-with-categorical-variables.html#cb294-1"></a><span class="co"># Basic R</span></span>
-<span id="cb294-2"><a href="relationships-with-categorical-variables.html#cb294-2"></a><span class="kw">table</span>(<span class="kw">as_factor</span>(BCS0708<span class="op">$</span>bcsvictim), </span>
-<span id="cb294-3"><a href="relationships-with-categorical-variables.html#cb294-3"></a>      <span class="kw">as_factor</span>(BCS0708<span class="op">$</span>rubbcomm))</span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="relationships-with-categorical-variables.html#cb298-1"></a><span class="co"># Basic R</span></span>
+<span id="cb298-2"><a href="relationships-with-categorical-variables.html#cb298-2"></a><span class="kw">table</span>(<span class="kw">as_factor</span>(BCS0708<span class="op">$</span>bcsvictim), </span>
+<span id="cb298-3"><a href="relationships-with-categorical-variables.html#cb298-3"></a>      <span class="kw">as_factor</span>(BCS0708<span class="op">$</span>rubbcomm))</span></code></pre></div>
 <pre><code>##                        
 ##                         very common fairly common not very common
 ##   not a victim of crime         141           876            3173
@@ -827,14 +818,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                         not at all common not coded
 ##   not a victim of crime              4614         0
 ##   victim of crime                     849         0</code></pre>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="relationships-with-categorical-variables.html#cb296-1"></a><span class="co"># dplyr</span></span>
-<span id="cb296-2"><a href="relationships-with-categorical-variables.html#cb296-2"></a>results &lt;-<span class="st"> </span>BCS0708 <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># ‘fct_explicit_na()’ function from the forcats package to get an explicit factor level from our # missing values</span></span>
-<span id="cb296-3"><a href="relationships-with-categorical-variables.html#cb296-3"></a><span class="st">  </span><span class="kw">group_by</span>(<span class="kw">fct_explicit_na</span>(<span class="kw">as_factor</span>(rubbcomm))) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb296-4"><a href="relationships-with-categorical-variables.html#cb296-4"></a><span class="st">  </span><span class="co"># We use the function ‘mean()’ as the variable is binary and because it is coded as 0 and 1.</span></span>
-<span id="cb296-5"><a href="relationships-with-categorical-variables.html#cb296-5"></a><span class="st">  </span><span class="kw">summarize</span>( <span class="dt">count =</span> <span class="kw">n</span>(), <span class="dt">outcome_1 =</span> <span class="kw">mean</span>(bcsvictim))</span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="relationships-with-categorical-variables.html#cb300-1"></a><span class="co"># dplyr</span></span>
+<span id="cb300-2"><a href="relationships-with-categorical-variables.html#cb300-2"></a>results &lt;-<span class="st"> </span>BCS0708 <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># ‘fct_explicit_na()’ function from the forcats package to get an explicit factor level from our # missing values</span></span>
+<span id="cb300-3"><a href="relationships-with-categorical-variables.html#cb300-3"></a><span class="st">  </span><span class="kw">group_by</span>(<span class="kw">fct_explicit_na</span>(<span class="kw">as_factor</span>(rubbcomm))) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb300-4"><a href="relationships-with-categorical-variables.html#cb300-4"></a><span class="st">  </span><span class="co"># We use the function ‘mean()’ as the variable is binary and because it is coded as 0 and 1.</span></span>
+<span id="cb300-5"><a href="relationships-with-categorical-variables.html#cb300-5"></a><span class="st">  </span><span class="kw">summarize</span>( <span class="dt">count =</span> <span class="kw">n</span>(), <span class="dt">outcome_1 =</span> <span class="kw">mean</span>(bcsvictim))</span></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="relationships-with-categorical-variables.html#cb298-1"></a><span class="co"># Auto-print the results stored in the newly created object </span></span>
-<span id="cb298-2"><a href="relationships-with-categorical-variables.html#cb298-2"></a>results</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="relationships-with-categorical-variables.html#cb302-1"></a><span class="co"># Auto-print the results stored in the newly created object </span></span>
+<span id="cb302-2"><a href="relationships-with-categorical-variables.html#cb302-2"></a>results</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 3
 ##   `fct_explicit_na(as_factor(rubbcomm))` count outcome_1
 ##   &lt;fct&gt;                                  &lt;int&gt;     &lt;dbl&gt;
@@ -851,11 +842,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="relationships-with-categorical-variables.html#cb300-1"></a><span class="co"># Define the rows in your table (rubbcomm) and then the variable that will define the columns # (bcsvictim)</span></span>
-<span id="cb300-2"><a href="relationships-with-categorical-variables.html#cb300-2"></a><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), </span>
-<span id="cb300-3"><a href="relationships-with-categorical-variables.html#cb300-3"></a>                         <span class="kw">as_factor</span>(bcsvictim), </span>
-<span id="cb300-4"><a href="relationships-with-categorical-variables.html#cb300-4"></a><span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>, </span>
-<span id="cb300-5"><a href="relationships-with-categorical-variables.html#cb300-5"></a><span class="dt">format =</span> <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="relationships-with-categorical-variables.html#cb304-1"></a><span class="co"># Define the rows in your table (rubbcomm) and then the variable that will define the columns # (bcsvictim)</span></span>
+<span id="cb304-2"><a href="relationships-with-categorical-variables.html#cb304-2"></a><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), </span>
+<span id="cb304-3"><a href="relationships-with-categorical-variables.html#cb304-3"></a>                         <span class="kw">as_factor</span>(bcsvictim), </span>
+<span id="cb304-4"><a href="relationships-with-categorical-variables.html#cb304-4"></a><span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb304-5"><a href="relationships-with-categorical-variables.html#cb304-5"></a><span class="dt">format =</span> <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</span></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|
@@ -922,11 +913,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="relationships-with-categorical-variables.html#cb302-1"></a><span class="co"># prop.c is column and prop.t is total</span></span>
-<span id="cb302-2"><a href="relationships-with-categorical-variables.html#cb302-2"></a><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), </span>
-<span id="cb302-3"><a href="relationships-with-categorical-variables.html#cb302-3"></a>                         <span class="kw">as_factor</span>(bcsvictim), </span>
-<span id="cb302-4"><a href="relationships-with-categorical-variables.html#cb302-4"></a>                         <span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span></span>
-<span id="cb302-5"><a href="relationships-with-categorical-variables.html#cb302-5"></a>                           <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="relationships-with-categorical-variables.html#cb306-1"></a><span class="co"># prop.c is column and prop.t is total</span></span>
+<span id="cb306-2"><a href="relationships-with-categorical-variables.html#cb306-2"></a><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), </span>
+<span id="cb306-3"><a href="relationships-with-categorical-variables.html#cb306-3"></a>                         <span class="kw">as_factor</span>(bcsvictim), </span>
+<span id="cb306-4"><a href="relationships-with-categorical-variables.html#cb306-4"></a>                         <span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span></span>
+<span id="cb306-5"><a href="relationships-with-categorical-variables.html#cb306-5"></a>                           <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</span></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|
@@ -979,10 +970,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="relationships-with-categorical-variables.html#cb304-1"></a><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), </span>
-<span id="cb304-2"><a href="relationships-with-categorical-variables.html#cb304-2"></a>                         <span class="kw">as_factor</span>(bcsvictim), </span>
-<span id="cb304-3"><a href="relationships-with-categorical-variables.html#cb304-3"></a>                         <span class="dt">expected =</span> <span class="ot">TRUE</span>, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span></span>
-<span id="cb304-4"><a href="relationships-with-categorical-variables.html#cb304-4"></a>                           <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>) ))</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="relationships-with-categorical-variables.html#cb308-1"></a><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), </span>
+<span id="cb308-2"><a href="relationships-with-categorical-variables.html#cb308-2"></a>                         <span class="kw">as_factor</span>(bcsvictim), </span>
+<span id="cb308-3"><a href="relationships-with-categorical-variables.html#cb308-3"></a>                         <span class="dt">expected =</span> <span class="ot">TRUE</span>, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span></span>
+<span id="cb308-4"><a href="relationships-with-categorical-variables.html#cb308-4"></a>                           <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>) ))</span></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|
@@ -1040,7 +1031,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="relationships-with-categorical-variables.html#cb306-1"></a><span class="kw">chisq.test</span>(BCS0708<span class="op">$</span>rubbcomm, BCS0708<span class="op">$</span>bcsvictim)</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="relationships-with-categorical-variables.html#cb310-1"></a><span class="kw">chisq.test</span>(BCS0708<span class="op">$</span>rubbcomm, BCS0708<span class="op">$</span>bcsvictim)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -1054,9 +1045,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="relationships-with-categorical-variables.html#cb308-1"></a><span class="kw">with</span>(BCS0708, <span class="kw">fisher.test</span>(rubbcomm, bcsvictim))</span></code></pre></div>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="relationships-with-categorical-variables.html#cb309-1"></a><span class="co"># If you get an error message about increasing the size of your workspace, do so with this code:</span></span>
-<span id="cb309-2"><a href="relationships-with-categorical-variables.html#cb309-2"></a><span class="kw">fisher.test</span>(BCS0708<span class="op">$</span>rubbcomm, BCS0708<span class="op">$</span>bcsvictim, <span class="dt">workspace =</span> <span class="fl">2e+07</span>, <span class="dt">hybrid =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="relationships-with-categorical-variables.html#cb312-1"></a><span class="kw">with</span>(BCS0708, <span class="kw">fisher.test</span>(rubbcomm, bcsvictim))</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="relationships-with-categorical-variables.html#cb313-1"></a><span class="co"># If you get an error message about increasing the size of your workspace, do so with this code:</span></span>
+<span id="cb313-2"><a href="relationships-with-categorical-variables.html#cb313-2"></a><span class="kw">fisher.test</span>(BCS0708<span class="op">$</span>rubbcomm, BCS0708<span class="op">$</span>bcsvictim, <span class="dt">workspace =</span> <span class="fl">2e+07</span>, <span class="dt">hybrid =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Fisher&#39;s Exact Test for Count Data hybrid using asym.chisq. iff
 ##  (exp=5, perc=80, Emin=1)
@@ -1074,10 +1065,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="relationships-with-categorical-variables.html#cb311-1"></a><span class="co"># Include argument ‘asresid= TRUE’ to include adjusted standardised residuals</span></span>
-<span id="cb311-2"><a href="relationships-with-categorical-variables.html#cb311-2"></a><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), <span class="kw">as_factor</span>(bcsvictim), <span class="dt">expected =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb311-3"><a href="relationships-with-categorical-variables.html#cb311-3"></a>                         <span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">asresid =</span></span>
-<span id="cb311-4"><a href="relationships-with-categorical-variables.html#cb311-4"></a>                           <span class="ot">TRUE</span>, <span class="dt">format =</span> <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>) ))</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="relationships-with-categorical-variables.html#cb315-1"></a><span class="co"># Include argument ‘asresid= TRUE’ to include adjusted standardised residuals</span></span>
+<span id="cb315-2"><a href="relationships-with-categorical-variables.html#cb315-2"></a><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), <span class="kw">as_factor</span>(bcsvictim), <span class="dt">expected =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb315-3"><a href="relationships-with-categorical-variables.html#cb315-3"></a>                         <span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">asresid =</span></span>
+<span id="cb315-4"><a href="relationships-with-categorical-variables.html#cb315-4"></a>                           <span class="ot">TRUE</span>, <span class="dt">format =</span> <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>) ))</span></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|

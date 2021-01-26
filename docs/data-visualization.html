@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Data Visualization | bookdown-demo.utf8</title>
+  <title>Chapter 3 Data Visualization | ModellingCrimData.utf8</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Data Visualization | bookdown-demo.utf8" />
+  <meta property="og:title" content="Chapter 3 Data Visualization | ModellingCrimData.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Data Visualization | bookdown-demo.utf8" />
+  <meta name="twitter:title" content="Chapter 3 Data Visualization | ModellingCrimData.utf8" />
   
   
   
@@ -139,12 +139,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#operators-and-functions"><i class="fa fa-check"></i><b>1.3.1</b> Operators and Functions</a></li>
+<li class="chapter" data-level="1.3.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.3.2</b> Objects</a></li>
+<li class="chapter" data-level="1.3.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#great-lets-move-on-to-our-2nd-key-topic-for-today-objects"><i class="fa fa-check"></i><b>1.4</b> Great, let’s move on to our 2nd key topic for today, objects!</a><ul>
-<li class="chapter" data-level="1.4.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.4.1</b> Objects</a></li>
-<li class="chapter" data-level="1.4.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.4.2</b> Packages</a></li>
-</ul></li>
-<li class="chapter" data-level="1.5" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.5</b> SUMMARY</a></li>
+<li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.4</b> SUMMARY</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a><ul>
 <li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.1</b> R Projects – Getting Your Work Files Organised</a></li>
@@ -241,9 +239,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 3</span> Data Visualization</h1>
 <div id="layers-and-graphs" class="section level4 unnumbered">
 <h4><em>Layers and Graphs</em></h4>
-<div style="margin-bottom:30px;">
-
-</div>
 <hr />
 <div id="learning-outcomes-2" class="section level5 unnumbered">
 <h5><strong>Learning Outcomes:</strong></h5>
@@ -365,10 +360,10 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-visualization.html#cb83-1"></a><span class="co"># gmp_2017.csv</span></span>
-<span id="cb83-2"><a href="data-visualization.html#cb83-2"></a>burglary_df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;gmp_2017.csv&quot;</span>))</span>
-<span id="cb83-3"><a href="data-visualization.html#cb83-3"></a></span>
-<span id="cb83-4"><a href="data-visualization.html#cb83-4"></a><span class="co"># now try for the &#39;monthly_df&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-visualization.html#cb88-1"></a><span class="co"># gmp_2017.csv</span></span>
+<span id="cb88-2"><a href="data-visualization.html#cb88-2"></a>burglary_df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;gmp_2017.csv&quot;</span>))</span>
+<span id="cb88-3"><a href="data-visualization.html#cb88-3"></a></span>
+<span id="cb88-4"><a href="data-visualization.html#cb88-4"></a><span class="co"># now try for the &#39;monthly_df&#39;</span></span></code></pre></div>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -407,8 +402,8 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data-visualization.html#cb84-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df)</span></code></pre></div>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-35-1.png" width="672" />
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-visualization.html#cb89-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df)</span></code></pre></div>
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
 </div>
@@ -417,9 +412,9 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-visualization.html#cb85-1"></a><span class="co"># We use the variable ‘incscore’ for our measure of income – why do you think this is the best variable to represent income?</span></span>
-<span id="cb85-2"><a href="data-visualization.html#cb85-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count))</span></code></pre></div>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-36-1.png" width="672" />
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-visualization.html#cb90-1"></a><span class="co"># We use the variable ‘incscore’ for our measure of income – why do you think this is the best variable to represent income?</span></span>
+<span id="cb90-2"><a href="data-visualization.html#cb90-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count))</span></code></pre></div>
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
 </div>
@@ -428,10 +423,10 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data-visualization.html#cb86-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count)) <span class="op">+</span></span>
-<span id="cb86-2"><a href="data-visualization.html#cb86-2"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-visualization.html#cb87-1"></a><span class="co"># We are saying, ‘Hey R, may you please make me a graphic using the data &quot;burglary_df” and map the variables “incscore” to the x-axis and “burglary_count” to the y-axis, then pass this information through (using “ + ” ) to make a scatterplot?’</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-visualization.html#cb91-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count)) <span class="op">+</span></span>
+<span id="cb91-2"><a href="data-visualization.html#cb91-2"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
+<p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-visualization.html#cb92-1"></a><span class="co"># We are saying, ‘Hey R, may you please make me a graphic using the data &quot;burglary_df” and map the variables “incscore” to the x-axis and “burglary_count” to the y-axis, then pass this information through (using “ + ” ) to make a scatterplot?’</span></span></code></pre></div>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -440,9 +435,9 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-visualization.html#cb88-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb88-2"><a href="data-visualization.html#cb88-2"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-38-1.png" width="672" />
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-visualization.html#cb93-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb93-2"><a href="data-visualization.html#cb93-2"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
 </div>
@@ -461,10 +456,10 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-visualization.html#cb89-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb89-2"><a href="data-visualization.html#cb89-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb89-3"><a href="data-visualization.html#cb89-3"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>)</span></code></pre></div>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-39-1.png" width="672" />
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-visualization.html#cb94-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb94-2"><a href="data-visualization.html#cb94-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb94-3"><a href="data-visualization.html#cb94-3"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>)</span></code></pre></div>
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
 </div>
@@ -472,10 +467,10 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-visualization.html#cb90-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb90-2"><a href="data-visualization.html#cb90-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb90-3"><a href="data-visualization.html#cb90-3"></a><span class="st">  </span><span class="kw">scale_color_viridis_d</span>() <span class="co"># or scale_color_viridis_c() for a continuous variable </span></span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-visualization.html#cb95-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb95-2"><a href="data-visualization.html#cb95-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb95-3"><a href="data-visualization.html#cb95-3"></a><span class="st">  </span><span class="kw">scale_color_viridis_d</span>() <span class="co"># or scale_color_viridis_c() for a continuous variable </span></span></code></pre></div>
+<p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -490,12 +485,12 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-visualization.html#cb91-1"></a><span class="co">#Below, we want our data points to be a bit bigger ( 3 ) and more transparent ( 0.5 ) than the default</span></span>
-<span id="cb91-2"><a href="data-visualization.html#cb91-2"></a></span>
-<span id="cb91-3"><a href="data-visualization.html#cb91-3"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb91-4"><a href="data-visualization.html#cb91-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb91-5"><a href="data-visualization.html#cb91-5"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>)</span></code></pre></div>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-41-1.png" width="672" />
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-visualization.html#cb96-1"></a><span class="co">#Below, we want our data points to be a bit bigger ( 3 ) and more transparent ( 0.5 ) than the default</span></span>
+<span id="cb96-2"><a href="data-visualization.html#cb96-2"></a></span>
+<span id="cb96-3"><a href="data-visualization.html#cb96-3"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb96-4"><a href="data-visualization.html#cb96-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb96-5"><a href="data-visualization.html#cb96-5"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>)</span></code></pre></div>
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
 </div>
@@ -510,11 +505,11 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-visualization.html#cb92-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb92-2"><a href="data-visualization.html#cb92-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb92-3"><a href="data-visualization.html#cb92-3"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb92-4"><a href="data-visualization.html#cb92-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Income score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Burglary count&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Income and burglary and victimization&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;Local Authority&quot;</span>)</span></code></pre></div>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-42-1.png" width="672" />
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-visualization.html#cb97-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb97-2"><a href="data-visualization.html#cb97-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb97-3"><a href="data-visualization.html#cb97-3"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb97-4"><a href="data-visualization.html#cb97-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Income score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Burglary count&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Income and burglary and victimization&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;Local Authority&quot;</span>)</span></code></pre></div>
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
 </div>
@@ -529,13 +524,13 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-visualization.html#cb93-1"></a><span class="co"># Changing graphic to the minimal theme with the last line of code</span></span>
-<span id="cb93-2"><a href="data-visualization.html#cb93-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb93-3"><a href="data-visualization.html#cb93-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb93-4"><a href="data-visualization.html#cb93-4"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb93-5"><a href="data-visualization.html#cb93-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Income score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Burglary count&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Income and burglary and victimization&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Income score from 2019 IMD. Burglary counts from 2017.&quot;</span> , <span class="dt">color =</span> <span class="st">&quot;Local Authority&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb93-6"><a href="data-visualization.html#cb93-6"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-43-1.png" width="672" />
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-visualization.html#cb98-1"></a><span class="co"># Changing graphic to the minimal theme with the last line of code</span></span>
+<span id="cb98-2"><a href="data-visualization.html#cb98-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb98-3"><a href="data-visualization.html#cb98-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb98-4"><a href="data-visualization.html#cb98-4"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb98-5"><a href="data-visualization.html#cb98-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Income score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Burglary count&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Income and burglary and victimization&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Income score from 2019 IMD. Burglary counts from 2017.&quot;</span> , <span class="dt">color =</span> <span class="st">&quot;Local Authority&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb98-6"><a href="data-visualization.html#cb98-6"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
 </div>
@@ -557,10 +552,10 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-visualization.html#cb94-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb94-2"><a href="data-visualization.html#cb94-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(IMDdeci))) <span class="op">+</span><span class="st"> </span><span class="co"># convert IMDdeci to a factor with as.factor </span></span>
-<span id="cb94-3"><a href="data-visualization.html#cb94-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Lower Super Output Areas&quot;</span>)</span></code></pre></div>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-44-1.png" width="672" />
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-visualization.html#cb99-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb99-2"><a href="data-visualization.html#cb99-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(IMDdeci))) <span class="op">+</span><span class="st"> </span><span class="co"># convert IMDdeci to a factor with as.factor </span></span>
+<span id="cb99-3"><a href="data-visualization.html#cb99-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Lower Super Output Areas&quot;</span>)</span></code></pre></div>
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
 </div>
@@ -574,11 +569,11 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-visualization.html#cb95-1"></a><span class="co"># the ‘dodge’ position means that the bars avoid or ‘dodge’ each other</span></span>
-<span id="cb95-2"><a href="data-visualization.html#cb95-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb95-3"><a href="data-visualization.html#cb95-3"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(IMDdeci), <span class="dt">fill =</span> LAname), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></span>
-<span id="cb95-4"><a href="data-visualization.html#cb95-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Lower Super Output Areas&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;Local Authority&quot;</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-visualization.html#cb100-1"></a><span class="co"># the ‘dodge’ position means that the bars avoid or ‘dodge’ each other</span></span>
+<span id="cb100-2"><a href="data-visualization.html#cb100-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb100-3"><a href="data-visualization.html#cb100-3"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(IMDdeci), <span class="dt">fill =</span> LAname), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></span>
+<span id="cb100-4"><a href="data-visualization.html#cb100-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Lower Super Output Areas&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;Local Authority&quot;</span>)</span></code></pre></div>
+<p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -593,12 +588,12 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-visualization.html#cb96-1"></a><span class="co"># To facet the scatterplot by local authority, ‘ ~ ‘ is used next to ‘LAname’</span></span>
-<span id="cb96-2"><a href="data-visualization.html#cb96-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb96-3"><a href="data-visualization.html#cb96-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb96-4"><a href="data-visualization.html#cb96-4"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>LAname)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-visualization.html#cb97-1"></a><span class="co"># By default, facet_wrap fixes the y-axis of each graph to make comparisons easier</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-visualization.html#cb101-1"></a><span class="co"># To facet the scatterplot by local authority, ‘ ~ ‘ is used next to ‘LAname’</span></span>
+<span id="cb101-2"><a href="data-visualization.html#cb101-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb101-3"><a href="data-visualization.html#cb101-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb101-4"><a href="data-visualization.html#cb101-4"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>LAname)</span></code></pre></div>
+<p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-visualization.html#cb102-1"></a><span class="co"># By default, facet_wrap fixes the y-axis of each graph to make comparisons easier</span></span></code></pre></div>
 <div style="margin-bottom:35px;">
 
 </div>
@@ -620,10 +615,10 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-visualization.html#cb98-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> IMDscore)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb98-2"><a href="data-visualization.html#cb98-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-visualization.html#cb103-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> IMDscore)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb103-2"><a href="data-visualization.html#cb103-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>()</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-47-1.png" width="672" />
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
 </div>
@@ -631,10 +626,10 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-visualization.html#cb100-1"></a><span class="co"># Using bin-width of 1 we are essentially creating a bar for every increase in level of deprivation</span></span>
-<span id="cb100-2"><a href="data-visualization.html#cb100-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> IMDscore)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb100-3"><a href="data-visualization.html#cb100-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>)</span></code></pre></div>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-48-1.png" width="672" />
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="data-visualization.html#cb105-1"></a><span class="co"># Using bin-width of 1 we are essentially creating a bar for every increase in level of deprivation</span></span>
+<span id="cb105-2"><a href="data-visualization.html#cb105-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> IMDscore)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb105-3"><a href="data-visualization.html#cb105-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>)</span></code></pre></div>
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
 </div>
@@ -651,11 +646,11 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-visualization.html#cb101-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> monthly_df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(Month), <span class="dt">y =</span> n, <span class="dt">group =</span> crime_type, <span class="dt">linetype =</span> crime_type)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb101-2"><a href="data-visualization.html#cb101-2"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb101-3"><a href="data-visualization.html#cb101-3"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-visualization.html#cb102-1"></a><span class="co"># We are saying, ‘Hey R, may you please make a graphic using the data frame “monthly_df”, and map the variable “month” (turning it into a factor) to the x-axis and “n” to the y-axis, and group this information by “crime_type”, showing different patterns for each crime type, then pass this information through (“ +”) to make a line graph, and pass this information through (“ +”) to make a scatterplot of the time points too?’</span></span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="data-visualization.html#cb106-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> monthly_df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(Month), <span class="dt">y =</span> n, <span class="dt">group =</span> crime_type, <span class="dt">linetype =</span> crime_type)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb106-2"><a href="data-visualization.html#cb106-2"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb106-3"><a href="data-visualization.html#cb106-3"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
+<p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="data-visualization.html#cb107-1"></a><span class="co"># We are saying, ‘Hey R, may you please make a graphic using the data frame “monthly_df”, and map the variable “month” (turning it into a factor) to the x-axis and “n” to the y-axis, and group this information by “crime_type”, showing different patterns for each crime type, then pass this information through (“ +”) to make a line graph, and pass this information through (“ +”) to make a scatterplot of the time points too?’</span></span></code></pre></div>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -671,12 +666,12 @@ Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-visualization.html#cb103-1"></a>MyWhiskerPlot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb103-2"><a href="data-visualization.html#cb103-2"></a><span class="kw">geom_boxplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(IMDdeci), <span class="dt">y =</span> burglary_count, <span class="dt">group =</span> <span class="kw">as.factor</span>(IMDdeci), <span class="dt">fill =</span> <span class="kw">as.factor</span>(IMDdeci))) </span>
-<span id="cb103-3"><a href="data-visualization.html#cb103-3"></a></span>
-<span id="cb103-4"><a href="data-visualization.html#cb103-4"></a>MyWhiskerPlot <span class="op">+</span><span class="st"> </span></span>
-<span id="cb103-5"><a href="data-visualization.html#cb103-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation Scale&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Burglaries&quot;</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="data-visualization.html#cb108-1"></a>MyWhiskerPlot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb108-2"><a href="data-visualization.html#cb108-2"></a><span class="kw">geom_boxplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(IMDdeci), <span class="dt">y =</span> burglary_count, <span class="dt">group =</span> <span class="kw">as.factor</span>(IMDdeci), <span class="dt">fill =</span> <span class="kw">as.factor</span>(IMDdeci))) </span>
+<span id="cb108-3"><a href="data-visualization.html#cb108-3"></a></span>
+<span id="cb108-4"><a href="data-visualization.html#cb108-4"></a>MyWhiskerPlot <span class="op">+</span><span class="st"> </span></span>
+<span id="cb108-5"><a href="data-visualization.html#cb108-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation Scale&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Burglaries&quot;</span>)</span></code></pre></div>
+<p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <div style="margin-bottom:50px;">
 
 </div>
