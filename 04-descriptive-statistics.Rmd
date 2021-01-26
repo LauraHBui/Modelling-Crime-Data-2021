@@ -2,15 +2,12 @@
 site: bookdown::bookdown_site
 documentclass: book
 output:bookdown::gitbook: default
-  #bookdown::pdf_book: default
+#bookdown::pdf_book: default
 ---
-
 
 # Descriptive Statistics
 #### *Central Tendency, Outliers, and Dispersion* {-}
 
-<div style="margin-bottom:30px;">
-</div>
 
 ---
 

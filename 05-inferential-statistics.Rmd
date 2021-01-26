@@ -2,14 +2,12 @@
 site: bookdown::bookdown_site
 documentclass: book
 output:bookdown::gitbook: default
-  #bookdown::pdf_book: default
+#bookdown::pdf_book: default
 ---
 
 # Inferential Statistics
 #### *Samples, Standard Errors, and Confidence Intervals* {-}
 
-<div style="margin-bottom:30px;">
-</div>
 
 ---
 

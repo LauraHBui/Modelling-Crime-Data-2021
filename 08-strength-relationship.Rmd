@@ -2,14 +2,14 @@
 site: bookdown::bookdown_site
 documentclass: book
 output:bookdown::gitbook: default
-  #bookdown::pdf_book: default
+#bookdown::pdf_book: default
 ---
 
 # Strength of Relationships 
 #### *Between Categorical Nominal, Categorical Ordinal, & Numeric Variables* {-}
 
-<div style="margin-bottom:50px;">
-</div>
+
+---
 
 #### Learning Outcomes: {-}
 -	Learn how to conduct analyses that identify the effect sizes of relationships

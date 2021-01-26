@@ -2,15 +2,12 @@
 site: bookdown::bookdown_site
 documentclass: book
 output:bookdown::gitbook: default
-  #bookdown::pdf_book: default
+#bookdown::pdf_book: default
 ---
-
 
 # Hypotheses
 #### *Statistical Significance, Binominal Test, Single Sample Significance Tests* {-}
 
-<div style="margin-bottom:50px;">
-</div>
 
 ---
 

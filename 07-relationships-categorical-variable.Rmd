@@ -2,15 +2,14 @@
 site: bookdown::bookdown_site
 documentclass: book
 output:bookdown::gitbook: default
-  #bookdown::pdf_book: default
+#bookdown::pdf_book: default
 ---
-
 
 # Relationships with Categorical Variables
 #### *Independent and Dependent Variables, T-test, Chi-square* {-}
 
-<div style="margin-bottom:50px;">
-</div>
+
+---
 
 #### Learning Outcomes: {-}
 -	Learn to arrange variables as independent and dependent variables
