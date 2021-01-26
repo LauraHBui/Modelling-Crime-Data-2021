@@ -3,8 +3,6 @@
 #### *Samples, Standard Errors, and Confidence Intervals* {-}
 
 
----
-
 #### **Learning Outcomes:** {-}
 -	Understand what inferential statistics are and why they are used
 -	Learn how samples can be used to draw conclusions about the population
@@ -142,7 +140,7 @@ mean(prob_iq) # 99.99508
 ```
 
 ```
-## [1] 99.98728
+## [1] 99.99028
 ```
 
 ```r
@@ -150,7 +148,7 @@ median(prob_iq) # 99.99855
 ```
 
 ```
-## [1] 99.98546
+## [1] 99.99049
 ```
 
 ```r
@@ -158,7 +156,7 @@ sd(prob_iq) # 14.99377
 ```
 
 ```
-## [1] 15.00349
+## [1] 15.00074
 ```
 <div style="margin-bottom:50px;">
 </div>

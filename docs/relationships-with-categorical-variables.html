@@ -4,25 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Relationships with Categorical Variables | ModellingCrimData.utf8</title>
-  <meta name="description" content="" />
+  <title>Chapter 7 Relationships with Categorical Variables | Modelling Criminological Data</title>
+  <meta name="description" content="This is a companion workbook for the 2nd year undergraduate module CRIM20452 Modelling Criminological Data at the University of Manchester" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Relationships with Categorical Variables | ModellingCrimData.utf8" />
+  <meta property="og:title" content="Chapter 7 Relationships with Categorical Variables | Modelling Criminological Data" />
   <meta property="og:type" content="book" />
   
   
-  
-  
+  <meta property="og:description" content="This is a companion workbook for the 2nd year undergraduate module CRIM20452 Modelling Criminological Data at the University of Manchester" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Relationships with Categorical Variables | ModellingCrimData.utf8" />
+  <meta name="twitter:title" content="Chapter 7 Relationships with Categorical Variables | Modelling Criminological Data" />
   
-  
+  <meta name="twitter:description" content="This is a companion workbook for the 2nd year undergraduate module CRIM20452 Modelling Criminological Data at the University of Manchester" />
   
 
+<meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
+<meta name="date" content="2021-01-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -115,6 +117,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -127,6 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">Modelling Criminological Data</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
 <li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a><ul>
 <li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a><ul>
@@ -218,6 +224,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="regression.html"><a href="regression.html#summary-8"><i class="fa fa-check"></i><b>9.3</b> SUMMARY</a></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -227,7 +236,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modelling Criminological Data</a>
           </h1>
         </div>
 
@@ -239,7 +248,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 7</span> Relationships with Categorical Variables</h1>
 <div id="independent-and-dependent-variables-t-test-chi-square" class="section level4 unnumbered">
 <h4><em>Independent and Dependent Variables, T-test, Chi-square</em></h4>
-<hr />
 </div>
 <div id="learning-outcomes-6" class="section level4 unnumbered">
 <h4>Learning Outcomes:</h4>
@@ -348,6 +356,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="6" style="list-style-type: decimal">
 <li>There is some code on scientific notation that we will ignore, so run <code>options(scipen=999)</code> to turn it off.</li>
 </ol>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="relationships-with-categorical-variables.html#cb262-1"></a><span class="kw">View</span>(nys_<span class="dv">1</span>)</span>
+<span id="cb262-2"><a href="relationships-with-categorical-variables.html#cb262-2"></a><span class="kw">View</span>(nys_<span class="dv">2</span>)</span>
+<span id="cb262-3"><a href="relationships-with-categorical-variables.html#cb262-3"></a></span>
+<span id="cb262-4"><a href="relationships-with-categorical-variables.html#cb262-4"></a><span class="kw">options</span>(<span class="dt">scipen=</span><span class="dv">999</span>)</span></code></pre></div>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -613,7 +625,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  F test to compare two variances
 ## 
 ## data:  nys_1$drunk by nys_1$female
-## F = 1.7729, num df = 914, denom df = 803, p-value &lt; 0.00000000000000022
+## F = 1.7729, num df = 914, denom df = 803, p-value &lt; 2.2e-16
 ## alternative hypothesis: true ratio of variances is not equal to 1
 ## 95 percent confidence interval:
 ##  1.549899 2.026885
@@ -736,7 +748,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:50px;">
 
 </div>
-<p>We now open the 2007–2008 wave of the British Crime Survey dataset using the <code>read.dta ()</code> function. We name the data frame <code>BCS0708</code>. Use the <code>view ()</code> and <code>dim ()</code> functions to get to know your data.</p>
+<p>We now open the 2007–2008 wave of the British Crime Survey dataset using the <code>read.dta ()</code> function. We name the data frame <code>BCS0708</code>. Use the <code>View()</code> and <code>dim()</code> functions to get to know your data.</p>
 <p>The <strong>chi-square statistic</strong> is a test of statistical significance for two categorical variables. It tells us how much the observed distribution differs from the one expected under the null hypothesis. To begin to even understand this definition, we start with cross tabulations or <strong>contingency tables</strong>. These appear as a table that shows the crossed frequency distributions of more than one variable simultaneously and are particularly helpful in exploring relationships between categorical variables that do not have too many categories. Specifically, cross-tabulations have the same meaning except they are applied only to relationships between two categorical variables.</p>
 <p>We produce a cross tabulation of victimisation ( <code>bcsvictim</code> ) and whether rubbish is a problem in the area where the respondent lives (<code>rubbcomm</code>). According to <em>Broken Windows Theory</em>, proposed by James Q. Wilson and George Kelling, we should see a relationship between these two variables.</p>
 <p>First, we check out our variables:</p>
@@ -1017,7 +1029,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Pearson&#39;s Chi-squared test 
 ## ------------------------------------------------------------
-## Chi^2 =  184.0443     d.f. =  3     p =  0.000000000000000000000000000000000000001180409 
+## Chi^2 =  184.0443     d.f. =  3     p =  1.180409e-39 
 ## 
 ## 
 ##  
@@ -1036,7 +1048,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  BCS0708$rubbcomm and BCS0708$bcsvictim
-## X-squared = 184.04, df = 3, p-value &lt; 0.00000000000000022</code></pre>
+## X-squared = 184.04, df = 3, p-value &lt; 2.2e-16</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -1053,7 +1065,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  (exp=5, perc=80, Emin=1)
 ## 
 ## data:  BCS0708$rubbcomm and BCS0708$bcsvictim
-## p-value &lt; 0.00000000000000022
+## p-value &lt; 2.2e-16
 ## alternative hypothesis: two.sided</code></pre>
 <div style="margin-bottom:50px;">
 
@@ -1112,7 +1124,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Pearson&#39;s Chi-squared test 
 ## ------------------------------------------------------------
-## Chi^2 =  184.0443     d.f. =  3     p =  0.000000000000000000000000000000000000001180409 
+## Chi^2 =  184.0443     d.f. =  3     p =  1.180409e-39 
 ## 
 ## 
 ##  
@@ -1185,8 +1197,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-relationships-categorical-variable.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -1196,7 +1208,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["Modelling-Crime-Data-2021.pdf", "Modelling-Crime-Data-2021.epub"],
 "toc": {
 "collapse": "subsection"
 }

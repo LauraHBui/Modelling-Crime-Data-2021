@@ -3,7 +3,6 @@
 #### *Layers and Graphs* {-}
 
 
----
 
 ##### **Learning Outcomes:** {-}
 -	Understand what Grammar of Graphics and its corresponding package `ggplot2` are
@@ -137,7 +136,7 @@ monthly_df <- read_csv(here("Datasets", "gmp_monthly_2017.csv"))
 
 As you learn to create graphs in `ggplot2`, you will see that the code reflects building these graphs as layers. This will take getting used to if you are only familiar with building graphs from a template in Excel. You can also reuse chunks of code to create different kinds of graphics or identical ones in other datasets. Today we focus on the `ggplot2` package to learn our three substantive topics: **layers**, **graphs for nominal and ordinal data**, and **graphs for interval and ratio data**. 
 
-Before we dive into those topics, we need to get into the habit of getting to know our data. First, let us use the function `view ()` and then the function `class()` to look at how `R` treats each variable for each dataset.
+Before we dive into those topics, we need to get into the habit of getting to know our data. First, let us use the function `View()` and then the function `class()` to look at how `R` treats each variable for each dataset.
 
 In `burglary_df`, there are eight variables. For example, the `IMDscore` variable combines seven domains of deprivation into one index: income, employment, education, health, crime, barriers to housing/services, and living environment. `IMDrank` is a variable that ranks all 32,844 Lower Super Output Areas (LSOAs) from highest to lowest. 
 

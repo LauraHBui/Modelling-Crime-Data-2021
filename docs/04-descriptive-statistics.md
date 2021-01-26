@@ -3,8 +3,6 @@
 #### *Central Tendency, Outliers, and Dispersion* {-}
 
 
----
-
 ##### **Learning Outcomes** {-}
 - Revisit what descriptive statistics are and their importance in understanding your data
 - Learn / review measures of the central tendency and dispersion and how to conduct them 
@@ -329,10 +327,12 @@ summarize(mean_deployed = mean(Q_12, na.rm = TRUE), med_deployed = median(Q_12, 
 <div style="margin-bottom:50px;">
 </div>
 
-Another handy package for descriptive statistics is `skimr`. The function `skim ()` produces measures of central tendency and measures of dispersion (we will learn more on these in the later section), and number of missing values. A great feature of this is that it also includes a histogram of the numeric variables specified. If you do not want to specify any variables, `skim ()` will summarise your entire data frame, and this may be good, but depends on the size of your dataset:
+Another handy package for descriptive statistics is `skimr`. The function `skim ()` produces measures of central tendency and measures of dispersion (we will learn more on these in the later section), and number of missing values. A great feature of this is that it also includes a histogram of the numeric variables specified. If you do not want to specify any variables, `skim()` will summarise your entire data frame, and this may be good, but depends on the size of your dataset:
 
 <div style="margin-bottom:35px;">
 </div>
+
+
 
 
 ```r
@@ -368,7 +368,6 @@ Q_12            (2) Agency has not acquired                                     
 <div style="margin-bottom:50px;">
 </div>
 
----
 
 ### Outliers
 <div style="margin-bottom:30px;">

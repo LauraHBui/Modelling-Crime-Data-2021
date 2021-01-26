@@ -2,9 +2,6 @@
 # A First Lesson About R
 #### *Operators, Objects, and Packages* {-}
 
-
----
-
 ##### **Learning Outcomes:** {-}
 - Install `R` and `R Studio`
 - Understand how `R Studio` is set up
@@ -584,7 +581,7 @@ df<-data.frame(TopVioCities, VioRatePer1k, State)
 <div style="margin-bottom:50px;">
 </div>
 
-We can then view the data frame, 'df', with the View() function:
+We can then view the data frame, 'df', with the `View()` function:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -775,39 +772,39 @@ That is all for today. Do not forget to do your homework task and the quiz by ne
 <div style="margin-bottom:500px;">
 </div>
 
-```{r}
-#Now one last activity about saving your work, and of using projects. 
+<!-- ```{r} -->
+<!-- #Now one last activity about saving your work, and of using projects.  -->
 
-#### Activity 9: Saving your work and projects
+<!-- #### Activity 9: Saving your work and projects -->
 
-#Finally, you want to keep your code, and you want to work in some nice orderly fashion. Remember in Making Sense of Criminological Data in term 1 we talked about workspaces. In R Studio, projects are a way to achieve this. 
-
-
-#Now, first things first, hopefully you have already created a separate folder on your desktop, or dropbox, or something like this. Now save the script you've been working on into this folder. By clicking on "File" and "Save as...". 
-
-#![](Images/save_script_as.png)
-
-#Then navigate to your folder for this module, and for your script make sure to give it some meaningful name like week1lab.R or something like this. Then click 'save'.  
-
-#![](Images/rename_and_save.png)
+<!-- #Finally, you want to keep your code, and you want to work in some nice orderly fashion. Remember in Making Sense of Criminological Data in term 1 we talked about workspaces. In R Studio, projects are a way to achieve this.  -->
 
 
-#Now, go back to "File" and select "New project..."
+<!-- #Now, first things first, hopefully you have already created a separate folder on your desktop, or dropbox, or something like this. Now save the script you've been working on into this folder. By clicking on "File" and "Save as...".  -->
+
+<!-- #![](Images/save_script_as.png) -->
+
+<!-- #Then navigate to your folder for this module, and for your script make sure to give it some meaningful name like week1lab.R or something like this. Then click 'save'.   -->
+
+<!-- #![](Images/rename_and_save.png) -->
 
 
-#![](Images/file_newproj.png)
-
-#Then in the options that appear choose "Existing Directory". This is because you already have a folder for this work, this is where you saved your script just before. For me this was my folder called 'modelling2021' you saw above. 
+<!-- #Now, go back to "File" and select "New project..." -->
 
 
-#![](Images/existing_dir.png)
+<!-- #![](Images/file_newproj.png) -->
 
-#So select 'Existing Directory', and on the next page use the "Browse" button to select this folder (the directory) where you saved the script earlier. Once you have done this, click on 'Create Project' on the bottom. 
-
-#![](Images/browse_proj_dir.png)
-
-#This will now open up a new R Studio window with your project. In the future, you can start right back up where you finished last time by navigating to the .Rproj file, and double clicking it. It helps you keep everything in one place, and lets R read everything from that folder.
+<!-- #Then in the options that appear choose "Existing Directory". This is because you already have a folder for this work, this is where you saved your script just before. For me this was my folder called 'modelling2021' you saw above.  -->
 
 
-#You can read up here on why projects are useful here: [https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/](https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/)
-```
+<!-- #![](Images/existing_dir.png) -->
+
+<!-- #So select 'Existing Directory', and on the next page use the "Browse" button to select this folder (the directory) where you saved the script earlier. Once you have done this, click on 'Create Project' on the bottom.  -->
+
+<!-- #![](Images/browse_proj_dir.png) -->
+
+<!-- #This will now open up a new R Studio window with your project. In the future, you can start right back up where you finished last time by navigating to the .Rproj file, and double clicking it. It helps you keep everything in one place, and lets R read everything from that folder. -->
+
+
+<!-- #You can read up here on why projects are useful here: [https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/](https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/) -->
+<!-- ``` -->

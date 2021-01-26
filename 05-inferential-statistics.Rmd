@@ -3,8 +3,6 @@
 #### *Samples, Standard Errors, and Confidence Intervals* {-}
 
 
----
-
 #### **Learning Outcomes:** {-}
 -	Understand what inferential statistics are and why they are used
 -	Learn how samples can be used to draw conclusions about the population

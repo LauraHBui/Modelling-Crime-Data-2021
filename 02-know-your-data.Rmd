@@ -3,8 +3,6 @@
 #### *Variables, Labels, and Subsetting* {-}
 
 
----
-
 ##### **Learning Outcomes:** {-}
 -	Create a project in `R` to refer back to for each session
 -	Learn what variables are and how to examine them 
@@ -173,9 +171,9 @@ What you are saying to `R` is the following:
 To view the new data frame, `ncvs`, type:
 <div style="margin-bottom:35px;">
 </div>
-```{r}
+```{r, eval=FALSE}
 
-View (ncvs)
+View(ncvs)
 
 ```
 

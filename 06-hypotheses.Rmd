@@ -3,8 +3,6 @@
 #### *Statistical Significance, Binominal Test, Single Sample Significance Tests* {-}
 
 
----
-
 #### Learning Outcomes: {-}
 -	Know what hypotheses are and how to use them in inferential statistics
 -	Understand what statistical significance is and how to interpret p-values

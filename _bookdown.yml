@@ -1,4 +1,5 @@
-book_filename: "ModellingCrimData"
+book_filename: "Modelling-Crime-Data-2021"
+site: "bookdown::bookdown_site"
 language:
   ui:
     chapter_name: "Chapter "

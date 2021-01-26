@@ -3,8 +3,6 @@
 #### *Independent and Dependent Variables, T-test, Chi-square* {-}
 
 
----
-
 #### Learning Outcomes: {-}
 -	Learn to arrange variables as independent and dependent variables
 -	Learn to test for statistical significance in relationships with categorical variables
@@ -114,7 +112,7 @@ nys_2 <- read_dta(here("Datasets", "nys_2_ID.dta"))
 
 6.	There is some code on scientific notation that we will ignore, so run `options(scipen=999)` to turn it off. 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
 View(nys_1)
 View(nys_2)
 
@@ -310,7 +308,7 @@ As responses from both Waves 1 and 2 are required, cases without this pair of re
 <div style="margin-bottom:35px;">
 </div> 
 
-```{r}
+```{r, eval=FALSE}
 
 # View NYS wave 2 data 
 View(nys_2)
@@ -363,7 +361,7 @@ The results indicate that we fail to reject the null hypothesis as the p-value i
 <div style="margin-bottom:50px;">
 </div> 
 
-We now open the 2007–2008 wave of the British Crime Survey dataset using the `read.dta ()` function. We name the data frame `BCS0708`. Use the `view ()` and `dim ()` functions to get to know your data.
+We now open the 2007–2008 wave of the British Crime Survey dataset using the `read.dta ()` function. We name the data frame `BCS0708`. Use the `View()` and `dim()` functions to get to know your data.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 BCS0708 <- read_dta(here("Datasets", "bcs_2007_8_teaching_data_unrestricted.dta"))

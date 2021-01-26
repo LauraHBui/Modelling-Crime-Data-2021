@@ -3,8 +3,6 @@
 #### *Statistical Significance, Binominal Test, Single Sample Significance Tests* {-}
 
 
----
-
 #### Learning Outcomes: {-}
 -	Know what hypotheses are and how to use them in inferential statistics
 -	Understand what statistical significance is and how to interpret p-values
@@ -415,7 +413,7 @@ nrow(IQ_Over_100)/nrow(PrisonerIQ)
 ```
 
 ```
-## [1] 0.488134
+## [1] 0.4868813
 ```
 
 <div style="margin-bottom:50px;">
@@ -436,11 +434,11 @@ PrisonerIQ[1:5,]
 
 ```
 ##   prisoner_id  IQ
-## 1           1 139
-## 2           2 103
-## 3           3  74
-## 4           4 114
-## 5           5  92
+## 1           1 117
+## 2           2 102
+## 3           3  90
+## 4           4 102
+## 5           5 101
 ```
 
 ```r
@@ -456,7 +454,7 @@ PrisonerIQ[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9966921
+## 1           1 115 0.9986367
 ```
 
 <div style="margin-bottom:50px;">
@@ -484,7 +482,7 @@ pnormGC(124, region="below", mean=m, sd=sd,graph=TRUE)
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 ```
-## [1] 0.9447772
+## [1] 0.9449926
 ```
 
 <div style="margin-bottom:50px;">

@@ -3,7 +3,6 @@
 #### *OLS & Logistic Regressions* {-}
 
 
----
 
 #### Learning Outcomes: {-}
 -	Learn how and when to use ordinary least squares and logistic regressions

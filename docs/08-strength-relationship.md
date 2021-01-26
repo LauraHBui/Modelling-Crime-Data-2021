@@ -2,9 +2,6 @@
 # Strength of Relationships 
 #### *Between Categorical Nominal, Categorical Ordinal, & Numeric Variables* {-}
 
-
----
-
 #### Learning Outcomes: {-}
 -	Learn how to conduct analyses that identify the effect sizes of relationships
 -	Understand the output and make correct interpretations of it
@@ -83,7 +80,7 @@ We begin by :
 <div style="margin-bottom:15px;">
 </div>
 
-4.	Get to know the data by using the functions `view ()` and `dim ()`, and to see if it has been loaded successfully
+4.	Get to know the data by using the functions `View()` and `dim()`, and to see if it has been loaded successfully
 
 <div style="margin-bottom:50px;">
 </div>

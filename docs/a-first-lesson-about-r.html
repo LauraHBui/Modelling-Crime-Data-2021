@@ -4,25 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 A First Lesson About R | ModellingCrimData.utf8</title>
-  <meta name="description" content="" />
+  <title>Chapter 1 A First Lesson About R | Modelling Criminological Data</title>
+  <meta name="description" content="This is a companion workbook for the 2nd year undergraduate module CRIM20452 Modelling Criminological Data at the University of Manchester" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 A First Lesson About R | ModellingCrimData.utf8" />
+  <meta property="og:title" content="Chapter 1 A First Lesson About R | Modelling Criminological Data" />
   <meta property="og:type" content="book" />
   
   
-  
-  
+  <meta property="og:description" content="This is a companion workbook for the 2nd year undergraduate module CRIM20452 Modelling Criminological Data at the University of Manchester" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 A First Lesson About R | ModellingCrimData.utf8" />
+  <meta name="twitter:title" content="Chapter 1 A First Lesson About R | Modelling Criminological Data" />
   
-  
+  <meta name="twitter:description" content="This is a companion workbook for the 2nd year undergraduate module CRIM20452 Modelling Criminological Data at the University of Manchester" />
   
 
+<meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
+<meta name="date" content="2021-01-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -115,6 +117,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -127,6 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">Modelling Criminological Data</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
 <li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a><ul>
 <li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a><ul>
@@ -218,6 +224,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="regression.html"><a href="regression.html#summary-8"><i class="fa fa-check"></i><b>9.3</b> SUMMARY</a></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -227,7 +236,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modelling Criminological Data</a>
           </h1>
         </div>
 
@@ -239,7 +248,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 1</span> A First Lesson About R</h1>
 <div id="operators-objects-and-packages" class="section level4 unnumbered">
 <h4><em>Operators, Objects, and Packages</em></h4>
-<hr />
 <div id="learning-outcomes" class="section level5 unnumbered">
 <h5><strong>Learning Outcomes:</strong></h5>
 <ul>
@@ -761,7 +769,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:50px;">
 
 </div>
-<p>We can then view the data frame, ‘df’, with the View() function:</p>
+<p>We can then view the data frame, ‘df’, with the <code>View()</code> function:</p>
 <div style="margin-bottom:35px;">
 
 </div>
@@ -917,40 +925,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:500px;">
 
 </div>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="a-first-lesson-about-r.html#cb45-1"></a><span class="co">#Now one last activity about saving your work, and of using projects. </span></span>
-<span id="cb45-2"><a href="a-first-lesson-about-r.html#cb45-2"></a></span>
-<span id="cb45-3"><a href="a-first-lesson-about-r.html#cb45-3"></a><span class="co">#### Activity 9: Saving your work and projects</span></span>
-<span id="cb45-4"><a href="a-first-lesson-about-r.html#cb45-4"></a></span>
-<span id="cb45-5"><a href="a-first-lesson-about-r.html#cb45-5"></a><span class="co">#Finally, you want to keep your code, and you want to work in some nice orderly fashion. Remember in Making Sense of Criminological Data in term 1 we talked about workspaces. In R Studio, projects are a way to achieve this. </span></span>
-<span id="cb45-6"><a href="a-first-lesson-about-r.html#cb45-6"></a></span>
-<span id="cb45-7"><a href="a-first-lesson-about-r.html#cb45-7"></a></span>
-<span id="cb45-8"><a href="a-first-lesson-about-r.html#cb45-8"></a><span class="co">#Now, first things first, hopefully you have already created a separate folder on your desktop, or dropbox, or something like this. Now save the script you&#39;ve been working on into this folder. By clicking on &quot;File&quot; and &quot;Save as...&quot;. </span></span>
-<span id="cb45-9"><a href="a-first-lesson-about-r.html#cb45-9"></a></span>
-<span id="cb45-10"><a href="a-first-lesson-about-r.html#cb45-10"></a><span class="co">#![](Images/save_script_as.png)</span></span>
-<span id="cb45-11"><a href="a-first-lesson-about-r.html#cb45-11"></a></span>
-<span id="cb45-12"><a href="a-first-lesson-about-r.html#cb45-12"></a><span class="co">#Then navigate to your folder for this module, and for your script make sure to give it some meaningful name like week1lab.R or something like this. Then click &#39;save&#39;.  </span></span>
-<span id="cb45-13"><a href="a-first-lesson-about-r.html#cb45-13"></a></span>
-<span id="cb45-14"><a href="a-first-lesson-about-r.html#cb45-14"></a><span class="co">#![](Images/rename_and_save.png)</span></span>
-<span id="cb45-15"><a href="a-first-lesson-about-r.html#cb45-15"></a></span>
-<span id="cb45-16"><a href="a-first-lesson-about-r.html#cb45-16"></a></span>
-<span id="cb45-17"><a href="a-first-lesson-about-r.html#cb45-17"></a><span class="co">#Now, go back to &quot;File&quot; and select &quot;New project...&quot;</span></span>
-<span id="cb45-18"><a href="a-first-lesson-about-r.html#cb45-18"></a></span>
-<span id="cb45-19"><a href="a-first-lesson-about-r.html#cb45-19"></a></span>
-<span id="cb45-20"><a href="a-first-lesson-about-r.html#cb45-20"></a><span class="co">#![](Images/file_newproj.png)</span></span>
-<span id="cb45-21"><a href="a-first-lesson-about-r.html#cb45-21"></a></span>
-<span id="cb45-22"><a href="a-first-lesson-about-r.html#cb45-22"></a><span class="co">#Then in the options that appear choose &quot;Existing Directory&quot;. This is because you already have a folder for this work, this is where you saved your script just before. For me this was my folder called &#39;modelling2021&#39; you saw above. </span></span>
-<span id="cb45-23"><a href="a-first-lesson-about-r.html#cb45-23"></a></span>
-<span id="cb45-24"><a href="a-first-lesson-about-r.html#cb45-24"></a></span>
-<span id="cb45-25"><a href="a-first-lesson-about-r.html#cb45-25"></a><span class="co">#![](Images/existing_dir.png)</span></span>
-<span id="cb45-26"><a href="a-first-lesson-about-r.html#cb45-26"></a></span>
-<span id="cb45-27"><a href="a-first-lesson-about-r.html#cb45-27"></a><span class="co">#So select &#39;Existing Directory&#39;, and on the next page use the &quot;Browse&quot; button to select this folder (the directory) where you saved the script earlier. Once you have done this, click on &#39;Create Project&#39; on the bottom. </span></span>
-<span id="cb45-28"><a href="a-first-lesson-about-r.html#cb45-28"></a></span>
-<span id="cb45-29"><a href="a-first-lesson-about-r.html#cb45-29"></a><span class="co">#![](Images/browse_proj_dir.png)</span></span>
-<span id="cb45-30"><a href="a-first-lesson-about-r.html#cb45-30"></a></span>
-<span id="cb45-31"><a href="a-first-lesson-about-r.html#cb45-31"></a><span class="co">#This will now open up a new R Studio window with your project. In the future, you can start right back up where you finished last time by navigating to the .Rproj file, and double clicking it. It helps you keep everything in one place, and lets R read everything from that folder.</span></span>
-<span id="cb45-32"><a href="a-first-lesson-about-r.html#cb45-32"></a></span>
-<span id="cb45-33"><a href="a-first-lesson-about-r.html#cb45-33"></a></span>
-<span id="cb45-34"><a href="a-first-lesson-about-r.html#cb45-34"></a><span class="co">#You can read up here on why projects are useful here: [https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/](https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/)</span></span></code></pre></div>
+<!-- ```{r} -->
+<!-- #Now one last activity about saving your work, and of using projects.  -->
+<!-- #### Activity 9: Saving your work and projects -->
+<!-- #Finally, you want to keep your code, and you want to work in some nice orderly fashion. Remember in Making Sense of Criminological Data in term 1 we talked about workspaces. In R Studio, projects are a way to achieve this.  -->
+<!-- #Now, first things first, hopefully you have already created a separate folder on your desktop, or dropbox, or something like this. Now save the script you've been working on into this folder. By clicking on "File" and "Save as...".  -->
+<!-- #![](Images/save_script_as.png) -->
+<!-- #Then navigate to your folder for this module, and for your script make sure to give it some meaningful name like week1lab.R or something like this. Then click 'save'.   -->
+<!-- #![](Images/rename_and_save.png) -->
+<!-- #Now, go back to "File" and select "New project..." -->
+<!-- #![](Images/file_newproj.png) -->
+<!-- #Then in the options that appear choose "Existing Directory". This is because you already have a folder for this work, this is where you saved your script just before. For me this was my folder called 'modelling2021' you saw above.  -->
+<!-- #![](Images/existing_dir.png) -->
+<!-- #So select 'Existing Directory', and on the next page use the "Browse" button to select this folder (the directory) where you saved the script earlier. Once you have done this, click on 'Create Project' on the bottom.  -->
+<!-- #![](Images/browse_proj_dir.png) -->
+<!-- #This will now open up a new R Studio window with your project. In the future, you can start right back up where you finished last time by navigating to the .Rproj file, and double clicking it. It helps you keep everything in one place, and lets R read everything from that folder. -->
+<!-- #You can read up here on why projects are useful here: [https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/](https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/) -->
+<!-- ``` -->
 
 </div>
 </div>
@@ -991,8 +982,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -1002,7 +993,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["Modelling-Crime-Data-2021.pdf", "Modelling-Crime-Data-2021.epub"],
 "toc": {
 "collapse": "subsection"
 }

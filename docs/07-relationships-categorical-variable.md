@@ -3,8 +3,6 @@
 #### *Independent and Dependent Variables, T-test, Chi-square* {-}
 
 
----
-
 #### Learning Outcomes: {-}
 -	Learn to arrange variables as independent and dependent variables
 -	Learn to test for statistical significance in relationships with categorical variables
@@ -102,6 +100,12 @@ Before we start, we do the following:
 6.	There is some code on scientific notation that we will ignore, so run `options(scipen=999)` to turn it off. 
 
 
+```r
+View(nys_1)
+View(nys_2)
+
+options(scipen=999)
+```
 <div style="margin-bottom:50px;">
 </div> 
 
@@ -299,7 +303,7 @@ var.test(nys_1$drunk~nys_1$female)
 ## 	F test to compare two variances
 ## 
 ## data:  nys_1$drunk by nys_1$female
-## F = 1.7729, num df = 914, denom df = 803, p-value < 0.00000000000000022
+## F = 1.7729, num df = 914, denom df = 803, p-value < 2.2e-16
 ## alternative hypothesis: true ratio of variances is not equal to 1
 ## 95 percent confidence interval:
 ##  1.549899 2.026885
@@ -462,7 +466,7 @@ The results indicate that we fail to reject the null hypothesis as the p-value i
 <div style="margin-bottom:50px;">
 </div> 
 
-We now open the 2007–2008 wave of the British Crime Survey dataset using the `read.dta ()` function. We name the data frame `BCS0708`. Use the `view ()` and `dim ()` functions to get to know your data.
+We now open the 2007–2008 wave of the British Crime Survey dataset using the `read.dta ()` function. We name the data frame `BCS0708`. Use the `View()` and `dim()` functions to get to know your data.
 
 
 
@@ -857,7 +861,7 @@ with(BCS0708, CrossTable(as_factor(rubbcomm),
 ## 
 ## Pearson's Chi-squared test 
 ## ------------------------------------------------------------
-## Chi^2 =  184.0443     d.f. =  3     p =  0.000000000000000000000000000000000000001180409 
+## Chi^2 =  184.0443     d.f. =  3     p =  1.180409e-39 
 ## 
 ## 
 ##  
@@ -885,7 +889,7 @@ chisq.test(BCS0708$rubbcomm, BCS0708$bcsvictim)
 ## 	Pearson's Chi-squared test
 ## 
 ## data:  BCS0708$rubbcomm and BCS0708$bcsvictim
-## X-squared = 184.04, df = 3, p-value < 0.00000000000000022
+## X-squared = 184.04, df = 3, p-value < 2.2e-16
 ```
 
 <div style="margin-bottom:50px;">
@@ -915,7 +919,7 @@ fisher.test(BCS0708$rubbcomm, BCS0708$bcsvictim, workspace = 2e+07, hybrid = TRU
 ## 	(exp=5, perc=80, Emin=1)
 ## 
 ## data:  BCS0708$rubbcomm and BCS0708$bcsvictim
-## p-value < 0.00000000000000022
+## p-value < 2.2e-16
 ## alternative hypothesis: two.sided
 ```
 
@@ -985,7 +989,7 @@ with(BCS0708, CrossTable(as_factor(rubbcomm), as_factor(bcsvictim), expected = T
 ## 
 ## Pearson's Chi-squared test 
 ## ------------------------------------------------------------
-## Chi^2 =  184.0443     d.f. =  3     p =  0.000000000000000000000000000000000000001180409 
+## Chi^2 =  184.0443     d.f. =  3     p =  1.180409e-39 
 ## 
 ## 
 ##  

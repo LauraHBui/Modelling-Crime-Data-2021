@@ -1,7 +1,16 @@
-
-<div style="margin-bottom:30px;">
-</div>
-
+--- 
+title: "Modelling Criminological Data"
+author: "Laura Bui & Reka Solymosi"
+date: "2021-01-26"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+# bibliography: [book.bib, packages.bib]
+# biblio-style: apalike
+# link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "This is a companion workbook for the 2nd year undergraduate module CRIM20452 Modelling Criminological Data at the University of Manchester"
+---
 
 # Welcome {-}
 #### 2020-2021 CRIM20452 Modelling Criminological Data {-}
