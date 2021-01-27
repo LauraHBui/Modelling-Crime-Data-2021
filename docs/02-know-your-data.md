@@ -65,7 +65,7 @@ library(dplyr)
 ```
 
 ```
-## Warning: package 'dplyr' was built under R version 4.0.2
+## Warning: package 'dplyr' was built under R version 3.6.3
 ```
 
 ```
@@ -143,7 +143,11 @@ library(here)
 ```
 
 ```
-## here() starts at /Users/reka/Dropbox (The University of Manchester)/modelling2021/Modelling-Crime-Data-2021
+## Warning: package 'here' was built under R version 3.6.3
+```
+
+```
+## here() starts at C:/Users/buihl/Desktop/Modelling-Crime-Data-2021
 ```
 <div style="margin-bottom:50px;">
 </div>
@@ -166,7 +170,7 @@ library(haven)
 ```
 
 ```
-## Warning: package 'haven' was built under R version 4.0.2
+## Warning: package 'haven' was built under R version 3.6.3
 ```
 
 <div style="margin-bottom:50px;">
@@ -305,13 +309,7 @@ In some circumstances, we would like to recode variables. Recoding could be coll
 ```r
 # Load the 'tibble' package
 library(tibble)
-```
 
-```
-## Warning: package 'tibble' was built under R version 4.0.2
-```
-
-```r
 # 1. Create the new variable ‘InjuredNew’ from ‘injured’ 
 ncvs$InjuredNew <-ncvs$injured 
 # Specify that order of the labels is important in the new variable
@@ -337,17 +335,17 @@ add_column(ncvs, newid = 1:nrow(ncvs))
 ## # A tibble: 1,431 x 49
 ##     YEAR  V2119   V2129 V3014   V3016   V3018   V3021   V3023 V3023A  V3024
 ##    <dbl> <dbl+> <dbl+l> <dbl> <dbl+l> <dbl+l> <dbl+l> <dbl+l> <dbl+> <dbl+>
-##  1  2000 2 [No] 2 [(S)…    34 6 [Not… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-##  2  2000 2 [No] 2 [(S)…    22 6 [Not… 2 [Fem… 1 [Yes] 1 [Whi…     NA 2 [No]
-##  3  2000 2 [No] 3 [Not…    21 5 [Nev… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-##  4  2000 2 [No] 3 [Not…    18 6 [Not… 2 [Fem… 2 [No]  1 [Whi…     NA 2 [No]
-##  5  2000 2 [No] 2 [(S)…    16 6 [Not… 2 [Fem… 2 [No]  1 [Whi…     NA 2 [No]
-##  6  2000 2 [No] 1 [Cit…    13 6 [Not… 2 [Fem… 2 [No]  1 [Whi…     NA 2 [No]
-##  7  2000 2 [No] 2 [(S)…    16 6 [Not… 1 [Mal… 2 [No]  1 [Whi…     NA 2 [No]
-##  8  2000 2 [No] 2 [(S)…    48 6 [Not… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-##  9  2000 2 [No] 2 [(S)…    12 5 [Nev… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-## 10  2000 2 [No] 2 [(S)…    42 6 [Not… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-## # … with 1,421 more rows, and 39 more variables: V2026 <dbl+lbl>,
+##  1  2000 2 [No] 2 [(S)~    34 6 [Not~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  2  2000 2 [No] 2 [(S)~    22 6 [Not~ 2 [Fem~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  3  2000 2 [No] 3 [Not~    21 5 [Nev~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  4  2000 2 [No] 3 [Not~    18 6 [Not~ 2 [Fem~ 2 [No]  1 [Whi~     NA 2 [No]
+##  5  2000 2 [No] 2 [(S)~    16 6 [Not~ 2 [Fem~ 2 [No]  1 [Whi~     NA 2 [No]
+##  6  2000 2 [No] 1 [Cit~    13 6 [Not~ 2 [Fem~ 2 [No]  1 [Whi~     NA 2 [No]
+##  7  2000 2 [No] 2 [(S)~    16 6 [Not~ 1 [Mal~ 2 [No]  1 [Whi~     NA 2 [No]
+##  8  2000 2 [No] 2 [(S)~    48 6 [Not~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  9  2000 2 [No] 2 [(S)~    12 5 [Nev~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+## 10  2000 2 [No] 2 [(S)~    42 6 [Not~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+## # ... with 1,421 more rows, and 39 more variables: V2026 <dbl+lbl>,
 ## #   V4049 <dbl+lbl>, V4234 <dbl+lbl>, V4235 <dbl+lbl>, V4236 <dbl+lbl>,
 ## #   V4237 <dbl+lbl>, V4237A <dbl+lbl>, V4238 <dbl+lbl>, V4239 <dbl+lbl>,
 ## #   V4240 <dbl+lbl>, V4241 <dbl+lbl>, V4242 <dbl+lbl>, V4243 <dbl+lbl>,
@@ -431,14 +429,14 @@ ncvs %>% select(injured, weaponpresent, severity) %>% sample_n(10)
 ##        <dbl+lbl>         <dbl>    <dbl>
 ##  1 0 [uninjured]             0        0
 ##  2 1 [injured]               0        1
-##  3 0 [uninjured]             1        1
-##  4 0 [uninjured]             0        0
-##  5 0 [uninjured]             0        0
-##  6 0 [uninjured]             0        0
-##  7 0 [uninjured]             0        0
-##  8 1 [injured]               0        1
-##  9 1 [injured]               0        1
-## 10 1 [injured]               0        1
+##  3 1 [injured]               1        2
+##  4 0 [uninjured]             1        1
+##  5 1 [injured]               1        2
+##  6 1 [injured]               0        1
+##  7 0 [uninjured]             1        1
+##  8 0 [uninjured]             1        1
+##  9 0 [uninjured]             1        1
+## 10 0 [uninjured]             1        1
 ```
 
 <div style="margin-bottom:50px;">

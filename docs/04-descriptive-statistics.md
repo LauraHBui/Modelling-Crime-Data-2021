@@ -321,7 +321,7 @@ summarize(mean_deployed = mean(Q_12, na.rm = TRUE), med_deployed = median(Q_12, 
 ## # A tibble: 2 x 5
 ##   Q_10A                           mean_deployed med_deployed mode_deployed total
 ##   <fct>                                   <dbl>        <dbl>         <dbl> <dbl>
-## 1 (1) Agency has acquired in any…          31.8            8             1 60363
+## 1 (1) Agency has acquired in any~          31.8            8             1 60363
 ## 2 (2) Agency has not acquired             NaN             NA           NaN     0
 ```
 <div style="margin-bottom:50px;">

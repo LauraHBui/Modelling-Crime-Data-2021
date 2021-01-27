@@ -482,7 +482,7 @@ Now let us move on to our second key topic for today: objects!
 <div style="margin-bottom:30px;">
 </div>
 
-Everything that exists in `R` is an **object**. Think of objects as boxes where you put things in. Imagine a big, empty cardboard box. We can create this big empty box in R by simply giving it a name. Usually, you want your object/box to have a good descriptive name, which will tell people what is in it. Imagine moving house. If you have a cardboard box full of places, you might want to label it "plates". That way, when carrying, you know to be careful, and when unpacking, you know its contents will go in the kitchen. On the other hand, if you named it "box1", then this is a lot less helpful when it comes to unpacking. 
+Everything that exists in `R` is an **object**. Think of objects as boxes where you put things in. Imagine a big, empty cardboard box. We can create this big empty box in `R` by simply giving it a name. Usually, you want your object ('box') to have a good descriptive name, which will tell others what is in it. Imagine moving house. If you have a cardboard box full of places, you might want to label it 'plates'. That way, when carrying, you know to be careful, and when unpacking, you know its contents will go in the kitchen. On the other hand, if you named it 'box1', then this is a lot less helpful when it comes to unpacking. 
 
 <div style="margin-bottom:30px;">
 </div>
@@ -778,7 +778,7 @@ library(dplyr)
 ```
 
 ```
-## Warning: package 'dplyr' was built under R version 4.0.2
+## Warning: package 'dplyr' was built under R version 3.6.3
 ```
 
 ```
