@@ -604,7 +604,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <a class="sourceLine" id="cb245-10" title="10"></a>
 <a class="sourceLine" id="cb245-11" title="11"><span class="co"># Divide ‘IQ_Over_100’ by total number of prisoner IQ scores</span></a>
 <a class="sourceLine" id="cb245-12" title="12"><span class="kw">nrow</span>(IQ_Over_<span class="dv">100</span>)<span class="op">/</span><span class="kw">nrow</span>(PrisonerIQ)</a></code></pre></div>
-<pre><code>## [1] 0.486612</code></pre>
+<pre><code>## [1] 0.487194</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -616,11 +616,11 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" title="1"><span class="co"># View the first 5 prisoner IQs</span></a>
 <a class="sourceLine" id="cb247-2" title="2">PrisonerIQ[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] </a></code></pre></div>
 <pre><code>##   prisoner_id  IQ
-## 1           1 113
-## 2           2 104
-## 3           3 101
-## 4           4 110
-## 5           5  95</code></pre>
+## 1           1 103
+## 2           2 134
+## 3           3 120
+## 4           4 112
+## 5           5  87</code></pre>
 <div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" title="1"><span class="co"># Change the IQ of prisoner #1 </span></a>
 <a class="sourceLine" id="cb249-2" title="2">PrisonerIQ<span class="op">$</span>IQ[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">115</span></a>
 <a class="sourceLine" id="cb249-3" title="3"></a>
@@ -630,7 +630,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <a class="sourceLine" id="cb249-7" title="7"><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></a>
 <a class="sourceLine" id="cb249-8" title="8">PrisonerIQ[<span class="dv">1</span>,]</a></code></pre></div>
 <pre><code>##   prisoner_id  IQ z_scoreIQ
-## 1           1 115    1.0007</code></pre>
+## 1           1 115  0.999027</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -648,7 +648,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <a class="sourceLine" id="cb251-8" title="8"><span class="co"># interested in IQ scores below 124</span></a>
 <a class="sourceLine" id="cb251-9" title="9"><span class="kw">pnormGC</span>(<span class="dv">124</span>, <span class="dt">region=</span><span class="st">&quot;below&quot;</span>, <span class="dt">mean=</span>m, <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>) </a></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre><code>## [1] 0.9452789</code></pre>
+<pre><code>## [1] 0.9450985</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>

@@ -496,14 +496,14 @@ Let us create an object called 'plates'. To do this, you go to your script, and 
 
 ![**Figure 1.9** Typing 'Plates' in the script](Images/plates.png)
 
-<div style="margin-bottom:35px;">
+<div style="margin-bottom:30px;">
 </div>
 
 But if you run this code, you will get an error. Let's see: 
 
 ![**Figure 1.10** Error when Typing 'Plates'](Images/error_no_plates.gif)
 
-<div style="margin-bottom:35px;">
+<div style="margin-bottom:30px;">
 </div>
 
 You see the error 'Error: object plates not found'. This is because you have not yet put anything inside the plates 'box'. Remember objects are like boxes,so there must be something inside our object 'plates'. In order for this object to exist, you have to put something inside it, or in `R`-speak *assign it some value*.
@@ -704,6 +704,9 @@ We had created a dataframe called `df` previously. If you have not yet copied th
 
 ![**Figure 1.12** The data frame 'df'](Images/df_view.png)
 
+<div style="margin-bottom:30px;">
+</div>
+
 To do something to an entire dataframe, we would use the name of the object (`df`) to refer to it. In the case of the `View()` function, we want to see the whole thing, so we will call `View(df)`. On the other hand, if we want to refer to only one variable in the data, (remember back to term 1 - each varible is held in each column) there is a special notation to do this. 
 
 To refer to a variable (column) inside a dataframe, you use:
@@ -760,13 +763,13 @@ mean(df$VioRatePer1k)
 
 **Packages** are a very important element of `R`. Throughout the course, and hopefully afterwards, you will find yourself installing numerous open source software packages that allow `R` to do new and different things. There are loads of packages out there. In early 2020, there were over 150,000 packages available. Anyone can write one, so you will need to be careful on which ones you use as the quality can vary. Official repositories, like [CRAN](https://cran.r-project.org/), are your best bet for packages as they will have passed some quality controls. 
 
-You can see what packages are available in your local install by looking at the *packages* tab in the *File directory, Plots, Packages* pane (Figure 1.5). 
+You can see what packages are available in your local install by looking at the *packages* tab in the *File directory, Plots, Packages* pane (Figure 1.14). 
 
 
 <div style="margin-bottom:30px;">
 </div>
 
-![**Figure 1.5** Packages Tab](Images/packages.png){width=35%}
+![**Figure 1.14** Packages Tab](Images/packages.png){width=35%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -813,7 +816,7 @@ To double check that you have actually installed `dplyr`, go to that *File Direc
 <div style="margin-bottom:30px;">
 </div>
 
-![**Figure 1.6** dplyr Package Ticked](Images/dplyr.png){width=35%}
+![**Figure 1.15** dplyr Package Ticked](Images/dplyr.png){width=35%}
 
 
 <div style="margin-bottom:30px;">
