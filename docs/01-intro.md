@@ -1,11 +1,11 @@
 
 # A First Lesson About R
-#### *Operators, Objects, and Packages* {-}
+#### *Operators & Functions, Objects, and Packages* {-}
 
 ##### **Learning Outcomes:** {-}
 - Install `R` and `R Studio`
 - Understand how `R Studio` is set up
-- Learn what operators and objects are and their relevance in `R`
+- Learn what operators, functions, and objects are and their relevance in `R`
 - Understand the purpose of packages
 - Install your first package
 
@@ -45,7 +45,7 @@
 
 ---
 
-In this lesson, you will be introduced to the programming language, `R`. After installing the related software and getting a basic idea of the R Studio interface, you will learn three `R` basics: operators, objects, and packages. 
+In this lesson, you will be introduced to the programming language, `R`. After installing the related software and getting a basic idea of the R Studio interface, you will learn three `R` basics: operators (and functions), objects, and packages. 
 
 Unlike other statistical software like SPSS and STATA, `R` is a free, open-source software for performing statistical analysis and data visualization. In addition, `R` offers more analytical solutions, flexibility, and customization than these commonly used statistical software, and its popularity has increased substantially over the years. 
 
@@ -506,7 +506,7 @@ But if you run this code, you will get an error. Let's see:
 <div style="margin-bottom:35px;">
 </div>
 
-You see the error 'Error! Object plates not found'. This is because you have not yet put anything inside the plates 'box'. Remember objects are like boxes,so there must be something inside our object 'plates'. In order for this object to exist, you have to put something inside it, or in `R`-speak *assign it some value*.
+You see the error 'Error: object plates not found'. This is because you have not yet put anything inside the plates 'box'. Remember objects are like boxes,so there must be something inside our object 'plates'. In order for this object to exist, you have to put something inside it, or in `R`-speak *assign it some value*.
 
 Therefore, we make an object by using an *assignment operator* ( `<-` ). In other words, we assign something to an object (i.e., put something in the box). For example:
 
@@ -698,7 +698,7 @@ mean(nums)
 <div style="margin-bottom:50px;">
 </div>
 
-The object we will use most frequently though is data frames. Much like how we worked with spreadsheets in Excel in *Making Sense of Criminological Data**, we will be working with dataframes in `R`. 
+The object we will use most frequently though is data frames. Much like how we worked with spreadsheets in Excel in *Making Sense of Criminological Data*, we will be working with dataframes in `R`. 
 
 We had created a dataframe called `df` previously. If you have not yet copied this over into your own `R Studio`, do this now. You should have the object `df` in your environment. When you run `View(df)`, you should see this dataset:
 

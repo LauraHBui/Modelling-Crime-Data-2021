@@ -1,5 +1,5 @@
 --- 
-title: "Modelling Criminological Data"
+title: "CRIM20452 Modelling Criminological Data"
 author: "Laura Bui & Reka Solymosi"
 date: "2021-01-27"
 site: bookdown::bookdown_site
@@ -13,7 +13,6 @@ description: "This is a companion workbook for the 2nd year undergraduate module
 ---
 
 # Welcome {-}
-#### 2020-2021 CRIM20452 Modelling Criminological Data {-}
 
 ![](Images/UOM.jpg){width=60%}
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 A First Lesson About R | Modelling Criminological Data</title>
+  <title>Chapter 1 A First Lesson About R | CRIM20452 Modelling Criminological Data</title>
   <meta name="description" content="This is a companion workbook for the 2nd year undergraduate module CRIM20452 Modelling Criminological Data at the University of Manchester" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 A First Lesson About R | Modelling Criminological Data" />
+  <meta property="og:title" content="Chapter 1 A First Lesson About R | CRIM20452 Modelling Criminological Data" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 A First Lesson About R | Modelling Criminological Data" />
+  <meta name="twitter:title" content="Chapter 1 A First Lesson About R | CRIM20452 Modelling Criminological Data" />
   
   <meta name="twitter:description" content="This is a companion workbook for the 2nd year undergraduate module CRIM20452 Modelling Criminological Data at the University of Manchester" />
   
@@ -234,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modelling Criminological Data</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">CRIM20452 Modelling Criminological Data</a>
           </h1>
         </div>
 
@@ -244,14 +244,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="a-first-lesson-about-r" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> A First Lesson About R</h1>
-<div id="operators-objects-and-packages" class="section level4 unnumbered">
-<h4><em>Operators, Objects, and Packages</em></h4>
+<div id="operators-functions-objects-and-packages" class="section level4 unnumbered">
+<h4><em>Operators &amp; Functions, Objects, and Packages</em></h4>
 <div id="learning-outcomes" class="section level5 unnumbered">
 <h5><strong>Learning Outcomes:</strong></h5>
 <ul>
 <li>Install <code>R</code> and <code>R Studio</code></li>
 <li>Understand how <code>R Studio</code> is set up</li>
-<li>Learn what operators and objects are and their relevance in <code>R</code></li>
+<li>Learn what operators, functions, and objects are and their relevance in <code>R</code></li>
 <li>Understand the purpose of packages</li>
 <li>Install your first package</li>
 </ul>
@@ -302,7 +302,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>View()</code> : View data in new window (<code>base R</code>)</li>
 </ul>
 <hr />
-<p>In this lesson, you will be introduced to the programming language, <code>R</code>. After installing the related software and getting a basic idea of the R Studio interface, you will learn three <code>R</code> basics: operators, objects, and packages.</p>
+<p>In this lesson, you will be introduced to the programming language, <code>R</code>. After installing the related software and getting a basic idea of the R Studio interface, you will learn three <code>R</code> basics: operators (and functions), objects, and packages.</p>
 <p>Unlike other statistical software like SPSS and STATA, <code>R</code> is a free, open-source software for performing statistical analysis and data visualization. In addition, <code>R</code> offers more analytical solutions, flexibility, and customization than these commonly used statistical software, and its popularity has increased substantially over the years.</p>
 <p>We learn <code>R</code> because we hope that this is an important tool that you will continue to use in future. As it is free and has a community feel to it where anyone can create and upload new techniques, the idea is that you can use <code>R</code> long after this course. Even if data analysis is not in the future for you, learning how to conduct and interpret statistical output is a good skill to have – much of our knowledge of the world includes statistics, so understanding the numbers and how they were derived are advantages. <code>R</code> uses a language called <strong>object-oriented programming</strong>, and though it may seem daunting at first, practice makes familiarity. Also, you can impress your friends with all your coding.</p>
 <hr />
@@ -676,7 +676,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<p>You see the error ‘Error! Object plates not found’. This is because you have not yet put anything inside the plates ‘box’. Remember objects are like boxes,so there must be something inside our object ‘plates’. In order for this object to exist, you have to put something inside it, or in <code>R</code>-speak <em>assign it some value</em>.</p>
+<p>You see the error ‘Error: object plates not found’. This is because you have not yet put anything inside the plates ‘box’. Remember objects are like boxes,so there must be something inside our object ‘plates’. In order for this object to exist, you have to put something inside it, or in <code>R</code>-speak <em>assign it some value</em>.</p>
 <p>Therefore, we make an object by using an <em>assignment operator</em> ( <code>&lt;-</code> ). In other words, we assign something to an object (i.e., put something in the box). For example:</p>
 <div style="margin-bottom:35px;">
 
@@ -820,7 +820,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:50px;">
 
 </div>
-<p>The object we will use most frequently though is data frames. Much like how we worked with spreadsheets in Excel in *Making Sense of Criminological Data**, we will be working with dataframes in <code>R</code>.</p>
+<p>The object we will use most frequently though is data frames. Much like how we worked with spreadsheets in Excel in <em>Making Sense of Criminological Data</em>, we will be working with dataframes in <code>R</code>.</p>
 <p>We had created a dataframe called <code>df</code> previously. If you have not yet copied this over into your own <code>R Studio</code>, do this now. You should have the object <code>df</code> in your environment. When you run <code>View(df)</code>, you should see this dataset:</p>
 <div class="figure">
 <img src="Images/df_view.png" alt="Figure 1.12 The data frame ‘df’" />
