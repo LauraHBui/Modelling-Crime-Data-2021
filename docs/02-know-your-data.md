@@ -427,15 +427,15 @@ ncvs %>% select(injured, weaponpresent, severity) %>% sample_n(10)
 ## # A tibble: 10 x 3
 ##          injured weaponpresent severity
 ##        <dbl+lbl>         <dbl>    <dbl>
-##  1 0 [uninjured]             0        0
+##  1 1 [injured]               0        1
 ##  2 1 [injured]               0        1
-##  3 1 [injured]               1        2
-##  4 0 [uninjured]             1        1
-##  5 1 [injured]               1        2
-##  6 1 [injured]               0        1
-##  7 0 [uninjured]             1        1
-##  8 0 [uninjured]             1        1
-##  9 0 [uninjured]             1        1
+##  3 1 [injured]               0        1
+##  4 0 [uninjured]             0        0
+##  5 0 [uninjured]             0        0
+##  6 0 [uninjured]             0        0
+##  7 0 [uninjured]             0        0
+##  8 0 [uninjured]             0        0
+##  9 0 [uninjured]             0        0
 ## 10 0 [uninjured]             1        1
 ```
 
