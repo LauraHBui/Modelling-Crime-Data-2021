@@ -1,11 +1,11 @@
 
 # A First Lesson About R
-#### *Operators, Objects, and Packages* {-}
+#### *Operators, Objects & Functions, and Packages* {-}
 
 ##### **Learning Outcomes:** {-}
 - Install `R` and `R Studio`
 - Understand how `R Studio` is set up
-- Learn what operators and objects are and their relevance in `R`
+- Learn what operators, functions, and objects are and their relevance in `R`
 - Understand the purpose of packages
 - Install your first package
 
