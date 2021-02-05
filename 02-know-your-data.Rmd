@@ -5,7 +5,7 @@
 
 ##### **Learning Outcomes:** {-}
 -	Create a project in `R` to refer back to for each session
--	Learn what variables are and how to examine them 
+-	Learn what variables are and how to examine them in `R`
 -	Learn how to label variables 
 -	Learn how to subset select cases 
 
@@ -15,7 +15,9 @@
 ##### **Today’s Learning Tools:** {-}
 <div style="margin-bottom:15px;">
 </div>
-
+##### *Total number of activities*: 8 {-}
+<div style="margin-bottom:15px;">
+</div>
 ##### *Data:* {-}
 -	National Crime Victimization Survey (NCVS)
 
@@ -75,6 +77,11 @@ library(dplyr)
 
 Although today is focused on tidying data, it is also helpful if your work is tidy and found in one easily accessible folder. By saving work inside a **project**, you can find files such as data and scripts related to specific work in a single working directory. Let us get into the habit of doing this:
 
+<div style="margin-bottom:30px;">
+</div>
+
+### Activity 1: Making yourself a project 
+
 •	Click on the top right tab called *Project: (None)* - Figure 2.1 
 <div style="margin-bottom:30px;">
 </div>
@@ -113,7 +120,12 @@ dir.create("Datasets")
 <div style="margin-bottom:50px;">
 </div>
 
-If you noticed in your *Files, Plots…* pane, the files there tell you what folder you are automatically working in. This is known as your *working directory*, the default location that is there when you open `RStudio`. Wherever your `R project` is saved will be the working directory. 
+If you noticed in your *Files, Plots…* pane, the files there tell you what folder you are automatically working in. This is known as your *working directory*, the default location that appears when you open `RStudio`. Wherever your `R project` is saved will be the working directory. 
+
+In your group google sheets, type the name of your `R` project and in which location it  is in. Now decide whether this is good location for your `R` project. For example, is the location name too long? (e.g.,'C:\Users\ xx\ Desktop \xx\xx\ Manchester\xx\xx\xx\xx\xx\xx' is too long and you might run into problems later) Or are there other files that are for other classes there too? If doubtful about the location of your project, move it somewhere else.
+
+<div style="margin-bottom:50px;">
+</div>
 
 Whenever you want to locate certain files within your `Project`, use the `here` package:
 <div style="margin-bottom:35px;">
@@ -149,7 +161,13 @@ library(haven)
 
 `Haven` enables `R` to understand various data formats used by other statistical packages such as SPSS and STATA. We will need this package to open data in its diverse forms. 
 
+<div style="margin-bottom:30px;">
+</div>
+
+### Activity 2: Importing and Viewing Data 
+
 You will have saved the NCVS in a relevant file in your project, so now let us load this data using `read_spss()` from `Haven`:
+
 <div style="margin-bottom:35px;">
 </div>
 ```{r}
@@ -163,7 +181,7 @@ ncvs <- read_spss(here("Datasets", "NCVS lone offender assaults 1992 to 2013.sav
 
 What you are saying to `R` is the following: 
 
->My data, *NCVS lone offender assaults 1992 to 2013*, is a .sav file. Therefore it is an SPSS dataset, and is located in the sub-folder called *Datasets* in my default working directory. `R`,  please extract it from *here*, understand it, and place it in an object called `ncvs` so I can find it in `RStudio`. 
+>My data, *NCVS lone offender assaults 1992 to 2013*, is a .sav file. Therefore, it is an SPSS dataset and is located in the sub-folder called *Datasets* in my default working directory. `R`,  please extract it from *here*, understand it, and place it in an object called `ncvs`, so I can find it in `RStudio`. 
 
 <div style="margin-bottom:15px;">
 </div>
@@ -179,6 +197,8 @@ View(ncvs)
 
 <div style="margin-bottom:50px;">
 </div>
+
+A tab appears labelled 'ncvs'. In it, you can view all its contents. In your group google sheets, type how many 'entries' and 'columns' there are in our dataframe, `ncvs`.
 
 ---
 
