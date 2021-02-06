@@ -156,13 +156,13 @@ Before we dive into those topics, we need to get into the habit of getting to kn
 
 In `burglary_df`, there are eight variables. For example, the `IMDscore` variable combines seven domains of deprivation into one index: income, employment, education, health, crime, barriers to housing/services, and living environment. `IMDrank` is a variable that ranks all 32,844 Lower Super Output Areas (LSOAs) from highest to lowest. 
 
-What are LSOAs? They are small geographical areas developed census information in order to calculate a range of statistics on neighbourhoods. You will see that by using the `range()` function (`range(burglary_df$IMDrank)`), that not all LSOAs are included, as this dataset only contains cases from Greater Manchester. 
+What are LSOAs? They are small geographical areas developed from census information in order to calculate a range of statistics on neighbourhoods. You will see that by using the `range()` function (`range(burglary_df$IMDrank)`), that not all LSOAs are included, as this dataset only contains cases from Greater Manchester. 
 
 In `monthly_df`, there are three variables. There is a lot of information in this data frame as there are crime counts for various different crimes, spread across each month of the year. Note that the data are in *long format*. This is a useful and typical format for longitudinal data because our time variable (i.e., months) is contained in one variable. This will make it easier to create graphics showing change over time.
 
 When you read a good quantitative research paper, its methods section will state the number of cases analysed with n = , whereby ‘n’ represents ‘number of cases’. This is known as sample size. For example, if the sample size of a study is two-hundred, the methods section would state it as ‘n= 200’.
 
-In your group google doc, type out the following: the number of entries for each dataframe. Type out the number following n = . In addition, state what you think the unit of analysis is in each dataframe.
+In your group google doc, type out the following: the number of entries (cases) for each dataframe. Type out the number following n = . In addition, state what you think the unit of analysis is in each dataframe.
 
 <div style="margin-bottom:30px;">
 </div>
