@@ -60,6 +60,8 @@ We learn `R` because we hope that this is an important tool that you will contin
 
 As `R` and `R Studio` are free software, you should be able to install these on your own machines at home. You may be working with different IT, so there are different options to allow a successful install. Our first activity will be to decide what approach to working with `R` and `R Studio` will be best for you. 
 
+<div style="margin-bottom:70px;">
+</div>
 
 ### Activity 1: Identifying your operating system
 
@@ -73,8 +75,9 @@ In this activity, you need to answer a question about your computer/IT that you 
   
 In your group google sheets, write down which operating system you have. This will guide which directions to follow later. 
 
+---
 
-<div style="margin-bottom:30px;">
+<div style="margin-bottom:70px;">
 </div>
 
 ### Activity 2: Install R & R Studio
@@ -163,7 +166,7 @@ The biggest one to your left is the main console, and it tells you what version 
 
 When you start working in `Rstudio`, it is best to have *four* open panes. **How?** Let's explore in the next activity. 
 
-<div style="margin-bottom:30px;">
+<div style="margin-bottom:70px;">
 </div>
 
 #### Activity 3: Opening up the script pane
@@ -220,8 +223,11 @@ The purposes of the four panes in Figure 1.3 are the following:
 
   iv) *4.4 Help* tab- you can access further information on the various packages. 
 
-<div style="margin-bottom:30px;">
+<div style="margin-bottom:70px;">
 </div>
+
+---
+
   
 #### Activity 4: Interacting with the 4 panes
 
@@ -344,17 +350,25 @@ Did you *Run* the arithmetic operators? The answers will have appeared, just lik
 
 There are other operators we will come across like the *and* operator (`&`) and the *or* operator (`|`), which will be useful when we start to manipulate our data sets. 
 
-<div style="margin-bottom:35px;">
+<div style="margin-bottom:70px;">
 </div>
+
 
 #### Activity 5: Play around with operators
 
 Return to your open version of `R Studio`, and use this to find the answer to the following: 
 
-`12329 + 342980`
-`18390 / 348` 
+
+```r
+12329 + 342980
+18390 / 348
+```
 
 The results should appear in the console pane and is known as your output. 
+
+
+---
+
 
 <div style="margin-bottom:35px;">
 </div>
@@ -423,7 +437,7 @@ How can you find the function you need? Throughout this class, you will learn a 
 
 You can use google to make your cookbook, and the website [stackoverflow](https://stackoverflow.com/), in particular, can help you find the function you need. But be wary, especially in the beginning, that you understand what the function does. There can be several different functions for the same action. One good approach is to add a function of interest to your cookbook and ask the teaching team about what it does, and how it might be different to other functions that do the same thing.
 
-<div style="margin-bottom:35px;">
+<div style="margin-bottom:70px;">
 </div>
 
 #### Activity 6: Play around with functions
@@ -487,7 +501,7 @@ Now let us move on to our second key topic for today: objects!
 
 Everything that exists in `R` is an **object**. Think of objects as boxes where you put things in. Imagine a big, empty cardboard box. We can create this big empty box in `R` by simply giving it a name. Usually, you want your object ('box') to have a good descriptive name, which will tell others what is in it. Imagine moving house. If you have a cardboard box full of plates, you might want to label it 'plates'. That way, when carrying, you know to be careful, and when unpacking, you know its contents will go in the kitchen. On the other hand, if you named it 'box1', then this is a lot less helpful when it comes to unpacking. 
 
-<div style="margin-bottom:30px;">
+<div style="margin-bottom:70px;">
 </div>
 
 #### Activity 7: Creating an object
@@ -548,6 +562,9 @@ Earlier, we introduced you to the Environment and History pane. We mentioned tha
 
 <div style="margin-bottom:50px;">
 </div>
+
+---
+
 
 #### Types of objects
 
@@ -640,7 +657,9 @@ View(df)
 ```
 <div style="margin-bottom:50px;">
 </div>
+
 ---
+
 
 #### Activity 8: Doing things to objects
 

@@ -157,18 +157,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.3</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#variables"><i class="fa fa-check"></i><b>2.3.1</b> Variables</a></li>
-<li class="chapter" data-level="2.3.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-3-identifying-a-variables-class"><i class="fa fa-check"></i><b>2.3.2</b> Activity 3: Identifying a variable’s class</a></li>
-<li class="chapter" data-level="2.3.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-4-creating-a-new-variable-from-1-existing-variable-3-examples"><i class="fa fa-check"></i><b>2.3.3</b> Activity 4: Creating a new variable from 1 existing variable: 3 examples</a></li>
-<li class="chapter" data-level="2.3.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-5-creating-a-new-variable-from-more-than-1-existing-variables"><i class="fa fa-check"></i><b>2.3.4</b> Activity 5: Creating a new variable from more than 1 existing variables</a></li>
-<li class="chapter" data-level="2.3.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.3.5</b> Labels</a></li>
-<li class="chapter" data-level="2.3.6" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-6-removing-labels"><i class="fa fa-check"></i><b>2.3.6</b> Activity 6: Removing labels</a></li>
-<li class="chapter" data-level="2.3.7" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-7-subsetting"><i class="fa fa-check"></i><b>2.3.7</b> Activity 7: Subsetting</a></li>
-<li class="chapter" data-level="2.3.8" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-8-subsetting-the-sequel"><i class="fa fa-check"></i><b>2.3.8</b> Activity 8: Subsetting, the Sequel</a></li>
+<li class="chapter" data-level="2.3.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.3.2</b> Labels</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.4</b> SUMMARY</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a><ul>
-<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-visualization.html"><a href="data-visualization.html#activity-1-getting-ready"><i class="fa fa-check"></i><b>3.1.1</b> Activity 1: Getting Ready</a></li>
+</ul></li>
 <li class="chapter" data-level="3.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>3.2</b> ggplot2</a></li>
 <li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="data-visualization.html"><a href="data-visualization.html#layers"><i class="fa fa-check"></i><b>3.3.1</b> Layers</a></li>
@@ -355,7 +351,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1">prob_iq &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">3600000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1">prob_iq &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">3600000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)</a></code></pre></div>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -363,10 +359,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1"><span class="co"># As our data is in a single vector object, we do not need to specify a data frame (as these have multiple vectors), so leave ggplot() empty</span></a>
-<a class="sourceLine" id="cb195-2" title="2"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb195-3" title="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> prob_iq), <span class="dt">bins =</span> <span class="dv">60</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb195-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(prob_iq)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="co"># We add a red line in the code to show the mean of the population IQ</span></a></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1"><span class="co"># As our data is in a single vector object, we do not need to specify a data frame (as these have multiple vectors), so leave ggplot() empty</span></a>
+<a class="sourceLine" id="cb196-2" title="2"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb196-3" title="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> prob_iq), <span class="dt">bins =</span> <span class="dv">60</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb196-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(prob_iq)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="co"># We add a red line in the code to show the mean of the population IQ</span></a></code></pre></div>
 <p><img src="05-inferential-statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <div style="margin-bottom:50px;">
 
@@ -375,12 +371,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1"><span class="kw">mean</span>(prob_iq) <span class="co"># 99.99508</span></a></code></pre></div>
-<pre><code>## [1] 100.0022</code></pre>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1"><span class="kw">median</span>(prob_iq) <span class="co"># 99.99855</span></a></code></pre></div>
-<pre><code>## [1] 100.0152</code></pre>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1"><span class="kw">sd</span>(prob_iq) <span class="co"># 14.99377</span></a></code></pre></div>
-<pre><code>## [1] 14.99619</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" title="1"><span class="kw">mean</span>(prob_iq) <span class="co"># 99.99508</span></a></code></pre></div>
+<pre><code>## [1] 100.0061</code></pre>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" title="1"><span class="kw">median</span>(prob_iq) <span class="co"># 99.99855</span></a></code></pre></div>
+<pre><code>## [1] 100.0158</code></pre>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" title="1"><span class="kw">sd</span>(prob_iq) <span class="co"># 14.99377</span></a></code></pre></div>
+<pre><code>## [1] 14.99967</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -389,18 +385,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1"><span class="kw">set.seed</span>(<span class="dv">1612</span>) <span class="co"># Use this number! </span></a>
-<a class="sourceLine" id="cb202-2" title="2"></a>
-<a class="sourceLine" id="cb202-3" title="3"><span class="co"># Creating the prob_off data frame with ID variable called ‘probationer_id’ for all 3.6 million cases and including the IQ variable</span></a>
-<a class="sourceLine" id="cb202-4" title="4"><span class="co"># Rounding IQ variable to nearest whole number</span></a>
-<a class="sourceLine" id="cb202-5" title="5">prob_off &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">probationer_id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3600000</span>, <span class="dt">IQ =</span> <span class="kw">round</span>(<span class="kw">rnorm</span>(<span class="dv">3600000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>) ) </a>
-<a class="sourceLine" id="cb202-6" title="6"></a>
-<a class="sourceLine" id="cb202-7" title="7"><span class="co"># Some descriptive statistics</span></a>
-<a class="sourceLine" id="cb202-8" title="8"><span class="kw">mean</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 100.0028 </span></a></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" title="1"><span class="kw">set.seed</span>(<span class="dv">1612</span>) <span class="co"># Use this number! </span></a>
+<a class="sourceLine" id="cb203-2" title="2"></a>
+<a class="sourceLine" id="cb203-3" title="3"><span class="co"># Creating the prob_off data frame with ID variable called ‘probationer_id’ for all 3.6 million cases and including the IQ variable</span></a>
+<a class="sourceLine" id="cb203-4" title="4"><span class="co"># Rounding IQ variable to nearest whole number</span></a>
+<a class="sourceLine" id="cb203-5" title="5">prob_off &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">probationer_id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3600000</span>, <span class="dt">IQ =</span> <span class="kw">round</span>(<span class="kw">rnorm</span>(<span class="dv">3600000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>) ) </a>
+<a class="sourceLine" id="cb203-6" title="6"></a>
+<a class="sourceLine" id="cb203-7" title="7"><span class="co"># Some descriptive statistics</span></a>
+<a class="sourceLine" id="cb203-8" title="8"><span class="kw">mean</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 100.0028 </span></a></code></pre></div>
 <pre><code>## [1] 100.0028</code></pre>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1"><span class="kw">median</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 100 </span></a></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" title="1"><span class="kw">median</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 100 </span></a></code></pre></div>
 <pre><code>## [1] 100</code></pre>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="kw">sd</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 14.99976</span></a></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" title="1"><span class="kw">sd</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 14.99976</span></a></code></pre></div>
 <pre><code>## [1] 14.99976</code></pre>
 <div style="margin-bottom:50px;">
 
@@ -410,15 +406,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1"><span class="co"># We take a sample of 100 from our data frame, ‘prob_off’, and put it into an object called ‘sample1’</span></a>
-<a class="sourceLine" id="cb208-2" title="2">sample1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb208-3" title="3"></a>
-<a class="sourceLine" id="cb208-4" title="4"><span class="co"># Some descriptive statistics of ‘sample1’</span></a>
-<a class="sourceLine" id="cb208-5" title="5"><span class="kw">mean</span>(sample1<span class="op">$</span>IQ) <span class="co"># 101.59 </span></a></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1"><span class="co"># We take a sample of 100 from our data frame, ‘prob_off’, and put it into an object called ‘sample1’</span></a>
+<a class="sourceLine" id="cb209-2" title="2">sample1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb209-3" title="3"></a>
+<a class="sourceLine" id="cb209-4" title="4"><span class="co"># Some descriptive statistics of ‘sample1’</span></a>
+<a class="sourceLine" id="cb209-5" title="5"><span class="kw">mean</span>(sample1<span class="op">$</span>IQ) <span class="co"># 101.59 </span></a></code></pre></div>
 <pre><code>## [1] 101.59</code></pre>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1"><span class="kw">median</span>(sample1<span class="op">$</span>IQ) <span class="co"># 101.5 </span></a></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" title="1"><span class="kw">median</span>(sample1<span class="op">$</span>IQ) <span class="co"># 101.5 </span></a></code></pre></div>
 <pre><code>## [1] 101.5</code></pre>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1"><span class="kw">sd</span>(sample1<span class="op">$</span>IQ) <span class="co"># 16.27485</span></a></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" title="1"><span class="kw">sd</span>(sample1<span class="op">$</span>IQ) <span class="co"># 16.27485</span></a></code></pre></div>
 <pre><code>## [1] 16.27485</code></pre>
 <div style="margin-bottom:50px;">
 
@@ -431,24 +427,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" title="1"><span class="co"># We use the do () function to make 1,000 automatic resamples from the data frame ‘prob_off’</span></a>
-<a class="sourceLine" id="cb214-2" title="2"><span class="co"># Each resample comprises 100 cases </span></a>
-<a class="sourceLine" id="cb214-3" title="3"><span class="co"># We put our 1,000 resamples into an object called ‘sample100’</span></a>
-<a class="sourceLine" id="cb214-4" title="4">sample100 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb214-5" title="5"></a>
-<a class="sourceLine" id="cb214-6" title="6"><span class="co"># Additional variables are now found in sample100, which helps us to calculate the mean IQ of each sample, for which there are now 1000 of them</span></a>
-<a class="sourceLine" id="cb214-7" title="7"></a>
-<a class="sourceLine" id="cb214-8" title="8"><span class="co"># Now select the sample100 data frame</span></a>
-<a class="sourceLine" id="cb214-9" title="9">sample_means100 &lt;-<span class="st"> </span>sample100 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb214-10" title="10"><span class="st">  </span><span class="kw">group_by</span>(.index) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Group by .index  (the sample id)</span></a>
-<a class="sourceLine" id="cb214-11" title="11"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanIQ =</span> <span class="kw">mean</span>(IQ)) <span class="co"># Creating new variable of mean IQ</span></a></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" title="1"><span class="co"># We use the do () function to make 1,000 automatic resamples from the data frame ‘prob_off’</span></a>
+<a class="sourceLine" id="cb215-2" title="2"><span class="co"># Each resample comprises 100 cases </span></a>
+<a class="sourceLine" id="cb215-3" title="3"><span class="co"># We put our 1,000 resamples into an object called ‘sample100’</span></a>
+<a class="sourceLine" id="cb215-4" title="4">sample100 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb215-5" title="5"></a>
+<a class="sourceLine" id="cb215-6" title="6"><span class="co"># Additional variables are now found in sample100, which helps us to calculate the mean IQ of each sample, for which there are now 1000 of them</span></a>
+<a class="sourceLine" id="cb215-7" title="7"></a>
+<a class="sourceLine" id="cb215-8" title="8"><span class="co"># Now select the sample100 data frame</span></a>
+<a class="sourceLine" id="cb215-9" title="9">sample_means100 &lt;-<span class="st"> </span>sample100 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb215-10" title="10"><span class="st">  </span><span class="kw">group_by</span>(.index) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Group by .index  (the sample id)</span></a>
+<a class="sourceLine" id="cb215-11" title="11"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanIQ =</span> <span class="kw">mean</span>(IQ)) <span class="co"># Creating new variable of mean IQ</span></a></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1"><span class="kw">mean</span>(sample_means100<span class="op">$</span>meanIQ)</a></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" title="1"><span class="kw">mean</span>(sample_means100<span class="op">$</span>meanIQ)</a></code></pre></div>
 <pre><code>## [1] 100.1112</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1"><span class="co"># We can visualise this sampling distribution to compare to the previous population distribution</span></a>
-<a class="sourceLine" id="cb218-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> sample_means100) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb218-3" title="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> meanIQ)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb218-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(meanIQ)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" title="1"><span class="co"># We can visualise this sampling distribution to compare to the previous population distribution</span></a>
+<a class="sourceLine" id="cb219-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> sample_means100) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb219-3" title="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> meanIQ)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb219-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(meanIQ)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <img src="05-inferential-statistics_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 <div style="margin-bottom:50px;">
@@ -460,28 +456,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" title="1"><span class="co"># 1000 probationers in each sample </span></a>
-<a class="sourceLine" id="cb220-2" title="2">sample1000 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">1000</span>) </a>
-<a class="sourceLine" id="cb220-3" title="3"></a>
-<a class="sourceLine" id="cb220-4" title="4"><span class="co"># 30 probationers in each sample </span></a>
-<a class="sourceLine" id="cb220-5" title="5">sample30 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">30</span>) </a>
-<a class="sourceLine" id="cb220-6" title="6"></a>
-<a class="sourceLine" id="cb220-7" title="7"><span class="co"># Calculate the means IQ scores for each sample </span></a>
-<a class="sourceLine" id="cb220-8" title="8">sample_means1000 &lt;-<span class="st"> </span>sample1000 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb220-9" title="9"><span class="st">  </span><span class="kw">group_by</span>(.index) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb220-10" title="10"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanIQ =</span> <span class="kw">mean</span>(IQ)) </a></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1"><span class="co"># 1000 probationers in each sample </span></a>
+<a class="sourceLine" id="cb221-2" title="2">sample1000 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">1000</span>) </a>
+<a class="sourceLine" id="cb221-3" title="3"></a>
+<a class="sourceLine" id="cb221-4" title="4"><span class="co"># 30 probationers in each sample </span></a>
+<a class="sourceLine" id="cb221-5" title="5">sample30 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">30</span>) </a>
+<a class="sourceLine" id="cb221-6" title="6"></a>
+<a class="sourceLine" id="cb221-7" title="7"><span class="co"># Calculate the means IQ scores for each sample </span></a>
+<a class="sourceLine" id="cb221-8" title="8">sample_means1000 &lt;-<span class="st"> </span>sample1000 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb221-9" title="9"><span class="st">  </span><span class="kw">group_by</span>(.index) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb221-10" title="10"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanIQ =</span> <span class="kw">mean</span>(IQ)) </a></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" title="1">sample_means300 &lt;-<span class="st"> </span>sample30 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb222-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(.index) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb222-3" title="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanIQ =</span> <span class="kw">mean</span>(IQ)) </a></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" title="1">sample_means300 &lt;-<span class="st"> </span>sample30 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb223-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(.index) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb223-3" title="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanIQ =</span> <span class="kw">mean</span>(IQ)) </a></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" title="1"><span class="co"># Bind them with our first example, which had 100 probationers in each sample </span></a>
-<a class="sourceLine" id="cb224-2" title="2">sample.means.total &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(sample_means300, sample_means100, sample_means1000, <span class="dt">.id =</span> <span class="st">&quot;sample.size&quot;</span>)</a>
-<a class="sourceLine" id="cb224-3" title="3"></a>
-<a class="sourceLine" id="cb224-4" title="4"><span class="co"># Density plot for comparison </span></a>
-<a class="sourceLine" id="cb224-5" title="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> sample.means.total) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb224-6" title="6"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> meanIQ, <span class="dt">fill =</span> sample.size), <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb224-7" title="7"><span class="st">  </span><span class="kw">scale_fill_discrete</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;30&quot;</span>,<span class="st">&quot;100&quot;</span>,<span class="st">&quot;1000&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" title="1"><span class="co"># Bind them with our first example, which had 100 probationers in each sample </span></a>
+<a class="sourceLine" id="cb225-2" title="2">sample.means.total &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(sample_means300, sample_means100, sample_means1000, <span class="dt">.id =</span> <span class="st">&quot;sample.size&quot;</span>)</a>
+<a class="sourceLine" id="cb225-3" title="3"></a>
+<a class="sourceLine" id="cb225-4" title="4"><span class="co"># Density plot for comparison </span></a>
+<a class="sourceLine" id="cb225-5" title="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> sample.means.total) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb225-6" title="6"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> meanIQ, <span class="dt">fill =</span> sample.size), <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb225-7" title="7"><span class="st">  </span><span class="kw">scale_fill_discrete</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;30&quot;</span>,<span class="st">&quot;100&quot;</span>,<span class="st">&quot;1000&quot;</span>))</a></code></pre></div>
 <img src="05-inferential-statistics_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
@@ -504,11 +500,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" title="1"><span class="kw">sd</span>(sample_means300<span class="op">$</span>meanIQ)</a></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" title="1"><span class="kw">sd</span>(sample_means300<span class="op">$</span>meanIQ)</a></code></pre></div>
 <pre><code>## [1] 2.695511</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" title="1"><span class="kw">sd</span>(sample_means100<span class="op">$</span>meanIQ)</a></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" title="1"><span class="kw">sd</span>(sample_means100<span class="op">$</span>meanIQ)</a></code></pre></div>
 <pre><code>## [1] 1.485388</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" title="1"><span class="kw">sd</span>(sample_means1000<span class="op">$</span>meanIQ)</a></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="kw">sd</span>(sample_means1000<span class="op">$</span>meanIQ)</a></code></pre></div>
 <pre><code>## [1] 0.4774102</code></pre>
 <div style="margin-bottom:50px;">
 
@@ -518,10 +514,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" title="1"><span class="co"># Select our data frame with all 1000 samples</span></a>
-<a class="sourceLine" id="cb231-2" title="2">sample1000 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb231-3" title="3"><span class="st">  </span><span class="kw">filter</span>(.index <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Filter the first one (choose any)</span></a>
-<a class="sourceLine" id="cb231-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">SE =</span> <span class="kw">sd</span>(IQ)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1000</span>)) <span class="co"># Calculate the error</span></a></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1"><span class="co"># Select our data frame with all 1000 samples</span></a>
+<a class="sourceLine" id="cb232-2" title="2">sample1000 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb232-3" title="3"><span class="st">  </span><span class="kw">filter</span>(.index <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Filter the first one (choose any)</span></a>
+<a class="sourceLine" id="cb232-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">SE =</span> <span class="kw">sd</span>(IQ)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1000</span>)) <span class="co"># Calculate the error</span></a></code></pre></div>
 <pre><code>##          SE
 ## 1 0.4783743</code></pre>
 <div style="margin-bottom:50px;">
@@ -545,13 +541,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" title="1"><span class="co"># One-off sample containing 1000 probationers </span></a>
-<a class="sourceLine" id="cb233-2" title="2">sample1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">1000</span>) </a>
-<a class="sourceLine" id="cb233-3" title="3"></a>
-<a class="sourceLine" id="cb233-4" title="4"><span class="co"># Constructing the confidence interval using what we know about SDs and normal distributions</span></a>
-<a class="sourceLine" id="cb233-5" title="5">sample1 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb233-6" title="6"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">lower =</span> <span class="kw">mean</span>(IQ)<span class="op">-</span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ), <span class="dt">meaniq =</span> <span class="kw">mean</span>(IQ), <span class="dt">upper =</span></a>
-<a class="sourceLine" id="cb233-7" title="7">              <span class="kw">mean</span>(IQ)<span class="op">+</span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ))</a></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1"><span class="co"># One-off sample containing 1000 probationers </span></a>
+<a class="sourceLine" id="cb234-2" title="2">sample1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">1000</span>) </a>
+<a class="sourceLine" id="cb234-3" title="3"></a>
+<a class="sourceLine" id="cb234-4" title="4"><span class="co"># Constructing the confidence interval using what we know about SDs and normal distributions</span></a>
+<a class="sourceLine" id="cb234-5" title="5">sample1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb234-6" title="6"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">lower =</span> <span class="kw">mean</span>(IQ)<span class="op">-</span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ), <span class="dt">meaniq =</span> <span class="kw">mean</span>(IQ), <span class="dt">upper =</span></a>
+<a class="sourceLine" id="cb234-7" title="7">              <span class="kw">mean</span>(IQ)<span class="op">+</span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ))</a></code></pre></div>
 <pre><code>##      lower  meaniq   upper
 ## 1 69.72398 100.539 131.354</code></pre>
 <div style="margin-bottom:50px;">
@@ -561,12 +557,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> sample1) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb235-2" title="2"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> IQ)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb235-3" title="3"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb235-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb235-5" title="5"><span class="st">                             </span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb235-6" title="6"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ) <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> sample1) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb236-2" title="2"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> IQ)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb236-3" title="3"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb236-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb236-5" title="5"><span class="st">                             </span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb236-6" title="6"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ) <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</a></code></pre></div>
 <img src="05-inferential-statistics_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 <div style="margin-bottom:50px;">
 
@@ -575,19 +571,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="co"># Create a vector containing the true population mean from prob_off</span></a>
-<a class="sourceLine" id="cb236-2" title="2">true.mean &lt;-<span class="st"> </span><span class="kw">mean</span>(prob_off<span class="op">$</span>IQ)</a>
-<a class="sourceLine" id="cb236-3" title="3"></a>
-<a class="sourceLine" id="cb236-4" title="4"><span class="co"># Select the sample of 1,000 samples, each with 100 probationers and place in object, ‘new.sample.ci100’</span></a>
-<a class="sourceLine" id="cb236-5" title="5">new.sample.ci100 &lt;-<span class="st"> </span>sample_means100 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb236-6" title="6"><span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#Take the first 100 means </span></a>
-<a class="sourceLine" id="cb236-7" title="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lower =</span> meanIQ<span class="fl">-1.96</span><span class="op">*</span><span class="kw">sd</span>(meanIQ), <span class="dt">upper =</span> meanIQ<span class="fl">+1.96</span><span class="op">*</span><span class="kw">sd</span>(meanIQ), <span class="co"># Compute lower and upper boundaries to create a new variable called ‘capture.mean’</span></a>
-<a class="sourceLine" id="cb236-8" title="8">         <span class="dt">capture.mean =</span> <span class="kw">if_else</span>(<span class="dt">condition =</span> lower <span class="op">&gt;</span><span class="st"> </span>true.mean <span class="op">|</span><span class="st"> </span>upper <span class="op">&lt;</span><span class="st"> </span>true.mean, <span class="dt">true =</span> <span class="st">&quot;no&quot;</span>, <span class="dt">false =</span> <span class="st">&quot;yes&quot;</span>)) <span class="co"># Specify code below to be: If lower &gt; true mean or upper &lt; true mean then capture.mean will #be &quot;yes&quot; </span></a>
-<a class="sourceLine" id="cb236-9" title="9"><span class="co"># If not, capture.mean will be &quot;no&quot;</span></a>
-<a class="sourceLine" id="cb236-10" title="10"></a>
-<a class="sourceLine" id="cb236-11" title="11"></a>
-<a class="sourceLine" id="cb236-12" title="12"><span class="co"># Produce table to show new variable and how many Cis captured population mean</span></a>
-<a class="sourceLine" id="cb236-13" title="13"><span class="kw">table</span>(new.sample.ci100<span class="op">$</span>capture.mean)</a></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" title="1"><span class="co"># Create a vector containing the true population mean from prob_off</span></a>
+<a class="sourceLine" id="cb237-2" title="2">true.mean &lt;-<span class="st"> </span><span class="kw">mean</span>(prob_off<span class="op">$</span>IQ)</a>
+<a class="sourceLine" id="cb237-3" title="3"></a>
+<a class="sourceLine" id="cb237-4" title="4"><span class="co"># Select the sample of 1,000 samples, each with 100 probationers and place in object, ‘new.sample.ci100’</span></a>
+<a class="sourceLine" id="cb237-5" title="5">new.sample.ci100 &lt;-<span class="st"> </span>sample_means100 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb237-6" title="6"><span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#Take the first 100 means </span></a>
+<a class="sourceLine" id="cb237-7" title="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lower =</span> meanIQ<span class="fl">-1.96</span><span class="op">*</span><span class="kw">sd</span>(meanIQ), <span class="dt">upper =</span> meanIQ<span class="fl">+1.96</span><span class="op">*</span><span class="kw">sd</span>(meanIQ), <span class="co"># Compute lower and upper boundaries to create a new variable called ‘capture.mean’</span></a>
+<a class="sourceLine" id="cb237-8" title="8">         <span class="dt">capture.mean =</span> <span class="kw">if_else</span>(<span class="dt">condition =</span> lower <span class="op">&gt;</span><span class="st"> </span>true.mean <span class="op">|</span><span class="st"> </span>upper <span class="op">&lt;</span><span class="st"> </span>true.mean, <span class="dt">true =</span> <span class="st">&quot;no&quot;</span>, <span class="dt">false =</span> <span class="st">&quot;yes&quot;</span>)) <span class="co"># Specify code below to be: If lower &gt; true mean or upper &lt; true mean then capture.mean will #be &quot;yes&quot; </span></a>
+<a class="sourceLine" id="cb237-9" title="9"><span class="co"># If not, capture.mean will be &quot;no&quot;</span></a>
+<a class="sourceLine" id="cb237-10" title="10"></a>
+<a class="sourceLine" id="cb237-11" title="11"></a>
+<a class="sourceLine" id="cb237-12" title="12"><span class="co"># Produce table to show new variable and how many Cis captured population mean</span></a>
+<a class="sourceLine" id="cb237-13" title="13"><span class="kw">table</span>(new.sample.ci100<span class="op">$</span>capture.mean)</a></code></pre></div>
 <pre><code>## 
 ##  no yes 
 ##   4  96</code></pre>
@@ -598,10 +594,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> new.sample.ci100) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb238-2" title="2"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> true.mean), <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb238-3" title="3"><span class="st">  </span><span class="kw">geom_errorbarh</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xmin =</span> lower, <span class="dt">xmax =</span> upper, <span class="dt">y =</span> .index, <span class="dt">colour =</span> capture.mean)) <span class="op">+</span><span class="st"> </span><span class="co"># Creating error bars to represent CIs and colouring in which ones captured population mean #and did not by ‘capture.mean’</span></a>
-<a class="sourceLine" id="cb238-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> .index, <span class="dt">x =</span> meanIQ, <span class="dt">colour =</span> capture.mean))</a></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> new.sample.ci100) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb239-2" title="2"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> true.mean), <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb239-3" title="3"><span class="st">  </span><span class="kw">geom_errorbarh</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xmin =</span> lower, <span class="dt">xmax =</span> upper, <span class="dt">y =</span> .index, <span class="dt">colour =</span> capture.mean)) <span class="op">+</span><span class="st"> </span><span class="co"># Creating error bars to represent CIs and colouring in which ones captured population mean #and did not by ‘capture.mean’</span></a>
+<a class="sourceLine" id="cb239-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> .index, <span class="dt">x =</span> meanIQ, <span class="dt">colour =</span> capture.mean))</a></code></pre></div>
 <img src="05-inferential-statistics_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 <div style="margin-bottom:50px;">
 

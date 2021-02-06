@@ -97,7 +97,7 @@ library(dplyr)
 
 Although today is focused on tidying data, it is also helpful if your work is tidy and found in one easily accessible folder. By saving work inside a **project**, you can find files such as data and scripts related to specific work in a single working directory. Let us get into the habit of doing this:
 
-<div style="margin-bottom:30px;">
+<div style="margin-bottom:70px;">
 </div>
 
 ### Activity 1: Making yourself a project 
@@ -190,7 +190,7 @@ library(haven)
 
 `Haven` enables `R` to understand various data formats used by other statistical packages such as SPSS and STATA. We will need this package to open data in its diverse forms. 
 
-<div style="margin-bottom:30px;">
+<div style="margin-bottom:70px;">
 </div>
 
 ### Activity 2: Importing and Viewing Data 
@@ -250,10 +250,10 @@ In `R`, nominal and ordinal variables are encoded as a **factor** class because 
 
 Likewise, interval and ratio variables are encoded as **numeric** class because they are continuous characteristics, so take on a wide range of values.
 
-<div style="margin-bottom:30px;">
+<div style="margin-bottom:70px;">
 </div>
 
-### Activity 3: Identifying a variable's class 
+#### Activity 3: Identifying a variable's class 
 
 How do you know what your variable is classed as? There are two ways of knowing using our `ncvs` data:
 
@@ -277,6 +277,9 @@ class(ncvs$injured)
 Now, may you find out what is the class of the variable `weaponpresent`? In your googledoc, type out the answer and the code you used to get that answer.
 
 <!-- # numeric and class(ncvs$weaponpresent) -->
+
+---
+
 
 <div style="margin-bottom:50px;">
 </div>
@@ -338,7 +341,7 @@ In some circumstances, we would like to recode variables. Recoding could entail 
 <div style="margin-bottom:70px;">
 </div>
 
-### Activity 4: Creating a new variable from 1 existing variable: 3 examples
+#### Activity 4: Creating a new variable from 1 existing variable: 3 examples
 
 <div style="margin-bottom:35px;">
 </div>
@@ -413,7 +416,11 @@ add_column(ncvs, newid = 1:nrow(ncvs))
 <div style="margin-bottom:70px;">
 </div>
 
-### Activity 5: Creating a new variable from more than 1 existing variables
+---
+
+
+
+#### Activity 5: Creating a new variable from more than 1 existing variables
 
 Now we want to create a new variable in our NCVS data that tells us about the severity of the victimization experienced by the respondent. That severity will be measured by two variables: (1) whether the offender had a weapon and (2) whether the victim sustained an injury during their victimization. These are not necessarily the best variables to use in measuring victimization severity; this example, however, should illustrate how you might combine variables to create a new one. 
 
@@ -475,14 +482,14 @@ ncvs %>% select(injured, weaponpresent, severity) %>% sample_n(10)
 ##        <dbl+lbl>         <dbl>    <dbl>
 ##  1 0 [uninjured]             1        1
 ##  2 0 [uninjured]             1        1
-##  3 0 [uninjured]             1        1
-##  4 1 [injured]               0        1
-##  5 1 [injured]               0        1
-##  6 1 [injured]               0        1
-##  7 1 [injured]              NA       NA
-##  8 0 [uninjured]             0        0
+##  3 0 [uninjured]             0        0
+##  4 0 [uninjured]             1        1
+##  5 0 [uninjured]             0        0
+##  6 0 [uninjured]             0        0
+##  7 1 [injured]               0        1
+##  8 0 [uninjured]             1        1
 ##  9 0 [uninjured]             0        0
-## 10 0 [uninjured]            NA       NA
+## 10 0 [uninjured]             0        0
 ```
 
 <div style="margin-bottom:50px;">
@@ -520,6 +527,7 @@ ncvs <- ncvs %>% mutate(notstranger = case_when(relationship == 0 ~ 0, relations
 ```
 <div style="margin-bottom:50px;">
 </div>
+
 ---
 
 
@@ -567,7 +575,10 @@ The output in the console show that uninjured is labelled '0' and injured is lab
 <div style="margin-bottom:70px;">
 </div>
 
-### Activity 6: Removing labels 
+---
+
+
+#### Activity 6: Removing labels 
 
 Let us return to the `injured` variable from the `ncvs` dataframe. We, again, are going to make a duplicate variable of `injured` to learn how to remove and add labels. We do this because it is good practice to leave your original variables alone in case you need to go back to them. 
 
@@ -676,7 +687,10 @@ Nothing to add in the googledoc this time, so onto the next activity.
 <div style="margin-bottom:70px;">
 </div>
 
-### Activity 7: Subsetting
+---
+
+
+#### Activity 7: Subsetting
 
 Through `tidyverse` functions, we can subset our data frames or vectors based on some criteria. Using the function `select()`, we can subset variables by number or name:
 
@@ -726,10 +740,12 @@ Say if we wanted the first five rows of `KnewOfandInjured`. How would we do that
 
 <!-- injuredfiveknew <- KnewOfandInjured %>% slice(1:5) -->
 
+---
+
 <div style="margin-bottom:70px;">
 </div>
 
-### Activity 8: Subsetting, the Sequel
+#### Activity 8: Subsetting, the Sequel
 
 We now have a subset called `injuredfiveknew`. Say we only want to keep the variables `V3014` (age) and `V3018` (sex). How would you make an object that only contains these two variables from `injuredfiveknew`?
 Recall that you would need to use the function `select()`to select variables. But in this example, instead of inserting ':' like in the previous code, you would need to insert a ','. Understanding what ':' means and viewing the order of the variables in `injuredfiveknew` will give you insight into why.

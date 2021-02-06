@@ -14,6 +14,9 @@
 ##### **Today’s Learning Tools:** {-}
 <div style="margin-bottom:15px;">
 </div>
+##### *Total number of activities*: 12 {-}
+<div style="margin-bottom:15px;">
+</div>
 
 ##### *Data:* {-}
 -	Official crime data from England and Wales
@@ -91,6 +94,11 @@ Wickham advances the work of *Grammar of Graphics* by proposing a layered approa
 
 Why is this important? Visualizing your data helps you to have a better understanding of them before moving on to more advanced and complex analyses. Numbers themselves can be deceptive and complicated, so by visualizing them, you can identify any patterns or anomalies.
 
+<div style="margin-bottom:70px;">
+</div>
+
+### Activity 1: Getting Ready
+
 Before we ‘layer up’, let’s do the following:
 <div style="margin-bottom:15px;">
 </div>
@@ -120,6 +128,9 @@ burglary_df <- read_csv(here("Datasets", "gmp_2017.csv"))
 <div style="margin-bottom:50px;">
 </div>
 
+Nothing to put down in the group google doc for this first activity. As long as the dataframes and packages are loaded, then you have completed the activity.
+
+
 ---
 
 
@@ -130,13 +141,22 @@ burglary_df <- read_csv(here("Datasets", "gmp_2017.csv"))
 
 As you learn to create graphs in `ggplot2`, you will see that the code reflects building these graphs as layers. This will take getting used to if you are only familiar with building graphs from a template in Excel. You can also reuse chunks of code to create different kinds of graphics or identical ones in other datasets. Today we focus on the `ggplot2` package to learn our three substantive topics: **layers**, **graphs for nominal and ordinal data**, and **graphs for interval and ratio data**. 
 
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 2: Getting to Know New Data
+
 Before we dive into those topics, we need to get into the habit of getting to know our data. First, let us use the function `View()` and then the function `class()` to look at how `R` treats each variable for each dataset.
 
 In `burglary_df`, there are eight variables. For example, the `IMDscore` variable combines seven domains of deprivation into one index: income, employment, education, health, crime, barriers to housing/services, and living environment. `IMDrank` is a variable that ranks all 32,844 Lower Super Output Areas (LSOAs) from highest to lowest. 
 
-What are LSOAs? They are neighbourhood census units used to visualize associations between demographic characteristics and crime concentrations. You will see that by using the `range()` function ( `range(burglary_df$IMDrank)` ), that not all LSOAs are included, as this dataset only contains cases from Greater Manchester. 
+What are LSOAs? They are small geographical areas developed from census information in order to calculate a range of statistics on neighbourhoods. You will see that by using the `range()` function (`range(burglary_df$IMDrank)`), that not all LSOAs are included, as this dataset only contains cases from Greater Manchester. 
 
 In `monthly_df`, there are three variables. There is a lot of information in this data frame as there are crime counts for various different crimes, spread across each month of the year. Note that the data are in *long format*. This is a useful and typical format for longitudinal data because our time variable (i.e., months) is contained in one variable. This will make it easier to create graphics showing change over time.
+
+When you read a good quantitative research paper, its methods section will state the number of cases analysed with n = , whereby ‘n’ represents ‘number of cases’. This is known as sample size. For example, if the sample size of a study is two-hundred, the methods section would state it as ‘n= 200’.
+
+In your group google doc, type out the following: the number of entries (cases) for each dataframe. Type out the number following n = . In addition, state what you think the unit of analysis is in each dataframe.
 
 <div style="margin-bottom:30px;">
 </div>
@@ -157,6 +177,11 @@ Now that we have gotten to know our data, onto our three main topics: **layers**
 </div>
 
 To understand layers and how they are generated in `ggplot2`, we begin with a scatterplot. This is a graph that shows the relationship between two continuous variables – in other words, between two variables that are both either interval or ratio level. So, a scatterplot is helping us to visualize this relationship. In the `burglary_df`, we may be interested in understanding the relationship between deprivation and burglary victimisation. 
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 3: Using ggplot2 to Create a Scatterplot
 
 Our research question, therefore, is: *What is the relationship between income and burglary counts?* 
 
@@ -211,7 +236,14 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count)) +
 </div>
 
 
-Now the scatterplot in all its glory appears. What can you say about the relationship between deprivation and burglary victimisation? 
+Now the scatterplot in all its glory appears. What can you say about the relationship between deprivation and burglary victimisation? In your group google doc, type out what you think is the relationship between these two variables.
+
+---
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 4: Adding a Third Variable to a Scatterplot
 
 Maybe it would be helpful if we included other information like how local authorities may play a role in this relationship. To do so, we colour each point by the variable `LAname` using the `color` argument: 
 
@@ -227,20 +259,22 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 <div style="margin-bottom:50px;">
 </div>
 
+In your group google doc, state what you observe from this new visual. What sort of relationship does it seem to show between burglary counts and income?
+
+---
+
+
 As previously mentioned, a number of other functions are available for the `geom_` function such as shape, linetype, size, fill, and alpha (transparency). But these depend on the geometry being used and the class of variable being mapped to the aesthetic. For example, try the shape aesthetic for `LAname`, which will vary the shape of each point according to local authority. A warning message appears – what is it telling you? 
 
 This relates to the grammar of graphics philosophy on how people understand information, and `ggplot2` will warn you when it thinks the graphic is difficult to interpret or, worse, misleading. 
 
-<div style="margin-bottom:30px;">
+<div style="margin-bottom:70px;">
 </div>
 
 ---
 
-#### **Colours!** 
 
-<div style="margin-bottom:35px;">
-</div>
-
+#### Activity 5: Colours!
 The colour palette that appeared for our previous scatterplot is a default one, and there are a number of default colour palettes available. We can specify a colour palette using an additional layer with the function `scale_color_brewer()`. For example:
 
 <div style="margin-bottom:35px;">
@@ -272,12 +306,15 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 <div style="margin-bottom:50px;">
 </div>
 
----
+Nothing to add in the good ole’ group google doc for the next three (6 to 8) activities, but go through them as they will be useful for your class assignment.
 
-#### **Sizes & Transparency**
-<div style="margin-bottom:30px;">
+<div style="margin-bottom:70px;">
 </div>
 
+---
+
+
+#### Activity 6: Sizes & Transparency
 Recall that the geometric object layer is about the data points themselves. You can change their appearance within the `geom_point` function. To increase the size of the points and make them transparent, we use the size and alpha arguments. The default for size is 1, so anything lower than 1 will make points smaller while anything larger than 1 will make the points bigger. The default for alpha is also 1, which means total opaqueness, so you can only go lower to make things more transparent. For example:
 
 <div style="margin-bottom:35px;">
@@ -295,12 +332,11 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 <div style="margin-bottom:50px;">
 </div>
 
+
 ---
 
-#### **Labels**
-<div style="margin-bottom:30px;">
-</div>
 
+#### Activity 7: Labels
 The graphic is looking good, but the labels will need tweaking if we do not like the default ones, which are our variable names. We use the `labs ()` layer to change the labels for the x and y axes as well as the graphic title:
 
 <div style="margin-bottom:35px;">
@@ -319,11 +355,7 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 
 ---
 
-#### **Built-in Themes**
-
-<div style="margin-bottom:35px;">
-</div>
-
+#### Activity 8: Built-in Themes
 A final touch to your graphic can be the use of **themes**. These change the overall appearance of your graphic. The default theme we have for our graphic is `theme_gray()`, but we can go for a minimalist look by using `theme_minimal ()`. There are a number of these customised themes like one that is inspired by *The Economist* ( `theme_economist ()` )
 
 <div style="margin-bottom:35px;">
@@ -342,17 +374,20 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 <div style="margin-bottom:50px;">
 </div>
 
+---
+
+
 
 ### Graphs for Nominal and Ordinal Data
 
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 9: Bar graphs
 <div style="margin-bottom:30px;">
 </div>
 
-#### **Bar graphs**
-<div style="margin-bottom:30px;">
-</div>
-
-To explore the count distribution of nominal or ordinal variables, use the bar graph. We may be interested to know the number of neighbourhoods falling into each IMD (deprivation) decile, a key indicator of criminality. 
+To explore the count distribution of nominal or ordinal variables, use the bar graph. We may be interested to know the number of neighbourhoods falling into each indice of multiple deprivation (IMD) decile, a key indicator of criminality. Those in decile 1 are within the most deprived 10% of LSOAs nationally; those in decile 10 are considered within the least deprived 10% of LSOAs nationally.
 
 The variable of interest, `IMDdeci`, is classed as numeric but we will need to treat it as a factor or else the default x-axis will include non-integer values like 7.5 . 
 
@@ -394,6 +429,11 @@ ggplot(data = burglary_df) +
 <div style="margin-bottom:50px;">
 </div>
 
+In your google doc, state what you observe from the bar graph and grouped bar graph depicting the relationship between deprivation and LSOAs.
+
+
+---
+
 
 #### *Multiple Bar Graphs*
 
@@ -422,20 +462,20 @@ ggplot(data = burglary_df) +
 <div style="margin-bottom:35px;">
 </div>
 
-It is important to choose an appropriate graph so thought is required. May the following graphic be fair warning:
+It is important to choose an appropriate graph, so thought is required. May the following graphic be fair warning:
 
 ![](Images/barplots.jpg)
 
+
+---
+
+
 ### Graphs for Interval and Ratio Data
-<div style="margin-bottom:30px;">
+<div style="margin-bottom:70px;">
 </div>
 
 
-#### **Histograms**
-
-<div style="margin-bottom:35px;">
-</div>
-
+#### Activity 10: Histograms
 Histograms differ from scatterplots because they require only one numeric variable and they create bins, visualised as bars, to count the frequency of each bar. We create a histogram of the variable `IMDscore`, the overall score of deprivation in each neighbourhood:
 
 <div style="margin-bottom:35px;">
@@ -469,12 +509,15 @@ ggplot(data = burglary_df, mapping = aes(x = IMDscore)) +
 <div style="margin-bottom:50px;">
 </div>
 
+Play around with the bin widths to find which one looks the most visually comprehensible. In your google doc, state what bin width you think does the job, and why.
 
-#### **Line Graphs**
-
-<div style="margin-bottom:35px;">
+<div style="margin-bottom:70px;">
 </div>
 
+---
+
+
+#### Activity 11: Line Graphs
 A very good way of visualizing trends over time are line graphs. For this, let us use the `monthly_df` data frame. Ensure it is loaded into your environment. Have a look at the structure of these data to get to know them. 
 
 The data is in long format: we have a single month variable for 12 months’ worth of data (rather than one variable or column for each month). Setting longitudinal data up in long format allows us to specify the aesthetics (e.g., x- and y-axes) easily.
@@ -501,8 +544,15 @@ ggplot(data = monthly_df, aes(x = as.factor(Month), y = n, group = crime_type, l
 <div style="margin-bottom:50px;">
 </div>
 
+Now, in your google doc, state what you observe from this line graph on different crimes throughout the months.
 
-#### **Boxplots**
+<div style="margin-bottom:70px;">
+</div>
+
+---
+
+
+#### Activity 12: Boxplots
 
 <div style="margin-bottom:35px;">
 </div>
@@ -529,8 +579,14 @@ MyWhiskerPlot +
 <div style="margin-bottom:50px;">
 </div>
 
+In your group google doc, state what you observe from your newly created boxplot.
+
 <div style="margin-bottom:50px;">
 </div>
+
+---
+
+
 
 ## SUMMARY
 <div style="margin-bottom:30px;">
