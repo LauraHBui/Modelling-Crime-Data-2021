@@ -14,6 +14,9 @@
 ##### **Today’s Learning Tools:** {-}
 <div style="margin-bottom:15px;">
 </div>
+##### *Total number of activities*: 8 {-}
+<div style="margin-bottom:15px;">
+</div>
 
 ##### *Data:* {-}
 -	Official crime data from England and Wales

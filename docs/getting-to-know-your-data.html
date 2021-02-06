@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-02-05" />
+<meta name="date" content="2021-02-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,6 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.3.5</b> Labels</a></li>
 <li class="chapter" data-level="2.3.6" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-6-removing-labels"><i class="fa fa-check"></i><b>2.3.6</b> Activity 6: Removing labels</a></li>
 <li class="chapter" data-level="2.3.7" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-7-subsetting"><i class="fa fa-check"></i><b>2.3.7</b> Activity 7: Subsetting</a></li>
+<li class="chapter" data-level="2.3.8" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-8-subsetting-the-sequel"><i class="fa fa-check"></i><b>2.3.8</b> Activity 8: Subsetting, the Sequel</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.4</b> SUMMARY</a></li>
 </ul></li>
@@ -272,8 +273,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 </div>
-<div id="total-number-of-activities-7" class="section level5 unnumbered">
-<h5><em>Total number of activities</em>: 7</h5>
+<div id="total-number-of-activities-8-1" class="section level5 unnumbered">
+<h5><em>Total number of activities</em>: 8</h5>
 <div style="margin-bottom:15px;">
 
 </div>
@@ -391,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 <p>If you noticed in your <em>Files, Plots…</em> pane, the files there tell you what folder you are automatically working in. This is known as your <em>working directory</em>, the default location that appears when you open <code>RStudio</code>. Wherever your <code>R project</code> is saved will be the working directory.</p>
-<p>In your group google sheets, type the name of your <code>R</code> project and in which location it is in. Now decide whether this is good location for your <code>R</code> project. For example, is the location name too long? (e.g.,‘C: xx Desktop  Manchester’ is too long and you might run into problems later) Or are there other files that are for other classes there too? If doubtful about the location of your project, move it somewhere else.</p>
+<p>In your group google sheets, type the name of your <code>R</code> project and in which location it is in. Now decide whether this is good location for your <code>R</code> project. For example, is the location name too long? (For example,‘C: xx Desktop  Manchester’ is too long and you might run into problems later.) Or are there other files that are for other classes there too? If doubtful about the location of your project, move it somewhere else you think is more appropriate.</p>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -642,16 +643,16 @@ To view the new data frame, <code>ncvs</code>, type:
 <pre><code>## # A tibble: 10 x 3
 ##          injured weaponpresent severity
 ##        &lt;dbl+lbl&gt;         &lt;dbl&gt;    &lt;dbl&gt;
-##  1 1 [injured]               0        1
+##  1 0 [uninjured]             1        1
 ##  2 0 [uninjured]             1        1
-##  3 0 [uninjured]             0        0
-##  4 0 [uninjured]             1        1
-##  5 0 [uninjured]             0        0
-##  6 0 [uninjured]             0        0
-##  7 0 [uninjured]            NA       NA
+##  3 0 [uninjured]             1        1
+##  4 1 [injured]               0        1
+##  5 1 [injured]               0        1
+##  6 1 [injured]               0        1
+##  7 1 [injured]              NA       NA
 ##  8 0 [uninjured]             0        0
-##  9 0 [uninjured]             1        1
-## 10 0 [uninjured]             0        0</code></pre>
+##  9 0 [uninjured]             0        0
+## 10 0 [uninjured]            NA       NA</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -716,7 +717,7 @@ To view the new data frame, <code>ncvs</code>, type:
 </div>
 <div id="activity-6-removing-labels" class="section level3">
 <h3><span class="header-section-number">2.3.6</span> Activity 6: Removing labels</h3>
-<p>Let’s return to the <code>injured</code> variable from the <code>ncvs</code> dataframe. We, again, are going to make a duplicate variable of <code>injured</code> to learn how to remove and add labels. We do this because it is good practice to leave your original variables alone in case you need to go back to them.</p>
+<p>Let us return to the <code>injured</code> variable from the <code>ncvs</code> dataframe. We, again, are going to make a duplicate variable of <code>injured</code> to learn how to remove and add labels. We do this because it is good practice to leave your original variables alone in case you need to go back to them.</p>
 <div style="margin-bottom:35px;">
 
 </div>
@@ -768,7 +769,7 @@ To view the new data frame, <code>ncvs</code>, type:
 <div style="margin-bottom:50px;">
 
 </div>
-<p>Now to add a label:</p>
+Now to add a label:
 <div style="margin-bottom:35px;">
 
 </div>
@@ -829,6 +830,16 @@ To view the new data frame, <code>ncvs</code>, type:
 </div>
 <p>Say if we wanted the first five rows of <code>KnewOfandInjured</code>. How would we do that? In your group googledoc, type out the code you think will help you create a (sub-)subset <code>KnewOfandInjured</code> of its first five rows. Call this new subset ‘injuredfiveknew’.</p>
 <!-- injuredfiveknew <- KnewOfandInjured %>% slice(1:5) -->
+<div style="margin-bottom:70px;">
+
+</div>
+</div>
+<div id="activity-8-subsetting-the-sequel" class="section level3">
+<h3><span class="header-section-number">2.3.8</span> Activity 8: Subsetting, the Sequel</h3>
+<p>We now have a subset called <code>injuredfiveknew</code>. Say we only want to keep the variables <code>V3014</code> (age) and <code>V3018</code> (sex). How would you make an object that only contains these two variables from <code>injuredfiveknew</code>?
+Recall that you would need to use the function <code>select()</code>to select variables. But in this example, instead of inserting ‘:’ like in the previous code, you would need to insert a ‘,’. Understanding what ‘:’ means and viewing the order of the variables in <code>injuredfiveknew</code> will give you insight into why.</p>
+<p>In your group googledoc sheet, write out the code that you would use to do so. Name this new object that contains the two variables <code>five_ageandincome</code></p>
+<!-- five_ageandincome <- injuredfiveknew %>% select(4,6)-->
 <hr />
 <div style="margin-bottom:50px;">
 

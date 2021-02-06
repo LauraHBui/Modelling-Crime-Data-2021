@@ -15,7 +15,7 @@
 ##### **Today’s Learning Tools:** {-}
 <div style="margin-bottom:15px;">
 </div>
-##### *Total number of activities*: 7 {-}
+##### *Total number of activities*: 8 {-}
 <div style="margin-bottom:15px;">
 </div>
 ##### *Data:* {-}
@@ -122,7 +122,7 @@ dir.create("Datasets")
 
 If you noticed in your *Files, Plots…* pane, the files there tell you what folder you are automatically working in. This is known as your *working directory*, the default location that appears when you open `RStudio`. Wherever your `R project` is saved will be the working directory. 
 
-In your group google sheets, type the name of your `R` project and in which location it  is in. Now decide whether this is good location for your `R` project. For example, is the location name too long? (e.g.,'C:\Users\ xx\ Desktop \xx\xx\ Manchester\xx\xx\xx\xx\xx\xx' is too long and you might run into problems later) Or are there other files that are for other classes there too? If doubtful about the location of your project, move it somewhere else.
+In your group google sheets, type the name of your `R` project and in which location it  is in. Now decide whether this is good location for your `R` project. For example, is the location name too long? (For example,'C:\Users\ xx\ Desktop \xx\xx\ Manchester\xx\xx\xx\xx\xx\xx' is too long and you might run into problems later.) Or are there other files that are for other classes there too? If doubtful about the location of your project, move it somewhere else you think is more appropriate.
 
 <div style="margin-bottom:50px;">
 </div>
@@ -441,7 +441,7 @@ The output in the console show that uninjured is labelled '0' and injured is lab
 
 ### Activity 6: Removing labels 
 
-Let’s return to the `injured` variable from the `ncvs` dataframe. We, again, are going to make a duplicate variable of `injured` to learn how to remove and add labels. We do this because it is good practice to leave your original variables alone in case you need to go back to them. 
+Let us return to the `injured` variable from the `ncvs` dataframe. We, again, are going to make a duplicate variable of `injured` to learn how to remove and add labels. We do this because it is good practice to leave your original variables alone in case you need to go back to them. 
 
 <div style="margin-bottom:35px;">
 </div>
@@ -493,7 +493,6 @@ get_labels(ncvs$injured_no_labels)
 </div>
 
 Now to add a label:
-
 <div style="margin-bottom:35px;">
 </div>
 ```{r}
@@ -571,6 +570,19 @@ filter(relationship > 0 & injured == 1)
 Say if we wanted the first five rows of `KnewOfandInjured`. How would we do that? In your group googledoc, type out the code you think will help you create a (sub-)subset `KnewOfandInjured` of its first five rows. Call this new subset 'injuredfiveknew'.
 
 <!-- injuredfiveknew <- KnewOfandInjured %>% slice(1:5) -->
+
+<div style="margin-bottom:70px;">
+</div>
+
+### Activity 8: Subsetting, the Sequel
+
+We now have a subset called `injuredfiveknew`. Say we only want to keep the variables `V3014` (age) and `V3018` (sex). How would you make an object that only contains these two variables from `injuredfiveknew`?
+Recall that you would need to use the function `select()`to select variables. But in this example, instead of inserting ':' like in the previous code, you would need to insert a ','. Understanding what ':' means and viewing the order of the variables in `injuredfiveknew` will give you insight into why.
+
+In your group googledoc sheet, write out the code that you would use to do so. Name this new object that contains the two variables `five_ageandincome`
+
+<!-- five_ageandincome <- injuredfiveknew %>% select(4,6)-->
+
 
 ---
 
