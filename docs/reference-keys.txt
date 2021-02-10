@@ -30,7 +30,11 @@ activity-2-importing-and-viewing-data
 todays-3-topics-1
 variables
 <<<<<<< HEAD
+<<<<<<< HEAD
 activity-3-identifying-a-variables-class
+=======
+activity-3-identifying-a-variables-level-of-measurement-class
+>>>>>>> cf124d8d06b3148046b537954fe208a5313ac9d3
 =======
 activity-3-identifying-a-variables-level-of-measurement-class
 >>>>>>> cf124d8d06b3148046b537954fe208a5313ac9d3
@@ -91,6 +95,10 @@ a-binomial-test
 single-sample-significance-tests
 single-sample-z-tests-for-means
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+single-sample-z-tests-for-proportions
+>>>>>>> cf124d8d06b3148046b537954fe208a5313ac9d3
 =======
 single-sample-z-tests-for-proportions
 >>>>>>> cf124d8d06b3148046b537954fe208a5313ac9d3
@@ -111,7 +119,13 @@ todays-3-5
 between-categorical-nominal-variables
 phi
 <<<<<<< HEAD
+<<<<<<< HEAD
 between-categorical-ordinal-variables
+=======
+cramers-v
+between-categorical-ordinal-variables
+goodman-kruskal-gamma
+>>>>>>> cf124d8d06b3148046b537954fe208a5313ac9d3
 =======
 cramers-v
 between-categorical-ordinal-variables
