@@ -29,7 +29,11 @@ importing-data
 activity-2-importing-and-viewing-data
 todays-3-topics-1
 variables
+<<<<<<< HEAD
 activity-3-identifying-a-variables-class
+=======
+activity-3-identifying-a-variables-level-of-measurement-class
+>>>>>>> cf124d8d06b3148046b537954fe208a5313ac9d3
 formatting-classes-and-value-labels
 recoding-and-creating-new-variables
 activity-4-creating-a-new-variable-from-1-existing-variable-3-examples
@@ -86,6 +90,10 @@ statistical-significance
 a-binomial-test
 single-sample-significance-tests
 single-sample-z-tests-for-means
+<<<<<<< HEAD
+=======
+single-sample-z-tests-for-proportions
+>>>>>>> cf124d8d06b3148046b537954fe208a5313ac9d3
 single-sample-t-tests-for-means
 summary-5
 relationships-with-categorical-variables
@@ -102,7 +110,13 @@ measures-of-association
 todays-3-5
 between-categorical-nominal-variables
 phi
+<<<<<<< HEAD
 between-categorical-ordinal-variables
+=======
+cramers-v
+between-categorical-ordinal-variables
+goodman-kruskal-gamma
+>>>>>>> cf124d8d06b3148046b537954fe208a5313ac9d3
 somers-d
 between-numeric-variables
 summary-7

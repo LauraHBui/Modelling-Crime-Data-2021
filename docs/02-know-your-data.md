@@ -67,10 +67,6 @@ library(dplyr)
 ```
 
 ```
-## Warning: package 'dplyr' was built under R version 3.6.3
-```
-
-```
 ## 
 ## Attaching package: 'dplyr'
 ```
@@ -155,11 +151,7 @@ library(here)
 ```
 
 ```
-## Warning: package 'here' was built under R version 3.6.3
-```
-
-```
-## here() starts at C:/Users/buihl/Desktop/Modelling-Crime-Data-2021
+## here() starts at /Users/reka/Dropbox (The University of Manchester)/modelling2021/Modelling-Crime-Data-2021
 ```
 <div style="margin-bottom:50px;">
 </div>
@@ -181,21 +173,34 @@ Here is another `tidyverse` package to install:
 library(haven)
 ```
 
-```
-## Warning: package 'haven' was built under R version 3.6.3
-```
-
 <div style="margin-bottom:50px;">
 </div>
 
-`Haven` enables `R` to understand various data formats used by other statistical packages such as SPSS and STATA. We will need this package to open data in its diverse forms. 
+`Haven` enables `R` to understand various data formats used by other statistical packages such as SPSS and STATA. We will need this package to open data in its diverse forms. When we were using Excel last semester, you could only open specific type of files. With R, we can open a wide range of data files, which opens up many possibilities of analysis for us! Let's give this a try now. 
 
 <div style="margin-bottom:70px;">
 </div>
 
 ### Activity 2: Importing and Viewing Data 
 
-You will have saved the NCVS in a relevant file in your project, so now let us load this data using `read_spss()` from `Haven`:
+Go to Blackboard > Learning materials > and Week 2, where you will find the data set 'NCVS lone offender assaults 1992 to 2013. Download this, into your working directory. You can creat a subfolder for all data sets, to keep things neat and tidy. Here we've created a sub-folder called "Datasets". When importing data with the `here()` function, in the brackets you must specify where the file is found, and what it is called. 
+
+
+For exmaple, in this case, we need to specify that it is in the sub folder "Datasets" and it is called "NCVS lone offender assaults 1992 to 2013.sav". So the code to find the file is `here("Datasets", "NCVS lone offender assaults 1992 to 2013.sav")`. 
+
+
+So that part tells R where it can find the file we want to import. Now we must use the appropriate function to read in our data set. We can tell, since the extension is `.sav`  it is a file from spss, so the function we need is `read_spss()` from the haven package. 
+
+
+If the file came from excel, which would have an extension `.xlsx`, we would use the function `read_xlsx()` from the readxl package. 
+
+
+How do I know this? Well like I said last week, we will be teaching you a whole collection of functions, which you can record in your function cookbook. 
+
+There are also external resources. For example, [this cheatsheet for importing data](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_data-import.pdf). But for now, you can rely on us showing you the functions you need. 
+
+
+So back to reading in our data, you will have saved the NCVS in a relevant file in your project, so now let us load this data using `read_spss()` from `haven`:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -244,7 +249,7 @@ We now have data to tidy in `R`, so onto our three main topics for this week: **
 
 ### Variables
 
-Variables can be persons, places, things, or ideas that we are interested in studying. For example, height and favourite football team. Different variable types refer to different levels of measurement: nominal, ordinal, and interval/ ratio. Variables appear as vectors and as columns of data frames.
+Variables can be persons, places, things, or ideas that we are interested in studying. For example, height and favourite football team. Different variable types refer to different levels of measurement: nominal, ordinal, and numeric (interval/ ratio). Variables appear as vectors and as columns of data frames. For those who took making sense of criminological data, this should be some familiar terminology!
 
 In `R`, nominal and ordinal variables are encoded as a **factor** class because they are categorical characteristics, so take on a limited number of values; factors are like the integer vector introduced last week but each integer is a label. 
 
@@ -253,7 +258,7 @@ Likewise, interval and ratio variables are encoded as **numeric** class because 
 <div style="margin-bottom:70px;">
 </div>
 
-#### Activity 3: Identifying a variable's class 
+#### Activity 3: Identifying a variable's level of measurement (class)
 
 How do you know what your variable is classed as? There are two ways of knowing using our `ncvs` data:
 
@@ -350,8 +355,8 @@ In some circumstances, we would like to recode variables. Recoding could entail 
 # Load the 'tibble' package
 library(tibble)
 
-# 1. Create the new variable ‘InjuredNew’ from ‘injured’ 
-ncvs$InjuredNew <-ncvs$injured 
+# 1. Create the new variable ‘injured_new’ from ‘injured’ 
+ncvs$injured_new <-ncvs$injured 
 
 # 2. Give value labels to the values of the previously created variable, 'injured_r'
 ncvs$injured_r <- factor(ncvs$injured, labels = c("Uninjured", "Injured"), ordered = TRUE) 
@@ -369,7 +374,7 @@ attributes(ncvs$injured_r)
 <div style="margin-bottom:50px;">
 </div>
 
-The first example uses the package `tibble` to make an additional variable. This new variable, `InjuredNew`, has the same exact information as the variable `injured`. 
+The first example uses the package `tibble` to make an additional variable. This new variable, `injured_new`, has the same exact information as the variable `injured`. 
 
 In the second example, we changed our `injured_r` variable so that its values would have value labels.
 
@@ -389,17 +394,17 @@ add_column(ncvs, newid = 1:nrow(ncvs))
 ## # A tibble: 1,431 x 49
 ##     YEAR  V2119   V2129 V3014   V3016   V3018   V3021   V3023 V3023A  V3024
 ##    <dbl> <dbl+> <dbl+l> <dbl> <dbl+l> <dbl+l> <dbl+l> <dbl+l> <dbl+> <dbl+>
-##  1  2000 2 [No] 2 [(S)~    34 6 [Not~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
-##  2  2000 2 [No] 2 [(S)~    22 6 [Not~ 2 [Fem~ 1 [Yes] 1 [Whi~     NA 2 [No]
-##  3  2000 2 [No] 3 [Not~    21 5 [Nev~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
-##  4  2000 2 [No] 3 [Not~    18 6 [Not~ 2 [Fem~ 2 [No]  1 [Whi~     NA 2 [No]
-##  5  2000 2 [No] 2 [(S)~    16 6 [Not~ 2 [Fem~ 2 [No]  1 [Whi~     NA 2 [No]
-##  6  2000 2 [No] 1 [Cit~    13 6 [Not~ 2 [Fem~ 2 [No]  1 [Whi~     NA 2 [No]
-##  7  2000 2 [No] 2 [(S)~    16 6 [Not~ 1 [Mal~ 2 [No]  1 [Whi~     NA 2 [No]
-##  8  2000 2 [No] 2 [(S)~    48 6 [Not~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
-##  9  2000 2 [No] 2 [(S)~    12 5 [Nev~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
-## 10  2000 2 [No] 2 [(S)~    42 6 [Not~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
-## # ... with 1,421 more rows, and 39 more variables: V2026 <dbl+lbl>,
+##  1  2000 2 [No] 2 [(S)…    34 6 [Not… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
+##  2  2000 2 [No] 2 [(S)…    22 6 [Not… 2 [Fem… 1 [Yes] 1 [Whi…     NA 2 [No]
+##  3  2000 2 [No] 3 [Not…    21 5 [Nev… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
+##  4  2000 2 [No] 3 [Not…    18 6 [Not… 2 [Fem… 2 [No]  1 [Whi…     NA 2 [No]
+##  5  2000 2 [No] 2 [(S)…    16 6 [Not… 2 [Fem… 2 [No]  1 [Whi…     NA 2 [No]
+##  6  2000 2 [No] 1 [Cit…    13 6 [Not… 2 [Fem… 2 [No]  1 [Whi…     NA 2 [No]
+##  7  2000 2 [No] 2 [(S)…    16 6 [Not… 1 [Mal… 2 [No]  1 [Whi…     NA 2 [No]
+##  8  2000 2 [No] 2 [(S)…    48 6 [Not… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
+##  9  2000 2 [No] 2 [(S)…    12 5 [Nev… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
+## 10  2000 2 [No] 2 [(S)…    42 6 [Not… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
+## # … with 1,421 more rows, and 39 more variables: V2026 <dbl+lbl>,
 ## #   V4049 <dbl+lbl>, V4234 <dbl+lbl>, V4235 <dbl+lbl>, V4236 <dbl+lbl>,
 ## #   V4237 <dbl+lbl>, V4237A <dbl+lbl>, V4238 <dbl+lbl>, V4239 <dbl+lbl>,
 ## #   V4240 <dbl+lbl>, V4241 <dbl+lbl>, V4242 <dbl+lbl>, V4243 <dbl+lbl>,
@@ -410,7 +415,7 @@ add_column(ncvs, newid = 1:nrow(ncvs))
 ## #   medicalcarereceived <dbl>, `filter_$` <dbl+lbl>, relationship <dbl+lbl>,
 ## #   Policereported <dbl+lbl>, victimreported <dbl+lbl>,
 ## #   thirdpartyreport <dbl+lbl>, maleoff <dbl+lbl>, age_r <dbl>,
-## #   injured_r <ord>, InjuredNew <dbl+lbl>, newid <int>
+## #   injured_r <ord>, injured_new <dbl+lbl>, newid <int>
 ```
 
 <div style="margin-bottom:70px;">
@@ -440,7 +445,7 @@ count(ncvs, injured)
 ```
 ## # A tibble: 2 x 2
 ##         injured     n
-##       <dbl+lbl> <int>
+## *     <dbl+lbl> <int>
 ## 1 0 [uninjured]   967
 ## 2 1 [injured]     464
 ```
@@ -452,7 +457,7 @@ count(ncvs, weaponpresent)
 ```
 ## # A tibble: 3 x 2
 ##   weaponpresent     n
-##           <dbl> <int>
+## *         <dbl> <int>
 ## 1             0   950
 ## 2             1   406
 ## 3            NA    75
@@ -481,15 +486,15 @@ ncvs %>% select(injured, weaponpresent, severity) %>% sample_n(10)
 ##          injured weaponpresent severity
 ##        <dbl+lbl>         <dbl>    <dbl>
 ##  1 0 [uninjured]             1        1
-##  2 0 [uninjured]             1        1
-##  3 0 [uninjured]             0        0
-##  4 0 [uninjured]             1        1
-##  5 0 [uninjured]             0        0
-##  6 0 [uninjured]             0        0
-##  7 1 [injured]               0        1
+##  2 0 [uninjured]             0        0
+##  3 0 [uninjured]             1        1
+##  4 0 [uninjured]             0        0
+##  5 0 [uninjured]             1        1
+##  6 0 [uninjured]             1        1
+##  7 0 [uninjured]             0        0
 ##  8 0 [uninjured]             1        1
-##  9 0 [uninjured]             0        0
-## 10 0 [uninjured]             0        0
+##  9 1 [injured]               0        1
+## 10 1 [injured]               0        1
 ```
 
 <div style="margin-bottom:50px;">
@@ -726,19 +731,24 @@ Use the `filter()` function to subset observations (i.e., rows) based on conditi
 </div>
 
 ```r
-OnlyInjured <- ncvs %>% filter(injured == 1)
+only_injured <- ncvs %>% filter(injured == 1)
+```
 
-#These filters can be combined using conditions ‘&’ and ‘|’ to produce data similar to the one from the variable 'notstranger' except we call this subset of the dataframe 'KnewOfandInjured':
-KnewOfandInjured <- ncvs %>% 
+
+These filters can be combined using conditions ‘&’ and ‘|’ to produce data similar to the one from the variable 'notstranger' except we call this subset of the dataframe 'knew_of_and_injured':
+
+
+
+```r
+knew_of_and_injured <- ncvs %>% 
 filter(relationship > 0 & injured == 1)
 ```
 
 <div style="margin-bottom:50px;">
 </div>
 
-Say if we wanted the first five rows of `KnewOfandInjured`. How would we do that? In your group googledoc, type out the code you think will help you create a (sub-)subset `KnewOfandInjured` of its first five rows. Call this new subset 'injuredfiveknew'.
+Say if we wanted the first five rows of `knew_of_and_injured`. How would we do that? In your group googledoc, type out the code you think will help you create a (sub-)subset `knew_of_and_injured` of its first five rows. Call this new subset 'injuredfiveknew'.
 
-<!-- injuredfiveknew <- KnewOfandInjured %>% slice(1:5) -->
 
 ---
 
