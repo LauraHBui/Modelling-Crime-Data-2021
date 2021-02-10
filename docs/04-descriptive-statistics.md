@@ -245,13 +245,9 @@ bwcs %>%
 ```
 
 ```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```
 ## # A tibble: 2 x 2
 ##   Q_10A                                                   mean_deployed
-##   <fct>                                                           <dbl>
+## * <fct>                                                           <dbl>
 ## 1 (1) Agency has acquired in any form (including testing)          31.8
 ## 2 (2) Agency has not acquired                                     NaN
 ```
@@ -279,13 +275,9 @@ bwcs %>% group_by(Q_10A) %>% summarize(med_deployed = median(Q_12, na.rm = TRUE)
 ```
 
 ```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```
 ## # A tibble: 2 x 2
 ##   Q_10A                                                   med_deployed
-##   <fct>                                                          <dbl>
+## * <fct>                                                          <dbl>
 ## 1 (1) Agency has acquired in any form (including testing)            8
 ## 2 (2) Agency has not acquired                                       NA
 ```
@@ -314,14 +306,10 @@ summarize(mean_deployed = mean(Q_12, na.rm = TRUE), med_deployed = median(Q_12, 
 ```
 
 ```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```
 ## # A tibble: 2 x 5
 ##   Q_10A                           mean_deployed med_deployed mode_deployed total
-##   <fct>                                   <dbl>        <dbl>         <dbl> <dbl>
-## 1 (1) Agency has acquired in any~          31.8            8             1 60363
+## * <fct>                                   <dbl>        <dbl>         <dbl> <dbl>
+## 1 (1) Agency has acquired in any…          31.8            8             1 60363
 ## 2 (2) Agency has not acquired             NaN             NA           NaN     0
 ```
 <div style="margin-bottom:50px;">
@@ -345,25 +333,24 @@ bwcs %>%
 
 Table: (\#tab:unnamed-chunk-11)Data summary
 
-                                      
--------------------------  -----------
-Name                       Piped data 
-Number of rows             3928       
-Number of columns          260        
-_______________________               
-Column type frequency:                
-numeric                    1          
-________________________              
-Group variables            Q_10A      
--------------------------  -----------
+|                         |           |
+|:------------------------|:----------|
+|Name                     |Piped data |
+|Number of rows           |3928       |
+|Number of columns        |260        |
+|_______________________  |           |
+|Column type frequency:   |           |
+|numeric                  |1          |
+|________________________ |           |
+|Group variables          |Q_10A      |
 
 
 **Variable type: numeric**
 
-skim_variable   Q_10A                                                      n_missing   complete_rate    mean      sd   p0   p25   p50   p75   p100  hist  
---------------  --------------------------------------------------------  ----------  --------------  ------  ------  ---  ----  ----  ----  -----  ------
-Q_12            (1) Agency has acquired in any form (including testing)           18            0.99   31.82   92.27    0     3     8    20   1200  ▇▁▁▁▁ 
-Q_12            (2) Agency has not acquired                                     2013            0.00     NaN      NA   NA    NA    NA    NA     NA        
+|skim_variable |Q_10A                                                   | n_missing| complete_rate|  mean|    sd| p0| p25| p50| p75| p100|hist  |
+|:-------------|:-------------------------------------------------------|---------:|-------------:|-----:|-----:|--:|---:|---:|---:|----:|:-----|
+|Q_12          |(1) Agency has acquired in any form (including testing) |        18|          0.99| 31.82| 92.27|  0|   3|   8|  20| 1200|▇▁▁▁▁ |
+|Q_12          |(2) Agency has not acquired                             |      2013|          0.00|   NaN|    NA| NA|  NA|  NA|  NA|   NA|      |
 
 <div style="margin-bottom:50px;">
 </div>
@@ -636,24 +623,23 @@ skim(inmatesurvey04$V1748)
 
 Table: (\#tab:unnamed-chunk-19)Data summary
 
-                                                
--------------------------  ---------------------
-Name                       inmatesurvey04$V1748 
-Number of rows             3686                 
-Number of columns          1                    
-_______________________                         
-Column type frequency:                          
-factor                     1                    
-________________________                        
-Group variables            None                 
--------------------------  ---------------------
+|                         |                     |
+|:------------------------|:--------------------|
+|Name                     |inmatesurvey04$V1748 |
+|Number of rows           |3686                 |
+|Number of columns        |1                    |
+|_______________________  |                     |
+|Column type frequency:   |                     |
+|factor                   |1                    |
+|________________________ |                     |
+|Group variables          |None                 |
 
 
 **Variable type: factor**
 
-skim_variable    n_missing   complete_rate  ordered    n_unique  top_counts                           
---------------  ----------  --------------  --------  ---------  -------------------------------------
-data                  1156            0.69  FALSE             4  (1): 2180, (2): 284, (3): 65, (8): 1 
+|skim_variable | n_missing| complete_rate|ordered | n_unique|top_counts                           |
+|:-------------|---------:|-------------:|:-------|--------:|:------------------------------------|
+|data          |      1156|          0.69|FALSE   |        4|(1): 2180, (2): 284, (3): 65, (8): 1 |
 
 ```r
 # Then, check if we have cases defined as missing using ‘is.na’ to get summary of missing cases
