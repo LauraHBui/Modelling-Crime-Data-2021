@@ -33,7 +33,6 @@
   
 <link rel="prev" href="inferential-statistics.html"/>
 <link rel="next" href="relationships-with-categorical-variables.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,26 +53,25 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,118 +132,95 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a>
-<ul>
+<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a><ul>
+<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-1-identifying-your-operating-system"><i class="fa fa-check"></i><b>1.1.1</b> Activity 1: Identifying your operating system</a></li>
 <li class="chapter" data-level="1.1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-2-install-r-r-studio"><i class="fa fa-check"></i><b>1.1.2</b> Activity 2: Install R &amp; R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-r-studio"><i class="fa fa-check"></i><b>1.2</b> Getting to know R Studio</a>
-<ul>
+<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-r-studio"><i class="fa fa-check"></i><b>1.2</b> Getting to know R Studio</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#the-four-panes-of-r-studio"><i class="fa fa-check"></i><b>1.2.1</b> The four panes of R Studio</a></li>
 <li class="chapter" data-level="1.2.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#customising-r-studio"><i class="fa fa-check"></i><b>1.2.2</b> Customising R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a>
-<ul>
+<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#operators-and-functions"><i class="fa fa-check"></i><b>1.3.1</b> Operators and Functions</a></li>
 <li class="chapter" data-level="1.3.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.3.2</b> Objects</a></li>
 <li class="chapter" data-level="1.3.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.4</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.1</b> R Projects – Getting Your Work Files Organised</a>
-<ul>
+<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.1</b> R Projects – Getting Your Work Files Organised</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-1-making-yourself-a-project"><i class="fa fa-check"></i><b>2.1.1</b> Activity 1: Making yourself a project</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.2</b> Importing Data</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.2</b> Importing Data</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-2-importing-and-viewing-data"><i class="fa fa-check"></i><b>2.2.1</b> Activity 2: Importing and Viewing Data</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.3</b> Today’s 3 (TOPICS)</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.3</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#variables"><i class="fa fa-check"></i><b>2.3.1</b> Variables</a></li>
 <li class="chapter" data-level="2.3.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.3.2</b> Labels</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.4</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a>
-<ul>
+<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="data-visualization.html"><a href="data-visualization.html#activity-1-getting-ready"><i class="fa fa-check"></i><b>3.1.1</b> Activity 1: Getting Ready</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>3.2</b> ggplot2</a></li>
-<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="data-visualization.html"><a href="data-visualization.html#layers"><i class="fa fa-check"></i><b>3.3.1</b> Layers</a></li>
 <li class="chapter" data-level="3.3.2" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-nominal-and-ordinal-data"><i class="fa fa-check"></i><b>3.3.2</b> Graphs for Nominal and Ordinal Data</a></li>
 <li class="chapter" data-level="3.3.3" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-interval-and-ratio-data"><i class="fa fa-check"></i><b>3.3.3</b> Graphs for Interval and Ratio Data</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
-<ul>
+<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
 <li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a></li>
-<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#central-tendency"><i class="fa fa-check"></i><b>4.2.1</b> Central Tendency</a></li>
 <li class="chapter" data-level="4.2.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#outliers"><i class="fa fa-check"></i><b>4.2.2</b> Outliers</a></li>
 <li class="chapter" data-level="4.2.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#measures-of-dispersion"><i class="fa fa-check"></i><b>4.2.3</b> Measures of Dispersion</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a>
-<ul>
+<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a><ul>
 <li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a></li>
-<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#samples"><i class="fa fa-check"></i><b>5.2.1</b> Samples</a></li>
 <li class="chapter" data-level="5.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#standard-errors"><i class="fa fa-check"></i><b>5.2.2</b> Standard Errors</a></li>
 <li class="chapter" data-level="5.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#confidence-intervals"><i class="fa fa-check"></i><b>5.2.3</b> Confidence Intervals</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#summary-4"><i class="fa fa-check"></i><b>5.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a>
-<ul>
+<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a><ul>
 <li class="chapter" data-level="6.1" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-testing"><i class="fa fa-check"></i><b>6.1</b> Hypothesis Testing</a></li>
-<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="hypotheses.html"><a href="hypotheses.html#statistical-significance"><i class="fa fa-check"></i><b>6.2.1</b> Statistical Significance</a></li>
 <li class="chapter" data-level="6.2.2" data-path="hypotheses.html"><a href="hypotheses.html#a-binomial-test"><i class="fa fa-check"></i><b>6.2.2</b> A Binomial Test</a></li>
 <li class="chapter" data-level="6.2.3" data-path="hypotheses.html"><a href="hypotheses.html#single-sample-significance-tests"><i class="fa fa-check"></i><b>6.2.3</b> Single-sample significance tests</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="hypotheses.html"><a href="hypotheses.html#summary-5"><i class="fa fa-check"></i><b>6.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a>
-<ul>
+<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a><ul>
 <li class="chapter" data-level="7.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#associating-with-categorical-variables"><i class="fa fa-check"></i><b>7.1</b> Associating with Categorical Variables</a></li>
-<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#independent-and-dependent-variables"><i class="fa fa-check"></i><b>7.2.1</b> Independent and Dependent Variables</a></li>
 <li class="chapter" data-level="7.2.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#the-t-test"><i class="fa fa-check"></i><b>7.2.2</b> The T-Test</a></li>
 <li class="chapter" data-level="7.2.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#chi-square"><i class="fa fa-check"></i><b>7.2.3</b> Chi-square</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#summary-6"><i class="fa fa-check"></i><b>7.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a>
-<ul>
+<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a><ul>
 <li class="chapter" data-level="8.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#measures-of-association"><i class="fa fa-check"></i><b>8.1</b> Measures of Association</a></li>
-<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-nominal-variables"><i class="fa fa-check"></i><b>8.2.1</b> Between Categorical, Nominal Variables</a></li>
 <li class="chapter" data-level="8.2.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-ordinal-variables"><i class="fa fa-check"></i><b>8.2.2</b> Between Categorical, Ordinal Variables</a></li>
 <li class="chapter" data-level="8.2.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-numeric-variables"><i class="fa fa-check"></i><b>8.2.3</b> Between Numeric Variables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#summary-7"><i class="fa fa-check"></i><b>8.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a>
-<ul>
+<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a><ul>
 <li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#multiple-and-simultaneous-relationships"><i class="fa fa-check"></i><b>9.1</b> Multiple and Simultaneous Relationships</a></li>
-<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="regression.html"><a href="regression.html#assumptions-of-ols-regression"><i class="fa fa-check"></i><b>9.2.1</b> Assumptions of OLS Regression</a></li>
 <li class="chapter" data-level="9.2.2" data-path="regression.html"><a href="regression.html#interpreting-ols-regression"><i class="fa fa-check"></i><b>9.2.2</b> Interpreting OLS Regression</a></li>
 <li class="chapter" data-level="9.2.3" data-path="regression.html"><a href="regression.html#logistic-regression"><i class="fa fa-check"></i><b>9.2.3</b> Logistic Regression</a></li>
@@ -272,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hypotheses" class="section level1" number="6">
+<div id="hypotheses" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Hypotheses</h1>
 <div id="statistical-significance-binominal-test-single-sample-significance-tests" class="section level4 unnumbered">
 <h4><em>Statistical Significance, Binominal Test, Single Sample Significance Tests</em></h4>
@@ -337,7 +312,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="hypothesis-testing" class="section level2" number="6.1">
+<div id="hypothesis-testing" class="section level2">
 <h2><span class="header-section-number">6.1</span> Hypothesis Testing</h2>
 <div style="margin-bottom:50px;">
 
@@ -367,7 +342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 <div class="figure">
-<img src="Images/errors.jpg" alt="" />
+<img src="Images/errors.jpg" alt="Figure 6.1 Type 1 and Type 2 errors" />
 <p class="caption"><strong>Figure 6.1</strong> Type 1 and Type 2 errors</p>
 </div>
 <div style="margin-bottom:35px;">
@@ -383,7 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 </div>
-<div id="todays-3-3" class="section level2" number="6.2">
+<div id="todays-3-3" class="section level2">
 <h2><span class="header-section-number">6.2</span> Today’s 3</h2>
 <div style="margin-bottom:50px;">
 
@@ -397,7 +372,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:50px;">
 
 </div>
-<div id="statistical-significance" class="section level3" number="6.2.1">
+<div id="statistical-significance" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Statistical Significance</h3>
 <div style="margin-bottom:50px;">
 
@@ -416,7 +391,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 
 </div>
 </div>
-<div id="a-binomial-test" class="section level3" number="6.2.2">
+<div id="a-binomial-test" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> A Binomial Test</h3>
 <div style="margin-bottom:50px;">
 
@@ -455,9 +430,9 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="hypotheses.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The first concatenate (c () ) contains the numbers that went onto reoffend</span></span>
-<span id="cb228-2"><a href="hypotheses.html#cb228-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The second concatenate contains the total numbers in each group</span></span>
-<span id="cb228-3"><a href="hypotheses.html#cb228-3" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">50</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" title="1"><span class="co"># The first concatenate (c () ) contains the numbers that went onto reoffend</span></a>
+<a class="sourceLine" id="cb241-2" title="2"><span class="co"># The second concatenate contains the total numbers in each group</span></a>
+<a class="sourceLine" id="cb241-3" title="3"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>))</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity correction
 ## 
@@ -499,8 +474,8 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="hypotheses.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We add ‘alternative=’ and specify ‘less’ to indicate we expect the treatment group to have a smaller probability of reoffending than the control</span></span>
-<span id="cb230-2"><a href="hypotheses.html#cb230-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" title="1"><span class="co"># We add ‘alternative=’ and specify ‘less’ to indicate we expect the treatment group to have a smaller probability of reoffending than the control</span></a>
+<a class="sourceLine" id="cb243-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity correction
 ## 
@@ -520,8 +495,8 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="hypotheses.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We specify ‘greater’ following ‘alternative’ to indicate our expected direction for the treatment group relative to the control group</span></span>
-<span id="cb232-2"><a href="hypotheses.html#cb232-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" title="1"><span class="co"># We specify ‘greater’ following ‘alternative’ to indicate our expected direction for the treatment group relative to the control group</span></a>
+<a class="sourceLine" id="cb245-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity correction
 ## 
@@ -542,13 +517,13 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="hypotheses.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CIs for treatment group where 10 reoffended</span></span>
-<span id="cb234-2"><a href="hypotheses.html#cb234-2" aria-hidden="true" tabindex="-1"></a><span class="fu">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" title="1"><span class="co"># CIs for treatment group where 10 reoffended</span></a>
+<a class="sourceLine" id="cb247-2" title="2"><span class="kw">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>)</a></code></pre></div>
 <pre><code>##      est    lwr.ci    upr.ci
 ## [1,] 0.2 0.1124375 0.3303711</code></pre>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="hypotheses.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CIs for control group where 28 reoffended</span></span>
-<span id="cb236-2"><a href="hypotheses.html#cb236-2" aria-hidden="true" tabindex="-1"></a><span class="co"># By default, confidence level is 95% but have added in ‘conf.level’ to show that you can change the confidence level to, say, 99 </span></span>
-<span id="cb236-3"><a href="hypotheses.html#cb236-3" aria-hidden="true" tabindex="-1"></a><span class="fu">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" title="1"><span class="co"># CIs for control group where 28 reoffended</span></a>
+<a class="sourceLine" id="cb249-2" title="2"><span class="co"># By default, confidence level is 95% but have added in ‘conf.level’ to show that you can change the confidence level to, say, 99 </span></a>
+<a class="sourceLine" id="cb249-3" title="3"><span class="kw">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>##       est    lwr.ci   upr.ci
 ## [1,] 0.56 0.4230603 0.688378</code></pre>
 <div style="margin-bottom:50px;">
@@ -558,18 +533,18 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="hypotheses.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Taking the previous coding and placing them in objects</span></span>
-<span id="cb238-2"><a href="hypotheses.html#cb238-2" aria-hidden="true" tabindex="-1"></a>treatment_group <span class="ot">&lt;-</span> <span class="fu">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) </span>
-<span id="cb238-3"><a href="hypotheses.html#cb238-3" aria-hidden="true" tabindex="-1"></a>control_group <span class="ot">&lt;-</span> <span class="fu">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb238-4"><a href="hypotheses.html#cb238-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-5"><a href="hypotheses.html#cb238-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating two error bar layers, one for each group</span></span>
-<span id="cb238-6"><a href="hypotheses.html#cb238-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb238-7"><a href="hypotheses.html#cb238-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">ymin =</span> treatment_group[<span class="dv">2</span>], <span class="at">ymax =</span> treatment_group[<span class="dv">3</span>], <span class="at">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb238-8"><a href="hypotheses.html#cb238-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> treatment_group[<span class="dv">1</span>], <span class="at">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="sc">+</span> <span class="fu">geom_errorbar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">ymin =</span> control_group[<span class="dv">2</span>], <span class="at">ymax =</span> control_group[<span class="dv">3</span>], <span class="at">x =</span> <span class="st">&quot;control&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb238-9"><a href="hypotheses.html#cb238-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> control_group[<span class="dv">1</span>], <span class="at">x =</span> <span class="st">&quot;control&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb238-10"><a href="hypotheses.html#cb238-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Group&quot;</span>) <span class="sc">+</span></span>
-<span id="cb238-11"><a href="hypotheses.html#cb238-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion who reoffended at follow-up&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb238-12"><a href="hypotheses.html#cb238-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" title="1"><span class="co"># Taking the previous coding and placing them in objects</span></a>
+<a class="sourceLine" id="cb251-2" title="2">treatment_group &lt;-<span class="st"> </span><span class="kw">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) </a>
+<a class="sourceLine" id="cb251-3" title="3">control_group &lt;-<span class="st"> </span><span class="kw">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a>
+<a class="sourceLine" id="cb251-4" title="4"></a>
+<a class="sourceLine" id="cb251-5" title="5"><span class="co"># Creating two error bar layers, one for each group</span></a>
+<a class="sourceLine" id="cb251-6" title="6"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb251-7" title="7"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> treatment_group[<span class="dv">2</span>], <span class="dt">ymax =</span> treatment_group[<span class="dv">3</span>], <span class="dt">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb251-8" title="8"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> treatment_group[<span class="dv">1</span>], <span class="dt">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_errorbar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> control_group[<span class="dv">2</span>], <span class="dt">ymax =</span> control_group[<span class="dv">3</span>], <span class="dt">x =</span> <span class="st">&quot;control&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb251-9" title="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> control_group[<span class="dv">1</span>], <span class="dt">x =</span> <span class="st">&quot;control&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-10" title="10"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Group&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-11" title="11"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Proportion who reoffended at follow-up&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb251-12" title="12"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <div style="margin-bottom:50px;">
 
@@ -583,7 +558,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 
 </div>
 </div>
-<div id="single-sample-significance-tests" class="section level3" number="6.2.3">
+<div id="single-sample-significance-tests" class="section level3">
 <h3><span class="header-section-number">6.2.3</span> Single-sample significance tests</h3>
 <div style="margin-bottom:50px;">
 
@@ -622,19 +597,19 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="hypotheses.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make synthetic data which includes the variables ‘prisoner_id’ and ‘IQ’</span></span>
-<span id="cb239-2"><a href="hypotheses.html#cb239-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ‘prisoner_id’ has 1 to 1.5 million IDs while ‘IQ’ has scores generated by ‘rnorm’ function </span></span>
-<span id="cb239-3"><a href="hypotheses.html#cb239-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Place data frame in object called ‘PrisonerIQ’</span></span>
-<span id="cb239-4"><a href="hypotheses.html#cb239-4" aria-hidden="true" tabindex="-1"></a>PrisonerIQ <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="at">prisoner_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1500000</span>, <span class="at">IQ =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">1500000</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>)) </span>
-<span id="cb239-5"><a href="hypotheses.html#cb239-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb239-6"><a href="hypotheses.html#cb239-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Using ‘which’ function to make subset of prisoners with IQ above 100</span></span>
-<span id="cb239-7"><a href="hypotheses.html#cb239-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ‘which’ is to the left of the ‘,’ at the end of code to specify that we are selecting rows</span></span>
-<span id="cb239-8"><a href="hypotheses.html#cb239-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Place subset in object called ‘IQ_Over_100’</span></span>
-<span id="cb239-9"><a href="hypotheses.html#cb239-9" aria-hidden="true" tabindex="-1"></a>IQ_Over_100 <span class="ot">&lt;-</span> PrisonerIQ[ <span class="fu">which</span>(PrisonerIQ<span class="sc">$</span>IQ<span class="sc">&gt;</span><span class="dv">100</span>) ,] </span>
-<span id="cb239-10"><a href="hypotheses.html#cb239-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb239-11"><a href="hypotheses.html#cb239-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide ‘IQ_Over_100’ by total number of prisoner IQ scores</span></span>
-<span id="cb239-12"><a href="hypotheses.html#cb239-12" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(IQ_Over_100)<span class="sc">/</span><span class="fu">nrow</span>(PrisonerIQ)</span></code></pre></div>
-<pre><code>## [1] 0.4865633</code></pre>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" title="1"><span class="co"># Make synthetic data which includes the variables ‘prisoner_id’ and ‘IQ’</span></a>
+<a class="sourceLine" id="cb252-2" title="2"><span class="co"># ‘prisoner_id’ has 1 to 1.5 million IDs while ‘IQ’ has scores generated by ‘rnorm’ function </span></a>
+<a class="sourceLine" id="cb252-3" title="3"><span class="co"># Place data frame in object called ‘PrisonerIQ’</span></a>
+<a class="sourceLine" id="cb252-4" title="4">PrisonerIQ &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">prisoner_id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">1500000</span>, <span class="dt">IQ =</span> <span class="kw">round</span>(<span class="kw">rnorm</span>(<span class="dv">1500000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>)) </a>
+<a class="sourceLine" id="cb252-5" title="5"></a>
+<a class="sourceLine" id="cb252-6" title="6"><span class="co"># Using ‘which’ function to make subset of prisoners with IQ above 100</span></a>
+<a class="sourceLine" id="cb252-7" title="7"><span class="co"># ‘which’ is to the left of the ‘,’ at the end of code to specify that we are selecting rows</span></a>
+<a class="sourceLine" id="cb252-8" title="8"><span class="co"># Place subset in object called ‘IQ_Over_100’</span></a>
+<a class="sourceLine" id="cb252-9" title="9">IQ_Over_<span class="dv">100</span> &lt;-<span class="st"> </span>PrisonerIQ[ <span class="kw">which</span>(PrisonerIQ<span class="op">$</span>IQ<span class="op">&gt;</span><span class="dv">100</span>) ,] </a>
+<a class="sourceLine" id="cb252-10" title="10"></a>
+<a class="sourceLine" id="cb252-11" title="11"><span class="co"># Divide ‘IQ_Over_100’ by total number of prisoner IQ scores</span></a>
+<a class="sourceLine" id="cb252-12" title="12"><span class="kw">nrow</span>(IQ_Over_<span class="dv">100</span>)<span class="op">/</span><span class="kw">nrow</span>(PrisonerIQ)</a></code></pre></div>
+<pre><code>## [1] 0.4872393</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -643,24 +618,24 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="hypotheses.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first 5 prisoner IQs</span></span>
-<span id="cb241-2"><a href="hypotheses.html#cb241-2" aria-hidden="true" tabindex="-1"></a>PrisonerIQ[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,] </span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" title="1"><span class="co"># View the first 5 prisoner IQs</span></a>
+<a class="sourceLine" id="cb254-2" title="2">PrisonerIQ[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] </a></code></pre></div>
 <pre><code>##   prisoner_id  IQ
-## 1           1  73
-## 2           2 116
-## 3           3 109
-## 4           4 102
-## 5           5 104</code></pre>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="hypotheses.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the IQ of prisoner #1 </span></span>
-<span id="cb243-2"><a href="hypotheses.html#cb243-2" aria-hidden="true" tabindex="-1"></a>PrisonerIQ<span class="sc">$</span>IQ[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">115</span></span>
-<span id="cb243-3"><a href="hypotheses.html#cb243-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb243-4"><a href="hypotheses.html#cb243-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a variable storing z-scores of IQs </span></span>
-<span id="cb243-5"><a href="hypotheses.html#cb243-5" aria-hidden="true" tabindex="-1"></a>PrisonerIQ<span class="sc">$</span>z_scoreIQ <span class="ot">&lt;-</span> <span class="fu">scale</span>(PrisonerIQ<span class="sc">$</span>IQ) </span>
-<span id="cb243-6"><a href="hypotheses.html#cb243-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb243-7"><a href="hypotheses.html#cb243-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></span>
-<span id="cb243-8"><a href="hypotheses.html#cb243-8" aria-hidden="true" tabindex="-1"></a>PrisonerIQ[<span class="dv">1</span>,]</span></code></pre></div>
+## 1           1 102
+## 2           2  86
+## 3           3  99
+## 4           4 111
+## 5           5  92</code></pre>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" title="1"><span class="co"># Change the IQ of prisoner #1 </span></a>
+<a class="sourceLine" id="cb256-2" title="2">PrisonerIQ<span class="op">$</span>IQ[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">115</span></a>
+<a class="sourceLine" id="cb256-3" title="3"></a>
+<a class="sourceLine" id="cb256-4" title="4"><span class="co"># Create a variable storing z-scores of IQs </span></a>
+<a class="sourceLine" id="cb256-5" title="5">PrisonerIQ<span class="op">$</span>z_scoreIQ &lt;-<span class="st"> </span><span class="kw">scale</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
+<a class="sourceLine" id="cb256-6" title="6"></a>
+<a class="sourceLine" id="cb256-7" title="7"><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></a>
+<a class="sourceLine" id="cb256-8" title="8">PrisonerIQ[<span class="dv">1</span>,]</a></code></pre></div>
 <pre><code>##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9993074</code></pre>
+## 1           1 115 0.9986009</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -668,17 +643,17 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="hypotheses.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The mean should be 100 but, in reality, it is not precise, so we calculate it and put in the #object ‘m’</span></span>
-<span id="cb245-2"><a href="hypotheses.html#cb245-2" aria-hidden="true" tabindex="-1"></a>m<span class="ot">&lt;-</span><span class="fu">mean</span>(PrisonerIQ<span class="sc">$</span>IQ) </span>
-<span id="cb245-3"><a href="hypotheses.html#cb245-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb245-4"><a href="hypotheses.html#cb245-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Same with sd; it should be 15 but we calculate it to get a precise estimate and put in object #‘sd’</span></span>
-<span id="cb245-5"><a href="hypotheses.html#cb245-5" aria-hidden="true" tabindex="-1"></a>sd<span class="ot">&lt;-</span><span class="fu">sd</span>(PrisonerIQ<span class="sc">$</span>IQ) </span>
-<span id="cb245-6"><a href="hypotheses.html#cb245-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb245-7"><a href="hypotheses.html#cb245-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter the prisoner’s IQ score and specify ‘below’ following ‘region’ because we are </span></span>
-<span id="cb245-8"><a href="hypotheses.html#cb245-8" aria-hidden="true" tabindex="-1"></a><span class="co"># interested in IQ scores below 124</span></span>
-<span id="cb245-9"><a href="hypotheses.html#cb245-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pnormGC</span>(<span class="dv">124</span>, <span class="at">region=</span><span class="st">&quot;below&quot;</span>, <span class="at">mean=</span>m, <span class="at">sd=</span>sd,<span class="at">graph=</span><span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" title="1"><span class="co"># The mean should be 100 but, in reality, it is not precise, so we calculate it and put in the #object ‘m’</span></a>
+<a class="sourceLine" id="cb258-2" title="2">m&lt;-<span class="kw">mean</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
+<a class="sourceLine" id="cb258-3" title="3"></a>
+<a class="sourceLine" id="cb258-4" title="4"><span class="co"># Same with sd; it should be 15 but we calculate it to get a precise estimate and put in object #‘sd’</span></a>
+<a class="sourceLine" id="cb258-5" title="5">sd&lt;-<span class="kw">sd</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
+<a class="sourceLine" id="cb258-6" title="6"></a>
+<a class="sourceLine" id="cb258-7" title="7"><span class="co"># Enter the prisoner’s IQ score and specify ‘below’ following ‘region’ because we are </span></a>
+<a class="sourceLine" id="cb258-8" title="8"><span class="co"># interested in IQ scores below 124</span></a>
+<a class="sourceLine" id="cb258-9" title="9"><span class="kw">pnormGC</span>(<span class="dv">124</span>, <span class="dt">region=</span><span class="st">&quot;below&quot;</span>, <span class="dt">mean=</span>m, <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>) </a></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre><code>## [1] 0.9450814</code></pre>
+<pre><code>## [1] 0.9450407</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -687,8 +662,8 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="hypotheses.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify ‘between’ for ‘region’ because we are interested in proportion of prisoners between the two given values</span></span>
-<span id="cb247-2"><a href="hypotheses.html#cb247-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnormGC</span>(<span class="at">bound=</span><span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">115</span>),<span class="at">region=</span><span class="st">&quot;between&quot;</span>, <span class="at">mean=</span><span class="dv">100</span>,<span class="at">sd=</span><span class="dv">15</span>,<span class="at">graph=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" title="1"><span class="co"># Specify ‘between’ for ‘region’ because we are interested in proportion of prisoners between the two given values</span></a>
+<a class="sourceLine" id="cb260-2" title="2"><span class="kw">pnormGC</span>(<span class="dt">bound=</span><span class="kw">c</span>(<span class="dv">85</span>, <span class="dv">115</span>),<span class="dt">region=</span><span class="st">&quot;between&quot;</span>, <span class="dt">mean=</span><span class="dv">100</span>,<span class="dt">sd=</span><span class="dv">15</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <pre><code>## [1] 0.6826895</code></pre>
 <div style="margin-bottom:50px;">
@@ -702,7 +677,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div id="single-sample-z-tests-for-means" class="section level4" number="6.2.3.1">
+<div id="single-sample-z-tests-for-means" class="section level4">
 <h4><span class="header-section-number">6.2.3.1</span> <strong>Single sample z-tests for means</strong></h4>
 <div style="margin-bottom:35px;">
 
@@ -723,15 +698,15 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="hypotheses.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifying inputs in the order that the user needs to enter them : mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared</span></span>
-<span id="cb249-2"><a href="hypotheses.html#cb249-2" aria-hidden="true" tabindex="-1"></a>z_test<span class="ot">&lt;-</span><span class="cf">function</span>(xbar, sd, n, mu) { </span>
-<span id="cb249-3"><a href="hypotheses.html#cb249-3" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">&lt;-</span> (xbar<span class="sc">-</span>mu) <span class="sc">/</span> (sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)) <span class="co"># Equation for one-sample z-test</span></span>
-<span id="cb249-4"><a href="hypotheses.html#cb249-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">&#39;z =&#39;</span>, z)) <span class="co"># Report z-score to the user</span></span>
-<span id="cb249-5"><a href="hypotheses.html#cb249-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb249-6"><a href="hypotheses.html#cb249-6" aria-hidden="true" tabindex="-1"></a>} <span class="co"># End function</span></span>
-<span id="cb249-7"><a href="hypotheses.html#cb249-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb249-8"><a href="hypotheses.html#cb249-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Test it with our example by supplying estimates </span></span>
-<span id="cb249-9"><a href="hypotheses.html#cb249-9" aria-hidden="true" tabindex="-1"></a><span class="fu">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" title="1"><span class="co"># Specifying inputs in the order that the user needs to enter them : mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared</span></a>
+<a class="sourceLine" id="cb262-2" title="2">z_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
+<a class="sourceLine" id="cb262-3" title="3">  z &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)) <span class="co"># Equation for one-sample z-test</span></a>
+<a class="sourceLine" id="cb262-4" title="4">  <span class="kw">return</span>(<span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z)) <span class="co"># Report z-score to the user</span></a>
+<a class="sourceLine" id="cb262-5" title="5"></a>
+<a class="sourceLine" id="cb262-6" title="6">} <span class="co"># End function</span></a>
+<a class="sourceLine" id="cb262-7" title="7"></a>
+<a class="sourceLine" id="cb262-8" title="8"><span class="co"># Test it with our example by supplying estimates </span></a>
+<a class="sourceLine" id="cb262-9" title="9"><span class="kw">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</a></code></pre></div>
 <pre><code>## z = 2.544056</code></pre>
 <div style="margin-bottom:50px;">
 
@@ -740,19 +715,19 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="hypotheses.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Same as above</span></span>
-<span id="cb251-2"><a href="hypotheses.html#cb251-2" aria-hidden="true" tabindex="-1"></a>z_test<span class="ot">&lt;-</span><span class="cf">function</span>(xbar, sd, n, mu) { </span>
-<span id="cb251-3"><a href="hypotheses.html#cb251-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (xbar<span class="sc">-</span>mu) <span class="sc">/</span> (sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)) </span>
-<span id="cb251-4"><a href="hypotheses.html#cb251-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb251-5"><a href="hypotheses.html#cb251-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non-directional </span></span>
-<span id="cb251-6"><a href="hypotheses.html#cb251-6" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fu">abs</span>(z)) </span>
-<span id="cb251-7"><a href="hypotheses.html#cb251-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb251-8"><a href="hypotheses.html#cb251-8" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>( <span class="fu">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </span>
-<span id="cb251-9"><a href="hypotheses.html#cb251-9" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span><span class="sc">\n</span><span class="st">p-value =&#39;</span>, p)) <span class="co"># Added code to return p-value</span></span>
-<span id="cb251-10"><a href="hypotheses.html#cb251-10" aria-hidden="true" tabindex="-1"></a>} </span>
-<span id="cb251-11"><a href="hypotheses.html#cb251-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb251-12"><a href="hypotheses.html#cb251-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Test it with our example again </span></span>
-<span id="cb251-13"><a href="hypotheses.html#cb251-13" aria-hidden="true" tabindex="-1"></a><span class="fu">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" title="1"><span class="co"># Same as above</span></a>
+<a class="sourceLine" id="cb264-2" title="2">z_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
+<a class="sourceLine" id="cb264-3" title="3">z &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)) </a>
+<a class="sourceLine" id="cb264-4" title="4"></a>
+<a class="sourceLine" id="cb264-5" title="5"><span class="co"># This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non-directional </span></a>
+<a class="sourceLine" id="cb264-6" title="6">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(z)) </a>
+<a class="sourceLine" id="cb264-7" title="7"></a>
+<a class="sourceLine" id="cb264-8" title="8"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </a>
+<a class="sourceLine" id="cb264-9" title="9"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p)) <span class="co"># Added code to return p-value</span></a>
+<a class="sourceLine" id="cb264-10" title="10">} </a>
+<a class="sourceLine" id="cb264-11" title="11"></a>
+<a class="sourceLine" id="cb264-12" title="12"><span class="co"># Test it with our example again </span></a>
+<a class="sourceLine" id="cb264-13" title="13"><span class="kw">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</a></code></pre></div>
 <pre><code>## z = 2.544056 
 ## p-value = 0.01095734</code></pre>
 <div style="margin-bottom:50px;">
@@ -762,67 +737,9 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<hr />
-<div style="margin-bottom:35px;">
-
 </div>
-</div>
-<div id="single-sample-z-tests-for-proportions" class="section level4" number="6.2.3.2">
-<h4><span class="header-section-number">6.2.3.2</span> <strong>Single Sample z-tests for Proportions</strong></h4>
-<div style="margin-bottom:35px;">
-
-</div>
-<p>Our next example is to do with evaluating a new prison education programme. The foundation supporting the programme would like to achieve a success rate of 75% among 100,000 prisoners participating in he programme. Success is defined as completion of the six-month course.</p>
-<p>After the programme ran, there is conflicting information about its success: managers of the programme claim they achieved higher than the 75% success rate, while a journalist investigating the programme claimed it was below 75%. You want to get to the bottom of this, so you collect information from 150 of the prisoners who enrolled on the programme using independent random sampling.</p>
-<p>Your data shows that 85% of the participants successfully completed the programme. What to make of your result? Let’s set up the hypotheses where we want a non-directional alternative hypothesis:</p>
-<div style="margin-bottom:35px;">
-
-</div>
-<p><span class="math inline">\(H_0\)</span>: The success rate of the program is 0.75% (P = 0.75).</p>
-<div style="margin-bottom:15px;">
-
-</div>
-<p><span class="math inline">\(H_A\)</span>: The success rate of the program is not 0.75% (P ≠ 0.75)</p>
-<div style="margin-bottom:35px;">
-
-</div>
-<p>To test this, we use a <strong>single-sample z-test for proportions</strong> because we are concerned with comparing the percentages or proportions between our sample and the known population. We create another new function:</p>
-<div style="margin-bottom:35px;">
-
-</div>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="hypotheses.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifying inputs: p is proportion of success, P is proportion of success in population, n is sample size</span></span>
-<span id="cb253-2"><a href="hypotheses.html#cb253-2" aria-hidden="true" tabindex="-1"></a>prop_z_test<span class="ot">&lt;-</span><span class="cf">function</span>(p, P, n) { </span>
-<span id="cb253-3"><a href="hypotheses.html#cb253-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb253-4"><a href="hypotheses.html#cb253-4" aria-hidden="true" tabindex="-1"></a>Numerator<span class="ot">&lt;-</span>(p <span class="sc">-</span> P) </span>
-<span id="cb253-5"><a href="hypotheses.html#cb253-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb253-6"><a href="hypotheses.html#cb253-6" aria-hidden="true" tabindex="-1"></a>PQ<span class="ot">&lt;-</span> P <span class="sc">*</span> (<span class="dv">1</span><span class="sc">-</span>P) </span>
-<span id="cb253-7"><a href="hypotheses.html#cb253-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb253-8"><a href="hypotheses.html#cb253-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard error</span></span>
-<span id="cb253-9"><a href="hypotheses.html#cb253-9" aria-hidden="true" tabindex="-1"></a>Denominator<span class="ot">&lt;-</span><span class="fu">sqrt</span>(PQ <span class="sc">/</span> n) </span>
-<span id="cb253-10"><a href="hypotheses.html#cb253-10" aria-hidden="true" tabindex="-1"></a>z<span class="ot">&lt;-</span> Numerator <span class="sc">/</span> Denominator </span>
-<span id="cb253-11"><a href="hypotheses.html#cb253-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb253-12"><a href="hypotheses.html#cb253-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the z-value and p-value to the user</span></span>
-<span id="cb253-13"><a href="hypotheses.html#cb253-13" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fu">abs</span>(z)) </span>
-<span id="cb253-14"><a href="hypotheses.html#cb253-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb253-15"><a href="hypotheses.html#cb253-15" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>( <span class="fu">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </span>
-<span id="cb253-16"><a href="hypotheses.html#cb253-16" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span><span class="sc">\n</span><span class="st">p-value =&#39;</span>, p)) </span>
-<span id="cb253-17"><a href="hypotheses.html#cb253-17" aria-hidden="true" tabindex="-1"></a>} </span>
-<span id="cb253-18"><a href="hypotheses.html#cb253-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb253-19"><a href="hypotheses.html#cb253-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s test it using the values from our problem </span></span>
-<span id="cb253-20"><a href="hypotheses.html#cb253-20" aria-hidden="true" tabindex="-1"></a><span class="fu">prop_z_test</span>(<span class="fl">0.85</span>, <span class="fl">0.75</span>, <span class="dv">150</span>)</span></code></pre></div>
-<pre><code>## z = 2.828427 
-## p-value = 0.004677735</code></pre>
-<div style="margin-bottom:50px;">
-
-</div>
-<p>The z-score is 2.828427 and the p-value is statistically significant. We reject the null hypothesis and conclude that the success rate is not 75%.</p>
-<div style="margin-bottom:35px;">
-
-</div>
-<hr />
-</div>
-<div id="single-sample-t-tests-for-means" class="section level4" number="6.2.3.3">
-<h4><span class="header-section-number">6.2.3.3</span> <strong>Single-sample t-tests for Means</strong></h4>
+<div id="single-sample-t-tests-for-means" class="section level4">
+<h4><span class="header-section-number">6.2.3.2</span> <strong>Single-sample t-tests for Means</strong></h4>
 <div style="margin-bottom:35px;">
 
 </div>
@@ -847,21 +764,21 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="hypotheses.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65</span></span>
-<span id="cb255-2"><a href="hypotheses.html#cb255-2" aria-hidden="true" tabindex="-1"></a>single_t_test<span class="ot">&lt;-</span><span class="cf">function</span>(xbar, sd, n, mu) { </span>
-<span id="cb255-3"><a href="hypotheses.html#cb255-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb255-4"><a href="hypotheses.html#cb255-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Equation for one-sample z-test</span></span>
-<span id="cb255-5"><a href="hypotheses.html#cb255-5" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> (xbar<span class="sc">-</span>mu) <span class="sc">/</span> (sd <span class="sc">/</span> <span class="fu">sqrt</span>(n <span class="sc">-</span> <span class="dv">1</span>)) </span>
-<span id="cb255-6"><a href="hypotheses.html#cb255-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb255-7"><a href="hypotheses.html#cb255-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Report t-score and p-value to the user</span></span>
-<span id="cb255-8"><a href="hypotheses.html#cb255-8" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fu">abs</span>(t)) </span>
-<span id="cb255-9"><a href="hypotheses.html#cb255-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb255-10"><a href="hypotheses.html#cb255-10" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>( <span class="fu">cat</span>(<span class="st">&#39;t =&#39;</span>, t, </span>
-<span id="cb255-11"><a href="hypotheses.html#cb255-11" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span><span class="sc">\n</span><span class="st">p-value =&#39;</span>, p))</span>
-<span id="cb255-12"><a href="hypotheses.html#cb255-12" aria-hidden="true" tabindex="-1"></a>} </span>
-<span id="cb255-13"><a href="hypotheses.html#cb255-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb255-14"><a href="hypotheses.html#cb255-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Test it with our example </span></span>
-<span id="cb255-15"><a href="hypotheses.html#cb255-15" aria-hidden="true" tabindex="-1"></a><span class="fu">single_t_test</span>(<span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">51</span>, <span class="dv">65</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" title="1"><span class="co"># Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65</span></a>
+<a class="sourceLine" id="cb266-2" title="2">single_t_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
+<a class="sourceLine" id="cb266-3" title="3"></a>
+<a class="sourceLine" id="cb266-4" title="4"><span class="co"># Equation for one-sample z-test</span></a>
+<a class="sourceLine" id="cb266-5" title="5">t &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)) </a>
+<a class="sourceLine" id="cb266-6" title="6"></a>
+<a class="sourceLine" id="cb266-7" title="7"><span class="co"># Report t-score and p-value to the user</span></a>
+<a class="sourceLine" id="cb266-8" title="8">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(t)) </a>
+<a class="sourceLine" id="cb266-9" title="9"></a>
+<a class="sourceLine" id="cb266-10" title="10"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;t =&#39;</span>, t, </a>
+<a class="sourceLine" id="cb266-11" title="11"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p))</a>
+<a class="sourceLine" id="cb266-12" title="12">} </a>
+<a class="sourceLine" id="cb266-13" title="13"></a>
+<a class="sourceLine" id="cb266-14" title="14"><span class="co"># Test it with our example </span></a>
+<a class="sourceLine" id="cb266-15" title="15"><span class="kw">single_t_test</span>(<span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">51</span>, <span class="dv">65</span>)</a></code></pre></div>
 <pre><code>## t = -2.357023 
 ## p-value = 0.01842213</code></pre>
 <div style="margin-bottom:50px;">
@@ -875,7 +792,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 </div>
 </div>
 </div>
-<div id="summary-5" class="section level2" number="6.3">
+<div id="summary-5" class="section level2">
 <h2><span class="header-section-number">6.3</span> SUMMARY</h2>
 <div style="margin-bottom:35px;">
 

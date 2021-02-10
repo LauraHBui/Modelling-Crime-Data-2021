@@ -67,6 +67,10 @@ library(dplyr)
 ```
 
 ```
+## Warning: package 'dplyr' was built under R version 3.6.3
+```
+
+```
 ## 
 ## Attaching package: 'dplyr'
 ```
@@ -151,7 +155,11 @@ library(here)
 ```
 
 ```
-## here() starts at /Users/reka/Dropbox (The University of Manchester)/modelling2021/Modelling-Crime-Data-2021
+## Warning: package 'here' was built under R version 3.6.3
+```
+
+```
+## here() starts at C:/Users/buihl/Desktop/Modelling-Crime-Data-2021
 ```
 <div style="margin-bottom:50px;">
 </div>
@@ -171,6 +179,10 @@ Here is another `tidyverse` package to install:
 
 ```r
 library(haven)
+```
+
+```
+## Warning: package 'haven' was built under R version 3.6.3
 ```
 
 <div style="margin-bottom:50px;">
@@ -394,17 +406,17 @@ add_column(ncvs, newid = 1:nrow(ncvs))
 ## # A tibble: 1,431 x 49
 ##     YEAR  V2119   V2129 V3014   V3016   V3018   V3021   V3023 V3023A  V3024
 ##    <dbl> <dbl+> <dbl+l> <dbl> <dbl+l> <dbl+l> <dbl+l> <dbl+l> <dbl+> <dbl+>
-##  1  2000 2 [No] 2 [(S)…    34 6 [Not… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-##  2  2000 2 [No] 2 [(S)…    22 6 [Not… 2 [Fem… 1 [Yes] 1 [Whi…     NA 2 [No]
-##  3  2000 2 [No] 3 [Not…    21 5 [Nev… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-##  4  2000 2 [No] 3 [Not…    18 6 [Not… 2 [Fem… 2 [No]  1 [Whi…     NA 2 [No]
-##  5  2000 2 [No] 2 [(S)…    16 6 [Not… 2 [Fem… 2 [No]  1 [Whi…     NA 2 [No]
-##  6  2000 2 [No] 1 [Cit…    13 6 [Not… 2 [Fem… 2 [No]  1 [Whi…     NA 2 [No]
-##  7  2000 2 [No] 2 [(S)…    16 6 [Not… 1 [Mal… 2 [No]  1 [Whi…     NA 2 [No]
-##  8  2000 2 [No] 2 [(S)…    48 6 [Not… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-##  9  2000 2 [No] 2 [(S)…    12 5 [Nev… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-## 10  2000 2 [No] 2 [(S)…    42 6 [Not… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-## # … with 1,421 more rows, and 39 more variables: V2026 <dbl+lbl>,
+##  1  2000 2 [No] 2 [(S)~    34 6 [Not~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  2  2000 2 [No] 2 [(S)~    22 6 [Not~ 2 [Fem~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  3  2000 2 [No] 3 [Not~    21 5 [Nev~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  4  2000 2 [No] 3 [Not~    18 6 [Not~ 2 [Fem~ 2 [No]  1 [Whi~     NA 2 [No]
+##  5  2000 2 [No] 2 [(S)~    16 6 [Not~ 2 [Fem~ 2 [No]  1 [Whi~     NA 2 [No]
+##  6  2000 2 [No] 1 [Cit~    13 6 [Not~ 2 [Fem~ 2 [No]  1 [Whi~     NA 2 [No]
+##  7  2000 2 [No] 2 [(S)~    16 6 [Not~ 1 [Mal~ 2 [No]  1 [Whi~     NA 2 [No]
+##  8  2000 2 [No] 2 [(S)~    48 6 [Not~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  9  2000 2 [No] 2 [(S)~    12 5 [Nev~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+## 10  2000 2 [No] 2 [(S)~    42 6 [Not~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+## # ... with 1,421 more rows, and 39 more variables: V2026 <dbl+lbl>,
 ## #   V4049 <dbl+lbl>, V4234 <dbl+lbl>, V4235 <dbl+lbl>, V4236 <dbl+lbl>,
 ## #   V4237 <dbl+lbl>, V4237A <dbl+lbl>, V4238 <dbl+lbl>, V4239 <dbl+lbl>,
 ## #   V4240 <dbl+lbl>, V4241 <dbl+lbl>, V4242 <dbl+lbl>, V4243 <dbl+lbl>,
@@ -445,7 +457,7 @@ count(ncvs, injured)
 ```
 ## # A tibble: 2 x 2
 ##         injured     n
-## *     <dbl+lbl> <int>
+##       <dbl+lbl> <int>
 ## 1 0 [uninjured]   967
 ## 2 1 [injured]     464
 ```
@@ -457,7 +469,7 @@ count(ncvs, weaponpresent)
 ```
 ## # A tibble: 3 x 2
 ##   weaponpresent     n
-## *         <dbl> <int>
+##           <dbl> <int>
 ## 1             0   950
 ## 2             1   406
 ## 3            NA    75
@@ -485,15 +497,15 @@ ncvs %>% select(injured, weaponpresent, severity) %>% sample_n(10)
 ## # A tibble: 10 x 3
 ##          injured weaponpresent severity
 ##        <dbl+lbl>         <dbl>    <dbl>
-##  1 0 [uninjured]             1        1
-##  2 0 [uninjured]             0        0
+##  1 1 [injured]               0        1
+##  2 1 [injured]               0        1
 ##  3 0 [uninjured]             1        1
-##  4 0 [uninjured]             0        0
-##  5 0 [uninjured]             1        1
-##  6 0 [uninjured]             1        1
+##  4 0 [uninjured]             1        1
+##  5 1 [injured]               0        1
+##  6 0 [uninjured]             0        0
 ##  7 0 [uninjured]             0        0
-##  8 0 [uninjured]             1        1
-##  9 1 [injured]               0        1
+##  8 1 [injured]               0        1
+##  9 0 [uninjured]             0        0
 ## 10 1 [injured]               0        1
 ```
 
