@@ -49,7 +49,7 @@ In this lesson, you will be introduced to the programming language, `R`. After i
 
 Unlike other statistical software like SPSS and STATA, `R` is a free, open-source software for performing statistical analysis and data visualization. In addition, `R` offers more analytical solutions, flexibility, and customization than these commonly used statistical software, and its popularity has increased substantially over the years. 
 
-We learn `R` because we hope that this is an important tool that you will continue to use in future. As it is free and has a community feel to it where anyone can create and upload new techniques, the idea is that you can use `R` long after this course. Even if data analysis is not in the future for you, learning how to conduct and interpret statistical output is a good skill to have – much of our knowledge of the world includes statistics, so understanding the numbers and how they were derived are advantages. `R` uses a language called **object-oriented programming**, and though it may seem daunting at first, practice makes familiarity. Also, you can impress your friends with all your coding. 
+We learn `R` because we hope that this is an important tool that you will continue to use in the future. As it is free and has a community feel to it where anyone can create and upload new techniques, the idea is that you can use `R` long after this course. Even if data analysis is not in the future for you, learning how to conduct and interpret statistical output is a good skill to have – much of our knowledge of the world includes statistics, so understanding the numbers and how they were derived are advantages. `R` uses a language called **object-oriented programming**, and though it may seem daunting at first, practice makes familiarity. Also, you can impress your friends with all your coding. 
 
 ---
 
@@ -58,7 +58,7 @@ We learn `R` because we hope that this is an important tool that you will contin
 <div style="margin-bottom:30px;">
 </div>
 
-As `R` and `R Studio` are free software, you should be able to install these on your own machines at home. You may be working with different IT, so there are different options to allow a successful install. Our first activity will be to decide what approach to working with `R` and `R Studio` will be best for you. 
+As `R` and `R Studio` are free software, you should be able to install these on your own computers at home. You may be working with different IT, so there are different options for a successful install. Our first activity will be to decide what approach to working with `R` and `R Studio` will be best for you. 
 
 <div style="margin-bottom:70px;">
 </div>
@@ -69,7 +69,7 @@ In this activity, you need to answer a question about your computer/IT that you 
 
 - **What is your operating system**? Operating system refers to the software that your computer is running to deliver the basic functions. You may have, for example: 
 
-  + *Windows or Linux* - if you have these, you are most likely going to have an easy time installing `R` and `R Studio`, so you should give the installation instructions below a try
+  + *Windows or Linux* - if you have these, you are most likely going to have an easy time installing `R` and `R Studio`, so you should give the installation instructions below a try.
   + *Apple* - if you have a Mac, there are some extra steps to install `R` and `R Studio`. Specifically, there will be an additional programme to download called Xcode, and additional steps to take.  
   + *Chromebook* - Installing `R` and `R Studio` on a Chromebook involves installing Linux. Like with a Mac, there are some additional steps you will need to take, and some patience.
   
@@ -136,7 +136,7 @@ It might be that the above does not work and you find that there are some issues
 
 - *Option 1:* You can remotely access one of the university PCs from your browser (Firefox, Chrome, Safari, etc). You can find instructions how to do this [here](https://www.itservices.manchester.ac.uk/students/pc-on-campus/remote-cluster-access/) , and the university IT helpdesk can help you access this too. If you do this, you will be able to use the version of `RStudio` installed in the computer clusters. 
 
-- *Option 2*: You can access an online version of `R Studio`, which you can access through any web browser (Firefox, Chrome, Safari, etc). To do this, you visit [https://rstudio.cloud/](https://rstudio.cloud/), click on 'get started for free', choose the free account, and click on 'sign up'. Then you can always visit this website and log in to use `R Studio` in the cloud. Note that you should start a `New Project` and name it *Modelling Crime Data*, and then all your work will be saved in this project. More on projects will be found in Lesson Two, next week. 
+- *Option 2*: You can access an online version of `R Studio`, which you can access through any web browser (Firefox, Chrome, Safari, etc). To do this, you visit [https://rstudio.cloud/](https://rstudio.cloud/), click on 'Get Started For Free', choose the free account, and click on 'sign up'. Then you can always visit this website and log in to use `R Studio` in the cloud. Note that you should start a `New Project` and name it *Modelling Crime Data*, and then all your work will be saved in this project. More on projects will be found in Lesson Two, next week. 
 
 
 ---
@@ -153,7 +153,8 @@ You only need to open `Rstudio`, (not both `R` and `RStudio`); `R` runs automati
 </div>
 
 
-![**Figure 1.1** RStudio interface](Images/rstudio.PNG){width=80%}
+![**Figure 1.1** R Studio interface](Images/rstudio.png){width=80%}
+
 
 <div style="margin-bottom:30px;">
 </div>
@@ -164,7 +165,7 @@ Figure 1.1 shows you what `RStudio` looks like when you first open it: three ope
 The biggest one to your left is the main console, and it tells you what version of `R` you have. 
 
 
-When you start working in `Rstudio`, it is best to have *four* open panes. **How?** Let's explore in the next activity. 
+When you start working in `Rstudio`, it is best to have *four* open panes. **How?** Let us explore in the next activity. 
 
 <div style="margin-bottom:70px;">
 </div>
@@ -249,7 +250,7 @@ When you have typed this, you will have typed your first bit of code. Yet nothin
 
 You can do this by highlighting the code you wish to run, and clicking on 'run' in the top right hand corner: 
 
-![**Figure 1.4** Run 'Hello World!'](Images/run_hello_world.gif)
+![**Figure 1.4** Run 'Hello world!'](Images/run_hello_world.gif)
 
 <div style="margin-bottom:30px;">
 </div>
@@ -373,7 +374,7 @@ The results should appear in the console pane and is known as your output.
 <div style="margin-bottom:35px;">
 </div>
 
-**Functions** are similar to operators in that they *do* things. The difference is that they are called by a certain name, usually a name which represents what they do, and they are followed by brackets `()`. Within the brackets, you can put whatever it is that you want the function to work with. For example, the code we wrote in Activity 4 was the `print()` function. This function told `R` to print into the console whatever we put in the brackets ("Hello World!"). 
+**Functions** are similar to operators in that they *do* things. The difference is that they are called by a certain name, usually a name which represents what they do, and they are followed by brackets `()`. Within the brackets, you can put whatever it is that you want the function to work with. For example, the code we wrote in Activity 4 was the `print()` function. This function told `R` to print into the console whatever we put in the brackets ("Hello world!"). 
 
 Same idea with a personalised greeting: if you want to print 'Hello Reka', you will need to have "Hello Reka" inside the brackets:
 
@@ -425,7 +426,7 @@ max(c(10, 34, 5, 3, 77))
 <div style="margin-bottom:50px;">
 </div>
 
-How can you find the function you need? Throughout this class, you will learn a list that appears at the top of each lesson. A recommendation is to also create a 'function cookbook', where you write down a list of functions, what the functions do, and some examples. Here is an example: 
+How exactly can you find the function you need? Throughout this class, you will learn a list that appears at the top of each lesson. A recommendation is to also create a 'function cookbook', where you write down a list of functions, what the functions do, and some examples. Here is an example: 
 
 <div style="margin-bottom:30px;">
 </div>
@@ -442,7 +443,7 @@ You can use google to make your cookbook, and the website [stackoverflow](https:
 
 #### Activity 6: Play around with functions
 
-Have a guess (or google) about what you think is the function to get the median. Once you have your answer, write it in the shared google docs. Then, use it to get the median of the numbers 10, 34, 5, 3, 77. 
+Have a guess of (or google) what you think is the function to get the median. Once you have your answer, write it in the shared google docs. Then, use it to get the median of the numbers 10, 34, 5, 3, 77. 
 
 Write the answer in your shared google doc (or note it down for yourself if in the quiet room).
 
@@ -520,7 +521,7 @@ But if you run this code, you will get an error. Let's see:
 <div style="margin-bottom:30px;">
 </div>
 
-You see the error 'Error: object plates not found'. This is because you have not yet put anything inside the plates 'box'. Remember objects are like boxes,so there must be something inside our object 'plates'. In order for this object to exist, you have to put something inside it, or in `R`-speak *assign it some value*.
+You will see the phrase 'Error: object plates not found'. This is because you have not yet put anything inside the plates 'box'. Remember objects are like boxes,so there must be something inside our object 'plates'. In order for this object to exist, you have to put something inside it, or in `R`-speak *assign it some value*.
 
 Therefore, we make an object by using an *assignment operator* ( `<-` ). In other words, we assign something to an object (i.e., put something in the box). For example:
 
@@ -569,7 +570,7 @@ Earlier, we introduced you to the Environment and History pane. We mentioned tha
 #### Types of objects
 
 
-Why are objects important? We will be storing everything in our data analysis process in these objects. Depending on what is inside them, they can become a different type of object. Here are some examples: 
+Why are objects important? They are so because we will be storing everything in our data analysis process in these objects. Depending on what is inside them, they can become a different type of object. Here are some examples: 
 
 **Data structures** are important objects that store your data, and there are five main types but we focus on three for this course:
 
@@ -601,7 +602,7 @@ my_6th_vector <- c(1+0i, 2+4i)
 <div style="margin-bottom:50px;">
 </div>
 
-2. *lists*: technically they, too, are vectors but they are more complex because they are not restricted on the length, structure, or class of the included elements. For example, to create a list containing strings, numbers, vectors and a logical, use the `list()` function, and inside the brackets, put everything tat you want to combine into a list:
+2. *lists*: technically they, too, are vectors but they are more complex because they are not restricted on the length, structure, or class of the included elements. For example, to create a list containing strings, numbers, vectors and a logical, use the `list()` function, and inside the brackets, put everything that you want to combine into a list:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -615,8 +616,9 @@ list_data <- list("teal", "sky blue", c(10, 5, 10), TRUE, 68.26, 95.46, 99.7)
 
 Above, we created `list_data`, an object that contains all those things that we put inside the `list()` function. This function serves to create a list from combining everything that is put inside its brackets. 
 
-Use the `class()` function to confirm that the objects have been defined as a list
-
+We then use the `class()` function to confirm that the objects have been defined as a list:
+<div style="margin-bottom:35px;">
+</div>
 
 ```r
 class(list_data)
@@ -630,7 +632,7 @@ class(list_data)
 <div style="margin-bottom:50px;">
 </div>
 
-3. *data frames*: also stores elements but differ from lists because they are defined by their number of columns and rows; the vectors (columns) must be of the same length. Data frames can contain different classes but each column must be of the same class. For example, if you want to combine some related vectors to make a data frame on violent American cities, use the function `data.frame()`:
+3. *data frames*: also stores elements but differ from lists because they are defined by their number of columns and rows; the vectors (columns) must be of the same length. Data frames can contain different classes but each column must be of the same class. (More on class next week.) For example, if you want to combine some related vectors to make a data frame on violent American cities, use the function `data.frame()`:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -641,13 +643,13 @@ TopVioCities <- c("St. Louis", "Detroit", "Baltimore") # some violent US cities
 VioRatePer1k = c(20.8, 20.6, 20.3) # their violence rates per 1,000 persons
 State <- c("Missouri", "Michigan", "Maryland") # in what states are these cities found
 
-#Join them to make a data frame called 'df'
+#Join the newly created vectors to make a data frame called 'df'
 df<-data.frame(TopVioCities, VioRatePer1k, State)
 ```
 <div style="margin-bottom:50px;">
 </div>
 
-We can then view the data frame, 'df', with the `View()` function:
+We can then view the data frame, 'df', with the `View()` function in which a tab will appear containing our vectors:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -663,9 +665,9 @@ View(df)
 
 #### Activity 8: Doing things to objects
 
-We have learned what functions are (i.e., things that do things) and what are objects (i.e., the boxes that hold things). We also saw some functions which helped us create objects. Functions can also do things to objects. For example, we saw the function `class()` that told us about what kind of object list_data was, and `View()` which allowed us to have a look at our dataframe we called `df`.
+We have learned what functions are (i.e., things that do things) and what operators are (i.e., symbols that do things) as well as what are objects (i.e., the boxes that hold things). We also saw some functions which helped us create objects. Functions can also do things to objects. For example, we saw the function `class()` that told us what kind of object `list_data` was, and `View()` which allowed us to have a look at our dataframe we called `df`.
 
-Let us look back at our `plates` object. Remember it was the object that held our kitchen items. We added 'yellow plate' to it. Now let us add some more items and let us use the concatenate `c()` function for this again: 
+Let us look back at our `plates` object. Remember it was the object that held our kitchen items, specifically that beloved yellow plate. We added 'yellow plate' to it. Now let us add some more plates (we like to collect plates apparently) and let us use the concatenate `c()` function for this again: 
 
 <div style="margin-bottom:35px;">
 </div>
@@ -707,6 +709,7 @@ Now if we want to know the mean, we can take the mean of the object `nums`, whic
 <div style="margin-bottom:35px;">
 </div>
 
+
 ```r
 mean(nums)
 ```
@@ -714,21 +717,22 @@ mean(nums)
 ```
 ## [1] 25.8
 ```
+
 <div style="margin-bottom:50px;">
 </div>
 
 The object we will use most frequently though is data frames. Much like how we worked with spreadsheets in Excel in *Making Sense of Criminological Data*, we will be working with dataframes in `R`. 
 
-We had created a dataframe called `df` previously. If you have not yet copied this over into your own `R Studio`, do this now. You should have the object `df` in your environment. When you run `View(df)`, you should see this dataset:
+We had created a dataframe called `df` previously. If you have not yet created this dataframe in your own `R Studio`, do this now. You should have the object `df` in your environment. When you run `View(df)`, you should see this dataset:
 
 ![**Figure 1.12** The data frame 'df'](Images/df_view.png)
 
 <div style="margin-bottom:30px;">
 </div>
 
-To do something to an entire dataframe, we would use the name of the object (`df`) to refer to it. In the case of the `View()` function, we want to see the whole thing, so we will call `View(df)`. On the other hand, if we want to refer to only one variable in the data, (remember back to term 1 - each varible is held in each column) there is a special notation to do this. 
+To do something to an entire dataframe, we would use the name of the object (`df`) to refer to it. In the case of the `View()` function, we want to see all that is contained in `df`, so we will type `View(df)`. On the other hand, if we want to refer to only one *variable* or column in the data, (remember back to term 1 - each varible is held in each column) there is a special notation to do this -- $
 
-To refer to a variable (column) inside a dataframe, you use:
+To refer to a variable inside a dataframe, you use:
 
 <div style="margin-bottom:30px;">
 </div>
@@ -741,7 +745,7 @@ $dataframe name + \$ + variable name$
 
 For example, to refer to the variable `VioRatePer1k`, we use the notation `df$VioRatePer1k`. 
 
-And if we wanted to View only that column, we use: 
+And if we wanted to view only that variable, we use: 
 
 <div style="margin-bottom:35px;">
 </div>
@@ -780,7 +784,7 @@ mean(df$VioRatePer1k)
 <div style="margin-bottom:50px;">
 </div>
 
-**Packages** are a very important element of `R`. Throughout the course, and hopefully afterwards, you will find yourself installing numerous open source software packages that allow `R` to do new and different things. There are loads of packages out there. In early 2020, there were over 150,000 packages available. Anyone can write one, so you will need to be careful on which ones you use as the quality can vary. Official repositories, like [CRAN](https://cran.r-project.org/), are your best bet for packages as they will have passed some quality controls. 
+**Packages** are a very important element of `R`. Throughout the course, and hopefully afterwards, you will find yourself installing numerous open source software packages that allow `R` to do new and different things. There are loads of packages out there. In early 2020, there were over 150,000 packages available. Anyone can write one, so you will need to be careful with which ones you use as the quality can vary. Official repositories, like [CRAN](https://cran.r-project.org/), are your best bet for packages as they will have passed some quality controls. 
 
 You can see what packages are available in your local install by looking at the *packages* tab in the *File directory, Plots, Packages* pane (Figure 1.14). 
 
@@ -793,7 +797,7 @@ You can see what packages are available in your local install by looking at the 
 <div style="margin-bottom:30px;">
 </div>
 
-A number of the packages we will use belong to a set of packages called **tidyverse**. These packages help make your data tidy. According to Statistician and Chief Scientist at `RStudio`, Hadley Wickham, transforming your data into *tidy data* is one of the most important steps of the data analysis process. It will ensure your data are in the format you need to conduct your analyses.
+A number of the packages we will use belong to a set of packages called **tidyverse**. These packages help make your data tidy. According to Statistician and Chief Scientist at `RStudio`, Hadley Wickham, (also an author of some of your readings) transforming your data into *tidy data* is one of the most important steps of the data analysis process. It will ensure your data are in the format you need to conduct your analyses.
 
 Packages can be installed using the `install.packages()` function. Remember that while you only need to install packages once, they need to be loaded with the `library()`function each time you open up `RStudio`. Let us install the package `dplyr` from `tidyverse` and load it:
 
@@ -837,7 +841,7 @@ To double check that you have actually installed `dplyr`, go to that *File Direc
 <div style="margin-bottom:30px;">
 </div>
 
-On *masking*:  sometimes packages introduce functions that have the same name as those that are already loaded into your session. When that happens, the newly loaded ones will override the previous ones. You can still use them but you will have to refer to them explicitly by bringing them up by specifying to which package they belong with `library()`.
+On *masking*:  sometimes packages introduce functions that have the same name as those that are already loaded, maybe from another package, into your session. When that happens, the newly loaded ones will override the previous ones. You can still use them but you will have to refer to them explicitly by bringing them up by specifying to which package they belong using `library()`.
 
 Keep `dplyr` in mind as next week we will learn more about it!
 
@@ -854,7 +858,7 @@ Keep `dplyr` in mind as next week we will learn more about it!
 
 Today you installed both `R` and `RStudio` and had a gander around the `RStudio` interface. If you were bored with its default look, you could customise the interface. When working with `RStudio`, it is best to have the four panes. One had to do with the all-important **script** and we use `#` in the coding when we want to make **comments**. 
 
-We learned about some important features of `R`. First were the **operators**. These are symbols that tell `R` what to do and come in four types. One we will use quite a bit is the *assignment operator*, which is the symbol, `<-`. Also important and pervasive were **functions**. Second were **objects**, which are pervasive when working with `R`. They are like boxes that you put stuff in, and we learned about three specific types of **data structure** objects: vectors, lists, and data frames. Third were packages. These are open source software that expand what `R` can do. We installed `dplyr` as an example, and we will use this `tidyverse` package in our next session.
+We learned about some important features of `R`. First were the **operators**. These are symbols that tell `R` what to do and come in four types. One we will use quite a bit is the *assignment operator*, which is the symbol, `<-`. Also important were **functions**, which are similar to operators except their names tell you what they do. Second were **objects**, which are pervasive when working with `R`. They are like boxes that you put stuff in, and we learned about three specific types of **data structure** objects: vectors, lists, and data frames. Third were **packages**. These are open source software that expand what `R` can do. We installed `dplyr` as an example, and we will use this `tidyverse` package in our next session.
 
 <div style="margin-bottom:50px;">
 </div>
