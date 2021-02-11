@@ -634,7 +634,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <span id="cb239-10"><a href="hypotheses.html#cb239-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb239-11"><a href="hypotheses.html#cb239-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide ‘IQ_Over_100’ by total number of prisoner IQ scores</span></span>
 <span id="cb239-12"><a href="hypotheses.html#cb239-12" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(IQ_Over_100)<span class="sc">/</span><span class="fu">nrow</span>(PrisonerIQ)</span></code></pre></div>
-<pre><code>## [1] 0.4867373</code></pre>
+<pre><code>## [1] 0.4873027</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -646,11 +646,11 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="hypotheses.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first 5 prisoner IQs</span></span>
 <span id="cb241-2"><a href="hypotheses.html#cb241-2" aria-hidden="true" tabindex="-1"></a>PrisonerIQ[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,] </span></code></pre></div>
 <pre><code>##   prisoner_id  IQ
-## 1           1 111
-## 2           2  91
-## 3           3 124
-## 4           4  96
-## 5           5 126</code></pre>
+## 1           1  91
+## 2           2 110
+## 3           3  93
+## 4           4 104
+## 5           5 115</code></pre>
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="hypotheses.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the IQ of prisoner #1 </span></span>
 <span id="cb243-2"><a href="hypotheses.html#cb243-2" aria-hidden="true" tabindex="-1"></a>PrisonerIQ<span class="sc">$</span>IQ[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">115</span></span>
 <span id="cb243-3"><a href="hypotheses.html#cb243-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -660,7 +660,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <span id="cb243-7"><a href="hypotheses.html#cb243-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></span>
 <span id="cb243-8"><a href="hypotheses.html#cb243-8" aria-hidden="true" tabindex="-1"></a>PrisonerIQ[<span class="dv">1</span>,]</span></code></pre></div>
 <pre><code>##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9986506</code></pre>
+## 1           1 115 0.9985223</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -678,7 +678,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <span id="cb245-8"><a href="hypotheses.html#cb245-8" aria-hidden="true" tabindex="-1"></a><span class="co"># interested in IQ scores below 124</span></span>
 <span id="cb245-9"><a href="hypotheses.html#cb245-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pnormGC</span>(<span class="dv">124</span>, <span class="at">region=</span><span class="st">&quot;below&quot;</span>, <span class="at">mean=</span>m, <span class="at">sd=</span>sd,<span class="at">graph=</span><span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre><code>## [1] 0.9449867</code></pre>
+<pre><code>## [1] 0.9449819</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>

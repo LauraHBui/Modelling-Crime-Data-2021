@@ -153,7 +153,7 @@ You only need to open `Rstudio`, (not both `R` and `RStudio`); `R` runs automati
 </div>
 
 
-![**Figure 1.1** R Studio interface](Images/rstudio.png){width=80%}
+![**Figure 1.1** R Studio interface](Images/rstudio1.png){width=80%}
 
 
 <div style="margin-bottom:30px;">
