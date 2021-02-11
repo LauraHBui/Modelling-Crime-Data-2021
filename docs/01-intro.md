@@ -730,7 +730,7 @@ We had created a dataframe called `df` previously. If you have not yet created t
 <div style="margin-bottom:30px;">
 </div>
 
-To do something to an entire dataframe, we would use the name of the object (`df`) to refer to it. In the case of the `View()` function, we want to see all that is contained in `df`, so we will type `View(df)`. On the other hand, if we want to refer to only one *variable* or column in the data, (remember back to term 1 - each varible is held in each column) there is a special notation to do this -- $
+To do something to an entire dataframe, we would use the name of the object (`df`) to refer to it. In the case of the `View()` function, we want to see all that is contained in `df`, so we will type `View(df)`. On the other hand, if we want to refer to only one *variable* or column in the data, (recall last semester - each variable is held in each column) there is a special notation to do this -- $
 
 To refer to a variable inside a dataframe, you use:
 
