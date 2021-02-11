@@ -400,15 +400,15 @@ For example, if we have a bunch of numbers, we just find the appropriate functio
 </div>
 
 ```r
-mean(10, 34, 5, 3, 77)
+mean(c(10, 34, 5, 3, 77))
 ```
 
 ```
-## [1] 10
+## [1] 25.8
 ```
 
 ```r
-min(10, 34, 5, 3, 77)
+min(c(10, 34, 5, 3, 77))
 ```
 
 ```
@@ -416,7 +416,7 @@ min(10, 34, 5, 3, 77)
 ```
 
 ```r
-max(10, 34, 5, 3, 77)
+max(c(10, 34, 5, 3, 77))
 ```
 
 ```
@@ -480,7 +480,7 @@ log(100)
 </div>
 
 ```r
-median(10, 34, 5, 3, 77)
+median(c(10, 34, 5, 3, 77))
 ```
 
 ```

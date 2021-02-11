@@ -376,9 +376,9 @@ For example, if we have a bunch of numbers, we just find the appropriate functio
 </div>
 ```{r examplefuns}
 
-mean(10, 34, 5, 3, 77)
-min(10, 34, 5, 3, 77)
-max(10, 34, 5, 3, 77)
+mean(c(10, 34, 5, 3, 77))
+min(c(10, 34, 5, 3, 77))
+max(c(10, 34, 5, 3, 77))
 
 ```
 <div style="margin-bottom:50px;">
@@ -435,7 +435,7 @@ log(100)
 </div>
 ```{r activity6ans}
 
-median(10, 34, 5, 3, 77)
+median(c(10, 34, 5, 3, 77))
  
 ```
  <div style="margin-bottom:50px;">
