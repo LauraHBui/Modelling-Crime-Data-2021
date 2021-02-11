@@ -802,8 +802,18 @@ A number of the packages we will use belong to a set of packages called **tidyve
 Packages can be installed using the `install.packages()` function. Remember that while you only need to install packages once, they need to be loaded with the `library()`function each time you open up `RStudio`. Let us install the package `dplyr` from `tidyverse` and load it:
 
 
+
+```r
+install.packages("dplyr")
+```
+
+
 ```r
 library(dplyr)
+```
+
+```
+## Warning: package 'dplyr' was built under R version 3.6.3
 ```
 
 ```
