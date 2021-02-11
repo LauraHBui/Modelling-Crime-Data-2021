@@ -730,7 +730,7 @@ We had created a dataframe called `df` previously. If you have not yet created t
 <div style="margin-bottom:30px;">
 </div>
 
-To do something to an entire dataframe, we would use the name of the object (`df`) to refer to it. In the case of the `View()` function, we want to see all that is contained in `df`, so we will type `View(df)`. On the other hand, if we want to refer to only one *variable* or column in the data, (remember back to term 1 - each varible is held in each column) there is a special notation to do this -- $
+To do something to an entire dataframe, we would use the name of the object (`df`) to refer to it. In the case of the `View()` function, we want to see all that is contained in `df`, so we will type `View(df)`. On the other hand, if we want to refer to only one *variable* or column in the data, (recall last semester - each variable is held in each column) there is a special notation to do this -- $
 
 To refer to a variable inside a dataframe, you use:
 
@@ -800,6 +800,12 @@ You can see what packages are available in your local install by looking at the 
 A number of the packages we will use belong to a set of packages called **tidyverse**. These packages help make your data tidy. According to Statistician and Chief Scientist at `RStudio`, Hadley Wickham, (also an author of some of your readings) transforming your data into *tidy data* is one of the most important steps of the data analysis process. It will ensure your data are in the format you need to conduct your analyses.
 
 Packages can be installed using the `install.packages()` function. Remember that while you only need to install packages once, they need to be loaded with the `library()`function each time you open up `RStudio`. Let us install the package `dplyr` from `tidyverse` and load it:
+
+
+
+```r
+install.packages("dplyr")
+```
 
 
 ```r

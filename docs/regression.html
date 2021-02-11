@@ -418,12 +418,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="regression.html#cb356-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Age variable</span></span>
-<span id="cb356-2"><a href="regression.html#cb356-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>age)</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="regression.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Age variable</span></span>
+<span id="cb357-2"><a href="regression.html#cb357-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>age)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   16.00   36.00   51.00   51.19   66.00   99.00     118</code></pre>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="regression.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Antisocial variable</span></span>
-<span id="cb358-2"><a href="regression.html#cb358-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>antisocx)</span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="regression.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Antisocial variable</span></span>
+<span id="cb359-2"><a href="regression.html#cb359-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>antisocx)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##  -4.015  -0.559   0.177   0.000   0.788   1.215   26695</code></pre>
 <div style="margin-bottom:50px;">
@@ -433,20 +433,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="regression.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with 35,371 cases</span></span>
-<span id="cb360-2"><a href="regression.html#cb360-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df) </span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="regression.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with 35,371 cases</span></span>
+<span id="cb361-2"><a href="regression.html#cb361-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df) </span></code></pre></div>
 <pre><code>## [1] 35371</code></pre>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="regression.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain only complete cases</span></span>
-<span id="cb362-2"><a href="regression.html#cb362-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[(<span class="fu">complete.cases</span>(df<span class="sc">$</span>age) <span class="sc">&amp;</span> <span class="fu">complete.cases</span>(df<span class="sc">$</span>antisocx)), ]</span>
-<span id="cb362-3"><a href="regression.html#cb362-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb362-4"><a href="regression.html#cb362-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Left with 8,650 cases after dropping NAs</span></span>
-<span id="cb362-5"><a href="regression.html#cb362-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df) </span></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="regression.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain only complete cases</span></span>
+<span id="cb363-2"><a href="regression.html#cb363-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[(<span class="fu">complete.cases</span>(df<span class="sc">$</span>age) <span class="sc">&amp;</span> <span class="fu">complete.cases</span>(df<span class="sc">$</span>antisocx)), ]</span>
+<span id="cb363-3"><a href="regression.html#cb363-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb363-4"><a href="regression.html#cb363-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Left with 8,650 cases after dropping NAs</span></span>
+<span id="cb363-5"><a href="regression.html#cb363-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df) </span></code></pre></div>
 <pre><code>## [1] 8650</code></pre>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="regression.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summaries of just the 8,650 cases </span></span>
-<span id="cb364-2"><a href="regression.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>age)</span></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="regression.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summaries of just the 8,650 cases </span></span>
+<span id="cb365-2"><a href="regression.html#cb365-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>age)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   16.00   36.00   50.00   50.82   66.00   98.00</code></pre>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="regression.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>antisocx)</span></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="regression.html#cb367-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>antisocx)</span></code></pre></div>
 <pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 ## -4.014557 -0.552077  0.178767  0.001823  0.788219  1.215267</code></pre>
 <div style="margin-bottom:50px;">
@@ -501,9 +501,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="regression.html#cb368-1" aria-hidden="true" tabindex="-1"></a>cal_vif <span class="ot">&lt;-</span> <span class="fu">lm</span>(antisocx <span class="sc">~</span> age <span class="sc">+</span> confx, <span class="at">data =</span> df) </span>
-<span id="cb368-2"><a href="regression.html#cb368-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb368-3"><a href="regression.html#cb368-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(cal_vif)</span></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="regression.html#cb369-1" aria-hidden="true" tabindex="-1"></a>cal_vif <span class="ot">&lt;-</span> <span class="fu">lm</span>(antisocx <span class="sc">~</span> age <span class="sc">+</span> confx, <span class="at">data =</span> df) </span>
+<span id="cb369-2"><a href="regression.html#cb369-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb369-3"><a href="regression.html#cb369-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(cal_vif)</span></code></pre></div>
 <pre><code>##      age    confx 
 ## 1.003988 1.003988</code></pre>
 <div style="margin-bottom:50px;">
@@ -524,17 +524,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="regression.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> age, <span class="at">data =</span> df)</span></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="regression.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> age, <span class="at">data =</span> df)</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="09-regression_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="regression.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> antisocx, <span class="at">data =</span> df)</span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="regression.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> antisocx, <span class="at">data =</span> df)</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="09-regression_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="regression.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="co"># antisocx is negatively skewed</span></span>
-<span id="cb374-2"><a href="regression.html#cb374-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb374-3"><a href="regression.html#cb374-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out how the variables covary together</span></span>
-<span id="cb374-4"><a href="regression.html#cb374-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx)) <span class="sc">+</span> </span>
-<span id="cb374-5"><a href="regression.html#cb374-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">2</span>, <span class="at">position=</span><span class="st">&quot;jitter&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="regression.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="co"># antisocx is negatively skewed</span></span>
+<span id="cb375-2"><a href="regression.html#cb375-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb375-3"><a href="regression.html#cb375-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out how the variables covary together</span></span>
+<span id="cb375-4"><a href="regression.html#cb375-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx)) <span class="sc">+</span> </span>
+<span id="cb375-5"><a href="regression.html#cb375-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">2</span>, <span class="at">position=</span><span class="st">&quot;jitter&quot;</span>)</span></code></pre></div>
 <img src="09-regression_files/figure-html/unnamed-chunk-6-3.png" width="672" />
 <div style="margin-bottom:50px;">
 
@@ -544,10 +544,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="regression.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb375-2"><a href="regression.html#cb375-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx), <span class="at">alpha=</span>.<span class="dv">2</span>) <span class="sc">+</span> </span>
-<span id="cb375-3"><a href="regression.html#cb375-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx), <span class="at">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="at">fun.y=</span>mean,</span>
-<span id="cb375-4"><a href="regression.html#cb375-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="regression.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb376-2"><a href="regression.html#cb376-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx), <span class="at">alpha=</span>.<span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb376-3"><a href="regression.html#cb376-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx), <span class="at">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="at">fun.y=</span>mean,</span>
+<span id="cb376-4"><a href="regression.html#cb376-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)  </span></code></pre></div>
 <pre><code>## No summary function supplied, defaulting to `mean_se()`</code></pre>
 <img src="09-regression_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 <div style="margin-bottom:50px;">
@@ -557,11 +557,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="regression.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years</span></span>
-<span id="cb377-2"><a href="regression.html#cb377-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb377-3"><a href="regression.html#cb377-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx), <span class="at">alpha=</span>.<span class="dv">2</span>) <span class="sc">+</span> </span>
-<span id="cb377-4"><a href="regression.html#cb377-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">round</span>(age<span class="sc">/</span><span class="dv">5</span>)<span class="sc">*</span><span class="dv">5</span>, <span class="at">y =</span> antisocx), <span class="at">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="at">fun.y=</span>mean,</span>
-<span id="cb377-5"><a href="regression.html#cb377-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="regression.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years</span></span>
+<span id="cb378-2"><a href="regression.html#cb378-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb378-3"><a href="regression.html#cb378-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx), <span class="at">alpha=</span>.<span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb378-4"><a href="regression.html#cb378-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">round</span>(age<span class="sc">/</span><span class="dv">5</span>)<span class="sc">*</span><span class="dv">5</span>, <span class="at">y =</span> antisocx), <span class="at">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="at">fun.y=</span>mean,</span>
+<span id="cb378-5"><a href="regression.html#cb378-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## No summary function supplied, defaulting to `mean_se()`</code></pre>
 <img src="09-regression_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 <div style="margin-bottom:50px;">
@@ -571,12 +571,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="regression.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="co"># method=lm asks for the linear regression line </span></span>
-<span id="cb379-2"><a href="regression.html#cb379-2" aria-hidden="true" tabindex="-1"></a><span class="co"># se=FALSE asks not to print confidence interval </span></span>
-<span id="cb379-3"><a href="regression.html#cb379-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Other arguments specify the colour, thickness of the line </span></span>
-<span id="cb379-4"><a href="regression.html#cb379-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx)) <span class="sc">+</span> </span>
-<span id="cb379-5"><a href="regression.html#cb379-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb379-6"><a href="regression.html#cb379-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="regression.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="co"># method=lm asks for the linear regression line </span></span>
+<span id="cb380-2"><a href="regression.html#cb380-2" aria-hidden="true" tabindex="-1"></a><span class="co"># se=FALSE asks not to print confidence interval </span></span>
+<span id="cb380-3"><a href="regression.html#cb380-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Other arguments specify the colour, thickness of the line </span></span>
+<span id="cb380-4"><a href="regression.html#cb380-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx)) <span class="sc">+</span> </span>
+<span id="cb380-5"><a href="regression.html#cb380-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb380-6"><a href="regression.html#cb380-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <img src="09-regression_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 <div style="margin-bottom:50px;">
@@ -639,12 +639,12 @@ As Bock et al. (2012) highlight:</p>
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="regression.html#cb381-1" aria-hidden="true" tabindex="-1"></a>fit_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(antisocx <span class="sc">~</span> age, <span class="at">data =</span> df)</span>
-<span id="cb381-2"><a href="regression.html#cb381-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb381-3"><a href="regression.html#cb381-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get to know the data</span></span>
-<span id="cb381-4"><a href="regression.html#cb381-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(fit_1)</span></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="regression.html#cb382-1" aria-hidden="true" tabindex="-1"></a>fit_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(antisocx <span class="sc">~</span> age, <span class="at">data =</span> df)</span>
+<span id="cb382-2"><a href="regression.html#cb382-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb382-3"><a href="regression.html#cb382-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get to know the data</span></span>
+<span id="cb382-4"><a href="regression.html#cb382-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(fit_1)</span></code></pre></div>
 <pre><code>## [1] &quot;lm&quot;</code></pre>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="regression.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(fit_1)</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="regression.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(fit_1)</span></code></pre></div>
 <pre><code>## $names
 ##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
 ##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
@@ -652,7 +652,7 @@ As Bock et al. (2012) highlight:</p>
 ## 
 ## $class
 ## [1] &quot;lm&quot;</code></pre>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="regression.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_1)</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="regression.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = antisocx ~ age, data = df)
@@ -669,8 +669,8 @@ As Bock et al. (2012) highlight:</p>
 ## Residual standard error: 0.9705 on 8648 degrees of freedom
 ## Multiple R-squared:  0.05616,    Adjusted R-squared:  0.05606 
 ## F-statistic: 514.6 on 1 and 8648 DF,  p-value: &lt; 0.00000000000000022</code></pre>
-<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="regression.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A more concise display of results is using ‘display ()’ from arm package:</span></span>
-<span id="cb387-2"><a href="regression.html#cb387-2" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(fit_1)</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="regression.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A more concise display of results is using ‘display ()’ from arm package:</span></span>
+<span id="cb388-2"><a href="regression.html#cb388-2" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(fit_1)</span></code></pre></div>
 <pre><code>## lm(formula = antisocx ~ age, data = df)
 ##             coef.est coef.se
 ## (Intercept) -0.65     0.03  
@@ -742,35 +742,35 @@ As Bock et al. (2012) highlight:</p>
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="regression.html#cb389-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out what type of class</span></span>
-<span id="cb389-2"><a href="regression.html#cb389-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb389-3"><a href="regression.html#cb389-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df<span class="sc">$</span>confx) </span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="regression.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out what type of class</span></span>
+<span id="cb390-2"><a href="regression.html#cb390-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb390-3"><a href="regression.html#cb390-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df<span class="sc">$</span>confx) </span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="regression.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df<span class="sc">$</span>bcsvictim)</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="regression.html#cb392-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df<span class="sc">$</span>bcsvictim)</span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="regression.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attach labels to bcsvictim and make ordering false </span></span>
-<span id="cb393-2"><a href="regression.html#cb393-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>bcsvictim <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>bcsvictim, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;not victim&quot;</span>, <span class="st">&quot;Yes victim&quot;</span>), <span class="at">ordered =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb393-3"><a href="regression.html#cb393-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb393-4"><a href="regression.html#cb393-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sex</span></span>
-<span id="cb393-5"><a href="regression.html#cb393-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span> (df<span class="sc">$</span>sex)</span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="regression.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attach labels to bcsvictim and make ordering false </span></span>
+<span id="cb394-2"><a href="regression.html#cb394-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>bcsvictim <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>bcsvictim, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;not victim&quot;</span>, <span class="st">&quot;Yes victim&quot;</span>), <span class="at">ordered =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb394-3"><a href="regression.html#cb394-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb394-4"><a href="regression.html#cb394-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sex</span></span>
+<span id="cb394-5"><a href="regression.html#cb394-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span> (df<span class="sc">$</span>sex)</span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="regression.html#cb395-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>sex)</span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="regression.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>sex)</span></code></pre></div>
 <pre><code>## 
 ##    1    2 
 ## 4064 4586</code></pre>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="regression.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode sex as dummy variable (0 and 1) where female is 0 and ordered is false</span></span>
-<span id="cb397-2"><a href="regression.html#cb397-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender <span class="ot">&lt;-</span> df<span class="sc">$</span>sex</span>
-<span id="cb397-3"><a href="regression.html#cb397-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender[df<span class="sc">$</span>gender<span class="sc">==</span><span class="st">&quot;2&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;0&quot;</span></span>
-<span id="cb397-4"><a href="regression.html#cb397-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>gender, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>), <span class="at">ordered =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb397-5"><a href="regression.html#cb397-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Double check values match original variable</span></span>
-<span id="cb397-6"><a href="regression.html#cb397-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>gender)</span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="regression.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode sex as dummy variable (0 and 1) where female is 0 and ordered is false</span></span>
+<span id="cb398-2"><a href="regression.html#cb398-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender <span class="ot">&lt;-</span> df<span class="sc">$</span>sex</span>
+<span id="cb398-3"><a href="regression.html#cb398-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender[df<span class="sc">$</span>gender<span class="sc">==</span><span class="st">&quot;2&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;0&quot;</span></span>
+<span id="cb398-4"><a href="regression.html#cb398-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>gender, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>), <span class="at">ordered =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb398-5"><a href="regression.html#cb398-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Double check values match original variable</span></span>
+<span id="cb398-6"><a href="regression.html#cb398-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>gender)</span></code></pre></div>
 <pre><code>## 
 ## female   male 
 ##   4586   4064</code></pre>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="regression.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now let us run the multiple regression</span></span>
-<span id="cb399-2"><a href="regression.html#cb399-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb399-3"><a href="regression.html#cb399-3" aria-hidden="true" tabindex="-1"></a>fit_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(antisocx <span class="sc">~</span> age <span class="sc">+</span> gender <span class="sc">+</span> bcsvictim <span class="sc">+</span> confx, <span class="at">data =</span> df)</span>
-<span id="cb399-4"><a href="regression.html#cb399-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_2)</span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="regression.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now let us run the multiple regression</span></span>
+<span id="cb400-2"><a href="regression.html#cb400-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb400-3"><a href="regression.html#cb400-3" aria-hidden="true" tabindex="-1"></a>fit_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(antisocx <span class="sc">~</span> age <span class="sc">+</span> gender <span class="sc">+</span> bcsvictim <span class="sc">+</span> confx, <span class="at">data =</span> df)</span>
+<span id="cb400-4"><a href="regression.html#cb400-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = antisocx ~ age + gender + bcsvictim + confx, data = df)
@@ -826,7 +826,7 @@ As Bock et al. (2012) highlight:</p>
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="regression.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2)</span></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="regression.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -937,8 +937,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="regression.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change name of DV</span></span>
-<span id="cb402-2"><a href="regression.html#cb402-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2, <span class="at">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="regression.html#cb403-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change name of DV</span></span>
+<span id="cb403-2"><a href="regression.html#cb403-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2, <span class="at">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -1049,8 +1049,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="regression.html#cb403-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change name of IVs</span></span>
-<span id="cb403-2"><a href="regression.html#cb403-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2, <span class="at">pred.labels =</span> <span class="fu">c</span>(<span class="st">&quot;(Intercept)&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Victimisation&quot;</span>, <span class="st">&quot;Confidence in Police&quot;</span>), <span class="at">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="regression.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change name of IVs</span></span>
+<span id="cb404-2"><a href="regression.html#cb404-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2, <span class="at">pred.labels =</span> <span class="fu">c</span>(<span class="st">&quot;(Intercept)&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Victimisation&quot;</span>, <span class="st">&quot;Confidence in Police&quot;</span>), <span class="at">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -1181,16 +1181,16 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="regression.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effects)</span>
-<span id="cb404-2"><a href="regression.html#cb404-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Arrests, <span class="at">package=</span><span class="st">&quot;effects&quot;</span>) <span class="co"># It will tell you that the dataset are not found, but it is there</span></span>
-<span id="cb404-3"><a href="regression.html#cb404-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb404-4"><a href="regression.html#cb404-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out our DV</span></span>
-<span id="cb404-5"><a href="regression.html#cb404-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="regression.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effects)</span>
+<span id="cb405-2"><a href="regression.html#cb405-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Arrests, <span class="at">package=</span><span class="st">&quot;effects&quot;</span>) <span class="co"># It will tell you that the dataset are not found, but it is there</span></span>
+<span id="cb405-3"><a href="regression.html#cb405-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb405-4"><a href="regression.html#cb405-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out our DV</span></span>
+<span id="cb405-5"><a href="regression.html#cb405-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
 <pre><code>## 
 ##   No  Yes 
 ##  892 4334</code></pre>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="regression.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out the order of the levels in the DV</span></span>
-<span id="cb406-2"><a href="regression.html#cb406-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="regression.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out the order of the levels in the DV</span></span>
+<span id="cb407-2"><a href="regression.html#cb407-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
 <pre><code>## $levels
 ## [1] &quot;No&quot;  &quot;Yes&quot;
 ## 
@@ -1203,30 +1203,30 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="regression.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse the order</span></span>
-<span id="cb408-2"><a href="regression.html#cb408-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Rename the levels so that it is clear we now mean &#39;yes&#39; to harsh treatment</span></span>
-<span id="cb408-3"><a href="regression.html#cb408-3" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>harsher <span class="ot">&lt;-</span> <span class="fu">relevel</span>(Arrests<span class="sc">$</span>released, <span class="st">&quot;Yes&quot;</span>)</span>
-<span id="cb408-4"><a href="regression.html#cb408-4" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>harsher <span class="ot">&lt;-</span> <span class="fu">factor</span>(Arrests<span class="sc">$</span>harsher, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb408-5"><a href="regression.html#cb408-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb408-6"><a href="regression.html#cb408-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  Check that it matches the original variable ‘released’ but in reverse order</span></span>
-<span id="cb408-7"><a href="regression.html#cb408-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>harsher)</span></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="regression.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse the order</span></span>
+<span id="cb409-2"><a href="regression.html#cb409-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Rename the levels so that it is clear we now mean &#39;yes&#39; to harsh treatment</span></span>
+<span id="cb409-3"><a href="regression.html#cb409-3" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>harsher <span class="ot">&lt;-</span> <span class="fu">relevel</span>(Arrests<span class="sc">$</span>released, <span class="st">&quot;Yes&quot;</span>)</span>
+<span id="cb409-4"><a href="regression.html#cb409-4" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>harsher <span class="ot">&lt;-</span> <span class="fu">factor</span>(Arrests<span class="sc">$</span>harsher, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb409-5"><a href="regression.html#cb409-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-6"><a href="regression.html#cb409-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  Check that it matches the original variable ‘released’ but in reverse order</span></span>
+<span id="cb409-7"><a href="regression.html#cb409-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>harsher)</span></code></pre></div>
 <pre><code>## 
 ##   No  Yes 
 ## 4334  892</code></pre>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="regression.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="regression.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
 <pre><code>## 
 ##   No  Yes 
 ##  892 4334</code></pre>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="regression.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We will also reverse the levels in our race variable so that ‘white’ is ‘0’</span></span>
-<span id="cb412-2"><a href="regression.html#cb412-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>colour)</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="regression.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We will also reverse the levels in our race variable so that ‘white’ is ‘0’</span></span>
+<span id="cb413-2"><a href="regression.html#cb413-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>colour)</span></code></pre></div>
 <pre><code>## 
 ## Black White 
 ##  1288  3938</code></pre>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="regression.html#cb414-1" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>race <span class="ot">&lt;-</span> Arrests<span class="sc">$</span>colour</span>
-<span id="cb414-2"><a href="regression.html#cb414-2" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>race <span class="ot">&lt;-</span> <span class="fu">relevel</span>(Arrests<span class="sc">$</span>race, <span class="st">&quot;White&quot;</span>)</span>
-<span id="cb414-3"><a href="regression.html#cb414-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb414-4"><a href="regression.html#cb414-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check to see coding has changed</span></span>
-<span id="cb414-5"><a href="regression.html#cb414-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>race)</span></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="regression.html#cb415-1" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>race <span class="ot">&lt;-</span> Arrests<span class="sc">$</span>colour</span>
+<span id="cb415-2"><a href="regression.html#cb415-2" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>race <span class="ot">&lt;-</span> <span class="fu">relevel</span>(Arrests<span class="sc">$</span>race, <span class="st">&quot;White&quot;</span>)</span>
+<span id="cb415-3"><a href="regression.html#cb415-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb415-4"><a href="regression.html#cb415-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check to see coding has changed</span></span>
+<span id="cb415-5"><a href="regression.html#cb415-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>race)</span></code></pre></div>
 <pre><code>## 
 ## White Black 
 ##  3938  1288</code></pre>
@@ -1237,8 +1237,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="regression.html#cb416-1" aria-hidden="true" tabindex="-1"></a>fit_3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(harsher <span class="sc">~</span> race <span class="sc">+</span> checks <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb416-2"><a href="regression.html#cb416-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_3)</span></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="regression.html#cb417-1" aria-hidden="true" tabindex="-1"></a>fit_3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(harsher <span class="sc">~</span> race <span class="sc">+</span> checks <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb417-2"><a href="regression.html#cb417-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_3)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = harsher ~ race + checks + sex + employed, family = &quot;binomial&quot;, 
@@ -1273,11 +1273,11 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="regression.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(fit_3))</span></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="regression.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(fit_3))</span></code></pre></div>
 <pre><code>## (Intercept)   raceBlack      checks     sexMale employedYes 
 ##   0.1490516   1.6422658   1.4304108   1.0430528   0.4585312</code></pre>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="regression.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can add confidence intervals</span></span>
-<span id="cb420-2"><a href="regression.html#cb420-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">cbind</span>(<span class="at">OR =</span> <span class="fu">coef</span>(fit_3), <span class="fu">confint</span>(fit_3)))</span></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="regression.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can add confidence intervals</span></span>
+<span id="cb421-2"><a href="regression.html#cb421-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">cbind</span>(<span class="at">OR =</span> <span class="fu">coef</span>(fit_3), <span class="fu">confint</span>(fit_3)))</span></code></pre></div>
 <pre><code>## Waiting for profiling to be done...</code></pre>
 <pre><code>##                    OR     2.5 %    97.5 %
 ## (Intercept) 0.1490516 0.1081600 0.2026495
@@ -1285,9 +1285,9 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 ## checks      1.4304108 1.3601419 1.5049266
 ## sexMale     1.0430528 0.7830594 1.4090622
 ## employedYes 0.4585312 0.3892103 0.5407210</code></pre>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="regression.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Another way of getting the results, which uses less typing, is to use the Logit() function from the lessr package</span></span>
-<span id="cb423-2"><a href="regression.html#cb423-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb423-3"><a href="regression.html#cb423-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Logit</span>(harsher <span class="sc">~</span> checks <span class="sc">+</span> colour <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">brief=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="regression.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Another way of getting the results, which uses less typing, is to use the Logit() function from the lessr package</span></span>
+<span id="cb424-2"><a href="regression.html#cb424-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb424-3"><a href="regression.html#cb424-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Logit</span>(harsher <span class="sc">~</span> checks <span class="sc">+</span> colour <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">brief=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ## Response Variable:   harsher
 ## Predictor Variable 1:  checks
@@ -1377,7 +1377,7 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="regression.html#cb425-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Logit</span>(harsher <span class="sc">~</span> checks <span class="sc">+</span> colour <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">brief=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="regression.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Logit</span>(harsher <span class="sc">~</span> checks <span class="sc">+</span> colour <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">brief=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ## Response Variable:   harsher
 ## Predictor Variable 1:  checks
@@ -1445,8 +1445,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="regression.html#cb427-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All the information we need to calculate the model chi-squared is already in our model object</span></span>
-<span id="cb427-2"><a href="regression.html#cb427-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fit_3)</span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="regression.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All the information we need to calculate the model chi-squared is already in our model object</span></span>
+<span id="cb428-2"><a href="regression.html#cb428-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fit_3)</span></code></pre></div>
 <pre><code>##  [1] &quot;coefficients&quot;      &quot;residuals&quot;         &quot;fitted.values&quot;    
 ##  [4] &quot;effects&quot;           &quot;R&quot;                 &quot;rank&quot;             
 ##  [7] &quot;qr&quot;                &quot;family&quot;            &quot;linear.predictors&quot;
@@ -1457,8 +1457,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 ## [22] &quot;call&quot;              &quot;formula&quot;           &quot;terms&quot;            
 ## [25] &quot;data&quot;              &quot;offset&quot;            &quot;control&quot;          
 ## [28] &quot;method&quot;            &quot;contrasts&quot;         &quot;xlevels&quot;</code></pre>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="regression.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We now calculate said chi-squared by taking the difference of the deviances </span></span>
-<span id="cb429-2"><a href="regression.html#cb429-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, null.deviance <span class="sc">-</span> deviance)</span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="regression.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We now calculate said chi-squared by taking the difference of the deviances </span></span>
+<span id="cb430-2"><a href="regression.html#cb430-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, null.deviance <span class="sc">-</span> deviance)</span></code></pre></div>
 <pre><code>## [1] 445.5594</code></pre>
 <div style="margin-bottom:35px;">
 
@@ -1467,11 +1467,11 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="regression.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtaining the p-value</span></span>
-<span id="cb431-2"><a href="regression.html#cb431-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, <span class="fu">pchisq</span>(null.deviance <span class="sc">-</span> deviance, df.null <span class="sc">-</span> df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="regression.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtaining the p-value</span></span>
+<span id="cb432-2"><a href="regression.html#cb432-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, <span class="fu">pchisq</span>(null.deviance <span class="sc">-</span> deviance, df.null <span class="sc">-</span> df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
 <pre><code>## [1] 3.961177e-95</code></pre>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="regression.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Incorporating previous calculation of difference between deviances</span></span>
-<span id="cb433-2"><a href="regression.html#cb433-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df.null - df.residual: calculating the degrees of freedom (should equal the number of IVs in the model)</span></span></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="regression.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Incorporating previous calculation of difference between deviances</span></span>
+<span id="cb434-2"><a href="regression.html#cb434-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df.null - df.residual: calculating the degrees of freedom (should equal the number of IVs in the model)</span></span></code></pre></div>
 <div style="margin-bottom:35px;">
 
 </div>
@@ -1480,8 +1480,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="regression.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Likelihood ratio R2</span></span>
-<span id="cb434-2"><a href="regression.html#cb434-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, (null.deviance <span class="sc">-</span> deviance)<span class="sc">/</span>null.deviance)</span></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="regression.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Likelihood ratio R2</span></span>
+<span id="cb435-2"><a href="regression.html#cb435-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, (null.deviance <span class="sc">-</span> deviance)<span class="sc">/</span>null.deviance)</span></code></pre></div>
 <pre><code>## [1] 0.09328629</code></pre>
 <div style="margin-bottom:35px;">
 
