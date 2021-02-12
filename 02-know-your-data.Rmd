@@ -125,7 +125,7 @@ For example, to create the online tutorial for this class, we have a project cal
 <div style="margin-bottom:30px;">
 </div>
 
-![**Figure 2.2** How your project appears in R](Images/project2.png)
+![**Figure 2.2** An example of how a project appears](Images/project2.png){width= 70%}
 
 <div style="margin-bottom:30px;">
 </div>
