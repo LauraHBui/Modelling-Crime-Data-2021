@@ -147,7 +147,7 @@ It might be that the above does not work and you find that there are some issues
 <div style="margin-bottom:30px;">
 </div>
 
-You only need to open `Rstudio`, (not both `R` and `RStudio`); `R` runs automatically in the background when `RStudio` is open. Using `RStudio` makes it easier to work with `R` than using `R` itself. If you do not believe this, try working directly in `R`! 
+You only need to open `Rstudio` (not both `R` and `RStudio`); `R` runs automatically in the background when `RStudio` is open. Using `RStudio` makes it easier to work with `R` than using `R` itself. If you do not believe this, try working directly in `R`! 
 
 <div style="margin-bottom:30px;">
 </div>

@@ -120,9 +120,20 @@ dir.create("Datasets")
 <div style="margin-bottom:50px;">
 </div>
 
+For example, to create the online tutorial for this class, we have a project called `Modelling-Crime-Data-2021`. Figure 2.2 shows that this title appears in the top right hand corner and its contents appear in the *Files* tab in the *Files, Plots...* pane. 
+
+<div style="margin-bottom:30px;">
+</div>
+
+![**Figure 2.2** How your project appears in R](Images/project2.png)
+
+<div style="margin-bottom:30px;">
+</div>
+
+
 If you noticed in your *Files, Plots…* pane, the files there tell you what folder you are automatically working in. This is known as your *working directory*, the default location that appears when you open `RStudio`. Wherever your `R project` is saved will be the working directory. 
 
-In your group google sheets, type the name of your `R` project and in which location it  is in. Now decide whether this is good location for your `R` project. For example, is the location name too long? (For example,'C:\Users\ xx\ Desktop \xx\xx\ Manchester\xx\xx\xx\xx\xx\xx' is too long and you might run into problems later.) Or are there other files that are for other classes there too? If doubtful about the location of your project, move it somewhere else you think is more appropriate.
+In your group google sheets, type the name of your `R` project and in which location it  is in. Now decide whether this is a good location for your `R` project. For example, is the location name too long? (something like 'C:\Users\ xx\ Desktop \xx\xx\ Manchester\xx\xx\xx\xx\xx\xx' is too long and you might run into problems later.) Or are there files that are for your other course units in there too? If doubtful about the location of your project, move it somewhere else you think is more appropriate.
 
 <div style="margin-bottom:50px;">
 </div>
@@ -130,8 +141,16 @@ In your group google sheets, type the name of your `R` project and in which loca
 Whenever you want to locate certain files within your `Project`, use the `here` package:
 <div style="margin-bottom:35px;">
 </div>
-```{r}
+```{r, eval=FALSE}
 
+# First, you must install it if you have not done so:
+install.packages("here")
+
+```
+
+```{r, message=FALSE}
+
+# Then bring it up with 'library()' because it may not come up automatically after installing it
 library(here)
 
 ```
@@ -150,6 +169,12 @@ Here is another `tidyverse` package to install:
 
 <div style="margin-bottom:35px;">
 </div>
+```{r, eval=FALSE}
+
+install.packages("haven")
+
+```
+
 ```{r}
 
 library(haven)
