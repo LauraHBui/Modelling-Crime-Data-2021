@@ -15,6 +15,11 @@
 <div style="margin-bottom:15px;">
 </div>
 
+##### *Total number of activities*: 11 {-}
+
+<div style="margin-bottom:15px;">
+</div>
+
 ##### *Data:* {-}
 -	Law Enforcement Management and Administrative Statistics (LEMAS)-Body-Worn Camera Supplement (BWCS) Survey
 <div style="margin-bottom:10px;">
@@ -70,7 +75,12 @@ The field of statistics is divided into two main branches: descriptive and infer
 
 So, what are descriptive statistics? If general statistics is concerned with the study of how best to collect, analyse, and make conclusions about data, then this specific branch, descriptive statistics, is concerned with the sample distribution and the population distribution from which the sample is drawn. Basically, descriptive statistics are ways of describing your data. 
 
-Similar to last week’s lesson on data visualization, describing your data is important because it helps you identify patterns and anomalies. In addition, it gives others a succinct understanding about your data, so it facilitates good communication. We revisit and learn another three substantive topics today: the **central tendency**, **outliers**, and **dispersion**. 
+Similar to last week’s lesson on data visualization, describing your data is important because it helps you identify patterns and anomalies. In addition, it gives others a succinct understanding of your data, so it facilitates good communication. We revisit and learn another three substantive topics today: the **central tendency**, **outliers**, and **dispersion**. 
+
+<div style="margin-bottom:70px;">
+</div>
+
+### Activity 1: Our preparation routine
 
 We start by doing the usual routine, but with new data on police body-worn cameras: 
 <div style="margin-bottom:15px;">
@@ -80,11 +90,11 @@ We start by doing the usual routine, but with new data on police body-worn camer
 <div style="margin-bottom:15px;">
 </div>
 
-2.	Install and load the required packages (listed at top of this lesson) using `install.packages ()`  
+2.	Install and load the required packages (listed at the top of this lesson) using the function `install.packages ()`  
 <div style="margin-bottom:15px;">
 </div>
 
-3.	Open only the 2016 LEMAS-BWCS dataset (37302-0001-Data.rda). These data are from the [Inter-university Consortium for Political and Social Research (ICPSR) website](https://www.icpsr.umich.edu/web/pages/) and you can find them by using the dataset name, which refers to the ICPSR study number. The data are stored in an `R` data file format (.rda). 
+3.	For now, open only the 2016 LEMAS-BWCS dataset (37302-0001-Data.rda). These data are from the [Inter-university Consortium for Political and Social Research (ICPSR) website](https://www.icpsr.umich.edu/web/pages/) and you can find them by using the dataset name, which refers to the ICPSR study number. The data are stored in an `R` data file format (.rda). 
 <div style="margin-bottom:15px;">
 </div>
 
@@ -94,7 +104,7 @@ We start by doing the usual routine, but with new data on police body-worn camer
 <div style="margin-bottom:15px;">
 </div>
 
-5.	Name the data frame `bwcs` by using the `<-` assignment operator.
+5.	Name the data frame `bwcs` by using the `<-` assignment operator. Another way of looking at it is you are putting the dataset into a 'box' that you will call 'bwcs'.
 
 
 <div style="margin-bottom:15px;">
@@ -105,11 +115,14 @@ We start by doing the usual routine, but with new data on police body-worn camer
 <div style="margin-bottom:30px;">
 </div>
 
+
 ---
+
+
 
 ## Today’s 3
 
-Two primary ways of describing your data are having to do with the central tendency and their dispersion. We also learn about outliers. 
+Two primary ways of describing your data have to do with the central tendency and their dispersion. We also learn about outliers. 
 
 <div style="margin-bottom:35px;">
 </div>
@@ -127,12 +140,31 @@ To address this sensitivity, the *median* is a better measure because it is a ro
 
 The *mode* helps give an idea of what is the most typical value in the distribution, which is the most frequently occurring case in the data. 
 
-From today’s data, we are interested in exploring the adoption of body-worn cameras (BWCs) and their usage in this sample of agencies. The variables that will help us explore this is `Q_10A` because it measures whether the agency has adopted BWCs and `Q_12` because it measures the number of cameras that agencies reported using. 
+<div style="margin-bottom:70px;">
+</div>
 
-First, however, we want to know the class of this variable – it is about getting to know our data before diving into anything more. Then we produce our measures of central tendency:
+#### Activity 2: Recap of how to obtain the mean, median, and mode
+
+In Lesson 1, you were introduced to the functions `mean` and `median`. There is no direct function in `base R` to calculate the mode, but you will one way to do so after this activity. Please find only the mean and median for the following six numbers: 
+
+
+```r
+# 345, 100, 250, 100, 101, 300 
+```
+
+Type your answers in the group google doc.
+
+
+---
+
+
+From today’s data, we are interested in exploring the adoption of body-worn cameras (BWCs) and their usage in a sample of agencies. The variables that will help us explore this is `Q_10A` because it measures whether the agency adopted BWCs and `Q_12` because it measures the number of cameras that agencies reported using. 
+
+First, however, we want to know the class of this variable – it is about getting to know our data before diving into anything more. Then we will produce our measures of central tendency:
 
 <div style="margin-bottom:35px;">
 </div>
+
 
 
 ```r
@@ -163,18 +195,14 @@ The `mlv ()` function (acronym for most likely values) from the `modeest` packag
 
 Our exploration into the adoption of BWCs has so far yielded the knowledge that the majority of agencies had not adopted BWCs as of 2016. But how about those that have done so? To what extent do they use BWCs? This is where variable `Q_12` comes in handy:
 
-
-<div style="margin-bottom:35px;">
+<div style="margin-bottom:70px;">
 </div>
 
-```r
-# Check the class of variable Q_12
-class(bwcs$Q_12) # we see this is a numeric variable
-```
+#### Activity 3: Obtain the class of variable Q_12
 
-```
-## [1] "numeric"
-```
+Use code to obtain the class of the variable `Q_12`. Type the code you used and what class the variable is in your group google doc.
+
+After you do so, we do some more investigation of Q_12:
 
 ```r
 # Check out this variable using some base R functions
@@ -230,30 +258,41 @@ table(bwcs$Q_12)
 
 What the heck is `na.rm`? When calculating measures of central tendency, you need to tell `R` that you have missing (NA) cases. Using `na.rm = TRUE` will exclude cases that have already been defined as missing. If we do not specify this code, it will return `NaN` for agencies that have acquired BWCs because `Q_12` has missing data. If you have `NaN`, however, for the row defining agencies that have not acquired BWCs, this is all right because there would be no cases for them. 
 
-Now let us find the average number of BWCs used by agencies that have responded ‘Yes’ in `Q10_A`. We will use two ways to determine the mean: the `dplyr` way and the `base R` way.
+
+---
+
+
+
+
+Now let us find the average number of BWCs used by agencies that have responded ‘Yes’ in `Q10_A`. We will use two ways to determine the mean: the `dplyr` way and the usual `base R` way.
 
 <div style="margin-bottom:35px;">
 </div>
 
 
+
 ```r
 # We only want to include agencies who reponded 'Yes' to Q_10A 
-# dplyr method 
+# dplyr way 
 bwcs %>% 
   group_by(Q_10A) %>% 
   summarize(mean_deployed = mean(Q_12, na.rm = TRUE))
 ```
 
 ```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
 ## # A tibble: 2 x 2
 ##   Q_10A                                                   mean_deployed
-## * <fct>                                                           <dbl>
+##   <fct>                                                           <dbl>
 ## 1 (1) Agency has acquired in any form (including testing)          31.8
 ## 2 (2) Agency has not acquired                                     NaN
 ```
 
 ```r
-# Base R method 
+# Base R way 
 mean(bwcs$Q_12, na.rm = TRUE)
 ```
 
@@ -270,20 +309,24 @@ The answers are the same: 31.8 . We use both methods because there may be situat
 
 ```r
 # Use the same format as above, this time using the median() function 
-# dplyr method 
+# dplyr way 
 bwcs %>% group_by(Q_10A) %>% summarize(med_deployed = median(Q_12, na.rm = TRUE))
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 ```
 ## # A tibble: 2 x 2
 ##   Q_10A                                                   med_deployed
-## * <fct>                                                          <dbl>
+##   <fct>                                                          <dbl>
 ## 1 (1) Agency has acquired in any form (including testing)            8
 ## 2 (2) Agency has not acquired                                       NA
 ```
 
 ```r
-# Base R method 
+# Base R way 
 median(bwcs$Q_12, na.rm = TRUE)
 ```
 
@@ -293,7 +336,7 @@ median(bwcs$Q_12, na.rm = TRUE)
 <div style="margin-bottom:50px;">
 </div>
 
-Again, both methods to obtain the median are the same, but the median differs a lot from the mean: it is 8. Now that we have calculated these measures individually, we can now combine them together to form one code. This is where the `dplyr` method is most handy:
+Again, both methods to obtain the median are the same, but the median differs a lot from the mean: it is 8. Now that we have calculated these measures individually, we can now combine them together to form one code. This is where the `dplyr` way is most handy:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -306,20 +349,25 @@ summarize(mean_deployed = mean(Q_12, na.rm = TRUE), med_deployed = median(Q_12, 
 ```
 
 ```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
 ## # A tibble: 2 x 5
 ##   Q_10A                           mean_deployed med_deployed mode_deployed total
-## * <fct>                                   <dbl>        <dbl>         <dbl> <dbl>
-## 1 (1) Agency has acquired in any…          31.8            8             1 60363
+##   <fct>                                   <dbl>        <dbl>         <dbl> <dbl>
+## 1 (1) Agency has acquired in any~          31.8            8             1 60363
 ## 2 (2) Agency has not acquired             NaN             NA           NaN     0
 ```
 <div style="margin-bottom:50px;">
 </div>
 
-Another handy package for descriptive statistics is `skimr`. The function `skim ()` produces measures of central tendency and measures of dispersion (we will learn more on these in the later section), and number of missing values. A great feature of this is that it also includes a histogram of the numeric variables specified. If you do not want to specify any variables, `skim()` will summarise your entire data frame, and this may be good, but depends on the size of your dataset:
+Another handy package for descriptive statistics is `skimr`. The function `skim ()` produces measures of central tendency and measures of dispersion (we will learn more on these in the later section), and number of missing values. 
+
+A great feature of this is that it also includes a histogram of the numeric variables specified. If you do not want to specify any variables, `skim()` will summarise your entire data frame, and this may be good, but it depends on the size of your dataset:
 
 <div style="margin-bottom:35px;">
 </div>
-
 
 
 
@@ -331,26 +379,27 @@ bwcs %>%
 ```
 
 
-Table: (\#tab:unnamed-chunk-11)Data summary
+Table: (\#tab:unnamed-chunk-12)Data summary
 
-|                         |           |
-|:------------------------|:----------|
-|Name                     |Piped data |
-|Number of rows           |3928       |
-|Number of columns        |260        |
-|_______________________  |           |
-|Column type frequency:   |           |
-|numeric                  |1          |
-|________________________ |           |
-|Group variables          |Q_10A      |
+                                      
+-------------------------  -----------
+Name                       Piped data 
+Number of rows             3928       
+Number of columns          260        
+_______________________               
+Column type frequency:                
+numeric                    1          
+________________________              
+Group variables            Q_10A      
+-------------------------  -----------
 
 
 **Variable type: numeric**
 
-|skim_variable |Q_10A                                                   | n_missing| complete_rate|  mean|    sd| p0| p25| p50| p75| p100|hist  |
-|:-------------|:-------------------------------------------------------|---------:|-------------:|-----:|-----:|--:|---:|---:|---:|----:|:-----|
-|Q_12          |(1) Agency has acquired in any form (including testing) |        18|          0.99| 31.82| 92.27|  0|   3|   8|  20| 1200|▇▁▁▁▁ |
-|Q_12          |(2) Agency has not acquired                             |      2013|          0.00|   NaN|    NA| NA|  NA|  NA|  NA|   NA|      |
+skim_variable   Q_10A                                                      n_missing   complete_rate    mean      sd   p0   p25   p50   p75   p100  hist  
+--------------  --------------------------------------------------------  ----------  --------------  ------  ------  ---  ----  ----  ----  -----  ------
+Q_12            (1) Agency has acquired in any form (including testing)           18            0.99   31.82   92.27    0     3     8    20   1200  ▇▁▁▁▁ 
+Q_12            (2) Agency has not acquired                                     2013            0.00     NaN      NA   NA    NA    NA    NA     NA        
 
 <div style="margin-bottom:50px;">
 </div>
@@ -360,15 +409,27 @@ Table: (\#tab:unnamed-chunk-11)Data summary
 <div style="margin-bottom:30px;">
 </div>
 
-Recall the main disadvantage of the mean; it is not robust to extreme values, otherwise known as **outliers**. 
+Recall the main disadvantage of the mean: it is not robust to extreme values, otherwise known as **outliers**. 
 
 What exactly constitutes an *outlier*? This is where we will need to define what is meant by outlier. 
 
-One way of determining whether a case is an outlier is if it is above or below 1.5 multiplied by the **interquartile range** (IQR), or for extreme outliers, above or below 3 multiplied by IQR. 
+One way of determining whether a case is an outlier is if it is above or below 1.5 multiplied by the **interquartile range** (IQR), or for extreme outliers, above or below 3 multiplied by IQR. The IQR is another robust estimate and is the 75th percentile observation (the third quartile [Q3]) minus the 25th percentile observation (the first quartile [Q1]) in your distribution:
 
-The IQR is another robust estimate and is the 75th percentile observation (the third quartile) minus the 25th percentile observation (the first quartile) in your distribution. The first and third quartiles are known as **Tukey fences**. 
+$$ IQR= Q3 - Q1 $$
 
-Now we use the IQR to find and save the outliers for the `Q_12` variable:
+A popular method for determining outliers is known as **Tukey fences**. According to this method, outliers are seen as falling within a lower or upper fence. They are calculated from the following:
+
+$$ Lower~ fence = Q1 - 1.5(IQR)$$ 
+
+$$ Upper~ fence = Q3 - 1.5(IQR) $$
+
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 4: Determining outliers using Tukey fences
+
+Now we use the IQR to construct Tukey fences so to find and save the outliers for the `Q_12` variable:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -386,7 +447,7 @@ bwc_deployed_iqr
 ```
 
 ```r
-# Then, get the 1st and 3rd quartiles of the Q_12 variable using quantile() 
+# Then, get the 1st and 3rd quartiles of the Q_12 variable using quantile() and place them in objects
 bwc_deployed_1st <- quantile(bwcs$Q_12, 0.25, na.rm = TRUE) 
 bwc_deployed_3rd <- quantile(bwcs$Q_12, 0.75, na.rm = TRUE)
 
@@ -410,7 +471,7 @@ bwc_deployed_3rd
 ```
 
 ```r
-# Next, calculate the fences 
+# Next, calculate the Tukey fences 
 # Lower Fence 
 lower_inner_fence <- bwc_deployed_1st - 1.5 * bwc_deployed_iqr 
 lower_inner_fence
@@ -433,7 +494,7 @@ upper_inner_fence
 ```
 
 ```r
-# You can also calculate the "outer fences" 
+# You can also calculate the 'outer fences' which are considered extreme outliers
 lower_outer_fence <- bwc_deployed_1st - 3 * bwc_deployed_iqr 
 lower_outer_fence
 ```
@@ -454,7 +515,8 @@ upper_outer_fence
 ```
 
 ```r
-# And save them in separate objects, ‘outliers’ and ‘outliers_extreme’ 
+# And save them in separate objects called ‘outliers’ and ‘outliers_extreme’ 
+
 outliers <- bwcs %>% 
   filter(Q_12 > upper_inner_fence| Q_12 < lower_inner_fence) 
 
@@ -480,14 +542,21 @@ summary(outliers_extreme$Q_12)
 <div style="margin-bottom:50px;">
 </div>
 
-From last lesson on data visualization, you can also visualize outliers using the `boxplot` function from `ggplot`. 
+In your group google doc, type your answers to the following: (1) lower and upper inner fences, (2) lower and upper outer fences, (3) minimum of `outliers` and `outliers_extreme`.
 
-<div style="margin-bottom:30px;">
-</div>
+
+---
+
+
 
 #### **On Skewness**
 <div style="margin-bottom:30px;">
 </div>
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 5: Visualizing skewness using a histogram
 
 Related to outliers is **skewness**. This has to do with the shape of the distribution. When your distribution is skewed, the majority of cases veer more to the left or right of the distribution, with a tail of outliers. An initial way of checking for skewness is to use a histogram, like from last week:
 
@@ -495,7 +564,10 @@ Related to outliers is **skewness**. This has to do with the shape of the distri
 </div>
 
 
+
 ```r
+# Remember to bring up the package ggplot2 if you have not done so
+
 # Histogram of number of BWCs deployed 
 ggplot(data = bwcs, mapping = aes(x = Q_12)) + 
   geom_histogram(bins = 15, fill = "red") + 
@@ -508,11 +580,13 @@ ggplot(data = bwcs, mapping = aes(x = Q_12)) +
 ## Warning: Removed 2031 rows containing non-finite values (stat_bin).
 ```
 
-<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 <div style="margin-bottom:50px;">
 </div>
 
-From our histogram, we see that most agencies deployed fewer than 250 BWCs and only a small proportion deployed more than 800. This asymmetric distribution is known as a **positively skewed distribution** -- one tail of the distribution is longer than the others because of outliers on the right side. 
+What do you observe from the histogram?
+
+From our histogram, we see that most agencies deployed fewer than 250 BWCs and only a small proportion deployed more than 800. 
 
 Another way of checking for skewness is through the `skewness ()` function from the `moments` package. Skewness is determined by the following:
 
@@ -525,13 +599,13 @@ Another way of checking for skewness is through the `skewness ()` function from 
 
 <div style="margin-bottom:30px;">
 </div>
-
-From the histogram above, do you think the skewness coefficient will indicate negative, positive, or no skewness? 
-
+ 
+We calculate skewness for our variable `Q_12` like this:
 <div style="margin-bottom:35px;">
 </div>
 
 ```r
+# Calculate skewness of Q_12 and put it into an object called bwc_skew
 bwc_skew <- skewness(bwcs$Q_12, na.rm = TRUE) 
 ```
 
@@ -542,6 +616,7 @@ bwc_skew <- skewness(bwcs$Q_12, na.rm = TRUE)
 ```
 
 ```r
+# Will the skewness coefficient indicate negative, positive, or no skewness?
 bwc_skew
 ```
 
@@ -556,13 +631,24 @@ bwc_skew
 <div style="margin-bottom:50px;">
 </div>
 
+From the two ways of checking for skewness, `Q_12` is an asymmetric distribution known as a **positively skewed distribution** -- one tail of the distribution is longer than the others because of outliers on the right side. 
+
+Nothing to put into the google doc for this activity.
+
+
 ---
+
 
 ### Measures of Dispersion
 <div style="margin-bottom:30px;">
 </div>
 
 What is meant by dispersion is the spread of values from the one value chosen to represent them all. That one value is usually the mean, or in the case of categorical variables, the mode. 
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 6: Loading the other dataset
 
 We learn about measures of dispersion using another dataset from the ICPSR website. The SISFCF survey has been conducted periodically since 1976, and the current survey (2004) data (04572-0001-Data.rda) can, too, be accessed at the ICPSR website and downloaded as an .rda file. Follow the same steps with loading the data as with the previous data on BWCs. Now, for this dataset, we do the following as well:
 
@@ -582,7 +668,11 @@ We learn about measures of dispersion using another dataset from the ICPSR websi
 <div style="margin-bottom:30px;">
 </div>
 
+Once finished with this activity, you will find your new data frame, `inmatesurvey04`, in the *Environment* pane.
+
+
 ---
+
 
 #### **Dispersion in Nominal and Ordinal Variables**
 <div style="margin-bottom:30px;">
@@ -598,6 +688,11 @@ $$VR = 1 – ({\frac {N~modalcat~} {N~total~}})$$
 </div>
 
 $N~modalcat$ refers to the frequency of cases in the modal category, and $N~total~$ refers to the total number of cases. This formula states that VR is equal to 1 minus the proportion of cases that are in the modal category, which is the same as saying the proportion of cases that are not in the modal category. 
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 7: Calculating the variation ratio
 
 Now, for example, we are interested in knowing whether the modal category describes the overall work histories prior to arrest of federal inmates pretty accurately, or if there is a lot of variation in responses from inmates. To do so, we use the variable `V1748`:
 
@@ -621,28 +716,29 @@ skim(inmatesurvey04$V1748)
 ```
 
 
-Table: (\#tab:unnamed-chunk-19)Data summary
+Table: (\#tab:unnamed-chunk-20)Data summary
 
-|                         |                     |
-|:------------------------|:--------------------|
-|Name                     |inmatesurvey04$V1748 |
-|Number of rows           |3686                 |
-|Number of columns        |1                    |
-|_______________________  |                     |
-|Column type frequency:   |                     |
-|factor                   |1                    |
-|________________________ |                     |
-|Group variables          |None                 |
+                                                
+-------------------------  ---------------------
+Name                       inmatesurvey04$V1748 
+Number of rows             3686                 
+Number of columns          1                    
+_______________________                         
+Column type frequency:                          
+factor                     1                    
+________________________                        
+Group variables            None                 
+-------------------------  ---------------------
 
 
 **Variable type: factor**
 
-|skim_variable | n_missing| complete_rate|ordered | n_unique|top_counts                           |
-|:-------------|---------:|-------------:|:-------|--------:|:------------------------------------|
-|data          |      1156|          0.69|FALSE   |        4|(1): 2180, (2): 284, (3): 65, (8): 1 |
+skim_variable    n_missing   complete_rate  ordered    n_unique  top_counts                           
+--------------  ----------  --------------  --------  ---------  -------------------------------------
+data                  1156            0.69  FALSE             4  (1): 2180, (2): 284, (3): 65, (8): 1 
 
 ```r
-# Then, check if we have cases defined as missing using ‘is.na’ to get summary of missing cases
+# Then, check if we have cases defined as missing using ‘is.na’ to get a summary of missing cases
 table(is.na(inmatesurvey04$V1748))
 ```
 
@@ -653,7 +749,7 @@ table(is.na(inmatesurvey04$V1748))
 ```
 
 ```r
-# While we can tell from the tables above that "Full-time" is the mode 
+# While we can tell from the tables above that 'Full-time' is the mode, 
 # We can also get R to provide the mode and save it in an object 
 mode_employment <- mlv(V1748, na.rm = TRUE) 
 mode_employment
@@ -702,14 +798,19 @@ vratio
 
 The VR is 0.1383, meaning that the work history among federal inmates prior to arrest is relatively concentrated in the modal category of full-time employment. This is because the smaller the VR, the larger the number of cases there are in the model category. 
 
+Nothing to input into the google doc.
+
 <div style="margin-bottom:30px;">
 </div>
 
 ---
 
-#### Onto the **Index of Qualitative Variation** (IQV):
-<div style="margin-bottom:30px;">
+
+
+<div style="margin-bottom:70px;">
 </div>
+
+#### Activity 8: Onto the Index of Qualitative Variation (IQV)
 
 The IQV is different from the VR because it considers dispersion across all categories, whereas the VR only views dispersion in terms of modal versus non-modal. 
 
@@ -717,6 +818,7 @@ The IQV lies between 0 and 1 and tells you the variability of the distribution. 
 
 <div style="margin-bottom:35px;">
 </div>
+
 
 
 ```r
@@ -733,10 +835,11 @@ DM(IQV, na.rm = TRUE)
 <div style="margin-bottom:50px;">
 </div>
 
-The value is 0.1729, meaning that there is not much dispersion across the categories. This supports the result from the VR. 
+What is value that you get in the output? Type the value in your google doc and what you think this value means.
 
-<div style="margin-bottom:30px;">
-</div>
+
+---
+
 
 
 #### **Dispersion in Interval and Ratio Variables**
@@ -745,6 +848,12 @@ The value is 0.1729, meaning that there is not much dispersion across the catego
 </div>
 
 These measures of dispersion are the most familiar because they are defined as the spread of values around a *mean*. We revisit three of these: the range, variance, and standard deviation. 
+
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 9: The range
 
 The **range** is the difference between the maximum and minimum value in a given distribution. We use the ratio-level variable `V2254`, a measure of the age at which inmates stated they first started smoking cigarettes regularly, as an example:
 
@@ -829,9 +938,26 @@ diff(SmokerRange)
 <div style="margin-bottom:50px;">
 </div>
 
-The range of the age when federal inmates started smoking is 56. But you can see something strange while figuring out the range: the minimum is one year old! This may be something we want to exclude in analyses as it might not be valid -- maybe a mistake in coding -- so conducting descriptive statistics can help with tidying your data.
+What is the range? Input the answer in your google doc. 
 
-Now, the **variance** is about spread, specifically the sum of the squared deviations from the mean, then divided by the total number of cases. We use the function `var()` from the `stats`  package that comes already preinstalled. 
+BUT you can see something strange while figuring out the range: the minimum is one year old! This may be something we want to exclude in analyses as it might not be valid -- maybe a mistake in coding -- so conducting descriptive statistics can help with tidying your data.
+
+
+---
+
+
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 10: Variance
+
+Now, the **variance** ( $s^2$ ) is about spread, specifically the sum of the squared deviations from the mean, then divided by the total number of cases. The equation looks like this:
+
+$$ s^2 = \frac{\sum(x - \mu)^2}{N}$$ 
+
+
+We use the function `var()` from the `stats` package that comes already preinstalled. 
 
 We use the variable `V2529`, which records the number of times inmates reported being written up for verbally assaulting a prison staff member, as an example: 
 
@@ -875,7 +1001,20 @@ var1
 <div style="margin-bottom:50px;">
 </div>
 
-The variance is 82.6, which is fairly dispersed, but if you got to know this variable, you will notice that one inmate self-reported 99 verbal assaults, so this will have had an influence on the variance. 
+The variance is 82.6, which is fairly dispersed, but if you got to know the data and this variable, you will notice that one inmate self-reported 99 verbal assaults, so this will have had an influence on the variance. 
+
+Nothing for the google doc, but if you have questions, do ask. 
+
+
+---
+
+
+
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 11: Standard deviation
 
 Last, we learn about the **standard deviation** (SD), which is the square root of the variance. The smaller it is, the more concentrated cases are around the mean, while larger values reflect a wider distance from the mean. In other words, the SD tells us how well the mean represents our data. Too large, then the mean is a poor representation, because there is too much variability. We use the variable `VerbAssaultVar` as an example:
 

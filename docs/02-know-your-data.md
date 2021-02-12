@@ -67,6 +67,10 @@ library(dplyr)
 ```
 
 ```
+## Warning: package 'dplyr' was built under R version 3.6.3
+```
+
+```
 ## 
 ## Attaching package: 'dplyr'
 ```
@@ -135,9 +139,20 @@ dir.create("Datasets")
 <div style="margin-bottom:50px;">
 </div>
 
+For example, to create the online tutorial for this class, we have a project called `Modelling-Crime-Data-2021`. Figure 2.2 shows that this title appears in the top right hand corner and its contents appear in the *Files* tab in the *Files, Plots...* pane. 
+
+<div style="margin-bottom:30px;">
+</div>
+
+![**Figure 2.2** How your project appears in R](Images/project2.png)
+
+<div style="margin-bottom:30px;">
+</div>
+
+
 If you noticed in your *Files, Plots…* pane, the files there tell you what folder you are automatically working in. This is known as your *working directory*, the default location that appears when you open `RStudio`. Wherever your `R project` is saved will be the working directory. 
 
-In your group google sheets, type the name of your `R` project and in which location it  is in. Now decide whether this is good location for your `R` project. For example, is the location name too long? (For example,'C:\Users\ xx\ Desktop \xx\xx\ Manchester\xx\xx\xx\xx\xx\xx' is too long and you might run into problems later.) Or are there other files that are for other classes there too? If doubtful about the location of your project, move it somewhere else you think is more appropriate.
+In your group google sheets, type the name of your `R` project and in which location it  is in. Now decide whether this is a good location for your `R` project. For example, is the location name too long? (something like 'C:\Users\ xx\ Desktop \xx\xx\ Manchester\xx\xx\xx\xx\xx\xx' is too long and you might run into problems later.) Or are there files that are for your other course units in there too? If doubtful about the location of your project, move it somewhere else you think is more appropriate.
 
 <div style="margin-bottom:50px;">
 </div>
@@ -147,11 +162,18 @@ Whenever you want to locate certain files within your `Project`, use the `here` 
 </div>
 
 ```r
+# First, you must install it if you have not done so:
+install.packages("here")
+```
+
+
+```r
+# Then bring it up with 'library()' because it may not come up automatically after installing it
 library(here)
 ```
 
 ```
-## here() starts at /Users/reka/Dropbox (The University of Manchester)/modelling2021/Modelling-Crime-Data-2021
+## Warning: package 'here' was built under R version 3.6.3
 ```
 <div style="margin-bottom:50px;">
 </div>
@@ -170,7 +192,16 @@ Here is another `tidyverse` package to install:
 </div>
 
 ```r
+install.packages("haven")
+```
+
+
+```r
 library(haven)
+```
+
+```
+## Warning: package 'haven' was built under R version 3.6.3
 ```
 
 <div style="margin-bottom:50px;">
@@ -316,7 +347,7 @@ table(ncvs$injured_r)
 ```
 ## 
 ## Uninjured   Injured 
-##       967       464
+##     16160      7809
 ```
 
 ```r
@@ -391,20 +422,20 @@ add_column(ncvs, newid = 1:nrow(ncvs))
 ```
 
 ```
-## # A tibble: 1,431 x 49
+## # A tibble: 23,969 x 50
 ##     YEAR  V2119   V2129 V3014   V3016   V3018   V3021   V3023 V3023A  V3024
 ##    <dbl> <dbl+> <dbl+l> <dbl> <dbl+l> <dbl+l> <dbl+l> <dbl+l> <dbl+> <dbl+>
-##  1  2000 2 [No] 2 [(S)…    34 6 [Not… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-##  2  2000 2 [No] 2 [(S)…    22 6 [Not… 2 [Fem… 1 [Yes] 1 [Whi…     NA 2 [No]
-##  3  2000 2 [No] 3 [Not…    21 5 [Nev… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-##  4  2000 2 [No] 3 [Not…    18 6 [Not… 2 [Fem… 2 [No]  1 [Whi…     NA 2 [No]
-##  5  2000 2 [No] 2 [(S)…    16 6 [Not… 2 [Fem… 2 [No]  1 [Whi…     NA 2 [No]
-##  6  2000 2 [No] 1 [Cit…    13 6 [Not… 2 [Fem… 2 [No]  1 [Whi…     NA 2 [No]
-##  7  2000 2 [No] 2 [(S)…    16 6 [Not… 1 [Mal… 2 [No]  1 [Whi…     NA 2 [No]
-##  8  2000 2 [No] 2 [(S)…    48 6 [Not… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-##  9  2000 2 [No] 2 [(S)…    12 5 [Nev… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-## 10  2000 2 [No] 2 [(S)…    42 6 [Not… 1 [Mal… 1 [Yes] 1 [Whi…     NA 2 [No]
-## # … with 1,421 more rows, and 39 more variables: V2026 <dbl+lbl>,
+##  1  2000 2 [No] 2 [(S)~    34 6 [Not~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  2  2000 2 [No] 1 [Cit~    51 3 [Div~ 1 [Mal~ 2 [No]  2 [Bla~     NA 2 [No]
+##  3  2000 2 [No] 2 [(S)~    20 5 [Nev~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  4  2000 2 [No] 2 [(S)~    38 3 [Div~ 2 [Fem~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  5  2000 2 [No] 1 [Cit~    71 1 [Mar~ 2 [Fem~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  6  2000 2 [No] 2 [(S)~    12 5 [Nev~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  7  2000 2 [No] 2 [(S)~    14 5 [Nev~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  8  2000 2 [No] 2 [(S)~    33 3 [Div~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+##  9  2000 2 [No] 2 [(S)~    33 3 [Div~ 1 [Mal~ 1 [Yes] 1 [Whi~     NA 2 [No]
+## 10  2000 2 [No] 2 [(S)~    15 5 [Nev~ 1 [Mal~ 2 [No]  1 [Whi~     NA 2 [No]
+## # ... with 23,959 more rows, and 40 more variables: V2026 <dbl+lbl>,
 ## #   V4049 <dbl+lbl>, V4234 <dbl+lbl>, V4235 <dbl+lbl>, V4236 <dbl+lbl>,
 ## #   V4237 <dbl+lbl>, V4237A <dbl+lbl>, V4238 <dbl+lbl>, V4239 <dbl+lbl>,
 ## #   V4240 <dbl+lbl>, V4241 <dbl+lbl>, V4242 <dbl+lbl>, V4243 <dbl+lbl>,
@@ -415,7 +446,7 @@ add_column(ncvs, newid = 1:nrow(ncvs))
 ## #   medicalcarereceived <dbl>, `filter_$` <dbl+lbl>, relationship <dbl+lbl>,
 ## #   Policereported <dbl+lbl>, victimreported <dbl+lbl>,
 ## #   thirdpartyreport <dbl+lbl>, maleoff <dbl+lbl>, age_r <dbl>,
-## #   injured_r <ord>, injured_new <dbl+lbl>, newid <int>
+## #   vic18andover <dbl+lbl>, injured_r <ord>, injured_new <dbl+lbl>, newid <int>
 ```
 
 <div style="margin-bottom:70px;">
@@ -445,9 +476,9 @@ count(ncvs, injured)
 ```
 ## # A tibble: 2 x 2
 ##         injured     n
-## *     <dbl+lbl> <int>
-## 1 0 [uninjured]   967
-## 2 1 [injured]     464
+##       <dbl+lbl> <int>
+## 1 0 [uninjured] 16160
+## 2 1 [injured]    7809
 ```
 
 ```r
@@ -457,10 +488,10 @@ count(ncvs, weaponpresent)
 ```
 ## # A tibble: 3 x 2
 ##   weaponpresent     n
-## *         <dbl> <int>
-## 1             0   950
-## 2             1   406
-## 3            NA    75
+##           <dbl> <int>
+## 1             0 15814
+## 2             1  6652
+## 3            NA  1503
 ```
 
 <div style="margin-bottom:50px;">
@@ -485,15 +516,15 @@ ncvs %>% select(injured, weaponpresent, severity) %>% sample_n(10)
 ## # A tibble: 10 x 3
 ##          injured weaponpresent severity
 ##        <dbl+lbl>         <dbl>    <dbl>
-##  1 0 [uninjured]             0        0
-##  2 0 [uninjured]             1        1
-##  3 0 [uninjured]            NA       NA
-##  4 0 [uninjured]             0        0
-##  5 1 [injured]               0        1
-##  6 0 [uninjured]             1        1
+##  1 0 [uninjured]             1        1
+##  2 0 [uninjured]             0        0
+##  3 1 [injured]               0        1
+##  4 1 [injured]               1        2
+##  5 1 [injured]               1        2
+##  6 0 [uninjured]             0        0
 ##  7 0 [uninjured]             1        1
-##  8 1 [injured]               1        2
-##  9 1 [injured]               0        1
+##  8 0 [uninjured]             1        1
+##  9 0 [uninjured]             0        0
 ## 10 0 [uninjured]             1        1
 ```
 
