@@ -133,7 +133,7 @@ For example, to create the online tutorial for this class, we have a project cal
 
 If you noticed in your *Files, Plots…* pane, the files there tell you what folder you are automatically working in. This is known as your *working directory*, the default location that appears when you open `RStudio`. Wherever your `R project` is saved will be the working directory. 
 
-In your group google sheets, type the name of your `R` project and in which location it  is in. Now decide whether this is a good location for your `R` project. For example, is the location name too long? (something like 'C:\Users\ xx\ Desktop \xx\xx\ Manchester\xx\xx\xx\xx\xx\xx' is too long and you might run into problems later.) Or are there files that are for your other course units in there too? If doubtful about the location of your project, move it somewhere else you think is more appropriate.
+In your group google sheets, type the name of your `R` project and in which location it  is in. Now decide whether this is a good location for your `R` project. For example, is the location name too long? (something like 'C:\ Users\ xx\ Desktop \ xx\ xx\ Manchester\ xx \ xx\ xx\ xx\ xx\ xx' is too long and you might run into problems later.) Or are there files that are for your other course units in there too? If doubtful about the location of your project, move it somewhere else you think is more appropriate.
 
 <div style="margin-bottom:50px;">
 </div>
