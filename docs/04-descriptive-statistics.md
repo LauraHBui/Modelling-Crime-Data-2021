@@ -415,9 +415,18 @@ What exactly constitutes an *outlier*? This is where we will need to define what
 
 One way of determining whether a case is an outlier is if it is above or below 1.5 multiplied by the **interquartile range** (IQR), or for extreme outliers, above or below 3 multiplied by IQR. The IQR is another robust estimate and is the 75th percentile observation (the third quartile [Q3]) minus the 25th percentile observation (the first quartile [Q1]) in your distribution:
 
+<div style="margin-bottom:15px;">
+</div>
+
 $$ IQR= Q3 - Q1 $$
 
+<div style="margin-bottom:15px;">
+</div>
+
 A popular method for determining outliers is known as **Tukey fences**. According to this method, outliers are seen as falling within a lower or upper fence. They are calculated from the following:
+
+<div style="margin-bottom:15px;">
+</div>
 
 $$ Lower~ fence = Q1 - 1.5(IQR)$$ 
 

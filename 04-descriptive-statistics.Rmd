@@ -321,9 +321,18 @@ What exactly constitutes an *outlier*? This is where we will need to define what
 
 One way of determining whether a case is an outlier is if it is above or below 1.5 multiplied by the **interquartile range** (IQR), or for extreme outliers, above or below 3 multiplied by IQR. The IQR is another robust estimate and is the 75th percentile observation (the third quartile [Q3]) minus the 25th percentile observation (the first quartile [Q1]) in your distribution:
 
+<div style="margin-bottom:15px;">
+</div>
+
 $$ IQR= Q3 - Q1 $$
 
+<div style="margin-bottom:15px;">
+</div>
+
 A popular method for determining outliers is known as **Tukey fences**. According to this method, outliers are seen as falling within a lower or upper fence. They are calculated from the following:
+
+<div style="margin-bottom:15px;">
+</div>
 
 $$ Lower~ fence = Q1 - 1.5(IQR)$$ 
 
@@ -339,7 +348,7 @@ Now we use the IQR to construct Tukey fences so to find and save the outliers fo
 
 <div style="margin-bottom:35px;">
 </div>
-```{r}
+```{r, message=FALSE}
 
 # First, let us get the IQR of the Q_12 variable using the IQR function 
 bwc_deployed_iqr <- IQR(bwcs$Q_12, na.rm = TRUE) 
@@ -518,6 +527,9 @@ Once finished with this activity, you will find your new data frame, `inmatesurv
 We learn how to conduct two measures of dispersion in `R` for categorical variables: the variation ratio and the index of qualitative variation:
 
 The **variation ratio** (VR) tells us the proportion of cases that are not in the modal category – basically cases not in the most frequent or ‘popular’ category. The formula for the variation ratio (VR) is:
+
+<div style="margin-bottom:15px;">
+</div>
 
 $$VR = 1 – ({\frac {N~modalcat~} {N~total~}})$$
 
@@ -707,8 +719,14 @@ BUT you can see something strange while figuring out the range: the minimum is o
 
 Now, the **variance** ( $s^2$ ) is about spread, specifically the sum of the squared deviations from the mean, then divided by the total number of cases. The equation looks like this:
 
+<div style="margin-bottom:15px;">
+</div>
+
 $$ s^2 = \frac{\sum(x - \mu)^2}{N}$$ 
 
+
+<div style="margin-bottom:15px;">
+</div>
 
 We use the function `var()` from the `stats` package that comes already preinstalled. 
 
