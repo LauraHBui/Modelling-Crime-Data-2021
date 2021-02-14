@@ -73,7 +73,7 @@ The tidyverse contains packages that help us carry out **wrangling** (i.e., clea
 
 So what is tidy data?
 
-![**Figure 2.2** What is tidy data by Allison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg){width=50%}
+![**Figure 2.2** What is tidy data by Allison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg){width=80%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -83,7 +83,7 @@ Like what was mentioned in last week's lesson, our columns represent our variabl
 In this class, we will be working with tidy data. Generally, if you have messy data, which is common in the real world of data analysis, your first task is to wrangle it until it is in a tidy shape similar to the ones described in Figures 2.2 and 2.3.  
 
 
-![**Figure 2.3** Tidy data versus messy data by Alison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_2.jpg){width=50%}
+![**Figure 2.3** Tidy data versus messy data by Alison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_2.jpg){width=80%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -147,7 +147,7 @@ Although today is focused on tidy data, it is also helpful if whatever you are w
 <div style="margin-bottom:30px;">
 </div>
 
-![**Figure 2.4** Click on *Project: (None)*](Images/project.png){width=40%}
+![**Figure 2.4** Click on Project: (None)](Images/project.png){width=40%}
 
 
 <div style="margin-bottom:30px;">
@@ -155,13 +155,13 @@ Although today is focused on tidy data, it is also helpful if whatever you are w
 
 In the options that appear, choose *Existing Directory*. The reason is you may have already created a folder for this work if you had saved your script from last week and from what you have done so far today. For example, Reka had saved a folder called 'modelling2021' with her scripts in it and will her project in that same place too (see Figures 2.5 and 2.6).
 
-![**Figure 2.5** Existing directory](Images/existing_dir.png){width=30%}
+![**Figure 2.5** Existing directory](Images/existing_dir.png){width=40%}
 
 
 <div style="margin-bottom:30px;">
 </div>
 
-![**Figure 2.6** Create project from existing directory](Images/browse_proj_dir.png){width=30%}
+![**Figure 2.6** Create project from existing directory](Images/browse_proj_dir.png){width=40%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -237,6 +237,10 @@ library(here)
 
 ```
 ## Warning: package 'here' was built under R version 3.6.3
+```
+
+```
+## here() starts at C:/Users/buihl/Desktop/Modelling-Crime-Data-2021
 ```
 <div style="margin-bottom:50px;">
 </div>
@@ -889,10 +893,10 @@ table(as_factor(ncvs$relationship))
 </div>
 
 From the output: 
-- 0 = stranger 
-- 1 = slightly known 
-- 2 = casual acquaintance 
-- 3 = well known 
+* 0 = stranger 
+* 1 = slightly known 
+* 2 = casual acquaintance 
+* 3 = well known 
 
 There is also a 'don't know' category, but there are no observations in it. 
 
@@ -1197,7 +1201,7 @@ first_two_rows_cols <- ncvs %>% select(1:2) %>% slice(1:2)
 </div>
 
 
-![**Figure 2.11** Filter by Allison Horst](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_filter.jpg){width=50%}
+![**Figure 2.11** Filter by Allison Horst](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_filter.jpg){width=80%}
 
 <div style="margin-bottom:30px;">
 </div>

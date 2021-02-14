@@ -378,39 +378,39 @@ What this measure does is account for the sample size under observation, as the 
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" title="1"><span class="co"># Create copies of the variables, rename them so it is easier to remember </span></a>
-<a class="sourceLine" id="cb329-2" title="2"><span class="co"># sex is variable ‘QDEM3’</span></a>
-<a class="sourceLine" id="cb329-3" title="3"><span class="kw">table</span>(seattle_df<span class="op">$</span>QDEM3)</a></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" title="1"><span class="co"># Create copies of the variables, rename them so it is easier to remember </span></a>
+<a class="sourceLine" id="cb330-2" title="2"><span class="co"># sex is variable ‘QDEM3’</span></a>
+<a class="sourceLine" id="cb330-3" title="3"><span class="kw">table</span>(seattle_df<span class="op">$</span>QDEM3)</a></code></pre></div>
 <pre><code>## 
 ##    1    2 
 ## 1145 1075</code></pre>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" title="1"><span class="co"># Use factor () function to create factor variable ‘sex’</span></a>
-<a class="sourceLine" id="cb331-2" title="2">seattle_df<span class="op">$</span>sex &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>QDEM3, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;female&quot;</span> ,</a>
-<a class="sourceLine" id="cb331-3" title="3">                                                                        <span class="st">&quot;male&quot;</span>))</a>
-<a class="sourceLine" id="cb331-4" title="4"></a>
-<a class="sourceLine" id="cb331-5" title="5"><span class="co"># Reported victimisation to police is ‘Q58E’</span></a>
-<a class="sourceLine" id="cb331-6" title="6"><span class="kw">table</span>(seattle_df<span class="op">$</span>Q58E)</a></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" title="1"><span class="co"># Use factor () function to create factor variable ‘sex’</span></a>
+<a class="sourceLine" id="cb332-2" title="2">seattle_df<span class="op">$</span>sex &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>QDEM3, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;female&quot;</span> ,</a>
+<a class="sourceLine" id="cb332-3" title="3">                                                                        <span class="st">&quot;male&quot;</span>))</a>
+<a class="sourceLine" id="cb332-4" title="4"></a>
+<a class="sourceLine" id="cb332-5" title="5"><span class="co"># Reported victimisation to police is ‘Q58E’</span></a>
+<a class="sourceLine" id="cb332-6" title="6"><span class="kw">table</span>(seattle_df<span class="op">$</span>Q58E)</a></code></pre></div>
 <pre><code>## 
 ##   -1    0    1    8    9 
 ## 1582  379  255    2    2</code></pre>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" title="1"><span class="co"># Use factor () function to create factor variable ‘reported_to_police’</span></a>
-<a class="sourceLine" id="cb333-2" title="2">seattle_df<span class="op">$</span>reported_to_police &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>Q58E, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">labels =</span></a>
-<a class="sourceLine" id="cb333-3" title="3">                                          <span class="kw">c</span>(<span class="st">&quot;no&quot;</span> , <span class="st">&quot;yes&quot;</span>))</a>
-<a class="sourceLine" id="cb333-4" title="4"></a>
-<a class="sourceLine" id="cb333-5" title="5"><span class="co"># Chi-square analysis </span></a>
-<a class="sourceLine" id="cb333-6" title="6"><span class="co"># Place variable objects into new object ‘chi’</span></a>
-<a class="sourceLine" id="cb333-7" title="7">chi&lt;-<span class="kw">table</span>(seattle_df<span class="op">$</span>sex, seattle_df<span class="op">$</span>reported_to_police) </a>
-<a class="sourceLine" id="cb333-8" title="8"><span class="co"># Make sure the relationship is significant first</span></a>
-<a class="sourceLine" id="cb333-9" title="9"><span class="kw">chisq.test</span>(chi)</a></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" title="1"><span class="co"># Use factor () function to create factor variable ‘reported_to_police’</span></a>
+<a class="sourceLine" id="cb334-2" title="2">seattle_df<span class="op">$</span>reported_to_police &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>Q58E, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">labels =</span></a>
+<a class="sourceLine" id="cb334-3" title="3">                                          <span class="kw">c</span>(<span class="st">&quot;no&quot;</span> , <span class="st">&quot;yes&quot;</span>))</a>
+<a class="sourceLine" id="cb334-4" title="4"></a>
+<a class="sourceLine" id="cb334-5" title="5"><span class="co"># Chi-square analysis </span></a>
+<a class="sourceLine" id="cb334-6" title="6"><span class="co"># Place variable objects into new object ‘chi’</span></a>
+<a class="sourceLine" id="cb334-7" title="7">chi&lt;-<span class="kw">table</span>(seattle_df<span class="op">$</span>sex, seattle_df<span class="op">$</span>reported_to_police) </a>
+<a class="sourceLine" id="cb334-8" title="8"><span class="co"># Make sure the relationship is significant first</span></a>
+<a class="sourceLine" id="cb334-9" title="9"><span class="kw">chisq.test</span>(chi)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
 ## data:  chi
 ## X-squared = 5.8156, df = 1, p-value = 0.01588</code></pre>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" title="1"><span class="co"># Chi-square is significant ( p= 0.01588)</span></a>
-<a class="sourceLine" id="cb335-2" title="2"></a>
-<a class="sourceLine" id="cb335-3" title="3"><span class="co"># Calculate the phi coefficient </span></a>
-<a class="sourceLine" id="cb335-4" title="4"><span class="kw">Phi</span>(seattle_df<span class="op">$</span>sex, seattle_df<span class="op">$</span>reported_to_police)</a></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" title="1"><span class="co"># Chi-square is significant ( p= 0.01588)</span></a>
+<a class="sourceLine" id="cb336-2" title="2"></a>
+<a class="sourceLine" id="cb336-3" title="3"><span class="co"># Calculate the phi coefficient </span></a>
+<a class="sourceLine" id="cb336-4" title="4"><span class="kw">Phi</span>(seattle_df<span class="op">$</span>sex, seattle_df<span class="op">$</span>reported_to_police)</a></code></pre></div>
 <pre><code>## [1] 0.09903062</code></pre>
 <div style="margin-bottom:50px;">
 
@@ -444,21 +444,21 @@ What this measure does is account for the sample size under observation, as the 
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" title="1"><span class="co"># Recode the variable Q7 </span></a>
-<a class="sourceLine" id="cb337-2" title="2">seattle_df<span class="op">$</span>miss_neigh &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>Q7, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;very likely&quot;</span> , <span class="st">&quot;likely&quot;</span>, <span class="st">&quot;unlikely&quot;</span>, <span class="st">&quot;very unlikely&quot;</span>)) </a>
-<a class="sourceLine" id="cb337-3" title="3"></a>
-<a class="sourceLine" id="cb337-4" title="4"><span class="co"># Check our newly coded variable </span></a>
-<a class="sourceLine" id="cb337-5" title="5"><span class="kw">table</span>(seattle_df<span class="op">$</span>miss_neigh)</a></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" title="1"><span class="co"># Recode the variable Q7 </span></a>
+<a class="sourceLine" id="cb338-2" title="2">seattle_df<span class="op">$</span>miss_neigh &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>Q7, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;very likely&quot;</span> , <span class="st">&quot;likely&quot;</span>, <span class="st">&quot;unlikely&quot;</span>, <span class="st">&quot;very unlikely&quot;</span>)) </a>
+<a class="sourceLine" id="cb338-3" title="3"></a>
+<a class="sourceLine" id="cb338-4" title="4"><span class="co"># Check our newly coded variable </span></a>
+<a class="sourceLine" id="cb338-5" title="5"><span class="kw">table</span>(seattle_df<span class="op">$</span>miss_neigh)</a></code></pre></div>
 <pre><code>## 
 ##   very likely        likely      unlikely very unlikely 
 ##          1094           760           244           102</code></pre>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" title="1"><span class="co"># To run Somers&#39; D, first save the contingency table in the R object &quot;z&quot; </span></a>
-<a class="sourceLine" id="cb339-2" title="2">z &lt;-<span class="st"> </span><span class="kw">table</span>(seattle_df<span class="op">$</span>intv.graff, seattle_df<span class="op">$</span>miss_neigh) </a>
-<a class="sourceLine" id="cb339-3" title="3"></a>
-<a class="sourceLine" id="cb339-4" title="4"><span class="co"># Now run the Somers&#39; D measure </span></a>
-<a class="sourceLine" id="cb339-5" title="5"><span class="co"># ‘direction’ tells R which variable should be considered the IV</span></a>
-<a class="sourceLine" id="cb339-6" title="6"><span class="co"># It defaults to row, so if you excluded this option, the function would still provide you with a value</span></a>
-<a class="sourceLine" id="cb339-7" title="7"><span class="kw">SomersDelta</span>(z, <span class="dt">direction =</span> <span class="st">&quot;row&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" title="1"><span class="co"># To run Somers&#39; D, first save the contingency table in the R object &quot;z&quot; </span></a>
+<a class="sourceLine" id="cb340-2" title="2">z &lt;-<span class="st"> </span><span class="kw">table</span>(seattle_df<span class="op">$</span>intv.graff, seattle_df<span class="op">$</span>miss_neigh) </a>
+<a class="sourceLine" id="cb340-3" title="3"></a>
+<a class="sourceLine" id="cb340-4" title="4"><span class="co"># Now run the Somers&#39; D measure </span></a>
+<a class="sourceLine" id="cb340-5" title="5"><span class="co"># ‘direction’ tells R which variable should be considered the IV</span></a>
+<a class="sourceLine" id="cb340-6" title="6"><span class="co"># It defaults to row, so if you excluded this option, the function would still provide you with a value</span></a>
+<a class="sourceLine" id="cb340-7" title="7"><span class="kw">SomersDelta</span>(z, <span class="dt">direction =</span> <span class="st">&quot;row&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>##    somers    lwr.ci    upr.ci 
 ## 0.1867064 0.1502957 0.2231171</code></pre>
 <div style="margin-bottom:50px;">
@@ -483,15 +483,15 @@ What this measure does is account for the sample size under observation, as the 
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" title="1">df &lt;-<span class="st"> </span><span class="kw">filter</span>(sharkey, year <span class="op">==</span><span class="st"> &quot;2012&quot;</span>) </a>
-<a class="sourceLine" id="cb341-2" title="2">df &lt;-<span class="st"> </span><span class="kw">select</span>(df, place_name, state_name, black, lesshs, unemployed, fborn,</a>
-<a class="sourceLine" id="cb341-3" title="3">             incarceration, log_viol_r, largest50) </a>
-<a class="sourceLine" id="cb341-4" title="4"></a>
-<a class="sourceLine" id="cb341-5" title="5"><span class="co"># Goodbye sharkey</span></a>
-<a class="sourceLine" id="cb341-6" title="6"><span class="kw">rm</span>(sharkey)</a>
-<a class="sourceLine" id="cb341-7" title="7"></a>
-<a class="sourceLine" id="cb341-8" title="8"><span class="co"># View the number of cities located in each of the 44 states</span></a>
-<a class="sourceLine" id="cb341-9" title="9"><span class="kw">table</span>(df<span class="op">$</span>state_name)</a></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" title="1">df &lt;-<span class="st"> </span><span class="kw">filter</span>(sharkey, year <span class="op">==</span><span class="st"> &quot;2012&quot;</span>) </a>
+<a class="sourceLine" id="cb342-2" title="2">df &lt;-<span class="st"> </span><span class="kw">select</span>(df, place_name, state_name, black, lesshs, unemployed, fborn,</a>
+<a class="sourceLine" id="cb342-3" title="3">             incarceration, log_viol_r, largest50) </a>
+<a class="sourceLine" id="cb342-4" title="4"></a>
+<a class="sourceLine" id="cb342-5" title="5"><span class="co"># Goodbye sharkey</span></a>
+<a class="sourceLine" id="cb342-6" title="6"><span class="kw">rm</span>(sharkey)</a>
+<a class="sourceLine" id="cb342-7" title="7"></a>
+<a class="sourceLine" id="cb342-8" title="8"><span class="co"># View the number of cities located in each of the 44 states</span></a>
+<a class="sourceLine" id="cb342-9" title="9"><span class="kw">table</span>(df<span class="op">$</span>state_name)</a></code></pre></div>
 <pre><code>## 
 ##              Alabama               Alaska              Arizona 
 ##                    4                    1                    9 
@@ -531,10 +531,10 @@ What this measure does is account for the sample size under observation, as the 
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" title="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> unemployed, <span class="dt">y =</span> log_viol_r)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb343-2" title="2"><span class="co"># Jitter adds a little random noise </span></a>
-<a class="sourceLine" id="cb343-3" title="3"><span class="co"># This makes points less likely to overlap one another in the plot </span></a>
-<a class="sourceLine" id="cb343-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">2</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" title="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> unemployed, <span class="dt">y =</span> log_viol_r)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb344-2" title="2"><span class="co"># Jitter adds a little random noise </span></a>
+<a class="sourceLine" id="cb344-3" title="3"><span class="co"># This makes points less likely to overlap one another in the plot </span></a>
+<a class="sourceLine" id="cb344-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">2</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>)</a></code></pre></div>
 <p><img src="08-strength-relationship_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <div style="margin-bottom:50px;">
 
@@ -564,9 +564,9 @@ What this measure does is account for the sample size under observation, as the 
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" title="1"><span class="kw">cor</span>(df<span class="op">$</span>log_viol_r, df<span class="op">$</span>unemployed)</a></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" title="1"><span class="kw">cor</span>(df<span class="op">$</span>log_viol_r, df<span class="op">$</span>unemployed)</a></code></pre></div>
 <pre><code>## [1] 0.5368416</code></pre>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" title="1"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" title="1"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -588,16 +588,16 @@ What this measure does is account for the sample size under observation, as the 
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" title="1"><span class="co"># We purposely add an outlier so that the relationship is no longer linear</span></a>
-<a class="sourceLine" id="cb348-2" title="2"><span class="co"># This will produce a fictitious city with a very high level of unemployment and the lowest level of violence</span></a>
-<a class="sourceLine" id="cb348-3" title="3"><span class="co"># For convenience, we will first further reduce the number of variables </span></a>
-<a class="sourceLine" id="cb348-4" title="4">df_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">select</span>(df, unemployed, log_viol_r) </a>
-<a class="sourceLine" id="cb348-5" title="5"></a>
-<a class="sourceLine" id="cb348-6" title="6"><span class="co"># To add cases to data frame, use the add_row() function from the tibble package</span></a>
-<a class="sourceLine" id="cb348-7" title="7">df_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">add_row</span>(df_<span class="dv">1</span>, <span class="dt">unemployed =</span> <span class="dv">20</span>, <span class="dt">log_viol_r =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb348-8" title="8"></a>
-<a class="sourceLine" id="cb348-9" title="9"><span class="co"># Conducting a Kendall</span></a>
-<a class="sourceLine" id="cb348-10" title="10"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df_<span class="dv">1</span>, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" title="1"><span class="co"># We purposely add an outlier so that the relationship is no longer linear</span></a>
+<a class="sourceLine" id="cb349-2" title="2"><span class="co"># This will produce a fictitious city with a very high level of unemployment and the lowest level of violence</span></a>
+<a class="sourceLine" id="cb349-3" title="3"><span class="co"># For convenience, we will first further reduce the number of variables </span></a>
+<a class="sourceLine" id="cb349-4" title="4">df_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">select</span>(df, unemployed, log_viol_r) </a>
+<a class="sourceLine" id="cb349-5" title="5"></a>
+<a class="sourceLine" id="cb349-6" title="6"><span class="co"># To add cases to data frame, use the add_row() function from the tibble package</span></a>
+<a class="sourceLine" id="cb349-7" title="7">df_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">add_row</span>(df_<span class="dv">1</span>, <span class="dt">unemployed =</span> <span class="dv">20</span>, <span class="dt">log_viol_r =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb349-8" title="8"></a>
+<a class="sourceLine" id="cb349-9" title="9"><span class="co"># Conducting a Kendall</span></a>
+<a class="sourceLine" id="cb349-10" title="10"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df_<span class="dv">1</span>, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Kendall&#39;s rank correlation tau
 ## 
@@ -607,8 +607,8 @@ What this measure does is account for the sample size under observation, as the 
 ## sample estimates:
 ##      tau 
 ## 0.345979</code></pre>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" title="1"><span class="co"># Conducting a Spearman</span></a>
-<a class="sourceLine" id="cb350-2" title="2"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df_<span class="dv">1</span>, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" title="1"><span class="co"># Conducting a Spearman</span></a>
+<a class="sourceLine" id="cb351-2" title="2"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df_<span class="dv">1</span>, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>## Warning in cor.test.default(x = c(7.2830276, 6.79316, 6.478019, 5.949461, :
 ## Cannot compute exact p-value with ties</code></pre>
 <pre><code>## 
