@@ -200,7 +200,7 @@ Another example: to create the online tutorial for this class, we have a project
 <div style="margin-bottom:30px;">
 </div>
 
-![**Figure 2.7** An example of how a project appears](Images/project2.png){width= 40%}
+![**Figure 2.7** How a project appears](Images/project2.png){width=30%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -421,7 +421,7 @@ For **categorical variables**, we can have variables that are nominal (no order)
 
 Another way to classify numeric variables is to distinguish between discrete and continuous variables. *Discrete* numeric variables have set values that make sense. For example, crime is one such variable. It is understandable to have 30 burglaries in May and 50 burglaries in December, but it is not understandable to have 45.2482 burglaries. *Continuous* numeric variables, however, can take on any value between a lower and upper bound and be meaningful. For example, weight and height. Here is an apt illustration: 
 
-![**Figure 2.9** Discrete versus continuous numeric variables by Allison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/other-stats-artwork/continuous_discrete.png)
+![**Figure 2.9** Discrete versus continuous numeric variables by Allison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/other-stats-artwork/continuous_discrete.png){width=40%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -569,7 +569,7 @@ What if we want to create a new variable? Here are three scenarios where we woul
 
 We address all three scenarios in turn. Recoding and creating new variables is called **data wrangling** and the package `dplyr` is most appropriate for doing so. 
 
-![**Figure 2.9** Data wrangling by Allison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png)
+![**Figure 2.9** Data wrangling by Allison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png){width=40%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -1195,7 +1195,7 @@ first_two_rows_cols <- ncvs %>% select(1:2) %>% slice(1:2)
 </div>
 
 
-![**Figure 2.11** Filter by Allison Horst](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_filter.jpg)
+![**Figure 2.11** Filter by Allison Horst](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_filter.jpg){width=50%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -1248,6 +1248,11 @@ In your group googledoc sheet, write out the code that you would use to do so. N
 
 <div style="margin-bottom:50px;">
 </div>
+
+
+---
+
+
 
 ## SUMMARY
 
