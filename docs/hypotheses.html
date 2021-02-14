@@ -159,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#variables"><i class="fa fa-check"></i><b>2.4.1</b> Variables</a></li>
 <li class="chapter" data-level="2.4.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.4.2</b> Labels</a></li>
+<li class="chapter" data-level="2.4.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#subsetting"><i class="fa fa-check"></i><b>2.4.3</b> Subsetting</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a></li>
 </ul></li>
@@ -612,7 +613,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <a class="sourceLine" id="cb258-10" title="10"></a>
 <a class="sourceLine" id="cb258-11" title="11"><span class="co"># Divide ‘IQ_Over_100’ by total number of prisoner IQ scores</span></a>
 <a class="sourceLine" id="cb258-12" title="12"><span class="kw">nrow</span>(IQ_Over_<span class="dv">100</span>)<span class="op">/</span><span class="kw">nrow</span>(PrisonerIQ)</a></code></pre></div>
-<pre><code>## [1] 0.4868193</code></pre>
+<pre><code>## [1] 0.4866847</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -624,11 +625,11 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" title="1"><span class="co"># View the first 5 prisoner IQs</span></a>
 <a class="sourceLine" id="cb260-2" title="2">PrisonerIQ[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] </a></code></pre></div>
 <pre><code>##   prisoner_id  IQ
-## 1           1  91
-## 2           2  90
-## 3           3  90
-## 4           4 106
-## 5           5 114</code></pre>
+## 1           1  95
+## 2           2 123
+## 3           3 105
+## 4           4  65
+## 5           5  93</code></pre>
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" title="1"><span class="co"># Change the IQ of prisoner #1 </span></a>
 <a class="sourceLine" id="cb262-2" title="2">PrisonerIQ<span class="op">$</span>IQ[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">115</span></a>
 <a class="sourceLine" id="cb262-3" title="3"></a>
@@ -638,7 +639,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <a class="sourceLine" id="cb262-7" title="7"><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></a>
 <a class="sourceLine" id="cb262-8" title="8">PrisonerIQ[<span class="dv">1</span>,]</a></code></pre></div>
 <pre><code>##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  1.000234</code></pre>
+## 1           1 115 0.9983993</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -656,7 +657,7 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <a class="sourceLine" id="cb264-8" title="8"><span class="co"># interested in IQ scores below 124</span></a>
 <a class="sourceLine" id="cb264-9" title="9"><span class="kw">pnormGC</span>(<span class="dv">124</span>, <span class="dt">region=</span><span class="st">&quot;below&quot;</span>, <span class="dt">mean=</span>m, <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>) </a></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre><code>## [1] 0.9452322</code></pre>
+<pre><code>## [1] 0.944952</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>

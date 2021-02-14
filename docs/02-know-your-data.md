@@ -73,7 +73,7 @@ The tidyverse contains packages that help us carry out **wrangling** (i.e., clea
 
 So what is tidy data?
 
-![**Figure 2.2** What is tidy data by Allison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg)
+![**Figure 2.2** What is tidy data by Allison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg){width=50%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -83,7 +83,7 @@ Like what was mentioned in last week's lesson, our columns represent our variabl
 In this class, we will be working with tidy data. Generally, if you have messy data, which is common in the real world of data analysis, your first task is to wrangle it until it is in a tidy shape similar to the ones described in Figures 2.2 and 2.3.  
 
 
-![**Figure 2.3** Tidy data versus messy data by Alison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_2.jpg)
+![**Figure 2.3** Tidy data versus messy data by Alison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_2.jpg){width=50%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -147,7 +147,7 @@ Although today is focused on tidy data, it is also helpful if whatever you are w
 <div style="margin-bottom:30px;">
 </div>
 
-![**Figure 2.4** Click on *Project: (None)*](Images/project.png){width=70%}
+![**Figure 2.4** Click on *Project: (None)*](Images/project.png){width=40%}
 
 
 <div style="margin-bottom:30px;">
@@ -155,13 +155,13 @@ Although today is focused on tidy data, it is also helpful if whatever you are w
 
 In the options that appear, choose *Existing Directory*. The reason is you may have already created a folder for this work if you had saved your script from last week and from what you have done so far today. For example, Reka had saved a folder called 'modelling2021' with her scripts in it and will her project in that same place too (see Figures 2.5 and 2.6).
 
-![**Figure 2.5** Existing directory](Images/existing_dir.png)
+![**Figure 2.5** Existing directory](Images/existing_dir.png){width=30%}
 
 
 <div style="margin-bottom:30px;">
 </div>
 
-![**Figure 2.6** Create project from existing directory](Images/browse_proj_dir.png)
+![**Figure 2.6** Create project from existing directory](Images/browse_proj_dir.png){width=30%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -200,7 +200,7 @@ Another example: to create the online tutorial for this class, we have a project
 <div style="margin-bottom:30px;">
 </div>
 
-![**Figure 2.7** How a project appears](Images/project2.png){width=30%}
+![**Figure 2.7** How a project appears](Images/project2.png){width=40%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -421,7 +421,7 @@ For **categorical variables**, we can have variables that are nominal (no order)
 
 Another way to classify numeric variables is to distinguish between discrete and continuous variables. *Discrete* numeric variables have set values that make sense. For example, crime is one such variable. It is understandable to have 30 burglaries in May and 50 burglaries in December, but it is not understandable to have 45.2482 burglaries. *Continuous* numeric variables, however, can take on any value between a lower and upper bound and be meaningful. For example, weight and height. Here is an apt illustration: 
 
-![**Figure 2.9** Discrete versus continuous numeric variables by Allison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/other-stats-artwork/continuous_discrete.png){width=40%}
+![**Figure 2.9** Discrete versus continuous numeric variables by Allison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/other-stats-artwork/continuous_discrete.png){width=70%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -569,7 +569,7 @@ What if we want to create a new variable? Here are three scenarios where we woul
 
 We address all three scenarios in turn. Recoding and creating new variables is called **data wrangling** and the package `dplyr` is most appropriate for doing so. 
 
-![**Figure 2.9** Data wrangling by Allison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png){width=40%}
+![**Figure 2.9** Data wrangling by Allison Horst](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png){width=70%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -1001,8 +1001,6 @@ Returning to a familiar variable, the output in the console shows that 'uninjure
 <div style="margin-bottom:70px;">
 </div>
 
-
-
 #### Activity 7: Removing labels 
 
 We return to the `injured` variable from the `ncvs` dataframe. We, again, are going to make a duplicate variable of `injured` to learn how to remove and add labels. We do this because it is good practice to leave your original variables alone in case you need to go back to them. 
@@ -1123,15 +1121,19 @@ Nothing to add in the googledoc this time, so onto the next activity.
 
 In `R`, `%>%` represents a **pipe operator**. This is a nifty shortcut in `R` coding. It means that we only need to specify the data frame object once at the beginning as opposed to typing out the name of the data frame repeatedly. In all subsequent functions, the object is ‘piped’ through. If you were to read the code out loud, you might say a pipe as 'and then'. We will use this now. 
 
-<div style="margin-bottom:70px;">
+<div style="margin-bottom:50px;">
 </div>
 
 
 ---
 
 
+### Subsetting
 
-#### Activity 8: Subsetting
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 8: Ways to subset data
 
 Through `tidyverse` functions, we can subset our data frames or vectors based on some criteria. Using the function `select()`, we can subset variables by number or name:
 

@@ -41,7 +41,8 @@ activity-6-recoding
 labels
 activity-7-removing-labels
 note-pipes
-activity-8-subsetting
+subsetting
+activity-8-ways-to-subset-data
 activity-9-subsetting-the-sequel
 summary-1
 data-visualization

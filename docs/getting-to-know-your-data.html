@@ -159,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#variables"><i class="fa fa-check"></i><b>2.4.1</b> Variables</a></li>
 <li class="chapter" data-level="2.4.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.4.2</b> Labels</a></li>
+<li class="chapter" data-level="2.4.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#subsetting"><i class="fa fa-check"></i><b>2.4.3</b> Subsetting</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a></li>
 </ul></li>
@@ -337,7 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The tidyverse contains packages that help us carry out <strong>wrangling</strong> (i.e., cleaning variables), analysis, plotting, and modelling of our data. The ethos of tidyverse is that working and using tidy data makes our lives easier in the long run, allows us to stick to specific conventions, and enables us to share with others who follow this approach. Essentially, tidy data makes data analysis easy to carry out and to communicate to others.</p>
 <p>So what is tidy data?</p>
 <div class="figure">
-<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg" alt="Figure 2.2 What is tidy data by Allison Horst" />
+<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg" alt="Figure 2.2 What is tidy data by Allison Horst" style="width:50.0%" />
 <p class="caption"><strong>Figure 2.2</strong> What is tidy data by Allison Horst</p>
 </div>
 <div style="margin-bottom:30px;">
@@ -346,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Like what was mentioned in last week’s lesson, our columns represent our variables, but, also, our cases (or better known in the tidyverse as <strong>observations</strong>) are our rows, whereby each cell is a value of that column’s given variable for the observation in that row.</p>
 <p>In this class, we will be working with tidy data. Generally, if you have messy data, which is common in the real world of data analysis, your first task is to wrangle it until it is in a tidy shape similar to the ones described in Figures 2.2 and 2.3.</p>
 <div class="figure">
-<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_2.jpg" alt="Figure 2.3 Tidy data versus messy data by Alison Horst" />
+<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_2.jpg" alt="Figure 2.3 Tidy data versus messy data by Alison Horst" style="width:50.0%" />
 <p class="caption"><strong>Figure 2.3</strong> Tidy data versus messy data by Alison Horst</p>
 </div>
 <div style="margin-bottom:30px;">
@@ -390,7 +391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 <div class="figure">
-<img src="Images/project.png" alt="Figure 2.4 Click on Project: (None)" style="width:70.0%" />
+<img src="Images/project.png" alt="Figure 2.4 Click on Project: (None)" style="width:40.0%" />
 <p class="caption"><strong>Figure 2.4</strong> Click on <em>Project: (None)</em></p>
 </div>
 <div style="margin-bottom:30px;">
@@ -398,14 +399,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>In the options that appear, choose <em>Existing Directory</em>. The reason is you may have already created a folder for this work if you had saved your script from last week and from what you have done so far today. For example, Reka had saved a folder called ‘modelling2021’ with her scripts in it and will her project in that same place too (see Figures 2.5 and 2.6).</p>
 <div class="figure">
-<img src="Images/existing_dir.png" alt="Figure 2.5 Existing directory" />
+<img src="Images/existing_dir.png" alt="Figure 2.5 Existing directory" style="width:30.0%" />
 <p class="caption"><strong>Figure 2.5</strong> Existing directory</p>
 </div>
 <div style="margin-bottom:30px;">
 
 </div>
 <div class="figure">
-<img src="Images/browse_proj_dir.png" alt="Figure 2.6 Create project from existing directory" />
+<img src="Images/browse_proj_dir.png" alt="Figure 2.6 Create project from existing directory" style="width:30.0%" />
 <p class="caption"><strong>Figure 2.6</strong> Create project from existing directory</p>
 </div>
 <div style="margin-bottom:30px;">
@@ -440,7 +441,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 <div class="figure">
-<img src="Images/project2.png" alt="Figure 2.7 How a project appears" style="width:30.0%" />
+<img src="Images/project2.png" alt="Figure 2.7 How a project appears" style="width:40.0%" />
 <p class="caption"><strong>Figure 2.7</strong> How a project appears</p>
 </div>
 <div style="margin-bottom:30px;">
@@ -605,7 +606,7 @@ To view the new data frame, <code>ncvs</code>, type:
 <p><strong>Numeric variables</strong> can be classified two separate ways. Last semester, we discussed the difference between <em>interval</em> and <em>ratio</em> variables. Interval variables have the same distance between observations, but have no true zero. The temperature in Celsius is one example. Ratio variables, on the other hand, do have a true zero point. Calculating a ratio from the values of these variables makes sense, but for values from interval variables, it does not. For example, it is pretty meaningless to state that 20 degrees Celsius is twice as hot as 10 degrees Celsius (‘0’ in Celsius is not the absolute lowest temperature). But if Reka has £30 pounds in her bank account and Laura has £60, it is meaningful to say Laura has twice as much savings as Reka does.</p>
 <p>Another way to classify numeric variables is to distinguish between discrete and continuous variables. <em>Discrete</em> numeric variables have set values that make sense. For example, crime is one such variable. It is understandable to have 30 burglaries in May and 50 burglaries in December, but it is not understandable to have 45.2482 burglaries. <em>Continuous</em> numeric variables, however, can take on any value between a lower and upper bound and be meaningful. For example, weight and height. Here is an apt illustration:</p>
 <div class="figure">
-<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/other-stats-artwork/continuous_discrete.png" alt="Figure 2.9 Discrete versus continuous numeric variables by Allison Horst" style="width:40.0%" />
+<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/other-stats-artwork/continuous_discrete.png" alt="Figure 2.9 Discrete versus continuous numeric variables by Allison Horst" style="width:70.0%" />
 <p class="caption"><strong>Figure 2.9</strong> Discrete versus continuous numeric variables by Allison Horst</p>
 </div>
 <div style="margin-bottom:30px;">
@@ -709,7 +710,7 @@ To view the new data frame, <code>ncvs</code>, type:
 <p><em>Scenario 3</em>: we want to change an existing variable that is <em>ordinal</em> with four outcomes into a <em>binary</em> variable with only two outcomes.</p>
 <p>We address all three scenarios in turn. Recoding and creating new variables is called <strong>data wrangling</strong> and the package <code>dplyr</code> is most appropriate for doing so.</p>
 <div class="figure">
-<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png" alt="Figure 2.9 Data wrangling by Allison Horst" style="width:40.0%" />
+<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png" alt="Figure 2.9 Data wrangling by Allison Horst" style="width:70.0%" />
 <p class="caption"><strong>Figure 2.9</strong> Data wrangling by Allison Horst</p>
 </div>
 <div style="margin-bottom:30px;">
@@ -1089,13 +1090,19 @@ Now to add a label:
 
 </div>
 <p>In <code>R</code>, <code>%&gt;%</code> represents a <strong>pipe operator</strong>. This is a nifty shortcut in <code>R</code> coding. It means that we only need to specify the data frame object once at the beginning as opposed to typing out the name of the data frame repeatedly. In all subsequent functions, the object is ‘piped’ through. If you were to read the code out loud, you might say a pipe as ‘and then’. We will use this now.</p>
-<div style="margin-bottom:70px;">
+<div style="margin-bottom:50px;">
 
 </div>
 <hr />
 </div>
-<div id="activity-8-subsetting" class="section level4">
-<h4><span class="header-section-number">2.4.2.3</span> Activity 8: Subsetting</h4>
+</div>
+<div id="subsetting" class="section level3">
+<h3><span class="header-section-number">2.4.3</span> Subsetting</h3>
+<div style="margin-bottom:70px;">
+
+</div>
+<div id="activity-8-ways-to-subset-data" class="section level4">
+<h4><span class="header-section-number">2.4.3.1</span> Activity 8: Ways to subset data</h4>
 <p>Through <code>tidyverse</code> functions, we can subset our data frames or vectors based on some criteria. Using the function <code>select()</code>, we can subset variables by number or name:</p>
 <div style="margin-bottom:35px;">
 
@@ -1173,7 +1180,7 @@ Now to add a label:
 <hr />
 </div>
 <div id="activity-9-subsetting-the-sequel" class="section level4">
-<h4><span class="header-section-number">2.4.2.4</span> Activity 9: Subsetting, the Sequel</h4>
+<h4><span class="header-section-number">2.4.3.2</span> Activity 9: Subsetting, the Sequel</h4>
 <p>We now have a subset called <code>injuredfiveknew</code>. Say we only want to keep the variables <code>V3014</code> (age) and <code>V3018</code> (sex). How would you make an object that only contains these two variables from <code>injuredfiveknew</code>?</p>
 <p>Recall that you would need to use the function <code>select()</code>to select variables. But in this example, instead of inserting ‘:’ like in the previous code, you would need to insert a ‘,’. Understanding what ‘:’ means and viewing the order of the variables in <code>injuredfiveknew</code> will give you insight into why.</p>
 <p>In your group googledoc sheet, write out the code that you would use to do so. Name this new object that contains the two variables <code>five_ageandincome</code></p>
