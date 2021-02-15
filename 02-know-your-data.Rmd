@@ -37,7 +37,7 @@
 
 ##### *Functions introduced (and packages to which they belong)* {-}
 - `%>%` : Known as the pipe operator, and allows users to pass one output of a code to become the input of another ( `dplyr`)
--`as_factor()` : Changes the class of an object to factor class (`haven`)
+- `as_factor()` : Changes the class of an object to factor class (`haven`)
 - `attributes()` : Access object attributes, such as value labels (`base R`)
 -	`case_when()` : Allows users to vectorize multiple if / if else statements (`dplyr`)
 -	`count()` : Counts the number of occurrences (`dplyr`)
