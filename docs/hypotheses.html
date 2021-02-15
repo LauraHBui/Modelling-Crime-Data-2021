@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-02-14" />
+<meta name="date" content="2021-02-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -434,9 +434,9 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" title="1"><span class="co"># The first concatenate (c () ) contains the numbers that went onto reoffend</span></a>
-<a class="sourceLine" id="cb248-2" title="2"><span class="co"># The second concatenate contains the total numbers in each group</span></a>
-<a class="sourceLine" id="cb248-3" title="3"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1"><span class="co"># The first concatenate (c () ) contains the numbers that went onto reoffend</span></a>
+<a class="sourceLine" id="cb250-2" title="2"><span class="co"># The second concatenate contains the total numbers in each group</span></a>
+<a class="sourceLine" id="cb250-3" title="3"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>))</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity correction
 ## 
@@ -478,8 +478,8 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1"><span class="co"># We add ‘alternative=’ and specify ‘less’ to indicate we expect the treatment group to have a smaller probability of reoffending than the control</span></a>
-<a class="sourceLine" id="cb250-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" title="1"><span class="co"># We add ‘alternative=’ and specify ‘less’ to indicate we expect the treatment group to have a smaller probability of reoffending than the control</span></a>
+<a class="sourceLine" id="cb252-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity correction
 ## 
@@ -499,8 +499,8 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" title="1"><span class="co"># We specify ‘greater’ following ‘alternative’ to indicate our expected direction for the treatment group relative to the control group</span></a>
-<a class="sourceLine" id="cb252-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" title="1"><span class="co"># We specify ‘greater’ following ‘alternative’ to indicate our expected direction for the treatment group relative to the control group</span></a>
+<a class="sourceLine" id="cb254-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity correction
 ## 
@@ -521,13 +521,13 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" title="1"><span class="co"># CIs for treatment group where 10 reoffended</span></a>
-<a class="sourceLine" id="cb254-2" title="2"><span class="kw">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" title="1"><span class="co"># CIs for treatment group where 10 reoffended</span></a>
+<a class="sourceLine" id="cb256-2" title="2"><span class="kw">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>)</a></code></pre></div>
 <pre><code>##      est    lwr.ci    upr.ci
 ## [1,] 0.2 0.1124375 0.3303711</code></pre>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" title="1"><span class="co"># CIs for control group where 28 reoffended</span></a>
-<a class="sourceLine" id="cb256-2" title="2"><span class="co"># By default, confidence level is 95% but have added in ‘conf.level’ to show that you can change the confidence level to, say, 99 </span></a>
-<a class="sourceLine" id="cb256-3" title="3"><span class="kw">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" title="1"><span class="co"># CIs for control group where 28 reoffended</span></a>
+<a class="sourceLine" id="cb258-2" title="2"><span class="co"># By default, confidence level is 95% but have added in ‘conf.level’ to show that you can change the confidence level to, say, 99 </span></a>
+<a class="sourceLine" id="cb258-3" title="3"><span class="kw">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>##       est    lwr.ci   upr.ci
 ## [1,] 0.56 0.4230603 0.688378</code></pre>
 <div style="margin-bottom:50px;">
@@ -537,18 +537,18 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" title="1"><span class="co"># Taking the previous coding and placing them in objects</span></a>
-<a class="sourceLine" id="cb258-2" title="2">treatment_group &lt;-<span class="st"> </span><span class="kw">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) </a>
-<a class="sourceLine" id="cb258-3" title="3">control_group &lt;-<span class="st"> </span><span class="kw">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a>
-<a class="sourceLine" id="cb258-4" title="4"></a>
-<a class="sourceLine" id="cb258-5" title="5"><span class="co"># Creating two error bar layers, one for each group</span></a>
-<a class="sourceLine" id="cb258-6" title="6"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb258-7" title="7"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> treatment_group[<span class="dv">2</span>], <span class="dt">ymax =</span> treatment_group[<span class="dv">3</span>], <span class="dt">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb258-8" title="8"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> treatment_group[<span class="dv">1</span>], <span class="dt">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_errorbar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> control_group[<span class="dv">2</span>], <span class="dt">ymax =</span> control_group[<span class="dv">3</span>], <span class="dt">x =</span> <span class="st">&quot;control&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb258-9" title="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> control_group[<span class="dv">1</span>], <span class="dt">x =</span> <span class="st">&quot;control&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb258-10" title="10"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Group&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb258-11" title="11"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Proportion who reoffended at follow-up&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb258-12" title="12"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" title="1"><span class="co"># Taking the previous coding and placing them in objects</span></a>
+<a class="sourceLine" id="cb260-2" title="2">treatment_group &lt;-<span class="st"> </span><span class="kw">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) </a>
+<a class="sourceLine" id="cb260-3" title="3">control_group &lt;-<span class="st"> </span><span class="kw">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a>
+<a class="sourceLine" id="cb260-4" title="4"></a>
+<a class="sourceLine" id="cb260-5" title="5"><span class="co"># Creating two error bar layers, one for each group</span></a>
+<a class="sourceLine" id="cb260-6" title="6"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb260-7" title="7"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> treatment_group[<span class="dv">2</span>], <span class="dt">ymax =</span> treatment_group[<span class="dv">3</span>], <span class="dt">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb260-8" title="8"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> treatment_group[<span class="dv">1</span>], <span class="dt">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_errorbar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> control_group[<span class="dv">2</span>], <span class="dt">ymax =</span> control_group[<span class="dv">3</span>], <span class="dt">x =</span> <span class="st">&quot;control&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb260-9" title="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> control_group[<span class="dv">1</span>], <span class="dt">x =</span> <span class="st">&quot;control&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb260-10" title="10"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Group&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb260-11" title="11"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Proportion who reoffended at follow-up&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb260-12" title="12"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <div style="margin-bottom:50px;">
 
@@ -601,19 +601,19 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" title="1"><span class="co"># Make synthetic data which includes the variables ‘prisoner_id’ and ‘IQ’</span></a>
-<a class="sourceLine" id="cb259-2" title="2"><span class="co"># ‘prisoner_id’ has 1 to 1.5 million IDs while ‘IQ’ has scores generated by ‘rnorm’ function </span></a>
-<a class="sourceLine" id="cb259-3" title="3"><span class="co"># Place data frame in object called ‘PrisonerIQ’</span></a>
-<a class="sourceLine" id="cb259-4" title="4">PrisonerIQ &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">prisoner_id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">1500000</span>, <span class="dt">IQ =</span> <span class="kw">round</span>(<span class="kw">rnorm</span>(<span class="dv">1500000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>)) </a>
-<a class="sourceLine" id="cb259-5" title="5"></a>
-<a class="sourceLine" id="cb259-6" title="6"><span class="co"># Using ‘which’ function to make subset of prisoners with IQ above 100</span></a>
-<a class="sourceLine" id="cb259-7" title="7"><span class="co"># ‘which’ is to the left of the ‘,’ at the end of code to specify that we are selecting rows</span></a>
-<a class="sourceLine" id="cb259-8" title="8"><span class="co"># Place subset in object called ‘IQ_Over_100’</span></a>
-<a class="sourceLine" id="cb259-9" title="9">IQ_Over_<span class="dv">100</span> &lt;-<span class="st"> </span>PrisonerIQ[ <span class="kw">which</span>(PrisonerIQ<span class="op">$</span>IQ<span class="op">&gt;</span><span class="dv">100</span>) ,] </a>
-<a class="sourceLine" id="cb259-10" title="10"></a>
-<a class="sourceLine" id="cb259-11" title="11"><span class="co"># Divide ‘IQ_Over_100’ by total number of prisoner IQ scores</span></a>
-<a class="sourceLine" id="cb259-12" title="12"><span class="kw">nrow</span>(IQ_Over_<span class="dv">100</span>)<span class="op">/</span><span class="kw">nrow</span>(PrisonerIQ)</a></code></pre></div>
-<pre><code>## [1] 0.486174</code></pre>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" title="1"><span class="co"># Make synthetic data which includes the variables ‘prisoner_id’ and ‘IQ’</span></a>
+<a class="sourceLine" id="cb261-2" title="2"><span class="co"># ‘prisoner_id’ has 1 to 1.5 million IDs while ‘IQ’ has scores generated by ‘rnorm’ function </span></a>
+<a class="sourceLine" id="cb261-3" title="3"><span class="co"># Place data frame in object called ‘PrisonerIQ’</span></a>
+<a class="sourceLine" id="cb261-4" title="4">PrisonerIQ &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">prisoner_id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">1500000</span>, <span class="dt">IQ =</span> <span class="kw">round</span>(<span class="kw">rnorm</span>(<span class="dv">1500000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>)) </a>
+<a class="sourceLine" id="cb261-5" title="5"></a>
+<a class="sourceLine" id="cb261-6" title="6"><span class="co"># Using ‘which’ function to make subset of prisoners with IQ above 100</span></a>
+<a class="sourceLine" id="cb261-7" title="7"><span class="co"># ‘which’ is to the left of the ‘,’ at the end of code to specify that we are selecting rows</span></a>
+<a class="sourceLine" id="cb261-8" title="8"><span class="co"># Place subset in object called ‘IQ_Over_100’</span></a>
+<a class="sourceLine" id="cb261-9" title="9">IQ_Over_<span class="dv">100</span> &lt;-<span class="st"> </span>PrisonerIQ[ <span class="kw">which</span>(PrisonerIQ<span class="op">$</span>IQ<span class="op">&gt;</span><span class="dv">100</span>) ,] </a>
+<a class="sourceLine" id="cb261-10" title="10"></a>
+<a class="sourceLine" id="cb261-11" title="11"><span class="co"># Divide ‘IQ_Over_100’ by total number of prisoner IQ scores</span></a>
+<a class="sourceLine" id="cb261-12" title="12"><span class="kw">nrow</span>(IQ_Over_<span class="dv">100</span>)<span class="op">/</span><span class="kw">nrow</span>(PrisonerIQ)</a></code></pre></div>
+<pre><code>## [1] 0.487248</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -622,24 +622,24 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" title="1"><span class="co"># View the first 5 prisoner IQs</span></a>
-<a class="sourceLine" id="cb261-2" title="2">PrisonerIQ[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] </a></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" title="1"><span class="co"># View the first 5 prisoner IQs</span></a>
+<a class="sourceLine" id="cb263-2" title="2">PrisonerIQ[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] </a></code></pre></div>
 <pre><code>##   prisoner_id  IQ
-## 1           1 115
-## 2           2 107
-## 3           3  92
-## 4           4 109
-## 5           5 108</code></pre>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" title="1"><span class="co"># Change the IQ of prisoner #1 </span></a>
-<a class="sourceLine" id="cb263-2" title="2">PrisonerIQ<span class="op">$</span>IQ[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">115</span></a>
-<a class="sourceLine" id="cb263-3" title="3"></a>
-<a class="sourceLine" id="cb263-4" title="4"><span class="co"># Create a variable storing z-scores of IQs </span></a>
-<a class="sourceLine" id="cb263-5" title="5">PrisonerIQ<span class="op">$</span>z_scoreIQ &lt;-<span class="st"> </span><span class="kw">scale</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
-<a class="sourceLine" id="cb263-6" title="6"></a>
-<a class="sourceLine" id="cb263-7" title="7"><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></a>
-<a class="sourceLine" id="cb263-8" title="8">PrisonerIQ[<span class="dv">1</span>,]</a></code></pre></div>
+## 1           1 110
+## 2           2 100
+## 3           3 102
+## 4           4  92
+## 5           5  95</code></pre>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" title="1"><span class="co"># Change the IQ of prisoner #1 </span></a>
+<a class="sourceLine" id="cb265-2" title="2">PrisonerIQ<span class="op">$</span>IQ[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">115</span></a>
+<a class="sourceLine" id="cb265-3" title="3"></a>
+<a class="sourceLine" id="cb265-4" title="4"><span class="co"># Create a variable storing z-scores of IQs </span></a>
+<a class="sourceLine" id="cb265-5" title="5">PrisonerIQ<span class="op">$</span>z_scoreIQ &lt;-<span class="st"> </span><span class="kw">scale</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
+<a class="sourceLine" id="cb265-6" title="6"></a>
+<a class="sourceLine" id="cb265-7" title="7"><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></a>
+<a class="sourceLine" id="cb265-8" title="8">PrisonerIQ[<span class="dv">1</span>,]</a></code></pre></div>
 <pre><code>##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  1.000951</code></pre>
+## 1           1 115  0.998362</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -647,17 +647,17 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" title="1"><span class="co"># The mean should be 100 but, in reality, it is not precise, so we calculate it and put in the #object ‘m’</span></a>
-<a class="sourceLine" id="cb265-2" title="2">m&lt;-<span class="kw">mean</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
-<a class="sourceLine" id="cb265-3" title="3"></a>
-<a class="sourceLine" id="cb265-4" title="4"><span class="co"># Same with sd; it should be 15 but we calculate it to get a precise estimate and put in object #‘sd’</span></a>
-<a class="sourceLine" id="cb265-5" title="5">sd&lt;-<span class="kw">sd</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
-<a class="sourceLine" id="cb265-6" title="6"></a>
-<a class="sourceLine" id="cb265-7" title="7"><span class="co"># Enter the prisoner’s IQ score and specify ‘below’ following ‘region’ because we are </span></a>
-<a class="sourceLine" id="cb265-8" title="8"><span class="co"># interested in IQ scores below 124</span></a>
-<a class="sourceLine" id="cb265-9" title="9"><span class="kw">pnormGC</span>(<span class="dv">124</span>, <span class="dt">region=</span><span class="st">&quot;below&quot;</span>, <span class="dt">mean=</span>m, <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" title="1"><span class="co"># The mean should be 100 but, in reality, it is not precise, so we calculate it and put in the #object ‘m’</span></a>
+<a class="sourceLine" id="cb267-2" title="2">m&lt;-<span class="kw">mean</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
+<a class="sourceLine" id="cb267-3" title="3"></a>
+<a class="sourceLine" id="cb267-4" title="4"><span class="co"># Same with sd; it should be 15 but we calculate it to get a precise estimate and put in object #‘sd’</span></a>
+<a class="sourceLine" id="cb267-5" title="5">sd&lt;-<span class="kw">sd</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
+<a class="sourceLine" id="cb267-6" title="6"></a>
+<a class="sourceLine" id="cb267-7" title="7"><span class="co"># Enter the prisoner’s IQ score and specify ‘below’ following ‘region’ because we are </span></a>
+<a class="sourceLine" id="cb267-8" title="8"><span class="co"># interested in IQ scores below 124</span></a>
+<a class="sourceLine" id="cb267-9" title="9"><span class="kw">pnormGC</span>(<span class="dv">124</span>, <span class="dt">region=</span><span class="st">&quot;below&quot;</span>, <span class="dt">mean=</span>m, <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>) </a></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre><code>## [1] 0.9452992</code></pre>
+<pre><code>## [1] 0.944964</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
@@ -666,8 +666,8 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" title="1"><span class="co"># Specify ‘between’ for ‘region’ because we are interested in proportion of prisoners between the two given values</span></a>
-<a class="sourceLine" id="cb267-2" title="2"><span class="kw">pnormGC</span>(<span class="dt">bound=</span><span class="kw">c</span>(<span class="dv">85</span>, <span class="dv">115</span>),<span class="dt">region=</span><span class="st">&quot;between&quot;</span>, <span class="dt">mean=</span><span class="dv">100</span>,<span class="dt">sd=</span><span class="dv">15</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" title="1"><span class="co"># Specify ‘between’ for ‘region’ because we are interested in proportion of prisoners between the two given values</span></a>
+<a class="sourceLine" id="cb269-2" title="2"><span class="kw">pnormGC</span>(<span class="dt">bound=</span><span class="kw">c</span>(<span class="dv">85</span>, <span class="dv">115</span>),<span class="dt">region=</span><span class="st">&quot;between&quot;</span>, <span class="dt">mean=</span><span class="dv">100</span>,<span class="dt">sd=</span><span class="dv">15</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <pre><code>## [1] 0.6826895</code></pre>
 <div style="margin-bottom:50px;">
@@ -702,15 +702,15 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" title="1"><span class="co"># Specifying inputs in the order that the user needs to enter them : mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared</span></a>
-<a class="sourceLine" id="cb269-2" title="2">z_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
-<a class="sourceLine" id="cb269-3" title="3">  z &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)) <span class="co"># Equation for one-sample z-test</span></a>
-<a class="sourceLine" id="cb269-4" title="4">  <span class="kw">return</span>(<span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z)) <span class="co"># Report z-score to the user</span></a>
-<a class="sourceLine" id="cb269-5" title="5"></a>
-<a class="sourceLine" id="cb269-6" title="6">} <span class="co"># End function</span></a>
-<a class="sourceLine" id="cb269-7" title="7"></a>
-<a class="sourceLine" id="cb269-8" title="8"><span class="co"># Test it with our example by supplying estimates </span></a>
-<a class="sourceLine" id="cb269-9" title="9"><span class="kw">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" title="1"><span class="co"># Specifying inputs in the order that the user needs to enter them : mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared</span></a>
+<a class="sourceLine" id="cb271-2" title="2">z_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
+<a class="sourceLine" id="cb271-3" title="3">  z &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)) <span class="co"># Equation for one-sample z-test</span></a>
+<a class="sourceLine" id="cb271-4" title="4">  <span class="kw">return</span>(<span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z)) <span class="co"># Report z-score to the user</span></a>
+<a class="sourceLine" id="cb271-5" title="5"></a>
+<a class="sourceLine" id="cb271-6" title="6">} <span class="co"># End function</span></a>
+<a class="sourceLine" id="cb271-7" title="7"></a>
+<a class="sourceLine" id="cb271-8" title="8"><span class="co"># Test it with our example by supplying estimates </span></a>
+<a class="sourceLine" id="cb271-9" title="9"><span class="kw">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</a></code></pre></div>
 <pre><code>## z = 2.544056</code></pre>
 <div style="margin-bottom:50px;">
 
@@ -719,19 +719,19 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" title="1"><span class="co"># Same as above</span></a>
-<a class="sourceLine" id="cb271-2" title="2">z_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
-<a class="sourceLine" id="cb271-3" title="3">z &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)) </a>
-<a class="sourceLine" id="cb271-4" title="4"></a>
-<a class="sourceLine" id="cb271-5" title="5"><span class="co"># This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non-directional </span></a>
-<a class="sourceLine" id="cb271-6" title="6">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(z)) </a>
-<a class="sourceLine" id="cb271-7" title="7"></a>
-<a class="sourceLine" id="cb271-8" title="8"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </a>
-<a class="sourceLine" id="cb271-9" title="9"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p)) <span class="co"># Added code to return p-value</span></a>
-<a class="sourceLine" id="cb271-10" title="10">} </a>
-<a class="sourceLine" id="cb271-11" title="11"></a>
-<a class="sourceLine" id="cb271-12" title="12"><span class="co"># Test it with our example again </span></a>
-<a class="sourceLine" id="cb271-13" title="13"><span class="kw">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" title="1"><span class="co"># Same as above</span></a>
+<a class="sourceLine" id="cb273-2" title="2">z_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
+<a class="sourceLine" id="cb273-3" title="3">z &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)) </a>
+<a class="sourceLine" id="cb273-4" title="4"></a>
+<a class="sourceLine" id="cb273-5" title="5"><span class="co"># This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non-directional </span></a>
+<a class="sourceLine" id="cb273-6" title="6">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(z)) </a>
+<a class="sourceLine" id="cb273-7" title="7"></a>
+<a class="sourceLine" id="cb273-8" title="8"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </a>
+<a class="sourceLine" id="cb273-9" title="9"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p)) <span class="co"># Added code to return p-value</span></a>
+<a class="sourceLine" id="cb273-10" title="10">} </a>
+<a class="sourceLine" id="cb273-11" title="11"></a>
+<a class="sourceLine" id="cb273-12" title="12"><span class="co"># Test it with our example again </span></a>
+<a class="sourceLine" id="cb273-13" title="13"><span class="kw">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</a></code></pre></div>
 <pre><code>## z = 2.544056 
 ## p-value = 0.01095734</code></pre>
 <div style="margin-bottom:50px;">
@@ -768,21 +768,21 @@ To understand hypotheses in action, we learn three substantive concepts today: <
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" title="1"><span class="co"># Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65</span></a>
-<a class="sourceLine" id="cb273-2" title="2">single_t_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
-<a class="sourceLine" id="cb273-3" title="3"></a>
-<a class="sourceLine" id="cb273-4" title="4"><span class="co"># Equation for one-sample z-test</span></a>
-<a class="sourceLine" id="cb273-5" title="5">t &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)) </a>
-<a class="sourceLine" id="cb273-6" title="6"></a>
-<a class="sourceLine" id="cb273-7" title="7"><span class="co"># Report t-score and p-value to the user</span></a>
-<a class="sourceLine" id="cb273-8" title="8">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(t)) </a>
-<a class="sourceLine" id="cb273-9" title="9"></a>
-<a class="sourceLine" id="cb273-10" title="10"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;t =&#39;</span>, t, </a>
-<a class="sourceLine" id="cb273-11" title="11"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p))</a>
-<a class="sourceLine" id="cb273-12" title="12">} </a>
-<a class="sourceLine" id="cb273-13" title="13"></a>
-<a class="sourceLine" id="cb273-14" title="14"><span class="co"># Test it with our example </span></a>
-<a class="sourceLine" id="cb273-15" title="15"><span class="kw">single_t_test</span>(<span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">51</span>, <span class="dv">65</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" title="1"><span class="co"># Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65</span></a>
+<a class="sourceLine" id="cb275-2" title="2">single_t_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
+<a class="sourceLine" id="cb275-3" title="3"></a>
+<a class="sourceLine" id="cb275-4" title="4"><span class="co"># Equation for one-sample z-test</span></a>
+<a class="sourceLine" id="cb275-5" title="5">t &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)) </a>
+<a class="sourceLine" id="cb275-6" title="6"></a>
+<a class="sourceLine" id="cb275-7" title="7"><span class="co"># Report t-score and p-value to the user</span></a>
+<a class="sourceLine" id="cb275-8" title="8">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(t)) </a>
+<a class="sourceLine" id="cb275-9" title="9"></a>
+<a class="sourceLine" id="cb275-10" title="10"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;t =&#39;</span>, t, </a>
+<a class="sourceLine" id="cb275-11" title="11"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p))</a>
+<a class="sourceLine" id="cb275-12" title="12">} </a>
+<a class="sourceLine" id="cb275-13" title="13"></a>
+<a class="sourceLine" id="cb275-14" title="14"><span class="co"># Test it with our example </span></a>
+<a class="sourceLine" id="cb275-15" title="15"><span class="kw">single_t_test</span>(<span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">51</span>, <span class="dv">65</span>)</a></code></pre></div>
 <pre><code>## t = -2.357023 
 ## p-value = 0.01842213</code></pre>
 <div style="margin-bottom:50px;">
