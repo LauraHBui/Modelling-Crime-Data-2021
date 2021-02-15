@@ -5,9 +5,10 @@
 
 ##### **Learning Outcomes:** {-}
 -	Create a project in `R` to refer back to for each session
--	Learn what variables are and how to examine them in `R`
--	Learn how to label variables 
--	Learn how to subset select cases 
+-	Understand what variables are and how to examine them in `R`
+-	Learn how to make new variables
+- Learn how to label variables and their values
+-	Learn how to subset select observations and variables
 
 <div style="margin-bottom:30px;">
 </div>

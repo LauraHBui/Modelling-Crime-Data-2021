@@ -5,9 +5,10 @@
 
 ##### **Learning Outcomes:** {-}
 -	Create a project in `R` to refer back to for each session
--	Learn what variables are and how to examine them in `R`
--	Learn how to label variables 
--	Learn how to subset select cases 
+-	Understand what variables are and how to examine them in `R`
+-	Learn how to make new variables
+- Learn how to label variables and their values
+-	Learn how to subset select observations and variables
 
 <div style="margin-bottom:30px;">
 </div>
@@ -35,7 +36,7 @@
 </div>
 
 ##### *Functions introduced (and packages to which they belong)* {-}
-- `%>%` : Known as the pipe operator, and allows users to pass one output of a code to become the input of another ( `dplyr`) 	
+- `%>%` : Known as the pipe operator, and allows users to pass one output of a code to become the input of another ( `dplyr`)
 -`as_factor()` : Changes the class of an object to factor class (`haven`)
 - `attributes()` : Access object attributes, such as value labels (`base R`)
 -	`case_when()` : Allows users to vectorize multiple if / if else statements (`dplyr`)
@@ -1296,3 +1297,17 @@ P.S. Well done today, to get through all this. What you are learning now will se
 
 <div style="margin-bottom:500px;">
 </div>
+
+<!--## Answers to activities (if applicable)
+
+-1. N/A
+-2. 23,969 entries and 47 columns 
+-3. numeric and class(ncvs$weaponpresent)
+-4. N/A
+-5. N/A 
+-6. N/A 
+-7. N/A 
+-8. injuredfiveknew <- KnewOfandInjured %>% slice(1:5)
+-9. five_ageandincome <- injuredfiveknew %>% select(4,6)-->
+
+
