@@ -15,6 +15,10 @@
 
 <div style="margin-bottom:15px;">
 </div>
+##### *Total number of activities*: 8 {-}
+
+<div style="margin-bottom:15px;">
+</div>
  
 ##### *Data:* {-}
 -	Synthetic data we make ourselves
@@ -59,10 +63,16 @@ Inferences made from inferential statistics are not bound to one dataset and sam
 
 Today’s learning experience is the most theoretical of this course unit. To understand later inferential statistical analyses is to first understand the base on which they stand. Our three substantive topics today are: **samples**, **standard errors**, and **confidence intervals**. 
 
-As usual, we begin by opening your existing `R` project, then installing and loading the required packages as listed above. 
+<div style="margin-bottom:70px;">
+</div>
+
+### Activity 1: Our preparation routine
+
+As usual, we begin by opening your existing `R` project, then installing and loading the required packages as listed above under the 'Packages' subheader. 
 
 <div style="margin-bottom:50px;">
 </div>
+
 
 ---
 
@@ -98,6 +108,11 @@ The big concern now is: how do we know that a sample is generalisable to the wid
 
 We create **synthetic data** to represent a fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population. Why the data are based on a fake population is because rarely do we have information on the whole population, of course. 
 
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 2: Making normally distributed synthetic data
+
 The synthetic data will be randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. We create this population distribution by using the function `nrnorm ()` and assigning this to a vector object called `prob_iq`:
 
 <div style="margin-bottom:35px;">
@@ -120,7 +135,10 @@ Visualizing this distribution will help us identify its shape. We use `ggplot2`:
 library(ggplot2)
 
 ```
+
 ```{r}
+
+# Have you brought up 'ggplot2'?
 
 # As our data is in a single vector object, we do not need to specify a data frame (as these have multiple vectors), so leave ggplot() empty
 ggplot() + 
@@ -146,7 +164,22 @@ sd(prob_iq) # 14.99377
 <div style="margin-bottom:50px;">
 </div>
 
-Your numbers may slightly differ from those in the comments, and that is okay, because this has to do with how computers generate random numbers. We want our results to be the same though, so we set a seed using the function `set.seed()`, which ensures it generates the exact same distribution for this session. 
+Your numbers may slightly differ from those in the comments, and that is okay, because this has to do with how computers generate random numbers. In your google doc, type the values from your output for the mean, median, and sd.
+
+
+<div style="margin-bottom:50px;">
+</div>
+
+---
+
+
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 3: Taking a sample from (our synthetic) population
+
+Your results may have differed from the ones in the comments, but we now want our results to be the same, so we set a seed using the function `set.seed()`, which ensures it generates the exact same distribution for this session. 
 
 We then create a data frame with an ID column for each probationer and use the `round ()` function to tell `R` to round each IQ score to a whole number (zero decimal places):
 
@@ -196,11 +229,23 @@ sd(sample1$IQ) # 16.27485
 
 The results seem very close to the ‘true’ estimates from our population of probationers. The reason, though, is we have all set the same seed. But if we did not, we would get different estimates each time we took a random sample from the population. 
 
-This is a real problem facing researchers: each time you take a sample from your population of interest, its estimates may not be similar to the true but unknown estimates of that population. This variation in estimates is known as **sampling variability**, an unavoidable consequence of randomly sampling observations from the population. 
+<div style="margin-bottom:50px;">
+</div>
+
+---
+
+
+Getting different estimates each time we randomly sample from the population is a real problem facing researchers: each time you take a sample from your population of interest, its estimates may not be similar to the true but unknown estimates of that population. This variation in estimates is known as **sampling variability**, an unavoidable consequence of randomly sampling observations from the population. 
 
 Sampling variability makes up what is known as the **sampling distribution**. This distribution comprises the means of the many samples we draw from the same population. These two concepts are crucial to demonstrating how samples can be used to make inferences about the population. Here’s why:
 
 When we resample – take repeated samples from the same population of interest – we create many sample means. The interesting bit is that when you take the overall mean of a large number of sample means, it is very close to that true population mean of 100.
+
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 4: The sampling distribution 
 
 We use the `do ()` and `group_by ()` functions to demonstrate:
 
@@ -234,6 +279,14 @@ ggplot(data = sample_means100) +
 The histogram of our sampling distribution shows this very important concept in inferential statistics: if you randomly draw repeated samples from the same population and calculate the mean of each sample, then plot the frequency of those means, you will get the *normal distribution* -- that bell-shaped curve. This indicates that most samples drawn from the population will have a mean close to the true population mean. 
 
 According to our sampling distribution of probationer IQ scores, drawing a sample with a mean IQ score that is radically different from that of the population would be unlikely. This concept also applies to other point estimates such as the median and standard deviation, and not just the mean. Of course this also depends on sample size. 
+
+---
+
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 5: Sample sizes
 
 What if we had repeated samples of 30 instead of 1,000? We use the function `bind_rows ()` to combine these different data frames of different sample sizes to answer our question:
 
@@ -273,6 +326,7 @@ From the density plot, all three sample distributions are normally distributed a
 
 <div style="margin-bottom:50px;">
 </div>
+
 ---
 
 <div style="margin-bottom:35px;">
@@ -280,8 +334,10 @@ From the density plot, all three sample distributions are normally distributed a
 
 ### Standard Errors
 
-<div style="margin-bottom:50px;">
+<div style="margin-bottom:70px;">
 </div>
+
+#### Activity 6: The central limit theorem
 
 We can summarise the variability of the sampling distribution in an estimate called **standard error** (SE). It is essentially the standard deviation of the sampling distribution. We demonstrate how sample size affects the SE, in that the larger the sample size, the smaller the SE and vice versa:
 
@@ -325,6 +381,7 @@ The SE is 0.4783, which indicates that the mean of our sample of 1,000 American 
 
 ---
 
+
 ### Confidence Intervals
 
 <div style="margin-bottom:50px;">
@@ -333,6 +390,11 @@ The SE is 0.4783, which indicates that the mean of our sample of 1,000 American 
 A better way of communicating the extent of inaccuracy in sample estimates is to use **confidence intervals** (CIs). These appear as an interval that tells you the margin of error – how many percentage points is your sample estimate away from the population estimate. We calculate them by, first, returning to our normal distribution. 
 
 A characteristic of the normal distribution is that 95% of values will fall within 1.96 standard deviations of the mean.  This is derived from the **68-95-99.7 rule**, or known as an empirical rule, which states that 68% of cases in the distribution will fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within three SD. 
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 7: The 68-95-97 rule in action
 
 Two observations to note: first, last week we learned about standard deviations and that there was mention of 68% of verbal assaults falling within one SD; it was a reference to this rule. Second, there is a contradiction with the numbers. If 95% of values fall within 1.96 SD, then why does the empirical rule state that 95% of values will fall within 2 SD? The former (1.96) is the precise number and the latter (2) is an approximation, meant to help you memorise this rule easier than if the value was a non-integer like 1.96. 
 
@@ -397,7 +459,19 @@ table(new.sample.ci100$capture.mean)
 <div style="margin-bottom:50px;">
 </div>
 
-Your result may slightly differ but, in this example, 96% of CIs obtained the true population mean and 4% did not, which is close to what we expected. We can visualise this to better understand what we have just found:
+Your result may slightly differ but, in this example, 96% of CIs obtained the true population mean and 4% did not, which is close to what we expected. 
+
+<div style="margin-bottom:50px;">
+</div>
+
+---
+
+<div style="margin-bottom:70px;">
+</div>
+
+#### Activity 8: Visualising confidence intervals
+
+We can visualise this to better understand what we have just found:
 
 <div style="margin-bottom:35px;">
 </div>
@@ -417,6 +491,8 @@ The visual shows the result obtained in the table, but here, you can see all 100
 
 <div style="margin-bottom:50px;">
 </div>
+
+
 ---
 
 <div style="margin-bottom:70px;">

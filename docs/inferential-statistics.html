@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-02-15" />
+<meta name="date" content="2021-02-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -187,7 +187,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a><ul>
-<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a></li>
+<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#activity-1-our-preparation-routine-1"><i class="fa fa-check"></i><b>5.1.1</b> Activity 1: Our preparation routine</a></li>
+</ul></li>
 <li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#samples"><i class="fa fa-check"></i><b>5.2.1</b> Samples</a></li>
 <li class="chapter" data-level="5.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#standard-errors"><i class="fa fa-check"></i><b>5.2.2</b> Standard Errors</a></li>
@@ -272,6 +274,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:15px;">
 
 </div>
+<div id="total-number-of-activities-8-1" class="section level5 unnumbered">
+<h5><em>Total number of activities</em>: 8</h5>
+<div style="margin-bottom:15px;">
+
+</div>
+</div>
 <div id="data-4" class="section level5 unnumbered">
 <h5><em>Data:</em></h5>
 <ul>
@@ -321,13 +329,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Whereas descriptive statistics is concerned with summarising and describing your data, <strong>inferential (or frequentist) statistics</strong> is concerned with using the data to say something about the world in which we live. Using samples drawn from our population of interest, we can conduct statistical analyses to generalise to our lives and what we observe around us.</p>
 <p>Inferences made from inferential statistics are not bound to one dataset and sample, and that is the strength of this type of statistics. Because, however, we will be saying something that is applicable to the ‘real’ world, we must understand the theory for which makes this possible.</p>
 <p>Today’s learning experience is the most theoretical of this course unit. To understand later inferential statistical analyses is to first understand the base on which they stand. Our three substantive topics today are: <strong>samples</strong>, <strong>standard errors</strong>, and <strong>confidence intervals</strong>.</p>
-<p>As usual, we begin by opening your existing <code>R</code> project, then installing and loading the required packages as listed above.</p>
+<div style="margin-bottom:70px;">
+
+</div>
+<div id="activity-1-our-preparation-routine-1" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Activity 1: Our preparation routine</h3>
+<p>As usual, we begin by opening your existing <code>R</code> project, then installing and loading the required packages as listed above under the ‘Packages’ subheader.</p>
 <div style="margin-bottom:50px;">
 
 </div>
 <hr />
 <div style="margin-bottom:50px;">
 
+</div>
 </div>
 </div>
 <div id="todays-3-2" class="section level2">
@@ -351,6 +365,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A <strong>sample</strong> of the population is a small selection of that population of interest. Our sample should also have high <strong>external validity</strong>, which means they are a good representation of the population. To establish external validity depends on the way you collect your sample (e.g., random sampling versus convenience samples). This will make conclusions from a sample generalisable to the population. That is what the <em>Crime Survey of England and Wales</em> does: sample from the population to get an estimate of how widespread crime and victimisation are in the whole of the population.</p>
 <p>The big concern now is: how do we know that a sample is generalisable to the wider population? Is there a way to prove that?</p>
 <p>We create <strong>synthetic data</strong> to represent a fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population. Why the data are based on a fake population is because rarely do we have information on the whole population, of course.</p>
+<div style="margin-bottom:70px;">
+
+</div>
+<div id="activity-2-making-normally-distributed-synthetic-data" class="section level4">
+<h4><span class="header-section-number">5.2.1.1</span> Activity 2: Making normally distributed synthetic data</h4>
 <p>The synthetic data will be randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. We create this population distribution by using the function <code>nrnorm ()</code> and assigning this to a vector object called <code>prob_iq</code>:</p>
 <div style="margin-bottom:35px;">
 
@@ -363,10 +382,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="co"># As our data is in a single vector object, we do not need to specify a data frame (as these have multiple vectors), so leave ggplot() empty</span></a>
-<a class="sourceLine" id="cb206-2" title="2"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb206-3" title="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> prob_iq), <span class="dt">bins =</span> <span class="dv">60</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb206-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(prob_iq)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="co"># We add a red line in the code to show the mean of the population IQ</span></a></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="co"># Have you brought up &#39;ggplot2&#39;?</span></a>
+<a class="sourceLine" id="cb206-2" title="2"></a>
+<a class="sourceLine" id="cb206-3" title="3"><span class="co"># As our data is in a single vector object, we do not need to specify a data frame (as these have multiple vectors), so leave ggplot() empty</span></a>
+<a class="sourceLine" id="cb206-4" title="4"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb206-5" title="5"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> prob_iq), <span class="dt">bins =</span> <span class="dv">60</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb206-6" title="6"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(prob_iq)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="co"># We add a red line in the code to show the mean of the population IQ</span></a></code></pre></div>
 <p><img src="05-inferential-statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <div style="margin-bottom:50px;">
 
@@ -376,15 +397,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 <div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" title="1"><span class="kw">mean</span>(prob_iq) <span class="co"># 99.99508</span></a></code></pre></div>
-<pre><code>## [1] 100.0201</code></pre>
+<pre><code>## [1] 100.0006</code></pre>
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1"><span class="kw">median</span>(prob_iq) <span class="co"># 99.99855</span></a></code></pre></div>
-<pre><code>## [1] 100.0179</code></pre>
+<pre><code>## [1] 99.98795</code></pre>
 <div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" title="1"><span class="kw">sd</span>(prob_iq) <span class="co"># 14.99377</span></a></code></pre></div>
-<pre><code>## [1] 15.00115</code></pre>
+<pre><code>## [1] 15.00332</code></pre>
 <div style="margin-bottom:50px;">
 
 </div>
-<p>Your numbers may slightly differ from those in the comments, and that is okay, because this has to do with how computers generate random numbers. We want our results to be the same though, so we set a seed using the function <code>set.seed()</code>, which ensures it generates the exact same distribution for this session.</p>
+<p>Your numbers may slightly differ from those in the comments, and that is okay, because this has to do with how computers generate random numbers. In your google doc, type the values from your output for the mean, median, and sd.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<hr />
+<div style="margin-bottom:70px;">
+
+</div>
+</div>
+<div id="activity-3-taking-a-sample-from-our-synthetic-population" class="section level4">
+<h4><span class="header-section-number">5.2.1.2</span> Activity 3: Taking a sample from (our synthetic) population</h4>
+<p>Your results may have differed from the ones in the comments, but we now want our results to be the same, so we set a seed using the function <code>set.seed()</code>, which ensures it generates the exact same distribution for this session.</p>
 <p>We then create a data frame with an ID column for each probationer and use the <code>round ()</code> function to tell <code>R</code> to round each IQ score to a whole number (zero decimal places):</p>
 <div style="margin-bottom:35px;">
 
@@ -424,9 +456,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 <p>The results seem very close to the ‘true’ estimates from our population of probationers. The reason, though, is we have all set the same seed. But if we did not, we would get different estimates each time we took a random sample from the population.</p>
-<p>This is a real problem facing researchers: each time you take a sample from your population of interest, its estimates may not be similar to the true but unknown estimates of that population. This variation in estimates is known as <strong>sampling variability</strong>, an unavoidable consequence of randomly sampling observations from the population.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<hr />
+<p>Getting different estimates each time we randomly sample from the population is a real problem facing researchers: each time you take a sample from your population of interest, its estimates may not be similar to the true but unknown estimates of that population. This variation in estimates is known as <strong>sampling variability</strong>, an unavoidable consequence of randomly sampling observations from the population.</p>
 <p>Sampling variability makes up what is known as the <strong>sampling distribution</strong>. This distribution comprises the means of the many samples we draw from the same population. These two concepts are crucial to demonstrating how samples can be used to make inferences about the population. Here’s why:</p>
 <p>When we resample – take repeated samples from the same population of interest – we create many sample means. The interesting bit is that when you take the overall mean of a large number of sample means, it is very close to that true population mean of 100.</p>
+<div style="margin-bottom:70px;">
+
+</div>
+</div>
+<div id="activity-4-the-sampling-distribution" class="section level4">
+<h4><span class="header-section-number">5.2.1.3</span> Activity 4: The sampling distribution</h4>
 <p>We use the <code>do ()</code> and <code>group_by ()</code> functions to demonstrate:</p>
 <div style="margin-bottom:35px;">
 
@@ -456,6 +498,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>The histogram of our sampling distribution shows this very important concept in inferential statistics: if you randomly draw repeated samples from the same population and calculate the mean of each sample, then plot the frequency of those means, you will get the <em>normal distribution</em> – that bell-shaped curve. This indicates that most samples drawn from the population will have a mean close to the true population mean.</p>
 <p>According to our sampling distribution of probationer IQ scores, drawing a sample with a mean IQ score that is radically different from that of the population would be unlikely. This concept also applies to other point estimates such as the median and standard deviation, and not just the mean. Of course this also depends on sample size.</p>
+<hr />
+<div style="margin-bottom:70px;">
+
+</div>
+</div>
+<div id="activity-5-sample-sizes" class="section level4">
+<h4><span class="header-section-number">5.2.1.4</span> Activity 5: Sample sizes</h4>
 <p>What if we had repeated samples of 30 instead of 1,000? We use the function <code>bind_rows ()</code> to combine these different data frames of different sample sizes to answer our question:</p>
 <div style="margin-bottom:35px;">
 
@@ -495,11 +544,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 </div>
+</div>
 <div id="standard-errors" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Standard Errors</h3>
-<div style="margin-bottom:50px;">
+<div style="margin-bottom:70px;">
 
 </div>
+<div id="activity-6-the-central-limit-theorem" class="section level4">
+<h4><span class="header-section-number">5.2.2.1</span> Activity 6: The central limit theorem</h4>
 <p>We can summarise the variability of the sampling distribution in an estimate called <strong>standard error</strong> (SE). It is essentially the standard deviation of the sampling distribution. We demonstrate how sample size affects the SE, in that the larger the sample size, the smaller the SE and vice versa:</p>
 <div style="margin-bottom:35px;">
 
@@ -533,6 +585,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <hr />
 </div>
+</div>
 <div id="confidence-intervals" class="section level3">
 <h3><span class="header-section-number">5.2.3</span> Confidence Intervals</h3>
 <div style="margin-bottom:50px;">
@@ -540,6 +593,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>A better way of communicating the extent of inaccuracy in sample estimates is to use <strong>confidence intervals</strong> (CIs). These appear as an interval that tells you the margin of error – how many percentage points is your sample estimate away from the population estimate. We calculate them by, first, returning to our normal distribution.</p>
 <p>A characteristic of the normal distribution is that 95% of values will fall within 1.96 standard deviations of the mean. This is derived from the <strong>68-95-99.7 rule</strong>, or known as an empirical rule, which states that 68% of cases in the distribution will fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within three SD.</p>
+<div style="margin-bottom:70px;">
+
+</div>
+<div id="activity-7-the-68-95-97-rule-in-action" class="section level4">
+<h4><span class="header-section-number">5.2.3.1</span> Activity 7: The 68-95-97 rule in action</h4>
 <p>Two observations to note: first, last week we learned about standard deviations and that there was mention of 68% of verbal assaults falling within one SD; it was a reference to this rule. Second, there is a contradiction with the numbers. If 95% of values fall within 1.96 SD, then why does the empirical rule state that 95% of values will fall within 2 SD? The former (1.96) is the precise number and the latter (2) is an approximation, meant to help you memorise this rule easier than if the value was a non-integer like 1.96.</p>
 <p>If 95% of values of the normal distribution fall within 1.96 SD of the mean, we are able to calculate the upper and lower boundaries of this particular confidence interval:</p>
 <div style="margin-bottom:35px;">
@@ -594,7 +652,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:50px;">
 
 </div>
-<p>Your result may slightly differ but, in this example, 96% of CIs obtained the true population mean and 4% did not, which is close to what we expected. We can visualise this to better understand what we have just found:</p>
+<p>Your result may slightly differ but, in this example, 96% of CIs obtained the true population mean and 4% did not, which is close to what we expected.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<hr />
+<div style="margin-bottom:70px;">
+
+</div>
+</div>
+<div id="activity-8-visualising-confidence-intervals" class="section level4">
+<h4><span class="header-section-number">5.2.3.2</span> Activity 8: Visualising confidence intervals</h4>
+<p>We can visualise this to better understand what we have just found:</p>
 <div style="margin-bottom:35px;">
 
 </div>
@@ -613,6 +682,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <div style="margin-bottom:70px;">
 
+</div>
 </div>
 </div>
 </div>
