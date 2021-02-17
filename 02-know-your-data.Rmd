@@ -919,7 +919,7 @@ var_label(ncvs$injured_no_labels) <- "Whether Victim Sustained Injuries"
 # Check that they were added 
 var_label(ncvs$injured_no_labels)
 
-# Add variable label 
+# Add value labels 
 ncvs$injured_no_labels <-add_labels(ncvs$injured_no_labels, labels = c(`uninjured` = 0, `injured` = 1)) 
 
 # Check that they were added 

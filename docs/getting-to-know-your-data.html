@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-02-16" />
+<meta name="date" content="2021-02-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1082,7 +1082,7 @@ Now to add a label:
 <a class="sourceLine" id="cb109-4" title="4"><span class="co"># Check that they were added </span></a>
 <a class="sourceLine" id="cb109-5" title="5"><span class="kw">var_label</span>(ncvs<span class="op">$</span>injured_no_labels)</a></code></pre></div>
 <pre><code>## [1] &quot;Whether Victim Sustained Injuries&quot;</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="co"># Add variable label </span></a>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="co"># Add value labels </span></a>
 <a class="sourceLine" id="cb111-2" title="2">ncvs<span class="op">$</span>injured_no_labels &lt;-<span class="kw">add_labels</span>(ncvs<span class="op">$</span>injured_no_labels, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">`</span><span class="dt">uninjured</span><span class="st">`</span> =<span class="st"> </span><span class="dv">0</span>, <span class="st">`</span><span class="dt">injured</span><span class="st">`</span> =<span class="st"> </span><span class="dv">1</span>)) </a>
 <a class="sourceLine" id="cb111-3" title="3"></a>
 <a class="sourceLine" id="cb111-4" title="4"><span class="co"># Check that they were added </span></a>
