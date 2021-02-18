@@ -1298,7 +1298,7 @@ P.S. Well done today, to get through all this. What you are learning now will se
 <div style="margin-bottom:500px;">
 </div>
 
-## Answers to activities (if applicable)
+### Answers to activities (if applicable)
 - 1. N/A
 - 2. 23,969 entries and 47 columns 
 - 3. numeric and class(ncvs$weaponpresent)
