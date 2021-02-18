@@ -551,7 +551,7 @@ name <- "Reka"
 <div style="margin-bottom:50px;">
 </div>
 
-The only difference is that we must attach this new object (which appears as a column) to the dataframe, and that the number of things we put in this object needs to match the number of rows in that data frame. As we are creating a new variable from one that already has the same number of rows, this is not a issue. 
+The only difference is that we must attach this new object (which appears as a column) to the dataframe, and that the number of things we put in this object needs to match the number of rows in that data frame. As we are creating a new variable from one that already has the same number of rows, this is not an issue. 
 
 Let us again create a duplicate variable of the `injured` variable: 
 
@@ -1105,16 +1105,15 @@ P.S. Well done today, to get through all this. What you are learning now will se
 <div style="margin-bottom:500px;">
 </div>
 
-<!--## Answers to activities (if applicable)
-
--1. N/A
--2. 23,969 entries and 47 columns 
--3. numeric and class(ncvs$weaponpresent)
--4. N/A
--5. N/A 
--6. N/A 
--7. N/A 
--8. injuredfiveknew <- KnewOfandInjured %>% slice(1:5)
--9. five_ageandincome <- injuredfiveknew %>% select(4,6)-->
+## Answers to activities (if applicable)
+- 1. N/A
+- 2. 23,969 entries and 47 columns 
+- 3. numeric and class(ncvs$weaponpresent)
+- 4. N/A
+- 5. N/A 
+- 6. N/A 
+- 7. N/A 
+- 8. injuredfiveknew <- KnewOfandInjured %>% slice(1:5)
+- 9. five_ageandincome <- injuredfiveknew %>% select(4,6)
 
 

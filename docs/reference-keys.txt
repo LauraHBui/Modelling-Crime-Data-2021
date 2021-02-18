@@ -45,6 +45,7 @@ subsetting
 activity-8-ways-to-subset-data
 activity-9-subsetting-the-sequel
 summary-1
+answers-to-activities-if-applicable
 data-visualization
 grammar-of-graphics
 activity-1-getting-ready
