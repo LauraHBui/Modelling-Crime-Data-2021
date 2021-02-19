@@ -61,7 +61,7 @@
 
 Today we learn the basics of data visualization in `R` using a package called `ggplot2` within the `tidyverse`, one of the most popular packages for making high-quality, reproducible graphics. The framework on which `ggplot2` is based derives from [Hadley Wickham’s (2010) A Layered Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.pdf). 
 
-Wickham advances the work of *Grammar of Graphics* by proposing a layered approach to describe and build graphics in a structured manner. Layers, according to Wickham, are used to describe any graphic or visualization. The three primary layers are (1) the data, (2) the aesthetics, and (3) the geometric objects:
+Wickham advances the work of *Grammar of Graphics* by proposing a layered approach to describe and build graphics in a structured manner. Layers, according to Wickham, are used to describe any graphic or visualization. Every layer comprises five parts, and the three primary ones are (1) the data, (2) the aesthetics, and (3) the geometric objects:
 
 <div style="margin-bottom:15px;">
 </div>
@@ -81,12 +81,12 @@ Wickham advances the work of *Grammar of Graphics* by proposing a layered approa
 
 ![**A. Visualize Table 3**](Images/grammar1.png)
 
-![**B. Using *Grammar of Graphics* approach to convert elements of Table 3 into layers**](Images/grammar 2.png)
+![**B. Using *Grammar of Graphics* approach to convert elements of Table 3 into its visual components**](Images/grammar 2.png)
 
 <div style="margin-bottom:30px;">
 </div>
 
-![**C. Integrating layers of Table 3**](Images/grammar3.png)
+![**C. Integrating those visual parts of Table 3 into a graphic**](Images/grammar3.png)
 
 
 <div style="margin-bottom:35px;">

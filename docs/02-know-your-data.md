@@ -628,8 +628,6 @@ In `R`, the way to create a frequency table for one variable is to use the funct
 
 
 ```r
-# Is the appropriate package, 'dplyr', loaded?
-
 table(ncvs$injured)
 ```
 
@@ -751,6 +749,8 @@ Before we do this, we need to know if we can actually do so by getting to know t
 </div>
 
 ```r
+# Is the appropriate package, 'dplyr', loaded?
+
 # Using count ( ) for ‘injured’ and ‘weaponpresent’
 count(ncvs, injured)
 ```

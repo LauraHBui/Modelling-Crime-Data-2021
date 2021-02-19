@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-02-18" />
+<meta name="date" content="2021-02-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -758,9 +758,7 @@ To view the new data frame, <code>ncvs</code>, type:
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="co"># Is the appropriate package, &#39;dplyr&#39;, loaded?</span></a>
-<a class="sourceLine" id="cb76-2" title="2"></a>
-<a class="sourceLine" id="cb76-3" title="3"><span class="kw">table</span>(ncvs<span class="op">$</span>injured)</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">table</span>(ncvs<span class="op">$</span>injured)</a></code></pre></div>
 <pre><code>## 
 ##     0     1 
 ## 16160  7809</code></pre>
@@ -835,8 +833,10 @@ To do so, we create a new variable whereby a new column appears in the data fram
 <div style="margin-bottom:35px;">
 
 </div>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1"><span class="co"># Using count ( ) for ‘injured’ and ‘weaponpresent’</span></a>
-<a class="sourceLine" id="cb83-2" title="2"><span class="kw">count</span>(ncvs, injured)</a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1"><span class="co"># Is the appropriate package, &#39;dplyr&#39;, loaded?</span></a>
+<a class="sourceLine" id="cb83-2" title="2"></a>
+<a class="sourceLine" id="cb83-3" title="3"><span class="co"># Using count ( ) for ‘injured’ and ‘weaponpresent’</span></a>
+<a class="sourceLine" id="cb83-4" title="4"><span class="kw">count</span>(ncvs, injured)</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##         injured     n
 ##       &lt;dbl+lbl&gt; &lt;int&gt;
