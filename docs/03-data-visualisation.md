@@ -25,7 +25,7 @@
 </div>
 
 ##### *Packages:* {-}
--	`gglot2`
+-	`ggplot2`
 -	`readr`
 - `here`
 
@@ -110,7 +110,7 @@ Before we ‘layer up’, let us do the following:
 <div style="margin-bottom:15px;">
 </div>
 
-2.	Load the `gglot2` and  `readr`  packages using the `library()` function. If you have not already installed these packages, you will need to do so first, using the `install.packages()` function. *If you are unclear about the difference between these two functions, see 1.3.3 in Lesson 1 of this online tutorial site or ask now!*
+2.	Load the `ggplot2` and  `readr`  packages using the `library()` function. If you have not already installed these packages, you will need to do so first, using the `install.packages()` function. *If you are unclear about the difference between these two functions, see 1.3.3 in Lesson 1 of this online tutorial site or ask now!*
 
 <div style="margin-bottom:15px;">
 </div>
@@ -164,7 +164,7 @@ Here is a recent powerful visualization from The New York Times about deaths fro
 
 For example, read this article about how the BBC uses `R` to create their graphics: [How the BBC Visual and Data Journalism team works with graphics in R](https://medium.com/bbc-visual-and-data-journalism/how-the-bbc-visual-and-data-journalism-team-works-with-graphics-in-r-ed0b35693535) (See Figure 3.5)
 
-<div style="margin-bottom:40px;">
+<div style="margin-bottom:70px;">
 </div>
 
 ![**Figure 3.5** How the BBC Visual and Data Journalism team works with graphics in R](https://miro.medium.com/max/700/0*DDRU1L5LIJkgDBxd.png)
