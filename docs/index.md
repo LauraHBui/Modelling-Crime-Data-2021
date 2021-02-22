@@ -1,7 +1,7 @@
 --- 
 title: "CRIM20452 Modelling Criminological Data"
 author: "Laura Bui & Reka Solymosi"
-date: "2021-02-19"
+date: "2021-02-22"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
