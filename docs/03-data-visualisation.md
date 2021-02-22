@@ -155,7 +155,7 @@ This week we will be learning how to use `R` to create various exciting data vis
 
 Here is a recent powerful visualization from The New York Times about deaths from COVID-19 in the USA (Figure 3.4): https://twitter.com/beccapfoley/status/1363338950518206472
 
-![**Figure 3.6** NYT visualization of COVID-19 deaths in USA](Images/times_COVID_VIZ.jpeg){width= 70%}
+![**Figure 3.6** NYT visualization of COVID-19 deaths in USA](Images/times_COVID_VIZ.jpeg){width=70%}
 
 <div style="margin-bottom:30px;">
 </div>
@@ -250,7 +250,7 @@ From: https://cfss.uchicago.edu/notes/grammar-of-graphics/
 
 One layer is the scatterplot itself and it contains the necessary components (e.g., data, aesthetics, and geom). The second layer is the smoothing line. Another example of multiple layers is this one that uses two different but related datasets in one graphic:
 
-![**Figure 3.5** Different data sets and aesthetics defined by layer](Images/complexlayer.png){width=50%}
+![**Figure 3.5** Different data sets and aesthetics defined by layer](Images/complexlayer.png){width=70%}
 
 From: http://applied-r.com/building-layered-plots/
 
