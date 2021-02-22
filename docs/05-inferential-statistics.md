@@ -158,7 +158,7 @@ mean(prob_iq) # 99.99508
 ```
 
 ```
-## [1] 99.98997
+## [1] 100.0019
 ```
 
 ```r
@@ -174,7 +174,7 @@ sd(prob_iq) # 14.99377
 ```
 
 ```
-## [1] 15.00862
+## [1] 14.99459
 ```
 <div style="margin-bottom:50px;">
 </div>
@@ -311,7 +311,13 @@ sample100 <- do(1000) * sample(x = prob_off, size = 100)
 sample_means100 <- sample100 %>% 
   group_by(.index) %>% # Group by .index  (the sample id)
   summarize(meanIQ = mean(IQ)) # Creating new variable of mean IQ
+```
 
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
 mean(sample_means100$meanIQ)
 ```
 
@@ -363,11 +369,23 @@ sample30 <- do(1000) * sample(x = prob_off, size = 30)
 sample_means1000 <- sample1000 %>% 
   group_by(.index) %>% 
   summarize(meanIQ = mean(IQ)) 
+```
 
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
 sample_means300 <- sample30 %>% 
   group_by(.index) %>% 
   summarize(meanIQ = mean(IQ)) 
+```
 
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
 # Bind them with our first example, which had 100 probationers in each sample 
 sample.means.total <- bind_rows(sample_means300, sample_means100, sample_means1000, .id = "sample.size")
 

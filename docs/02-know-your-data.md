@@ -106,6 +106,10 @@ library(dplyr)
 ```
 
 ```
+## Warning: package 'dplyr' was built under R version 3.6.3
+```
+
+```
 ## 
 ## Attaching package: 'dplyr'
 ```
@@ -234,7 +238,11 @@ library(here)
 ```
 
 ```
-## here() starts at /Users/reka/Dropbox (The University of Manchester)/modelling2021/Modelling-Crime-Data-2021
+## Warning: package 'here' was built under R version 3.6.3
+```
+
+```
+## here() starts at C:/Users/buihl/Desktop/Modelling-Crime-Data-2021
 ```
 <div style="margin-bottom:50px;">
 </div>
@@ -262,6 +270,10 @@ install.packages("haven")
 
 ```r
 library(haven)
+```
+
+```
+## Warning: package 'haven' was built under R version 3.6.3
 ```
 
 <div style="margin-bottom:50px;">
@@ -746,7 +758,7 @@ count(ncvs, injured)
 ```
 ## # A tibble: 2 x 2
 ##         injured     n
-## *     <dbl+lbl> <int>
+##       <dbl+lbl> <int>
 ## 1 0 [uninjured] 16160
 ## 2 1 [injured]    7809
 ```
@@ -758,7 +770,7 @@ count(ncvs, weaponpresent)
 ```
 ## # A tibble: 3 x 2
 ##   weaponpresent     n
-## *         <dbl> <int>
+##           <dbl> <int>
 ## 1             0 15814
 ## 2             1  6652
 ## 3            NA  1503

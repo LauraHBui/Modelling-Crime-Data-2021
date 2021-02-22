@@ -111,7 +111,6 @@ statistical-significance
 a-binomial-test
 single-sample-significance-tests
 single-sample-z-tests-for-means
-single-sample-z-tests-for-proportions
 single-sample-t-tests-for-means
 summary-5
 relationships-with-categorical-variables
@@ -128,9 +127,7 @@ measures-of-association
 todays-3-5
 between-categorical-nominal-variables
 phi
-cramers-v
 between-categorical-ordinal-variables
-goodman-kruskal-gamma
 somers-d
 between-numeric-variables
 summary-7
