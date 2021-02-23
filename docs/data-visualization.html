@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-02-22" />
+<meta name="date" content="2021-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -345,7 +345,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-bottom:15px;">
 
 </div></li>
-<li>Geometric objects: also known as ‘geoms’ and represent the data points in the visualisation, such as dots or lines.</li>
+<li>Geometric objects: also known as ‘geoms’ and represent the data points in the visualization, such as dots or lines.</li>
 </ol>
 <div style="margin-bottom:30px;">
 
@@ -420,7 +420,7 @@ Before we ‘layer up’, let us do the following:
 <div style="margin-bottom:30px;">
 
 </div>
-<p><code>R</code> has amazing data visualization qualitites. It is increasingly used by professionals and academics to create graphics that embody those principles of data visualization.</p>
+<p><code>R</code> has amazing data visualization qualities. It is increasingly used by professionals and academics to create graphics that embody those principles of data visualization.</p>
 <p>For example, read this article about how the BBC uses <code>R</code> to create their graphics: <a href="https://medium.com/bbc-visual-and-data-journalism/how-the-bbc-visual-and-data-journalism-team-works-with-graphics-in-r-ed0b35693535">How the BBC Visual and Data Journalism team works with graphics in R</a> (See Figure 3.5)</p>
 <div style="margin-bottom:70px;">
 
@@ -760,8 +760,8 @@ The real power in layered graphics comes from the ability to keep piling on the 
 </div>
 <p>It is important to choose an appropriate graph, so thought is required. May the following graphic be fair warning:</p>
 <div class="figure">
-<img src="Images/barplots.jpg" alt="Figure 3.8 Friends don’t let friends do this:" />
-<p class="caption"><strong>Figure 3.8</strong> Friends don’t let friends do this:</p>
+<img src="Images/barplots.jpg" alt="Figure 3.8 Friends don’t let friends do this" />
+<p class="caption"><strong>Figure 3.8</strong> Friends don’t let friends do this</p>
 </div>
 <div style="margin-bottom:30px;">
 
@@ -806,7 +806,7 @@ The real power in layered graphics comes from the ability to keep piling on the 
 </div>
 <div id="activity-11-line-graphs" class="section level4">
 <h4><span class="header-section-number">3.3.3.2</span> Activity 11: Line Graphs</h4>
-<p>A very good way of visualising trends over time are line graphs. For this, let us use the <code>monthly_df</code> data frame. Ensure it is loaded into your environment. Have a look at the structure of these data to get to know them.</p>
+<p>A very good way of visualizing trends over time are line graphs. For this, let us use the <code>monthly_df</code> data frame. Ensure it is loaded into your environment. Have a look at the structure of these data to get to know them.</p>
 <p>The data is in long format: we have a single month variable for 12 months’ worth of data (rather than one variable or column for each month). Setting longitudinal data up in long format allows us to specify the aesthetics (e.g., x- and y-axes) easily.</p>
 <p>For a line graph, we use the function <code>geom_line()</code>. We plan to plot the counts to show the trends of different crimes over the course of the year. Our time variable, <code>month</code>, should run along the x-axis, and the count variable, <code>n</code>, should run on the y-axis.</p>
 <p>To show each crime type separately, we use the group aesthetic and a new aesthetic, <code>linetype</code>, which uses different patterns for each group. To show our time measurement points, we also add <code>geom_point ()</code>:</p>

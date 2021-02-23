@@ -77,7 +77,7 @@ The three primary ones we focus on to ease you into this, however, are (1) the d
 <div style="margin-bottom:15px;">
 </div>
 
-3.	Geometric objects: also known as ‘geoms’ and represent the data points in the visualisation, such as dots or lines.
+3.	Geometric objects: also known as ‘geoms’ and represent the data points in the visualization, such as dots or lines.
 
 <div style="margin-bottom:30px;">
 </div>
@@ -170,7 +170,7 @@ Here is a recent powerful visualization from The New York Times about deaths fro
 <div style="margin-bottom:30px;">
 </div>
 
-`R` has amazing data visualization qualitites. It is increasingly used by professionals and academics to create graphics that embody those principles of data visualization.
+`R` has amazing data visualization qualities. It is increasingly used by professionals and academics to create graphics that embody those principles of data visualization.
 
 For example, read this article about how the BBC uses `R` to create their graphics: [How the BBC Visual and Data Journalism team works with graphics in R](https://medium.com/bbc-visual-and-data-journalism/how-the-bbc-visual-and-data-journalism-team-works-with-graphics-in-r-ed0b35693535) (See Figure 3.5)
 
@@ -660,7 +660,7 @@ Play around with the bin widths to find which one looks the most visually compre
 
 
 #### Activity 11: Line Graphs
-A very good way of visualising trends over time are line graphs. For this, let us use the `monthly_df` data frame. Ensure it is loaded into your environment. Have a look at the structure of these data to get to know them. 
+A very good way of visualizing trends over time are line graphs. For this, let us use the `monthly_df` data frame. Ensure it is loaded into your environment. Have a look at the structure of these data to get to know them. 
 
 The data is in long format: we have a single month variable for 12 months’ worth of data (rather than one variable or column for each month). Setting longitudinal data up in long format allows us to specify the aesthetics (e.g., x- and y-axes) easily.
 
