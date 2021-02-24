@@ -193,7 +193,7 @@ Today we focus on the `ggplot2` package to learn our three substantive topics: *
 
 Before we dive into those topics, we need to get into the habit of getting to know our data. Below is a brief 'data dictionary' of the variables from both of our data: 
 
-A. **burglary_df** has eight variables: 
+A. **burglary_df** has nine variables: 
 
 - *LSOAcode*: LSOA stands for Lower Super Output Area, and is a statistical unit of geography. It represents neighbourhoods that each contain 300-400 households. Essentially, LSOA means neighbourhood.
 - *burglary_count*: the number of burglaries in each LSOA in 2017
