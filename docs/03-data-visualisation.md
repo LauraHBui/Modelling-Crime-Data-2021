@@ -188,10 +188,10 @@ A. **burglary_df** has nine variables:
 - *LSOAcode*: LSOA stands for Lower Super Output Area, and is a statistical unit of geography. It represents neighbourhoods that each contain 300-400 households. Essentially, LSOA means neighbourhood.
 - *burglary_count*: the number of burglaries in each LSOA in 2017
 - *LAname*: the name of the Local Authority into which the LSOA falls
-- *IMD score*: the IMD refers to the Index of Multiple Deprivation. This measure combines seven domains of deprivation into one index: (1) income, (2) employment, (3) education, (4) health, (5) crime, (6) barriers to housing or services, and (7) living environment. It is the score that a particular LSOA has on this measure. You can read more about the measure here: [IMD infographic](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/833959/IoD2019_Infographic.pdf)  
+- *IMD score*: the IMD refers to the Index of Multiple Deprivation. This measure combines seven domains of deprivation into one index: (1) income, (2) employment, (3) education, (4) health, (5) crime, (6) barriers to housing or services, and (7) living environment.  It is the score that a particular LSOA has on this measure. You can read more about the measure here: [IMD infographic](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/833959/IoD2019_Infographic.pdf)  
 - *IMDrank*: another version of the IMD except it ranks all 32,844 LSOAs from highest to lowest deprivation.
 - *IMDdeci*: indicates in what decile of deprivation the LSOA falls. 
-- *incscore*: score for income deprivation; this is one of the seven indicators comprising the IMD
+- *incscore*: score for income deprivation; this is one of the seven indicators comprising the IMD. Measures the proportion of the population experiencing deprivation relating to low income.
 - *LSOAname*: the name of that particular LSOAs
 - *pop*: the population size of LSOAs
 
@@ -758,18 +758,18 @@ Hurrah: homework time!
 </div>
 
 
-<!-- #### ANSWERS TO ACTIVITIES:
-- 1. N/A
+#### ANSWERS TO ACTIVITIES:
+- 1.  burglary_df: 1,673 observations, 9 variables ; monthly_df: 73 observations, 3 variables
 - 2. (1) burglary_df: n= 1,673 LSOAs; (2) monthly_df: n= 72 months
-- 3. N/A
-- 4. Roughly areas with low income and high burglary are from Manchester
+- 3. Hard to say...
+- 4. Roughly: most areas have burglary counts below 50
 - 5. N/A 
 - 6. N/A 
 - 7. N/A 
 - 8. N/A 
-- 9. Roughly: The most number of LSOAs are in decile 1, meaning they are within the 10% of the most deprived LSOAS, and in the grouped bar graph, among decile 1, LSOAs from Manchester account for the most. 
+- 9. Roughly: The most number of LSOAs are in decile 1, meaning they are within the 10% of the most deprived LSOAS, and in the final and stacked grouped bar graph, LSOAs from Manchester have a large number in decile 1.
 - 10. N/A
 - 11. Roughly: Violence and sexual offences are the highest compared to other crimes and reaches its peak in the summer months. Antisocial behaviour rises from February to April, then declines, hitting a low point in September before rising again.
-- 12. Roughly: Decile 1 has highest median (about 25) compared to other deciles but with many outliers. Decile 4 has the most extreme outlier of about 250 burglaries. -->
+- 12. Roughly: Decile 1 has highest median (about 25) compared to other deciles but with many outliers. Decile 4 has the most extreme outlier of about 250 burglaries. 
 
 

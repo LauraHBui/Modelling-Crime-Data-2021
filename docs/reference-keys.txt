@@ -68,6 +68,7 @@ activity-10-histograms
 activity-11-line-graphs
 activity-12-boxplots
 summary-2
+answers-to-activities
 descriptive-statistics
 revisiting-descriptive-statistics
 activity-1-our-preparation-routine
