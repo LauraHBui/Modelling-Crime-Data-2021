@@ -26,6 +26,7 @@
 
 ##### *Packages:* {-}
 -	`ggplot2`
+- `ggthemes`
 -	`readr`
 - `here`
 
@@ -46,6 +47,7 @@
 -	`scale_color_brewer()` : Default color scheme options (`ggplot2`)
 -	`scale_color_viridis_d()` : Colour-blind-considerate palettes from `viridis` package (`ggplot2`)
 -	`theme()` : Customise ggplot graphics (`ggplot2`)
+- `theme_economist ()` : Changes the graphic to resemble ones found in *The Economist* (`ggthemes`)
 -	`theme_minimal()` : Default minimalist theme for `ggplot` graphics (`ggplot2`)
 
 
@@ -456,7 +458,7 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 ---
 
 #### Activity 8: Built-in Themes
-A final touch to your graphic can be the use of **themes**. These change the overall appearance of your graphic. The default theme we have for our graphic is `theme_gray()`, but we can go for a minimalist look by using `theme_minimal ()`. There are a number of these customised themes like one that is inspired by *The Economist* ( `theme_economist ()` )
+A final touch to your graphic can be the use of **themes**. These change the overall appearance of your graphic. The default theme we have for our graphic is `theme_gray()`, but we can go for a minimalist look by using `theme_minimal ()`. There are a number of these customised themes like one that is inspired by *The Economist* ( `theme_economist ()` ). To use special themes like *The Economist* install the package `ggthemes` and load it. 
 
 <div style="margin-bottom:35px;">
 </div>
