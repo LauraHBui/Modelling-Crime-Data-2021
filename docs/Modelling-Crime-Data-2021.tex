@@ -4134,8 +4134,7 @@ Now, we told you that the standard deviation is the square root of the variance.
 ## [1] 82.64384
 \end{verbatim}
 
-\hypertarget{yes-it-does-match}{%
-\chapter{Yes, it does match!}\label{yes-it-does-match}}
+Yes, it does match!
 
 The SD is 9.09087 meaning that this number of verbal assaults is one standard deviation above and below the mean, so the majority of reported verbal assaults, about 68\% of them (more on the 68-95-97 rule next week), should fall within 9.09 above and below the mean.
 
@@ -4306,7 +4305,7 @@ Visualising the distribution of IQ scores, we observe that the scores are normal
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.98536
+## [1] 99.9834
 \end{verbatim}
 
 \begin{Shaded}
@@ -4316,7 +4315,7 @@ Visualising the distribution of IQ scores, we observe that the scores are normal
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.98064
+## [1] 99.97506
 \end{verbatim}
 
 \begin{Shaded}
@@ -4326,7 +4325,7 @@ Visualising the distribution of IQ scores, we observe that the scores are normal
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 14.99792
+## [1] 15.00888
 \end{verbatim}
 
 Your numbers may slightly differ from those in the comments, and that is okay, because this has to do with how computers generate random numbers. In your google doc, type the values from your output for the mean, median, and sd.
@@ -5015,7 +5014,7 @@ The normal distribution has some predictable characteristics about it. One is th
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.487038
+## [1] 0.48671
 \end{verbatim}
 
 The result should be close to .50 indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the \textbf{z-score} is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.
@@ -5031,11 +5030,11 @@ To create z-scores, we use the function \texttt{scale\ ()}. For the next example
 
 \begin{verbatim}
 ##   prisoner_id  IQ
-## 1           1  87
-## 2           2  91
-## 3           3  92
-## 4           4 110
-## 5           5 119
+## 1           1 113
+## 2           2 102
+## 3           3 103
+## 4           4 108
+## 5           5 111
 \end{verbatim}
 
 \begin{Shaded}
@@ -5053,7 +5052,7 @@ To create z-scores, we use the function \texttt{scale\ ()}. For the next example
 
 \begin{verbatim}
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9999863
+## 1           1 115 0.9986604
 \end{verbatim}
 
 Where the z-score becomes practical is illustrated in the following example: say if a probation officer is writing a report for a prisoner who is about to be up for parole. The prisoner has an IQ of 124. The officer wants to give a good idea of how this score compares to all other prisoners. An apt way of doing this is to state the proportion of prisoners who have lower IQs. This can be done using the \texttt{pnormGC()} function from the \texttt{tigerstats} package:
@@ -5075,7 +5074,7 @@ Where the z-score becomes practical is illustrated in the following example: say
 \includegraphics{06-hypotheses_files/figure-latex/unnamed-chunk-10-1.pdf}
 
 \begin{verbatim}
-## [1] 0.9451989
+## [1] 0.9449778
 \end{verbatim}
 
 The output shows 0.9453, meaning that the prisoner has a higher IQ than over 94\% of the prison population.

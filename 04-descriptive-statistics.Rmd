@@ -1094,7 +1094,8 @@ var2
 ```
 
 
-# Yes, it does match!
+Yes, it does match!
+
 
 The SD is 9.09087 meaning that this number of verbal assaults is one standard deviation above and below the mean, so the majority of reported verbal assaults, about 68% of them (more on the 68-95-97 rule next week), should fall within 9.09 above and below the mean. 
 

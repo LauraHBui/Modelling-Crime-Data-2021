@@ -86,7 +86,6 @@ dispersion-in-interval-and-ratio-variables
 activity-9-the-range
 activity-10-variance
 activity-11-standard-deviation
-yes-it-does-match
 summary-3
 inferential-statistics
 generalising-about-the-world-from-data
