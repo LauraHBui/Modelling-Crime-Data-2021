@@ -8,20 +8,20 @@
 -	Learn to test for statistical significance in relationships with categorical variables
 -	Understand how to interpret outputs from t-tests and the chi-square test
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 #### Today’s Learning Tools: {-}
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 ##### *Data:* {-}
 -	National Youth Survey (NYS)
 -	British Crime Survey (BCS)
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 ##### *Packages:* {-}
 -	`dplyr`
@@ -33,8 +33,8 @@
 -	`skimr`
 -	`tidyverse`
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 ##### *Functions introduced (and packages to which they belong)* {-}
 -	`chisq.test()` : Produces the chi-square test (`base R`)
@@ -48,16 +48,16 @@
 -	`var.test()` : Performs an F-test to compare the variances of two samples from normal populations (`base R`)
 -	`with()` : Evaluates an expression, often to specify data you want to use (`base R`)
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
 
 ## Associating with Categorical Variables
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 We are familiar with categorical variables, which take the forms of nominal and ordinal level characteristics. In `R`, these variables are encoded as a factor class, and for shorthand, are referred to as **factors**. 
 
@@ -67,35 +67,35 @@ Today, we learn how to conduct more inferential statistical analyses, but this t
 
 Before we start, we do the following:
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 1.	Open up our existing `R` project
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 2.	Install and load the required packages listed above
 
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 3.	Open the National Youth Survey (NYS) datasets (*nys_1_ID.dta* and *nys_2_ID.dta*) using the function `read.dta ()`, specifying the working directory with `here()`
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 
 4.	Name the data frames `nys_1` and `nys_2` respectively
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 5.	Get to know the datasets with the codes `View(nys_1)` and `View(nys_2)`
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 6.	There is some code on scientific notation that we will ignore, so run `options(scipen=999)` to turn it off. 
 
@@ -106,26 +106,26 @@ View(nys_2)
 
 options(scipen=999)
 ```
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 ---
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 ## Today’s 3
 
 We further our understanding of inferential statistics by learning more about variables and a couple of new statistical analyses that examine a relationship with factor variables. Our three topics today are: **independent and dependent variables**, the **t-test**, and the **chi-square**. 
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 ---
 
 ### Independent and Dependent Variables
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 In learning to set hypotheses last week, we primarily wanted to know whether there was a relationship between certain variables. Inadvertently, we also were arranging our variables in a way that indicated one was the explanation and the other was the outcome. 
 
@@ -135,40 +135,40 @@ Although independent and dependent variables are not terms usually used for toda
 
 An important point to remember is that although the independent variable (IV) is considered to impact on the dependent variable (DV), it *does not mean the IV causes the DV*. We can only arrange these variables in the direction we think is suitable and make statements about whether they are related to each other. It is in experimental research designs that we can speak of causality.
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 ---
 
 
 ### The T-Test
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 #### Independent Sample T-test
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 We return to that previous example of sex and alcohol consumption. We would like to know whether there is a difference between the mean alcohol consumption level of males and females. In this example, we use the **independent sample t-test** or *unpaired t-test*. This test requires that the IV be a binary factor while the DV be either a ratio or interval variable and be normally distributed -- unless **N** (the number of the sample) is large. Both variables meet the assumptions. We are interested in knowing whether there is a significant difference between males and females in the mean number of times they reported being drunk in the past year. Our null and alternative hypotheses are as follows:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 $H_0$: There is no significant difference in frequency of getting drunk between males and females in the past year. 
 
-<div style="margin-bottom:15px;">
-</div> 
+
+ 
 
 $H_A$: There is a significant difference in frequency of getting drunk between males and females in the past year.
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 We use the data frame, `nys_1`, to address our research question: Is there a difference in the amount of drunkenness between males and females? Before conducting our t-test, we need to check our variables of interest to see if they need any recoding. We use the function `summarize ()` to examine the sex variable ( `sex` ) and use the function `n ()` to obtain frequencies:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -177,24 +177,20 @@ nys_1 %>% group_by(sex) %>% summarize(n = n())
 ```
 
 ```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```
 ## # A tibble: 2 x 2
 ##          sex     n
-##    <dbl+lbl> <int>
+## *  <dbl+lbl> <int>
 ## 1 1 [Male]     918
 ## 2 2 [Female]   807
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 According to the output, there are 918 males and 807 females. In addition, the codes for each value are shown: males are coded ‘1’ whereas females are coded ‘2’. We may want to recode these values to make a dummy variable (binary but codes are 0 and 1) so that females are ‘1’ and males are ‘0’:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -211,18 +207,18 @@ count(nys_1, female)
 ```
 ## # A tibble: 2 x 2
 ##       female     n
-##    <dbl+lbl> <int>
+## *  <dbl+lbl> <int>
 ## 1 0 [Male]     918
 ## 2 1 [Female]   807
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
 
-Now we check out our dependent variable `drunk` using the `skim ()` function from the `skimr` package familiar from lesson 4:
+ 
 
-<div style="margin-bottom:35px;">
-</div> 
+Now we check out our dependent variable `drunk` using the `skim()` function from the `skimr` package familiar from lesson 4:
+
+
+ 
 
 
 ```r
@@ -231,26 +227,11 @@ skim(nys_1, drunk)
 ```
 
 
-Table: (\#tab:unnamed-chunk-6)Data summary
-
-                                 
--------------------------  ------
-Name                       nys_1 
-Number of rows             1725  
-Number of columns          26    
-_______________________          
-Column type frequency:           
-numeric                    1     
-________________________         
-Group variables            None  
--------------------------  ------
+|skim_type |skim_variable | n_missing| complete_rate| numeric.mean| numeric.sd| numeric.p0| numeric.p25| numeric.p50| numeric.p75| numeric.p100|numeric.hist |
+|:---------|:-------------|---------:|-------------:|------------:|----------:|----------:|-----------:|-----------:|-----------:|------------:|:------------|
+|numeric   |drunk         |         6|     0.9965217|     1.242001|   10.48457|          0|           0|           0|           0|          250|▇▁▁▁▁        |
 
 
-**Variable type: numeric**
-
-skim_variable    n_missing   complete_rate   mean      sd   p0   p25   p50   p75   p100  hist  
---------------  ----------  --------------  -----  ------  ---  ----  ----  ----  -----  ------
-drunk                    6               1   1.24   10.48    0     0     0     0    250  ▇▁▁▁▁ 
 
 ```r
 # Checking out DV by variable ‘female’
@@ -258,30 +239,13 @@ nys_1 %>% group_by(female) %>% skim(drunk)
 ```
 
 
-Table: (\#tab:unnamed-chunk-6)Data summary
-
-                                      
--------------------------  -----------
-Name                       Piped data 
-Number of rows             1725       
-Number of columns          26         
-_______________________               
-Column type frequency:                
-numeric                    1          
-________________________              
-Group variables            female     
--------------------------  -----------
+|skim_type |skim_variable | female| n_missing| complete_rate| numeric.mean| numeric.sd| numeric.p0| numeric.p25| numeric.p50| numeric.p75| numeric.p100|numeric.hist |
+|:---------|:-------------|------:|---------:|-------------:|------------:|----------:|----------:|-----------:|-----------:|-----------:|------------:|:------------|
+|numeric   |drunk         |      0|         3|     0.9967320|     1.614208|  11.745701|          0|           0|           0|           0|          250|▇▁▁▁▁        |
+|numeric   |drunk         |      1|         3|     0.9962825|     0.818408|   8.821284|          0|           0|           0|           0|          240|▇▁▁▁▁        |
 
 
-**Variable type: numeric**
-
-skim_variable    female   n_missing   complete_rate   mean      sd   p0   p25   p50   p75   p100  hist  
---------------  -------  ----------  --------------  -----  ------  ---  ----  ----  ----  -----  ------
-drunk                 0           3               1   1.61   11.75    0     0     0     0    250  ▇▁▁▁▁ 
-drunk                 1           3               1   0.82    8.82    0     0     0     0    240  ▇▁▁▁▁ 
-
-<div style="margin-bottom:50px;">
-</div> 
+ 
 
 From the output, it seems that most youth did not report getting drunk in the past year; this is evidenced by the mean. The mean, however, shows that males have a slightly higher level of being drunk than females (1.61 as opposed to 0.82). Is this a statistically significant difference?
 
@@ -289,8 +253,8 @@ Our observation of a difference between means prompts us to test whether this di
 
 Before we conduct the test to tell us this, we conduct the **test for equality of variance**. This is an F-test that evaluates the null hypothesis that the variances of the two groups are equal. When we want to compare variances, we conduct this test as the variances may affect how we specify our t-test.
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -312,13 +276,13 @@ var.test(nys_1$drunk~nys_1$female)
 ##           1.772941
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 The information to focus on in the output are the alternative hypothesis, the F-statistic, and associated p-value. The alternative hypothesis states that the variances are not equal to 1, meaning they are not equal to each other. The p-value is very small, so we reject the null hypothesis that the variances are equal to each other. Conducting the F-test is an important step before the t-test because now we must set `var.equal` to `FALSE` in the following independent sample t-test. 
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -362,44 +326,44 @@ t_test_results
 ##        1.614208        0.818408
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 From the output, focus on the means, alternative hypothesis, the t-statistics, the p-value, and the 95% confidence interval (CI). 
 
 First, the means show that males got drunk an average of 1.6 times the year before, whereas females got drunk an average of 0.8 times, similar to the output of our descriptive statistics. Second, the alternative hypothesis (a true difference in means) is not equal to 0, which is what we expect. Third, the t-statistic reports 1.5994 with an associated p-value of 0.1099, which is greater than α = 0.05, so we fail to reject the null hypothesis. Fourth, the 95% CI tells us that, 95% of the time, the true t-value in the population will fall between -0.1801 and 1.772. We conclude that the true difference in means is not significantly different from 0 – there is *no significant difference in frequency of getting drunk between males and females in the past year*.
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 ---
 
 #### Dependent Sample T-test
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 When you are interested in comparing means of two groups that are related to each other, the **dependent sample t-test** or *paired sample t-test* is appropriate. What this means is that the responses are paired together because there is a prior connection between them. For example, I have two groups where the first group comprises test scores before an intervention and the second group comprises test scores after that intervention of the same people from the first group – a dependent sample t-test is called for. Another example: the first group are of brothers and the second group comprises sisters to those in the first group.  This, too, would call for a dependent sample t-test. 
 
 We return to our NYS sample, which is drawn from a longitudinal study whereby the same people are surveyed over multiple time periods. In this example, we compare the behaviours of youth from Wave 1 to Wave 2 to address the research question: *‘Do youth report a significantly different number of instances where they steal something over $50 in Wave 2 than in Wave 1?’* Our non-directional null and alternative hypotheses are as follows:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 $H_0$: There is no significant difference in the number of times a youth reported stealing something worth more than $50 between Wave 1 and Wave 2. 
 
-<div style="margin-bottom:15px;">
-</div> 
+
+ 
 
 $H_A$: There is a significant difference in the number of times a youth reported stealing something worth more than $50 between Wave 1 and Wave 2.
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 As responses from both Waves 1 and 2 are required, cases without this pair of responses will be dropped automatically when our analysis is conducted. This t-test also requires the DV to be stored in two separate variables and the level of measurement to be ratio or interval. Let us get to know our data:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -407,13 +371,13 @@ As responses from both Waves 1 and 2 are required, cases without this pair of re
 View(nys_2)
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 The variable `CASEID` is the case identification numbers and these are found across all waves. We want to examine Waves 1 and 2, so will need to merge the waves together using the variable `CASEID`:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -421,13 +385,13 @@ The variable `CASEID` is the case identification numbers and these are found acr
 # Putting this merged data into the data frame object called ‘nys_merged’
 nys_merged <-merge(nys_1, nys_2, by="CASEID")
 ```
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 Now, for the dependent sample t-test whereby we use the variables `thftg50` and `thftg50_w2`:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -450,21 +414,21 @@ t.test(nys_merged$thftg50_w2, nys_merged$thftg50, paired= TRUE)
 ##               0.0388114
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 The results indicate that we fail to reject the null hypothesis as the p-value is above α = 0.05. We conclude that there is no significant difference in thefts of items totaling more than $50 between the paired Waves 1 and 2 responses.
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 ---
 
 
 ### Chi-square
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 We now open the 2007–2008 wave of the British Crime Survey dataset using the `read.dta ()` function. We name the data frame `BCS0708`. Use the `View()` and `dim()` functions to get to know your data.
 
@@ -476,8 +440,8 @@ We produce a cross tabulation of victimisation ( `bcsvictim` ) and whether rubbi
 
 First, we check out our variables:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -590,15 +554,15 @@ sum(is.na(BCS0708$rubbcomm))
 ## [1] 611
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 For the DV, we are missing 611 cases. For this course unit, keep in mind that all the statistical tests you will learn rely on **full cases analysis** whereby the tests exclude cases that have missing values. There are appropriate ways in dealing with missing data but this is beyond the scope of this class. 
 
 There are a couple of ways of producing cross tabulations in `R`:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -624,13 +588,7 @@ results <- BCS0708 %>% # ‘fct_explicit_na()’ function from the forcats packa
   group_by(fct_explicit_na(as_factor(rubbcomm))) %>% 
   # We use the function ‘mean()’ as the variable is binary and because it is coded as 0 and 1.
   summarize( count = n(), outcome_1 = mean(bcsvictim))
-```
 
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
 # Auto-print the results stored in the newly created object 
 results
 ```
@@ -638,7 +596,7 @@ results
 ```
 ## # A tibble: 5 x 3
 ##   `fct_explicit_na(as_factor(rubbcomm))` count outcome_1
-##   <fct>                                  <int>     <dbl>
+## * <fct>                                  <int>     <dbl>
 ## 1 very common                              204     0.309
 ## 2 fairly common                           1244     0.296
 ## 3 not very common                         4154     0.236
@@ -646,15 +604,15 @@ results
 ## 5 (Missing)                                611     0.159
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 The `dplyr` coding seems more complicated than that of `basic R` but its output is clearer to read than the one produced by `R`, and it is more detailed. The proportion of victimised individuals are within each of the levels of the categorical, ordered measure of rubbish in the area. Victimisation appears higher (31%) in the areas where rubbish in the streets is a very common problem. 
 
 To further explore contingency tables, the best package for this is `gmodels`. It allows you to produce cross tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. We use the function `CrossTable ()` , then the `with ()` function to identify the data frame at the outset instead of having to include it with each variable. 
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -707,8 +665,8 @@ format = c("SPSS")))
 ## 
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 Cells for the central two columns are the total number of cases in each category, comprising the *row percentages*, the *column percentages*, and the *total percentages*. 
 
@@ -720,23 +678,23 @@ If you believe in broken windows theory, you will think of victimisation as the 
 
 This is a very **important** point: often, cross tabulations are interpreted the wrong way because percentages were specified incorrectly. Two rules to help ensure you interpret cross-tabs (short for cross tabulations) correctly:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 1.	If your dependent variable is defining the rows, then you ask for the *column percentages*
 
-<div style="margin-bottom:15px;">
-</div> 
+
+ 
 
 2.	If your dependent variable is defining the columns, then you ask for the *row percentages*
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 Also, *you make the comparisons across the right percentages in the direction where they do not add up to a hundred percent*. For example, 30.88% of people who live in areas where rubbish is very common have been victimised, whereas only 15.54% of people who live in areas where rubbish is not at all common have been victimised in the previous year. To make it easier, we can ask `R` to only give us the percentages in which we are interested:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 ```r
 # prop.c is column and prop.t is total
@@ -777,8 +735,8 @@ with(BCS0708, CrossTable(as_factor(rubbcomm),
 ## 
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 Now with this output, we only see the row percentages. **Marginal frequencies** appear as the right column and bottom row. *Row marginals* show the total number of cases in each row. For example, 204 people perceive rubbish as very common in the area where they are living and 1,244 perceive rubbish as fairly common in their area. *Column marginals* show the total number of cases in each column: 8,804 non-victims and 2,261 victims.
 
@@ -786,18 +744,18 @@ In the central cells, these are the total number for each combination of categor
 
 We now have an understanding of cross-tabs so that we can interpret the **chi-square statistic**. Our null and alternative hypotheses are as follows:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 $H_0$: Victimisation and how common rubbish is in the area are not related to each other. (They are considered independent of each other.)
 
-<div style="margin-bottom:15px;">
-</div> 
+
+ 
 
 $H_A$: Victimisation and how common rubbish is in the area are significantly related to each other. (They are considered dependent on each other.)
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 The test does the following: 
 (1) compares these expected frequencies with the ones we actually observe in each of the cells, (2) then averages the differences across the cells, and (3) produces a standardised value, *χ*$^2$ (the chi-square statistic).
@@ -806,8 +764,8 @@ We then look at a chi-square distribution to see how probable or improbable this
 
 **Expected frequencies** are the number of cases you would expect to see in each cell within a contingency table if there was no relationship between the two variables. **Observed frequencies** are the cases that we actually see in our sample. We use the `CrossTable ()` function again: 
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -867,8 +825,8 @@ with(BCS0708, CrossTable(as_factor(rubbcomm),
 ##  
 ##        Minimum expected frequency: 41.68495
 ```
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 The output shows that, for example, 63 people lived in areas where rubbish was very common and experienced victimisation in the past year. Under the null hypothesis of no relationship, however, we should expect this value to be 41.69. Thus, more people are in this cell than we would expect under the null hypothesis. 
 
@@ -876,8 +834,8 @@ The chi-square value is 184.04, with 3 degrees of freedom (df). The df is obtain
 
 If you do not want to use `CrossTable ()`, you can use `chisq.test ()`  to give you the chi-square value:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -892,15 +850,15 @@ chisq.test(BCS0708$rubbcomm, BCS0708$bcsvictim)
 ## X-squared = 184.04, df = 3, p-value < 2.2e-16
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 The chi-square statistic only tells us whether there is a relationship or not between two variables; it says nothing about strength of relationship or exactly what differences between observed and expected frequencies are driving the results. 
 
 For the chi-square to work though, it needs to have a sufficient number of cases in each cell. Notice that `R` was telling us that the minimum expected frequency is 41.68. One rule of thumb is that all expected cell counts should be above 5. If we have a small number in the cells, one alternative is to use **Fisher’s exact test**:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 
@@ -923,8 +881,8 @@ fisher.test(BCS0708$rubbcomm, BCS0708$bcsvictim, workspace = 2e+07, hybrid = TRU
 ## alternative hypothesis: two.sided
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 We did not need this test for our example, but we use it to illustrate how to use Fisher’s Exact Test when counts in cells are low. The p-value from Fisher’s exact test is still smaller than α = 0.05, so we reach the same conclusion that the relationship observed can be generalised to the population. 
 
@@ -934,8 +892,8 @@ We are not sure, however, of what is considered a large residual. A statistic th
 
 Whenever you see differences that are greater than 2, the difference between expected and observed frequencies in that particular cell is significant and is driving the results of your chi-square test. Values above +3 or below −3 are considered convincing evidence of a true effect in that cell:
 
-<div style="margin-bottom:35px;">
-</div> 
+
+ 
 
 
 ```r
@@ -996,23 +954,23 @@ with(BCS0708, CrossTable(as_factor(rubbcomm), as_factor(bcsvictim), expected = T
 ##        Minimum expected frequency: 41.68495
 ```
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 The column representing the outcome of interest (victimisation present), shows the adjusted standardised residual is lower than −12 for the ‘not at all common’ category. That is the largest residual for the DV. The expected count under the null hypothesis in this cell is much higher than the observed count.
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 ---
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 
 ## SUMMARY
 
-<div style="margin-bottom:50px;">
-</div> 
+
+ 
 
 We learned a few inferential statistical analyses to examine relationships with categorical variables, known as **factors** in `R`. These variables, in today’s analyses, were arranged as **independent variables** or **dependent variables**. When analysing a relationship between a categorical and a numeric variable, the t-test was used. We learned to conduct **independent sample** and **dependent sample** t-tests. 
 
@@ -1020,10 +978,10 @@ Before we performed the former t-test, we conducted the **test for equality of v
 
 The chi-square statistic contrasts **expected** and **observed** frequencies in the cross-tab. When counts in any one cell is lower than five, **Fisher’s Exact Test** is used instead. We also check the **adjusted standardised residuals** to identify which contrast of frequencies are driving the observed results. 
 
-<div style="margin-bottom:100px;">
-</div> 
+
+ 
 
 Homework time!
 
-<div style="margin-bottom:300px;">
-</div> 
+
+ 

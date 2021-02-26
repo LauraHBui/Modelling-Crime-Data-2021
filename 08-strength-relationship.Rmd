@@ -6,20 +6,20 @@
 -	Learn how to conduct analyses that identify the effect sizes of relationships
 -	Understand the output and make correct interpretations of it
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 #### Today’s Learning Tools: {-}
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 ##### *Data:*{-}
 -	Seattle Neighborhoods and Crime Survey
 -	Patrick Sharkey’s data
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 ##### *Packages:*{-}
 -	`DescTools`
@@ -30,8 +30,8 @@
 - `here`
 -	`tibble`
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 ##### *Functions introduced (and packages to which they belong)*{-}
 -	`add_row()` : Add rows to a data frame (`tibble`)
@@ -43,16 +43,16 @@
 -	`rm()` : Remove object from R environment (`base R`)
 -	`SomersDelta()` : Conducts the Somers’ D measure of association (`DescTools`)
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
 
 ## Measures of Association
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 So far in the course, we have learned ways of measuring whether there is a relationship between variables. If there is a relationship between variables, it means that the value of IV can be used to predict the value of the DV. Although we are able to test for statistical significance, we are unable to say anything about how *strong* these associations between variables are. 
 
@@ -62,13 +62,13 @@ The strength of relationship is known more as the **effect size**, and simply qu
 
 We begin by :
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 1.	Opening our project
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 2.	Loading the required packages
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -80,34 +80,34 @@ library(haven)
 library(here)
 library(tibble)
 ```
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 3.	Opening the Seattle Neighborhoods and Crime Survey dataset using the function `read.dta ()` and naming the data frame object as `seattle_ df`
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 seattle_df <- read_dta(here("Datasets", "Seattle_Neighborhoods_Crime_RandomSample.dta"))
                  
 ```
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 4.	Get to know the data by using the functions `View()` and `dim()`, and to see if it has been loaded successfully
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
 
 ## Today’s 3
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 We will learn how to run effect sizes and how to interpret them. First, we learn how to do so among categorical, nominal variables; then, second, with categorical, ordinal variables; and, third, with numeric variables. 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
@@ -116,19 +116,19 @@ We will learn how to run effect sizes and how to interpret them. First, we learn
 
 Following last week’s lesson on the chi-square analysis, the effect size for the relationship between two categorical variables can be conducted after obtaining the *χ*2 statistic. A number of measures are available to test *how related* the two variables are to each other. We learn three of them: *phi*, *Cramer’s V*, and *Goodman and Kruskal’s lambda and tau*.
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 #### Phi
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 This measure builds directly off of the chi-square statistic, but it is for the strength of association between two *binary* variables. It is used for 2×2 tables to obtain a measure of association ranging from 0 to 1, whereby higher values indicate a stronger relationship. 
 What this measure does is account for the sample size under observation, as the chi-square statistic is influenced by it. We obtain the **phi** coefficient by dividing the chi-square value by the sample size and taking the square root of that result, but we can do this in `R`. For example, we would like to know whether there is a relationship between sex and reporting victimisation to the police, and what is the strength of that relationship. We obtain the relevant variables, then conduct a chi-square analysis and obtain the phi coefficient:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ```{r}
 
@@ -157,27 +157,27 @@ Phi(seattle_df$sex, seattle_df$reported_to_police)
 
 ```
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 The phi value is about 0.1, and as the range is 0 to 1, it seems that this value is closer to 0 than it is to 1. We conclude that this is a weak association between a respondent’s sex and whether they reported their victimisation to the police. 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 #### Cramer’s V
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 For tables that are larger than 2x2, meaning these categorical variables are not binary, **Cramer’s V** is appropriate (although using Cramer’s V on a 2x2 table will produce the same value as that of the phi coefficient). Interpreting this value is similar to phi: a range from 0 to 1 with higher values indicating a stronger relationship. An advantage of Cramer’s V is that it is not swayed by sample size, so if you had suspected that the chi-square statistic was the result of a large sample size, this value can help determine that:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ```{r}
 
@@ -205,44 +205,44 @@ CramerV(chi2)
 
 ```
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Like the phi, the value shows a relatively small relationship between residents’ sex and how often they worry about being attacked in their neighbourhood.
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
 
 ### Between Categorical, Ordinal Variables
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 In some common situations in crime and criminal justice research, we work with survey data that have ordered response categories. For example, a likert scale of how strongly someone feels about abolishing the death penalty. 
 
 We learn two measures that deal with relationships between categorical, ordinal variables: Goodman-Kruskal's Gamma and Somers’ D. Both use concordant and discordant pairs of observations to estimate the effect size. **Concordant pairs** are observations where the rankings are consistent for both variables, and **discordant pairs** are observations whose rankings are inconsistent for both variables. If a pair of observations has the same rank on the variables of interest, they are considered a **tied pair**. 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 #### Goodman-Kruskal Gamma
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 **Gamma** can take on values ranging from −1 to +1, where: 0 indicates no relationship at all; a negative value indicates a negative relationship; and a positive value a positive relationship. The closer the value is to either −1 or +1, the stronger the relationship is between variables. 
 
 For this example, we test the association between two measures commonly used to gauge community informal social control. The first variable, `Q20A`, is based on a survey question asking respondents how likely it is that their neighbours would do something about a group of neighbourhood children skipping school. The second variable, `Q20B`, asks respondents how likely it is that neighbours would do something if children were spray painting graffiti on a neighbourhood building. 
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ```{r}
 
@@ -275,30 +275,30 @@ gamma_neighbor_intervene <- GoodmanKruskalGamma(x, conf.level = .95)
 
 ```
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 We specified the `conf.level` option and get a 95% confidence interval around the gamma coefficient. The value we receive is 0.63, which, in addition to the confidence interval that does not overlap with 0, indicates a fairly strong statistically significant and positive association between the two variables.
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 #### Somers’ D
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 **Somer’s D** provides a value between −1 and +1, whereby values closer to −1 and +1 indicate better prediction ability. This commonly used measure for ordinal variables indicates how much improvement in the prediction of the dependent variable is attributed to information we know from the independent variable. 
 
 We use the `SomersDelta` function from the `DescTools` package to conduct Somers’ D. We examine the relationship between the respondents’ perception of their neighbour’s willingness to exert informal social control and how likely the respondent would miss their neighbourhood if they moved away (`Q7`):
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 ```{r}
 
 # Recode the variable Q7 
@@ -317,21 +317,21 @@ SomersDelta(z, direction = "row", conf.level = 0.95)
 
 ```
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Somers’ D is positive, but close to 0, meaning that perception of neighbours’ willingness to intervene is a poor predictor of how much respondents would miss their neighbourhood if they moved. The confidence interval around the estimate does not overlap with 0 meaning that the association is statistically significant, even though the association is weak. 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
 
 ### Between Numeric Variables
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 This section is about measuring the strength of relationships between two ratio/ interval variables. Load Professor Patrick Sharkey’s dataset (sharkey.csv), which is a study on the effect of nonprofit organisations on the levels of crime, using the `read_csv()` function. Alternatively, you can load the dataset from the [Dataverse website](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/46WIH0). 
 
@@ -347,8 +347,8 @@ First, we examine our bivariate relationship between variables of interest throu
 
 We focus on the year 2012, which is the most recent year in the dataset, and on only a few select variables. We will place them in a data frame named, `df`. To do this, we will use the `filter()` and `select()` functions from the `dplyr` package. Then, we will remove the dataset from `R` using the `rm()` function.
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ```{r}
 
@@ -363,15 +363,15 @@ rm(sharkey)
 table(df$state_name)
 
 ```
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 The variables we now have contain information on the demographic composition of those cities (percent black population, percent without high school degree, percent unemployed, percent foreign born) and criminal justice characteristics (incarceration rate and the rate of sworn full-time police officers). In addition, we have measures of the violence rate and a binary variable that tells us if the city is one of the 50 largest in the country (value ‘1’ means one of the 50 largest).
 
 As the first step in exploring relationships is to visualise them, we create a scatterplot between the log of the violence rate (`log_viol_r`) and unemployment (`unemployed`) using the `ggplot()` function in the `ggplot2` package:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ```{r}
 
@@ -382,8 +382,8 @@ ggplot(df, aes(x = unemployed, y = log_viol_r)) +
 
 ```
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Is there a linear relationship between violence and unemployment? Does it look as if cities that have a high score on the x-axis (unemployment) also have a high score on the y-axis (violent crime)? It is hard to see but there is a trend: cities with more unemployment seem to have more violence. Notice, for example, how at high levels of unemployment, there are places with high levels of violence.
 
@@ -397,29 +397,29 @@ Second, it standardises the covariation by taking the square root of the value o
 
 $$ Pearson's~ r = \frac{\sum_{i=1}^{n} (x_{1i} - \bar{x_1})(x_{2i} - \bar{x_2})}{\sqrt{[\sum_{i=1}^{n} (x_{1i}- \bar{x_1})^2][\sum_{i=1}^{n} (x_{2i}- \bar{x_2})^2]}} $$
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 Our null and alternative hypotheses are as follows:
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 $H_0$: There is no correlation between the violence rate and unemployment. 
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 $H_A$: There is a correlation between the violence rate and unemployment.
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 We use the `cor ()` function and `cor.test` from `base R` to conduct a Pearson’s correlation:
 
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ```{r}
 
@@ -430,8 +430,8 @@ cor.test(~ log_viol_r + unemployed, data=df, method = "pearson", conf.level = 0.
 ```
 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 The `cor()` function gives the correlation but `cor.test()` gives more detail. Both give a positive correlation of 0.54. The coefficient is also an indication of the strength of the relationship. Jacob Cohen (1988) suggests that within the social sciences, a correlation of 0.10 may be defined as a small relationship; a correlation of 0.30, a moderate relationship; and a correlation of 0.50, a large relationship.
 
@@ -441,8 +441,8 @@ Now what about bivariate relationships where linearity is not met? This would ca
 
 We again use the function `cor.test ()` to conduct these:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ```{r}
 
@@ -462,35 +462,35 @@ cor.test(~ log_viol_r + unemployed, data=df_1, method = "spearman", conf.level =
 
 ```
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 The correlation coefficient is represented by tau for Kendall’s rank (ranges from 0 to 1) and by Spearman’s r (or rho) value (ranges −1 to 1) for Spearman’s rank. 
 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ## SUMMARY
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Today was all about **effect sizes** where we learned how to produce them. For relationships between nominal variables, we have the following options: **phi** and **Cramer’s V**. Then, for relationships between ordinal variables, we used **concordant and discordant pairs** to find effect sizes through **Gamma** and **Somers’ D**. We then learned to produce effect sizes for relationships between numeric relationships, and an important assumption had to do with **covariation**: **Pearson’s correlation** when the relationship is **linear** and nonparametric tests, **Kendall’s tau** and **Spearman’s correlation**, when the relationship is not. 
 
-<div style="margin-bottom:100px;">
-</div>
+
+
 
 
 Homework time!
 
-<div style="margin-bottom:150px;">
-</div>
+
+
 
 
 

@@ -8,31 +8,31 @@
 -	Learn how samples can be used to draw conclusions about the population
 -	Learn about and calculate standard errors and confidence intervals
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 #### **Today’s Learning Tools:** {-}
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 ##### *Total number of activities*: 8 {-}
 
-<div style="margin-bottom:15px;">
-</div>
+
+
  
 ##### *Data:* {-}
 -	Synthetic data we make ourselves
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 ##### *Packages:* {-}
 -	`dplyr`
 -	`ggplot2`
 -	`mosaic`
 
-<div style="margin-bottom:15px;">
-</div>
+
+
 
 ##### *Functions introduced (and packages to which they belong)* {-}
 -	`bind_rows()` : Combine data frame(s) together row-wise (`dplyr`)
@@ -46,12 +46,12 @@
 -	`sample()` : Randomly sample from a vector or data frame (`mosaic`)
 -	`set.seed()` : Random number generator start point (`base R`)
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 ---
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ## Generalising About the World from Data
 
@@ -63,38 +63,38 @@ Inferences made from inferential statistics are not bound to one dataset and sam
 
 Today’s learning experience is the most theoretical of this course unit. To understand later inferential statistical analyses is to first understand the base on which they stand. Our three substantive topics today are: **samples**, **standard errors**, and **confidence intervals**. 
 
-<div style="margin-bottom:70px;">
-</div>
+
+
 
 ### Activity 1: Our preparation routine
 
 As usual, we begin by opening your existing `R` project, then installing and loading the required packages as listed above under the 'Packages' subheader. 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 
 ---
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ## Today’s 3
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 As you continue the remainder of this course unit, you will observe how important it is to collect accurate information to conduct inferential statistics. Your findings are only as good as its basis, and if that basis is a shoddy collection of data, what you have to say will reflect that. An important way to collect accurate information is to ensure that what we have is representative of that real world. This is where samples arrive to play. 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
 ### Samples
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Say we are curious about how widespread robbery in the UK has been in the past 12 months. We could obtain police-recorded data to tell us this information. We also, however, know from previous criminology classes that not many people report crimes to the police, so this data is limited, unable to tap into what is known as ‘the dark figure of crime’. 
 
@@ -108,27 +108,27 @@ The big concern now is: how do we know that a sample is generalisable to the wid
 
 We create **synthetic data** to represent a fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population. Why the data are based on a fake population is because rarely do we have information on the whole population, of course. 
 
-<div style="margin-bottom:70px;">
-</div>
+
+
 
 #### Activity 2: Making normally distributed synthetic data
 
 The synthetic data will be randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. We create this population distribution by using the function `nrnorm ()` and assigning this to a vector object called `prob_iq`:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 
 ```r
 prob_iq <- rnorm(n = 3600000, mean = 100, sd = 15)
 ```
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Visualizing this distribution will help us identify its shape. We use `ggplot2`:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 
 
@@ -142,15 +142,15 @@ ggplot() +
   geom_vline(mapping = aes(xintercept = mean(prob_iq)), col = "red", linetype = "dashed") # We add a red line in the code to show the mean of the population IQ
 ```
 
-<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Visualising the distribution of IQ scores, we observe that the scores are normally distributed, which is bell-shaped, and there is no skewness on other side. The majority of probationers have an IQ around the mean of 100. Now we conduct some descriptive statistics to know more about our data:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 
 ```r
@@ -158,7 +158,7 @@ mean(prob_iq) # 99.99508
 ```
 
 ```
-## [1] 99.99088
+## [1] 100.0144
 ```
 
 ```r
@@ -166,7 +166,7 @@ median(prob_iq) # 99.99855
 ```
 
 ```
-## [1] 99.99044
+## [1] 100.0046
 ```
 
 ```r
@@ -174,23 +174,23 @@ sd(prob_iq) # 14.99377
 ```
 
 ```
-## [1] 15.00033
+## [1] 15.0016
 ```
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Your numbers may slightly differ from those in the comments, and that is okay, because this has to do with how computers generate random numbers. In your google doc, type the values from your output for the mean, median, and sd.
 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
 
 
-<div style="margin-bottom:70px;">
-</div>
+
+
 
 #### Activity 3: Taking a sample from (our synthetic) population
 
@@ -198,8 +198,8 @@ Your results may have differed from the ones in the comments, but we now want ou
 
 We then create a data frame with an ID column for each probationer and use the `round ()` function to tell `R` to round each IQ score to a whole number (zero decimal places):
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 
 ```r
@@ -232,15 +232,15 @@ sd(prob_off$IQ) # 14.99976
 ```
 ## [1] 14.99976
 ```
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Your descriptive statistics should match the numbers in the above comments. These numbers are, for this example, the *true* estimates of IQ scores in the population of American probationers. Now if we take a sample from this population, how accurate would our sample estimates be compared to the population estimates?
 
 First, we make a sample that is taken from our population. We draw a random sample of 100 probationers using the function `sample ()` from the `mosaic` package:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 
 
@@ -271,13 +271,13 @@ sd(sample1$IQ) # 16.27485
 ```
 ## [1] 16.27485
 ```
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 The results seem very close to the ‘true’ estimates from our population of probationers. The reason, though, is we have all set the same seed. But if we did not, we would get different estimates each time we took a random sample from the population. 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
@@ -289,15 +289,15 @@ Sampling variability makes up what is known as the **sampling distribution**. Th
 When we resample – take repeated samples from the same population of interest – we create many sample means. The interesting bit is that when you take the overall mean of a large number of sample means, it is very close to that true population mean of 100.
 
 
-<div style="margin-bottom:70px;">
-</div>
+
+
 
 #### Activity 4: The sampling distribution 
 
 We use the `do ()` and `group_by ()` functions to demonstrate:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ```r
 # We use the do () function to make 1,000 automatic resamples from the data frame ‘prob_off’
@@ -311,13 +311,7 @@ sample100 <- do(1000) * sample(x = prob_off, size = 100)
 sample_means100 <- sample100 %>% 
   group_by(.index) %>% # Group by .index  (the sample id)
   summarize(meanIQ = mean(IQ)) # Creating new variable of mean IQ
-```
 
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
 mean(sample_means100$meanIQ)
 ```
 
@@ -336,9 +330,9 @@ ggplot(data = sample_means100) +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-8-1.png" width="672" />
-<div style="margin-bottom:50px;">
-</div>
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+
+
 
 The histogram of our sampling distribution shows this very important concept in inferential statistics: if you randomly draw repeated samples from the same population and calculate the mean of each sample, then plot the frequency of those means, you will get the *normal distribution* -- that bell-shaped curve. This indicates that most samples drawn from the population will have a mean close to the true population mean. 
 
@@ -347,15 +341,15 @@ According to our sampling distribution of probationer IQ scores, drawing a sampl
 ---
 
 
-<div style="margin-bottom:70px;">
-</div>
+
+
 
 #### Activity 5: Sample sizes
 
 What if we had repeated samples of 30 instead of 1,000? We use the function `bind_rows ()` to combine these different data frames of different sample sizes to answer our question:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 
 ```r
@@ -369,23 +363,11 @@ sample30 <- do(1000) * sample(x = prob_off, size = 30)
 sample_means1000 <- sample1000 %>% 
   group_by(.index) %>% 
   summarize(meanIQ = mean(IQ)) 
-```
 
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
 sample_means300 <- sample30 %>% 
   group_by(.index) %>% 
   summarize(meanIQ = mean(IQ)) 
-```
 
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
 # Bind them with our first example, which had 100 probationers in each sample 
 sample.means.total <- bind_rows(sample_means300, sample_means100, sample_means1000, .id = "sample.size")
 
@@ -395,31 +377,31 @@ ggplot(data = sample.means.total) +
   scale_fill_discrete(labels = c("30","100","1000"))
 ```
 
-<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-9-1.png" width="672" />
-<div style="margin-bottom:50px;">
-</div>
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+
+
 
 From the density plot, all three sample distributions are normally distributed and have similar means to that of the population. Notice, however, that the larger the sample size, the more likely that the sample means are closer to those of the population. The distribution of sample sizes of 1,000, for example, is pointy, indicating that the IQ scores cluster very closely to the true population mean, whereas the distribution of the sample sizes of 30 is flatter, and its scores are more spread away from the true population mean. The implication is that if we draw small sized samples, we have a higher chance of having a sample that does not reflect the true population at all. Therefore, our findings and generalisations will be inaccurate. 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ### Standard Errors
 
-<div style="margin-bottom:70px;">
-</div>
+
+
 
 #### Activity 6: The central limit theorem
 
 We can summarise the variability of the sampling distribution in an estimate called **standard error** (SE). It is essentially the standard deviation of the sampling distribution. We demonstrate how sample size affects the SE, in that the larger the sample size, the smaller the SE and vice versa:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ```r
 sd(sample_means300$meanIQ)
@@ -444,15 +426,15 @@ sd(sample_means1000$meanIQ)
 ```
 ## [1] 0.4774102
 ```
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 What we have learned is succinctly referred to as the **Central Limit Theorem**. This theorem states that as sample sizes get larger, the means of the sampling distribution approaches normal distribution; it is able to reflect the true population estimate. 
 
 With the synthetic data, we have demonstrated how samples can estimate the population, which is usually unknown to us. The SE is helpful for when we want to know the extent to which the mean of the sample we have, drawn from a population whose estimates are unknown to us, is an accurate estimation of the true mean in that population. We calculate the SE in `R` by dividing the standard deviation of our IQ variable by the square root of our sample size:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 
 ```r
@@ -467,28 +449,28 @@ sample1000 %>%
 ## 1 0.4783743
 ```
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 The SE is 0.4783, which indicates that the mean of our sample of 1,000 American probationers is .50 away from the true population mean of said probationers – very close. 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
 
 ### Confidence Intervals
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 A better way of communicating the extent of inaccuracy in sample estimates is to use **confidence intervals** (CIs). These appear as an interval that tells you the margin of error – how many percentage points is your sample estimate away from the population estimate. We calculate them by, first, returning to our normal distribution. 
 
 A characteristic of the normal distribution is that 95% of values will fall within 1.96 standard deviations of the mean.  This is derived from the **68-95-99.7 rule**, or known as an empirical rule, which states that 68% of cases in the distribution will fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within three SD. 
 
-<div style="margin-bottom:70px;">
-</div>
+
+
 
 #### Activity 7: The 68-95-97 rule in action
 
@@ -496,8 +478,8 @@ Two observations to note: first, last week we learned about standard deviations 
 
 If 95% of values of the normal distribution fall within 1.96 SD of the mean, we are able to calculate the upper and lower boundaries of this particular confidence interval: 
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 
 ```r
@@ -515,13 +497,13 @@ sample1 %>%
 ## 1 69.72398 100.539 131.354
 ```
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Your numbers may differ a bit as we have not set a seed, but should be about 69.724 for the lower boundary ; 131.354 for the upper boundary; and 100.539 for the mean. We add these using the `geom_vline` function to a density plot visual to better understand our obtained interval:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ```r
 ggplot(data = sample1) + 
@@ -532,14 +514,14 @@ ggplot(data = sample1) +
   geom_vline(mapping = aes(xintercept = mean(IQ) - 1.96*sd(IQ)), col = "blue", linetype = "dashed")
 ```
 
-<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-13-1.png" width="672" />
-<div style="margin-bottom:50px;">
-</div>
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
+
+
 
 Seeing the dashes that represent the confidence interval shows us that IQ scores will vary away from the mean of our sample, but 95% of them will fall within this interval. Similar to what we learned about repeated samples, if we took 100 resamples of our population of probationers and obtained the sample means, the true population mean will fall within the confidence interval 95% of the time. Thus, only 5% of the time will our resamples fail to obtain the true population mean.  We use `R` to illustrate this concept and introduce a new function `if_else()` to do so:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ```r
 # Create a vector containing the true population mean from prob_off
@@ -562,25 +544,25 @@ table(new.sample.ci100$capture.mean)
 ##  no yes 
 ##   4  96
 ```
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Your result may slightly differ but, in this example, 96% of CIs obtained the true population mean and 4% did not, which is close to what we expected. 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 ---
 
-<div style="margin-bottom:70px;">
-</div>
+
+
 
 #### Activity 8: Visualising confidence intervals
 
 We can visualise this to better understand what we have just found:
 
-<div style="margin-bottom:35px;">
-</div>
+
+
 
 ```r
 ggplot(data = new.sample.ci100) + 
@@ -589,36 +571,36 @@ ggplot(data = new.sample.ci100) +
   geom_point(mapping = aes(y = .index, x = meanIQ, colour = capture.mean))
 ```
 
-<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-15-1.png" width="672" />
-<div style="margin-bottom:50px;">
-</div>
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-15-1.png)<!-- -->
+
+
 
 The visual shows the result obtained in the table, but here, you can see all 100 of the scores, their CIs, and how 95% of the time, they capture the true population mean. In reality, we have no way of knowing whether we have captured the true population estimates in our sample, but the use of the confidence interval gives us *confidence* that we are on the right track, so reporting CIs in your results is good practice for presenting your findings. 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 
 ---
 
-<div style="margin-bottom:70px;">
-</div>
+
+
 
 ## SUMMARY
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Today was a theoretical demonstration of why **samples** can be used to estimate what is happening in the **population**. Samples with high **external validity** can do so. This is the foundation of inferential statistics, the use of samples to draw conclusions about the population. We used **synthetic data** to show why. Despite **sampling variability**, the means of the **sampling distribution** demonstrate that it is able to approximate the normal distribution and, therefore, the true population estimates. This is further demonstrated by the **central limit theorem**, which clarifies that sample size matters in producing more accurate estimates of the population. We learned about the standard error and then onto **confidence intervals**, which is useful in establishing how accurate our estimates are, because in reality, rarely are the population estimates known. 
 
 
-<div style="margin-bottom:50px;">
-</div>
+
+
 
 Homework time!
 
-<div style="margin-bottom:150px;">
-</div>
+
+
 
 
 
