@@ -12,7 +12,7 @@
 ##### **Today’s Learning Tools:** {-}
 
 
-##### *Total number of activities*: 11 {-}
+##### *Total number of activities*: 12 {-}
 
 
 ##### *Data:* {-}

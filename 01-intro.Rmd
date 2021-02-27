@@ -133,6 +133,7 @@ It might be that the above does not work and you find that there are some issues
 
 You only need to open `Rstudio` (not both `R` and `RStudio`); `R` runs automatically in the background when `RStudio` is open. Using `RStudio` makes it easier to work with `R` than using `R` itself. If you do not believe this, try working directly in `R`! 
 <br>
+<br>
 
 ![**Figure 1.1** R Studio interface](Images/rstudio1.png){width=80%}
 
@@ -218,6 +219,8 @@ print("Hello world!")
 When you have typed this, you will have typed your first bit of code. Yet nothing is happening? That is because you also have to **RUN** the code. 
 
 You can do this by highlighting the code you wish to run, and clicking on 'run' in the top right hand corner: 
+<br>
+
 ```{r, echo=FALSE}
 
 if (knitr:::is_latex_output()) {
@@ -242,15 +245,17 @@ In the rest of the session, we will be unpacking how this all works, and getting
 
 
 Did you know you can change the way `RStudio` looks? Click in the *Tools* menu and select *Global Options*. A pop-up window appears with various options: 
+<br>
 
-![**Figure 1.5** Selecting 'Global Options'](Images/tools_global_options.png)
+
+![**Figure 1.5** Selecting 'Global Options'](Images/tools_global_options.png){width=70%}
 
 <br>
 
 Select *Appearance*. Here, you can change things related to the appearance of `R Studio` like the font type and size, including the theme background that `R` will use as the interface.
 <br>
 
-![**Figure 1.6** Choosing a theme background](Images/appearance_choose_tomorrow_night_bright.png)
+![**Figure 1.6** Choosing a theme background](Images/appearance_choose_tomorrow_night_bright.png){width=70%}
 
 <br>
 
@@ -349,6 +354,8 @@ max(c(10, 34, 5, 3, 77))
 <br>
 
 How exactly can you find the function you need? Throughout this class, you will learn a list that appears at the top of each lesson. A recommendation is to also create a 'function cookbook', where you write down a list of functions, what the functions do, and some examples. Here is an example: 
+
+<br>
 <br>
 
 ![**Figure 1.8** An example of a function cookbook](Images/fn_cookbook.png)
@@ -414,6 +421,8 @@ Everything that exists in `R` is an **object**. Think of objects as boxes where 
 #### Activity 7: Creating an object
 
 Let us create an object called 'plates'. To do this, you go to your script, and type 'plates'. 
+
+<br>
 <br>
 
 ![**Figure 1.9** Typing 'Plates' in the script](Images/plates.png)
