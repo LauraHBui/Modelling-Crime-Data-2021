@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-02-26" />
+<meta name="date" content="2021-02-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="descriptive-statistics.html"/>
 <link rel="next" href="hypotheses.html"/>
-<script src="libs/header-attrs-2.7.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,26 +53,25 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,129 +132,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a>
-<ul>
+<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a><ul>
+<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-1-identifying-your-operating-system"><i class="fa fa-check"></i><b>1.1.1</b> Activity 1: Identifying your operating system</a></li>
 <li class="chapter" data-level="1.1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-2-install-r-r-studio"><i class="fa fa-check"></i><b>1.1.2</b> Activity 2: Install R &amp; R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-r-studio"><i class="fa fa-check"></i><b>1.2</b> Getting to know R Studio</a>
-<ul>
+<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-r-studio"><i class="fa fa-check"></i><b>1.2</b> Getting to know R Studio</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#the-four-panes-of-r-studio"><i class="fa fa-check"></i><b>1.2.1</b> The four panes of R Studio</a></li>
 <li class="chapter" data-level="1.2.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#customising-r-studio"><i class="fa fa-check"></i><b>1.2.2</b> Customising R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a>
-<ul>
+<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#operators-and-functions"><i class="fa fa-check"></i><b>1.3.1</b> Operators and Functions</a></li>
 <li class="chapter" data-level="1.3.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.3.2</b> Objects</a></li>
 <li class="chapter" data-level="1.3.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.4</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a>
-<ul>
+<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a><ul>
 <li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#the-tidyverse"><i class="fa fa-check"></i><b>2.1</b> The Tidyverse</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-1-making-yourself-a-project"><i class="fa fa-check"></i><b>2.2.1</b> Activity 1: Making yourself a project</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-2-importing-and-viewing-data"><i class="fa fa-check"></i><b>2.3.1</b> Activity 2: Importing and Viewing Data</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a>
-<ul>
+<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#variables"><i class="fa fa-check"></i><b>2.4.1</b> Variables</a></li>
 <li class="chapter" data-level="2.4.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.4.2</b> Labels</a></li>
 <li class="chapter" data-level="2.4.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#subsetting"><i class="fa fa-check"></i><b>2.4.3</b> Subsetting</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a>
-<ul>
+<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#answers-to-activities-if-applicable"><i class="fa fa-check"></i><b>2.5.1</b> Answers to activities (if applicable)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a>
-<ul>
+<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="data-visualization.html"><a href="data-visualization.html#activity-1-getting-ready"><i class="fa fa-check"></i><b>3.1.1</b> Activity 1: Getting Ready</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>3.2</b> ggplot2</a></li>
-<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="data-visualization.html"><a href="data-visualization.html#layers"><i class="fa fa-check"></i><b>3.3.1</b> Layers</a></li>
 <li class="chapter" data-level="3.3.2" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-categorical-data"><i class="fa fa-check"></i><b>3.3.2</b> Graphs for Categorical Data</a></li>
 <li class="chapter" data-level="3.3.3" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-numeric-data"><i class="fa fa-check"></i><b>3.3.3</b> Graphs for Numeric Data</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a>
-<ul>
+<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#activity-1-our-preparation-routine"><i class="fa fa-check"></i><b>4.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#central-tendency"><i class="fa fa-check"></i><b>4.2.1</b> Central Tendency</a></li>
 <li class="chapter" data-level="4.2.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#outliers"><i class="fa fa-check"></i><b>4.2.2</b> Outliers</a></li>
 <li class="chapter" data-level="4.2.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#measures-of-dispersion"><i class="fa fa-check"></i><b>4.2.3</b> Measures of Dispersion</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a>
-<ul>
+<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a><ul>
+<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#activity-1-our-preparation-routine-1"><i class="fa fa-check"></i><b>5.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#samples"><i class="fa fa-check"></i><b>5.2.1</b> Samples</a></li>
 <li class="chapter" data-level="5.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#standard-errors"><i class="fa fa-check"></i><b>5.2.2</b> Standard Errors</a></li>
 <li class="chapter" data-level="5.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#confidence-intervals"><i class="fa fa-check"></i><b>5.2.3</b> Confidence Intervals</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#summary-4"><i class="fa fa-check"></i><b>5.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a>
-<ul>
+<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a><ul>
 <li class="chapter" data-level="6.1" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-testing"><i class="fa fa-check"></i><b>6.1</b> Hypothesis Testing</a></li>
-<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="hypotheses.html"><a href="hypotheses.html#statistical-significance"><i class="fa fa-check"></i><b>6.2.1</b> Statistical Significance</a></li>
 <li class="chapter" data-level="6.2.2" data-path="hypotheses.html"><a href="hypotheses.html#a-binomial-test"><i class="fa fa-check"></i><b>6.2.2</b> A Binomial Test</a></li>
 <li class="chapter" data-level="6.2.3" data-path="hypotheses.html"><a href="hypotheses.html#single-sample-significance-tests"><i class="fa fa-check"></i><b>6.2.3</b> Single-sample significance tests</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="hypotheses.html"><a href="hypotheses.html#summary-5"><i class="fa fa-check"></i><b>6.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a>
-<ul>
+<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a><ul>
 <li class="chapter" data-level="7.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#associating-with-categorical-variables"><i class="fa fa-check"></i><b>7.1</b> Associating with Categorical Variables</a></li>
-<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#independent-and-dependent-variables"><i class="fa fa-check"></i><b>7.2.1</b> Independent and Dependent Variables</a></li>
 <li class="chapter" data-level="7.2.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#the-t-test"><i class="fa fa-check"></i><b>7.2.2</b> The T-Test</a></li>
 <li class="chapter" data-level="7.2.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#chi-square"><i class="fa fa-check"></i><b>7.2.3</b> Chi-square</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#summary-6"><i class="fa fa-check"></i><b>7.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a>
-<ul>
+<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a><ul>
 <li class="chapter" data-level="8.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#measures-of-association"><i class="fa fa-check"></i><b>8.1</b> Measures of Association</a></li>
-<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-nominal-variables"><i class="fa fa-check"></i><b>8.2.1</b> Between Categorical, Nominal Variables</a></li>
 <li class="chapter" data-level="8.2.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-ordinal-variables"><i class="fa fa-check"></i><b>8.2.2</b> Between Categorical, Ordinal Variables</a></li>
 <li class="chapter" data-level="8.2.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-numeric-variables"><i class="fa fa-check"></i><b>8.2.3</b> Between Numeric Variables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#summary-7"><i class="fa fa-check"></i><b>8.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a>
-<ul>
+<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a><ul>
 <li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#multiple-and-simultaneous-relationships"><i class="fa fa-check"></i><b>9.1</b> Multiple and Simultaneous Relationships</a></li>
-<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="regression.html"><a href="regression.html#assumptions-of-ols-regression"><i class="fa fa-check"></i><b>9.2.1</b> Assumptions of OLS Regression</a></li>
 <li class="chapter" data-level="9.2.2" data-path="regression.html"><a href="regression.html#interpreting-ols-regression"><i class="fa fa-check"></i><b>9.2.2</b> Interpreting OLS Regression</a></li>
 <li class="chapter" data-level="9.2.3" data-path="regression.html"><a href="regression.html#logistic-regression"><i class="fa fa-check"></i><b>9.2.3</b> Logistic Regression</a></li>
@@ -283,7 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="inferential-statistics" class="section level1" number="5">
+<div id="inferential-statistics" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Inferential Statistics</h1>
 <div id="samples-standard-errors-and-confidence-intervals" class="section level4 unnumbered">
 <h4><em>Samples, Standard Errors, and Confidence Intervals</em></h4>
@@ -332,23 +304,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 </div>
 </div>
-<div id="generalising-about-the-world-from-data" class="section level2" number="5.1">
+<div id="generalising-about-the-world-from-data" class="section level2">
 <h2><span class="header-section-number">5.1</span> Generalising About the World from Data</h2>
 <p>Last week we revisited a familiar sort of statistics: descriptive. But we also learned how to conduct these measures using <code>R</code>. Today we learn the other main branch of statistics: inferential.</p>
 <p>Whereas descriptive statistics is concerned with summarising and describing your data, <strong>inferential (or frequentist) statistics</strong> is concerned with using the data to say something about the world in which we live. Using samples drawn from our population of interest, we can conduct statistical analyses to generalise to our lives and what we observe around us.</p>
 <p>Inferences made from inferential statistics are not bound to one dataset and sample, and that is the strength of this type of statistics. Because, however, we will be saying something that is applicable to the ‘real’ world, we must understand the theory for which makes this possible.</p>
 <p>Today’s learning experience is the most theoretical of this course unit. To understand later inferential statistical analyses is to first understand the base on which they stand. Our three substantive topics today are: <strong>samples</strong>, <strong>standard errors</strong>, and <strong>confidence intervals</strong>.</p>
-<div id="activity-1-our-preparation-routine-1" class="section level3" number="5.1.1">
+<div id="activity-1-our-preparation-routine-1" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Activity 1: Our preparation routine</h3>
 <p>As usual, we begin by opening your existing <code>R</code> project, then installing and loading the required packages as listed above under the ‘Packages’ subheader.</p>
 <hr />
 </div>
 </div>
-<div id="todays-3-2" class="section level2" number="5.2">
+<div id="todays-3-2" class="section level2">
 <h2><span class="header-section-number">5.2</span> Today’s 3</h2>
 <p>As you continue the remainder of this course unit, you will observe how important it is to collect accurate information to conduct inferential statistics. Your findings are only as good as its basis, and if that basis is a shoddy collection of data, what you have to say will reflect that. An important way to collect accurate information is to ensure that what we have is representative of that real world. This is where samples arrive to play.</p>
 <hr />
-<div id="samples" class="section level3" number="5.2.1">
+<div id="samples" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> Samples</h3>
 <p>Say we are curious about how widespread robbery in the UK has been in the past 12 months. We could obtain police-recorded data to tell us this information. We also, however, know from previous criminology classes that not many people report crimes to the police, so this data is limited, unable to tap into what is known as ‘the dark figure of crime’.</p>
 <p>What we could do is survey everyone in the UK about whether they have been a victim of robbery in the past year and how many times they have been robbed. But surveying the entire <strong>population</strong> is not very practical because of time and financial constraints.</p>
@@ -356,56 +328,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A <strong>sample</strong> of the population is a small selection of that population of interest. Our sample should also have high <strong>external validity</strong>, which means they are a good representation of the population. To establish external validity depends on the way you collect your sample (e.g., random sampling versus convenience samples). This will make conclusions from a sample generalisable to the population. That is what the <em>Crime Survey of England and Wales</em> does: sample from the population to get an estimate of how widespread crime and victimisation are in the whole of the population.</p>
 <p>The big concern now is: how do we know that a sample is generalisable to the wider population? Is there a way to prove that?</p>
 <p>We create <strong>synthetic data</strong> to represent a fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population. Why the data are based on a fake population is because rarely do we have information on the whole population, of course.</p>
-<div id="activity-2-making-normally-distributed-synthetic-data" class="section level4" number="5.2.1.1">
+<div id="activity-2-making-normally-distributed-synthetic-data" class="section level4">
 <h4><span class="header-section-number">5.2.1.1</span> Activity 2: Making normally distributed synthetic data</h4>
 <p>The synthetic data will be randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. We create this population distribution by using the function <code>nrnorm ()</code> and assigning this to a vector object called <code>prob_iq</code>:</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="inferential-statistics.html#cb253-1" aria-hidden="true" tabindex="-1"></a>prob_iq <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">3600000</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" title="1">prob_iq &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">3600000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)</a></code></pre></div>
 <p>Visualizing this distribution will help us identify its shape. We use <code>ggplot2</code>:</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="inferential-statistics.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Have you brought up &#39;ggplot2&#39;?</span></span>
-<span id="cb254-2"><a href="inferential-statistics.html#cb254-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb254-3"><a href="inferential-statistics.html#cb254-3" aria-hidden="true" tabindex="-1"></a><span class="co"># As our data is in a single vector object, we do not need to specify a data frame (as these have multiple vectors), so leave ggplot() empty</span></span>
-<span id="cb254-4"><a href="inferential-statistics.html#cb254-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb254-5"><a href="inferential-statistics.html#cb254-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> prob_iq), <span class="at">bins =</span> <span class="dv">60</span>) <span class="sc">+</span> </span>
-<span id="cb254-6"><a href="inferential-statistics.html#cb254-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(prob_iq)), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="co"># We add a red line in the code to show the mean of the population IQ</span></span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" title="1"><span class="co"># Have you brought up &#39;ggplot2&#39;?</span></a>
+<a class="sourceLine" id="cb267-2" title="2"></a>
+<a class="sourceLine" id="cb267-3" title="3"><span class="co"># As our data is in a single vector object, we do not need to specify a data frame (as these have multiple vectors), so leave ggplot() empty</span></a>
+<a class="sourceLine" id="cb267-4" title="4"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb267-5" title="5"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> prob_iq), <span class="dt">bins =</span> <span class="dv">60</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb267-6" title="6"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(prob_iq)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="co"># We add a red line in the code to show the mean of the population IQ</span></a></code></pre></div>
 <p><img src="05-inferential-statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Visualising the distribution of IQ scores, we observe that the scores are normally distributed, which is bell-shaped, and there is no skewness on other side. The majority of probationers have an IQ around the mean of 100. Now we conduct some descriptive statistics to know more about our data:</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="inferential-statistics.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(prob_iq) <span class="co"># 99.99508</span></span></code></pre></div>
-<pre><code>## [1] 99.98842</code></pre>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="inferential-statistics.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(prob_iq) <span class="co"># 99.99855</span></span></code></pre></div>
-<pre><code>## [1] 99.98291</code></pre>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="inferential-statistics.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(prob_iq) <span class="co"># 14.99377</span></span></code></pre></div>
-<pre><code>## [1] 15.00218</code></pre>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" title="1"><span class="kw">mean</span>(prob_iq) <span class="co"># 99.99508</span></a></code></pre></div>
+<pre><code>## [1] 100.0072</code></pre>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" title="1"><span class="kw">median</span>(prob_iq) <span class="co"># 99.99855</span></a></code></pre></div>
+<pre><code>## [1] 100.006</code></pre>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" title="1"><span class="kw">sd</span>(prob_iq) <span class="co"># 14.99377</span></a></code></pre></div>
+<pre><code>## [1] 15.00062</code></pre>
 <p>Your numbers may slightly differ from those in the comments, and that is okay, because this has to do with how computers generate random numbers. In your google doc, type the values from your output for the mean, median, and sd.</p>
 <hr />
 </div>
-<div id="activity-3-taking-a-sample-from-our-synthetic-population" class="section level4" number="5.2.1.2">
+<div id="activity-3-taking-a-sample-from-our-synthetic-population" class="section level4">
 <h4><span class="header-section-number">5.2.1.2</span> Activity 3: Taking a sample from (our synthetic) population</h4>
 <p>Your results may have differed from the ones in the comments, but we now want our results to be the same, so we set a seed using the function <code>set.seed()</code>, which ensures it generates the exact same distribution for this session.</p>
 <p>We then create a data frame with an ID column for each probationer and use the <code>round ()</code> function to tell <code>R</code> to round each IQ score to a whole number (zero decimal places):</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="inferential-statistics.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1612</span>) <span class="co"># Use this number! </span></span>
-<span id="cb261-2"><a href="inferential-statistics.html#cb261-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb261-3"><a href="inferential-statistics.html#cb261-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the prob_off data frame with ID variable called ‘probationer_id’ for all 3.6 million cases and including the IQ variable</span></span>
-<span id="cb261-4"><a href="inferential-statistics.html#cb261-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rounding IQ variable to nearest whole number</span></span>
-<span id="cb261-5"><a href="inferential-statistics.html#cb261-5" aria-hidden="true" tabindex="-1"></a>prob_off <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="at">probationer_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3600000</span>, <span class="at">IQ =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">3600000</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>) ) </span>
-<span id="cb261-6"><a href="inferential-statistics.html#cb261-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb261-7"><a href="inferential-statistics.html#cb261-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Some descriptive statistics</span></span>
-<span id="cb261-8"><a href="inferential-statistics.html#cb261-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(prob_off<span class="sc">$</span>IQ) <span class="co"># 100.0028 </span></span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" title="1"><span class="kw">set.seed</span>(<span class="dv">1612</span>) <span class="co"># Use this number! </span></a>
+<a class="sourceLine" id="cb274-2" title="2"></a>
+<a class="sourceLine" id="cb274-3" title="3"><span class="co"># Creating the prob_off data frame with ID variable called ‘probationer_id’ for all 3.6 million cases and including the IQ variable</span></a>
+<a class="sourceLine" id="cb274-4" title="4"><span class="co"># Rounding IQ variable to nearest whole number</span></a>
+<a class="sourceLine" id="cb274-5" title="5">prob_off &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">probationer_id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3600000</span>, <span class="dt">IQ =</span> <span class="kw">round</span>(<span class="kw">rnorm</span>(<span class="dv">3600000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>) ) </a>
+<a class="sourceLine" id="cb274-6" title="6"></a>
+<a class="sourceLine" id="cb274-7" title="7"><span class="co"># Some descriptive statistics</span></a>
+<a class="sourceLine" id="cb274-8" title="8"><span class="kw">mean</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 100.0028 </span></a></code></pre></div>
 <pre><code>## [1] 100.0028</code></pre>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="inferential-statistics.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(prob_off<span class="sc">$</span>IQ) <span class="co"># 100 </span></span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" title="1"><span class="kw">median</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 100 </span></a></code></pre></div>
 <pre><code>## [1] 100</code></pre>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="inferential-statistics.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(prob_off<span class="sc">$</span>IQ) <span class="co"># 14.99976</span></span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" title="1"><span class="kw">sd</span>(prob_off<span class="op">$</span>IQ) <span class="co"># 14.99976</span></a></code></pre></div>
 <pre><code>## [1] 14.99976</code></pre>
 <p>Your descriptive statistics should match the numbers in the above comments. These numbers are, for this example, the <em>true</em> estimates of IQ scores in the population of American probationers. Now if we take a sample from this population, how accurate would our sample estimates be compared to the population estimates?</p>
 <p>First, we make a sample that is taken from our population. We draw a random sample of 100 probationers using the function <code>sample ()</code> from the <code>mosaic</code> package:</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="inferential-statistics.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We take a sample of 100 from our data frame, ‘prob_off’, and put it into an object called ‘sample1’</span></span>
-<span id="cb267-2"><a href="inferential-statistics.html#cb267-2" aria-hidden="true" tabindex="-1"></a>sample1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> prob_off, <span class="at">size =</span> <span class="dv">100</span>)</span>
-<span id="cb267-3"><a href="inferential-statistics.html#cb267-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb267-4"><a href="inferential-statistics.html#cb267-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Some descriptive statistics of ‘sample1’</span></span>
-<span id="cb267-5"><a href="inferential-statistics.html#cb267-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sample1<span class="sc">$</span>IQ) <span class="co"># 101.59 </span></span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" title="1"><span class="co"># We take a sample of 100 from our data frame, ‘prob_off’, and put it into an object called ‘sample1’</span></a>
+<a class="sourceLine" id="cb280-2" title="2">sample1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb280-3" title="3"></a>
+<a class="sourceLine" id="cb280-4" title="4"><span class="co"># Some descriptive statistics of ‘sample1’</span></a>
+<a class="sourceLine" id="cb280-5" title="5"><span class="kw">mean</span>(sample1<span class="op">$</span>IQ) <span class="co"># 101.59 </span></a></code></pre></div>
 <pre><code>## [1] 101.59</code></pre>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="inferential-statistics.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(sample1<span class="sc">$</span>IQ) <span class="co"># 101.5 </span></span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" title="1"><span class="kw">median</span>(sample1<span class="op">$</span>IQ) <span class="co"># 101.5 </span></a></code></pre></div>
 <pre><code>## [1] 101.5</code></pre>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="inferential-statistics.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(sample1<span class="sc">$</span>IQ) <span class="co"># 16.27485</span></span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" title="1"><span class="kw">sd</span>(sample1<span class="op">$</span>IQ) <span class="co"># 16.27485</span></a></code></pre></div>
 <pre><code>## [1] 16.27485</code></pre>
 <p>The results seem very close to the ‘true’ estimates from our population of probationers. The reason, though, is we have all set the same seed. But if we did not, we would get different estimates each time we took a random sample from the population.</p>
 <hr />
@@ -413,145 +385,145 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Sampling variability makes up what is known as the <strong>sampling distribution</strong>. This distribution comprises the means of the many samples we draw from the same population. These two concepts are crucial to demonstrating how samples can be used to make inferences about the population. Here’s why:</p>
 <p>When we resample – take repeated samples from the same population of interest – we create many sample means. The interesting bit is that when you take the overall mean of a large number of sample means, it is very close to that true population mean of 100.</p>
 </div>
-<div id="activity-4-the-sampling-distribution" class="section level4" number="5.2.1.3">
+<div id="activity-4-the-sampling-distribution" class="section level4">
 <h4><span class="header-section-number">5.2.1.3</span> Activity 4: The sampling distribution</h4>
 <p>We use the <code>do ()</code> and <code>group_by ()</code> functions to demonstrate:</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="inferential-statistics.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We use the do () function to make 1,000 automatic resamples from the data frame ‘prob_off’</span></span>
-<span id="cb273-2"><a href="inferential-statistics.html#cb273-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Each resample comprises 100 cases </span></span>
-<span id="cb273-3"><a href="inferential-statistics.html#cb273-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We put our 1,000 resamples into an object called ‘sample100’</span></span>
-<span id="cb273-4"><a href="inferential-statistics.html#cb273-4" aria-hidden="true" tabindex="-1"></a>sample100 <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">1000</span>) <span class="sc">*</span> <span class="fu">sample</span>(<span class="at">x =</span> prob_off, <span class="at">size =</span> <span class="dv">100</span>)</span>
-<span id="cb273-5"><a href="inferential-statistics.html#cb273-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb273-6"><a href="inferential-statistics.html#cb273-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Additional variables are now found in sample100, which helps us to calculate the mean IQ of each sample, for which there are now 1000 of them</span></span>
-<span id="cb273-7"><a href="inferential-statistics.html#cb273-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb273-8"><a href="inferential-statistics.html#cb273-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Now select the sample100 data frame</span></span>
-<span id="cb273-9"><a href="inferential-statistics.html#cb273-9" aria-hidden="true" tabindex="-1"></a>sample_means100 <span class="ot">&lt;-</span> sample100 <span class="sc">%&gt;%</span> </span>
-<span id="cb273-10"><a href="inferential-statistics.html#cb273-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.index) <span class="sc">%&gt;%</span> <span class="co"># Group by .index  (the sample id)</span></span>
-<span id="cb273-11"><a href="inferential-statistics.html#cb273-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanIQ =</span> <span class="fu">mean</span>(IQ)) <span class="co"># Creating new variable of mean IQ</span></span>
-<span id="cb273-12"><a href="inferential-statistics.html#cb273-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb273-13"><a href="inferential-statistics.html#cb273-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sample_means100<span class="sc">$</span>meanIQ)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" title="1"><span class="co"># We use the do () function to make 1,000 automatic resamples from the data frame ‘prob_off’</span></a>
+<a class="sourceLine" id="cb286-2" title="2"><span class="co"># Each resample comprises 100 cases </span></a>
+<a class="sourceLine" id="cb286-3" title="3"><span class="co"># We put our 1,000 resamples into an object called ‘sample100’</span></a>
+<a class="sourceLine" id="cb286-4" title="4">sample100 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb286-5" title="5"></a>
+<a class="sourceLine" id="cb286-6" title="6"><span class="co"># Additional variables are now found in sample100, which helps us to calculate the mean IQ of each sample, for which there are now 1000 of them</span></a>
+<a class="sourceLine" id="cb286-7" title="7"></a>
+<a class="sourceLine" id="cb286-8" title="8"><span class="co"># Now select the sample100 data frame</span></a>
+<a class="sourceLine" id="cb286-9" title="9">sample_means100 &lt;-<span class="st"> </span>sample100 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb286-10" title="10"><span class="st">  </span><span class="kw">group_by</span>(.index) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Group by .index  (the sample id)</span></a>
+<a class="sourceLine" id="cb286-11" title="11"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanIQ =</span> <span class="kw">mean</span>(IQ)) <span class="co"># Creating new variable of mean IQ</span></a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" title="1"><span class="kw">mean</span>(sample_means100<span class="op">$</span>meanIQ)</a></code></pre></div>
 <pre><code>## [1] 100.1112</code></pre>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="inferential-statistics.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can visualise this sampling distribution to compare to the previous population distribution</span></span>
-<span id="cb275-2"><a href="inferential-statistics.html#cb275-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sample_means100) <span class="sc">+</span> </span>
-<span id="cb275-3"><a href="inferential-statistics.html#cb275-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> meanIQ)) <span class="sc">+</span> </span>
-<span id="cb275-4"><a href="inferential-statistics.html#cb275-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(meanIQ)), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" title="1"><span class="co"># We can visualise this sampling distribution to compare to the previous population distribution</span></a>
+<a class="sourceLine" id="cb290-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> sample_means100) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb290-3" title="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> meanIQ)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb290-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(meanIQ)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="05-inferential-statistics_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>The histogram of our sampling distribution shows this very important concept in inferential statistics: if you randomly draw repeated samples from the same population and calculate the mean of each sample, then plot the frequency of those means, you will get the <em>normal distribution</em> – that bell-shaped curve. This indicates that most samples drawn from the population will have a mean close to the true population mean.</p>
 <p>According to our sampling distribution of probationer IQ scores, drawing a sample with a mean IQ score that is radically different from that of the population would be unlikely. This concept also applies to other point estimates such as the median and standard deviation, and not just the mean. Of course this also depends on sample size.</p>
 <hr />
 </div>
-<div id="activity-5-sample-sizes" class="section level4" number="5.2.1.4">
+<div id="activity-5-sample-sizes" class="section level4">
 <h4><span class="header-section-number">5.2.1.4</span> Activity 5: Sample sizes</h4>
 <p>What if we had repeated samples of 30 instead of 1,000? We use the function <code>bind_rows ()</code> to combine these different data frames of different sample sizes to answer our question:</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="inferential-statistics.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1000 probationers in each sample </span></span>
-<span id="cb277-2"><a href="inferential-statistics.html#cb277-2" aria-hidden="true" tabindex="-1"></a>sample1000 <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">1000</span>) <span class="sc">*</span> <span class="fu">sample</span>(<span class="at">x =</span> prob_off, <span class="at">size =</span> <span class="dv">1000</span>) </span>
-<span id="cb277-3"><a href="inferential-statistics.html#cb277-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb277-4"><a href="inferential-statistics.html#cb277-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 30 probationers in each sample </span></span>
-<span id="cb277-5"><a href="inferential-statistics.html#cb277-5" aria-hidden="true" tabindex="-1"></a>sample30 <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">1000</span>) <span class="sc">*</span> <span class="fu">sample</span>(<span class="at">x =</span> prob_off, <span class="at">size =</span> <span class="dv">30</span>) </span>
-<span id="cb277-6"><a href="inferential-statistics.html#cb277-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb277-7"><a href="inferential-statistics.html#cb277-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the means IQ scores for each sample </span></span>
-<span id="cb277-8"><a href="inferential-statistics.html#cb277-8" aria-hidden="true" tabindex="-1"></a>sample_means1000 <span class="ot">&lt;-</span> sample1000 <span class="sc">%&gt;%</span> </span>
-<span id="cb277-9"><a href="inferential-statistics.html#cb277-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.index) <span class="sc">%&gt;%</span> </span>
-<span id="cb277-10"><a href="inferential-statistics.html#cb277-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanIQ =</span> <span class="fu">mean</span>(IQ)) </span>
-<span id="cb277-11"><a href="inferential-statistics.html#cb277-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb277-12"><a href="inferential-statistics.html#cb277-12" aria-hidden="true" tabindex="-1"></a>sample_means300 <span class="ot">&lt;-</span> sample30 <span class="sc">%&gt;%</span> </span>
-<span id="cb277-13"><a href="inferential-statistics.html#cb277-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.index) <span class="sc">%&gt;%</span> </span>
-<span id="cb277-14"><a href="inferential-statistics.html#cb277-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanIQ =</span> <span class="fu">mean</span>(IQ)) </span>
-<span id="cb277-15"><a href="inferential-statistics.html#cb277-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb277-16"><a href="inferential-statistics.html#cb277-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Bind them with our first example, which had 100 probationers in each sample </span></span>
-<span id="cb277-17"><a href="inferential-statistics.html#cb277-17" aria-hidden="true" tabindex="-1"></a>sample.means.total <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(sample_means300, sample_means100, sample_means1000, <span class="at">.id =</span> <span class="st">&quot;sample.size&quot;</span>)</span>
-<span id="cb277-18"><a href="inferential-statistics.html#cb277-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb277-19"><a href="inferential-statistics.html#cb277-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Density plot for comparison </span></span>
-<span id="cb277-20"><a href="inferential-statistics.html#cb277-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sample.means.total) <span class="sc">+</span> </span>
-<span id="cb277-21"><a href="inferential-statistics.html#cb277-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> meanIQ, <span class="at">fill =</span> sample.size), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb277-22"><a href="inferential-statistics.html#cb277-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;30&quot;</span>,<span class="st">&quot;100&quot;</span>,<span class="st">&quot;1000&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" title="1"><span class="co"># 1000 probationers in each sample </span></a>
+<a class="sourceLine" id="cb292-2" title="2">sample1000 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">1000</span>) </a>
+<a class="sourceLine" id="cb292-3" title="3"></a>
+<a class="sourceLine" id="cb292-4" title="4"><span class="co"># 30 probationers in each sample </span></a>
+<a class="sourceLine" id="cb292-5" title="5">sample30 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">30</span>) </a>
+<a class="sourceLine" id="cb292-6" title="6"></a>
+<a class="sourceLine" id="cb292-7" title="7"><span class="co"># Calculate the means IQ scores for each sample </span></a>
+<a class="sourceLine" id="cb292-8" title="8">sample_means1000 &lt;-<span class="st"> </span>sample1000 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb292-9" title="9"><span class="st">  </span><span class="kw">group_by</span>(.index) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb292-10" title="10"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanIQ =</span> <span class="kw">mean</span>(IQ)) </a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" title="1">sample_means300 &lt;-<span class="st"> </span>sample30 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb294-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(.index) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb294-3" title="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanIQ =</span> <span class="kw">mean</span>(IQ)) </a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" title="1"><span class="co"># Bind them with our first example, which had 100 probationers in each sample </span></a>
+<a class="sourceLine" id="cb296-2" title="2">sample.means.total &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(sample_means300, sample_means100, sample_means1000, <span class="dt">.id =</span> <span class="st">&quot;sample.size&quot;</span>)</a>
+<a class="sourceLine" id="cb296-3" title="3"></a>
+<a class="sourceLine" id="cb296-4" title="4"><span class="co"># Density plot for comparison </span></a>
+<a class="sourceLine" id="cb296-5" title="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> sample.means.total) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb296-6" title="6"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> meanIQ, <span class="dt">fill =</span> sample.size), <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb296-7" title="7"><span class="st">  </span><span class="kw">scale_fill_discrete</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;30&quot;</span>,<span class="st">&quot;100&quot;</span>,<span class="st">&quot;1000&quot;</span>))</a></code></pre></div>
 <p><img src="05-inferential-statistics_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>From the density plot, all three sample distributions are normally distributed and have similar means to that of the population. Notice, however, that the larger the sample size, the more likely that the sample means are closer to those of the population. The distribution of sample sizes of 1,000, for example, is pointy, indicating that the IQ scores cluster very closely to the true population mean, whereas the distribution of the sample sizes of 30 is flatter, and its scores are more spread away from the true population mean. The implication is that if we draw small sized samples, we have a higher chance of having a sample that does not reflect the true population at all. Therefore, our findings and generalisations will be inaccurate.</p>
 <hr />
 </div>
 </div>
-<div id="standard-errors" class="section level3" number="5.2.2">
+<div id="standard-errors" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Standard Errors</h3>
-<div id="activity-6-the-central-limit-theorem" class="section level4" number="5.2.2.1">
+<div id="activity-6-the-central-limit-theorem" class="section level4">
 <h4><span class="header-section-number">5.2.2.1</span> Activity 6: The central limit theorem</h4>
 <p>We can summarise the variability of the sampling distribution in an estimate called <strong>standard error</strong> (SE). It is essentially the standard deviation of the sampling distribution. We demonstrate how sample size affects the SE, in that the larger the sample size, the smaller the SE and vice versa:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="inferential-statistics.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(sample_means300<span class="sc">$</span>meanIQ)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" title="1"><span class="kw">sd</span>(sample_means300<span class="op">$</span>meanIQ)</a></code></pre></div>
 <pre><code>## [1] 2.695511</code></pre>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="inferential-statistics.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(sample_means100<span class="sc">$</span>meanIQ)</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" title="1"><span class="kw">sd</span>(sample_means100<span class="op">$</span>meanIQ)</a></code></pre></div>
 <pre><code>## [1] 1.485388</code></pre>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="inferential-statistics.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(sample_means1000<span class="sc">$</span>meanIQ)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" title="1"><span class="kw">sd</span>(sample_means1000<span class="op">$</span>meanIQ)</a></code></pre></div>
 <pre><code>## [1] 0.4774102</code></pre>
 <p>What we have learned is succinctly referred to as the <strong>Central Limit Theorem</strong>. This theorem states that as sample sizes get larger, the means of the sampling distribution approaches normal distribution; it is able to reflect the true population estimate.</p>
 <p>With the synthetic data, we have demonstrated how samples can estimate the population, which is usually unknown to us. The SE is helpful for when we want to know the extent to which the mean of the sample we have, drawn from a population whose estimates are unknown to us, is an accurate estimation of the true mean in that population. We calculate the SE in <code>R</code> by dividing the standard deviation of our IQ variable by the square root of our sample size:</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="inferential-statistics.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select our data frame with all 1000 samples</span></span>
-<span id="cb284-2"><a href="inferential-statistics.html#cb284-2" aria-hidden="true" tabindex="-1"></a>sample1000 <span class="sc">%&gt;%</span> </span>
-<span id="cb284-3"><a href="inferential-statistics.html#cb284-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.index <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="co"># Filter the first one (choose any)</span></span>
-<span id="cb284-4"><a href="inferential-statistics.html#cb284-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">SE =</span> <span class="fu">sd</span>(IQ)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">1000</span>)) <span class="co"># Calculate the error</span></span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" title="1"><span class="co"># Select our data frame with all 1000 samples</span></a>
+<a class="sourceLine" id="cb303-2" title="2">sample1000 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb303-3" title="3"><span class="st">  </span><span class="kw">filter</span>(.index <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Filter the first one (choose any)</span></a>
+<a class="sourceLine" id="cb303-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">SE =</span> <span class="kw">sd</span>(IQ)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1000</span>)) <span class="co"># Calculate the error</span></a></code></pre></div>
 <pre><code>##          SE
 ## 1 0.4783743</code></pre>
 <p>The SE is 0.4783, which indicates that the mean of our sample of 1,000 American probationers is .50 away from the true population mean of said probationers – very close.</p>
 <hr />
 </div>
 </div>
-<div id="confidence-intervals" class="section level3" number="5.2.3">
+<div id="confidence-intervals" class="section level3">
 <h3><span class="header-section-number">5.2.3</span> Confidence Intervals</h3>
 <p>A better way of communicating the extent of inaccuracy in sample estimates is to use <strong>confidence intervals</strong> (CIs). These appear as an interval that tells you the margin of error – how many percentage points is your sample estimate away from the population estimate. We calculate them by, first, returning to our normal distribution.</p>
 <p>A characteristic of the normal distribution is that 95% of values will fall within 1.96 standard deviations of the mean. This is derived from the <strong>68-95-99.7 rule</strong>, or known as an empirical rule, which states that 68% of cases in the distribution will fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within three SD.</p>
-<div id="activity-7-the-68-95-97-rule-in-action" class="section level4" number="5.2.3.1">
+<div id="activity-7-the-68-95-97-rule-in-action" class="section level4">
 <h4><span class="header-section-number">5.2.3.1</span> Activity 7: The 68-95-97 rule in action</h4>
 <p>Two observations to note: first, last week we learned about standard deviations and that there was mention of 68% of verbal assaults falling within one SD; it was a reference to this rule. Second, there is a contradiction with the numbers. If 95% of values fall within 1.96 SD, then why does the empirical rule state that 95% of values will fall within 2 SD? The former (1.96) is the precise number and the latter (2) is an approximation, meant to help you memorise this rule easier than if the value was a non-integer like 1.96.</p>
 <p>If 95% of values of the normal distribution fall within 1.96 SD of the mean, we are able to calculate the upper and lower boundaries of this particular confidence interval:</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="inferential-statistics.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-off sample containing 1000 probationers </span></span>
-<span id="cb286-2"><a href="inferential-statistics.html#cb286-2" aria-hidden="true" tabindex="-1"></a>sample1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> prob_off, <span class="at">size =</span> <span class="dv">1000</span>) </span>
-<span id="cb286-3"><a href="inferential-statistics.html#cb286-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb286-4"><a href="inferential-statistics.html#cb286-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Constructing the confidence interval using what we know about SDs and normal distributions</span></span>
-<span id="cb286-5"><a href="inferential-statistics.html#cb286-5" aria-hidden="true" tabindex="-1"></a>sample1 <span class="sc">%&gt;%</span> </span>
-<span id="cb286-6"><a href="inferential-statistics.html#cb286-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">lower =</span> <span class="fu">mean</span>(IQ)<span class="sc">-</span><span class="fl">1.96</span><span class="sc">*</span><span class="fu">sd</span>(IQ), <span class="at">meaniq =</span> <span class="fu">mean</span>(IQ), <span class="at">upper =</span></span>
-<span id="cb286-7"><a href="inferential-statistics.html#cb286-7" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mean</span>(IQ)<span class="sc">+</span><span class="fl">1.96</span><span class="sc">*</span><span class="fu">sd</span>(IQ))</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" title="1"><span class="co"># One-off sample containing 1000 probationers </span></a>
+<a class="sourceLine" id="cb305-2" title="2">sample1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">1000</span>) </a>
+<a class="sourceLine" id="cb305-3" title="3"></a>
+<a class="sourceLine" id="cb305-4" title="4"><span class="co"># Constructing the confidence interval using what we know about SDs and normal distributions</span></a>
+<a class="sourceLine" id="cb305-5" title="5">sample1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb305-6" title="6"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">lower =</span> <span class="kw">mean</span>(IQ)<span class="op">-</span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ), <span class="dt">meaniq =</span> <span class="kw">mean</span>(IQ), <span class="dt">upper =</span></a>
+<a class="sourceLine" id="cb305-7" title="7">              <span class="kw">mean</span>(IQ)<span class="op">+</span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ))</a></code></pre></div>
 <pre><code>##      lower  meaniq   upper
 ## 1 69.72398 100.539 131.354</code></pre>
 <p>Your numbers may differ a bit as we have not set a seed, but should be about 69.724 for the lower boundary ; 131.354 for the upper boundary; and 100.539 for the mean. We add these using the <code>geom_vline</code> function to a density plot visual to better understand our obtained interval:</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="inferential-statistics.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sample1) <span class="sc">+</span> </span>
-<span id="cb288-2"><a href="inferential-statistics.html#cb288-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> IQ)) <span class="sc">+</span> </span>
-<span id="cb288-3"><a href="inferential-statistics.html#cb288-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(IQ)), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb288-4"><a href="inferential-statistics.html#cb288-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(IQ) <span class="sc">+</span> </span>
-<span id="cb288-5"><a href="inferential-statistics.html#cb288-5" aria-hidden="true" tabindex="-1"></a>                             <span class="fl">1.96</span><span class="sc">*</span><span class="fu">sd</span>(IQ)), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb288-6"><a href="inferential-statistics.html#cb288-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(IQ) <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span><span class="fu">sd</span>(IQ)), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> sample1) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb307-2" title="2"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> IQ)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb307-3" title="3"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb307-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb307-5" title="5"><span class="st">                             </span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb307-6" title="6"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(IQ) <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span><span class="kw">sd</span>(IQ)), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</a></code></pre></div>
 <p><img src="05-inferential-statistics_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>Seeing the dashes that represent the confidence interval shows us that IQ scores will vary away from the mean of our sample, but 95% of them will fall within this interval. Similar to what we learned about repeated samples, if we took 100 resamples of our population of probationers and obtained the sample means, the true population mean will fall within the confidence interval 95% of the time. Thus, only 5% of the time will our resamples fail to obtain the true population mean. We use <code>R</code> to illustrate this concept and introduce a new function <code>if_else()</code> to do so:</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="inferential-statistics.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector containing the true population mean from prob_off</span></span>
-<span id="cb289-2"><a href="inferential-statistics.html#cb289-2" aria-hidden="true" tabindex="-1"></a>true.mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(prob_off<span class="sc">$</span>IQ)</span>
-<span id="cb289-3"><a href="inferential-statistics.html#cb289-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb289-4"><a href="inferential-statistics.html#cb289-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the sample of 1,000 samples, each with 100 probationers and place in object, ‘new.sample.ci100’</span></span>
-<span id="cb289-5"><a href="inferential-statistics.html#cb289-5" aria-hidden="true" tabindex="-1"></a>new.sample.ci100 <span class="ot">&lt;-</span> sample_means100 <span class="sc">%&gt;%</span></span>
-<span id="cb289-6"><a href="inferential-statistics.html#cb289-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="co">#Take the first 100 means </span></span>
-<span id="cb289-7"><a href="inferential-statistics.html#cb289-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lower =</span> meanIQ<span class="fl">-1.96</span><span class="sc">*</span><span class="fu">sd</span>(meanIQ), <span class="at">upper =</span> meanIQ<span class="fl">+1.96</span><span class="sc">*</span><span class="fu">sd</span>(meanIQ), <span class="co"># Compute lower and upper boundaries to create a new variable called ‘capture.mean’</span></span>
-<span id="cb289-8"><a href="inferential-statistics.html#cb289-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">capture.mean =</span> <span class="fu">if_else</span>(<span class="at">condition =</span> lower <span class="sc">&gt;</span> true.mean <span class="sc">|</span> upper <span class="sc">&lt;</span> true.mean, <span class="at">true =</span> <span class="st">&quot;no&quot;</span>, <span class="at">false =</span> <span class="st">&quot;yes&quot;</span>)) <span class="co"># Specify code below to be: If lower &gt; true mean or upper &lt; true mean then capture.mean will #be &quot;yes&quot; </span></span>
-<span id="cb289-9"><a href="inferential-statistics.html#cb289-9" aria-hidden="true" tabindex="-1"></a><span class="co"># If not, capture.mean will be &quot;no&quot;</span></span>
-<span id="cb289-10"><a href="inferential-statistics.html#cb289-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb289-11"><a href="inferential-statistics.html#cb289-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb289-12"><a href="inferential-statistics.html#cb289-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Produce table to show new variable and how many Cis captured population mean</span></span>
-<span id="cb289-13"><a href="inferential-statistics.html#cb289-13" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(new.sample.ci100<span class="sc">$</span>capture.mean)</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" title="1"><span class="co"># Create a vector containing the true population mean from prob_off</span></a>
+<a class="sourceLine" id="cb308-2" title="2">true.mean &lt;-<span class="st"> </span><span class="kw">mean</span>(prob_off<span class="op">$</span>IQ)</a>
+<a class="sourceLine" id="cb308-3" title="3"></a>
+<a class="sourceLine" id="cb308-4" title="4"><span class="co"># Select the sample of 1,000 samples, each with 100 probationers and place in object, ‘new.sample.ci100’</span></a>
+<a class="sourceLine" id="cb308-5" title="5">new.sample.ci100 &lt;-<span class="st"> </span>sample_means100 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb308-6" title="6"><span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#Take the first 100 means </span></a>
+<a class="sourceLine" id="cb308-7" title="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lower =</span> meanIQ<span class="fl">-1.96</span><span class="op">*</span><span class="kw">sd</span>(meanIQ), <span class="dt">upper =</span> meanIQ<span class="fl">+1.96</span><span class="op">*</span><span class="kw">sd</span>(meanIQ), <span class="co"># Compute lower and upper boundaries to create a new variable called ‘capture.mean’</span></a>
+<a class="sourceLine" id="cb308-8" title="8">         <span class="dt">capture.mean =</span> <span class="kw">if_else</span>(<span class="dt">condition =</span> lower <span class="op">&gt;</span><span class="st"> </span>true.mean <span class="op">|</span><span class="st"> </span>upper <span class="op">&lt;</span><span class="st"> </span>true.mean, <span class="dt">true =</span> <span class="st">&quot;no&quot;</span>, <span class="dt">false =</span> <span class="st">&quot;yes&quot;</span>)) <span class="co"># Specify code below to be: If lower &gt; true mean or upper &lt; true mean then capture.mean will #be &quot;yes&quot; </span></a>
+<a class="sourceLine" id="cb308-9" title="9"><span class="co"># If not, capture.mean will be &quot;no&quot;</span></a>
+<a class="sourceLine" id="cb308-10" title="10"></a>
+<a class="sourceLine" id="cb308-11" title="11"></a>
+<a class="sourceLine" id="cb308-12" title="12"><span class="co"># Produce table to show new variable and how many Cis captured population mean</span></a>
+<a class="sourceLine" id="cb308-13" title="13"><span class="kw">table</span>(new.sample.ci100<span class="op">$</span>capture.mean)</a></code></pre></div>
 <pre><code>## 
 ##  no yes 
 ##   4  96</code></pre>
 <p>Your result may slightly differ but, in this example, 96% of CIs obtained the true population mean and 4% did not, which is close to what we expected.</p>
 <hr />
 </div>
-<div id="activity-8-visualising-confidence-intervals" class="section level4" number="5.2.3.2">
+<div id="activity-8-visualising-confidence-intervals" class="section level4">
 <h4><span class="header-section-number">5.2.3.2</span> Activity 8: Visualising confidence intervals</h4>
 <p>We can visualise this to better understand what we have just found:</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="inferential-statistics.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> new.sample.ci100) <span class="sc">+</span> </span>
-<span id="cb291-2"><a href="inferential-statistics.html#cb291-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">xintercept =</span> true.mean), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb291-3"><a href="inferential-statistics.html#cb291-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">xmin =</span> lower, <span class="at">xmax =</span> upper, <span class="at">y =</span> .index, <span class="at">colour =</span> capture.mean)) <span class="sc">+</span> <span class="co"># Creating error bars to represent CIs and colouring in which ones captured population mean #and did not by ‘capture.mean’</span></span>
-<span id="cb291-4"><a href="inferential-statistics.html#cb291-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> .index, <span class="at">x =</span> meanIQ, <span class="at">colour =</span> capture.mean))</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> new.sample.ci100) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb310-2" title="2"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xintercept =</span> true.mean), <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb310-3" title="3"><span class="st">  </span><span class="kw">geom_errorbarh</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">xmin =</span> lower, <span class="dt">xmax =</span> upper, <span class="dt">y =</span> .index, <span class="dt">colour =</span> capture.mean)) <span class="op">+</span><span class="st"> </span><span class="co"># Creating error bars to represent CIs and colouring in which ones captured population mean #and did not by ‘capture.mean’</span></a>
+<a class="sourceLine" id="cb310-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> .index, <span class="dt">x =</span> meanIQ, <span class="dt">colour =</span> capture.mean))</a></code></pre></div>
 <p><img src="05-inferential-statistics_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>The visual shows the result obtained in the table, but here, you can see all 100 of the scores, their CIs, and how 95% of the time, they capture the true population mean. In reality, we have no way of knowing whether we have captured the true population estimates in our sample, but the use of the confidence interval gives us <em>confidence</em> that we are on the right track, so reporting CIs in your results is good practice for presenting your findings.</p>
 <hr />
 </div>
 </div>
 </div>
-<div id="summary-4" class="section level2" number="5.3">
+<div id="summary-4" class="section level2">
 <h2><span class="header-section-number">5.3</span> SUMMARY</h2>
 <p>Today was a theoretical demonstration of why <strong>samples</strong> can be used to estimate what is happening in the <strong>population</strong>. Samples with high <strong>external validity</strong> can do so. This is the foundation of inferential statistics, the use of samples to draw conclusions about the population. We used <strong>synthetic data</strong> to show why. Despite <strong>sampling variability</strong>, the means of the <strong>sampling distribution</strong> demonstrate that it is able to approximate the normal distribution and, therefore, the true population estimates. This is further demonstrated by the <strong>central limit theorem</strong>, which clarifies that sample size matters in producing more accurate estimates of the population. We learned about the standard error and then onto <strong>confidence intervals</strong>, which is useful in establishing how accurate our estimates are, because in reality, rarely are the population estimates known.</p>
 <p>Homework time!</p>

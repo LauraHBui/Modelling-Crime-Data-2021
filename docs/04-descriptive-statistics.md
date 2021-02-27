@@ -87,7 +87,11 @@ library(here)
 ```
 
 ```
-## here() starts at /Users/reka/Dropbox (The University of Manchester)/modelling2021/Modelling-Crime-Data-2021
+## Warning: package 'here' was built under R version 3.6.3
+```
+
+```
+## here() starts at C:/Users/buihl/Desktop/Modelling-Crime-Data-2021
 ```
 
 ```r
@@ -196,6 +200,10 @@ We can see it has 2 levels, "(1) Agency has acquired in any form (including test
 library(modeest)
 ```
 
+```
+## Warning: package 'modeest' was built under R version 3.6.3
+```
+
 And now use the mlv() function to get the answer: 
 
 
@@ -300,6 +308,10 @@ library(dplyr)
 ```
 
 ```
+## Warning: package 'dplyr' was built under R version 3.6.3
+```
+
+```
 ## 
 ## Attaching package: 'dplyr'
 ```
@@ -332,9 +344,13 @@ bwcs %>%
 ```
 
 ```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
 ## # A tibble: 2 x 2
 ##   Q_10A                                                   mean_deployed
-## * <fct>                                                           <dbl>
+##   <fct>                                                           <dbl>
 ## 1 (1) Agency has acquired in any form (including testing)          31.8
 ## 2 (2) Agency has not acquired                                     NaN
 ```
@@ -373,9 +389,13 @@ bwcs %>% group_by(Q_10A) %>% summarise(med_deployed = median(Q_12, na.rm = TRUE)
 ```
 
 ```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
 ## # A tibble: 2 x 2
 ##   Q_10A                                                   med_deployed
-## * <fct>                                                          <dbl>
+##   <fct>                                                          <dbl>
 ## 1 (1) Agency has acquired in any form (including testing)            8
 ## 2 (2) Agency has not acquired                                       NA
 ```
@@ -418,10 +438,14 @@ bwcs %>%
 ```
 
 ```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
 ## # A tibble: 2 x 5
 ##   Q_10A                        mean_deployed median_deployed mode_deployed total
-## * <fct>                                <dbl>           <dbl>         <dbl> <dbl>
-## 1 (1) Agency has acquired in …          31.8               8             1 60363
+##   <fct>                                <dbl>           <dbl>         <dbl> <dbl>
+## 1 (1) Agency has acquired in ~          31.8               8             1 60363
 ## 2 (2) Agency has not acquired          NaN                NA           NaN     0
 ```
 
@@ -436,15 +460,19 @@ A great feature of this is that it also includes a histogram of the numeric vari
 library(skimr)
 ```
 
+```
+## Warning: package 'skimr' was built under R version 3.6.3
+```
+
 
 Produce a summary of your Q_12 variable, grouped by Q_10 using skim() 
 
 
 
-|skim_type |skim_variable |Q_10A                                                   | n_missing| complete_rate| numeric.mean| numeric.sd| numeric.p0| numeric.p25| numeric.p50| numeric.p75| numeric.p100|numeric.hist |
-|:---------|:-------------|:-------------------------------------------------------|---------:|-------------:|------------:|----------:|----------:|-----------:|-----------:|-----------:|------------:|:------------|
-|numeric   |Q_12          |(1) Agency has acquired in any form (including testing) |        18|     0.9906005|     31.82024|   92.26974|          0|           3|           8|          20|         1200|▇▁▁▁▁        |
-|numeric   |Q_12          |(2) Agency has not acquired                             |      2013|     0.0000000|          NaN|         NA|         NA|          NA|          NA|          NA|           NA|             |
+skim_type   skim_variable   Q_10A                                                      n_missing   complete_rate   numeric.mean   numeric.sd   numeric.p0   numeric.p25   numeric.p50   numeric.p75   numeric.p100  numeric.hist 
+----------  --------------  --------------------------------------------------------  ----------  --------------  -------------  -----------  -----------  ------------  ------------  ------------  -------------  -------------
+numeric     Q_12            (1) Agency has acquired in any form (including testing)           18       0.9906005       31.82024     92.26974            0             3             8            20           1200  ▇▁▁▁▁        
+numeric     Q_12            (2) Agency has not acquired                                     2013       0.0000000            NaN           NA           NA            NA            NA            NA             NA               
 
 
 ```r
@@ -581,6 +609,10 @@ A nice way to visualise this is with a boxplot. Remember, a boxplot visually rep
 
 
 ```
+## Warning: package 'ggplot2' was built under R version 3.6.3
+```
+
+```
 ## Warning: Transformation introduced infinite values in continuous x-axis
 ```
 
@@ -588,19 +620,19 @@ A nice way to visualise this is with a boxplot. Remember, a boxplot visually rep
 ## Warning: Removed 97 rows containing non-finite values (stat_boxplot).
 ```
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-29-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-29-1.png" width="672" />
 
 
 
 Now you can also see where the outliers, and extreme outliers are. Outliers are anything above the orange line, extreme outliers are anything above the purple line: 
 
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-30-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-30-1.png" width="672" />
 
 
 We could also show this in a histogram, where everything to the right of the orange line is an outlier, and everything to the right of the purple is an extreme outlier: 
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-31-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-31-1.png" width="672" />
 
 
 
@@ -759,21 +791,21 @@ Related to outliers is **skewness**. This has to do with the shape of the distri
 
 Here is a normal distribution: 
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-43-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-43-1.png" width="672" />
 
 Now a skewed distribution would pull to the left or to the right, where you have a long tail on either side. This would also cause your mean and median to get further apart. 
 
 
 Here is a right skewed distribution: 
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-44-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-44-1.png" width="672" />
 
 
 
 And here is a left: 
 
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-45-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-45-1.png" width="672" />
 
 
 
@@ -810,7 +842,7 @@ ggplot(data = bwcs, mapping = aes(x = Q_12)) +
 ## Warning: Removed 2031 rows containing non-finite values (stat_bin).
 ```
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-47-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-47-1.png" width="672" />
 
 
 What do you observe from the histogram? Discuss in your groups, or reflect if you are in the quiet room. What do you think the number of BWCs may depend on? Size of the agency? Willingness to adopt BWCs? Are you surprised by this data? 
@@ -936,9 +968,9 @@ Or we can use skim
 
 
 
-|skim_type |skim_variable | n_missing| complete_rate|factor.ordered | factor.n_unique|factor.top_counts                    |
-|:---------|:-------------|---------:|-------------:|:--------------|---------------:|:------------------------------------|
-|factor    |data          |      1156|     0.6863809|FALSE          |               4|(1): 2180, (2): 284, (3): 65, (8): 1 |
+skim_type   skim_variable    n_missing   complete_rate  factor.ordered    factor.n_unique  factor.top_counts                    
+----------  --------------  ----------  --------------  ---------------  ----------------  -------------------------------------
+factor      data                  1156       0.6863809  FALSE                           4  (1): 2180, (2): 284, (3): 65, (8): 1 
 
 ```r
 skim(inmatesurvey04$V1748)
@@ -1039,6 +1071,10 @@ The IQV lies between 0 and 1 and tells you the variability of the distribution. 
 
 ```r
 library(qualvar)
+```
+
+```
+## Warning: package 'qualvar' was built under R version 3.6.3
 ```
 
 

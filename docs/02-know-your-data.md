@@ -8,32 +8,22 @@
 -	Understand what variables are and how to examine them in `R`
 -	Learn how to make new variables
 - Learn how to label variables and their values
--	Learn how to subset select observations and variables
+-	Learn how to subset select observations and variables  
+  
+  
+##### **Today’s Learning Tools:** {-}  
 
-
-
-
-##### **Today’s Learning Tools:** {-}
-
-
-##### *Total number of activities*: 9 {-}
-
+##### *Total number of activities*: 9 {-}  
 
 ##### *Data:* {-}
--	National Crime Victimization Survey (NCVS)
-
-
-
+-	National Crime Victimization Survey (NCVS)  
 
 ##### *Packages:* {-}
 -	`dplyr`
 -	`here`
 -	`haven`
 -	`labelled`
--	`sjlabelled`
-
-
-
+-	`sjlabelled`  
 
 ##### *Functions introduced (and packages to which they belong)* {-}
 - `%>%` : Known as the pipe operator, and allows users to pass one output of a code to become the input of another ( `dplyr`)
@@ -55,39 +45,44 @@
 - `table()`: Generates a frequency table (`base R`)
 -	`var_label()` : Returns or sets a variable label (`labelled`)
 
-
+<br>
 
 
 ---
 
-
+<br>
 
 ## The Tidyverse
 
 Last time, we installed our first package, `dplyr`. This is one of a number of packages from what is known as **tidyverse**. 
 
+<br>
 
-<img src="Images/tidyverse-logo.png" width="2215" />
+![**Figure 2.1** Tidyverse logo](Images/tidyverse-logo.png){width=40%}
 
-
+<br>
 
 The tidyverse contains packages that help us carry out **wrangling** (i.e., cleaning variables), analysis, plotting, and modelling of our data. The ethos of tidyverse is that working and using tidy data makes our lives easier in the long run, allows us to stick to specific conventions, and enables us to share with others who follow this approach. Essentially, tidy data makes data analysis easy to carry out and to communicate to others.
 
 So what is tidy data?
-<img src="Images/tidydata_1.jpg" width="4800" />
 
+<br>
+![**Figure 3.2** Tidy data by Alison Horst](Images/tidydata_1.jpg){width=80%}
 
+<br>
 
 
 Like what was mentioned in last week's lesson, our columns represent our variables, but, also, our cases (or better known in the tidyverse as **observations**) are our rows, whereby each cell is a value of that column's given variable for the observation in that row. 
 
 In this class, we will be working with tidy data. Generally, if you have messy data, which is common in the real world of data analysis, your first task is to wrangle it until it is in a tidy shape similar to the ones described in Figures 2.2 and 2.3.  
 
+<br>
 
 ![**Figure 2.3** Tidy data versus messy data by Alison Horst](Images/tidydata_2.jpg){width=80%}
 
 
 
+<br>
 
 In today's lesson, we use `dplyr` and other `tidyverse` packages to explore and get to know our data. 
 
@@ -96,12 +91,15 @@ Being familiar with our data requires knowing what they comprise and what form t
 <!-- We will be using the following packages this week: `dplyr`, `here`, `haven`, `tibble`, `labelled`, and `sjlabelled`. You can see this above in the packages tab. Make sure you have each one installed. Remember to install a package you must run `install_packages("packagename")`! -->
 
 Let us get started and load `dplyr`:
-
-
+<br>
 
 
 ```r
 library(dplyr)
+```
+
+```
+## Warning: package 'dplyr' was built under R version 3.6.3
 ```
 
 ```
@@ -124,25 +122,21 @@ library(dplyr)
 ```r
 # Like last week, you can also check the 'Packages' tab in the 'Files, Plots...' pane to see if the box next to 'dplyr' has been ticked
 ```
+<br>
+<br>
 
-
+---
 
 
 ## R Projects – Getting Your Work Files Organised
 
-
-
-
 Although today is focused on tidy data, it is also helpful if whatever you are working on is also tidy and found in one easily accessible folder. By saving work inside a **project**, you can find files such as data and scripts related to specific work in a single working directory. Let us get into the habit of doing this:
-
-
-
+<br>
+<br>
 
 ### Activity 1: Making yourself a project 
 
 •	Click on the top right tab called *Project: (None)* - Figure 2.4 
-
-
 
 ![**Figure 2.4** Click on Project: (None)](Images/project.png){width=50%}
 
@@ -150,18 +144,23 @@ Although today is focused on tidy data, it is also helpful if whatever you are w
 
 
 
+<br>
+
 In the options that appear, choose *Existing Directory*. The reason is you may have already created a folder for this work if you had saved your script from last week and from what you have done so far today. For example, Reka had saved a folder called 'modelling2021' with her scripts in it and will have her project in that same place too (see Figures 2.5 and 2.6).
+
+<br>
 
 ![**Figure 2.5** Existing directory](Images/existing_dir.png){width=50%}
 
 
 
+<br>
 
 
 ![**Figure 2.6** Create project from existing directory](Images/browse_proj_dir.png){width=50%}
 
 
-
+<br>
 
 Another option appears (Figure 2.6). Use the 'Browse...' button to select the folder where you have so far saved your script(s). Once you have done this, click on  *Create Project* and your new project will be launched.
 
@@ -171,31 +170,24 @@ Now if you did not save any scripts or files thus far, so want to create a proje
 
 - Click on *New Project* (Figure 2.5). A window with different options appears. Create your project in *New Directory* and then click *New Project* 
 
-
-
-
 -	Choose a name for your project (e.g., r_crim_course) and a location (i.e., working directory, which will be explained a little further below) where your project will be created
 
-
-
+<br>
+<br>
 
 Inside your project, you can organise it by having separate files: one for scripts, one for data, one for outputs, and another for visuals. You can make these with the function `dir.create()`:
- 
- 
+<br>
 
 
 ```r
 # For example, to make a sub-folder called 'Datasets' in your project folder, type this into your console pane:
 dir.create("Datasets")
 ```
-
-
-
+<br>
 
 Another example: to create the online tutorial for this class, we have a project called `Modelling-Crime-Data-2021`. Figure 2.7 shows that this title appears in the top right hand corner and its contents, including sub-folders, appear in under the *Files* tab in the *Files, Plots...* pane. 
 
-
-
+<br>
 
 ![**Figure 2.7** How a project appears](Images/project2.png){width=40%}
 
@@ -203,22 +195,23 @@ Another example: to create the online tutorial for this class, we have a project
 
 
 
+<br>
+
 The files in your *Files, Plots…* pane tell you in what folder you are automatically working. This is known as your **working directory**, the default location that appears when you open `RStudio`. Wherever your `R project` (that file ending in `.Rproj`) is saved will be the working directory. 
 
 In your group google sheets, type the name of your `R` project and in which location it is in. Now decide whether this is a good location for your `R` project. For example, is the location name too long? (Something like 'C:\ Users\ xx\ Desktop \ xx\ xx\ Manchester\ xx \ xx\ xx\ xx\ xx\ xx' is too long and you might run into problems later.) Or are there files that are for your other course units in there too? If doubtful about the location of your project, move it somewhere else you think is more appropriate.
 
 You can read on why projects are useful here: [https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/](https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/)
 
+<br>
+<br>
 
 ---
 
-
 #### The `here` package
 
-
-
 Whenever you want to locate certain files within your Project, use the `here` package:
-
+<br>
 
 
 ```r
@@ -233,25 +226,25 @@ library(here)
 ```
 
 ```
-## here() starts at /Users/reka/Dropbox (The University of Manchester)/modelling2021/Modelling-Crime-Data-2021
+## Warning: package 'here' was built under R version 3.6.3
 ```
 
-
+```
+## here() starts at C:/Users/buihl/Desktop/Modelling-Crime-Data-2021
+```
+<br>
 
 Using the `here` package is better than typing out the exact location of your file, which can be tedious. The next section shows how to use the `here()` function from said package to import data from the National Crime Victimization Survey (NCVS).
 
+<br>
+<br>
 
 ---
 
-
-
 ## Importing Data
 
-
-
 Here is another `tidyverse` package to install:
-
-
+<br>
 
 
 ```r
@@ -263,13 +256,15 @@ install.packages("haven")
 library(haven)
 ```
 
-
-
+```
+## Warning: package 'haven' was built under R version 3.6.3
+```
+<br>
 
 `haven` enables `R` to understand various data formats used by other statistical packages such as SPSS and STATA. We will need this package to open data in its diverse forms. When we worked with Excel last semester in *Making Sense of Criminological Data*, we could only open certain type of files. With `R`, we can open a wide range of data files, which opens up many possibilities of analysis for us. Let us give this a try now. 
 
-
-
+<br>
+<br>
 
 ### Activity 2: Importing and Viewing Data 
 
@@ -287,34 +282,32 @@ Now how to bring this dataset up in `RStudio`? We must follow these steps to *re
 
 - 2. When importing data with the `here()` function, you must specify where the file is and what it is called in the brackets. In this case, we need to specify that it is in the sub-folder 'Datasets' and it is called 'NCVS lone offender assaults 1992 to 2013.sav'. So, the code to find the file would be: `here("Datasets", "NCVS lone offender assaults 1992 to 2013.sav")`.
 
-Completing these steps, we now can load our dataset and place it inside a data frame called `ncvs`: 
+<br>
 
+Completing these steps, we now can load our dataset and place it inside a data frame called `ncvs`: 
+<br>
 
 
 ```r
 # Importing our SPSS dataset and naming it ‘ncvs’ 
 ncvs <- read_spss(here("Datasets", "NCVS lone offender assaults 1992 to 2013.sav"))
 ```
-
-
+<br>
 
 What you are saying to `R` is the following: 
 
 >My data, *NCVS lone offender assaults 1992 to 2013*, is a .sav file. Therefore, it is an SPSS dataset and is located in the sub-folder called *Datasets* in my default working directory. `R`,  please extract it from *here*, understand it, and place it in a data frame object called `ncvs`, so I can find it in `RStudio`.
 
-
-
-
+<br>
+<br>
 To view the new data frame, `ncvs`, type:
-
+<br>
 
 
 ```r
 View(ncvs)
 ```
-
-
-
+<br>
 
 A tab appears labelled 'ncvs'. In it, you can view all its contents. In your group google sheets, type how many 'entries' and 'columns' there are in our data frame, `ncvs`.
 
@@ -322,29 +315,23 @@ A tab appears labelled 'ncvs'. In it, you can view all its contents. In your gro
 
 There are other ways to load data that are of different formats. For more information, see [this cheatsheet for importing data](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_data-import.pdf). But for now, you can rely on us showing you the functions you need.
 
+<br>
+<br>
 
 ---
 
 
-
-
 ## Today’s 3 (TOPICS)
 
-
-
-
 We now have data to tidy in `R`, so onto our three main topics for this week: **variables**, **labels**, and **subsetting**.
-
-
-
+<br>
 
 ### Variables
 
 Variables can be persons, places, things, or ideas that we are interested in studying. For example, height and favourite football team. 
 
 Last week, we learned a little on how to examine what our variables are. Let us revisit this. One of the first things we do to get to know our `ncvs` data frame is to identify the number of rows and columns by using the function `View()` as we did above, or, a more direct way, the function `dim()`:
-
-
+<br>
 
 
 ```r
@@ -354,14 +341,10 @@ dim(ncvs)
 ```
 ## [1] 23969    47
 ```
-
-
-
+<br>
 
 Like your answer from Activity 2, the data frame`ncvs` has 47 columns, meaning that it has 47 variables. What are these variables all called? We can get their names using the `names` function:
-
-
-
+<br>
 
 
 ```r
@@ -386,45 +369,48 @@ names(ncvs)
 ## [43] "victimreported"      "thirdpartyreport"    "maleoff"            
 ## [46] "age_r"               "vic18andover"
 ```
-
-
-
+<br>
 
 We observe that a number of these variable names are codes, which is somewhat similar to the Crime Survey of England and Wales (CSEW) data we worked with last semester, whereby the variable *polatt7*, for example, was trust in police. 
 
 You could view the data frame like you did previously (with the function `View()`) to find out what the variables actually are, or you could look it up in the data dictionary [here](https://www.icpsr.umich.edu/web/ICPSR/series/95/variables). The advantage of the data dictionary -- which will accompany all well-documented datasets -- is it will tell you precisely what the variables are and how they measure their characteristics in that particular dataset. For example, the data dictionary that accompanies the NCVS tells us that the variable `V3014` is age.
 
-
-
+<br>
+<br>
 
 #### Measurement {-}
-
-
 
 What about the level of measurement for these variables? Different variable types refer to different levels of measurement.
 
 For **categorical variables**, we can have variables that are nominal (no order), ordinal (have an order), or binary (only two possible options, like 'yes' and 'no'). 
 
+<br>
+
+
 ![**Figure 2.8** Categorial variables by Allison Horst](Images/nominal_ordinal_binary.png){width=70%}
 
 
-
+<br>
 
 **Numeric variables** can be classified two separate ways. Last semester, we discussed the difference between *interval* and *ratio* variables. Interval variables have the same distance between observations, but have no true zero. The temperature in Celsius is one example. Ratio variables, on the other hand, do have a true zero point. Calculating a ratio from the values of these variables makes sense, but for values from interval variables, it does not. For example, it is pretty meaningless to state that 20 degrees Celsius is twice as hot as 10 degrees Celsius ('0' in Celsius is not the absolute lowest temperature). But if Reka has £30 pounds in her bank account and Laura has £60, it is meaningful to say Laura has twice as much savings as Reka does. 
 
 Another way to classify numeric variables is to distinguish between discrete and continuous variables. *Discrete* numeric variables have set values that make sense. For example, crime is one such variable. It is understandable to have 30 burglaries in May and 50 burglaries in December, but it is not understandable to have 45.2482 burglaries. *Continuous* numeric variables, however, can take on any value between a lower and upper bound and be meaningful. For example, weight and height. Here is an apt illustration: 
 
+<br>
+
 ![**Figure 2.9** Discrete versus continuous numeric variables by Allison Horst](Images/continuous_discrete.png){width=70%}
 
 
+
+<br>
+<br>
 
 
 #### Variables in `R`
 
 So, how are these levels of measurement among variables relevant in `R`? Nominal and ordinal variables are encoded as a **factor** class because they are categorical characteristics, so take on a limited number of values; factors are like the integer vector introduced last week but each integer is a label. Numeric variables, on the other hand, are encoded as a **numeric** class.
 
-
-
+<br>
 
 ##### Activity 3: Identifying a variable's level of measurement
 
@@ -437,8 +423,7 @@ First, do you remember from last week how to refer to one specific variable in y
 It is: `dataframe$variablename`
 
 If we want to find out about the variable `injured` (whether the person was injured or not) from our data frame `ncvs`, for example, we can refer to the variable specifically. Let us use the `attributes()` function to examine this variable.
-
-
+<br>
 
 
 ```r
@@ -469,19 +454,16 @@ attributes(ncvs$injured)
 
 # The $ symbol must be accompanied by the name of the data frame!
 ```
-
-
+<br>
 
 We can see the label ('Victim Sustained Injuries During Vicitmization'), and the values (at the bottom) indicating '0' for 'uninjured' and '1' for 'injured'. This appears to be a categorical variable with 2 possible values; therefore, a *binary* variable. 
 
 Now your turn: find out what is the class of the variable `weaponpresent`. In your googledoc, type out the answer and the code you used to get that answer.
 
+<br>
+<br>
 
 ---
-
-
-
-
 
 
 <!-- Another thing we can do is to apply a specific function (like that of `class()`) to every single variable in the dataframe. To do this, we can use the `sapply()` function. Inside the `sapply()` function, you actually have to specify *two things*. First, the object you want to apply the function to (in this case the dataframe, ncvs), and the function which you want to apply (in this case class). Like so:  -->
@@ -501,16 +483,12 @@ Now your turn: find out what is the class of the variable `weaponpresent`. In yo
 
 #### Formatting Classes and Value Labels
 
-
-
-
 In some cases, you may want to make changes to how variables are classed. For example, in our data frame `nvcs`, some of the variables are classed as `haven_labelled`. 
 
 What is this, you ask? When we use the `haven()` function to import data, `R` keeps the information associated with that file -- specifically the value labels that were in the dataset. In practice, therefore, you can find categorical data in `R` embedded in very different types of vectors (e.g., character, factor, or haven labelled) depending on decisions taken by whomever created the data frame.
 
 Although we understand why these variables are labelled as `haven_labelled`, they do not help us understand what class these variables actually are. If we know a variable is classed as factor, We can change it to be so. For example, we want to change the class of variable `V3018` to be accurately classed as factor:
-
-
+<br>
 
 
 ```r
@@ -563,21 +541,18 @@ attributes(ncvs$sex)
 ## $class
 ## [1] "factor"
 ```
-
-
-
+<br>
 
 The new variable, `sex`, a duplicate of `V3018`, is no longer a 'haven_labelled' type variable. It is now classed as a factor. But remember, 'class' and 'factor' are `R` lingo -- **we would still describe this as a categorical, binary variable!** We include `R` language so that you know what it means and how it links to what you have learned in your data analysis classes. 
 
-
-
+<br>
+<br>
 
 #### Recoding and Creating New Variables 
 
-
-
-
 What if we want to create a new variable? Here are three scenarios where we would want to do so: 
+
+<br>
 
 *Scenario 1*: we want a variable like the `injured` variable, but for the values, we instead want to see 'uninjured' and 'injured' and not '0' and '1';
 
@@ -585,33 +560,33 @@ What if we want to create a new variable? Here are three scenarios where we woul
 
 *Scenario 3*: we want to change an existing variable that is *ordinal* with four outcomes into a *binary* variable with only two outcomes. 
 
+<br>
+
 We address all three scenarios in turn. Recoding and creating new variables is called **data wrangling** and the package `dplyr` is most appropriate for doing so. 
+
+<br>
 
 ![**Figure 2.9** Data wrangling by Allison Horst](Images/dplyr_wrangling.png){width=70%}
 
 
 
 
+<br>
 
 <!-- In some circumstances, we would like to recode variables. Recoding could entail collapsing multiple values of your variable into a single category or making some values of your variable become missing. In other circumstances, we may want to create a brand new variable that combines data from two others. First, time to install another package to learn the `add_column()` function: `tibble`. Now let us learn! -->
 
 
-
+<br>
+<br>
 
 ---
 
-
 #### Activity 4: Creating a new variable by recoding an existing one
-
-
-
 
 For scenario 1, we want to recode our existing `injured` variable. We view a frequency table of this variable to understand why. The frequency table tells us the number of times each value for the variable occurs. This is similar to the Pivot Table function in Excel from last semester. 
 
 In `R`, the way to create a frequency table for one variable is to use the function `table()`. Inside the brackets, you would type the data frame and the variable you want to create the frequency table for. We want a frequency table for the `injured` variable:
-
-
-
+<br>
 
 
 ```r
@@ -623,47 +598,37 @@ table(ncvs$injured)
 ##     0     1 
 ## 16160  7809
 ```
-
-
-
+<br>
 
 The frequency table shows that 16,160 people answered '0' to the question of whether they were injured, while 7,809 answered '1'. Since we ran our `attribute()` function earlier, we know that '0' means 'uninjured', and '1' means 'injured'. Often in data, '0' represents the absence of the feature being measured and '1' means the presence of such feature.
 
 Although we know what the numbers represent, we might forget or someone else unfamiliar with the data views the variable and may not know what the values mean. In this case, it would be helpful to change the numbers '0' and '1' to what they represent.
 
 To do so, we create a new variable whereby a new column appears in the data frame. It is similar to when you create an object. Remember: 
-
-
+<br>
 
 
 ```r
 name <- "Reka"
 ```
-
-
-
+<br>
 
 The only difference is that we must attach this new object (which appears as a column) to the dataframe, and that the number of things we put in this object needs to match the number of rows in that data frame. As we are creating a new variable from one that already has the same number of rows, this is not an issue. 
 
 Let us again create a duplicate variable of the `injured` variable: 
-
-
+<br>
 
 
 ```r
 # Create the new variable ‘injured_new’ from ‘injured’ 
 ncvs$injured_new <-ncvs$injured 
 ```
-
-
-
+<br>
 
 View the `ncvs` data frame. Notice that a new column, `injured_new`, appeared at the end with the exact same contents as the variable `injured`. We will now change those '0' and '1' values.
 
 A function to change values is `as_factor()` from the `haven` package. This function takes the labels assigned to the values of the variable, and changes those original values into these very labels. 
-
-
-
+<br>
 
 
 ```r
@@ -671,13 +636,10 @@ A function to change values is `as_factor()` from the `haven` package. This func
 
 ncvs$injury_r <- as_factor(ncvs$injured)
 ```
-
-
-
+<br>
 
 In the data frame `ncvs`, you will see this new column `injured_r`. If we make the frequency table with this new variable, we see that the values are readily understandable as 'uninjured' and 'injured':
-
-
+<br>
 
 
 ```r
@@ -689,15 +651,12 @@ table(ncvs$injury_r)
 ## uninjured   injured 
 ##     16160      7809
 ```
-
-
-
+<br>
 
 This a lot easier than 'VLOOKUP' from last semester! 
 
-
-
-
+<br>
+<br>
 
 <!-- The first example uses the package `tibble` to make an additional variable. This new variable, `injured_new`, has the same exact information as the variable `injured`.  -->
 
@@ -722,8 +681,6 @@ This a lot easier than 'VLOOKUP' from last semester!
 
 ---
 
-
-
 #### Activity 5: Creating a composite variable from more than 1 existing variable
 
 We turn to Scenario 2: we want to create a new variable in our `ncvs` data frame that indicates the severity of the victimization experienced by the respondent. 
@@ -731,8 +688,7 @@ We turn to Scenario 2: we want to create a new variable in our `ncvs` data frame
 That severity will be measured by two variables: (1) whether the offender had a weapon and (2) whether the victim sustained an injury during their victimization. These are not necessarily the best variables to use in measuring victimization severity; this example, however, should illustrate how you might combine variables to create a new one. 
 
 Before we do this, we need to know if we can actually do so by getting to know those variables of interest. By using the function `count()`, we get a good sense of what the values represent and the number of respondents in each of those values for both variables.
-
-
+<br>
 
 
 ```r
@@ -745,7 +701,7 @@ count(ncvs, injured)
 ```
 ## # A tibble: 2 x 2
 ##         injured     n
-## *     <dbl+lbl> <int>
+##       <dbl+lbl> <int>
 ## 1 0 [uninjured] 16160
 ## 2 1 [injured]    7809
 ```
@@ -757,22 +713,19 @@ count(ncvs, weaponpresent)
 ```
 ## # A tibble: 3 x 2
 ##   weaponpresent     n
-## *         <dbl> <int>
+##           <dbl> <int>
 ## 1             0 15814
 ## 2             1  6652
 ## 3            NA  1503
 ```
-
-
-
+<br>
 
 This function tells us that `injured`, a binary variable, is stored as numbers, where the 0 value means the victim was uninjured and the 1 value means they were injured. Also, the `weaponpresent` variable is (should be) a binary variable stored as numbers. Here, more victims report that the offender did not use a weapon during the offence (n= 15,814) as opposed to using one (n= 6652). But there are also a number of missing values for this question (n= 1503).
 
 Now what if we wanted to combine these, so we can have a score of severity, which takes into consideration presence of weapon and injury?
 
 There is a particular function from the `dplyr` package that is very handy for creating a new variable from more than 1 variable. It is called `mutate`. The `mutate()` function will create a new column in our data frame that comprises the sum of both of these variables, keeping the old variables too: 
-
-
+<br>
 
 
 ```r
@@ -784,15 +737,12 @@ There is a particular function from the `dplyr` package that is very handy for c
 
 ncvs <- mutate(ncvs, severity = injured + weaponpresent)
 ```
-
-
-
+<br>
 
 Now view the data frame to see the new variable `severity`. The `severity` variable is ordinal, where '0' is the least severe (neither a weapon was used nor the victim injured), '1' is more severe (either the offender wielded a weapon or the victim reported being injured), and '2' is the most severe (the respondent reported being injured and the offender had a weapon). 
 
 Let us see the new variable in the frequency table: 
-
-
+<br>
 
 
 ```r
@@ -804,27 +754,21 @@ table(ncvs$severity)
 ##     0     1     2 
 ##  9945 10862  1659
 ```
-
-
+<br>
  
-
 You can then add value labels to reflect your understanding of the summed scores. To do so, you can over-write the existing `severity` variable (instead of making an additional duplicate variable). 
 
 You do so by specifying it on the left side of the `<-` (assignment operator). Then, on the right side, you use the `recode()` function. Inside the brackets of the `recode()` function,  we specify the variable we want to change, and then we follow with a list of values. Notice that the numbers must be between the crooked quote marks ````:
-
-
-
+<br>
 
 
 ```r
 ncvs$severity <- recode(ncvs$severity, `0` = "not at all severe", `1` = "somewhat severe", `2` = "very severe")
 ```
-
-
+<br>
 
 View this new version of the `severity` variable in a frequency table:
-
-
+<br>
 
 
 ```r
@@ -836,8 +780,7 @@ table(ncvs$severity)
 ## not at all severe   somewhat severe       very severe 
 ##              9945             10862              1659
 ```
-
-
+<br>
 
 <!-- Try it out and type the code you used to add those value labels to `severity` in your group googledoc:-->
 
@@ -856,21 +799,18 @@ table(ncvs$severity)
 
 The above example was simple, but often, we will want to make more complex combinations of variables. This is known as **recoding**. And it will constitute our next activity. 
 
-
-
-
+<br>
+<br>
 
 ---
 
 
 #### Activity 6: Recoding
 
-
 Now to Scenario 3: we want to turn the variable `relationship` into a binary variable called `notstranger` whereby the offender was either a stranger (0) or was known to the victim (1). 
 
 First, we use the `table()` function to create a frequency table for `relationship`, and it has four categories: 
-
-
+<br>
 
 
 ```r
@@ -882,13 +822,10 @@ table(ncvs$relationship)
 ##    0    1    2    3 
 ## 6547 2950 4576 9227
 ```
-
-
-
+<br>
 
 What do these categories mean? We can use the `as_factor()` function from the `haven` package to find out:
-
-
+<br>
 
 
 ```r
@@ -900,19 +837,14 @@ table(as_factor(ncvs$relationship))
 ##        stranger  slightly known casual acquiant      well known      Don't know 
 ##            6547            2950            4576            9227               0
 ```
-
-
-
-
+<br>
 
 There are four categories of relationship in addition to a 'don't know' category, but there are no observations in it. 
 
 We want to turn this into a binary variable. So let us  use `mutate()` and a new function called `case_when()`. 
 
 Think of `case_when()` as an ‘if’ logical statement. It allows us to make changes to a variable that are conditional on some requirement. For example, we specify that values greater than '0' (values 1 to 3) mean 'not a stranger' and values equal to '0' mean 'stranger':
-
-
-
+<br>
 
 
 ```r
@@ -921,10 +853,7 @@ ncvs <- mutate(ncvs,
                  relationship == 0 ~ "Stranger",
                  relationship > 0 ~ "Not a stranger"))
 ```
-
-
-
-
+<br>
 
 <!--```{r}
 
@@ -947,7 +876,7 @@ You could also say, if it is 0 then stranger, and if it is greater than 0 then i
 Same results. -->
 
 To verify that we have recoded a new binary variable:
-
+<br>
 
 
 ```r
@@ -959,23 +888,20 @@ table(ncvs$notstranger)
 ## Not a stranger       Stranger 
 ##          16753           6547
 ```
-
-
+<br>
 
 It seems that most victimisation is perpetrated by non-strangers!
 
+<br>
+<br>
 
 ---
 
 
 ### Labels
 
-
-
-
 Variables sometimes come with labels – these are very brief descriptions of the variable itself and what its values are. We are familiar with *variable* labels because of our previous activities. Now, *value* labels are very useful when we have a nominal or ordinal level variable in our dataset that has been assigned numeric values. To have a look at what are your variable and value labels, use the function `attributes()`:
-
-
+<br>
 
 
 ```r
@@ -1003,20 +929,17 @@ attributes(ncvs$injured)
 ```r
 # You can also use var_label() and get_labels() too, but attributes() shows both types of labels
 ```
-
-
-
+<br>
 
 Returning to a familiar variable, `injured`, the output in the console shows that 'uninjured' is labelled '0' and 'injured' is labelled '1'. Maybe, though, you do not like the labels that are attached to the variable values. Perhaps they do not make sense or they do not help you to understand better what this variable measures. If so, we can remove and change the labels. 
 
-
-
+<br>
+<br>
 
 #### Activity 7: Removing labels 
 
 We return to the `injured` variable from the `ncvs` dataframe. We, again, are going to make a duplicate variable of `injured` to learn how to remove and add labels. We do this because it is good practice to leave your original variables alone in case you need to go back to them. 
-
-
+<br>
 
 
 ```r
@@ -1043,20 +966,16 @@ attributes(ncvs$injured_no_labels)
 ## uninjured   injured 
 ##         0         1
 ```
-
-
+<br>
 
 To remove labels, we will need to load two new packages: `labelled` and `sjlabelled`. Can you do that?
+<br>
 
 
-
-
-
-
+<br>
 
 After loading the two new packages, we remove variable and value labels:
-
-
+<br>
 
 
 ```r
@@ -1082,12 +1001,10 @@ get_labels(ncvs$injured_no_labels)
 ```
 ## NULL
 ```
-
-
-
+<br>
 
 Now to add a label:
-
+<br>
 
 
 ```r
@@ -1113,120 +1030,100 @@ get_labels(ncvs$injured_no_labels)
 ```
 ## [1] "uninjured" "injured"
 ```
-
-
+<br>
 
 Nothing to add in the googledoc so far, since Activity 4, so onto the next activity.
 
-
-
-
+<br>
+<br>
 
 
 #### Note: pipes
 
+<br>
 ![**Figure 2.10** The pipe operator](Images/logo_pipe.png)
 
-
-
+<br>
 
 In `R`, `%>%` represents a **pipe operator**. This is a nifty shortcut in `R` coding. It is in reference to [René Magritte's *The Treachery of Images*](https://blog.revolutionanalytics.com/2014/07/magrittr-simplifying-r-code-with-pipes.html). The pipe operator means that we only need to specify the data frame object once at the beginning as opposed to typing out the name of the data frame repeatedly. In all subsequent functions, the object is ‘piped’ through. If you were to read the code out loud, you might say 'and then' whenever you come across the pipe operator. We will use this now. 
 
-
-
-
+<br>
+<br>
 
 ---
 
-
 ### Subsetting
-
-
+<br>
 
 
 #### Activity 8: Ways to subset data
 
 Through `tidyverse` functions, we can subset our data frames or vectors based on some criteria. Using the function `select()`, we can subset variables by number or name:
-
-
+<br>
 
 
 ```r
 # Using select () to subset by the first two variables
 ncvs_df_1 <- ncvs %>% select(1:2) 
 ```
-
-
+<br>
 
 If we wanted to select only the variables `injured`, `weaponpresent`, and `severity`:
-
-
+<br>
 
 
 ```r
 # Using select () to subset by three select variables
 ncvs_df_2 <- ncvs %>% select(injured, weaponpresent, severity) 
 ```
-
-
+<br>
 
 Using the function `slice()`, we can subset rows by number. To get only the first row:
-
-
+<br>
 
 
 ```r
 # Get the first row
 first_row_of_ncvs <- ncvs %>% slice(1) 
 ```
-
-
+<br>
 
 To get more rows, you can use the 'from:to' notation. To get the first two rows, for example, you say 'from 1 to 2', that is '1:2':
-
-
+<br>
 
 
 ```r
 # Get the first two rows 
 first_two_rows_of_ncvs <- ncvs %>% slice(1:2) 
 ```
-
-
+<br>
 
 You can subset select rows and columns by taking `slice()` and combining it with `select()`. For example:
-
-
+<br>
 
 
 ```r
 # Get the first two variables and first two rows 
 first_two_rows_cols <- ncvs %>% select(1:2) %>% slice(1:2)
 ```
-
-
-
+<br>
 
 
 ![**Figure 2.11** Filter by Allison Horst](Images/dplyr_filter.jpg){width=80%}
 
-
-
+<br>
 
 Use the `filter()` function to subset observations (i.e., rows) based on conditions. For example, we only want those for which the `injured` variable was equal to 1, so we run:
-
-
+<br>
 
 
 ```r
 only_injured <- ncvs %>% filter(injured == 1)
 ```
-
-
+<br>
 
 These filters can be combined using conditions and (`&`) and or (`|`)  except we call this subset of the data frame 'knew_of_and_injured':
-
-
+<br>
 
 
 ```r
@@ -1234,19 +1131,17 @@ These filters can be combined using conditions and (`&`) and or (`|`)  except we
 knew_of_and_injured <- ncvs %>% 
 filter(relationship > 0 & injured == 1)
 ```
-
-
-
+<br>
 
 Say if we wanted the first five rows of `knew_of_and_injured`. How would we do that? In your group googledoc, type out the code you think will help you create a (sub-)subset `knew_of_and_injured` of its first five rows. Call this new subset 'injuredfiveknew'.
-
+<br>
+<br>
 <!-- injuredfiveknew <- KnewOfandInjured %>% slice(1:5)-->
 
 
 
 
 ---
-
 
 #### Activity 9: Subsetting, the Sequel
 
@@ -1258,32 +1153,28 @@ In your group googledoc sheet, write out the code that you would use to do so. N
 
 <!-- five_ageandincome <- injuredfiveknew %>% select(4,6)-->
 
-
-
-
-
+<br>
+<br>
 
 
 ---
 
-
-
 ## SUMMARY
-
-
-
 
 Today you were further introduced to **tidyverse** packages that helped you to tidy your data. First, we learned to put our work into a **project** and then how to import data using a package called `haven`. Whenever we specify a data frame, we learned a nifty short-cut: the **pipe operator** - `%>%` - which allows us to specify the data frame only once when we code. 
 
 Our three main topics today had to do with helping us tidy. There was a lot of **data wrangling** too. One topic were the variables themselves where we learned about the **factor** and **numeric** classes, and how to make and **recode** new variables. Two, we learned how to remove and add variable and value labels so that we can understand what our variables are measuring.  Three, we then learned to subset our data, whereby we make new dataframes that include only the columns – variables – or rows – observations – we want. We tidied our data using the TIDYVERSE WAY!
 
-
+<br>
 
 
 P.S. Well done today, to get through all this. What you are learning now will serve as the building blocks for your later data analysis, and we recognise it is all new and scary. But keep practicing, and you will get the hang of this in no time! And of course: don't forget to do your homework!
 
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Answers to activities (if applicable)
 - 1. N/A

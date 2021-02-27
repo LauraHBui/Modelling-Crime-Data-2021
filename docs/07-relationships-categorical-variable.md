@@ -177,9 +177,13 @@ nys_1 %>% group_by(sex) %>% summarize(n = n())
 ```
 
 ```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
 ## # A tibble: 2 x 2
 ##          sex     n
-## *  <dbl+lbl> <int>
+##    <dbl+lbl> <int>
 ## 1 1 [Male]     918
 ## 2 2 [Female]   807
 ```
@@ -207,7 +211,7 @@ count(nys_1, female)
 ```
 ## # A tibble: 2 x 2
 ##       female     n
-## *  <dbl+lbl> <int>
+##    <dbl+lbl> <int>
 ## 1 0 [Male]     918
 ## 2 1 [Female]   807
 ```
@@ -227,9 +231,9 @@ skim(nys_1, drunk)
 ```
 
 
-|skim_type |skim_variable | n_missing| complete_rate| numeric.mean| numeric.sd| numeric.p0| numeric.p25| numeric.p50| numeric.p75| numeric.p100|numeric.hist |
-|:---------|:-------------|---------:|-------------:|------------:|----------:|----------:|-----------:|-----------:|-----------:|------------:|:------------|
-|numeric   |drunk         |         6|     0.9965217|     1.242001|   10.48457|          0|           0|           0|           0|          250|▇▁▁▁▁        |
+skim_type   skim_variable    n_missing   complete_rate   numeric.mean   numeric.sd   numeric.p0   numeric.p25   numeric.p50   numeric.p75   numeric.p100  numeric.hist 
+----------  --------------  ----------  --------------  -------------  -----------  -----------  ------------  ------------  ------------  -------------  -------------
+numeric     drunk                    6       0.9965217       1.242001     10.48457            0             0             0             0            250  ▇▁▁▁▁        
 
 
 
@@ -239,10 +243,10 @@ nys_1 %>% group_by(female) %>% skim(drunk)
 ```
 
 
-|skim_type |skim_variable | female| n_missing| complete_rate| numeric.mean| numeric.sd| numeric.p0| numeric.p25| numeric.p50| numeric.p75| numeric.p100|numeric.hist |
-|:---------|:-------------|------:|---------:|-------------:|------------:|----------:|----------:|-----------:|-----------:|-----------:|------------:|:------------|
-|numeric   |drunk         |      0|         3|     0.9967320|     1.614208|  11.745701|          0|           0|           0|           0|          250|▇▁▁▁▁        |
-|numeric   |drunk         |      1|         3|     0.9962825|     0.818408|   8.821284|          0|           0|           0|           0|          240|▇▁▁▁▁        |
+skim_type   skim_variable    female   n_missing   complete_rate   numeric.mean   numeric.sd   numeric.p0   numeric.p25   numeric.p50   numeric.p75   numeric.p100  numeric.hist 
+----------  --------------  -------  ----------  --------------  -------------  -----------  -----------  ------------  ------------  ------------  -------------  -------------
+numeric     drunk                 0           3       0.9967320       1.614208    11.745701            0             0             0             0            250  ▇▁▁▁▁        
+numeric     drunk                 1           3       0.9962825       0.818408     8.821284            0             0             0             0            240  ▇▁▁▁▁        
 
 
  
@@ -588,7 +592,13 @@ results <- BCS0708 %>% # ‘fct_explicit_na()’ function from the forcats packa
   group_by(fct_explicit_na(as_factor(rubbcomm))) %>% 
   # We use the function ‘mean()’ as the variable is binary and because it is coded as 0 and 1.
   summarize( count = n(), outcome_1 = mean(bcsvictim))
+```
 
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
 # Auto-print the results stored in the newly created object 
 results
 ```
@@ -596,7 +606,7 @@ results
 ```
 ## # A tibble: 5 x 3
 ##   `fct_explicit_na(as_factor(rubbcomm))` count outcome_1
-## * <fct>                                  <int>     <dbl>
+##   <fct>                                  <int>     <dbl>
 ## 1 very common                              204     0.309
 ## 2 fairly common                           1244     0.296
 ## 3 not very common                         4154     0.236

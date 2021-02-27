@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-02-26" />
+<meta name="date" content="2021-02-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="getting-to-know-your-data.html"/>
-<script src="libs/header-attrs-2.7.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,26 +53,25 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,129 +132,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a>
-<ul>
+<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a><ul>
+<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-1-identifying-your-operating-system"><i class="fa fa-check"></i><b>1.1.1</b> Activity 1: Identifying your operating system</a></li>
 <li class="chapter" data-level="1.1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-2-install-r-r-studio"><i class="fa fa-check"></i><b>1.1.2</b> Activity 2: Install R &amp; R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-r-studio"><i class="fa fa-check"></i><b>1.2</b> Getting to know R Studio</a>
-<ul>
+<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-r-studio"><i class="fa fa-check"></i><b>1.2</b> Getting to know R Studio</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#the-four-panes-of-r-studio"><i class="fa fa-check"></i><b>1.2.1</b> The four panes of R Studio</a></li>
 <li class="chapter" data-level="1.2.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#customising-r-studio"><i class="fa fa-check"></i><b>1.2.2</b> Customising R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a>
-<ul>
+<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#operators-and-functions"><i class="fa fa-check"></i><b>1.3.1</b> Operators and Functions</a></li>
 <li class="chapter" data-level="1.3.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.3.2</b> Objects</a></li>
 <li class="chapter" data-level="1.3.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.4</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a>
-<ul>
+<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a><ul>
 <li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#the-tidyverse"><i class="fa fa-check"></i><b>2.1</b> The Tidyverse</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-1-making-yourself-a-project"><i class="fa fa-check"></i><b>2.2.1</b> Activity 1: Making yourself a project</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-2-importing-and-viewing-data"><i class="fa fa-check"></i><b>2.3.1</b> Activity 2: Importing and Viewing Data</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a>
-<ul>
+<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#variables"><i class="fa fa-check"></i><b>2.4.1</b> Variables</a></li>
 <li class="chapter" data-level="2.4.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.4.2</b> Labels</a></li>
 <li class="chapter" data-level="2.4.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#subsetting"><i class="fa fa-check"></i><b>2.4.3</b> Subsetting</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a>
-<ul>
+<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#answers-to-activities-if-applicable"><i class="fa fa-check"></i><b>2.5.1</b> Answers to activities (if applicable)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a>
-<ul>
+<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="data-visualization.html"><a href="data-visualization.html#activity-1-getting-ready"><i class="fa fa-check"></i><b>3.1.1</b> Activity 1: Getting Ready</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>3.2</b> ggplot2</a></li>
-<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="data-visualization.html"><a href="data-visualization.html#layers"><i class="fa fa-check"></i><b>3.3.1</b> Layers</a></li>
 <li class="chapter" data-level="3.3.2" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-categorical-data"><i class="fa fa-check"></i><b>3.3.2</b> Graphs for Categorical Data</a></li>
 <li class="chapter" data-level="3.3.3" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-numeric-data"><i class="fa fa-check"></i><b>3.3.3</b> Graphs for Numeric Data</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a>
-<ul>
+<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#activity-1-our-preparation-routine"><i class="fa fa-check"></i><b>4.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#central-tendency"><i class="fa fa-check"></i><b>4.2.1</b> Central Tendency</a></li>
 <li class="chapter" data-level="4.2.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#outliers"><i class="fa fa-check"></i><b>4.2.2</b> Outliers</a></li>
 <li class="chapter" data-level="4.2.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#measures-of-dispersion"><i class="fa fa-check"></i><b>4.2.3</b> Measures of Dispersion</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a>
-<ul>
+<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a><ul>
+<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#activity-1-our-preparation-routine-1"><i class="fa fa-check"></i><b>5.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#samples"><i class="fa fa-check"></i><b>5.2.1</b> Samples</a></li>
 <li class="chapter" data-level="5.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#standard-errors"><i class="fa fa-check"></i><b>5.2.2</b> Standard Errors</a></li>
 <li class="chapter" data-level="5.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#confidence-intervals"><i class="fa fa-check"></i><b>5.2.3</b> Confidence Intervals</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#summary-4"><i class="fa fa-check"></i><b>5.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a>
-<ul>
+<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a><ul>
 <li class="chapter" data-level="6.1" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-testing"><i class="fa fa-check"></i><b>6.1</b> Hypothesis Testing</a></li>
-<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="hypotheses.html"><a href="hypotheses.html#statistical-significance"><i class="fa fa-check"></i><b>6.2.1</b> Statistical Significance</a></li>
 <li class="chapter" data-level="6.2.2" data-path="hypotheses.html"><a href="hypotheses.html#a-binomial-test"><i class="fa fa-check"></i><b>6.2.2</b> A Binomial Test</a></li>
 <li class="chapter" data-level="6.2.3" data-path="hypotheses.html"><a href="hypotheses.html#single-sample-significance-tests"><i class="fa fa-check"></i><b>6.2.3</b> Single-sample significance tests</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="hypotheses.html"><a href="hypotheses.html#summary-5"><i class="fa fa-check"></i><b>6.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a>
-<ul>
+<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a><ul>
 <li class="chapter" data-level="7.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#associating-with-categorical-variables"><i class="fa fa-check"></i><b>7.1</b> Associating with Categorical Variables</a></li>
-<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#independent-and-dependent-variables"><i class="fa fa-check"></i><b>7.2.1</b> Independent and Dependent Variables</a></li>
 <li class="chapter" data-level="7.2.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#the-t-test"><i class="fa fa-check"></i><b>7.2.2</b> The T-Test</a></li>
 <li class="chapter" data-level="7.2.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#chi-square"><i class="fa fa-check"></i><b>7.2.3</b> Chi-square</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#summary-6"><i class="fa fa-check"></i><b>7.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a>
-<ul>
+<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a><ul>
 <li class="chapter" data-level="8.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#measures-of-association"><i class="fa fa-check"></i><b>8.1</b> Measures of Association</a></li>
-<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-nominal-variables"><i class="fa fa-check"></i><b>8.2.1</b> Between Categorical, Nominal Variables</a></li>
 <li class="chapter" data-level="8.2.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-ordinal-variables"><i class="fa fa-check"></i><b>8.2.2</b> Between Categorical, Ordinal Variables</a></li>
 <li class="chapter" data-level="8.2.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-numeric-variables"><i class="fa fa-check"></i><b>8.2.3</b> Between Numeric Variables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#summary-7"><i class="fa fa-check"></i><b>8.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a>
-<ul>
+<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a><ul>
 <li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#multiple-and-simultaneous-relationships"><i class="fa fa-check"></i><b>9.1</b> Multiple and Simultaneous Relationships</a></li>
-<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="regression.html"><a href="regression.html#assumptions-of-ols-regression"><i class="fa fa-check"></i><b>9.2.1</b> Assumptions of OLS Regression</a></li>
 <li class="chapter" data-level="9.2.2" data-path="regression.html"><a href="regression.html#interpreting-ols-regression"><i class="fa fa-check"></i><b>9.2.2</b> Interpreting OLS Regression</a></li>
 <li class="chapter" data-level="9.2.3" data-path="regression.html"><a href="regression.html#logistic-regression"><i class="fa fa-check"></i><b>9.2.3</b> Logistic Regression</a></li>
@@ -283,7 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="a-first-lesson-about-r" class="section level1" number="1">
+<div id="a-first-lesson-about-r" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> A First Lesson About R</h1>
 <div id="operators-functions-objects-and-packages" class="section level4 unnumbered">
 <h4><em>Operators &amp; Functions, Objects, and Packages</em></h4>
@@ -334,10 +306,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 </div>
 </div>
-<div id="install-r-r-studio" class="section level2" number="1.1">
+<div id="install-r-r-studio" class="section level2">
 <h2><span class="header-section-number">1.1</span> Install R &amp; R Studio</h2>
 <p>As <code>R</code> and <code>R Studio</code> are free software, you should be able to install these on your own computers at home. You may be working with different IT, so there are different options for a successful install. Our first activity will be to decide what approach to working with <code>R</code> and <code>R Studio</code> will be best for you.</p>
-<div id="activity-1-identifying-your-operating-system" class="section level3" number="1.1.1">
+<div id="activity-1-identifying-your-operating-system" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> Activity 1: Identifying your operating system</h3>
 <p>In this activity, you need to answer a question about your computer/IT that you will be working with for this class. That question is:</p>
 <ul>
@@ -352,9 +324,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In your group google sheets, write down which operating system you have. This will guide which directions to follow later.</p>
 <hr />
 </div>
-<div id="activity-2-install-r-r-studio" class="section level3" number="1.1.2">
+<div id="activity-2-install-r-r-studio" class="section level3">
 <h3><span class="header-section-number">1.1.2</span> Activity 2: Install R &amp; R Studio</h3>
-<div id="some-notes-specific-to-your-operating-system." class="section level4" number="1.1.2.1">
+<div id="some-notes-specific-to-your-operating-system." class="section level4">
 <h4><span class="header-section-number">1.1.2.1</span> Some notes specific to your operating system.</h4>
 <p>Before you move on to the installation steps, look at your answer from Activity 1, and read or watch the advice specific to your operating system:</p>
 <ul>
@@ -385,7 +357,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>You will be taken to a website to download the free version of <code>RStudio</code> that is appropriate for your computer. Download and then install it.</p></li>
 </ol>
 </div>
-<div id="plan-b-accessing-r-studio-remotely-throught-a-web-browser" class="section level4" number="1.1.2.2">
+<div id="plan-b-accessing-r-studio-remotely-throught-a-web-browser" class="section level4">
 <h4><span class="header-section-number">1.1.2.2</span> Plan B: accessing R Studio remotely throught a web browser</h4>
 <p>It might be that the above does not work and you find that there are some issues specific to your computer, or something just is not working. In that case, you have two options:</p>
 <ul>
@@ -396,30 +368,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="getting-to-know-r-studio" class="section level2" number="1.2">
+<div id="getting-to-know-r-studio" class="section level2">
 <h2><span class="header-section-number">1.2</span> Getting to know R Studio</h2>
 <p>You only need to open <code>Rstudio</code> (not both <code>R</code> and <code>RStudio</code>); <code>R</code> runs automatically in the background when <code>RStudio</code> is open. Using <code>RStudio</code> makes it easier to work with <code>R</code> than using <code>R</code> itself. If you do not believe this, try working directly in <code>R</code>!</p>
 <div class="figure">
-<img src="Images/rstudio1.png" style="width:80.0%" alt="" />
+<img src="Images/rstudio1.png" alt="Figure 1.1 R Studio interface" style="width:80.0%" />
 <p class="caption"><strong>Figure 1.1</strong> R Studio interface</p>
 </div>
 <p>Figure 1.1 shows you what <code>RStudio</code> looks like when you first open it: three open panes.</p>
 <p>The biggest one to your left is the main console, and it tells you what version of <code>R</code> you have.</p>
 <p>When you start working in <code>Rstudio</code>, it is best to have <em>four</em> open panes. <strong>How?</strong> Let us explore in the next activity.</p>
-<div id="activity-3-opening-up-the-script-pane" class="section level4" number="1.2.0.1">
+<div id="activity-3-opening-up-the-script-pane" class="section level4">
 <h4><span class="header-section-number">1.2.0.1</span> Activity 3: Opening up the script pane</h4>
 <p>Figure 1.2: Click in the <em>File</em> drop down Menu, select <em>New File</em>, then <em>R Script</em>.</p>
 <div class="figure">
-<img src="Images/R%20script.png" style="width:70.0%" alt="" />
+<img src="Images/R%20script.png" alt="Figure 1.2 Creating an R Script" style="width:70.0%" />
 <p class="caption"><strong>Figure 1.2</strong> Creating an R Script</p>
 </div>
 <p>You can shift between different panes and re-size them with your mouse too.</p>
 <div class="figure">
-<img src="Images/main%20window.png" style="width:70.0%" alt="" />
+<img src="Images/main%20window.png" alt="Figure 1.3 Main window in RStudio" style="width:70.0%" />
 <p class="caption"><strong>Figure 1.3</strong> Main window in <code>RStudio</code></p>
 </div>
 </div>
-<div id="the-four-panes-of-r-studio" class="section level3" number="1.2.1">
+<div id="the-four-panes-of-r-studio" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> The four panes of R Studio</h3>
 <p>The purposes of the four panes in Figure 1.3 are the following:</p>
 <ol style="list-style-type: decimal">
@@ -441,11 +413,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><em>4.4 Help</em> tab- you can access further information on the various packages.</p></li>
 </ol>
 <hr />
-<div id="activity-4-interacting-with-the-4-panes" class="section level4" number="1.2.1.1">
+<div id="activity-4-interacting-with-the-4-panes" class="section level4">
 <h4><span class="header-section-number">1.2.1.1</span> Activity 4: Interacting with the 4 panes</h4>
 <p>In the previous activity, you opened up the ‘script’ pane. We now write some code in it, and see what happens.</p>
 <p>To do this, go to your open version of <code>R Studio</code>, and type in the script pane the following:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="a-first-lesson-about-r.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello world!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">print</span>(<span class="st">&quot;Hello world!&quot;</span>)</a></code></pre></div>
 <p>When you have typed this, you will have typed your first bit of code. Yet nothing is happening? That is because you also have to <strong>RUN</strong> the code.</p>
 <p>You can do this by highlighting the code you wish to run, and clicking on ‘run’ in the top right hand corner:
 <img src="Images/run_hello_world.gif" /><!-- --></p>
@@ -454,183 +426,183 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 </div>
 </div>
-<div id="customising-r-studio" class="section level3" number="1.2.2">
+<div id="customising-r-studio" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> Customising R Studio</h3>
 <p>Did you know you can change the way <code>RStudio</code> looks? Click in the <em>Tools</em> menu and select <em>Global Options</em>. A pop-up window appears with various options:</p>
 <div class="figure">
-<img src="Images/tools_global_options.png" alt="" />
+<img src="Images/tools_global_options.png" alt="Figure 1.5 Selecting ‘Global Options’" />
 <p class="caption"><strong>Figure 1.5</strong> Selecting ‘Global Options’</p>
 </div>
 <p>Select <em>Appearance</em>. Here, you can change things related to the appearance of <code>R Studio</code> like the font type and size, including the theme background that <code>R</code> will use as the interface.</p>
 <div class="figure">
-<img src="Images/appearance_choose_tomorrow_night_bright.png" alt="" />
+<img src="Images/appearance_choose_tomorrow_night_bright.png" alt="Figure 1.6 Choosing a theme background" />
 <p class="caption"><strong>Figure 1.6</strong> Choosing a theme background</p>
 </div>
 <p><em>Tomorrow Night Bright</em> theme in Figure 1.7 is a recommendation because it is easier on your eyes with its dark background. You can preview and then click <em>Apply</em> to select the one you like.</p>
 <div class="figure">
-<img src="Images/tomorrow%20night%20bright.png" style="width:55.0%" alt="" />
+<img src="Images/tomorrow%20night%20bright.png" alt="Figure 1.7 Tomorrow Night Bright Theme" style="width:55.0%" />
 <p class="caption"><strong>Figure 1.7</strong> Tomorrow Night Bright Theme</p>
 </div>
 <hr />
 </div>
 </div>
-<div id="todays-3-topics" class="section level2" number="1.3">
+<div id="todays-3-topics" class="section level2">
 <h2><span class="header-section-number">1.3</span> Today’s 3 (TOPICS)</h2>
 <p>Now that we have a basic understanding of <code>R</code>, we are ready to learn some building blocks. Each session of <em>Modelling Criminological Data</em> will focus on three substantive topics, which are the key learning outcomes for each week. Today’s topics are <strong>operators and functions</strong>, <strong>objects</strong>, and <strong>packages</strong>. Once you have mastered these three topics, you will be ready to start using <code>R</code> for data analysis!</p>
 <hr />
-<div id="operators-and-functions" class="section level3" number="1.3.1">
+<div id="operators-and-functions" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Operators and Functions</h3>
 <p><strong>Operators</strong> are symbols that tell <code>R</code> to do something specific like assigning values to vectors. They fall into four categories: arithmetic, relational, logical, and assignment. For now, let us type out and run some arithmetic operators:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="a-first-lesson-about-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Addition</span></span>
-<span id="cb2-2"><a href="a-first-lesson-about-r.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># Addition</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="a-first-lesson-about-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subtraction</span></span>
-<span id="cb4-2"><a href="a-first-lesson-about-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># Subtraction</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="dv">10</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="a-first-lesson-about-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplication</span></span>
-<span id="cb6-2"><a href="a-first-lesson-about-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># Multiplication</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="a-first-lesson-about-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Division</span></span>
-<span id="cb8-2"><a href="a-first-lesson-about-r.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># Division</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="dv">6</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>Did you <em>Run</em> the arithmetic operators? The answers will have appeared, just like the above. If you are wondering what the # symbol means in the coding above, these are called <strong>comments</strong>. They are annotations you can use in your <code>R script</code> to tell <code>R</code> that what comes right after the <strong>#</strong> are not code to be ran. Comments are like your personal notes alongside your coding.</p>
 <p>There are other operators we will come across like the <em>and</em> operator (<code>&amp;</code>) and the <em>or</em> operator (<code>|</code>), which will be useful when we start to manipulate our data sets.</p>
-<div id="activity-5-play-around-with-operators" class="section level4" number="1.3.1.1">
+<div id="activity-5-play-around-with-operators" class="section level4">
 <h4><span class="header-section-number">1.3.1.1</span> Activity 5: Play around with operators</h4>
 <p>Return to your open version of <code>R Studio</code>, and use this to find the answer to the following:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="a-first-lesson-about-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dv">12329</span> <span class="sc">+</span> <span class="dv">342980</span></span>
-<span id="cb10-2"><a href="a-first-lesson-about-r.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dv">18390</span> <span class="sc">/</span> <span class="dv">348</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="dv">12329</span> <span class="op">+</span><span class="st"> </span><span class="dv">342980</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="dv">18390</span> <span class="op">/</span><span class="st"> </span><span class="dv">348</span></a></code></pre></div>
 <p>The results should appear in the console pane and is known as your output.</p>
 <hr />
 <p><strong>Functions</strong> are similar to operators in that they <em>do</em> things. The difference is that they are called by a certain name, usually a name which represents what they do, and they are followed by brackets <code>()</code>. Within the brackets, you can put whatever it is that you want the function to work with. For example, the code we wrote in Activity 4 was the <code>print()</code> function. This function told <code>R</code> to print into the console whatever we put in the brackets (“Hello world!”).</p>
 <p>Same idea with a personalised greeting: if you want to print ‘Hello Reka’, you will need to have “Hello Reka” inside the brackets:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="a-first-lesson-about-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello Reka&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">print</span>(<span class="st">&quot;Hello Reka&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Hello Reka&quot;</code></pre>
 <p>Hello Reka.</p>
 <p>There are so many functions in <code>R</code>. We will be learning many of them throughout our class. <code>Print</code> is fun, but most of the time, we will be using functions to help us with our data analysis. You might remember some Excel formulas we learned last semester from <em>Making Sense of Criminological Data</em>. For example, getting the minimum, maximum, or mean of a list of numbers. <code>R</code> does this using functions in a very similar way.</p>
 <p>For example, if we have a bunch of numbers, we just find the appropriate function to get the summary we want:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="a-first-lesson-about-r.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>))</a></code></pre></div>
 <pre><code>## [1] 25.8</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="a-first-lesson-about-r.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">min</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>))</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="a-first-lesson-about-r.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">max</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>))</a></code></pre></div>
 <pre><code>## [1] 77</code></pre>
 <p>How exactly can you find the function you need? Throughout this class, you will learn a list that appears at the top of each lesson. A recommendation is to also create a ‘function cookbook’, where you write down a list of functions, what the functions do, and some examples. Here is an example:</p>
 <div class="figure">
-<img src="Images/fn_cookbook.png" alt="" />
+<img src="Images/fn_cookbook.png" alt="Figure 1.8 An example of a function cookbook" />
 <p class="caption"><strong>Figure 1.8</strong> An example of a function cookbook</p>
 </div>
 <p>You can use google to make your cookbook, and the website <a href="https://stackoverflow.com/">stackoverflow</a>, in particular, can help you find the function you need. But be wary, especially in the beginning, that you understand what the function does. There can be several different functions for the same action. One good approach is to add a function of interest to your cookbook and ask the teaching team about what it does, and how it might be different to other functions that do the same thing.</p>
 </div>
-<div id="activity-6-play-around-with-functions" class="section level4" number="1.3.1.2">
+<div id="activity-6-play-around-with-functions" class="section level4">
 <h4><span class="header-section-number">1.3.1.2</span> Activity 6: Play around with functions</h4>
 <p>Have a guess of (or google) what you think is the function to get the median. Once you have your answer, write it in the shared google docs. Then, use it to get the median of the numbers 10, 34, 5, 3, 77.</p>
 <p>Write the answer in your shared google doc (or note it down for yourself if in the quiet room).</p>
 <p>The answer is further below, after the note:</p>
 <p><strong>NOTE:</strong> <code>R</code> is case-sensitive! For example:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="a-first-lesson-about-r.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating the logarithm </span></span>
-<span id="cb19-2"><a href="a-first-lesson-about-r.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Log</span>(<span class="dv">100</span>)</span>
-<span id="cb19-3"><a href="a-first-lesson-about-r.html#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="a-first-lesson-about-r.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ERROR!</span></span></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="a-first-lesson-about-r.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instead, it should be:</span></span>
-<span id="cb20-2"><a href="a-first-lesson-about-r.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co"># Calculating the logarithm </span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="kw">Log</span>(<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb19-3" title="3"></a>
+<a class="sourceLine" id="cb19-4" title="4"><span class="co"># ERROR!</span></a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="co"># Instead, it should be:</span></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="kw">log</span>(<span class="dv">100</span>)</a></code></pre></div>
 <pre><code>## [1] 4.60517</code></pre>
 <p>Okay, now you know these, the answer to Activity 6 was…</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="a-first-lesson-about-r.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">median</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>))</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>Now let us move on to our second key topic for today: objects!</p>
 <hr />
 </div>
 </div>
-<div id="objects" class="section level3" number="1.3.2">
+<div id="objects" class="section level3">
 <h3><span class="header-section-number">1.3.2</span> Objects</h3>
 <p>Everything that exists in <code>R</code> is an <strong>object</strong>. Think of objects as boxes where you put things in. Imagine a big, empty cardboard box. We can create this big empty box in <code>R</code> by simply giving it a name. Usually, you want your object (‘box’) to have a good descriptive name, which will tell others what is in it. Imagine moving house. If you have a cardboard box full of plates, you might want to label it ‘plates’. That way, when carrying, you know to be careful, and when unpacking, you know its contents will go in the kitchen. On the other hand, if you named it ‘box1’, then this is a lot less helpful when it comes to unpacking.</p>
-<div id="activity-7-creating-an-object" class="section level4" number="1.3.2.1">
+<div id="activity-7-creating-an-object" class="section level4">
 <h4><span class="header-section-number">1.3.2.1</span> Activity 7: Creating an object</h4>
 <p>Let us create an object called ‘plates’. To do this, you go to your script, and type ‘plates’.</p>
 <div class="figure">
-<img src="Images/plates.png" alt="" />
+<img src="Images/plates.png" alt="Figure 1.9 Typing ‘Plates’ in the script" />
 <p class="caption"><strong>Figure 1.9</strong> Typing ‘Plates’ in the script</p>
 </div>
 <p>But if you run this code, you will get an error. Let’s see:</p>
 <p><img src="Images/error_no_plates.gif" /><!-- --></p>
 <p>You will see the phrase ‘Error: object plates not found’. This is because you have not yet put anything inside the plates ‘box’. Remember objects are like boxes,so there must be something inside our object ‘plates’. In order for this object to exist, you have to put something inside it, or in <code>R</code>-speak <em>assign it some value</em>.</p>
 <p>Therefore, we make an object by using an <em>assignment operator</em> ( <code>&lt;-</code> ). In other words, we assign something to an object (i.e., put something in the box). For example:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="a-first-lesson-about-r.html#cb24-1" aria-hidden="true" tabindex="-1"></a>plates <span class="ot">&lt;-</span> <span class="st">&quot;yellow plate&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">plates &lt;-<span class="st"> &quot;yellow plate&quot;</span></a></code></pre></div>
 <p>Now if we run this, we will see no error message, but instead, we will see the <code>plates</code> object appear in our <em>environment pane</em>:</p>
 <p><img src="Images/assign_plates.gif" /><!-- --></p>
 <p>Here are some more examples to illustrate:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="a-first-lesson-about-r.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Putting &#39;10&#39; in the &#39;a&#39; box</span></span>
-<span id="cb25-2"><a href="a-first-lesson-about-r.html#cb25-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb25-3"><a href="a-first-lesson-about-r.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="a-first-lesson-about-r.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Putting &#39;Hello!&#39; in the &#39;abc123&#39; box</span></span>
-<span id="cb25-5"><a href="a-first-lesson-about-r.html#cb25-5" aria-hidden="true" tabindex="-1"></a>abc123 <span class="ot">&lt;-</span> <span class="st">&quot;Hello!&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="co"># Putting &#39;10&#39; in the &#39;a&#39; box</span></a>
+<a class="sourceLine" id="cb25-2" title="2">a &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb25-3" title="3"></a>
+<a class="sourceLine" id="cb25-4" title="4"><span class="co"># Putting &#39;Hello!&#39; in the &#39;abc123&#39; box</span></a>
+<a class="sourceLine" id="cb25-5" title="5">abc123 &lt;-<span class="st"> &quot;Hello!&quot;</span></a></code></pre></div>
 <p>In these examples, we are putting the value of <code>10</code> into the object <code>a</code>, and the value of ‘Hello!’ into the object <code>abc123</code>.</p>
 <p>Earlier, we introduced you to the Environment and History pane. We mentioned that it lists objects you defined. After making the ‘a’ and ‘abc123’ objects, they should appear in that very pane under the <code>Environment</code> tab.</p>
 <hr />
 </div>
-<div id="types-of-objects" class="section level4" number="1.3.2.2">
+<div id="types-of-objects" class="section level4">
 <h4><span class="header-section-number">1.3.2.2</span> Types of objects</h4>
 <p>Why are objects important? They are so because we will be storing everything in our data analysis process in these objects. Depending on what is inside them, they can become a different type of object. Here are some examples:</p>
 <p><strong>Data structures</strong> are important objects that store your data, and there are five main types but we focus on three for this course:</p>
 <ol style="list-style-type: decimal">
 <li><em>(atomic) vector</em>: an ordered set of elements that are of the same <em>class</em>. Vectors are a basic data structure in <code>R</code>. Below are five different classes of vectors:</li>
 </ol>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="a-first-lesson-about-r.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. numeric vector with three elements</span></span>
-<span id="cb26-2"><a href="a-first-lesson-about-r.html#cb26-2" aria-hidden="true" tabindex="-1"></a>my_1st_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">8.9</span>, <span class="fl">0.6</span>) </span>
-<span id="cb26-3"><a href="a-first-lesson-about-r.html#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="a-first-lesson-about-r.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. integer vector with addition of L at the end of the value</span></span>
-<span id="cb26-5"><a href="a-first-lesson-about-r.html#cb26-5" aria-hidden="true" tabindex="-1"></a>my_2nd_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(1L, 2L, 3L)  </span>
-<span id="cb26-6"><a href="a-first-lesson-about-r.html#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="a-first-lesson-about-r.html#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. logical vector</span></span>
-<span id="cb26-8"><a href="a-first-lesson-about-r.html#cb26-8" aria-hidden="true" tabindex="-1"></a>my_3rd_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>) </span>
-<span id="cb26-9"><a href="a-first-lesson-about-r.html#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;my_4th_vector&#39; creates a logical vector using abbreviations of True and False, but you should use the full words instead</span></span>
-<span id="cb26-10"><a href="a-first-lesson-about-r.html#cb26-10" aria-hidden="true" tabindex="-1"></a>my_4th_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(T, F) </span>
-<span id="cb26-11"><a href="a-first-lesson-about-r.html#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-12"><a href="a-first-lesson-about-r.html#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. character vector</span></span>
-<span id="cb26-13"><a href="a-first-lesson-about-r.html#cb26-13" aria-hidden="true" tabindex="-1"></a>my_5th_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>) </span>
-<span id="cb26-14"><a href="a-first-lesson-about-r.html#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-15"><a href="a-first-lesson-about-r.html#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. complex vector (we will not use this for our class)</span></span>
-<span id="cb26-16"><a href="a-first-lesson-about-r.html#cb26-16" aria-hidden="true" tabindex="-1"></a>my_6th_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">+</span>0i, <span class="dv">2</span><span class="sc">+</span>4i) </span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="co"># 1. numeric vector with three elements</span></a>
+<a class="sourceLine" id="cb26-2" title="2">my_1st_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">8.9</span>, <span class="fl">0.6</span>) </a>
+<a class="sourceLine" id="cb26-3" title="3"></a>
+<a class="sourceLine" id="cb26-4" title="4"><span class="co"># 2. integer vector with addition of L at the end of the value</span></a>
+<a class="sourceLine" id="cb26-5" title="5">my_2nd_vector &lt;-<span class="st"> </span><span class="kw">c</span>(1L, 2L, 3L)  </a>
+<a class="sourceLine" id="cb26-6" title="6"></a>
+<a class="sourceLine" id="cb26-7" title="7"><span class="co"># 3. logical vector</span></a>
+<a class="sourceLine" id="cb26-8" title="8">my_3rd_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>) </a>
+<a class="sourceLine" id="cb26-9" title="9"><span class="co"># &#39;my_4th_vector&#39; creates a logical vector using abbreviations of True and False, but you should use the full words instead</span></a>
+<a class="sourceLine" id="cb26-10" title="10">my_4th_vector &lt;-<span class="st"> </span><span class="kw">c</span>(T, F) </a>
+<a class="sourceLine" id="cb26-11" title="11"></a>
+<a class="sourceLine" id="cb26-12" title="12"><span class="co"># 4. character vector</span></a>
+<a class="sourceLine" id="cb26-13" title="13">my_5th_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>) </a>
+<a class="sourceLine" id="cb26-14" title="14"></a>
+<a class="sourceLine" id="cb26-15" title="15"><span class="co"># 5. complex vector (we will not use this for our class)</span></a>
+<a class="sourceLine" id="cb26-16" title="16">my_6th_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">+</span>0i, <span class="dv">2</span><span class="op">+</span>4i) </a></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><em>lists</em>: technically they, too, are vectors but they are more complex because they are not restricted on the length, structure, or class of the included elements. For example, to create a list containing strings, numbers, vectors and a logical, use the <code>list()</code> function, and inside the brackets, put everything that you want to combine into a list:</li>
 </ol>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="a-first-lesson-about-r.html#cb27-1" aria-hidden="true" tabindex="-1"></a>list_data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;teal&quot;</span>, <span class="st">&quot;sky blue&quot;</span>, <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">10</span>), <span class="cn">TRUE</span>, <span class="fl">68.26</span>, <span class="fl">95.46</span>, <span class="fl">99.7</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">list_data &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;teal&quot;</span>, <span class="st">&quot;sky blue&quot;</span>, <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">10</span>), <span class="ot">TRUE</span>, <span class="fl">68.26</span>, <span class="fl">95.46</span>, <span class="fl">99.7</span>) </a></code></pre></div>
 <p>Above, we created <code>list_data</code>, an object that contains all those things that we put inside the <code>list()</code> function. This function serves to create a list from combining everything that is put inside its brackets.</p>
 <p>We then use the <code>class()</code> function to confirm that the objects have been defined as a list:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="a-first-lesson-about-r.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(list_data)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">class</span>(list_data)</a></code></pre></div>
 <pre><code>## [1] &quot;list&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li><em>data frames</em>: also stores elements but differ from lists because they are defined by their number of columns and rows; the vectors (columns) must be of the same length. Data frames can contain different classes but each column must be of the same class. (More on class next week.) For example, if you want to combine some related vectors to make a data frame on violent American cities, use the function <code>data.frame()</code>:</li>
 </ol>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="a-first-lesson-about-r.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Making some relevant vectors</span></span>
-<span id="cb30-2"><a href="a-first-lesson-about-r.html#cb30-2" aria-hidden="true" tabindex="-1"></a>TopVioCities <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;St. Louis&quot;</span>, <span class="st">&quot;Detroit&quot;</span>, <span class="st">&quot;Baltimore&quot;</span>) <span class="co"># some violent US cities</span></span>
-<span id="cb30-3"><a href="a-first-lesson-about-r.html#cb30-3" aria-hidden="true" tabindex="-1"></a>VioRatePer1k <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">20.8</span>, <span class="fl">20.6</span>, <span class="fl">20.3</span>) <span class="co"># their violence rates per 1,000 persons</span></span>
-<span id="cb30-4"><a href="a-first-lesson-about-r.html#cb30-4" aria-hidden="true" tabindex="-1"></a>State <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Missouri&quot;</span>, <span class="st">&quot;Michigan&quot;</span>, <span class="st">&quot;Maryland&quot;</span>) <span class="co"># in what states are these cities found</span></span>
-<span id="cb30-5"><a href="a-first-lesson-about-r.html#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-6"><a href="a-first-lesson-about-r.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Join the newly created vectors to make a data frame called &#39;df&#39;</span></span>
-<span id="cb30-7"><a href="a-first-lesson-about-r.html#cb30-7" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(TopVioCities, VioRatePer1k, State)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="co"># Making some relevant vectors</span></a>
+<a class="sourceLine" id="cb30-2" title="2">TopVioCities &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;St. Louis&quot;</span>, <span class="st">&quot;Detroit&quot;</span>, <span class="st">&quot;Baltimore&quot;</span>) <span class="co"># some violent US cities</span></a>
+<a class="sourceLine" id="cb30-3" title="3">VioRatePer1k =<span class="st"> </span><span class="kw">c</span>(<span class="fl">20.8</span>, <span class="fl">20.6</span>, <span class="fl">20.3</span>) <span class="co"># their violence rates per 1,000 persons</span></a>
+<a class="sourceLine" id="cb30-4" title="4">State &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Missouri&quot;</span>, <span class="st">&quot;Michigan&quot;</span>, <span class="st">&quot;Maryland&quot;</span>) <span class="co"># in what states are these cities found</span></a>
+<a class="sourceLine" id="cb30-5" title="5"></a>
+<a class="sourceLine" id="cb30-6" title="6"><span class="co">#Join the newly created vectors to make a data frame called &#39;df&#39;</span></a>
+<a class="sourceLine" id="cb30-7" title="7">df&lt;-<span class="kw">data.frame</span>(TopVioCities, VioRatePer1k, State)</a></code></pre></div>
 <p>We can then view the data frame, ‘df’, with the <code>View()</code> function in which a tab will appear containing our vectors:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="a-first-lesson-about-r.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">View</span>(df)</a></code></pre></div>
 <hr />
 </div>
-<div id="activity-8-doing-things-to-objects" class="section level4" number="1.3.2.3">
+<div id="activity-8-doing-things-to-objects" class="section level4">
 <h4><span class="header-section-number">1.3.2.3</span> Activity 8: Doing things to objects</h4>
 <p>We have learned what functions are (i.e., things that do things) and what operators are (i.e., symbols that do things) as well as what are objects (i.e., the boxes that hold things). We also saw some functions which helped us create objects. Functions can also do things to objects. For example, we saw the function <code>class()</code> that told us what kind of object <code>list_data</code> was, and <code>View()</code> which allowed us to have a look at our dataframe we called <code>df</code>.</p>
 <p>Let us look back at our <code>plates</code> object. Remember it was the object that held our kitchen items, specifically that beloved yellow plate. We added ‘yellow plate’ to it. Now let us add some more plates (we like to collect plates apparently) and let us use the concatenate <code>c()</code> function for this again:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="a-first-lesson-about-r.html#cb32-1" aria-hidden="true" tabindex="-1"></a>plates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;yellow plate&quot;</span>, <span class="st">&quot;purple plate&quot;</span>, <span class="st">&quot;silver plate&quot;</span>, <span class="st">&quot;orange bowl&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">plates &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;yellow plate&quot;</span>, <span class="st">&quot;purple plate&quot;</span>, <span class="st">&quot;silver plate&quot;</span>, <span class="st">&quot;orange bowl&quot;</span>)</a></code></pre></div>
 <p>Let us say that we suddenly forgot what was in our object called ‘plates’. Like what we learned earlier, we use the function <code>print()</code> to see what is inside this object:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="a-first-lesson-about-r.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plates)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">print</span>(plates)</a></code></pre></div>
 <pre><code>## [1] &quot;yellow plate&quot; &quot;purple plate&quot; &quot;silver plate&quot; &quot;orange bowl&quot;</code></pre>
 <p>This can apply to obtaining the mean, the minimum, and maximum. You could assign those statistics to an object this time:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="a-first-lesson-about-r.html#cb35-1" aria-hidden="true" tabindex="-1"></a>nums <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">nums &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">77</span>)</a></code></pre></div>
 <p>Now if we want to know the mean, we can take the mean of the object <code>nums</code>, which we just created:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="a-first-lesson-about-r.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nums)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">mean</span>(nums)</a></code></pre></div>
 <pre><code>## [1] 25.8</code></pre>
 <p>The object we will use most frequently though is data frames. Much like how we worked with spreadsheets in Excel in <em>Making Sense of Criminological Data</em>, we will be working with dataframes in <code>R</code>.</p>
 <p>We had created a dataframe called <code>df</code> previously. If you have not yet created this dataframe in your own <code>R Studio</code>, do this now. You should have the object <code>df</code> in your environment. When you run <code>View(df)</code>, you should see this dataset:</p>
 <div class="figure">
-<img src="Images/df_view.png" alt="" />
+<img src="Images/df_view.png" alt="Figure 1.12 The data frame ‘df’" />
 <p class="caption"><strong>Figure 1.12</strong> The data frame ‘df’</p>
 </div>
 <p>To do something to an entire dataframe, we would use the name of the object (<code>df</code>) to refer to it. In the case of the <code>View()</code> function, we want to see all that is contained in <code>df</code>, so we will type <code>View(df)</code>. On the other hand, if we want to refer to only one <em>variable</em> or column in the data, (recall last semester - each variable is held in each column) there is a special notation to do this – $</p>
@@ -638,29 +610,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(dataframe name + \$ + variable name\)</span></p>
 <p>For example, to refer to the variable <code>VioRatePer1k</code>, we use the notation <code>df$VioRatePer1k</code>.</p>
 <p>And if we wanted to view only that variable, we use:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="a-first-lesson-about-r.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(df<span class="sc">$</span>VioRatePer1k)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">View</span>(df<span class="op">$</span>VioRatePer1k)</a></code></pre></div>
 <p>You should see:</p>
 <div class="figure">
-<img src="Images/view_col_only.png" alt="" />
+<img src="Images/view_col_only.png" alt="Figure 1.13 Viewing df$VioRatePer1k" />
 <p class="caption"><strong>Figure 1.13</strong> Viewing df$VioRatePer1k</p>
 </div>
 <p>Say we wanted to know the mean violence rate across our units of analysis, the cities, for example, we would take the numeric column to calculate this:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="a-first-lesson-about-r.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>VioRatePer1k)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">mean</span>(df<span class="op">$</span>VioRatePer1k)</a></code></pre></div>
 <pre><code>## [1] 20.56667</code></pre>
 </div>
 </div>
-<div id="packages-1" class="section level3" number="1.3.3">
+<div id="packages-1" class="section level3">
 <h3><span class="header-section-number">1.3.3</span> Packages</h3>
 <p><strong>Packages</strong> are a very important element of <code>R</code>. Throughout the course, and hopefully afterwards, you will find yourself installing numerous open source software packages that allow <code>R</code> to do new and different things. There are loads of packages out there. In early 2020, there were over 150,000 packages available. Anyone can write one, so you will need to be careful with which ones you use as the quality can vary. Official repositories, like <a href="https://cran.r-project.org/">CRAN</a>, are your best bet for packages as they will have passed some quality controls.</p>
 <p>You can see what packages are available in your local install by looking at the <em>packages</em> tab in the <em>File directory, Plots, Packages</em> pane (Figure 1.14).</p>
 <div class="figure">
-<img src="Images/packages.png" style="width:35.0%" alt="" />
+<img src="Images/packages.png" alt="Figure 1.14 Packages Tab" style="width:35.0%" />
 <p class="caption"><strong>Figure 1.14</strong> Packages Tab</p>
 </div>
 <p>A number of the packages we will use belong to a set of packages called <strong>tidyverse</strong>. These packages help make your data tidy. According to Statistician and Chief Scientist at <code>RStudio</code>, Hadley Wickham, (also an author of some of your readings) transforming your data into <em>tidy data</em> is one of the most important steps of the data analysis process. It will ensure your data are in the format you need to conduct your analyses.</p>
 <p>Packages can be installed using the <code>install.packages()</code> function. Remember that while you only need to install packages once, they need to be loaded with the <code>library()</code>function each time you open up <code>RStudio</code>. Let us install the package <code>dplyr</code> from <code>tidyverse</code> and load it:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="a-first-lesson-about-r.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="a-first-lesson-about-r.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">library</span>(dplyr)</a></code></pre></div>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.6.3</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
@@ -672,7 +645,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A lot of code and activity appears in the console. Warnings may manifest. Most of the time, the warnings explain what is being loaded and confirm that the package is successfully loaded. If there is an error, you will have to figure out what the warnings are telling you to successfully load the package. This happens and is normal.</p>
 <p>To double check that you have actually installed <code>dplyr</code>, go to that <em>File Directory, Plots, Packages</em> pane and click on the <em>Packages</em> tab. The list of packages is in alphabetical order and <code>dplyr</code> should be there. If there is a tick in its box, it means that this package is currently loaded and you can use it; if there is no tick, it means that it is inactive, and you will have to bring it up with <code>library()</code>, or just tick its box (Figure 1.15).</p>
 <div class="figure">
-<img src="Images/dplyr.png" style="width:35.0%" alt="" />
+<img src="Images/dplyr.png" alt="Figure 1.15 dplyr Package Ticked" style="width:35.0%" />
 <p class="caption"><strong>Figure 1.15</strong> dplyr Package Ticked</p>
 </div>
 <p>On <em>masking</em>: sometimes packages introduce functions that have the same name as those that are already loaded, maybe from another package, into your session. When that happens, the newly loaded ones will override the previous ones. You can still use them but you will have to refer to them explicitly by bringing them up by specifying to which package they belong using <code>library()</code>.</p>
@@ -680,7 +653,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 </div>
 </div>
-<div id="summary" class="section level2" number="1.4">
+<div id="summary" class="section level2">
 <h2><span class="header-section-number">1.4</span> SUMMARY</h2>
 <p>Today you installed both <code>R</code> and <code>RStudio</code> and had a gander around the <code>RStudio</code> interface. If you were bored with its default look, you could customise the interface. When working with <code>RStudio</code>, it is best to have the four panes. One had to do with the all-important <strong>script</strong> and we use <code>#</code> in the coding when we want to make <strong>comments</strong>.</p>
 <p>We learned about some important features of <code>R</code>. First were the <strong>operators</strong>. These are symbols that tell <code>R</code> what to do and come in four types. One we will use quite a bit is the <em>assignment operator</em>, which is the symbol, <code>&lt;-</code>. Also important were <strong>functions</strong>, which are similar to operators except their names tell you what they do. Second were <strong>objects</strong>, which are pervasive when working with <code>R</code>. They are like boxes that you put stuff in, and we learned about three specific types of <strong>data structure</strong> objects: vectors, lists, and data frames. Third were <strong>packages</strong>. These are open source software that expand what <code>R</code> can do. We installed <code>dplyr</code> as an example, and we will use this <code>tidyverse</code> package in our next session.</p>

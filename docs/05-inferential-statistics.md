@@ -142,7 +142,7 @@ ggplot() +
   geom_vline(mapping = aes(xintercept = mean(prob_iq)), col = "red", linetype = "dashed") # We add a red line in the code to show the mean of the population IQ
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
+<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 
 
@@ -158,7 +158,7 @@ mean(prob_iq) # 99.99508
 ```
 
 ```
-## [1] 99.98844
+## [1] 100.0072
 ```
 
 ```r
@@ -166,7 +166,7 @@ median(prob_iq) # 99.99855
 ```
 
 ```
-## [1] 99.98433
+## [1] 100.006
 ```
 
 ```r
@@ -174,7 +174,7 @@ sd(prob_iq) # 14.99377
 ```
 
 ```
-## [1] 15.00813
+## [1] 15.00062
 ```
 
 
@@ -311,7 +311,13 @@ sample100 <- do(1000) * sample(x = prob_off, size = 100)
 sample_means100 <- sample100 %>% 
   group_by(.index) %>% # Group by .index  (the sample id)
   summarize(meanIQ = mean(IQ)) # Creating new variable of mean IQ
+```
 
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
 mean(sample_means100$meanIQ)
 ```
 
@@ -330,7 +336,7 @@ ggplot(data = sample_means100) +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 
 
@@ -363,11 +369,23 @@ sample30 <- do(1000) * sample(x = prob_off, size = 30)
 sample_means1000 <- sample1000 %>% 
   group_by(.index) %>% 
   summarize(meanIQ = mean(IQ)) 
+```
 
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
 sample_means300 <- sample30 %>% 
   group_by(.index) %>% 
   summarize(meanIQ = mean(IQ)) 
+```
 
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
 # Bind them with our first example, which had 100 probationers in each sample 
 sample.means.total <- bind_rows(sample_means300, sample_means100, sample_means1000, .id = "sample.size")
 
@@ -377,7 +395,7 @@ ggplot(data = sample.means.total) +
   scale_fill_discrete(labels = c("30","100","1000"))
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 
 
@@ -514,7 +532,7 @@ ggplot(data = sample1) +
   geom_vline(mapping = aes(xintercept = mean(IQ) - 1.96*sd(IQ)), col = "blue", linetype = "dashed")
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
+<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 
 
@@ -571,7 +589,7 @@ ggplot(data = new.sample.ci100) +
   geom_point(mapping = aes(y = .index, x = meanIQ, colour = capture.mean))
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-15-1.png)<!-- -->
+<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 
 
 
