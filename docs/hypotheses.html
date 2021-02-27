@@ -137,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-1-identifying-your-operating-system"><i class="fa fa-check"></i><b>1.1.1</b> Activity 1: Identifying your operating system</a></li>
 <li class="chapter" data-level="1.1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-2-install-r-r-studio"><i class="fa fa-check"></i><b>1.1.2</b> Activity 2: Install R &amp; R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-r-studio"><i class="fa fa-check"></i><b>1.2</b> Getting to know R Studio</a><ul>
+<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-rstudio"><i class="fa fa-check"></i><b>1.2</b> Getting to know <code>RStudio</code></a><ul>
 <li class="chapter" data-level="1.2.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#the-four-panes-of-r-studio"><i class="fa fa-check"></i><b>1.2.1</b> The four panes of R Studio</a></li>
 <li class="chapter" data-level="1.2.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#customising-r-studio"><i class="fa fa-check"></i><b>1.2.2</b> Customising R Studio</a></li>
 </ul></li>
@@ -347,9 +347,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We will, once again, create synthetic data of an evaluation of our example intervention programme. The sample comprises 100 at-risk young people who are randomly assigned to two groups: 50 to a treatment group that receives the intervention that aims to prevent them from committing future offences and 50 to the control group that receives no intervention. We evaluate this programme to see if it works and if it can be generalised to all at-risk youth in Manchester. As the outcome has only two options – success and failure – we rely on the <strong>binomial distribution</strong>.</p>
 <p>In <code>R</code>, we run the <code>prop.test ()</code> function to test the null hypothesis that the proportions, or probabilities of success, are the same or equal in several groups. Say we find that in the treatment group, 10 out of the 50 went on to reoffend whereas, in the control group, 28 out of the 50 went on to reoffend.</p>
 <p>We could stop here and conclude, ‘Yes, there is a difference between groups, and by golly, the intervention works.’ But remember that chance, or random variation, is inherent in all phenomena, so this observation could just be a mere fluke. That is why we conduct a test of statistical significance. This one is called a ‘two-sample proportion test’:</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" title="1"><span class="co"># The first concatenate (c () ) contains the numbers that went onto reoffend</span></a>
-<a class="sourceLine" id="cb311-2" title="2"><span class="co"># The second concatenate contains the total numbers in each group</span></a>
-<a class="sourceLine" id="cb311-3" title="3"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb279-1" title="1"><span class="co"># The first concatenate (c () ) contains the numbers that went onto reoffend</span></a>
+<a class="sourceLine" id="cb279-2" title="2"><span class="co"># The second concatenate contains the total numbers in each group</span></a>
+<a class="sourceLine" id="cb279-3" title="3"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>))</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity correction
 ## 
@@ -369,8 +369,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>The p-value is less than the specified α = 0.05, so we can say that the difference is statistically significant. We have evidence to reject the null hypothesis that no difference in reoffending exists between the treatment and control groups. This suggests that <em>something</em> is happening because of the intervention, but we are not sure what.</p>
 <p>Now, if we want a directional hypothesis? For example, we expect that reoffending reduces in the treatment group compared to the control group:</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" title="1"><span class="co"># We add ‘alternative=’ and specify ‘less’ to indicate we expect the treatment group to have a smaller probability of reoffending than the control</span></a>
-<a class="sourceLine" id="cb313-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" title="1"><span class="co"># We add ‘alternative=’ and specify ‘less’ to indicate we expect the treatment group to have a smaller probability of reoffending than the control</span></a>
+<a class="sourceLine" id="cb281-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity correction
 ## 
@@ -384,8 +384,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   0.20   0.56</code></pre>
 <p>Again, the p-value is less than α = 0.05, so we have sufficient indication to reject our null hypothesis. In other words, there is evidence to suggest that the at-risk youth in the treatment did offend less than in the control group due to the intervention, and this finding is statistically significant – we can generalise this result to the population which they represent.</p>
 <p>Now if, for example, we found out that the therapist hired to deliver the intervention was a fraud, we may be worried the treatment group did worse than the control group. We then would expect a directional hypothesis where reoffending is higher in the treatment group than that of the control. We run the two-sample proportion test again, but with a slight difference to the direction:</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" title="1"><span class="co"># We specify ‘greater’ following ‘alternative’ to indicate our expected direction for the treatment group relative to the control group</span></a>
-<a class="sourceLine" id="cb315-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" title="1"><span class="co"># We specify ‘greater’ following ‘alternative’ to indicate our expected direction for the treatment group relative to the control group</span></a>
+<a class="sourceLine" id="cb283-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity correction
 ## 
@@ -400,28 +400,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The p-value is greater than the specified 0.05, meaning that we have failed to reject the null hypothesis, and we do not have adequate evidence to support our hypothesis that our intervention increases reoffending.</p>
 <p>With this example, we have committed some bad practice: we did multiple hypothesis tests. This is a no-no: stick to one hypothesis and test that. Our purpose here, however, was to demonstrate how to run the binomial test. Recall that it is important to state your hypotheses before you collect and analyse your data.</p>
 <p>Including confidence intervals (CIs) is good practice, and it is possible to create them for binomial proportions. For example, we would like to build CIs around the proportion of the outcome for each group. We use the <code>BinomCI ()</code> function in the <code>DescTools</code> package to do so:</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" title="1"><span class="co"># CIs for treatment group where 10 reoffended</span></a>
-<a class="sourceLine" id="cb317-2" title="2"><span class="kw">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" title="1"><span class="co"># CIs for treatment group where 10 reoffended</span></a>
+<a class="sourceLine" id="cb285-2" title="2"><span class="kw">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>)</a></code></pre></div>
 <pre><code>##      est    lwr.ci    upr.ci
 ## [1,] 0.2 0.1124375 0.3303711</code></pre>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" title="1"><span class="co"># CIs for control group where 28 reoffended</span></a>
-<a class="sourceLine" id="cb319-2" title="2"><span class="co"># By default, confidence level is 95% but have added in ‘conf.level’ to show that you can change the confidence level to, say, 99 </span></a>
-<a class="sourceLine" id="cb319-3" title="3"><span class="kw">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" title="1"><span class="co"># CIs for control group where 28 reoffended</span></a>
+<a class="sourceLine" id="cb287-2" title="2"><span class="co"># By default, confidence level is 95% but have added in ‘conf.level’ to show that you can change the confidence level to, say, 99 </span></a>
+<a class="sourceLine" id="cb287-3" title="3"><span class="kw">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>##       est    lwr.ci   upr.ci
 ## [1,] 0.56 0.4230603 0.688378</code></pre>
 <p>In the CI for the treatment group, 11 to 33% of young people exposed to the intervention will reoffend, whereas the CI for the control group indicates that 42 to 69% of the young people not exposed to the intervention will reoffend. This seems like a large difference. To get a better understanding, we visualise this using <code>ggplot</code>:</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" title="1"><span class="co"># Taking the previous coding and placing them in objects</span></a>
-<a class="sourceLine" id="cb321-2" title="2">treatment_group &lt;-<span class="st"> </span><span class="kw">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) </a>
-<a class="sourceLine" id="cb321-3" title="3">control_group &lt;-<span class="st"> </span><span class="kw">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a>
-<a class="sourceLine" id="cb321-4" title="4"></a>
-<a class="sourceLine" id="cb321-5" title="5"><span class="co"># Creating two error bar layers, one for each group</span></a>
-<a class="sourceLine" id="cb321-6" title="6"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb321-7" title="7"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> treatment_group[<span class="dv">2</span>], <span class="dt">ymax =</span> treatment_group[<span class="dv">3</span>], <span class="dt">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb321-8" title="8"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> treatment_group[<span class="dv">1</span>], <span class="dt">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_errorbar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> control_group[<span class="dv">2</span>], <span class="dt">ymax =</span> control_group[<span class="dv">3</span>], <span class="dt">x =</span> <span class="st">&quot;control&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb321-9" title="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> control_group[<span class="dv">1</span>], <span class="dt">x =</span> <span class="st">&quot;control&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb321-10" title="10"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Group&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb321-11" title="11"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Proportion who reoffended at follow-up&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb321-12" title="12"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" title="1"><span class="co"># Taking the previous coding and placing them in objects</span></a>
+<a class="sourceLine" id="cb289-2" title="2">treatment_group &lt;-<span class="st"> </span><span class="kw">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) </a>
+<a class="sourceLine" id="cb289-3" title="3">control_group &lt;-<span class="st"> </span><span class="kw">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a>
+<a class="sourceLine" id="cb289-4" title="4"></a>
+<a class="sourceLine" id="cb289-5" title="5"><span class="co"># Creating two error bar layers, one for each group</span></a>
+<a class="sourceLine" id="cb289-6" title="6"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb289-7" title="7"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> treatment_group[<span class="dv">2</span>], <span class="dt">ymax =</span> treatment_group[<span class="dv">3</span>], <span class="dt">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb289-8" title="8"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> treatment_group[<span class="dv">1</span>], <span class="dt">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_errorbar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> control_group[<span class="dv">2</span>], <span class="dt">ymax =</span> control_group[<span class="dv">3</span>], <span class="dt">x =</span> <span class="st">&quot;control&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb289-9" title="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> control_group[<span class="dv">1</span>], <span class="dt">x =</span> <span class="st">&quot;control&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb289-10" title="10"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Group&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb289-11" title="11"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Proportion who reoffended at follow-up&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb289-12" title="12"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Visualising our results, we see further support that the intervention reduces reoffending: the confidence intervals for each group do not overlap and the proportion for the control group is lower than that of the treatment group. When the CIs between groups do not overlap, this is good because it indicates that the two groups likely come from two different populations.</p>
 <hr />
@@ -438,55 +438,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Unlike the binominal test, which compared groups, we will be comparing a single group – our sample – to the population. This may sound strange because we have learned that information about the population is rare, so we must make do with uncertainty. In some cases, however, we may know the population parameter and these tests can be used. When comparing our sample to a known population, we use the z- distribution; if we have to compare with an unknown population, we use the t-distribution. The z- and t- distributions are types of normal distributions.</p>
 <p>The normal distribution has some predictable characteristics about it. One is that half of the distribution will always be below the mean, and the other half will be above the mean. We demonstrate this by creating a synthetic data of 1.5 million US prisoner IQ scores, drawn from a population that is normally distributed (μ = 100; SD = 15). We then test whether half of our population have an IQ above the mean. We introduce two new functions: <code>which ()</code> to select a subset of prisoners who have an IQ of 100 + and <code>nrow ()</code>, which divides the number of prisoners with an IQ of 100+ by the total number of prisoners:</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" title="1"><span class="co"># Make synthetic data which includes the variables ‘prisoner_id’ and ‘IQ’</span></a>
-<a class="sourceLine" id="cb322-2" title="2"><span class="co"># ‘prisoner_id’ has 1 to 1.5 million IDs while ‘IQ’ has scores generated by ‘rnorm’ function </span></a>
-<a class="sourceLine" id="cb322-3" title="3"><span class="co"># Place data frame in object called ‘PrisonerIQ’</span></a>
-<a class="sourceLine" id="cb322-4" title="4">PrisonerIQ &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">prisoner_id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">1500000</span>, <span class="dt">IQ =</span> <span class="kw">round</span>(<span class="kw">rnorm</span>(<span class="dv">1500000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>)) </a>
-<a class="sourceLine" id="cb322-5" title="5"></a>
-<a class="sourceLine" id="cb322-6" title="6"><span class="co"># Using ‘which’ function to make subset of prisoners with IQ above 100</span></a>
-<a class="sourceLine" id="cb322-7" title="7"><span class="co"># ‘which’ is to the left of the ‘,’ at the end of code to specify that we are selecting rows</span></a>
-<a class="sourceLine" id="cb322-8" title="8"><span class="co"># Place subset in object called ‘IQ_Over_100’</span></a>
-<a class="sourceLine" id="cb322-9" title="9">IQ_Over_<span class="dv">100</span> &lt;-<span class="st"> </span>PrisonerIQ[ <span class="kw">which</span>(PrisonerIQ<span class="op">$</span>IQ<span class="op">&gt;</span><span class="dv">100</span>) ,] </a>
-<a class="sourceLine" id="cb322-10" title="10"></a>
-<a class="sourceLine" id="cb322-11" title="11"><span class="co"># Divide ‘IQ_Over_100’ by total number of prisoner IQ scores</span></a>
-<a class="sourceLine" id="cb322-12" title="12"><span class="kw">nrow</span>(IQ_Over_<span class="dv">100</span>)<span class="op">/</span><span class="kw">nrow</span>(PrisonerIQ)</a></code></pre></div>
-<pre><code>## [1] 0.486922</code></pre>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" title="1"><span class="co"># Make synthetic data which includes the variables ‘prisoner_id’ and ‘IQ’</span></a>
+<a class="sourceLine" id="cb290-2" title="2"><span class="co"># ‘prisoner_id’ has 1 to 1.5 million IDs while ‘IQ’ has scores generated by ‘rnorm’ function </span></a>
+<a class="sourceLine" id="cb290-3" title="3"><span class="co"># Place data frame in object called ‘PrisonerIQ’</span></a>
+<a class="sourceLine" id="cb290-4" title="4">PrisonerIQ &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">prisoner_id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">1500000</span>, <span class="dt">IQ =</span> <span class="kw">round</span>(<span class="kw">rnorm</span>(<span class="dv">1500000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>)) </a>
+<a class="sourceLine" id="cb290-5" title="5"></a>
+<a class="sourceLine" id="cb290-6" title="6"><span class="co"># Using ‘which’ function to make subset of prisoners with IQ above 100</span></a>
+<a class="sourceLine" id="cb290-7" title="7"><span class="co"># ‘which’ is to the left of the ‘,’ at the end of code to specify that we are selecting rows</span></a>
+<a class="sourceLine" id="cb290-8" title="8"><span class="co"># Place subset in object called ‘IQ_Over_100’</span></a>
+<a class="sourceLine" id="cb290-9" title="9">IQ_Over_<span class="dv">100</span> &lt;-<span class="st"> </span>PrisonerIQ[ <span class="kw">which</span>(PrisonerIQ<span class="op">$</span>IQ<span class="op">&gt;</span><span class="dv">100</span>) ,] </a>
+<a class="sourceLine" id="cb290-10" title="10"></a>
+<a class="sourceLine" id="cb290-11" title="11"><span class="co"># Divide ‘IQ_Over_100’ by total number of prisoner IQ scores</span></a>
+<a class="sourceLine" id="cb290-12" title="12"><span class="kw">nrow</span>(IQ_Over_<span class="dv">100</span>)<span class="op">/</span><span class="kw">nrow</span>(PrisonerIQ)</a></code></pre></div>
+<pre><code>## [1] 0.4868273</code></pre>
 <p>The result should be close to .50 indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the <strong>z-score</strong> is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.</p>
 <p>To create z-scores, we use the function <code>scale ()</code>. For the next example, we take the IQ of five prisoners and change the IQ of the first prisoner from 102 to 115 so that it is easy to show that this prisoner’s z-score is 1. The reason is the prisoner’s IQ score of 115 is one standard deviation above the population mean. (Remember: μ = 100; SD = 15):</p>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" title="1"><span class="co"># View the first 5 prisoner IQs</span></a>
-<a class="sourceLine" id="cb324-2" title="2">PrisonerIQ[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] </a></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" title="1"><span class="co"># View the first 5 prisoner IQs</span></a>
+<a class="sourceLine" id="cb292-2" title="2">PrisonerIQ[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] </a></code></pre></div>
 <pre><code>##   prisoner_id  IQ
-## 1           1 126
-## 2           2  94
-## 3           3  80
-## 4           4  79
-## 5           5 111</code></pre>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" title="1"><span class="co"># Change the IQ of prisoner #1 </span></a>
-<a class="sourceLine" id="cb326-2" title="2">PrisonerIQ<span class="op">$</span>IQ[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">115</span></a>
-<a class="sourceLine" id="cb326-3" title="3"></a>
-<a class="sourceLine" id="cb326-4" title="4"><span class="co"># Create a variable storing z-scores of IQs </span></a>
-<a class="sourceLine" id="cb326-5" title="5">PrisonerIQ<span class="op">$</span>z_scoreIQ &lt;-<span class="st"> </span><span class="kw">scale</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
-<a class="sourceLine" id="cb326-6" title="6"></a>
-<a class="sourceLine" id="cb326-7" title="7"><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></a>
-<a class="sourceLine" id="cb326-8" title="8">PrisonerIQ[<span class="dv">1</span>,]</a></code></pre></div>
+## 1           1 103
+## 2           2 110
+## 3           3 109
+## 4           4  82
+## 5           5 106</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" title="1"><span class="co"># Change the IQ of prisoner #1 </span></a>
+<a class="sourceLine" id="cb294-2" title="2">PrisonerIQ<span class="op">$</span>IQ[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">115</span></a>
+<a class="sourceLine" id="cb294-3" title="3"></a>
+<a class="sourceLine" id="cb294-4" title="4"><span class="co"># Create a variable storing z-scores of IQs </span></a>
+<a class="sourceLine" id="cb294-5" title="5">PrisonerIQ<span class="op">$</span>z_scoreIQ &lt;-<span class="st"> </span><span class="kw">scale</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
+<a class="sourceLine" id="cb294-6" title="6"></a>
+<a class="sourceLine" id="cb294-7" title="7"><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></a>
+<a class="sourceLine" id="cb294-8" title="8">PrisonerIQ[<span class="dv">1</span>,]</a></code></pre></div>
 <pre><code>##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9988484</code></pre>
+## 1           1 115 0.9985327</code></pre>
 <p>Where the z-score becomes practical is illustrated in the following example: say if a probation officer is writing a report for a prisoner who is about to be up for parole. The prisoner has an IQ of 124. The officer wants to give a good idea of how this score compares to all other prisoners. An apt way of doing this is to state the proportion of prisoners who have lower IQs. This can be done using the <code>pnormGC()</code> function from the <code>tigerstats</code> package:</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" title="1"><span class="co"># The mean should be 100 but, in reality, it is not precise, so we calculate it and put in the #object ‘m’</span></a>
-<a class="sourceLine" id="cb328-2" title="2">m&lt;-<span class="kw">mean</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
-<a class="sourceLine" id="cb328-3" title="3"></a>
-<a class="sourceLine" id="cb328-4" title="4"><span class="co"># Same with sd; it should be 15 but we calculate it to get a precise estimate and put in object #‘sd’</span></a>
-<a class="sourceLine" id="cb328-5" title="5">sd&lt;-<span class="kw">sd</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
-<a class="sourceLine" id="cb328-6" title="6"></a>
-<a class="sourceLine" id="cb328-7" title="7"><span class="co"># Enter the prisoner’s IQ score and specify ‘below’ following ‘region’ because we are </span></a>
-<a class="sourceLine" id="cb328-8" title="8"><span class="co"># interested in IQ scores below 124</span></a>
-<a class="sourceLine" id="cb328-9" title="9"><span class="kw">pnormGC</span>(<span class="dv">124</span>, <span class="dt">region=</span><span class="st">&quot;below&quot;</span>, <span class="dt">mean=</span>m, <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" title="1"><span class="co"># The mean should be 100 but, in reality, it is not precise, so we calculate it and put in the #object ‘m’</span></a>
+<a class="sourceLine" id="cb296-2" title="2">m&lt;-<span class="kw">mean</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
+<a class="sourceLine" id="cb296-3" title="3"></a>
+<a class="sourceLine" id="cb296-4" title="4"><span class="co"># Same with sd; it should be 15 but we calculate it to get a precise estimate and put in object #‘sd’</span></a>
+<a class="sourceLine" id="cb296-5" title="5">sd&lt;-<span class="kw">sd</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
+<a class="sourceLine" id="cb296-6" title="6"></a>
+<a class="sourceLine" id="cb296-7" title="7"><span class="co"># Enter the prisoner’s IQ score and specify ‘below’ following ‘region’ because we are </span></a>
+<a class="sourceLine" id="cb296-8" title="8"><span class="co"># interested in IQ scores below 124</span></a>
+<a class="sourceLine" id="cb296-9" title="9"><span class="kw">pnormGC</span>(<span class="dv">124</span>, <span class="dt">region=</span><span class="st">&quot;below&quot;</span>, <span class="dt">mean=</span>m, <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>) </a></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre><code>## [1] 0.9450501</code></pre>
+<pre><code>## [1] 0.944979</code></pre>
 <p>The output shows 0.9453, meaning that the prisoner has a higher IQ than over 94% of the prison population.</p>
 <p>Recall from the previous week, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68% of cases in the distribution fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within 3 SD. We demonstrate this rule by using the <code>pnormGC ()</code> function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:</p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" title="1"><span class="co"># Specify ‘between’ for ‘region’ because we are interested in proportion of prisoners between the two given values</span></a>
-<a class="sourceLine" id="cb330-2" title="2"><span class="kw">pnormGC</span>(<span class="dt">bound=</span><span class="kw">c</span>(<span class="dv">85</span>, <span class="dv">115</span>),<span class="dt">region=</span><span class="st">&quot;between&quot;</span>, <span class="dt">mean=</span><span class="dv">100</span>,<span class="dt">sd=</span><span class="dv">15</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" title="1"><span class="co"># Specify ‘between’ for ‘region’ because we are interested in proportion of prisoners between the two given values</span></a>
+<a class="sourceLine" id="cb298-2" title="2"><span class="kw">pnormGC</span>(<span class="dt">bound=</span><span class="kw">c</span>(<span class="dv">85</span>, <span class="dv">115</span>),<span class="dt">region=</span><span class="st">&quot;between&quot;</span>, <span class="dt">mean=</span><span class="dv">100</span>,<span class="dt">sd=</span><span class="dv">15</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <pre><code>## [1] 0.6826895</code></pre>
 <p>And, yes, it shows that 68% of the IQ scores do fall within 1 SD of the mean.</p>
@@ -497,30 +497,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(H_0\)</span>: The mean IQ of the population from which our sample of prisoners was drawn is the same as the mean IQ of the UK prison population (mean = 100).</p>
 <p><span class="math inline">\(H_A\)</span>: The mean IQ of the population from which our sample of prisoners was drawn is not the same as the mean IQ of the UK prison population (mean ≠ 100).</p>
 <p>We create our own function called ’ z_test ’ so that other prisons can easily compare their IQ scores to that of all prisoners. In addition, we use <code>cat()</code>, which combines our string text to label our z-score in the output and the computed z-score together.</p>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" title="1"><span class="co"># Specifying inputs in the order that the user needs to enter them : mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared</span></a>
-<a class="sourceLine" id="cb332-2" title="2">z_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
-<a class="sourceLine" id="cb332-3" title="3">  z &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)) <span class="co"># Equation for one-sample z-test</span></a>
-<a class="sourceLine" id="cb332-4" title="4">  <span class="kw">return</span>(<span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z)) <span class="co"># Report z-score to the user</span></a>
-<a class="sourceLine" id="cb332-5" title="5"></a>
-<a class="sourceLine" id="cb332-6" title="6">} <span class="co"># End function</span></a>
-<a class="sourceLine" id="cb332-7" title="7"></a>
-<a class="sourceLine" id="cb332-8" title="8"><span class="co"># Test it with our example by supplying estimates </span></a>
-<a class="sourceLine" id="cb332-9" title="9"><span class="kw">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" title="1"><span class="co"># Specifying inputs in the order that the user needs to enter them : mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared</span></a>
+<a class="sourceLine" id="cb300-2" title="2">z_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
+<a class="sourceLine" id="cb300-3" title="3">  z &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)) <span class="co"># Equation for one-sample z-test</span></a>
+<a class="sourceLine" id="cb300-4" title="4">  <span class="kw">return</span>(<span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z)) <span class="co"># Report z-score to the user</span></a>
+<a class="sourceLine" id="cb300-5" title="5"></a>
+<a class="sourceLine" id="cb300-6" title="6">} <span class="co"># End function</span></a>
+<a class="sourceLine" id="cb300-7" title="7"></a>
+<a class="sourceLine" id="cb300-8" title="8"><span class="co"># Test it with our example by supplying estimates </span></a>
+<a class="sourceLine" id="cb300-9" title="9"><span class="kw">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</a></code></pre></div>
 <pre><code>## z = 2.544056</code></pre>
 <p>Including the p-value would be helpful so we edit our code and use the function <code>pnorm ()</code> to compute the probability value.</p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" title="1"><span class="co"># Same as above</span></a>
-<a class="sourceLine" id="cb334-2" title="2">z_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
-<a class="sourceLine" id="cb334-3" title="3">z &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)) </a>
-<a class="sourceLine" id="cb334-4" title="4"></a>
-<a class="sourceLine" id="cb334-5" title="5"><span class="co"># This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non-directional </span></a>
-<a class="sourceLine" id="cb334-6" title="6">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(z)) </a>
-<a class="sourceLine" id="cb334-7" title="7"></a>
-<a class="sourceLine" id="cb334-8" title="8"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </a>
-<a class="sourceLine" id="cb334-9" title="9"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p)) <span class="co"># Added code to return p-value</span></a>
-<a class="sourceLine" id="cb334-10" title="10">} </a>
-<a class="sourceLine" id="cb334-11" title="11"></a>
-<a class="sourceLine" id="cb334-12" title="12"><span class="co"># Test it with our example again </span></a>
-<a class="sourceLine" id="cb334-13" title="13"><span class="kw">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" title="1"><span class="co"># Same as above</span></a>
+<a class="sourceLine" id="cb302-2" title="2">z_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
+<a class="sourceLine" id="cb302-3" title="3">z &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)) </a>
+<a class="sourceLine" id="cb302-4" title="4"></a>
+<a class="sourceLine" id="cb302-5" title="5"><span class="co"># This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non-directional </span></a>
+<a class="sourceLine" id="cb302-6" title="6">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(z)) </a>
+<a class="sourceLine" id="cb302-7" title="7"></a>
+<a class="sourceLine" id="cb302-8" title="8"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </a>
+<a class="sourceLine" id="cb302-9" title="9"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p)) <span class="co"># Added code to return p-value</span></a>
+<a class="sourceLine" id="cb302-10" title="10">} </a>
+<a class="sourceLine" id="cb302-11" title="11"></a>
+<a class="sourceLine" id="cb302-12" title="12"><span class="co"># Test it with our example again </span></a>
+<a class="sourceLine" id="cb302-13" title="13"><span class="kw">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</a></code></pre></div>
 <pre><code>## z = 2.544056 
 ## p-value = 0.01095734</code></pre>
 <p>Remember that the officer wanted to be 99% confident, and this means that the significance level would be set at α = 0.01 and not α = 0.05 (this is if we are 95% confident). As so, our p-value is greater than the alpha level so we fail to reject the null hypothesis.</p>
@@ -534,26 +534,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(H_0\)</span>: The success rate of the program is 0.75% (P = 0.75).</p>
 <p><span class="math inline">\(H_A\)</span>: The success rate of the program is not 0.75% (P ≠ 0.75)</p>
 <p>To test this, we use a <strong>single-sample z-test for proportions</strong> because we are concerned with comparing the percentages or proportions between our sample and the known population. We create another new function:</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" title="1"><span class="co"># Specifying inputs: p is proportion of success, P is proportion of success in population, n is sample size</span></a>
-<a class="sourceLine" id="cb336-2" title="2">prop_z_test&lt;-<span class="cf">function</span>(p, P, n) { </a>
-<a class="sourceLine" id="cb336-3" title="3"></a>
-<a class="sourceLine" id="cb336-4" title="4">Numerator&lt;-(p <span class="op">-</span><span class="st"> </span>P) </a>
-<a class="sourceLine" id="cb336-5" title="5"></a>
-<a class="sourceLine" id="cb336-6" title="6">PQ&lt;-<span class="st"> </span>P <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span><span class="op">-</span>P) </a>
-<a class="sourceLine" id="cb336-7" title="7"></a>
-<a class="sourceLine" id="cb336-8" title="8"><span class="co"># Standard error</span></a>
-<a class="sourceLine" id="cb336-9" title="9">Denominator&lt;-<span class="kw">sqrt</span>(PQ <span class="op">/</span><span class="st"> </span>n) </a>
-<a class="sourceLine" id="cb336-10" title="10">z&lt;-<span class="st"> </span>Numerator <span class="op">/</span><span class="st"> </span>Denominator </a>
-<a class="sourceLine" id="cb336-11" title="11"></a>
-<a class="sourceLine" id="cb336-12" title="12"><span class="co"># Return the z-value and p-value to the user</span></a>
-<a class="sourceLine" id="cb336-13" title="13">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(z)) </a>
-<a class="sourceLine" id="cb336-14" title="14"></a>
-<a class="sourceLine" id="cb336-15" title="15"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </a>
-<a class="sourceLine" id="cb336-16" title="16"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p)) </a>
-<a class="sourceLine" id="cb336-17" title="17">} </a>
-<a class="sourceLine" id="cb336-18" title="18"></a>
-<a class="sourceLine" id="cb336-19" title="19"><span class="co"># Let&#39;s test it using the values from our problem </span></a>
-<a class="sourceLine" id="cb336-20" title="20"><span class="kw">prop_z_test</span>(<span class="fl">0.85</span>, <span class="fl">0.75</span>, <span class="dv">150</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" title="1"><span class="co"># Specifying inputs: p is proportion of success, P is proportion of success in population, n is sample size</span></a>
+<a class="sourceLine" id="cb304-2" title="2">prop_z_test&lt;-<span class="cf">function</span>(p, P, n) { </a>
+<a class="sourceLine" id="cb304-3" title="3"></a>
+<a class="sourceLine" id="cb304-4" title="4">Numerator&lt;-(p <span class="op">-</span><span class="st"> </span>P) </a>
+<a class="sourceLine" id="cb304-5" title="5"></a>
+<a class="sourceLine" id="cb304-6" title="6">PQ&lt;-<span class="st"> </span>P <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span><span class="op">-</span>P) </a>
+<a class="sourceLine" id="cb304-7" title="7"></a>
+<a class="sourceLine" id="cb304-8" title="8"><span class="co"># Standard error</span></a>
+<a class="sourceLine" id="cb304-9" title="9">Denominator&lt;-<span class="kw">sqrt</span>(PQ <span class="op">/</span><span class="st"> </span>n) </a>
+<a class="sourceLine" id="cb304-10" title="10">z&lt;-<span class="st"> </span>Numerator <span class="op">/</span><span class="st"> </span>Denominator </a>
+<a class="sourceLine" id="cb304-11" title="11"></a>
+<a class="sourceLine" id="cb304-12" title="12"><span class="co"># Return the z-value and p-value to the user</span></a>
+<a class="sourceLine" id="cb304-13" title="13">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(z)) </a>
+<a class="sourceLine" id="cb304-14" title="14"></a>
+<a class="sourceLine" id="cb304-15" title="15"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </a>
+<a class="sourceLine" id="cb304-16" title="16"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p)) </a>
+<a class="sourceLine" id="cb304-17" title="17">} </a>
+<a class="sourceLine" id="cb304-18" title="18"></a>
+<a class="sourceLine" id="cb304-19" title="19"><span class="co"># Let&#39;s test it using the values from our problem </span></a>
+<a class="sourceLine" id="cb304-20" title="20"><span class="kw">prop_z_test</span>(<span class="fl">0.85</span>, <span class="fl">0.75</span>, <span class="dv">150</span>)</a></code></pre></div>
 <pre><code>## z = 2.828427 
 ## p-value = 0.004677735</code></pre>
 <p>The z-score is 2.828427 and the p-value is statistically significant. We reject the null hypothesis and conclude that the success rate is not 75%.</p>
@@ -567,21 +567,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(H_0\)</span>: The mean test score for prisoners who have completed the program is 65 (μ = 65).</p>
 <p><span class="math inline">\(H_A\)</span>: The mean test score for prisoners who have completed the program is not 65 (μ ≠ 65).</p>
 <p>We conduct a <strong>single-sample t-test for means</strong>, which is similar to the previous z-tests except it is for an unknown population, which in this case, is the overall population of prisoners and not just the ones who had completed the six-month education programme. We modify the code from the <code>z_test ()</code> function:</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" title="1"><span class="co"># Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65</span></a>
-<a class="sourceLine" id="cb338-2" title="2">single_t_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
-<a class="sourceLine" id="cb338-3" title="3"></a>
-<a class="sourceLine" id="cb338-4" title="4"><span class="co"># Equation for one-sample z-test</span></a>
-<a class="sourceLine" id="cb338-5" title="5">t &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)) </a>
-<a class="sourceLine" id="cb338-6" title="6"></a>
-<a class="sourceLine" id="cb338-7" title="7"><span class="co"># Report t-score and p-value to the user</span></a>
-<a class="sourceLine" id="cb338-8" title="8">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(t)) </a>
-<a class="sourceLine" id="cb338-9" title="9"></a>
-<a class="sourceLine" id="cb338-10" title="10"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;t =&#39;</span>, t, </a>
-<a class="sourceLine" id="cb338-11" title="11"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p))</a>
-<a class="sourceLine" id="cb338-12" title="12">} </a>
-<a class="sourceLine" id="cb338-13" title="13"></a>
-<a class="sourceLine" id="cb338-14" title="14"><span class="co"># Test it with our example </span></a>
-<a class="sourceLine" id="cb338-15" title="15"><span class="kw">single_t_test</span>(<span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">51</span>, <span class="dv">65</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" title="1"><span class="co"># Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65</span></a>
+<a class="sourceLine" id="cb306-2" title="2">single_t_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
+<a class="sourceLine" id="cb306-3" title="3"></a>
+<a class="sourceLine" id="cb306-4" title="4"><span class="co"># Equation for one-sample z-test</span></a>
+<a class="sourceLine" id="cb306-5" title="5">t &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)) </a>
+<a class="sourceLine" id="cb306-6" title="6"></a>
+<a class="sourceLine" id="cb306-7" title="7"><span class="co"># Report t-score and p-value to the user</span></a>
+<a class="sourceLine" id="cb306-8" title="8">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(t)) </a>
+<a class="sourceLine" id="cb306-9" title="9"></a>
+<a class="sourceLine" id="cb306-10" title="10"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;t =&#39;</span>, t, </a>
+<a class="sourceLine" id="cb306-11" title="11"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p))</a>
+<a class="sourceLine" id="cb306-12" title="12">} </a>
+<a class="sourceLine" id="cb306-13" title="13"></a>
+<a class="sourceLine" id="cb306-14" title="14"><span class="co"># Test it with our example </span></a>
+<a class="sourceLine" id="cb306-15" title="15"><span class="kw">single_t_test</span>(<span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">51</span>, <span class="dv">65</span>)</a></code></pre></div>
 <pre><code>## t = -2.357023 
 ## p-value = 0.01842213</code></pre>
 <p>The t-value of -2.357023 is statistically significant, so we have sufficient support to reject the null hypothesis. We conclude that the mean test score for prisoners who completed the programme is not 65.</p>

@@ -51,78 +51,58 @@
 -	`theme_minimal()` : Default minimalist theme for `ggplot` graphics (`ggplot2`)
 
 
-
-
+<br>
+<br>
 
 
 ---
 
 ## Grammar of Graphics
 
-
-
-
 Today we learn the basics of data visualization in `R` using a package called `ggplot2` within the `tidyverse`, one of the most popular packages for making high-quality, reproducible graphics. The framework on which `ggplot2` is based derives from [Hadley Wickham’s (2010) A Layered Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.pdf). 
 
 Wickham advances the work of *Grammar of Graphics* by proposing a layered approach to describe and build graphics in a structured manner. Layers, according to Wickham, are used to describe the basic features that underlie any graphic or visualization. Every layer comprises five parts: data, aesthetics, statistical transformation (stat), geometric object (geom), and position adjustment (position). 
 
 The three primary ones we focus on to ease you into this, however, are (1) the data, (2) the aesthetics, and (3) the geometric objects:
-
-
-
+<br>
 
 1.	Data: usually the data frame with tidy rows and columns. 
 
-
-
 2.	Aesthetics: the visual characteristics that represent the data, or variables. At its simplest, these could be an x- and y-axis, and can extend to other aesthetics like colour, size, and shape, which are mapped to variables. 
 
-
-
 3.	Geometric objects: also known as ‘geoms’ and represent the data points in the visualization, such as dots or lines.
-
-
-
-
+<br>
 
 ![**Figure 3.1** Visualize Table 3](Images/grammar1.png){width=70%}
 
+<br>
+
 ![**Figure 3.2** Using the *Grammar of Graphics* approach to convert elements of Table 3 into its visual components](Images/grammar 2.png){width=70%}
 
-
-
+<br>
 
 ![**Figure 3.3** Integrating those visual parts of Table 3 into a graphic](Images/grammar3.png){width=70%}  
 
-
-
+<br>
 
 Why is this important? Visualizing your data helps you to have a better understanding of them before moving on to more advanced and complex analyses. Numbers themselves can be deceptive and complicated, so by visualizing them, you can identify any patterns or anomalies.
 
-
-
+<br>
+<br>
 
 ### Activity 1: Getting Ready
 
 Before we ‘layer up’, let us do the following:
-
-
+<br>
 
 1.	Open up your existing `R `project like you had learned last week
 
-
-
 2.	Load the `ggplot2` and  `readr`  packages using the `library()` function. If you have not already installed these packages, you will need to do so first, using the `install.packages()` function. *If you are unclear about the difference between these two functions, see 1.3.3 in Lesson 1 of this online tutorial site or ask now!*
-
-
-
 
 3.	Download the first two datasets (gmp_2017.csv and gmp_monthly_2017.csv) from Blackboard, in the subfolder 'Data for this week' in the Week 3 learning materials. The datasets contain crime data from Greater Manchester, England. Load these two datasets using the `read_csv()` function into two separate data frames. Respectively name the data frames `burglary_df` and `monthly_df` by using the `<-` assignment operator. 
 
 Make sure the datasets are saved in the sub-folder called 'Datasets' that you created last week *inside* your project directory/ folder. If this is the case, we can use the `here()` function to tell `R` where exactly to locate the datasets. (See lecture short 3.1 'The R Prep routine' on Blackboard.)
-
-
-
+<br>
 
 
 

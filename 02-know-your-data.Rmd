@@ -31,12 +31,14 @@
 - `attributes()` : Access object attributes, such as value labels (`base R`)
 -	`case_when()` : Allows users to vectorize multiple if / if else statements (`dplyr`)
 -	`count()` : Counts the number of occurrences (`dplyr`)
+- `dim()` : Returns the number of observations and variables in a data frame (`base R`)
 -	`dir.create()` : creates a new folder in a project (`base R`)
 -	`factor()` Creates a factor (`base R`)
 -	`filter()` : Subsets a data frame to rows when a condition is true (`dplyr`)
 -	`get_labels()` : Returns value labels of labelled data (`sjlabelled`)
 -	`here()` : Finds a project’s files based on the current working directory (`here`)
 -	`mutate()` : Creates new vectors or transforms existing ones (`dplyr`)
+- `names()` : Returns the names of the variables in the data frame (`base R`)
 -	`read_spss()` : Imports SPSS .sav files (`haven`)
 - `recode()` : Substitutes old values of a factor or a numeric vector by new ones (`base R`)
 -	`remove_labels()` : Removes value labels from a variable (`sjlabelled`)
@@ -58,7 +60,7 @@ Last time, we installed our first package, `dplyr`. This is one of a number of p
 
 <br>
 
-![**Figure 2.1** Tidyverse logo](Images/tidyverse-logo.png){width=40%}
+![**Figure 2.1** Tidyverse logo](Images/tidyverse-logo.png){width=30%}
 
 <br>
 
@@ -338,9 +340,7 @@ For **categorical variables**, we can have variables that are nominal (no order)
 
 <br>
 
-
 ![**Figure 2.8** Categorial variables by Allison Horst](Images/nominal_ordinal_binary.png){width=70%}
-
 
 <br>
 

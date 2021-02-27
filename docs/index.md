@@ -16,15 +16,15 @@ description: "This is a companion workbook for the 2nd year undergraduate module
 
 ![](Images/UOM.jpg){width=60%}
 
-<div style="margin-bottom:30px;">
-</div>
+<br>
+<br>
 
 ##### Course Director: Dr Reka Solymosi {-}
 
 ##### Co-Lecturer & Graduate Teaching Assistants: Dr Laura Bui, Carlos Iglesias, Ioana Macoveciuc, and Denny Vlaeva {-}
 
-<div style="margin-bottom:50px;">
-</div>
+<br>
+<br>
 
 
 Welcome to Modelling Criminological Data. This is the online tutorial for the class's weekly lab sessions.
@@ -36,9 +36,15 @@ Data is ubiquitous today and affects all aspects of everyday life. Criminal just
 Taking this course meets the eligibility criterion to apply for the [University of Manchester Q-Step summer internships](https://www.humanities.manchester.ac.uk/q-step/internships/).
 
 
-<div style="margin-bottom:250px;">
-</div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 *Site edited and compiled by Laura Bui, based on previous teaching material from Reka Solymosi and Juanjo Medina-Ariza and Wooditch et al.'s (forthcoming) 'A Beginner's Guide to Statistics for Criminology and Criminal Justice Using R'*

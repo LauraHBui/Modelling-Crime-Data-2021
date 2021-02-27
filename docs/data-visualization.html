@@ -137,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-1-identifying-your-operating-system"><i class="fa fa-check"></i><b>1.1.1</b> Activity 1: Identifying your operating system</a></li>
 <li class="chapter" data-level="1.1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-2-install-r-r-studio"><i class="fa fa-check"></i><b>1.1.2</b> Activity 2: Install R &amp; R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-r-studio"><i class="fa fa-check"></i><b>1.2</b> Getting to know R Studio</a><ul>
+<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-rstudio"><i class="fa fa-check"></i><b>1.2</b> Getting to know <code>RStudio</code></a><ul>
 <li class="chapter" data-level="1.2.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#the-four-panes-of-r-studio"><i class="fa fa-check"></i><b>1.2.1</b> The four panes of R Studio</a></li>
 <li class="chapter" data-level="1.2.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#customising-r-studio"><i class="fa fa-check"></i><b>1.2.2</b> Customising R Studio</a></li>
 </ul></li>
@@ -306,6 +306,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>theme_economist ()</code> : Changes the graphic to resemble ones found in <em>The Economist</em> (<code>ggthemes</code>)</li>
 <li><code>theme_minimal()</code> : Default minimalist theme for <code>ggplot</code> graphics (<code>ggplot2</code>)</li>
 </ul>
+<p><br>
+<br></p>
 <hr />
 </div>
 </div>
@@ -313,34 +315,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.1</span> Grammar of Graphics</h2>
 <p>Today we learn the basics of data visualization in <code>R</code> using a package called <code>ggplot2</code> within the <code>tidyverse</code>, one of the most popular packages for making high-quality, reproducible graphics. The framework on which <code>ggplot2</code> is based derives from <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Hadley Wickham’s (2010) A Layered Grammar of Graphics</a>.</p>
 <p>Wickham advances the work of <em>Grammar of Graphics</em> by proposing a layered approach to describe and build graphics in a structured manner. Layers, according to Wickham, are used to describe the basic features that underlie any graphic or visualization. Every layer comprises five parts: data, aesthetics, statistical transformation (stat), geometric object (geom), and position adjustment (position).</p>
-<p>The three primary ones we focus on to ease you into this, however, are (1) the data, (2) the aesthetics, and (3) the geometric objects:</p>
+<p>The three primary ones we focus on to ease you into this, however, are (1) the data, (2) the aesthetics, and (3) the geometric objects:
+<br></p>
 <ol style="list-style-type: decimal">
 <li><p>Data: usually the data frame with tidy rows and columns.</p></li>
 <li><p>Aesthetics: the visual characteristics that represent the data, or variables. At its simplest, these could be an x- and y-axis, and can extend to other aesthetics like colour, size, and shape, which are mapped to variables.</p></li>
-<li><p>Geometric objects: also known as ‘geoms’ and represent the data points in the visualization, such as dots or lines.</p></li>
+<li><p>Geometric objects: also known as ‘geoms’ and represent the data points in the visualization, such as dots or lines.
+<br></p></li>
 </ol>
 <div class="figure">
 <img src="Images/grammar1.png" alt="Figure 3.1 Visualize Table 3" style="width:70.0%" />
 <p class="caption"><strong>Figure 3.1</strong> Visualize Table 3</p>
 </div>
+<p><br></p>
 <div class="figure">
 <img src="Images/grammar%202.png" alt="Figure 3.2 Using the Grammar of Graphics approach to convert elements of Table 3 into its visual components" style="width:70.0%" />
 <p class="caption"><strong>Figure 3.2</strong> Using the <em>Grammar of Graphics</em> approach to convert elements of Table 3 into its visual components</p>
 </div>
+<p><br></p>
 <div class="figure">
 <img src="Images/grammar3.png" alt="Figure 3.3 Integrating those visual parts of Table 3 into a graphic" style="width:70.0%" />
 <p class="caption"><strong>Figure 3.3</strong> Integrating those visual parts of Table 3 into a graphic</p>
 </div>
+<p><br></p>
 <p>Why is this important? Visualizing your data helps you to have a better understanding of them before moving on to more advanced and complex analyses. Numbers themselves can be deceptive and complicated, so by visualizing them, you can identify any patterns or anomalies.</p>
+<p><br>
+<br></p>
 <div id="activity-1-getting-ready" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Activity 1: Getting Ready</h3>
-<p>Before we ‘layer up’, let us do the following:</p>
+<p>Before we ‘layer up’, let us do the following:
+<br></p>
 <ol style="list-style-type: decimal">
 <li><p>Open up your existing <code>R</code>project like you had learned last week</p></li>
 <li><p>Load the <code>ggplot2</code> and <code>readr</code> packages using the <code>library()</code> function. If you have not already installed these packages, you will need to do so first, using the <code>install.packages()</code> function. <em>If you are unclear about the difference between these two functions, see 1.3.3 in Lesson 1 of this online tutorial site or ask now!</em></p></li>
 <li><p>Download the first two datasets (gmp_2017.csv and gmp_monthly_2017.csv) from Blackboard, in the subfolder ‘Data for this week’ in the Week 3 learning materials. The datasets contain crime data from Greater Manchester, England. Load these two datasets using the <code>read_csv()</code> function into two separate data frames. Respectively name the data frames <code>burglary_df</code> and <code>monthly_df</code> by using the <code>&lt;-</code> assignment operator.</p></li>
 </ol>
-<p>Make sure the datasets are saved in the sub-folder called ‘Datasets’ that you created last week <em>inside</em> your project directory/ folder. If this is the case, we can use the <code>here()</code> function to tell <code>R</code> where exactly to locate the datasets. (See lecture short 3.1 ‘The R Prep routine’ on Blackboard.)</p>
+<p>Make sure the datasets are saved in the sub-folder called ‘Datasets’ that you created last week <em>inside</em> your project directory/ folder. If this is the case, we can use the <code>here()</code> function to tell <code>R</code> where exactly to locate the datasets. (See lecture short 3.1 ‘The R Prep routine’ on Blackboard.)
+<br></p>
 <p>Create first data frame object, <code>burglary_df</code> and load into it the ‘gmp_2017.csv’ data file:</p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1"><span class="co"># gmp_2017.csv</span></a>
 <a class="sourceLine" id="cb120-2" title="2">burglary_df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;gmp_2017.csv&quot;</span>))</a></code></pre></div>
