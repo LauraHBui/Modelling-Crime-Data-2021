@@ -137,22 +137,26 @@ This week we will be learning how to use `R` to create various exciting data vis
 
 Here is a recent powerful visualization from The New York Times about deaths from COVID-19 in the USA (Figure 3.4): https://twitter.com/beccapfoley/status/1363338950518206472
 
+<br>
+<br>
+
 ![**Figure 3.4** NYT visualization of COVID-19 deaths in USA](Images/times_COVID_VIZ.jpeg){width=70%}
 
-
+<br>
 
 
 `R` has amazing data visualization qualities. It is increasingly used by professionals and academics to create graphics that embody those principles of data visualization.
 
 For example, read this article about how the BBC uses `R` to create their graphics: [How the BBC Visual and Data Journalism team works with graphics in R](https://medium.com/bbc-visual-and-data-journalism/how-the-bbc-visual-and-data-journalism-team-works-with-graphics-in-r-ed0b35693535) (See Figure 3.5)
 
-
+<br>
+<br>
 
 
 ![**Figure 3.5** How the BBC Visual and Data Journalism team works with graphics in R](Images/bbc_r.png)
 
-
-
+<br>
+<br>
 
 As you learn to create graphs in `ggplot2`, you will see that the code reflects building these graphs as layers. This will take getting used to if you are only familiar with building graphs from a template in Excel. You can also reuse chunks of code to create different kinds of graphics or identical ones in other datasets. 
 
@@ -164,6 +168,8 @@ Today we focus on the `ggplot2` package to learn our three substantive topics: *
 #### Activity 2: Getting to Know New Data
 
 Before we dive into those topics, we need to get into the habit of getting to know our data. Below is a brief 'data dictionary' of the variables from both of our data: 
+
+<br>
 
 A. **burglary_df** has nine variables: 
 
@@ -177,7 +183,7 @@ A. **burglary_df** has nine variables:
 - *LSOAname*: the name of that particular LSOAs
 - *pop*: the population size of LSOAs
 
-
+<br>
 
 
 B. **monthly_df** has three variables: 
@@ -186,7 +192,7 @@ B. **monthly_df** has three variables:
 - *crime_type*: type of crime (for police.uk categories, see: [download police.uk data categories vs home office offence codes](https://www.police.uk/SysSiteAssets/police-uk/media/downloads/crime-categories/police-uk-category-mappings.csv))
 - *n*: number of each type of crime for each month in 2017
 
-
+<br>
 
 
 Have a look at both datasets. Let us use the function `View()` first. What do you think are the levels of measurement for each variable? Make a note of this. 
@@ -203,11 +209,14 @@ In addition, when you read a good quantitative research paper, its methods secti
 
 In your group google doc, type out the following: the number of observations for each data frame. Type out these values following 'n = '. In addition, state what you think the unit of analysis is in each data frame. 
 
+<br>
+<br>
+
 
 ---
 
 
-
+<br>
 
 
 ## Today’s 3 
@@ -216,6 +225,7 @@ In your group google doc, type out the following: the number of observations for
 
 Now that we have gotten to know our data, onto our three main topics: **layers**, **graphs for nominal and ordinal data**, and **graphs for interval and ratio data**. 
 
+<br>
 
 ---
 
@@ -226,20 +236,24 @@ Now that we have gotten to know our data, onto our three main topics: **layers**
 
 Layers often relate to one another and have similar features. For example, they may share the same underlying data on which they are built. An example is this scatterplot overlayed with a smoothed regression line to describe the relationship between two variables:
 
+<br>
+
 ![**Figure 3.6** A graphic with two layers](Images/layers.png){width=70%} 
 
 From: https://cfss.uchicago.edu/notes/grammar-of-graphics/
 
-
+<br>
 
 
 One layer is the scatterplot itself and it contains the necessary components (e.g., data, aesthetics, and geom). The second layer is the smoothing line. Another example of multiple layers is this one that uses two different but related datasets in one graphic:
+
+<br>
 
 ![**Figure 3.7** Different data sets and aesthetics defined by layer](Images/complexlayer.png){width=70%}
 
 From: http://applied-r.com/building-layered-plots/
 
-
+<br>
 
 
 The advantage of the layered approach is its ease for the user and the developer of these statistical graphics. As a user, you can repeatedly update a graphic, changing one feature at a time instead of having to work with the overall graphic; as a developer, you can add more components to your graphic while being able to use what you have already. The idea is that you can tweak your graphic by component or layer while leaving the rest of your graphic intact. This is in constrast to changing the entire graphic just to tweak a small detail.
@@ -248,7 +262,7 @@ To understand a layer and how it is generated in `ggplot2`, we begin with a scat
 
 For example, we may be interested to find out whether there is a relationship between area-level income deprivation and burglaries. Are areas with higher income deprivation scores burgled more? Perhaps there is less money to spend on security systems, so there is easier access to homes in these areas. Or is it areas with lower income deprivation scores that are burgled more? Maybe because these areas are wealthier so there are more valuable goods to take. To visualize this relationship, we build a scatterplot using the layered approach. 
 
-
+<br>
 
 
 #### Activity 3: Using ggplot2 to create a scatterplot
@@ -256,7 +270,7 @@ For example, we may be interested to find out whether there is a relationship be
 Our research question, therefore, is: *What is the relationship between income and burglary counts?* 
 
 Following the grammar of graphics layered approach, let us first specify the data component. To do this, we take the `ggplot()` function, and inside it, we put our data frame object, which contains our data. To let the function know this is the data, we can also write `data =` before it:
-
+<br>
 
 
 
@@ -269,12 +283,13 @@ ggplot(data = burglary_df)
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
+<br>
 
 
 The *Plots* window will appear and will be blank, like what you see above. We have told `R` what data we want to plot, but we have yet to specify what variables we want across our x and y axes, or other fields. To do this, we will need *aesthetics*, the second component of the layer. 
 
 Recall that aesthetics are about mapping the visual properties. As our research question is about the relationship between income (`incscore`) and burglary count (`burglary_count`), we will map these variables to the x and y axes. We specify the aesthetics inside the `aes()` function (i.e.,**aes**thetics), indicating which variable we want on the x axis (`x = `) and which one on the y axis (`y =`). 
-
+<br>
 
 
 
@@ -285,7 +300,7 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count))
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
-
+<br>
 
 
 You will now see an update in the *Plots* window! It shows the axis and the axes labels. `R` now knows that we want to plot the income variable on our x axis and the burglary count variable on the y. The labels are applied automatically, but you can change these, which we will soon learn. 
@@ -293,7 +308,7 @@ You will now see an update in the *Plots* window! It shows the axis and the axes
 Let us learn how to finally put our data on the plot. To do this, we must assign a **geometry**.
 
 This last component is the geometric object, and is what also makes the layer in `R` code. It has numerous functions, each beginning with the argument `geom_`. To create a scatterplot, we use the function `geom_point()`: 
-
+<br>
 
 
 
@@ -308,11 +323,13 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count)) +
 # We are saying, ‘Hey R, may you please make me a graphic using the data "burglary_df” and map the variables “incscore” to the x-axis and “burglary_count” to the y-axis, then pass this information through (using “ + ” ) to make a scatterplot?’
 ```
 
-
+<br>
 
 
 Now the scatterplot in all its glory appears. What can you say about the relationship between deprivation and burglary victimisation? In your group google doc, type out what you think is the relationship between these two variables.
 
+<br>
+<br>
 
 ---
 
@@ -322,7 +339,7 @@ Now the scatterplot in all its glory appears. What can you say about the relatio
 #### Activity 4: Adding a Third Variable to a Scatterplot
 
 The real power in layered graphics comes from the ability to keep piling on the layers and tweaking components that make up the layers. For example, it would be helpful if we included other information like how local authorities may play a role in this relationship. Maybe income is positively associated with burglaries in one local authority, such as Bolton, but not in another, such as Bury. To explore this, we might want to colour each point by the variable `LAname` using the `colour` argument: 
-
+<br>
 
 
 ```r
@@ -332,10 +349,13 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, colou
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
+<br>
 
 
 In your group google doc, state what you observe from this new visual. What sort of relationship does it seem to show between burglary counts and income? Do you think local authority plays a role? Do note the default colours, and think back to what we learned about accessibility last semester. In the next activity, we will address this!
 
+<br>
+<br>
 
 ---
 
@@ -344,8 +364,8 @@ As previously mentioned, a number of other functions are available for the `geom
 
 This relates to the grammar of graphics philosophy on how people understand information, and `ggplot2` will warn you when it thinks the graphic is difficult to interpret or, worse, misleading. 
 
-
-
+<br>
+<br>
 
 
 ---
@@ -353,7 +373,7 @@ This relates to the grammar of graphics philosophy on how people understand info
 
 #### Activity 5: Colours!
 The colour palette that appeared for our previous scatterplot is a default one, and there are a number of default colour palettes available. We can specify a colour palette using an additional layer with the function `scale_color_brewer()`. For example:
-
+<br>
 
 
 
@@ -365,13 +385,13 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
-
+<br>
 
 
 Does that look familiar? Last semester we used the website [colorbrewer2.org/](https://colorbrewer2.org/). The `scale_colour_brewer()` function takes palettes from this resource, and applies them to your charts. 
 
 In addition, the `viridis` package has a number of colour palettes that consider colour blindness where readers are unable to differentiate colours on the graphic. It is already integrated into `ggplot2`, so there is no need to install it separately. For example, we take the previous code and replace the last line with a viridis colour palette for categorical variables:
-
+<br>
 
 
 
@@ -383,21 +403,21 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
-
+<br>
 
 
 Now we have built up a graph to visualise the bivariate relationship between income deprivation score and burglary count per neighbourhood. Then, we introduced a third variable (i.e., multi-variable analysis) and brought in colour to add to the local authority. In the upcoming exercises, we will learn how to tweak the graphics so to make them even more our own!
 
 
-
-
+<br>
+<br>
 
 ---
 
 
 #### Activity 6: Sizes & Transparency
 Recall that the geometric object is about the data points themselves. You can change their appearance within the `geom_point` function. To increase the size of the points and make them transparent, we use the size and alpha arguments. The default for size is 1, so anything lower than 1 will make points smaller while anything larger than 1 will make the points bigger. The default for alpha is also 1, which means total opaqueness, so you can only go lower to make things more transparent. For example:
-
+<br>
 
 
 
@@ -411,8 +431,8 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
-
-
+<br>
+<br>
 
 
 ---
@@ -420,7 +440,7 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 
 #### Activity 7: Labels
 The graphic is looking good, but the labels will need tweaking if we do not like the default ones, which are our variable names. We use the `labs()` function to change the labels for the x and y axes as well as the graphic title:
-
+<br>
 
 
 
@@ -433,13 +453,14 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
-
+<br>
+<br>
 
 ---
 
 #### Activity 8: Built-in Themes
 A final touch to your graphic can be the use of **themes**. These change the overall appearance of your graphic. The default theme we have for our graphic is `theme_gray()`, but we can go for a minimalist look by using `theme_minimal ()`. There are a number of these customised themes like one that is inspired by *The Economist* ( `theme_economist ()` ). To use special themes like *The Economist* install the package `ggthemes` and load it. 
-
+<br>
 
 
 
@@ -454,7 +475,8 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
-
+<br>
+<br>
 
 
 ---
@@ -474,7 +496,7 @@ To explore the count distribution of categorical variables, use the bar graph. W
 The variable of interest, `IMDdeci`, is classed as numeric but we will need to treat it as a factor or else the default x-axis will include non-integer values like 7.5 . 
 
 Instead of making a new object, `ggplot` can calculate these frequencies by only specifying the x-axis and using the function `as.factor()`:
-
+<br>
 
 
 
@@ -486,7 +508,7 @@ ggplot(data = burglary_df) +
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
-
+<br>
 
 
 #### *Grouped Bar Graphs*
@@ -497,7 +519,7 @@ ggplot(data = burglary_df) +
 If we are interested in the distribution of deprivation like the previous bar graph but would like to see it by local authority, we can use the grouped bar graph, and specify the colour with the `fill = ` parameter inside the `aes()` function. 
 
 Think back, however, to what we learned last semester, about row and column percentages, and how in bivariate analysis it is important to make decisions that will affect how our readers interpret our data. For example, if we fill the colour of each bar by local authority, we get a chart like this: 
-
+<br>
 
 
 
@@ -511,10 +533,10 @@ ggplot(data = burglary_df) +
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 
-
+<br>
 
 How do the different local authorities compare in terms of the distribution of deprived neighbourhoods? It can be a bit tough to say. But what about if we flip these: 
-
+<br>
 
 
 
@@ -528,13 +550,15 @@ ggplot(data = burglary_df) +
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 
-
+<br>
 
 
 This seems clearer.
 
 In your google doc, state what you observe from the bar graph and grouped bar graph depicting the relationship between deprivation and LSOAs.
 
+<br>
+<br>
 
 ---
 
@@ -543,7 +567,7 @@ In your google doc, state what you observe from the bar graph and grouped bar gr
 
 
 **Note**: in the previous example, you might have noticed -- inside the `geom_bar()` function, after the closing bracket of the `aes()` function -- the parameter `, position = "stack"`. This means that we get a *stacked* bar chart. You could change this to `, position = "dodge"`, which would give you a clustered bar chart. Like so: 
-
+<br>
 
 
 
@@ -557,11 +581,13 @@ ggplot(data = burglary_df) +
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
-
+<br>
 
 
 This might also be another way to display your data. There are advantages and disadvantages to both the stacked and clustered bar charts, and it has to do with what they hide and show!
 
+<br>
+<br>
 
 ---
 
@@ -573,7 +599,7 @@ This might also be another way to display your data. There are advantages and di
 Another useful visual is multiple bar graphs. This creates different plots for each level of a factor instead of putting lots of information into one graphic. Using the function `facet_wrap ()`, we make the information obtained from the previous scatterplot, where we coloured in each point by local authority, clearer. 
 
 Although the scatterplot uses numeric variables, we use this information by local authority, and `LAname` is classed as factor:
-
+<br>
 
 
 
@@ -590,15 +616,17 @@ ggplot(data = burglary_df) +
 # By default, facet_wrap fixes the y-axis of each graph to make comparisons easier
 ```
 
-
+<br>
 
 
 It is important to choose an appropriate graph, so thought is required. May the following graphic be fair warning:
 
+<br>
+
 ![**Figure 3.8** Friends don't let friends do this](Images/barplots.jpg)
 
-
-
+<br>
+<br>
 
 
 ---
@@ -611,7 +639,7 @@ It is important to choose an appropriate graph, so thought is required. May the 
 
 #### Activity 10: Histograms
 Histograms differ from scatterplots because they require only one numeric variable and they create bins, visualized as bars, to count the frequency of each bar. We create a histogram of the variable `IMDscore`, the overall score of deprivation in each neighbourhood:
-
+<br>
 
 
 
@@ -626,10 +654,10 @@ ggplot(data = burglary_df, mapping = aes(x = IMDscore)) +
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
-
+<br>
 
 How the histogram looks, and therefore, the conclusions drawn from the visual, are sensitive to the number of **bins**. You should try different specifications of the bin-width until you find one that tells the complete and concise story of the data. Specifying the size of bins is done using the argument `bin_width =`; the default size is 30 and you can change this to get a rougher or a more granular idea:
-
+<br>
 
 
 
@@ -641,12 +669,13 @@ ggplot(data = burglary_df, mapping = aes(x = IMDscore)) +
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
-
+<br>
 
 Play around with the bin widths to find which one looks the most visually comprehensible. In your google doc, state what bin width you think does the job, and why.
 
 
-
+<br>
+<br>
 
 ---
 
@@ -659,7 +688,7 @@ The data is in long format: we have a single month variable for 12 months’ wor
 For a line graph, we use the function `geom_line()`. We plan to plot the counts to show the trends of different crimes over the course of the year. Our time variable, `month`, should run along the x-axis, and the count variable, `n`, should run on the y-axis. 
 
 To show each crime type separately, we use the group aesthetic and a new aesthetic, `linetype`, which uses different patterns for each group. To show our time measurement points, we also add `geom_point ()`: 
-
+<br>
 
 
 
@@ -675,13 +704,13 @@ ggplot(data = monthly_df, aes(x = as.factor(Month), y = n, group = crime_type, l
 # We are saying, ‘Hey R, may you please make a graphic using the data frame “monthly_df”, and map the variable “month” (turning it into a factor) to the x-axis and “n” to the y-axis, and group this information by “crime_type”, showing different patterns for each crime type, then pass this information through (“ +”) to make a line graph, and pass this information through (“ +”) to make a scatterplot of the time points too?’
 ```
 
-
+<br>
 
 
 Now, in your google doc, state what you observe from this line graph on different crimes throughout the months.
 
-
-
+<br>
+<br>
 
 ---
 
@@ -697,7 +726,7 @@ For this example, we return to the `burglary_df` data, and focus on the distribu
 
 We send all of this information, the boxplots, into one object called `my_whisker_plot`, to which we can return in case:
 
-
+<br>
 
 
 ```r
@@ -710,13 +739,13 @@ my_whisker_plot +
 
 <img src="03-data-visualisation_files/figure-html/unnamed-chunk-21-1.png" width="672" />
 
-
+<br>
 
 
 In your group google doc, state what you observe from your newly created boxplot.
 
-
-
+<br>
+<br>
 
 ---
 
@@ -731,13 +760,15 @@ Today was about using a popular package called `ggplot2` for effectively visuali
 Our first topic we learned was about these layers, comprising data, aesthetics, and geometric objects. As a final touch, **themes** changed the overall appearance of your graphic. Our second and third topics introduced us to **graphs** that we can use for all types of variables, and how to create them in `ggplot2`. One example was the histogram, whereby adjusting the width of the **bins** helped for better interpretation of the data. 
 
 
-
+<br>
 
 
 Hurrah: homework time!  
 
-
-
+<br>
+<br>
+<br>
+<br>
 
 
 #### ANSWERS TO ACTIVITIES:

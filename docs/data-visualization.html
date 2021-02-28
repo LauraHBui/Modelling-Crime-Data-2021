@@ -364,21 +364,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.2</span> ggplot2</h2>
 <p>This week we will be learning how to use <code>R</code> to create various exciting data visualizations. You may remember some of the key principles of data visualizations from last semester: graphics should be truthful,functional, beautiful, insightful, and enlightening. Also, accessible!</p>
 <p>Here is a recent powerful visualization from The New York Times about deaths from COVID-19 in the USA (Figure 3.4): <a href="https://twitter.com/beccapfoley/status/1363338950518206472" class="uri">https://twitter.com/beccapfoley/status/1363338950518206472</a></p>
+<p><br>
+<br></p>
 <div class="figure">
 <img src="Images/times_COVID_VIZ.jpeg" alt="Figure 3.4 NYT visualization of COVID-19 deaths in USA" style="width:70.0%" />
 <p class="caption"><strong>Figure 3.4</strong> NYT visualization of COVID-19 deaths in USA</p>
 </div>
+<p><br></p>
 <p><code>R</code> has amazing data visualization qualities. It is increasingly used by professionals and academics to create graphics that embody those principles of data visualization.</p>
 <p>For example, read this article about how the BBC uses <code>R</code> to create their graphics: <a href="https://medium.com/bbc-visual-and-data-journalism/how-the-bbc-visual-and-data-journalism-team-works-with-graphics-in-r-ed0b35693535">How the BBC Visual and Data Journalism team works with graphics in R</a> (See Figure 3.5)</p>
+<p><br>
+<br></p>
 <div class="figure">
 <img src="Images/bbc_r.png" alt="Figure 3.5 How the BBC Visual and Data Journalism team works with graphics in R" />
 <p class="caption"><strong>Figure 3.5</strong> How the BBC Visual and Data Journalism team works with graphics in R</p>
 </div>
+<p><br>
+<br></p>
 <p>As you learn to create graphs in <code>ggplot2</code>, you will see that the code reflects building these graphs as layers. This will take getting used to if you are only familiar with building graphs from a template in Excel. You can also reuse chunks of code to create different kinds of graphics or identical ones in other datasets.</p>
 <p>Today we focus on the <code>ggplot2</code> package to learn our three substantive topics: <strong>layers</strong>, <strong>graphs for categorical data</strong>, and <strong>graphs for numeric data</strong>.</p>
 <div id="activity-2-getting-to-know-new-data" class="section level4">
 <h4><span class="header-section-number">3.2.0.1</span> Activity 2: Getting to Know New Data</h4>
 <p>Before we dive into those topics, we need to get into the habit of getting to know our data. Below is a brief ‘data dictionary’ of the variables from both of our data:</p>
+<p><br></p>
 <p>A. <strong>burglary_df</strong> has nine variables:</p>
 <ul>
 <li><em>LSOAcode</em>: LSOA stands for Lower Super Output Area, and is a statistical unit of geography. It represents neighbourhoods that each contain 300-400 households. Essentially, LSOA means neighbourhood.</li>
@@ -392,12 +400,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><em>LSOAname</em>: the name of that particular LSOAs</li>
 <li><em>pop</em>: the population size of LSOAs</li>
 </ul>
+<p><br></p>
 <p>B. <strong>monthly_df</strong> has three variables:</p>
 <ul>
 <li><em>Month</em>: month of the year whereby 1 = January, 2 = February… and 12 = December</li>
 <li><em>crime_type</em>: type of crime (for police.uk categories, see: <a href="https://www.police.uk/SysSiteAssets/police-uk/media/downloads/crime-categories/police-uk-category-mappings.csv">download police.uk data categories vs home office offence codes</a>)</li>
 <li><em>n</em>: number of each type of crime for each month in 2017</li>
 </ul>
+<p><br></p>
 <p>Have a look at both datasets. Let us use the function <code>View()</code> first. What do you think are the levels of measurement for each variable? Make a note of this.</p>
 <p>Now use the the function <code>class()</code> to look at how <code>R</code> treats each variable for each dataset. How does this match with what you think is the level of measurement for each variable? Keep this in mind!</p>
 <!-- In `burglary_df`, there are eight variables. For example, the `IMDscore` variable combines seven domains of deprivation into one index: income, employment, education, health, crime, barriers to housing/services, and living environment. `IMDrank` is a variable that ranks all 32,844 Lower Super Output Areas (LSOAs) from highest to lowest.  -->
@@ -405,104 +415,140 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Notice that although <code>monthly_df</code> has only several variables, there is a lot of information in this data frame. There are counts for various different crimes for each month of the year. Because of this, the data are in <em>long format</em>. This is a useful and typical format for longitudinal data because our time variable (i.e., months) is contained in one variable. This will make it easier to create graphics showing change over time.</p>
 <p>In addition, when you read a good quantitative research paper, its methods section will state the number of cases analysed with ‘n =’, whereby ‘n’ represents ‘number of cases’. This is known as sample size. For example, if the sample size of a study is two-hundred, the methods section would state it as ‘n= 200’.</p>
 <p>In your group google doc, type out the following: the number of observations for each data frame. Type out these values following ‘n =’. In addition, state what you think the unit of analysis is in each data frame.</p>
+<p><br>
+<br></p>
 <hr />
+<p><br></p>
 </div>
 </div>
 <div id="todays-3" class="section level2">
 <h2><span class="header-section-number">3.3</span> Today’s 3</h2>
 <p>Now that we have gotten to know our data, onto our three main topics: <strong>layers</strong>, <strong>graphs for nominal and ordinal data</strong>, and <strong>graphs for interval and ratio data</strong>.</p>
+<p><br></p>
 <hr />
 <div id="layers" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Layers</h3>
 <p>Layers often relate to one another and have similar features. For example, they may share the same underlying data on which they are built. An example is this scatterplot overlayed with a smoothed regression line to describe the relationship between two variables:</p>
+<p><br></p>
 <div class="figure">
 <img src="Images/layers.png" alt="Figure 3.6 A graphic with two layers" style="width:70.0%" />
 <p class="caption"><strong>Figure 3.6</strong> A graphic with two layers</p>
 </div>
 <p>From: <a href="https://cfss.uchicago.edu/notes/grammar-of-graphics/" class="uri">https://cfss.uchicago.edu/notes/grammar-of-graphics/</a></p>
+<p><br></p>
 <p>One layer is the scatterplot itself and it contains the necessary components (e.g., data, aesthetics, and geom). The second layer is the smoothing line. Another example of multiple layers is this one that uses two different but related datasets in one graphic:</p>
+<p><br></p>
 <div class="figure">
 <img src="Images/complexlayer.png" alt="Figure 3.7 Different data sets and aesthetics defined by layer" style="width:70.0%" />
 <p class="caption"><strong>Figure 3.7</strong> Different data sets and aesthetics defined by layer</p>
 </div>
 <p>From: <a href="http://applied-r.com/building-layered-plots/" class="uri">http://applied-r.com/building-layered-plots/</a></p>
+<p><br></p>
 <p>The advantage of the layered approach is its ease for the user and the developer of these statistical graphics. As a user, you can repeatedly update a graphic, changing one feature at a time instead of having to work with the overall graphic; as a developer, you can add more components to your graphic while being able to use what you have already. The idea is that you can tweak your graphic by component or layer while leaving the rest of your graphic intact. This is in constrast to changing the entire graphic just to tweak a small detail.</p>
 <p>To understand a layer and how it is generated in <code>ggplot2</code>, we begin with a scatterplot. This is a graph that shows the relationship between two continuous variables – in other words, between two numeric variables.</p>
 <p>For example, we may be interested to find out whether there is a relationship between area-level income deprivation and burglaries. Are areas with higher income deprivation scores burgled more? Perhaps there is less money to spend on security systems, so there is easier access to homes in these areas. Or is it areas with lower income deprivation scores that are burgled more? Maybe because these areas are wealthier so there are more valuable goods to take. To visualize this relationship, we build a scatterplot using the layered approach.</p>
+<p><br></p>
 <div id="activity-3-using-ggplot2-to-create-a-scatterplot" class="section level4">
 <h4><span class="header-section-number">3.3.1.1</span> Activity 3: Using ggplot2 to create a scatterplot</h4>
 <p>Our research question, therefore, is: <em>What is the relationship between income and burglary counts?</em></p>
-<p>Following the grammar of graphics layered approach, let us first specify the data component. To do this, we take the <code>ggplot()</code> function, and inside it, we put our data frame object, which contains our data. To let the function know this is the data, we can also write <code>data =</code> before it:</p>
+<p>Following the grammar of graphics layered approach, let us first specify the data component. To do this, we take the <code>ggplot()</code> function, and inside it, we put our data frame object, which contains our data. To let the function know this is the data, we can also write <code>data =</code> before it:
+<br></p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1"><span class="co"># If there is an error about function missing, has the package ggplot2 been installed and loaded?</span></a>
 <a class="sourceLine" id="cb121-2" title="2"></a>
 <a class="sourceLine" id="cb121-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df)</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><br></p>
 <p>The <em>Plots</em> window will appear and will be blank, like what you see above. We have told <code>R</code> what data we want to plot, but we have yet to specify what variables we want across our x and y axes, or other fields. To do this, we will need <em>aesthetics</em>, the second component of the layer.</p>
-<p>Recall that aesthetics are about mapping the visual properties. As our research question is about the relationship between income (<code>incscore</code>) and burglary count (<code>burglary_count</code>), we will map these variables to the x and y axes. We specify the aesthetics inside the <code>aes()</code> function (i.e.,<strong>aes</strong>thetics), indicating which variable we want on the x axis (<code>x =</code>) and which one on the y axis (<code>y =</code>).</p>
+<p>Recall that aesthetics are about mapping the visual properties. As our research question is about the relationship between income (<code>incscore</code>) and burglary count (<code>burglary_count</code>), we will map these variables to the x and y axes. We specify the aesthetics inside the <code>aes()</code> function (i.e.,<strong>aes</strong>thetics), indicating which variable we want on the x axis (<code>x =</code>) and which one on the y axis (<code>y =</code>).
+<br></p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count))</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><br></p>
 <p>You will now see an update in the <em>Plots</em> window! It shows the axis and the axes labels. <code>R</code> now knows that we want to plot the income variable on our x axis and the burglary count variable on the y. The labels are applied automatically, but you can change these, which we will soon learn.</p>
 <p>Let us learn how to finally put our data on the plot. To do this, we must assign a <strong>geometry</strong>.</p>
-<p>This last component is the geometric object, and is what also makes the layer in <code>R</code> code. It has numerous functions, each beginning with the argument <code>geom_</code>. To create a scatterplot, we use the function <code>geom_point()</code>:</p>
+<p>This last component is the geometric object, and is what also makes the layer in <code>R</code> code. It has numerous functions, each beginning with the argument <code>geom_</code>. To create a scatterplot, we use the function <code>geom_point()</code>:
+<br></p>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb123-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" title="1"><span class="co"># We are saying, ‘Hey R, may you please make me a graphic using the data &quot;burglary_df” and map the variables “incscore” to the x-axis and “burglary_count” to the y-axis, then pass this information through (using “ + ” ) to make a scatterplot?’</span></a></code></pre></div>
+<p><br></p>
 <p>Now the scatterplot in all its glory appears. What can you say about the relationship between deprivation and burglary victimisation? In your group google doc, type out what you think is the relationship between these two variables.</p>
+<p><br>
+<br></p>
 <hr />
 </div>
 <div id="activity-4-adding-a-third-variable-to-a-scatterplot" class="section level4">
 <h4><span class="header-section-number">3.3.1.2</span> Activity 4: Adding a Third Variable to a Scatterplot</h4>
-<p>The real power in layered graphics comes from the ability to keep piling on the layers and tweaking components that make up the layers. For example, it would be helpful if we included other information like how local authorities may play a role in this relationship. Maybe income is positively associated with burglaries in one local authority, such as Bolton, but not in another, such as Bury. To explore this, we might want to colour each point by the variable <code>LAname</code> using the <code>colour</code> argument:</p>
+<p>The real power in layered graphics comes from the ability to keep piling on the layers and tweaking components that make up the layers. For example, it would be helpful if we included other information like how local authorities may play a role in this relationship. Maybe income is positively associated with burglaries in one local authority, such as Bolton, but not in another, such as Bury. To explore this, we might want to colour each point by the variable <code>LAname</code> using the <code>colour</code> argument:
+<br></p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">colour =</span> LAname)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb125-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><br></p>
 <p>In your group google doc, state what you observe from this new visual. What sort of relationship does it seem to show between burglary counts and income? Do you think local authority plays a role? Do note the default colours, and think back to what we learned about accessibility last semester. In the next activity, we will address this!</p>
+<p><br>
+<br></p>
 <hr />
 <p>As previously mentioned, a number of other functions are available for the <code>geom_</code> function such as shape, linetype, size, fill, and alpha (transparency). But these depend on the geometry being used and the class of variable being mapped to the aesthetic. For example, try the shape aesthetic for <code>LAname</code>, which will vary the shape of each point according to local authority (hint: replace <code>colour =</code> with <code>shape =</code>). A warning message appears – what is it telling you? How can you see this reflected on the plot?</p>
 <p>This relates to the grammar of graphics philosophy on how people understand information, and <code>ggplot2</code> will warn you when it thinks the graphic is difficult to interpret or, worse, misleading.</p>
+<p><br>
+<br></p>
 <hr />
 </div>
 <div id="activity-5-colours" class="section level4">
 <h4><span class="header-section-number">3.3.1.3</span> Activity 5: Colours!</h4>
-<p>The colour palette that appeared for our previous scatterplot is a default one, and there are a number of default colour palettes available. We can specify a colour palette using an additional layer with the function <code>scale_color_brewer()</code>. For example:</p>
+<p>The colour palette that appeared for our previous scatterplot is a default one, and there are a number of default colour palettes available. We can specify a colour palette using an additional layer with the function <code>scale_color_brewer()</code>. For example:
+<br></p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb126-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb126-3" title="3"><span class="st">  </span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>)</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><br></p>
 <p>Does that look familiar? Last semester we used the website <a href="https://colorbrewer2.org/">colorbrewer2.org/</a>. The <code>scale_colour_brewer()</code> function takes palettes from this resource, and applies them to your charts.</p>
-<p>In addition, the <code>viridis</code> package has a number of colour palettes that consider colour blindness where readers are unable to differentiate colours on the graphic. It is already integrated into <code>ggplot2</code>, so there is no need to install it separately. For example, we take the previous code and replace the last line with a viridis colour palette for categorical variables:</p>
+<p>In addition, the <code>viridis</code> package has a number of colour palettes that consider colour blindness where readers are unable to differentiate colours on the graphic. It is already integrated into <code>ggplot2</code>, so there is no need to install it separately. For example, we take the previous code and replace the last line with a viridis colour palette for categorical variables:
+<br></p>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb127-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb127-3" title="3"><span class="st">  </span><span class="kw">scale_color_viridis_d</span>() <span class="co"># or scale_color_viridis_c() for a continuous variable </span></a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><br></p>
 <p>Now we have built up a graph to visualise the bivariate relationship between income deprivation score and burglary count per neighbourhood. Then, we introduced a third variable (i.e., multi-variable analysis) and brought in colour to add to the local authority. In the upcoming exercises, we will learn how to tweak the graphics so to make them even more our own!</p>
+<p><br>
+<br></p>
 <hr />
 </div>
 <div id="activity-6-sizes-transparency" class="section level4">
 <h4><span class="header-section-number">3.3.1.4</span> Activity 6: Sizes &amp; Transparency</h4>
-<p>Recall that the geometric object is about the data points themselves. You can change their appearance within the <code>geom_point</code> function. To increase the size of the points and make them transparent, we use the size and alpha arguments. The default for size is 1, so anything lower than 1 will make points smaller while anything larger than 1 will make the points bigger. The default for alpha is also 1, which means total opaqueness, so you can only go lower to make things more transparent. For example:</p>
+<p>Recall that the geometric object is about the data points themselves. You can change their appearance within the <code>geom_point</code> function. To increase the size of the points and make them transparent, we use the size and alpha arguments. The default for size is 1, so anything lower than 1 will make points smaller while anything larger than 1 will make the points bigger. The default for alpha is also 1, which means total opaqueness, so you can only go lower to make things more transparent. For example:
+<br></p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1"><span class="co"># Below, we want our data points to be a bit bigger ( 3 ) and more transparent ( 0.5 ) than the default</span></a>
 <a class="sourceLine" id="cb128-2" title="2"></a>
 <a class="sourceLine" id="cb128-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb128-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb128-5" title="5"><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>)</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><br>
+<br></p>
 <hr />
 </div>
 <div id="activity-7-labels" class="section level4">
 <h4><span class="header-section-number">3.3.1.5</span> Activity 7: Labels</h4>
-<p>The graphic is looking good, but the labels will need tweaking if we do not like the default ones, which are our variable names. We use the <code>labs()</code> function to change the labels for the x and y axes as well as the graphic title:</p>
+<p>The graphic is looking good, but the labels will need tweaking if we do not like the default ones, which are our variable names. We use the <code>labs()</code> function to change the labels for the x and y axes as well as the graphic title:
+<br></p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb129-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb129-3" title="3"><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb129-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Income score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Burglary count&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Income and burglary and victimization&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;Local Authority&quot;</span>)</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><br>
+<br></p>
 <hr />
 </div>
 <div id="activity-8-built-in-themes" class="section level4">
 <h4><span class="header-section-number">3.3.1.6</span> Activity 8: Built-in Themes</h4>
-<p>A final touch to your graphic can be the use of <strong>themes</strong>. These change the overall appearance of your graphic. The default theme we have for our graphic is <code>theme_gray()</code>, but we can go for a minimalist look by using <code>theme_minimal ()</code>. There are a number of these customised themes like one that is inspired by <em>The Economist</em> ( <code>theme_economist ()</code> ). To use special themes like <em>The Economist</em> install the package <code>ggthemes</code> and load it.</p>
+<p>A final touch to your graphic can be the use of <strong>themes</strong>. These change the overall appearance of your graphic. The default theme we have for our graphic is <code>theme_gray()</code>, but we can go for a minimalist look by using <code>theme_minimal ()</code>. There are a number of these customised themes like one that is inspired by <em>The Economist</em> ( <code>theme_economist ()</code> ). To use special themes like <em>The Economist</em> install the package <code>ggthemes</code> and load it.
+<br></p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1"><span class="co"># Changing graphic to the minimal theme with the last line of code</span></a>
 <a class="sourceLine" id="cb130-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count, <span class="dt">color =</span> LAname)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb130-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></a>
@@ -510,6 +556,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb130-5" title="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Income score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Burglary count&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Income and burglary and victimization&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Income score from 2019 IMD. Burglary counts from 2017.&quot;</span> , <span class="dt">color =</span> <span class="st">&quot;Local Authority&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb130-6" title="6"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><br>
+<br></p>
 <hr />
 </div>
 </div>
@@ -519,57 +567,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">3.3.2.1</span> Activity 9: Bar graphs</h4>
 <p>To explore the count distribution of categorical variables, use the bar graph. We may be interested to know the number of neighbourhoods falling into each indice of the multiple deprivation (IMD) decile, a key indicator of criminality. Those in decile 1 are within the most deprived 10% of LSOAs nationally; those in decile 10 are considered within the least deprived 10% of LSOAs nationally.</p>
 <p>The variable of interest, <code>IMDdeci</code>, is classed as numeric but we will need to treat it as a factor or else the default x-axis will include non-integer values like 7.5 .</p>
-<p>Instead of making a new object, <code>ggplot</code> can calculate these frequencies by only specifying the x-axis and using the function <code>as.factor()</code>:</p>
+<p>Instead of making a new object, <code>ggplot</code> can calculate these frequencies by only specifying the x-axis and using the function <code>as.factor()</code>:
+<br></p>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb131-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(IMDdeci))) <span class="op">+</span><span class="st"> </span><span class="co"># convert IMDdeci to a factor with as.factor </span></a>
 <a class="sourceLine" id="cb131-3" title="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Lower Super Output Areas&quot;</span>)</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><br></p>
 </div>
 <div id="grouped-bar-graphs" class="section level4">
 <h4><span class="header-section-number">3.3.2.2</span> <em>Grouped Bar Graphs</em></h4>
 <p>If we are interested in the distribution of deprivation like the previous bar graph but would like to see it by local authority, we can use the grouped bar graph, and specify the colour with the <code>fill =</code> parameter inside the <code>aes()</code> function.</p>
-<p>Think back, however, to what we learned last semester, about row and column percentages, and how in bivariate analysis it is important to make decisions that will affect how our readers interpret our data. For example, if we fill the colour of each bar by local authority, we get a chart like this:</p>
+<p>Think back, however, to what we learned last semester, about row and column percentages, and how in bivariate analysis it is important to make decisions that will affect how our readers interpret our data. For example, if we fill the colour of each bar by local authority, we get a chart like this:
+<br></p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1"><span class="co"># The ‘dodge’ position means that the bars avoid or ‘dodge’ each other</span></a>
 <a class="sourceLine" id="cb132-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb132-3" title="3"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(IMDdeci), <span class="dt">fill =</span> LAname), <span class="dt">position =</span> <span class="st">&quot;stack&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb132-4" title="4"><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb132-5" title="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Lower Super Output Areas&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;Local Authority&quot;</span>)</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
-<p>How do the different local authorities compare in terms of the distribution of deprived neighbourhoods? It can be a bit tough to say. But what about if we flip these:</p>
+<p><br></p>
+<p>How do the different local authorities compare in terms of the distribution of deprived neighbourhoods? It can be a bit tough to say. But what about if we flip these:
+<br></p>
 <div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" title="1"><span class="co"># We switch the positions of LAname and IMDdeci in the second line of code in this example</span></a>
 <a class="sourceLine" id="cb133-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb133-3" title="3"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> LAname, <span class="dt">fill =</span> <span class="kw">as.factor</span>(IMDdeci)), <span class="dt">position =</span> <span class="st">&quot;stack&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb133-4" title="4"><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb133-5" title="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Local Authority&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Lower Super Output Areas&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;Deprivation Score&quot;</span>)</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><br></p>
 <p>This seems clearer.</p>
 <p>In your google doc, state what you observe from the bar graph and grouped bar graph depicting the relationship between deprivation and LSOAs.</p>
+<p><br>
+<br></p>
 <hr />
-<p><strong>Note</strong>: in the previous example, you might have noticed – inside the <code>geom_bar()</code> function, after the closing bracket of the <code>aes()</code> function – the parameter <code>, position = "stack"</code>. This means that we get a <em>stacked</em> bar chart. You could change this to <code>, position = "dodge"</code>, which would give you a clustered bar chart. Like so:</p>
+<p><strong>Note</strong>: in the previous example, you might have noticed – inside the <code>geom_bar()</code> function, after the closing bracket of the <code>aes()</code> function – the parameter <code>, position = "stack"</code>. This means that we get a <em>stacked</em> bar chart. You could change this to <code>, position = "dodge"</code>, which would give you a clustered bar chart. Like so:
+<br></p>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" title="1"><span class="co"># Instead of stack, the ‘dodge’ position means that the bars avoid or ‘dodge’ each other</span></a>
 <a class="sourceLine" id="cb134-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb134-3" title="3"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> LAname, <span class="dt">fill =</span> <span class="kw">as.factor</span>(IMDdeci)), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb134-4" title="4"><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb134-5" title="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Local Authority&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Lower Super Output Areas&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;Deprivation Score&quot;</span>)</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><br></p>
 <p>This might also be another way to display your data. There are advantages and disadvantages to both the stacked and clustered bar charts, and it has to do with what they hide and show!</p>
+<p><br>
+<br></p>
 <hr />
 </div>
 <div id="multiple-bar-graphs" class="section level4">
 <h4><span class="header-section-number">3.3.2.3</span> <em>Multiple Bar Graphs</em></h4>
 <p>Another useful visual is multiple bar graphs. This creates different plots for each level of a factor instead of putting lots of information into one graphic. Using the function <code>facet_wrap ()</code>, we make the information obtained from the previous scatterplot, where we coloured in each point by local authority, clearer.</p>
-<p>Although the scatterplot uses numeric variables, we use this information by local authority, and <code>LAname</code> is classed as factor:</p>
+<p>Although the scatterplot uses numeric variables, we use this information by local authority, and <code>LAname</code> is classed as factor:
+<br></p>
 <div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1"><span class="co"># To facet the scatterplot by local authority, ‘ ~ ‘ is used next to ‘LAname’</span></a>
 <a class="sourceLine" id="cb135-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb135-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> incscore, <span class="dt">y =</span> burglary_count)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb135-4" title="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>LAname)</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" title="1"><span class="co"># By default, facet_wrap fixes the y-axis of each graph to make comparisons easier</span></a></code></pre></div>
+<p><br></p>
 <p>It is important to choose an appropriate graph, so thought is required. May the following graphic be fair warning:</p>
+<p><br></p>
 <div class="figure">
 <img src="Images/barplots.jpg" alt="Figure 3.8 Friends don’t let friends do this" />
 <p class="caption"><strong>Figure 3.8</strong> Friends don’t let friends do this</p>
 </div>
+<p><br>
+<br></p>
 <hr />
 </div>
 </div>
@@ -577,17 +642,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">3.3.3</span> Graphs for Numeric Data</h3>
 <div id="activity-10-histograms" class="section level4">
 <h4><span class="header-section-number">3.3.3.1</span> Activity 10: Histograms</h4>
-<p>Histograms differ from scatterplots because they require only one numeric variable and they create bins, visualized as bars, to count the frequency of each bar. We create a histogram of the variable <code>IMDscore</code>, the overall score of deprivation in each neighbourhood:</p>
+<p>Histograms differ from scatterplots because they require only one numeric variable and they create bins, visualized as bars, to count the frequency of each bar. We create a histogram of the variable <code>IMDscore</code>, the overall score of deprivation in each neighbourhood:
+<br></p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> IMDscore)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb137-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>()</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
-<p>How the histogram looks, and therefore, the conclusions drawn from the visual, are sensitive to the number of <strong>bins</strong>. You should try different specifications of the bin-width until you find one that tells the complete and concise story of the data. Specifying the size of bins is done using the argument <code>bin_width =</code>; the default size is 30 and you can change this to get a rougher or a more granular idea:</p>
+<p><br></p>
+<p>How the histogram looks, and therefore, the conclusions drawn from the visual, are sensitive to the number of <strong>bins</strong>. You should try different specifications of the bin-width until you find one that tells the complete and concise story of the data. Specifying the size of bins is done using the argument <code>bin_width =</code>; the default size is 30 and you can change this to get a rougher or a more granular idea:
+<br></p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" title="1"><span class="co"># Using bin-width of 1 we are essentially creating a bar for every increase in level of deprivation</span></a>
 <a class="sourceLine" id="cb139-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> IMDscore)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb139-3" title="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>)</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><br></p>
 <p>Play around with the bin widths to find which one looks the most visually comprehensible. In your google doc, state what bin width you think does the job, and why.</p>
+<p><br>
+<br></p>
 <hr />
 </div>
 <div id="activity-11-line-graphs" class="section level4">
@@ -595,13 +666,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A very good way of visualizing trends over time are line graphs. For this, let us use the <code>monthly_df</code> data frame. Ensure it is loaded into your environment. Have a look at the structure of these data to get to know them.</p>
 <p>The data is in long format: we have a single month variable for 12 months’ worth of data (rather than one variable or column for each month). Setting longitudinal data up in long format allows us to specify the aesthetics (e.g., x- and y-axes) easily.</p>
 <p>For a line graph, we use the function <code>geom_line()</code>. We plan to plot the counts to show the trends of different crimes over the course of the year. Our time variable, <code>month</code>, should run along the x-axis, and the count variable, <code>n</code>, should run on the y-axis.</p>
-<p>To show each crime type separately, we use the group aesthetic and a new aesthetic, <code>linetype</code>, which uses different patterns for each group. To show our time measurement points, we also add <code>geom_point ()</code>:</p>
+<p>To show each crime type separately, we use the group aesthetic and a new aesthetic, <code>linetype</code>, which uses different patterns for each group. To show our time measurement points, we also add <code>geom_point ()</code>:
+<br></p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> monthly_df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(Month), <span class="dt">y =</span> n, <span class="dt">group =</span> crime_type, <span class="dt">linetype =</span> crime_type)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb140-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb140-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" title="1"><span class="co"># We are saying, ‘Hey R, may you please make a graphic using the data frame “monthly_df”, and map the variable “month” (turning it into a factor) to the x-axis and “n” to the y-axis, and group this information by “crime_type”, showing different patterns for each crime type, then pass this information through (“ +”) to make a line graph, and pass this information through (“ +”) to make a scatterplot of the time points too?’</span></a></code></pre></div>
+<p><br></p>
 <p>Now, in your google doc, state what you observe from this line graph on different crimes throughout the months.</p>
+<p><br>
+<br></p>
 <hr />
 </div>
 <div id="activity-12-boxplots" class="section level4">
@@ -609,13 +684,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you want more information about your data than a histogram can give, a box (and whisker) plot may be what you are looking for. A boxplot visualizes the minimum, maximum, interquartile range, the median, and any unusual observations - your five-number summary!</p>
 <p>For this example, we return to the <code>burglary_df</code> data, and focus on the distribution of burglary counts. In addition, we make a boxplot for <em>each</em> deprivation decile to show how LSOAs in the most deprived deciles often have higher median burglary counts.</p>
 <p>We send all of this information, the boxplots, into one object called <code>my_whisker_plot</code>, to which we can return in case:</p>
+<p><br></p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">my_whisker_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> burglary_df) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb142-2" title="2"><span class="kw">geom_boxplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(IMDdeci), <span class="dt">y =</span> burglary_count, <span class="dt">group =</span> <span class="kw">as.factor</span>(IMDdeci), <span class="dt">fill =</span> <span class="kw">as.factor</span>(IMDdeci))) </a>
 <a class="sourceLine" id="cb142-3" title="3"></a>
 <a class="sourceLine" id="cb142-4" title="4">my_whisker_plot <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb142-5" title="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation Scale&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Burglaries&quot;</span>)</a></code></pre></div>
 <p><img src="03-data-visualisation_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><br></p>
 <p>In your group google doc, state what you observe from your newly created boxplot.</p>
+<p><br>
+<br></p>
 <hr />
 </div>
 </div>
@@ -624,7 +703,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.4</span> SUMMARY</h2>
 <p>Today was about using a popular package called <code>ggplot2</code> for effectively visualizing data. We learn this because it is important to understand our data before embarking on more complex analyses. If we do not understand our data beforehand, we risk misinterpreting what the data are trying to tell us. The package is based on this approach called <em>Grammar of Graphics</em>, which proposes a ‘grammar’ to describe and construct statistical graphics. The package, however, sees the creation of data visuals accomplished through <strong>layers</strong>.</p>
 <p>Our first topic we learned was about these layers, comprising data, aesthetics, and geometric objects. As a final touch, <strong>themes</strong> changed the overall appearance of your graphic. Our second and third topics introduced us to <strong>graphs</strong> that we can use for all types of variables, and how to create them in <code>ggplot2</code>. One example was the histogram, whereby adjusting the width of the <strong>bins</strong> helped for better interpretation of the data.</p>
+<p><br></p>
 <p>Hurrah: homework time!</p>
+<p><br>
+<br>
+<br>
+<br></p>
 <div id="answers-to-activities" class="section level4">
 <h4><span class="header-section-number">3.4.0.1</span> ANSWERS TO ACTIVITIES:</h4>
 <ul>
