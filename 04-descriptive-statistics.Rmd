@@ -47,7 +47,6 @@
 -	`sd()` : Computes standard deviation of a numeric vector (`base R`)
 -	`skewness()` : Calculate degree of skewness in a numeric vector (`modeest`)
 -	`skim()` : Provide summary statistics specific to object class (`skimr`)
--	`str()` : Returns internal structure of an `R` object (`base R`)
 -	`summarize()` : Create new summary variable(s), e.g., counts, mean (`dplyr`)
 -	`summary()` : Produce summary of model results (`base R`)
 -	`table()` : Generates a frequency table (`base R`)
@@ -153,9 +152,9 @@ The *mode* helps give an idea of what is the most typical value in the distribut
 
 <br>
 
-#### Activity 2: Recap of how to obtain the mean, median, and mode
+#### Activity 2: Recap of how to obtain the mean and median
 
-In Lesson 1, you were introduced to the functions `mean` and `median`. There is no direct function in `base R` to calculate the mode, but we will learn one way to do so soon. First, find only the mean and median for the following six numbers: 
+In Lesson 1, you were introduced to the functions `mean()` and `median()`. There is no direct function in `base R` to calculate the mode, but we will learn one way to do so soon. First, find only the mean and median for the following six numbers: 
 <br>
 
 ```{r, eval=FALSE}
@@ -178,9 +177,9 @@ Type your answers in the group google doc.
 
 From today’s data, we are interested in exploring the adoption of body-worn cameras (BWCs) and their usage in a sample of agencies. The variables that will help us explore this is `Q_10A` because it measures whether the agency adopted BWCs as of 2016 and `Q_12` because it measures the number of cameras that agencies reported using. 
 
-Let us say we want to learn about these variables. The first step to choosing the appropriate analysis for our variables, `Q_10A` and `Q_12` is establishing: *what is their levels of measurement*?  
+Let us say we want to learn about these variables. The first step to choosing the appropriate analysis for our variables, `Q_10A` and `Q_12`, is establishing: *what are their levels of measurement*?  
 
-To review levels of measurement, refer to Lesson 2 (section 2.4.1). Have a think and record your answers in the google doc.
+To review levels of measurement, refer to Lesson 2 (section 2.4.1). Have a think and record your answers for each variable in the google doc.
 <br>
 
 ```{r,  echo=FALSE}
@@ -192,10 +191,11 @@ if (knitr:::is_latex_output()) {
 }
 
 ```
+
 **Figure 4.1** What are the levels of measurement?
 <br>
 
-Now we have established the level of measurement for our variables, what type of object does `R` think these variables are? In other words, what are these variables classed as? Recall that we can use the `class()` function to answer this: 
+Now that we have established the level of measurement for our variables, what type of object does `R` think these variables are? In other words, what are these variables classed as? Recall that we can use the `class()` function to answer this: 
 <br>
 
 ```{r}
@@ -217,16 +217,17 @@ attributes(bwcs$Q_10A)
 ```
 <br>
 
-The factor variable has two levels: '(1) Agency has acquired in any form (including testing)' and '(2) Agency has not acquired'. 
+This factor variable has two levels: '(1) Agency has acquired in any form (including testing)' and '(2) Agency has not acquired'. 
 
-Now, we want to know the **mode** -- which level or category appears most frequently in our data set? We use the function `mlv()` (acronym for **m**ost **l**ikely **v**alues) from the `modeest` package to answer this question: 
+Now, we want to know the **mode** -- which level or category appears most frequently in our data set. We use the function `mlv()` (acronym for **m**ost **l**ikely **v**alues) from the `modeest` package to answer this question: 
 <br>
 
 ```{r}
 
-# Double check that the package modeest is loaded
+# Double check that the package modeest is loaded for this code to work
 
 mlv(bwcs$Q_10A)
+
 ```
 <br>
 
@@ -242,9 +243,9 @@ table(bwcs$Q_10A)
 ```
 <br>
 
-Indeed, there are 2,013 observations where the agency had not had any body worn cameras, which is more than the 1,915 observations where the agency had body worn cameras in any format.
+Indeed, there are 2,013 observations where the agency had not acquired any body worn cameras, which is more than the 1,915 observations where the agency had acquired body worn cameras in any format.
 
-We could also run the `mlv()` function and save the output to an object rather than print the answers into the console. Here, we save to the object called `mode_adopted`: 
+We could also run the `mlv()` function and save the output in an object rather than print the answers into the console. Here, we save to the object called `mode_adopted`: 
 <br>
 
 ```{r}
@@ -261,7 +262,7 @@ mode_adopted
 
 ---
 
-Our exploration into the adoption of BWCs has so far yielded the knowledge that the majority of agencies had not adopted BWCs as of 2016. But how about those that have done so? To what extent do they use BWCs? This is where variable `Q_12` comes in handy:
+Our exploration into the adoption of BWCs has so far yielded the knowledge that the majority of agencies had not acquired BWCs as of 2016. But how about those that have done so? To what extent do they use BWCs? This is where variable `Q_12` comes in handy:
 <br>
 
 #### Activity 4: The extent of body worn camera use
@@ -288,9 +289,9 @@ max(bwcs$Q_12, na.rm=TRUE)
 ```
 <br>
 
-Above we used the functions `min()` and `max()`, and inside we put the name of the specific variable we want the minimum and maximum of and the name of the data frame to which it belongs (hence, `bwcs$Q_12`). We also added a code `na.rm=TRUE`after the comma. 
+Above we used the functions `min()` and `max()`, and inside we put the name of the specific variable we want the minimum and maximum of and the name of the data frame to which it belongs (hence, `bwcs$Q_12`). We also added the code `na.rm=TRUE` after the comma. 
 
-What the heck is `na.rm`? When calculating measures of central tendency, you need to tell `R` that you have missing (NA) observations. Using `na.rm = TRUE` will exclude observations that have already been defined as missing. If we do not specify this code, it will instead return `NA` for agencies that have acquired BWCs because `Q_12` has missing data. 
+What the heck is `na.rm`? When calculating measures of central tendency, you need to tell `R` that you have missing (i.e., NA) observations. Using `na.rm = TRUE` will exclude observations that have already been defined as missing. If we do not specify this code, it will instead return `NA` for agencies that have acquired BWCs because `Q_12` has missing data. 
 <!--If you have `NA`, however, for the row defining agencies that have not acquired BWCs, this is all right because there would be no cases for them. -->
 
 <br>
@@ -299,15 +300,16 @@ What the heck is `na.rm`? When calculating measures of central tendency, you nee
 ---
 
 
-Now let us find the average number of BWCs used by agencies that have responded ‘Yes, acquired’ in `Q10_A`. We will use two ways to determine the mean: the `dplyr` way and the usual `base R` way.
+Now let us find the average number of BWCs used by agencies that have responded ‘Yes, acquired’ in `Q10_A`. We will use two ways to determine the mean: the `dplyr` way and the usual `base R` way. When we refer to `base R`, it means that these functions are already included in `R`, so there is no need to install additional packages.
 
 We start with `dplyr`. Now, we will do two things: first, we use the `group_by()` function in order to group our observations by the values of the `Q_10A` variable. The values are '1' and '2', and are essentially the categories '(1) Agency has acquired in any form (including testing)' and '(2) Agency has not acquired'. Then, we use the `summarise()` function, to tell us some summary statistics (in this case the mean, using the `mean()` function) *for each group*. 
 
-We did a similar thing last semester whereby we obtained these descriptive statistics for *each* value of a particular variable when we examined the relationship between age and the reason someone was arrested. Here, we are looking for the values of how many body worn video cameras are in use (`Q_12`) between whether they are were acquired or not (`Q_10A`): 
+We did a similar thing last semester whereby we obtained these descriptive statistics for *each* value of a particular variable when we examined the relationship between age and the reason someone was arrested. Here, we are looking for the values of how many body worn cameras are used (`Q_12`) *between* whether they are were acquired or not (`Q_10A`): 
 <br>
 
 ```{r}
 
+# If you do not remember what '%>%' means, refer to Lesson 2, section 2.4.2.2
 bwcs %>% 
   group_by(Q_10A) %>% 
   summarize(mean_deployed = mean(Q_12, na.rm = TRUE))
@@ -316,13 +318,14 @@ bwcs %>%
 <br>
 
 We see that in agencies where BWCs were acquired, the average number of cameras is about 32. But in agencies where BWCs were not acquired, the average is `NaN`. What is this?
-<br>
-
-![**Figure 4.2** Nan??](Images/nan.png)
 
 <br>
 
-`NaN` in `R` stands for **N**ot **a** **N**umber. The reason is *all* the values for the number of cameras used (in reference to `Q_12`) among agencies that had acquired no cameras (in reference `Q_10A`) is `NA`. It makes sense that this should be so, because if agencies responded in `Q_10A` that they had not acquired any BWCs, then why would we expect them to give a number in `Q_12` on how many cameras they used? `Q_12` does not apply to them. 
+![**Figure 4.2** NaN??](Images/nan.png)
+
+<br>
+
+`NaN` in `R` stands for **N**ot **a** **N**umber. The reason is *all* the values for the number of cameras used (in reference to `Q_12`) among agencies that had not acquired cameras (in reference `Q_10A`) is missing (`NA`). It makes sense that this should be so, because if agencies responded in `Q_10A` that they had not acquired any BWCs, then why would we expect them to give a number in `Q_12` on how many cameras they used? `Q_12` does not apply to them. 
 
 Now, the above was the `dplyr` way. But you could use the `base R` way with the `mean()` function: 
 <br>
@@ -341,7 +344,7 @@ Next, we identify the median, as, remember, the mean is susceptible to outliers.
 
 ```{r}
 
-# Use the same format as above, this time using the median() function 
+# Use the same format as above, but this time use the median() function 
 # dplyr way 
 bwcs %>% group_by(Q_10A) %>% summarise(med_deployed = median(Q_12, na.rm = TRUE))
 
@@ -363,18 +366,18 @@ Again, both methods to obtain the median are the same, but the median differs a 
 
 What does this mean? There must be a few agencies that use a *lot* of body worn cameras, which distorts our mean to appear as if the majority of agencies use 32 cameras. When the median and the mean are very different from each other, we have what is known as *skew*. 
 
-Now if we want to calculate these descriptive statistics at once?  This is where the `dplyr` way is most handy. We specify that we want to create four columns that will appear in the output as a table: 
+Now what if we want to calculate these descriptive statistics at once?  This is where the `dplyr` way is most handy. To obtain these statistics together, we specify that we want to create four columns that will appear in the output as a table: 
 <br>
 
-- *mean_deployed*, using the `mean()` function, 
-- *median_deployed*, using the `median()` function,
-- *mode_deployed*, using the `mlv()` function,
-- and *total*, using the `sum()` function. 
+- (1) *mean_deployed*, using the `mean()` function 
+- (2) *median_deployed*, using the `median()` function
+- (3) *mode_deployed*, using the `mlv()` function
+- (4) *total*, using the `sum()` function
 <br>
 
 ```{r}
 
-# Table containing the mean, median, mode, and total number of BWCs deployed 
+# Table containing the mean, median, mode, and total number of BWCs used 
 bwcs %>%
   group_by(Q_10A) %>% 
   summarise(mean_deployed = mean(Q_12, na.rm = TRUE),
@@ -390,14 +393,6 @@ Another handy package for descriptive statistics is `skimr`. The function `skim 
 A great feature is that it also includes a histogram of the numeric variables specified. If you do not want to specify any variables, `skim()` will summarise your entire data frame, and this may be good, but it depends on the size of your dataset:
 <br>
 
-```{r, echo=FALSE}
-
-knitr::kable(bwcs %>% 
-  group_by(Q_10A) %>% 
-  skim(Q_12))
-
-```
-
 ```{r, eval=FALSE}
 
 # Ensure the package 'skimr' is loaded or this will not work
@@ -407,6 +402,15 @@ bwcs %>%
   skim(Q_12)
 
 ```
+
+```{r, echo=FALSE}
+
+knitr::kable(bwcs %>% 
+  group_by(Q_10A) %>% 
+  skim(Q_12))
+
+```
+
 <br>
 <br>
 
@@ -414,9 +418,10 @@ bwcs %>%
 
 Recall the main disadvantage of the mean: it is not robust to extreme values, otherwise known as **outliers**. 
 
-What exactly constitutes an *outlier*? Generally, an outlier is any observation that shows an extreme value on one of our variables. There are different approaches to define what is an outlier, but, in this class, we use the **interquartile range** (IQR) to do so. 
+What exactly constitutes an *outlier*? Generally, an outlier is any observation that shows an extreme value on one of our variables. There are different ways to define what an outlier is, but, in this class, we use the **interquartile range** (IQR) to do so. 
 
 The IQR is another robust estimate and is the 75th percentile observation (the third quartile [Q3]) minus the 25th percentile observation (the first quartile [Q1]) in your distribution:
+
 <br>
 
 
@@ -578,7 +583,8 @@ ggplot(bwcs %>% filter(!is.na(Q_12)), aes(x = Q_12)) +
 -->
 
 
-A popular method for determining outliers is known as **Tukey fences**. According to this method, outliers are seen as falling within a lower or an upper fence. They are calculated from the following:
+A popular method for determining outliers is known as **Tukey fences**. According to this method, outliers are seen as falling outside a lower or an upper fence. They are calculated from the following:
+
 <br>
 
 $$ Lower~ fence = Q1 - (1.5*IQR)$$ 
@@ -587,7 +593,8 @@ $$ Lower~ fence = Q1 - (1.5*IQR)$$
 $$ Upper~ fence = Q3 + (1.5 * IQR) $$
 <br>
 
-In addition, extreme outliers can be calculated from the following:
+In addition, extreme outliers are seen as falling outside a lower and upper outer fence and can be calculated from the following:
+
 <br>
 
 $$ Lower~ outer ~fence = Q1 - (3 * IQR)$$ 
@@ -598,13 +605,25 @@ $$ Upper~ outer~ fence = Q3 + (3 * IQR) $$
 <br>
 <br>
 
+To visualise this, see Figure 4.3:
+
+<br>
+
+![**Figure 4.3** Tukey fences](Images/tukey.png){width=70%}
+
+<br>
+<br>
+
+
 #### Activity 5: Determining outliers using Tukey fences
 
-We obtain the IQR of the `Q_12` variable using the `IQR` function, and save this into an object called `bwc_deployed_iqr`:
+We obtain the IQR of our `Q_12` variable using the `IQR` function, and save this into an object called `bwc_deployed_iqr`:
 <br>
 
 ```{r}
+
 bwc_deployed_iqr <- IQR(bwcs$Q_12, na.rm = TRUE) 
+
 ```
 <br>
 
@@ -612,6 +631,8 @@ It is now saved as an object and holds the value for the IQR:
 <br>
 
 ```{r}
+
+# Our 'box' called 'bwc_deployed_iqr' that holds the IQR of the variable Q_12
 bwc_deployed_iqr
 
 ```
@@ -628,7 +649,7 @@ bwc_deployed_3rd <- quantile(bwcs$Q_12, 0.75, na.rm = TRUE)
 ```
 <br>
 
-Now, we calculate the Tukey fences. 
+Now, we calculate the Tukey fences and put them each in separate objects. 
 
 The lower Fence: 
 <br>
@@ -640,7 +661,7 @@ lower_inner_fence
 ```
 <br>
 
-Then the Upper Fence:
+The Upper Fence:
 <br>
 
 ```{r}
@@ -673,7 +694,7 @@ upper_outer_fence
 <!--Are these numbers familiar? You can see, the Tukey fences are just the names given to what we calculated above!-->
 
 
-Let us see how many agencies are considered outliers and extreme outliers on how many BWCs they use. We revisit the `filter()` function for this. Remember that we filter to keep all rows that meet a specific condition. In this case, we want all observations whose value for the variable `Q_12` is an outlier (greater than the tukey inner fence, but smaller than the outer fence) and an extreme outlier (greater than the outer fence). We will save them in separate objects called `outliers` and `outliers_extreme`: 
+Let us see how many agencies are considered outliers and extreme outliers on how many BWCs they use. We revisit the `filter()` function for this. (See Lesson 2, section 2.4.3.1 .) Remember that we filter to keep all rows that meet a specific condition. In this case, we want all observations whose value for the variable `Q_12` is an outlier (outside the inner fences but within the outer fences) and an extreme outlier (outside the outer fences). We will save them in separate objects called `outliers` and `outliers_extreme`: 
 <br>
 
 ```{r}
@@ -698,7 +719,7 @@ outliers_extreme <- bwcs %>%
 <!-- (do not understand this)... and see that the outliers has `r nrow(outliers)` rows (so `r nrow(outliers)` agencies that are outliers) while extreme_outliers has `r nrow(outliers_extreme)` rows (so `r nrow(outliers)` agencies that are extreme outliers)!  -->
 
 
-These new objects are now in our environment (that Environment pane in the top right). We can look at their characteristics on the number of BWCs with the `summary()` function: 
+These new objects are now in our environment (that Environment pane in the top right of your `RStudio`). We can look at their characteristics on the number of BWCs used with the `summary()` function: 
 <br>
 
 ```{r}
@@ -728,9 +749,9 @@ In your group google doc, type your answers to the following: (1) lower and uppe
 
 #### **On Skewness**
 
-Related to outliers is **skewness**. This has to do with the shape of the distribution. You might remember from last semester we discussed something called the bell curve, or normal distribution. This is how you expect your data to look if the mean and the median are the same exact value, and your data are distributed equally on the two sides of this value. 
+Related to outliers is **skewness**. This has to do with the shape of the distribution. You might remember from last semester we discussed something called the bell curve, or normal distribution. This is how you expect your data to look if the mean and the median are the same exact value, and your data are distributed equally on either side of this value. 
 
-Here is a normal distribution: 
+Here is a normal distribution (Figure 4.4): 
 <br>
 
 ```{r, echo=FALSE, message=FALSE,warning=FALSE}
@@ -749,7 +770,7 @@ ggplot() +
 
 A skewed distribution would pull the observations more so to the left or to the right, and you would have a long tail on either side. This would also cause your mean and median to be further apart. 
 
-Here is a right skewed distribution: 
+Here is a right skewed distribution (Figure 4.5): 
 <br>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -770,7 +791,7 @@ ggplot()+
 <br>
 
 
-And here is a left: 
+And here is a left skewed distribution (Figure 4.6): 
 <br>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -807,7 +828,7 @@ When your distribution is skewed, the majority of cases veer more to the left or
 ```{r}
 
 # To create a histogram of number of BWCs used, we will use the `ggplot()` function and the geometry for histogram which is `geom_histogram()`
-#Ensure the package ggplot2 is loaded
+# Ensure the package ggplot2 is loaded
 
 ggplot(data = bwcs, mapping = aes(x = Q_12)) + 
   geom_histogram(bins = 15, fill = "red") + 
@@ -823,11 +844,11 @@ What do you observe from the histogram? Discuss in your groups, or reflect if yo
 
 <br> 
 
-![**Figure 4.4** Police Body Worn Cameras](Images/bwcs.jpg){width=70%}
+![**Figure 4.6** Police Body Worn Cameras](Images/bwcs.jpg){width=70%}
 
 <br>
 
-From our histogram, we see that most agencies deployed fewer than 250 BWCs and only a small proportion deployed more than 800. 
+From our histogram, we see that most agencies used fewer than 250 BWCs and only a small proportion deployed more than 800. 
 
 Another way of checking for skewness is through the `skewness()` function from the `moments` package. Skewness is determined by the following:
 
@@ -870,11 +891,11 @@ From the two ways of checking for skewness, `Q_12` is an asymmetric distribution
 ### Measures of Dispersion
 
 
-What is meant by dispersion is the spread of values from the one value chosen to represent them all. That one value is usually the mean, or in the case of categorical variables, the mode. This is important because the single number to summarise our data might often mask variation. Last semester, we read *The Tiger That Isn't* and you might remember the section about the 'white rainbow'. We know the vibrancy of each of the colours of the rainbow, but if we combined them, they would form a bland white band in the sky - the average of all the colours is white. If we just represented the rainbow by the average, we would miss quite a lot!
+What is meant by dispersion is the spread of values from the one value chosen to represent them all. That one value is usually the mean, or in the case of categorical variables, the mode. This is important because the single number to summarise our data might often mask variation. Last semester, we read *The Tiger That Isn't* and you might remember the section about the 'white rainbow'. We know the vibrancy of each of the colours of the rainbow, but if we combined these colours, they would form a bland white band in the sky - the average of all the colours is white. If we just represented the rainbow by the average, we would miss quite a lot!
 
 <br> 
 
-![**Figure 4.5** Double rainbow?!](Images/rainbow.jpg)
+![**Figure 4.7** Double rainbow?!](Images/rainbow.jpg)
 
 <br>
 
@@ -895,7 +916,7 @@ load(here("Datasets", "04572-0001-Data.rda"))
 ```
 <br>
 
-1.	Put the data set 'da04572.0001 to' into an object called `inmatesurvey04` by using the `<-` assignment operator. 
+1.	After the data loads into `RStudio`, it is now called 'da04572.0001'. Put this into an object called `inmatesurvey04` by using the `<-` assignment operator. 
 <br>
 
 ```{r}
@@ -925,18 +946,19 @@ Once finished with this activity, you will find your new data frame, `inmatesurv
 We learn how to conduct two measures of dispersion in `R` for categorical variables: the variation ratio and the index of qualitative variation:
 
 The **variation ratio** (VR) tells us the proportion of cases that are not in the modal category – basically cases not in the most frequent or ‘popular’ category. The formula for the variation ratio (VR) is:
+
 <br>
 
 $$VR = 1 – ({\frac {N~modalcat~} {N~total~}})$$
 <br>
 
-$N~modalcat$ refers to the frequency of cases in the modal category, and $N~total~$ refers to the total number of cases. This formula states that VR is equal to 1 minus the proportion of cases that are in the modal category, which is the same as saying the proportion of cases that are not in the modal category. 
+$N~modalcat$ refers to the frequency of observations in the modal category, and $N~total~$ refers to the total number of observations. This formula states that VR is equal to 1 minus the proportion of observations that are in the modal category, which is the same as saying the proportion of observations that are not in the modal category. 
 
 <br>
 
 #### Activity 8: Calculating the variation ratio
 
-Now, for example, we are interested in knowing whether the modal category describes the overall work histories prior to arrest of federal inmates pretty accurately, or if there is a lot of variation in responses from inmates. To do so, we use the variable `V1748` which tells us about their work history prior to arrest. 
+Now, for example, we are interested in knowing whether the modal category describes the overall work histories prior to arrest of federal inmates pretty accurately, or if there is a lot of variation in responses from inmates. To do so, we use the variable `V1748` which tells us about their work histories prior to arrest. 
 
 We can look at a frequency table:
 <br>
@@ -963,7 +985,7 @@ skim(inmatesurvey04$V1748)
 ```
 <br>
 
-Then, we check if we have cases defined as missing using `is.na` to get a summary of missing cases:
+Then, we check if we have any observations defined as missing using `is.na` to get a summary of missing cases:
 <br>
 
 ```{r}
@@ -973,7 +995,7 @@ table(is.na(inmatesurvey04$V1748))
 ```
 <br>
 
-This tells us that there are 2,530 complete cases and 1,156 missing values. 
+This tells us that there are 2,530 complete observations and 1,156 missing ones. 
 
 We could tell from the tables above that 'Full-time' is the mode, but we can also get `R` to provide the mode and save it in an object:
 <br>
@@ -991,21 +1013,9 @@ mode_employment
 
 <!-- To do this, we will have to recode the responses of *Don’t Know* and *Refused* as missing, so `R` will not treat these as valid cases. We will create a new variable so not to overwrite the original one; then tell `R` that the latter two categories should be missing (NA). We can use the `recode()` funtion from `dplyr` which we learned about earlier to do this.  -->
 
-What about the variation ratio? To get this, we create two data frames and count the number of people who reported any employment -- answers of (1) Full-time  (2) Part-time and (3) Occasional) in one data frame, and only the numbers who reported the modal category, which is (1) Full-time, in the other data frame. 
+What about the variation ratio? To get this, we create two data frames and count the number of people who reported any employment: one data frame for answers of Full-time, Part-time, and Occasional (1 to 3) and, in the other data frame, only the numbers who reported the modal category, which is Full-time (1). 
 
-Store the value ‘full-time’ in the object `n_mode`: 
-<br>
-
-```{r}
-
-n_mode <- inmatesurvey04 %>% 
-  filter(V1748 == "(1) Full-time" ) %>% 
-  summarize(n = n()) 
-
-```
-<br>
-
-Now, get the number of observations who reported being employed prior to arrest. Store this value in the object `n_employed`: 
+To create the first data frame, get the number of observations who reported being employed prior to arrest. Store this value in the object `n_employed`: 
 <br>
 
 ```{r}
@@ -1018,7 +1028,18 @@ n_employed <- inmatesurvey04 %>%
 ```
 <br>
 
-And finally, we can calculate the proportion. Store this value in the `object proportion_mode`:
+To create the second data frame, store the value ‘full-time’ in the object `n_mode`: <br>
+
+```{r}
+
+n_mode <- inmatesurvey04 %>% 
+  filter(V1748 == "(1) Full-time" ) %>% 
+  summarize(n = n()) 
+
+```
+<br>
+
+Finally, we can calculate the proportion. Store this value in the object `proportion_mode`:
 <br>
 
 ```{r}
@@ -1028,7 +1049,8 @@ proportion_mode <- n_mode/n_employed
 ```
 <br>
 
-We can use this to get the variation ratio. To do this, subtract proportion of cases in the modal category from 1 .
+We can use this to get the variation ratio. To do this, subtract the proportion of cases in the modal category from 1 .
+<br>
 
 ```{r}
 
@@ -1076,7 +1098,7 @@ These measures of dispersion are the most familiar because they are defined as t
 
 #### Activity 10: The range
 
-The **range** is the difference between the maximum and minimum value in a given distribution. We use the ratio-level variable `V2254`, a measure of the age at which inmates stated they first started smoking cigarettes regularly, as an example:
+The **range** is the difference between the maximum and minimum value in a given distribution. We use the ratio-level variable `V2254`, a measure of the age at which inmates stated they first started smoking cigarettes regularly as an example:
 <br>
 
 ```{r}
@@ -1087,12 +1109,15 @@ attributes(inmatesurvey04$V2254)
 ```
 <br>
 
-Note that this variable has codes that do not indicate the number of times smoked.  These are 0 - never smoked; 97 - Don't know; and 98 – Refused. We notice that some categories are not about smoking, such as ‘Don’t know’ and ‘Refused’, and including these will give us an incorrect result. To resolve this, we must convert irrelevant categories into missing data.
+Note that this variable has codes that do not indicate the number of times smoked.  These are 0 (never smoked); 97 (Don't know); and 98  (Refused). We notice that these categories are not about smoking and including these will give us an incorrect result. To resolve this, we must convert irrelevant categories into missing data.
 
-First, create a new variable so we do not write over the old one, calling it `age_smoker_range` using the `mutate()` function, first assigning it the values of the `V2254` variable, and then recoding each value (0, 97, 98) as a `NA` using the `na_if()` function from the `dplyr` package. 
+First, we create a new variable so we do not write over the original, calling it `age_smoker_range` using the `mutate()` function. This is a duplicate of the `V2254` variable, but we will recode each of the irrelevant values (0, 97, 98) as `NA` by using the `na_if()` function from the `dplyr` package. 
 <br>
 
 ```{r}
+
+# We make this new variable using the values from the variable 'V2254'
+# Then we include it into our data frame 'inmatesurvey04' by specifying the assignment operator
 
 inmatesurvey04 <- inmatesurvey04 %>% 
   mutate(age_smoker_range = V2254,
@@ -1105,7 +1130,7 @@ inmatesurvey04 <- inmatesurvey04 %>%
 ```
 <br>
 
-Now for the range. `range ()` function prints the minimum and maximum values. 
+The `range ()` function prints the minimum and maximum values. 
 <br>
 
 ```{r}
@@ -1140,7 +1165,7 @@ diff(smoker_range)
 
 What is the range? Input the answer in your google doc. 
 
-BUT you can see something strange while figuring out the range: the minimum is one year old! This may be something we want to exclude in analyses as it might not be valid -- maybe a mistake in coding -- so conducting descriptive statistics can help with tidying your data.
+BUT you can see something strange while figuring out the range: the minimum is one year old! This may be something we want to exclude in future analyses as it might not be valid -- maybe a mistake in coding -- so conducting these descriptive statistics that you have been doing can help with tidying your data.
 
 <br>
 <br>
@@ -1151,7 +1176,7 @@ BUT you can see something strange while figuring out the range: the minimum is o
 
 #### Activity 11: Variance
 
-Now, the **variance** ( $s^2$ ) is about spread, specifically the sum of the squared deviations from the mean, then divided by the total number of cases. The equation looks like this:
+Now, the **variance** ( $s^2$ ) is about spread, specifically the sum of the squared deviations from the mean, then divided by the total number of observations. The equation looks like this:
 
 <br>
 
@@ -1161,7 +1186,7 @@ $$ s^2 = \frac{\sum(x - \mu)^2}{N}$$
 
 We use the function `var()` from the `stats` package that comes already preinstalled in `base R`. 
 
-We use the variable `V2529`, which records the number of times inmates reported being written up for verbally assaulting a prison staff member, as an example: 
+We use the variable `V2529`, which records the number of times inmates reported being written up for verbally assaulting a prison staff member as an example: 
 <br>
 
 ```{r}
@@ -1173,7 +1198,7 @@ attributes(inmatesurvey04$V2529)
 ```
 <br>
 
-Now let us create a new variable so we do not write over the old one. We do this so we can code '997' and '998' values as missing - you can see these stand for 'Refused' and 'Don't know' respectively.
+Now let us create a new variable so we do not write over the original one. We do this so we can recode '997' and '998' values as missing - you can see these stand for 'Refused' and 'Don't know' respectively.
 <br>
 
 ```{r}
@@ -1199,18 +1224,21 @@ var1
 
 The variance is `r round(var1, 1)`, which is fairly dispersed, but if you got to know the data and this variable, you will notice that one inmate self-reported 99 verbal assaults, so this will have had an influence on the variance. 
 
+<br>
+<br>
+
 ---
 
 
 
 #### Activity 12: Standard deviation
 
-Last, we learn about the **standard deviation** (SD), which is the square root of the variance. The smaller it is, the more concentrated cases are around the mean, while larger values reflect a wider distance from the mean. In other words, the SD tells us how well the mean represents our data. Too large, then the mean is a poor representation, because there is too much variability. We use the variable `verb_assault_var` as an example:
+Last, we learn about the **standard deviation** (SD), which is the square root of the variance. The smaller it is, the more concentrated the observations are around the mean, while larger values reflect a wider distance from the mean. In other words, the SD tells us how well the mean represents our data. Too large, then the mean is a poor representation, because there is too much variability. We use the variable `verb_assault_var` as an example:
 <br>
 
 ```{r}
 
-# Calculate th standard deviation of the 'verb_assault_var' variable and save it to an object 
+# Calculate the standard deviation of the 'verb_assault_var' variable and save it to an object 
 
 sd <- sd(inmatesurvey04$verb_assault_var, na.rm = TRUE)
 sd

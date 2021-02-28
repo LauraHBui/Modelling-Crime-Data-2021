@@ -71,7 +71,7 @@ revisiting-descriptive-statistics
 activity-1-our-preparation-routine
 todays-3-1
 central-tendency
-activity-2-recap-of-how-to-obtain-the-mean-median-and-mode
+activity-2-recap-of-how-to-obtain-the-mean-and-median
 activity-3-levels-of-measurement
 activity-4-the-extent-of-body-worn-camera-use
 outliers

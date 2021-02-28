@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-02-27" />
+<meta name="date" content="2021-02-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -310,7 +310,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>sd()</code> : Computes standard deviation of a numeric vector (<code>base R</code>)</li>
 <li><code>skewness()</code> : Calculate degree of skewness in a numeric vector (<code>modeest</code>)</li>
 <li><code>skim()</code> : Provide summary statistics specific to object class (<code>skimr</code>)</li>
-<li><code>str()</code> : Returns internal structure of an <code>R</code> object (<code>base R</code>)</li>
 <li><code>summarize()</code> : Create new summary variable(s), e.g., counts, mean (<code>dplyr</code>)</li>
 <li><code>summary()</code> : Produce summary of model results (<code>base R</code>)</li>
 <li><code>table()</code> : Generates a frequency table (<code>base R</code>)</li>
@@ -386,9 +385,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To address this sensitivity, the <em>median</em> is a better measure because it is a robust estimate, which means that it is not easily swayed by extreme values. It is the middle value of the distribution.</p>
 <p>The <em>mode</em> helps give an idea of what is the most typical value in the distribution, which is the most frequently occurring case in the data. While mean and median apply to numeric variables, the mode is most useful when describing categorical variables. For example, you may want to know the most frequently occurring category.</p>
 <p><br></p>
-<div id="activity-2-recap-of-how-to-obtain-the-mean-median-and-mode" class="section level4">
-<h4><span class="header-section-number">4.2.1.1</span> Activity 2: Recap of how to obtain the mean, median, and mode</h4>
-<p>In Lesson 1, you were introduced to the functions <code>mean</code> and <code>median</code>. There is no direct function in <code>base R</code> to calculate the mode, but we will learn one way to do so soon. First, find only the mean and median for the following six numbers:
+<div id="activity-2-recap-of-how-to-obtain-the-mean-and-median" class="section level4">
+<h4><span class="header-section-number">4.2.1.1</span> Activity 2: Recap of how to obtain the mean and median</h4>
+<p>In Lesson 1, you were introduced to the functions <code>mean()</code> and <code>median()</code>. There is no direct function in <code>base R</code> to calculate the mode, but we will learn one way to do so soon. First, find only the mean and median for the following six numbers:
 <br></p>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" title="1"><span class="co"># 345, 100, 250, 100, 101, 300 </span></a></code></pre></div>
 <p><br></p>
@@ -402,13 +401,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="activity-3-levels-of-measurement" class="section level4">
 <h4><span class="header-section-number">4.2.1.2</span> Activity 3: Levels of measurement</h4>
 <p>From today’s data, we are interested in exploring the adoption of body-worn cameras (BWCs) and their usage in a sample of agencies. The variables that will help us explore this is <code>Q_10A</code> because it measures whether the agency adopted BWCs as of 2016 and <code>Q_12</code> because it measures the number of cameras that agencies reported using.</p>
-<p>Let us say we want to learn about these variables. The first step to choosing the appropriate analysis for our variables, <code>Q_10A</code> and <code>Q_12</code> is establishing: <em>what is their levels of measurement</em>?</p>
-<p>To review levels of measurement, refer to Lesson 2 (section 2.4.1). Have a think and record your answers in the google doc.
+<p>Let us say we want to learn about these variables. The first step to choosing the appropriate analysis for our variables, <code>Q_10A</code> and <code>Q_12</code>, is establishing: <em>what are their levels of measurement</em>?</p>
+<p>To review levels of measurement, refer to Lesson 2 (section 2.4.1). Have a think and record your answers for each variable in the google doc.
 <br></p>
-<p><img src="https://media.giphy.com/media/cpyA1xceZkBLq/giphy.gif" /><!-- -->
-<strong>Figure 4.1</strong> What are the levels of measurement?
+<p><img src="https://media.giphy.com/media/cpyA1xceZkBLq/giphy.gif" /><!-- --></p>
+<p><strong>Figure 4.1</strong> What are the levels of measurement?
 <br></p>
-<p>Now we have established the level of measurement for our variables, what type of object does <code>R</code> think these variables are? In other words, what are these variables classed as? Recall that we can use the <code>class()</code> function to answer this:
+<p>Now that we have established the level of measurement for our variables, what type of object does <code>R</code> think these variables are? In other words, what are these variables classed as? Recall that we can use the <code>class()</code> function to answer this:
 <br></p>
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1"><span class="co"># We start with variable Q_10A:</span></a>
 <a class="sourceLine" id="cb148-2" title="2"></a>
@@ -425,10 +424,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $class
 ## [1] &quot;factor&quot;</code></pre>
 <p><br></p>
-<p>The factor variable has two levels: ‘(1) Agency has acquired in any form (including testing)’ and ‘(2) Agency has not acquired’.</p>
-<p>Now, we want to know the <strong>mode</strong> – which level or category appears most frequently in our data set? We use the function <code>mlv()</code> (acronym for <strong>m</strong>ost <strong>l</strong>ikely <strong>v</strong>alues) from the <code>modeest</code> package to answer this question:
+<p>This factor variable has two levels: ‘(1) Agency has acquired in any form (including testing)’ and ‘(2) Agency has not acquired’.</p>
+<p>Now, we want to know the <strong>mode</strong> – which level or category appears most frequently in our data set. We use the function <code>mlv()</code> (acronym for <strong>m</strong>ost <strong>l</strong>ikely <strong>v</strong>alues) from the <code>modeest</code> package to answer this question:
 <br></p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" title="1"><span class="co"># Double check that the package modeest is loaded</span></a>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" title="1"><span class="co"># Double check that the package modeest is loaded for this code to work</span></a>
 <a class="sourceLine" id="cb152-2" title="2"></a>
 <a class="sourceLine" id="cb152-3" title="3"><span class="kw">mlv</span>(bwcs<span class="op">$</span>Q_10A)</a></code></pre></div>
 <pre><code>## [1] (2) Agency has not acquired
@@ -444,8 +443,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                             (2) Agency has not acquired 
 ##                                                    2013</code></pre>
 <p><br></p>
-<p>Indeed, there are 2,013 observations where the agency had not had any body worn cameras, which is more than the 1,915 observations where the agency had body worn cameras in any format.</p>
-<p>We could also run the <code>mlv()</code> function and save the output to an object rather than print the answers into the console. Here, we save to the object called <code>mode_adopted</code>:
+<p>Indeed, there are 2,013 observations where the agency had not acquired any body worn cameras, which is more than the 1,915 observations where the agency had acquired body worn cameras in any format.</p>
+<p>We could also run the <code>mlv()</code> function and save the output in an object rather than print the answers into the console. Here, we save to the object called <code>mode_adopted</code>:
 <br></p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1">mode_adopted &lt;-<span class="st"> </span><span class="kw">mlv</span>(bwcs<span class="op">$</span>Q_10A) </a>
 <a class="sourceLine" id="cb156-2" title="2">mode_adopted</a></code></pre></div>
@@ -455,7 +454,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br>
 <br></p>
 <hr />
-<p>Our exploration into the adoption of BWCs has so far yielded the knowledge that the majority of agencies had not adopted BWCs as of 2016. But how about those that have done so? To what extent do they use BWCs? This is where variable <code>Q_12</code> comes in handy:
+<p>Our exploration into the adoption of BWCs has so far yielded the knowledge that the majority of agencies had not acquired BWCs as of 2016. But how about those that have done so? To what extent do they use BWCs? This is where variable <code>Q_12</code> comes in handy:
 <br></p>
 </div>
 <div id="activity-4-the-extent-of-body-worn-camera-use" class="section level4">
@@ -471,19 +470,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="kw">max</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 1200</code></pre>
 <p><br></p>
-<p>Above we used the functions <code>min()</code> and <code>max()</code>, and inside we put the name of the specific variable we want the minimum and maximum of and the name of the data frame to which it belongs (hence, <code>bwcs$Q_12</code>). We also added a code <code>na.rm=TRUE</code>after the comma.</p>
-<p>What the heck is <code>na.rm</code>? When calculating measures of central tendency, you need to tell <code>R</code> that you have missing (NA) observations. Using <code>na.rm = TRUE</code> will exclude observations that have already been defined as missing. If we do not specify this code, it will instead return <code>NA</code> for agencies that have acquired BWCs because <code>Q_12</code> has missing data.
+<p>Above we used the functions <code>min()</code> and <code>max()</code>, and inside we put the name of the specific variable we want the minimum and maximum of and the name of the data frame to which it belongs (hence, <code>bwcs$Q_12</code>). We also added the code <code>na.rm=TRUE</code> after the comma.</p>
+<p>What the heck is <code>na.rm</code>? When calculating measures of central tendency, you need to tell <code>R</code> that you have missing (i.e., NA) observations. Using <code>na.rm = TRUE</code> will exclude observations that have already been defined as missing. If we do not specify this code, it will instead return <code>NA</code> for agencies that have acquired BWCs because <code>Q_12</code> has missing data.
 <!--If you have `NA`, however, for the row defining agencies that have not acquired BWCs, this is all right because there would be no cases for them. --></p>
 <p><br>
 <br></p>
 <hr />
-<p>Now let us find the average number of BWCs used by agencies that have responded ‘Yes, acquired’ in <code>Q10_A</code>. We will use two ways to determine the mean: the <code>dplyr</code> way and the usual <code>base R</code> way.</p>
+<p>Now let us find the average number of BWCs used by agencies that have responded ‘Yes, acquired’ in <code>Q10_A</code>. We will use two ways to determine the mean: the <code>dplyr</code> way and the usual <code>base R</code> way. When we refer to <code>base R</code>, it means that these functions are already included in <code>R</code>, so there is no need to install additional packages.</p>
 <p>We start with <code>dplyr</code>. Now, we will do two things: first, we use the <code>group_by()</code> function in order to group our observations by the values of the <code>Q_10A</code> variable. The values are ‘1’ and ‘2’, and are essentially the categories ‘(1) Agency has acquired in any form (including testing)’ and ‘(2) Agency has not acquired’. Then, we use the <code>summarise()</code> function, to tell us some summary statistics (in this case the mean, using the <code>mean()</code> function) <em>for each group</em>.</p>
-<p>We did a similar thing last semester whereby we obtained these descriptive statistics for <em>each</em> value of a particular variable when we examined the relationship between age and the reason someone was arrested. Here, we are looking for the values of how many body worn video cameras are in use (<code>Q_12</code>) between whether they are were acquired or not (<code>Q_10A</code>):
+<p>We did a similar thing last semester whereby we obtained these descriptive statistics for <em>each</em> value of a particular variable when we examined the relationship between age and the reason someone was arrested. Here, we are looking for the values of how many body worn cameras are used (<code>Q_12</code>) <em>between</em> whether they are were acquired or not (<code>Q_10A</code>):
 <br></p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1">bwcs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb163-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(Q_10A) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb163-3" title="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_deployed =</span> <span class="kw">mean</span>(Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1"><span class="co"># If you do not remember what &#39;%&gt;%&#39; means, refer to Lesson 2, section 2.4.2.2</span></a>
+<a class="sourceLine" id="cb163-2" title="2">bwcs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb163-3" title="3"><span class="st">  </span><span class="kw">group_by</span>(Q_10A) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb163-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_deployed =</span> <span class="kw">mean</span>(Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 2 x 2
 ##   Q_10A                                                   mean_deployed
@@ -491,14 +491,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 1 (1) Agency has acquired in any form (including testing)          31.8
 ## 2 (2) Agency has not acquired                                     NaN</code></pre>
 <p><br></p>
-<p>We see that in agencies where BWCs were acquired, the average number of cameras is about 32. But in agencies where BWCs were not acquired, the average is <code>NaN</code>. What is this?
-<br></p>
+<p>We see that in agencies where BWCs were acquired, the average number of cameras is about 32. But in agencies where BWCs were not acquired, the average is <code>NaN</code>. What is this?</p>
+<p><br></p>
 <div class="figure">
-<img src="Images/nan.png" alt="Figure 4.2 Nan??" />
-<p class="caption"><strong>Figure 4.2</strong> Nan??</p>
+<img src="Images/nan.png" alt="Figure 4.2 NaN??" />
+<p class="caption"><strong>Figure 4.2</strong> NaN??</p>
 </div>
 <p><br></p>
-<p><code>NaN</code> in <code>R</code> stands for <strong>N</strong>ot <strong>a</strong> <strong>N</strong>umber. The reason is <em>all</em> the values for the number of cameras used (in reference to <code>Q_12</code>) among agencies that had acquired no cameras (in reference <code>Q_10A</code>) is <code>NA</code>. It makes sense that this should be so, because if agencies responded in <code>Q_10A</code> that they had not acquired any BWCs, then why would we expect them to give a number in <code>Q_12</code> on how many cameras they used? <code>Q_12</code> does not apply to them.</p>
+<p><code>NaN</code> in <code>R</code> stands for <strong>N</strong>ot <strong>a</strong> <strong>N</strong>umber. The reason is <em>all</em> the values for the number of cameras used (in reference to <code>Q_12</code>) among agencies that had not acquired cameras (in reference <code>Q_10A</code>) is missing (<code>NA</code>). It makes sense that this should be so, because if agencies responded in <code>Q_10A</code> that they had not acquired any BWCs, then why would we expect them to give a number in <code>Q_12</code> on how many cameras they used? <code>Q_12</code> does not apply to them.</p>
 <p>Now, the above was the <code>dplyr</code> way. But you could use the <code>base R</code> way with the <code>mean()</code> function:
 <br></p>
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1"><span class="kw">mean</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
@@ -507,7 +507,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The answers from both ways are the same: 31.8 . This is because we know that one group (agencies that have not acquired BWCs) do not contribute to the average. We learn both methods because there may be situations where one is more appropriate than the other (e.g., maybe you want to see means for the individual categories when they are not <code>NaN</code>).</p>
 <p>Next, we identify the median, as, remember, the mean is susceptible to outliers. To get the median for each group, we use <code>summarise()</code> but, this time, we include the <code>median()</code> rather than the <code>mean()</code> function:
 <br></p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="co"># Use the same format as above, this time using the median() function </span></a>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="co"># Use the same format as above, but this time use the median() function </span></a>
 <a class="sourceLine" id="cb168-2" title="2"><span class="co"># dplyr way </span></a>
 <a class="sourceLine" id="cb168-3" title="3">bwcs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Q_10A) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">med_deployed =</span> <span class="kw">median</span>(Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
@@ -525,16 +525,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 <p>Again, both methods to obtain the median are the same, but the median differs a lot from the mean: it is 8.</p>
 <p>What does this mean? There must be a few agencies that use a <em>lot</em> of body worn cameras, which distorts our mean to appear as if the majority of agencies use 32 cameras. When the median and the mean are very different from each other, we have what is known as <em>skew</em>.</p>
-<p>Now if we want to calculate these descriptive statistics at once? This is where the <code>dplyr</code> way is most handy. We specify that we want to create four columns that will appear in the output as a table:
+<p>Now what if we want to calculate these descriptive statistics at once? This is where the <code>dplyr</code> way is most handy. To obtain these statistics together, we specify that we want to create four columns that will appear in the output as a table:
 <br></p>
 <ul>
-<li><em>mean_deployed</em>, using the <code>mean()</code> function,</li>
-<li><em>median_deployed</em>, using the <code>median()</code> function,</li>
-<li><em>mode_deployed</em>, using the <code>mlv()</code> function,</li>
-<li>and <em>total</em>, using the <code>sum()</code> function.
+<li><ol style="list-style-type: decimal">
+<li><em>mean_deployed</em>, using the <code>mean()</code> function</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li><em>median_deployed</em>, using the <code>median()</code> function</li>
+</ol></li>
+<li><ol start="3" style="list-style-type: decimal">
+<li><em>mode_deployed</em>, using the <code>mlv()</code> function</li>
+</ol></li>
+<li><ol start="4" style="list-style-type: decimal">
+<li><em>total</em>, using the <code>sum()</code> function
 <br></li>
+</ol></li>
 </ul>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1"><span class="co"># Table containing the mean, median, mode, and total number of BWCs deployed </span></a>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1"><span class="co"># Table containing the mean, median, mode, and total number of BWCs used </span></a>
 <a class="sourceLine" id="cb173-2" title="2">bwcs <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb173-3" title="3"><span class="st">  </span><span class="kw">group_by</span>(Q_10A) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb173-4" title="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_deployed =</span> <span class="kw">mean</span>(Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
@@ -551,6 +559,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Another handy package for descriptive statistics is <code>skimr</code>. The function <code>skim ()</code> produces measures of central tendency and measures of dispersion (we will learn more on these in the later section), and number of missing values.</p>
 <p>A great feature is that it also includes a histogram of the numeric variables specified. If you do not want to specify any variables, <code>skim()</code> will summarise your entire data frame, and this may be good, but it depends on the size of your dataset:
 <br></p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" title="1"><span class="co"># Ensure the package &#39;skimr&#39; is loaded or this will not work</span></a>
+<a class="sourceLine" id="cb176-2" title="2"><span class="co"># Produce a summary of your Q_12 variable, grouped by Q_10 using skim() </span></a>
+<a class="sourceLine" id="cb176-3" title="3">bwcs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb176-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(Q_10A) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb176-5" title="5"><span class="st">  </span><span class="kw">skim</span>(Q_<span class="dv">12</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -602,11 +615,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" title="1"><span class="co"># Ensure the package &#39;skimr&#39; is loaded or this will not work</span></a>
-<a class="sourceLine" id="cb176-2" title="2"><span class="co"># Produce a summary of your Q_12 variable, grouped by Q_10 using skim() </span></a>
-<a class="sourceLine" id="cb176-3" title="3">bwcs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb176-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(Q_10A) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb176-5" title="5"><span class="st">  </span><span class="kw">skim</span>(Q_<span class="dv">12</span>)</a></code></pre></div>
 <p><br>
 <br></p>
 </div>
@@ -614,9 +622,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="outliers" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Outliers</h3>
 <p>Recall the main disadvantage of the mean: it is not robust to extreme values, otherwise known as <strong>outliers</strong>.</p>
-<p>What exactly constitutes an <em>outlier</em>? Generally, an outlier is any observation that shows an extreme value on one of our variables. There are different approaches to define what is an outlier, but, in this class, we use the <strong>interquartile range</strong> (IQR) to do so.</p>
-<p>The IQR is another robust estimate and is the 75th percentile observation (the third quartile [Q3]) minus the 25th percentile observation (the first quartile [Q1]) in your distribution:
-<br></p>
+<p>What exactly constitutes an <em>outlier</em>? Generally, an outlier is any observation that shows an extreme value on one of our variables. There are different ways to define what an outlier is, but, in this class, we use the <strong>interquartile range</strong> (IQR) to do so.</p>
+<p>The IQR is another robust estimate and is the 75th percentile observation (the third quartile [Q3]) minus the 25th percentile observation (the first quartile [Q1]) in your distribution:</p>
+<p><br></p>
 <p><span class="math display">\[ IQR= Q3 - Q1 \]</span>
 <br></p>
 <!-- One way of determining whether a case is an outlier is:
@@ -764,28 +772,37 @@ We could also show this in a histogram, where everything to the right of the ora
 <img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-30-1.png" width="672" />
 
 -->
-<p>A popular method for determining outliers is known as <strong>Tukey fences</strong>. According to this method, outliers are seen as falling within a lower or an upper fence. They are calculated from the following:
-<br></p>
+<p>A popular method for determining outliers is known as <strong>Tukey fences</strong>. According to this method, outliers are seen as falling outside a lower or an upper fence. They are calculated from the following:</p>
+<p><br></p>
 <p><span class="math display">\[ Lower~ fence = Q1 - (1.5*IQR)\]</span>
 <br></p>
 <p><span class="math display">\[ Upper~ fence = Q3 + (1.5 * IQR) \]</span>
 <br></p>
-<p>In addition, extreme outliers can be calculated from the following:
-<br></p>
+<p>In addition, extreme outliers are seen as falling outside a lower and upper outer fence and can be calculated from the following:</p>
+<p><br></p>
 <p><span class="math display">\[ Lower~ outer ~fence = Q1 - (3 * IQR)\]</span>
 <br></p>
 <p><span class="math display">\[ Upper~ outer~ fence = Q3 + (3 * IQR) \]</span></p>
 <p><br>
 <br></p>
+<p>To visualise this, see Figure 4.3:</p>
+<p><br></p>
+<div class="figure">
+<img src="Images/tukey.png" alt="Figure 4.3 Tukey fences" style="width:70.0%" />
+<p class="caption"><strong>Figure 4.3</strong> Tukey fences</p>
+</div>
+<p><br>
+<br></p>
 <div id="activity-5-determining-outliers-using-tukey-fences" class="section level4">
 <h4><span class="header-section-number">4.2.2.1</span> Activity 5: Determining outliers using Tukey fences</h4>
-<p>We obtain the IQR of the <code>Q_12</code> variable using the <code>IQR</code> function, and save this into an object called <code>bwc_deployed_iqr</code>:
+<p>We obtain the IQR of our <code>Q_12</code> variable using the <code>IQR</code> function, and save this into an object called <code>bwc_deployed_iqr</code>:
 <br></p>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1">bwc_deployed_iqr &lt;-<span class="st"> </span><span class="kw">IQR</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) </a></code></pre></div>
 <p><br></p>
 <p>It is now saved as an object and holds the value for the IQR:
 <br></p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" title="1">bwc_deployed_iqr</a></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" title="1"><span class="co"># Our &#39;box&#39; called &#39;bwc_deployed_iqr&#39; that holds the IQR of the variable Q_12</span></a>
+<a class="sourceLine" id="cb178-2" title="2">bwc_deployed_iqr</a></code></pre></div>
 <pre><code>## [1] 17</code></pre>
 <p><br></p>
 <p>Next, we obtain the 1st and 3rd quartiles of the <code>Q_12</code> variable using the <code>quantile()</code> function and place them in objects too:
@@ -793,7 +810,7 @@ We could also show this in a histogram, where everything to the right of the ora
 <div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" title="1">bwc_deployed_1st &lt;-<span class="st"> </span><span class="kw">quantile</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="fl">0.25</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) </a>
 <a class="sourceLine" id="cb180-2" title="2">bwc_deployed_3rd &lt;-<span class="st"> </span><span class="kw">quantile</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="fl">0.75</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><br></p>
-<p>Now, we calculate the Tukey fences.</p>
+<p>Now, we calculate the Tukey fences and put them each in separate objects.</p>
 <p>The lower Fence:
 <br></p>
 <div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" title="1">lower_inner_fence &lt;-<span class="st"> </span>bwc_deployed_1st <span class="op">-</span><span class="st"> </span><span class="fl">1.5</span> <span class="op">*</span><span class="st"> </span>bwc_deployed_iqr </a>
@@ -801,7 +818,7 @@ We could also show this in a histogram, where everything to the right of the ora
 <pre><code>##   25% 
 ## -22.5</code></pre>
 <p><br></p>
-<p>Then the Upper Fence:
+<p>The Upper Fence:
 <br></p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1">upper_inner_fence &lt;-<span class="st"> </span>bwc_deployed_3rd <span class="op">+</span><span class="st"> </span><span class="fl">1.5</span> <span class="op">*</span><span class="st"> </span>bwc_deployed_iqr </a>
 <a class="sourceLine" id="cb183-2" title="2">upper_inner_fence</a></code></pre></div>
@@ -821,7 +838,7 @@ We could also show this in a histogram, where everything to the right of the ora
 ##  71</code></pre>
 <p><br></p>
 <!--Are these numbers familiar? You can see, the Tukey fences are just the names given to what we calculated above!-->
-<p>Let us see how many agencies are considered outliers and extreme outliers on how many BWCs they use. We revisit the <code>filter()</code> function for this. Remember that we filter to keep all rows that meet a specific condition. In this case, we want all observations whose value for the variable <code>Q_12</code> is an outlier (greater than the tukey inner fence, but smaller than the outer fence) and an extreme outlier (greater than the outer fence). We will save them in separate objects called <code>outliers</code> and <code>outliers_extreme</code>:
+<p>Let us see how many agencies are considered outliers and extreme outliers on how many BWCs they use. We revisit the <code>filter()</code> function for this. (See Lesson 2, section 2.4.3.1 .) Remember that we filter to keep all rows that meet a specific condition. In this case, we want all observations whose value for the variable <code>Q_12</code> is an outlier (outside the inner fences but within the outer fences) and an extreme outlier (outside the outer fences). We will save them in separate objects called <code>outliers</code> and <code>outliers_extreme</code>:
 <br></p>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" title="1">outliers &lt;-<span class="st"> </span>bwcs <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb189-2" title="2"><span class="st">  </span><span class="kw">filter</span>(Q_<span class="dv">12</span> <span class="op">&gt;</span><span class="st"> </span>upper_inner_fence<span class="op">|</span><span class="st"> </span>Q_<span class="dv">12</span> <span class="op">&lt;</span><span class="st"> </span>lower_inner_fence) </a></code></pre></div>
@@ -832,7 +849,7 @@ We could also show this in a histogram, where everything to the right of the ora
 <a class="sourceLine" id="cb190-2" title="2"><span class="st">  </span><span class="kw">filter</span>(Q_<span class="dv">12</span> <span class="op">&gt;</span><span class="st"> </span>upper_outer_fence<span class="op">|</span><span class="st"> </span>Q_<span class="dv">12</span> <span class="op">&lt;</span><span class="st"> </span>lower_outer_fence)</a></code></pre></div>
 <p><br></p>
 <!-- (do not understand this)... and see that the outliers has 282 rows (so 282 agencies that are outliers) while extreme_outliers has 188 rows (so 282 agencies that are extreme outliers)!  -->
-<p>These new objects are now in our environment (that Environment pane in the top right). We can look at their characteristics on the number of BWCs with the <code>summary()</code> function:
+<p>These new objects are now in our environment (that Environment pane in the top right of your <code>RStudio</code>). We can look at their characteristics on the number of BWCs used with the <code>summary()</code> function:
 <br></p>
 <div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1"><span class="kw">summary</span>(outliers<span class="op">$</span>Q_<span class="dv">12</span>)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -851,17 +868,17 @@ We could also show this in a histogram, where everything to the right of the ora
 </div>
 <div id="on-skewness" class="section level4">
 <h4><span class="header-section-number">4.2.2.2</span> <strong>On Skewness</strong></h4>
-<p>Related to outliers is <strong>skewness</strong>. This has to do with the shape of the distribution. You might remember from last semester we discussed something called the bell curve, or normal distribution. This is how you expect your data to look if the mean and the median are the same exact value, and your data are distributed equally on the two sides of this value.</p>
-<p>Here is a normal distribution:
+<p>Related to outliers is <strong>skewness</strong>. This has to do with the shape of the distribution. You might remember from last semester we discussed something called the bell curve, or normal distribution. This is how you expect your data to look if the mean and the median are the same exact value, and your data are distributed equally on either side of this value.</p>
+<p>Here is a normal distribution (Figure 4.4):
 <br></p>
 <p><img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-42-1.png" width="672" />
 <br></p>
 <p>A skewed distribution would pull the observations more so to the left or to the right, and you would have a long tail on either side. This would also cause your mean and median to be further apart.</p>
-<p>Here is a right skewed distribution:
+<p>Here is a right skewed distribution (Figure 4.5):
 <br></p>
 <p><img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-43-1.png" width="672" />
 <br></p>
-<p>And here is a left:
+<p>And here is a left skewed distribution (Figure 4.6):
 <br></p>
 <p><img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-44-1.png" width="672" />
 <br></p>
@@ -875,7 +892,7 @@ We could also show this in a histogram, where everything to the right of the ora
 <p>When your distribution is skewed, the majority of cases veer more to the left or right of the distribution, with a tail of outliers. An initial way of checking for skewness is to use a histogram, like from last week.
 <br></p>
 <div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1"><span class="co"># To create a histogram of number of BWCs used, we will use the `ggplot()` function and the geometry for histogram which is `geom_histogram()`</span></a>
-<a class="sourceLine" id="cb195-2" title="2"><span class="co">#Ensure the package ggplot2 is loaded</span></a>
+<a class="sourceLine" id="cb195-2" title="2"><span class="co"># Ensure the package ggplot2 is loaded</span></a>
 <a class="sourceLine" id="cb195-3" title="3"></a>
 <a class="sourceLine" id="cb195-4" title="4"><span class="kw">ggplot</span>(<span class="dt">data =</span> bwcs, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Q_<span class="dv">12</span>)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb195-5" title="5"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>, <span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
@@ -888,11 +905,11 @@ We could also show this in a histogram, where everything to the right of the ora
 <p>What do you observe from the histogram? Discuss in your groups, or reflect if you are in the quiet room. What do you think the number of BWCs may depend on? Size of the agency? Willingness to adopt BWCs? Are you surprised by this data?</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/bwcs.jpg" alt="Figure 4.4 Police Body Worn Cameras" style="width:70.0%" />
-<p class="caption"><strong>Figure 4.4</strong> Police Body Worn Cameras</p>
+<img src="Images/bwcs.jpg" alt="Figure 4.6 Police Body Worn Cameras" style="width:70.0%" />
+<p class="caption"><strong>Figure 4.6</strong> Police Body Worn Cameras</p>
 </div>
 <p><br></p>
-<p>From our histogram, we see that most agencies deployed fewer than 250 BWCs and only a small proportion deployed more than 800.</p>
+<p>From our histogram, we see that most agencies used fewer than 250 BWCs and only a small proportion deployed more than 800.</p>
 <p>Another way of checking for skewness is through the <code>skewness()</code> function from the <code>moments</code> package. Skewness is determined by the following:</p>
 <p><br></p>
 <ul>
@@ -919,11 +936,11 @@ We could also show this in a histogram, where everything to the right of the ora
 </div>
 <div id="measures-of-dispersion" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> Measures of Dispersion</h3>
-<p>What is meant by dispersion is the spread of values from the one value chosen to represent them all. That one value is usually the mean, or in the case of categorical variables, the mode. This is important because the single number to summarise our data might often mask variation. Last semester, we read <em>The Tiger That Isn’t</em> and you might remember the section about the ‘white rainbow’. We know the vibrancy of each of the colours of the rainbow, but if we combined them, they would form a bland white band in the sky - the average of all the colours is white. If we just represented the rainbow by the average, we would miss quite a lot!</p>
+<p>What is meant by dispersion is the spread of values from the one value chosen to represent them all. That one value is usually the mean, or in the case of categorical variables, the mode. This is important because the single number to summarise our data might often mask variation. Last semester, we read <em>The Tiger That Isn’t</em> and you might remember the section about the ‘white rainbow’. We know the vibrancy of each of the colours of the rainbow, but if we combined these colours, they would form a bland white band in the sky - the average of all the colours is white. If we just represented the rainbow by the average, we would miss quite a lot!</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/rainbow.jpg" alt="Figure 4.5 Double rainbow?!" />
-<p class="caption"><strong>Figure 4.5</strong> Double rainbow?!</p>
+<img src="Images/rainbow.jpg" alt="Figure 4.7 Double rainbow?!" />
+<p class="caption"><strong>Figure 4.7</strong> Double rainbow?!</p>
 </div>
 <p><br></p>
 <p>Let us explore how we measure dispersion, and how we can interpret this to draw conclusions about the data.</p>
@@ -935,7 +952,7 @@ We could also show this in a histogram, where everything to the right of the ora
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1"><span class="kw">load</span>(<span class="kw">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;04572-0001-Data.rda&quot;</span>))</a></code></pre></div>
 <p><br></p>
 <ol style="list-style-type: decimal">
-<li>Put the data set ‘da04572.0001 to’ into an object called <code>inmatesurvey04</code> by using the <code>&lt;-</code> assignment operator.
+<li>After the data loads into <code>RStudio</code>, it is now called ‘da04572.0001’. Put this into an object called <code>inmatesurvey04</code> by using the <code>&lt;-</code> assignment operator.
 <br></li>
 </ol>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" title="1">inmatesurvey04 &lt;-<span class="st"> </span>da04572<span class="fl">.0001</span></a></code></pre></div>
@@ -952,16 +969,16 @@ We could also show this in a histogram, where everything to the right of the ora
 <div id="dispersion-in-nominal-and-ordinal-variables" class="section level4">
 <h4><span class="header-section-number">4.2.3.2</span> <strong>Dispersion in Nominal and Ordinal Variables</strong></h4>
 <p>We learn how to conduct two measures of dispersion in <code>R</code> for categorical variables: the variation ratio and the index of qualitative variation:</p>
-<p>The <strong>variation ratio</strong> (VR) tells us the proportion of cases that are not in the modal category – basically cases not in the most frequent or ‘popular’ category. The formula for the variation ratio (VR) is:
-<br></p>
+<p>The <strong>variation ratio</strong> (VR) tells us the proportion of cases that are not in the modal category – basically cases not in the most frequent or ‘popular’ category. The formula for the variation ratio (VR) is:</p>
+<p><br></p>
 <p><span class="math display">\[VR = 1 – ({\frac {N~modalcat~} {N~total~}})\]</span>
 <br></p>
-<p><span class="math inline">\(N~modalcat\)</span> refers to the frequency of cases in the modal category, and <span class="math inline">\(N~total~\)</span> refers to the total number of cases. This formula states that VR is equal to 1 minus the proportion of cases that are in the modal category, which is the same as saying the proportion of cases that are not in the modal category.</p>
+<p><span class="math inline">\(N~modalcat\)</span> refers to the frequency of observations in the modal category, and <span class="math inline">\(N~total~\)</span> refers to the total number of observations. This formula states that VR is equal to 1 minus the proportion of observations that are in the modal category, which is the same as saying the proportion of observations that are not in the modal category.</p>
 <p><br></p>
 </div>
 <div id="activity-8-calculating-the-variation-ratio" class="section level4">
 <h4><span class="header-section-number">4.2.3.3</span> Activity 8: Calculating the variation ratio</h4>
-<p>Now, for example, we are interested in knowing whether the modal category describes the overall work histories prior to arrest of federal inmates pretty accurately, or if there is a lot of variation in responses from inmates. To do so, we use the variable <code>V1748</code> which tells us about their work history prior to arrest.</p>
+<p>Now, for example, we are interested in knowing whether the modal category describes the overall work histories prior to arrest of federal inmates pretty accurately, or if there is a lot of variation in responses from inmates. To do so, we use the variable <code>V1748</code> which tells us about their work histories prior to arrest.</p>
 <p>We can look at a frequency table:
 <br></p>
 <div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1"><span class="kw">table</span>(inmatesurvey04<span class="op">$</span>V1748)  </a></code></pre></div>
@@ -997,14 +1014,14 @@ We could also show this in a histogram, where everything to the right of the ora
 </table>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1"><span class="kw">skim</span>(inmatesurvey04<span class="op">$</span>V1748)</a></code></pre></div>
 <p><br></p>
-<p>Then, we check if we have cases defined as missing using <code>is.na</code> to get a summary of missing cases:
+<p>Then, we check if we have any observations defined as missing using <code>is.na</code> to get a summary of missing cases:
 <br></p>
 <div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" title="1"><span class="kw">table</span>(<span class="kw">is.na</span>(inmatesurvey04<span class="op">$</span>V1748))</a></code></pre></div>
 <pre><code>## 
 ## FALSE  TRUE 
 ##  2530  1156</code></pre>
 <p><br></p>
-<p>This tells us that there are 2,530 complete cases and 1,156 missing values.</p>
+<p>This tells us that there are 2,530 complete observations and 1,156 missing ones.</p>
 <p>We could tell from the tables above that ‘Full-time’ is the mode, but we can also get <code>R</code> to provide the mode and save it in an object:
 <br></p>
 <div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" title="1">mode_employment &lt;-<span class="st"> </span><span class="kw">mlv</span>(inmatesurvey04<span class="op">$</span>V1748, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) </a>
@@ -1014,25 +1031,25 @@ We could also show this in a histogram, where everything to the right of the ora
 <p><br></p>
 <!-- We can see that federal inmates reported working full-time prior to arrest more than any other single category. But we see that there were these options:   *Don’t Know* and *Refused*. It may be that we are interested in these answers, but it is possible also we only care about those who actually have one of the categories as an answer.   -->
 <!-- To do this, we will have to recode the responses of *Don’t Know* and *Refused* as missing, so `R` will not treat these as valid cases. We will create a new variable so not to overwrite the original one; then tell `R` that the latter two categories should be missing (NA). We can use the `recode()` funtion from `dplyr` which we learned about earlier to do this.  -->
-<p>What about the variation ratio? To get this, we create two data frames and count the number of people who reported any employment – answers of (1) Full-time (2) Part-time and (3) Occasional) in one data frame, and only the numbers who reported the modal category, which is (1) Full-time, in the other data frame.</p>
-<p>Store the value ‘full-time’ in the object <code>n_mode</code>:
+<p>What about the variation ratio? To get this, we create two data frames and count the number of people who reported any employment: one data frame for answers of Full-time, Part-time, and Occasional (1 to 3) and, in the other data frame, only the numbers who reported the modal category, which is Full-time (1).</p>
+<p>To create the first data frame, get the number of observations who reported being employed prior to arrest. Store this value in the object <code>n_employed</code>:
 <br></p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1">n_mode &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb209-2" title="2"><span class="st">  </span><span class="kw">filter</span>(V1748 <span class="op">==</span><span class="st"> &quot;(1) Full-time&quot;</span> ) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb209-3" title="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>()) </a></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1"><span class="co"># The &#39;!&#39; next to &#39;is.na&#39; is telling R to only keep observations that are not missing</span></a>
+<a class="sourceLine" id="cb209-2" title="2">n_employed &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb209-3" title="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(V1748)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb209-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</a></code></pre></div>
 <p><br></p>
-<p>Now, get the number of observations who reported being employed prior to arrest. Store this value in the object <code>n_employed</code>:
-<br></p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1"><span class="co"># The &#39;!&#39; next to &#39;is.na&#39; is telling R to only keep observations that are not missing</span></a>
-<a class="sourceLine" id="cb210-2" title="2">n_employed &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb210-3" title="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(V1748)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb210-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</a></code></pre></div>
+<p>To create the second data frame, store the value ‘full-time’ in the object <code>n_mode</code>: <br></p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1">n_mode &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb210-2" title="2"><span class="st">  </span><span class="kw">filter</span>(V1748 <span class="op">==</span><span class="st"> &quot;(1) Full-time&quot;</span> ) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb210-3" title="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>()) </a></code></pre></div>
 <p><br></p>
-<p>And finally, we can calculate the proportion. Store this value in the <code>object proportion_mode</code>:
+<p>Finally, we can calculate the proportion. Store this value in the object <code>proportion_mode</code>:
 <br></p>
 <div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" title="1">proportion_mode &lt;-<span class="st"> </span>n_mode<span class="op">/</span>n_employed </a></code></pre></div>
 <p><br></p>
-<p>We can use this to get the variation ratio. To do this, subtract proportion of cases in the modal category from 1 .</p>
+<p>We can use this to get the variation ratio. To do this, subtract the proportion of cases in the modal category from 1 .
+<br></p>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1">vratio &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span>proportion_mode</a>
 <a class="sourceLine" id="cb212-2" title="2">vratio</a></code></pre></div>
 <pre><code>##           n
@@ -1066,7 +1083,7 @@ We could also show this in a histogram, where everything to the right of the ora
 </div>
 <div id="activity-10-the-range" class="section level4">
 <h4><span class="header-section-number">4.2.3.6</span> Activity 10: The range</h4>
-<p>The <strong>range</strong> is the difference between the maximum and minimum value in a given distribution. We use the ratio-level variable <code>V2254</code>, a measure of the age at which inmates stated they first started smoking cigarettes regularly, as an example:
+<p>The <strong>range</strong> is the difference between the maximum and minimum value in a given distribution. We use the ratio-level variable <code>V2254</code>, a measure of the age at which inmates stated they first started smoking cigarettes regularly as an example:
 <br></p>
 <div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1"><span class="co"># Get to know the variable </span></a>
 <a class="sourceLine" id="cb216-2" title="2"><span class="kw">attributes</span>(inmatesurvey04<span class="op">$</span>V2254)</a></code></pre></div>
@@ -1074,17 +1091,20 @@ We could also show this in a histogram, where everything to the right of the ora
 ##                Refused             Don&#39;t know Never smoked regularly 
 ##                     98                     97                      0</code></pre>
 <p><br></p>
-<p>Note that this variable has codes that do not indicate the number of times smoked. These are 0 - never smoked; 97 - Don’t know; and 98 – Refused. We notice that some categories are not about smoking, such as ‘Don’t know’ and ‘Refused’, and including these will give us an incorrect result. To resolve this, we must convert irrelevant categories into missing data.</p>
-<p>First, create a new variable so we do not write over the old one, calling it <code>age_smoker_range</code> using the <code>mutate()</code> function, first assigning it the values of the <code>V2254</code> variable, and then recoding each value (0, 97, 98) as a <code>NA</code> using the <code>na_if()</code> function from the <code>dplyr</code> package.
+<p>Note that this variable has codes that do not indicate the number of times smoked. These are 0 (never smoked); 97 (Don’t know); and 98 (Refused). We notice that these categories are not about smoking and including these will give us an incorrect result. To resolve this, we must convert irrelevant categories into missing data.</p>
+<p>First, we create a new variable so we do not write over the original, calling it <code>age_smoker_range</code> using the <code>mutate()</code> function. This is a duplicate of the <code>V2254</code> variable, but we will recode each of the irrelevant values (0, 97, 98) as <code>NA</code> by using the <code>na_if()</code> function from the <code>dplyr</code> package.
 <br></p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1">inmatesurvey04 &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb218-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">age_smoker_range =</span> V2254,</a>
-<a class="sourceLine" id="cb218-3" title="3">           <span class="dt">age_smoker_range =</span> <span class="kw">na_if</span>(age_smoker_range, <span class="dv">0</span>),</a>
-<a class="sourceLine" id="cb218-4" title="4">          <span class="dt">age_smoker_range =</span> <span class="kw">na_if</span>(age_smoker_range, <span class="dv">97</span>),</a>
-<a class="sourceLine" id="cb218-5" title="5">          <span class="dt">age_smoker_range =</span> <span class="kw">na_if</span>(age_smoker_range, <span class="dv">98</span>),</a>
-<a class="sourceLine" id="cb218-6" title="6">         )</a></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1"><span class="co"># We make this new variable using the values from the variable &#39;V2254&#39;</span></a>
+<a class="sourceLine" id="cb218-2" title="2"><span class="co"># Then we include it into our data frame &#39;inmatesurvey04&#39; by specifying the assignment operator</span></a>
+<a class="sourceLine" id="cb218-3" title="3"></a>
+<a class="sourceLine" id="cb218-4" title="4">inmatesurvey04 &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb218-5" title="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">age_smoker_range =</span> V2254,</a>
+<a class="sourceLine" id="cb218-6" title="6">           <span class="dt">age_smoker_range =</span> <span class="kw">na_if</span>(age_smoker_range, <span class="dv">0</span>),</a>
+<a class="sourceLine" id="cb218-7" title="7">          <span class="dt">age_smoker_range =</span> <span class="kw">na_if</span>(age_smoker_range, <span class="dv">97</span>),</a>
+<a class="sourceLine" id="cb218-8" title="8">          <span class="dt">age_smoker_range =</span> <span class="kw">na_if</span>(age_smoker_range, <span class="dv">98</span>),</a>
+<a class="sourceLine" id="cb218-9" title="9">         )</a></code></pre></div>
 <p><br></p>
-<p>Now for the range. <code>range ()</code> function prints the minimum and maximum values.
+<p>The <code>range ()</code> function prints the minimum and maximum values.
 <br></p>
 <div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" title="1">smoker_range &lt;-<span class="st"> </span><span class="kw">range</span>(inmatesurvey04<span class="op">$</span>age_smoker_range, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb219-2" title="2"></a>
@@ -1111,19 +1131,19 @@ Or ... using the `diff()`function. -->
 <pre><code>## [1] 56</code></pre>
 <p><br></p>
 <p>What is the range? Input the answer in your google doc.</p>
-<p>BUT you can see something strange while figuring out the range: the minimum is one year old! This may be something we want to exclude in analyses as it might not be valid – maybe a mistake in coding – so conducting descriptive statistics can help with tidying your data.</p>
+<p>BUT you can see something strange while figuring out the range: the minimum is one year old! This may be something we want to exclude in future analyses as it might not be valid – maybe a mistake in coding – so conducting these descriptive statistics that you have been doing can help with tidying your data.</p>
 <p><br>
 <br></p>
 <hr />
 </div>
 <div id="activity-11-variance" class="section level4">
 <h4><span class="header-section-number">4.2.3.7</span> Activity 11: Variance</h4>
-<p>Now, the <strong>variance</strong> ( <span class="math inline">\(s^2\)</span> ) is about spread, specifically the sum of the squared deviations from the mean, then divided by the total number of cases. The equation looks like this:</p>
+<p>Now, the <strong>variance</strong> ( <span class="math inline">\(s^2\)</span> ) is about spread, specifically the sum of the squared deviations from the mean, then divided by the total number of observations. The equation looks like this:</p>
 <p><br></p>
 <p><span class="math display">\[ s^2 = \frac{\sum(x - \mu)^2}{N}\]</span></p>
 <p><br></p>
 <p>We use the function <code>var()</code> from the <code>stats</code> package that comes already preinstalled in <code>base R</code>.</p>
-<p>We use the variable <code>V2529</code>, which records the number of times inmates reported being written up for verbally assaulting a prison staff member, as an example:
+<p>We use the variable <code>V2529</code>, which records the number of times inmates reported being written up for verbally assaulting a prison staff member as an example:
 <br></p>
 <div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" title="1"><span class="co"># First, let us get to know the variable</span></a>
 <a class="sourceLine" id="cb223-2" title="2"><span class="kw">summary</span>(inmatesurvey04<span class="op">$</span>V2529)</a></code></pre></div>
@@ -1134,7 +1154,7 @@ Or ... using the `diff()`function. -->
 ##    Refused Don&#39;t know 
 ##        998        997</code></pre>
 <p><br></p>
-<p>Now let us create a new variable so we do not write over the old one. We do this so we can code ‘997’ and ‘998’ values as missing - you can see these stand for ‘Refused’ and ‘Don’t know’ respectively.
+<p>Now let us create a new variable so we do not write over the original one. We do this so we can recode ‘997’ and ‘998’ values as missing - you can see these stand for ‘Refused’ and ‘Don’t know’ respectively.
 <br></p>
 <div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" title="1">inmatesurvey04 &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb227-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">verb_assault_var =</span> V2529,</a>
@@ -1149,13 +1169,15 @@ Or ... using the `diff()`function. -->
 <pre><code>## [1] 82.64384</code></pre>
 <p><br></p>
 <p>The variance is 82.6, which is fairly dispersed, but if you got to know the data and this variable, you will notice that one inmate self-reported 99 verbal assaults, so this will have had an influence on the variance.</p>
+<p><br>
+<br></p>
 <hr />
 </div>
 <div id="activity-12-standard-deviation" class="section level4">
 <h4><span class="header-section-number">4.2.3.8</span> Activity 12: Standard deviation</h4>
-<p>Last, we learn about the <strong>standard deviation</strong> (SD), which is the square root of the variance. The smaller it is, the more concentrated cases are around the mean, while larger values reflect a wider distance from the mean. In other words, the SD tells us how well the mean represents our data. Too large, then the mean is a poor representation, because there is too much variability. We use the variable <code>verb_assault_var</code> as an example:
+<p>Last, we learn about the <strong>standard deviation</strong> (SD), which is the square root of the variance. The smaller it is, the more concentrated the observations are around the mean, while larger values reflect a wider distance from the mean. In other words, the SD tells us how well the mean represents our data. Too large, then the mean is a poor representation, because there is too much variability. We use the variable <code>verb_assault_var</code> as an example:
 <br></p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="co"># Calculate th standard deviation of the &#39;verb_assault_var&#39; variable and save it to an object </span></a>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="co"># Calculate the standard deviation of the &#39;verb_assault_var&#39; variable and save it to an object </span></a>
 <a class="sourceLine" id="cb230-2" title="2"></a>
 <a class="sourceLine" id="cb230-3" title="3">sd &lt;-<span class="st"> </span><span class="kw">sd</span>(inmatesurvey04<span class="op">$</span>verb_assault_var, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb230-4" title="4">sd</a></code></pre></div>
