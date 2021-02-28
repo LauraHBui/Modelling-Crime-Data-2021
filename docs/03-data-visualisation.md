@@ -106,13 +106,17 @@ Make sure the datasets are saved in the sub-folder called 'Datasets' that you cr
 
 
 
+
 Create first data frame object, `burglary_df` and load into it the 'gmp_2017.csv' data file:
+<br>
 
 
 ```r
 # gmp_2017.csv
 burglary_df <- read_csv(here("Datasets", "gmp_2017.csv"))
 ```
+
+<br>
 
 Now your turn to make the second data frame. Create the second data frame, `monthly_df` and load into it the 'gmp_monthly_2017.csv' data file.
 
@@ -122,7 +126,8 @@ Now your turn to make the second data frame. Create the second data frame, `mont
 
 You should have two data frames in your environment now. How many observations (rows) and variables (columns) are in `burglary_df`? How about in `monthly_df`? 
 
-
+<br>
+<br>
 
 ---
 

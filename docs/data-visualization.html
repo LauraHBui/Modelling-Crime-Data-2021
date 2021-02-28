@@ -352,11 +352,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Make sure the datasets are saved in the sub-folder called ‘Datasets’ that you created last week <em>inside</em> your project directory/ folder. If this is the case, we can use the <code>here()</code> function to tell <code>R</code> where exactly to locate the datasets. (See lecture short 3.1 ‘The R Prep routine’ on Blackboard.)
 <br></p>
-<p>Create first data frame object, <code>burglary_df</code> and load into it the ‘gmp_2017.csv’ data file:</p>
+<p>Create first data frame object, <code>burglary_df</code> and load into it the ‘gmp_2017.csv’ data file:
+<br></p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1"><span class="co"># gmp_2017.csv</span></a>
 <a class="sourceLine" id="cb120-2" title="2">burglary_df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;gmp_2017.csv&quot;</span>))</a></code></pre></div>
+<p><br></p>
 <p>Now your turn to make the second data frame. Create the second data frame, <code>monthly_df</code> and load into it the ‘gmp_monthly_2017.csv’ data file.</p>
 <p>You should have two data frames in your environment now. How many observations (rows) and variables (columns) are in <code>burglary_df</code>? How about in <code>monthly_df</code>?</p>
+<p><br>
+<br></p>
 <hr />
 </div>
 </div>
