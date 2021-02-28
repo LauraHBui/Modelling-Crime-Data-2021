@@ -177,6 +177,7 @@ From today’s data, we are interested in exploring the adoption of body-worn ca
 Let us say we want to learn about these variables. The first step to choosing the appropriate analysis for our variables, `Q_10A` and `Q_12`, is establishing: *what are their levels of measurement*?  
 
 To review levels of measurement, refer to Lesson 2 (section 2.4.1). Have a think and record your answers for each variable in the google doc.
+
 <br>
 
 ![](https://media.giphy.com/media/cpyA1xceZkBLq/giphy.gif)<!-- -->
@@ -634,14 +635,14 @@ We could also show this in a histogram, where everything to the right of the ora
 -->
 
 
-A popular method for determining outliers is known as **Tukey fences**. According to this method, outliers are seen as falling outside a lower or an upper fence. They are calculated from the following:
+A popular method for determining outliers is known as **Tukey fences**. According to this method, outliers are seen as falling outside a lower or an upper inner fence. They are calculated from the following:
 
 <br>
 
-$$ Lower~ fence = Q1 - (1.5*IQR)$$ 
+$$ Lower~ inner~ fence = Q1 - (1.5*IQR)$$ 
 <br>
 
-$$ Upper~ fence = Q3 + (1.5 * IQR) $$
+$$ Upper~inner ~ fence = Q3 + (1.5 * IQR) $$
 <br>
 
 In addition, extreme outliers are seen as falling outside a lower and upper outer fence and can be calculated from the following:
@@ -883,7 +884,7 @@ What do you observe from the histogram? Discuss in your groups, or reflect if yo
 
 <br> 
 
-![**Figure 4.6** Police Body Worn Cameras](Images/bwcs.jpg){width=70%}
+![**Figure 4.7** Police Body Worn Cameras](Images/bwcs.jpg){width=70%}
 
 <br>
 
@@ -937,7 +938,7 @@ What is meant by dispersion is the spread of values from the one value chosen to
 
 <br> 
 
-![**Figure 4.7** Double rainbow?!](Images/rainbow.jpg)
+![**Figure 4.8** Double rainbow?!](Images/rainbow.jpg)
 
 <br>
 

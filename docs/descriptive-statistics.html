@@ -402,8 +402,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.2.1.2</span> Activity 3: Levels of measurement</h4>
 <p>From today’s data, we are interested in exploring the adoption of body-worn cameras (BWCs) and their usage in a sample of agencies. The variables that will help us explore this is <code>Q_10A</code> because it measures whether the agency adopted BWCs as of 2016 and <code>Q_12</code> because it measures the number of cameras that agencies reported using.</p>
 <p>Let us say we want to learn about these variables. The first step to choosing the appropriate analysis for our variables, <code>Q_10A</code> and <code>Q_12</code>, is establishing: <em>what are their levels of measurement</em>?</p>
-<p>To review levels of measurement, refer to Lesson 2 (section 2.4.1). Have a think and record your answers for each variable in the google doc.
-<br></p>
+<p>To review levels of measurement, refer to Lesson 2 (section 2.4.1). Have a think and record your answers for each variable in the google doc.</p>
+<p><br></p>
 <p><img src="https://media.giphy.com/media/cpyA1xceZkBLq/giphy.gif" /><!-- --></p>
 <p><strong>Figure 4.1</strong> What are the levels of measurement?
 <br></p>
@@ -772,11 +772,11 @@ We could also show this in a histogram, where everything to the right of the ora
 <img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-30-1.png" width="672" />
 
 -->
-<p>A popular method for determining outliers is known as <strong>Tukey fences</strong>. According to this method, outliers are seen as falling outside a lower or an upper fence. They are calculated from the following:</p>
+<p>A popular method for determining outliers is known as <strong>Tukey fences</strong>. According to this method, outliers are seen as falling outside a lower or an upper inner fence. They are calculated from the following:</p>
 <p><br></p>
-<p><span class="math display">\[ Lower~ fence = Q1 - (1.5*IQR)\]</span>
+<p><span class="math display">\[ Lower~ inner~ fence = Q1 - (1.5*IQR)\]</span>
 <br></p>
-<p><span class="math display">\[ Upper~ fence = Q3 + (1.5 * IQR) \]</span>
+<p><span class="math display">\[ Upper~inner ~ fence = Q3 + (1.5 * IQR) \]</span>
 <br></p>
 <p>In addition, extreme outliers are seen as falling outside a lower and upper outer fence and can be calculated from the following:</p>
 <p><br></p>
@@ -905,8 +905,8 @@ We could also show this in a histogram, where everything to the right of the ora
 <p>What do you observe from the histogram? Discuss in your groups, or reflect if you are in the quiet room. What do you think the number of BWCs may depend on? Size of the agency? Willingness to adopt BWCs? Are you surprised by this data?</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/bwcs.jpg" alt="Figure 4.6 Police Body Worn Cameras" style="width:70.0%" />
-<p class="caption"><strong>Figure 4.6</strong> Police Body Worn Cameras</p>
+<img src="Images/bwcs.jpg" alt="Figure 4.7 Police Body Worn Cameras" style="width:70.0%" />
+<p class="caption"><strong>Figure 4.7</strong> Police Body Worn Cameras</p>
 </div>
 <p><br></p>
 <p>From our histogram, we see that most agencies used fewer than 250 BWCs and only a small proportion deployed more than 800.</p>
@@ -939,8 +939,8 @@ We could also show this in a histogram, where everything to the right of the ora
 <p>What is meant by dispersion is the spread of values from the one value chosen to represent them all. That one value is usually the mean, or in the case of categorical variables, the mode. This is important because the single number to summarise our data might often mask variation. Last semester, we read <em>The Tiger That Isn’t</em> and you might remember the section about the ‘white rainbow’. We know the vibrancy of each of the colours of the rainbow, but if we combined these colours, they would form a bland white band in the sky - the average of all the colours is white. If we just represented the rainbow by the average, we would miss quite a lot!</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/rainbow.jpg" alt="Figure 4.7 Double rainbow?!" />
-<p class="caption"><strong>Figure 4.7</strong> Double rainbow?!</p>
+<img src="Images/rainbow.jpg" alt="Figure 4.8 Double rainbow?!" />
+<p class="caption"><strong>Figure 4.8</strong> Double rainbow?!</p>
 </div>
 <p><br></p>
 <p>Let us explore how we measure dispersion, and how we can interpret this to draw conclusions about the data.</p>
