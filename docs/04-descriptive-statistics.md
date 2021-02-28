@@ -32,7 +32,6 @@
 
 
 ##### *Functions introduced (and packages to which they belong)* {-}
--	`attach()` : Commonly used to attach a data frame object for easier access (`base R`)
 -	`diff()` : Computes differences between values in a numeric vector (`base R`)
 -	`dim()` : Check the dimensions of an `R` object (`base R`)
 -	`DM()` : Computes deviation from the mode (`qualvar`)
