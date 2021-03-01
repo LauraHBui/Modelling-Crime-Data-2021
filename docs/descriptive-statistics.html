@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-02-28" />
+<meta name="date" content="2021-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -810,14 +810,14 @@ We could also show this in a histogram, where everything to the right of the ora
 <a class="sourceLine" id="cb180-2" title="2">bwc_deployed_3rd &lt;-<span class="st"> </span><span class="kw">quantile</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="fl">0.75</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><br></p>
 <p>Now, we calculate the Tukey fences and put them each in separate objects.</p>
-<p>The lower Fence:
+<p>The lower inner fence:
 <br></p>
 <div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" title="1">lower_inner_fence &lt;-<span class="st"> </span>bwc_deployed_1st <span class="op">-</span><span class="st"> </span><span class="fl">1.5</span> <span class="op">*</span><span class="st"> </span>bwc_deployed_iqr </a>
 <a class="sourceLine" id="cb181-2" title="2">lower_inner_fence</a></code></pre></div>
 <pre><code>##   25% 
 ## -22.5</code></pre>
 <p><br></p>
-<p>The Upper Fence:
+<p>The upper inner fence:
 <br></p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1">upper_inner_fence &lt;-<span class="st"> </span>bwc_deployed_3rd <span class="op">+</span><span class="st"> </span><span class="fl">1.5</span> <span class="op">*</span><span class="st"> </span>bwc_deployed_iqr </a>
 <a class="sourceLine" id="cb183-2" title="2">upper_inner_fence</a></code></pre></div>
@@ -946,7 +946,7 @@ We could also show this in a histogram, where everything to the right of the ora
 <p><br></p>
 <div id="activity-7-loading-the-other-dataset" class="section level4">
 <h4><span class="header-section-number">4.2.3.1</span> Activity 7: Loading the other dataset</h4>
-<p>We learn about measures of dispersion using another dataset from the ICPSR website. The SISFCF survey has been conducted periodically since 1976, and the current survey (2004) data (04572-0001-Data.rda) can, too, be accessed at the ICPSR website and downloaded as an .rda file. Follow the same steps with loading the data as with the previous data on BWCs. Now, for this dataset, we do the following as well:
+<p>We learn about measures of dispersion using another dataset from the ICPSR website. The Survey of Inmates in State and Federal Correctional Facilities (SISFCF) survey has been conducted periodically since 1976, and the current survey (2004) data (04572-0001-Data.rda) can, too, be accessed at the ICPSR website and downloaded as an .rda file. Follow the same steps with loading the data as with the previous data on BWCs. Now, for this dataset, we do the following as well:
 <br></p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1"><span class="kw">load</span>(<span class="kw">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;04572-0001-Data.rda&quot;</span>))</a></code></pre></div>
 <p><br></p>

@@ -703,7 +703,7 @@ bwc_deployed_3rd <- quantile(bwcs$Q_12, 0.75, na.rm = TRUE)
 
 Now, we calculate the Tukey fences and put them each in separate objects. 
 
-The lower Fence: 
+The lower inner fence: 
 <br>
 
 ```r
@@ -717,7 +717,7 @@ lower_inner_fence
 ```
 <br>
 
-The Upper Fence:
+The upper inner fence:
 <br>
 
 
@@ -948,7 +948,7 @@ Let us explore how we measure dispersion, and how we can interpret this to draw 
 
 #### Activity 7: Loading the other dataset
 
-We learn about measures of dispersion using another dataset from the ICPSR website. The SISFCF survey has been conducted periodically since 1976, and the current survey (2004) data (04572-0001-Data.rda) can, too, be accessed at the ICPSR website and downloaded as an .rda file. Follow the same steps with loading the data as with the previous data on BWCs. Now, for this dataset, we do the following as well:
+We learn about measures of dispersion using another dataset from the ICPSR website. The Survey of Inmates in State and Federal Correctional Facilities (SISFCF) survey has been conducted periodically since 1976, and the current survey (2004) data (04572-0001-Data.rda) can, too, be accessed at the ICPSR website and downloaded as an .rda file. Follow the same steps with loading the data as with the previous data on BWCs. Now, for this dataset, we do the following as well:
 <br>
 
 
