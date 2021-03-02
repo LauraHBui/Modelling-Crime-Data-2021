@@ -1084,7 +1084,7 @@ DM(IQV, na.rm = TRUE)
 ```
 <br>
 
-What is value that you get in the output? Type the value in your google doc and what you think this value means.
+What is the value that you get in the output? Type the value in your google doc and what you think this value means.
 
 <br>
 <br>

@@ -413,7 +413,7 @@ nrow(IQ_Over_100)/nrow(PrisonerIQ)
 ```
 
 ```
-## [1] 0.4872027
+## [1] 0.4864047
 ```
 
 
@@ -435,10 +435,10 @@ PrisonerIQ[1:5,]
 ```
 ##   prisoner_id  IQ
 ## 1           1 130
-## 2           2  87
-## 3           3 124
-## 4           4 115
-## 5           5  90
+## 2           2 113
+## 3           3  79
+## 4           4  90
+## 5           5 104
 ```
 
 ```r
@@ -454,7 +454,7 @@ PrisonerIQ[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9976281
+## 1           1 115   1.00035
 ```
 
 
@@ -482,7 +482,7 @@ pnormGC(124, region="below", mean=m, sd=sd,graph=TRUE)
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 ```
-## [1] 0.9448413
+## [1] 0.9452833
 ```
 
 
