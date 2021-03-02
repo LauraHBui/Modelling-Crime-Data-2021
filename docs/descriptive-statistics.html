@@ -1030,15 +1030,15 @@ We could also show this in a histogram, where everything to the right of the ora
 <p><br></p>
 <!-- We can see that federal inmates reported working full-time prior to arrest more than any other single category. But we see that there were these options:   *Don’t Know* and *Refused*. It may be that we are interested in these answers, but it is possible also we only care about those who actually have one of the categories as an answer.   -->
 <!-- To do this, we will have to recode the responses of *Don’t Know* and *Refused* as missing, so `R` will not treat these as valid cases. We will create a new variable so not to overwrite the original one; then tell `R` that the latter two categories should be missing (NA). We can use the `recode()` funtion from `dplyr` which we learned about earlier to do this.  -->
-<p>What about the variation ratio? To get this, we create two data frames: one data frame for total number of observations and, in the other data frame, only the numbers who reported the modal category, which is Full-time (1).</p>
-<p>To create the first data frame, get the number of total observations. Store this value in the object <code>n_employed</code>:
+<p>What about the variation ratio? To get this, we create two objects: one for total number of observations and, in the other object, only the numbers who reported the modal category, which is Full-time (1).</p>
+<p>To create the first object, get the number of total observations. Store this value in the object <code>n_employed</code>:
 <br></p>
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1"><span class="co"># The &#39;!&#39; next to &#39;is.na&#39; is telling R to only keep observations that are not missing</span></a>
 <a class="sourceLine" id="cb209-2" title="2">n_employed &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb209-3" title="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(V1748)) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb209-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</a></code></pre></div>
 <p><br></p>
-<p>To create the second data frame, store the value ‘full-time’ in the object <code>n_mode</code>: <br></p>
+<p>To create the second object, store the value ‘full-time’ in the object <code>n_mode</code>: <br></p>
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1">n_mode &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb210-2" title="2"><span class="st">  </span><span class="kw">filter</span>(V1748 <span class="op">==</span><span class="st"> &quot;(1) Full-time&quot;</span> ) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb210-3" title="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>()) </a></code></pre></div>

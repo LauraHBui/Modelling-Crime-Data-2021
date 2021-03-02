@@ -1066,9 +1066,9 @@ mode_employment
 
 <!-- To do this, we will have to recode the responses of *Don’t Know* and *Refused* as missing, so `R` will not treat these as valid cases. We will create a new variable so not to overwrite the original one; then tell `R` that the latter two categories should be missing (NA). We can use the `recode()` funtion from `dplyr` which we learned about earlier to do this.  -->
 
-What about the variation ratio? To get this, we create two data frames: one data frame for total number of observations and, in the other data frame, only the numbers who reported the modal category, which is Full-time (1). 
+What about the variation ratio? To get this, we create two objects: one for total number of observations and, in the other object, only the numbers who reported the modal category, which is Full-time (1). 
 
-To create the first data frame, get the number of total observations. Store this value in the object `n_employed`: 
+To create the first object, get the number of total observations. Store this value in the object `n_employed`: 
 <br>
 
 
@@ -1080,7 +1080,7 @@ n_employed <- inmatesurvey04 %>%
 ```
 <br>
 
-To create the second data frame, store the value ‘full-time’ in the object `n_mode`: <br>
+To create the second object, store the value ‘full-time’ in the object `n_mode`: <br>
 
 
 ```r
