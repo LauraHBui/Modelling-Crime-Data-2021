@@ -21,7 +21,7 @@ description: "This is a companion workbook for the 2nd year undergraduate module
 
 ##### Course Director: Dr Reka Solymosi {-}
 
-##### Co-Lecturer & Graduate Teaching Assistants: Dr Laura Bui, Carlos Iglesias, Ioana Macoveciuc, and Denny Vlaeva {-}
+##### Teaching team: Dr Laura Bui, Carlos Iglesias, Ioana Macoveciuc, and Denny Vlaeva {-}
 
 <br>
 <br>
