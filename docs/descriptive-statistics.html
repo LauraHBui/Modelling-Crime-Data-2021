@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-03-02" />
+<meta name="date" content="2021-03-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -187,6 +187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#measures-of-dispersion"><i class="fa fa-check"></i><b>4.2.3</b> Measures of Dispersion</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a></li>
+<li class="chapter" data-level="4.4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#answers-to-activities-where-applicable"><i class="fa fa-check"></i><b>4.4</b> Answers to Activities (where applicable)</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a><ul>
 <li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a><ul>
@@ -1200,22 +1201,21 @@ Or ... using the `diff()`function. -->
 <h2><span class="header-section-number">4.3</span> SUMMARY</h2>
 <p>Descriptive statistics was the name of the game today. These are measures we use to describe our data. First, we learned about measures of central tendency: the <strong>mean</strong>, <strong>median</strong>, and <strong>mode</strong>. Second, pesky <strong>outliers</strong> were examined along with their cousin <strong>skewness</strong>. A way of addressing outliers was through the robust estimate, the <strong>interquartile range</strong>. With skewness, visualizations were used to ascertain whether the distribution could be <strong>positively skewed</strong>. Third, we learned all about measures of dispersions: two for nominal and ordinal variables – the <strong>variation ratio</strong> and the <strong>index of qualitative variation</strong> – and three for interval and ratio variables – the <strong>range</strong>, <strong>variance</strong>, and <strong>standard deviation</strong>. In some situations we found ourselves, missing values appeared. This is actually very common in data, so we addressed these with the <code>R</code> argument <strong>na.rm</strong>.</p>
 <p>Homework time!</p>
-<!-- ## Answers to Activities (where applicable)
-
-    1. -
-    2. 199.33= mean(c(345, 100, 250, 100, 101, 300));  175.5= median(c(345, 100, 250, 100, 101, 300))
-    3. Q_10A: binary categorical; Q_12: ratio/ discrete numeric 
-    4. class(bwcs$Q_12) # we see this is a numeric variable
-    5. outliers: any agency that has 46 or more (upper inner fence) or -22.5 (lower inner fence though this is not a likely scenario) body worn cameras; extreme outliers: any agency with more than 71 (upper outer fence) or -48 (lower outer fence- though, again, unlikely scenario) body worn cameras ; minimum: 46 (outlier) and 72 (outlier extreme)
-    6. -
-    7. -
-    8. -
-    9. The value is 0.1729, meaning that there is not much dispersion across the categories. This supports the result from the VR.
-    10. The range of the age when federal inmates started smoking is 56.
-    11. -
-    12. -
-    
-    -->
+</div>
+<div id="answers-to-activities-where-applicable" class="section level2">
+<h2><span class="header-section-number">4.4</span> Answers to Activities (where applicable)</h2>
+<pre><code>1. -
+2. 199.33= mean(c(345, 100, 250, 100, 101, 300));  175.5= median(c(345, 100, 250, 100, 101, 300))
+3. Q_10A: binary categorical; Q_12: ratio/ discrete numeric 
+4. class(bwcs$Q_12) # we see this is a numeric variable
+5. outliers: any agency that has 46 or more (upper inner fence) or -22.5 (lower inner fence though this is not a likely scenario) body worn cameras; extreme outliers: any agency with more than 71 (upper outer fence) or -48 (lower outer fence- though, again, unlikely scenario) body worn cameras ; minimum: 46 (outlier) and 72 (outlier extreme)
+6. -
+7. -
+8. -
+9. The value is 0.1729, meaning that there is not much dispersion across the categories. This supports the result from the VR.
+10. The range of the age when federal inmates started smoking is 56.
+11. -
+12. -</code></pre>
 
 </div>
 </div>

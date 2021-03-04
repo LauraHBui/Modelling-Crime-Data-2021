@@ -88,6 +88,7 @@ activity-10-the-range
 activity-11-variance
 activity-12-standard-deviation
 summary-3
+answers-to-activities-where-applicable
 inferential-statistics
 generalising-about-the-world-from-data
 activity-1-our-preparation-routine-1
