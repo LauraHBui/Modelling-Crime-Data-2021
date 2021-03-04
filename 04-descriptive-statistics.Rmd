@@ -1275,7 +1275,7 @@ Descriptive statistics was the name of the game today. These are measures we use
 Homework time!
 
 
-## Answers to Activities (where applicable)
+### Answers to Activities (where applicable)
 
 	1. -
 	2. 199.33= mean(c(345, 100, 250, 100, 101, 300));  175.5= median(c(345, 100, 250, 100, 101, 300))

@@ -762,7 +762,7 @@ Hurrah: homework time!
 <br>
 
 
-#### ANSWERS TO ACTIVITIES:
+### ANSWERS TO ACTIVITIES:
 - 1.  burglary_df: 1,673 observations, 9 variables ; monthly_df: 73 observations, 3 variables
 - 2. (1) burglary_df: n= 1,673 LSOAs; (2) monthly_df: n= 72 months
 - 3. Hard to say...
