@@ -125,7 +125,7 @@
 
 \title{CRIM20452 Modelling Criminological Data}
 \author{Laura Bui \& Reka Solymosi}
-\date{2021-02-26}
+\date{2021-03-07}
 
 \begin{document}
 \maketitle
@@ -144,9 +144,9 @@
 \paragraph*{Course Director: Dr Reka Solymosi}\label{course-director-dr-reka-solymosi}}
 \addcontentsline{toc}{paragraph}{Course Director: Dr Reka Solymosi}
 
-\hypertarget{co-lecturer-graduate-teaching-assistants-dr-laura-bui-carlos-iglesias-ioana-macoveciuc-and-denny-vlaeva}{%
-\paragraph*{Co-Lecturer \& Graduate Teaching Assistants: Dr Laura Bui, Carlos Iglesias, Ioana Macoveciuc, and Denny Vlaeva}\label{co-lecturer-graduate-teaching-assistants-dr-laura-bui-carlos-iglesias-ioana-macoveciuc-and-denny-vlaeva}}
-\addcontentsline{toc}{paragraph}{Co-Lecturer \& Graduate Teaching Assistants: Dr Laura Bui, Carlos Iglesias, Ioana Macoveciuc, and Denny Vlaeva}
+\hypertarget{teaching-team-dr-laura-bui-carlos-iglesias-ioana-macoveciuc-and-denny-vlaeva}{%
+\paragraph*{Teaching team: Dr Laura Bui, Carlos Iglesias, Ioana Macoveciuc, and Denny Vlaeva}\label{teaching-team-dr-laura-bui-carlos-iglesias-ioana-macoveciuc-and-denny-vlaeva}}
+\addcontentsline{toc}{paragraph}{Teaching team: Dr Laura Bui, Carlos Iglesias, Ioana Macoveciuc, and Denny Vlaeva}
 
 Welcome to Modelling Criminological Data. This is the online tutorial for the class's weekly lab sessions.
 
@@ -345,8 +345,8 @@ It might be that the above does not work and you find that there are some issues
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{getting-to-know-r-studio}{%
-\section{Getting to know R Studio}\label{getting-to-know-r-studio}}
+\hypertarget{getting-to-know-rstudio}{%
+\section{\texorpdfstring{Getting to know \texttt{RStudio}}{Getting to know RStudio}}\label{getting-to-know-rstudio}}
 
 You only need to open \texttt{Rstudio} (not both \texttt{R} and \texttt{RStudio}); \texttt{R} runs automatically in the background when \texttt{RStudio} is open. Using \texttt{RStudio} makes it easier to work with \texttt{R} than using \texttt{R} itself. If you do not believe this, try working directly in \texttt{R}!
 
@@ -405,8 +405,15 @@ The purposes of the four panes in Figure 1.3 are the following:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{2}
+\tightlist
 \item
   \textbf{Main console}: this is considered \texttt{R\textquotesingle{}s} heart, and it is where \texttt{R} evaluates the codes that you run. You can type your codes directly in the console, but for the sake of good habits, type them in the script and data view so you can save a record of them. Only type and run code from here if you want to debug or do some quick analysis.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
 \item
   \textbf{File directory, Plots, Packages, Help}:
 \end{enumerate}
@@ -441,9 +448,10 @@ To do this, go to your open version of \texttt{R\ Studio}, and type in the scrip
 When you have typed this, you will have typed your first bit of code. Yet nothing is happening? That is because you also have to \textbf{RUN} the code.
 
 You can do this by highlighting the code you wish to run, and clicking on `run' in the top right hand corner:
+
 \url{....}
 
-When you `run' the code, it will print the text `Hello World!' in the bottom pane, which is the \textbf{console}. That means you have written and executed your first line of code.
+When you `run' the code, it will print the text `Hello World!'(above in Figure 1.4) in the bottom pane, which is the \textbf{console}. That means you have written and executed your first line of code.
 
 In the rest of the session, we will be unpacking how this all works, and getting more familiar and comfortable with using \texttt{R\ Studio}.
 
@@ -456,7 +464,7 @@ Did you know you can change the way \texttt{RStudio} looks? Click in the \emph{T
 
 \begin{figure}
 \centering
-\includegraphics{Images/tools_global_options.png}
+\includegraphics[width=0.7\textwidth,height=\textheight]{Images/tools_global_options.png}
 \caption{\textbf{Figure 1.5} Selecting `Global Options'}
 \end{figure}
 
@@ -464,7 +472,7 @@ Select \emph{Appearance}. Here, you can change things related to the appearance 
 
 \begin{figure}
 \centering
-\includegraphics{Images/appearance_choose_tomorrow_night_bright.png}
+\includegraphics[width=0.7\textwidth,height=\textheight]{Images/appearance_choose_tomorrow_night_bright.png}
 \caption{\textbf{Figure 1.6} Choosing a theme background}
 \end{figure}
 
@@ -1046,6 +1054,8 @@ That is all for today. Do not forget to do your homework task and the quiz by ne
 \item
   \texttt{count()} : Counts the number of occurrences (\texttt{dplyr})
 \item
+  \texttt{dim()} : Returns the number of observations and variables in a data frame (\texttt{base\ R})
+\item
   \texttt{dir.create()} : creates a new folder in a project (\texttt{base\ R})
 \item
   \texttt{factor()} Creates a factor (\texttt{base\ R})
@@ -1057,6 +1067,8 @@ That is all for today. Do not forget to do your homework task and the quiz by ne
   \texttt{here()} : Finds a project's files based on the current working directory (\texttt{here})
 \item
   \texttt{mutate()} : Creates new vectors or transforms existing ones (\texttt{dplyr})
+\item
+  \texttt{names()} : Returns the names of the variables in the data frame (\texttt{base\ R})
 \item
   \texttt{read\_spss()} : Imports SPSS .sav files (\texttt{haven})
 \item
@@ -1080,13 +1092,17 @@ That is all for today. Do not forget to do your homework task and the quiz by ne
 
 Last time, we installed our first package, \texttt{dplyr}. This is one of a number of packages from what is known as \textbf{tidyverse}.
 
-\includegraphics[width=30.76in]{Images/tidyverse-logo}
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth,height=\textheight]{Images/tidyverse-logo.png}
+\caption{\textbf{Figure 2.1} Tidyverse logo}
+\end{figure}
 
 The tidyverse contains packages that help us carry out \textbf{wrangling} (i.e., cleaning variables), analysis, plotting, and modelling of our data. The ethos of tidyverse is that working and using tidy data makes our lives easier in the long run, allows us to stick to specific conventions, and enables us to share with others who follow this approach. Essentially, tidy data makes data analysis easy to carry out and to communicate to others.
 
 So what is tidy data?
 
-\includegraphics[width=66.67in]{Images/tidydata_1}
+\includegraphics[width=0.8\textwidth,height=\textheight]{Images/tidydata_1.jpg}
 
 Like what was mentioned in last week's lesson, our columns represent our variables, but, also, our cases (or better known in the tidyverse as \textbf{observations}) are our rows, whereby each cell is a value of that column's given variable for the observation in that row.
 
@@ -1132,6 +1148,8 @@ Let us get started and load \texttt{dplyr}:
 \CommentTok{\# Like last week, you can also check the \textquotesingle{}Packages\textquotesingle{} tab in the \textquotesingle{}Files, Plots...\textquotesingle{} pane to see if the box next to \textquotesingle{}dplyr\textquotesingle{} has been ticked}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{r-projects-getting-your-work-files-organised}{%
 \section{R Projects -- Getting Your Work Files Organised}\label{r-projects-getting-your-work-files-organised}}
@@ -1908,11 +1926,7 @@ Nothing to add in the googledoc so far, since Activity 4, so onto the next activ
 \hypertarget{note-pipes}{%
 \subsubsection{Note: pipes}\label{note-pipes}}
 
-\begin{figure}
-\centering
 \includegraphics{Images/logo_pipe.png}
-\caption{\textbf{Figure 2.10} The pipe operator}
-\end{figure}
 
 In \texttt{R}, \texttt{\%\textgreater{}\%} represents a \textbf{pipe operator}. This is a nifty shortcut in \texttt{R} coding. It is in reference to \href{https://blog.revolutionanalytics.com/2014/07/magrittr-simplifying-r-code-with-pipes.html}{René Magritte's \emph{The Treachery of Images}}. The pipe operator means that we only need to specify the data frame object once at the beginning as opposed to typing out the name of the data frame repeatedly. In all subsequent functions, the object is `piped' through. If you were to read the code out loud, you might say `and then' whenever you come across the pipe operator. We will use this now.
 
@@ -2758,7 +2772,7 @@ Our first topic we learned was about these layers, comprising data, aesthetics, 
 Hurrah: homework time!
 
 \hypertarget{answers-to-activities}{%
-\subsubsection{ANSWERS TO ACTIVITIES:}\label{answers-to-activities}}
+\subsection{ANSWERS TO ACTIVITIES:}\label{answers-to-activities}}
 
 \begin{itemize}
 \item
@@ -2887,9 +2901,9 @@ Hurrah: homework time!
 \paragraph*{\texorpdfstring{\textbf{Today's Learning Tools:}}{Today's Learning Tools:}}\label{todays-learning-tools-3}}
 \addcontentsline{toc}{paragraph}{\textbf{Today's Learning Tools:}}
 
-\hypertarget{total-number-of-activities-11}{%
-\paragraph*{\texorpdfstring{\emph{Total number of activities}: 11}{Total number of activities: 11}}\label{total-number-of-activities-11}}
-\addcontentsline{toc}{paragraph}{\emph{Total number of activities}: 11}
+\hypertarget{total-number-of-activities-12-1}{%
+\paragraph*{\texorpdfstring{\emph{Total number of activities}: 12}{Total number of activities: 12}}\label{total-number-of-activities-12-1}}
+\addcontentsline{toc}{paragraph}{\emph{Total number of activities}: 12}
 
 \hypertarget{data-3}{%
 \paragraph*{\texorpdfstring{\emph{Data:}}{Data:}}\label{data-3}}
@@ -2932,8 +2946,6 @@ Hurrah: homework time!
 \begin{itemize}
 \tightlist
 \item
-  \texttt{attach()} : Commonly used to attach a data frame object for easier access (\texttt{base\ R})
-\item
   \texttt{diff()} : Computes differences between values in a numeric vector (\texttt{base\ R})
 \item
   \texttt{dim()} : Check the dimensions of an \texttt{R} object (\texttt{base\ R})
@@ -2962,8 +2974,6 @@ Hurrah: homework time!
 \item
   \texttt{skim()} : Provide summary statistics specific to object class (\texttt{skimr})
 \item
-  \texttt{str()} : Returns internal structure of an \texttt{R} object (\texttt{base\ R})
-\item
   \texttt{summarize()} : Create new summary variable(s), e.g., counts, mean (\texttt{dplyr})
 \item
   \texttt{summary()} : Produce summary of model results (\texttt{base\ R})
@@ -2980,7 +2990,7 @@ Hurrah: homework time!
 
 The field of statistics is divided into two main branches: descriptive and inferential. Much of what you will cover today on descriptive statistics will be a review from last semester, but learning to conduct them in \texttt{R} will be a new learning experience.
 
-So, what are descriptive statistics? If general statistics is concerned with the study of how best to collect, analyse, and make conclusions about data, then this specific branch, descriptive statistics, is concerned with the sample distribution and the population distribution from which the sample is drawn. Basically, descriptive statistics are ways of describing your data.
+So, what are descriptive statistics? If general statistics is concerned with the study of how best to collect, analyse, and make conclusions about data, then this specific branch -- descriptive statistics -- is concerned with the sample distribution and the population distribution from which the sample is drawn. Basically, descriptive statistics are ways of describing your data.
 
 Similar to last week's lesson on data visualization, describing your data is important because it helps you identify patterns and anomalies. In addition, it gives others a succinct understanding of your data, so it facilitates good communication. We revisit and learn another three substantive topics today: the \textbf{central tendency}, \textbf{outliers}, and \textbf{dispersion}.
 
@@ -2994,22 +3004,44 @@ We start by doing the usual routine, but with new data on police body-worn camer
 \item
   Open up your existing \texttt{R} project
 \item
-  Install and load the required packages (listed at the top of this lesson) using the function \texttt{install.packages()}
-\item
-  For now, open only the 2016 LEMAS-BWCS dataset (37302-0001-Data.rda). These data are from the \href{https://www.icpsr.umich.edu/web/pages/}{Inter-university Consortium for Political and Social Research (ICPSR) website} and you can find them by using the dataset name, which refers to the ICPSR study number. The data are stored in an \texttt{R} data file format (.rda).
-\item
-  We will need to use the \texttt{load()} function to import the data frame into our environment, specifying the working directory using \texttt{here()} like we have in Lesson 2.1.
+  Load the required packages (listed at the top of this lesson). Some of these are familiar from previous weeks, so you only need to use the function \texttt{library()}to load them. For packages that we have not used before and are not installed in our \texttt{R}, you will need to use the function \texttt{install.packages()} first before loading it with \texttt{library()}:
 \end{enumerate}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(here)}
+\CommentTok{\# Remember, we only need to do this once whenever we meet a new package and would like to keep it handy in our own R library of packages:}
+
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"modeest"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"moments"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"qualvar"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"skimr"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## here() starts at /Users/reka/Dropbox (The University of Manchester)/modelling2021/Modelling-Crime-Data-2021
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# All of these are now in our R library of packages, but we need to load them, or \textquotesingle{}bring them to life\textquotesingle{}, to use their functions:}
+
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(here)}
+\FunctionTok{library}\NormalTok{(modeest)}
+\FunctionTok{library}\NormalTok{(moments)}
+\FunctionTok{library}\NormalTok{(qualvar)}
+\FunctionTok{library}\NormalTok{(skimr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  You will have downloaded the datasets from Blackboard as usual, ensuring the datasets have been moved into the subfolder you had created from Lesson 2 called `Datasets'.
+\item
+  For now, open only the 2016 LEMAS-BWCS dataset (37302-0001-Data.rda). These data are from the \href{https://www.icpsr.umich.edu/web/pages/}{Inter-university Consortium for Political and Social Research (ICPSR) website} and you can find them by using the dataset name, which refers to the ICPSR study number. This time, data are stored in an \texttt{R} data file format (.rda). Always check for the type of file format the data are in - this determines what codes and packages (if any) you will need to use to load the data into \texttt{R}.
+\item
+  For this type of dataset, as it is in an `.rda' data file format, we will need to use the \texttt{load()} function to import the data frame into our environment, specifying your working directory using \texttt{here()} like we have in Lesson 2, section 2.1.
+\end{enumerate}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3019,10 +3051,10 @@ We start by doing the usual routine, but with new data on police body-worn camer
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{4}
+\setcounter{enumi}{5}
 \tightlist
 \item
-  Name the data frame \texttt{bwcs} by using the \texttt{\textless{}-} assignment operator. Another way of looking at it is you are putting the dataset into a `box' that you will call `bwcs'.
+  Name the data frame \texttt{bwcs} by using the \texttt{\textless{}-} assignment operator. Another way of looking at it is you are putting the dataset into a `box' that you will call `bwcs'. It will appear in the Environment pane like all objects you create in \texttt{R}.
 \end{enumerate}
 
 \begin{Shaded}
@@ -3033,7 +3065,7 @@ We start by doing the usual routine, but with new data on police body-worn camer
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{5}
+\setcounter{enumi}{6}
 \tightlist
 \item
   Use the function \texttt{View(bwcs)} to ensure the file is loaded and to get to know your data. You can also use the function \texttt{dim(bwcs)} to see the number of observations and variables.
@@ -3055,14 +3087,14 @@ Central tendency refers to a descriptive summary of the centre of the data's dis
 
 The \emph{mean} is the average and it is useful when we want to summarise a variable quickly. Its disadvantage is that it is sensitive to extreme values, so the mean can be distorted easily.
 
-To address this sensitivity, the \emph{median} is a better measure because it is a robust estimate, so is not easily swayed by extreme values. It is the middle of the distribution.
+To address this sensitivity, the \emph{median} is a better measure because it is a robust estimate, which means that it is not easily swayed by extreme values. It is the middle value of the distribution.
 
-The \emph{mode} helps give an idea of what is the most typical value in the distribution, which is the most frequently occurring case in the data. While mean and median apply to numeric variables, the mode is most useful when we are talking about categorical variables. You might want to know the most frequently appearing category. This is what the mode tells you!
+The \emph{mode} helps give an idea of what is the most typical value in the distribution, which is the most frequently occurring case in the data. While mean and median apply to numeric variables, the mode is most useful when describing categorical variables. For example, you may want to know the most frequently occurring category.
 
-\hypertarget{activity-2-recap-of-how-to-obtain-the-mean-median-and-mode}{%
-\subsubsection{Activity 2: Recap of how to obtain the mean, median, and mode}\label{activity-2-recap-of-how-to-obtain-the-mean-median-and-mode}}
+\hypertarget{activity-2-recap-of-how-to-obtain-the-mean-and-median}{%
+\subsubsection{Activity 2: Recap of how to obtain the mean and median}\label{activity-2-recap-of-how-to-obtain-the-mean-and-median}}
 
-In Lesson 1, you were introduced to the functions \texttt{mean} and \texttt{median}. There is no direct function in \texttt{base\ R} to calculate the mode, but you will one way to do so after this activity. Please find only the mean and median for the following six numbers:
+In Lesson 1, you were introduced to the functions \texttt{mean()} and \texttt{median()}. There is no direct function in \texttt{base\ R} to calculate the mode, but we will learn one way to do so soon. First, find only the mean and median for the following six numbers:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3074,20 +3106,25 @@ Type your answers in the group google doc.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-From today's data, we are interested in exploring the adoption of body-worn cameras (BWCs) and their usage in a sample of agencies. The variables that will help us explore this is \texttt{Q\_10A} because it measures whether the agency adopted BWCs and \texttt{Q\_12} because it measures the number of cameras that agencies reported using.
+\hypertarget{activity-3-levels-of-measurement}{%
+\subsubsection{Activity 3: Levels of measurement}\label{activity-3-levels-of-measurement}}
 
-So let's say we want to learn about these variables. The first step to choosing the appropriate analysis for our variable is establishing: \emph{what is it's level of measurement}? I did say, we shall keep coming back to these building blocks. So take a moment and reflect: what is the level of measurement you expect for \texttt{Q\_10A} - whether or not the agency has adopted body worn cameras? What about for \texttt{Q\_12} - the number of cameras the agency uses?
+From today's data, we are interested in exploring the adoption of body-worn cameras (BWCs) and their usage in a sample of agencies. The variables that will help us explore this is \texttt{Q\_10A} because it measures whether the agency adopted BWCs as of 2016 and \texttt{Q\_12} because it measures the number of cameras that agencies reported using.
 
-Have a think and write your answers in the google doc!
+Let us say we want to learn about these variables. The first step to choosing the appropriate analysis for our variables, \texttt{Q\_10A} and \texttt{Q\_12}, is establishing: \emph{what are their levels of measurement}?
+
+To review levels of measurement, refer to Lesson 2 (section 2.4.1). Have a think and record your answers for each variable in the google doc.
 
 \url{....}
 
-So now we know what we think the level of measurement should be, but what sort of object does R think that this variable is? Well, remember we can use the \texttt{class()} function for R to tell us this.
+\textbf{Figure 4.1} What are the levels of measurement?
 
-Let's start with \texttt{Q\_10A} - whether or not the agency has adopted body worn cameras. Hopefully you thought this to be a categorical variable. Let's see what R says:
+Now that we have established the level of measurement for our variables, what type of object does \texttt{R} think these variables are? In other words, what are these variables classed as? Recall that we can use the \texttt{class()} function to answer this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# We start with variable Q\_10A:}
+
 \FunctionTok{class}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_10A) }
 \end{Highlighting}
 \end{Shaded}
@@ -3096,7 +3133,7 @@ Let's start with \texttt{Q\_10A} - whether or not the agency has adopted body wo
 ## [1] "factor"
 \end{verbatim}
 
-We see this is a factor variable. So we can think to also use our trusty \texttt{attributes()} function, to see what levels it has :
+\texttt{Q\_10A} is classed as a factor. Another function that will return what the variable is classed as but also the specific levels is the \texttt{attributes()} function:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3113,18 +3150,14 @@ We see this is a factor variable. So we can think to also use our trusty \texttt
 ## [1] "factor"
 \end{verbatim}
 
-We can see it has 2 levels, ``(1) Agency has acquired in any form (including testing)'' and ``(2) Agency has not acquired'' . Which one appears the most frequently in our data set? Well to answer this, we can get the \textbf{mode} using the mlv function from the modeest package. Load the package:
+This factor variable has two levels: `(1) Agency has acquired in any form (including testing)' and `(2) Agency has not acquired'.
+
+Now, we want to know the \textbf{mode} -- which level or category appears most frequently in our data set. We use the function \texttt{mlv()} (acronym for \textbf{m}ost \textbf{l}ikely \textbf{v}alues) from the \texttt{modeest} package to answer this question:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(modeest)}
-\end{Highlighting}
-\end{Shaded}
+\CommentTok{\# Double check that the package modeest is loaded for this code to work}
 
-And now use the mlv() function to get the answer:
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{mlv}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_10A)}
 \end{Highlighting}
 \end{Shaded}
@@ -3134,9 +3167,9 @@ And now use the mlv() function to get the answer:
 ## 2 Levels: (1) Agency has acquired in any form (including testing) ...
 \end{verbatim}
 
-You can see this tells us the answer is ``(2) Agency has not acquired''. It also, handily prints out all the levels, so we can see what other values there were.
+The output returns the answer as: `(2) Agency has not acquired'. It also, conveniently, prints all the levels so we can see what are the other categories.
 
-If you want to double check whether the mlv() function is telling you the truth, create another frequency table, using the \texttt{table()} function.
+If you want to cross check your answer obtained from the \texttt{mlv()} function, create a frequency table using the \texttt{table()} function:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3152,9 +3185,9 @@ If you want to double check whether the mlv() function is telling you the truth,
 ##                                                    2013
 \end{verbatim}
 
-Indeed there are 2013 cases where the agency had not had any body worn cameras (``(2) Agency has not acquired'') which is more than the 1915 cases where the agency had body worn cameras in any format (``(1) Agency has acquired in any form (including testing)'').
+Indeed, there are 2,013 observations where the agency had not acquired any body worn cameras, which is more than the 1,915 observations where the agency had acquired body worn cameras in any format.
 
-We could also run the \texttt{mlv()} function and save the output to an object, rather than print into the console. Here we save to the object called \texttt{mode\_adopted}:
+We could also run the \texttt{mlv()} function and save the output in an object rather than print the answers into the console. Here, we save to the object called \texttt{mode\_adopted}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3168,16 +3201,22 @@ We could also run the \texttt{mlv()} function and save the output to an object, 
 ## 2 Levels: (1) Agency has acquired in any form (including testing) ...
 \end{verbatim}
 
-The \texttt{mlv()} function (acronym for \textbf{m}ost \textbf{l}ikely \textbf{v}alues) from the \texttt{modeest} package is used to obtain the mode. The modal response of all agencies was `No', meaning that they had not adopted BWCs as of the 2016 survey.
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# This new object will appear in your Environment pane}
+\end{Highlighting}
+\end{Shaded}
 
-Our exploration into the adoption of BWCs has so far yielded the knowledge that the majority of agencies had not adopted BWCs as of 2016. But how about those that have done so? To what extent do they use BWCs? This is where variable \texttt{Q\_12} comes in handy:
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{activity-3-the-extent-of-body-worn-camera-use}{%
-\subsubsection{Activity 3: The extent of body worn camera use}\label{activity-3-the-extent-of-body-worn-camera-use}}
+Our exploration into the adoption of BWCs has so far yielded the knowledge that the majority of agencies had not acquired BWCs as of 2016. But how about those that have done so? To what extent do they use BWCs? This is where variable \texttt{Q\_12} comes in handy:
 
-Use code to obtain the class of the variable \texttt{Q\_12}. Type the code you used and what class the variable is in your group google doc. (hint look back at how we did this for \texttt{Q\_10})
+\hypertarget{activity-4-the-extent-of-body-worn-camera-use}{%
+\subsubsection{Activity 4: The extent of body worn camera use}\label{activity-4-the-extent-of-body-worn-camera-use}}
 
-After you do so, we do some more investigation of Q\_12. First let us get the minimum value:
+Similar to the previous activity, obtain the class of the variable \texttt{Q\_12}. Type the code you used and what class the variable is in your group google doc.
+
+After you do so, we get to know more about \texttt{Q\_12}. First, let us get the minimum value:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3189,7 +3228,7 @@ After you do so, we do some more investigation of Q\_12. First let us get the mi
 ## [1] 0
 \end{verbatim}
 
-What about the maximum:
+And then the maximum:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3201,45 +3240,21 @@ What about the maximum:
 ## [1] 1200
 \end{verbatim}
 
-You can see above we use the functions \texttt{min()} and \texttt{max()}, and inside we put the object we want the minimum and maximum of (\texttt{bwcs\$Q\_12}), but we also add another parameter after a comma where we say \texttt{na.rm=TRUE}.
+Above we used the functions \texttt{min()} and \texttt{max()}, and inside we put the name of the specific variable we want the minimum and maximum of and the name of the data frame to which it belongs (hence, \texttt{bwcs\$Q\_12}). We also added the code \texttt{na.rm=TRUE} after the comma.
 
-What the heck is \texttt{na.rm}? When calculating measures of central tendency, you need to tell \texttt{R} that you have missing (NA) cases. Using \texttt{na.rm\ =\ TRUE} will exclude cases that have already been defined as missing. If we do not specify this code, it will return \texttt{NA} for agencies that have acquired BWCs because \texttt{Q\_12} has missing data. If you have \texttt{NA}, however, for the row defining agencies that have not acquired BWCs, this is all right because there would be no cases for them.
+What the heck is \texttt{na.rm}? When calculating measures of central tendency, you need to tell \texttt{R} that you have missing (i.e., NA) observations. Using \texttt{na.rm\ =\ TRUE} will exclude observations that have already been defined as missing. If we do not specify this code, it will instead return \texttt{NA} for agencies that have acquired BWCs because \texttt{Q\_12} has missing data.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-Now let us find the average number of BWCs used by agencies that have responded `Yes' in \texttt{Q10\_A}. We will use two ways to determine the mean: the \texttt{dplyr} way and the usual \texttt{base\ R} way.
+Now let us find the average number of BWCs used by agencies that have responded `Yes, acquired' in \texttt{Q10\_A}. We will use two ways to determine the mean: the \texttt{dplyr} way and the usual \texttt{base\ R} way. When we refer to \texttt{base\ R}, it means that these functions are already included in \texttt{R}, so there is no need to install additional packages.
 
-First let's start with dplyr. Load the package
+We start with \texttt{dplyr}. Now, we will do two things: first, we use the \texttt{group\_by()} function in order to group our observations by the values of the \texttt{Q\_10A} variable. The values are `1' and `2', and are essentially the categories `(1) Agency has acquired in any form (including testing)' and `(2) Agency has not acquired'. Then, we use the \texttt{summarise()} function, to tell us some summary statistics (in this case the mean, using the \texttt{mean()} function) \emph{for each group}.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(dplyr)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'dplyr'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-\end{verbatim}
-
-Now we will do two things. First we will use the \texttt{group\_by()} function in order to group our observations by the values of the \texttt{Q\_10A} variable. What are these values? Look above, and you will see, they are ``(1) Agency has acquired in any form (including testing)'' and ``(2) Agency has not acquired''. Then, we use the \texttt{summarise()} function, to tell us some summary statistics (in this case the mean, using the \texttt{mean()} function) \textbf{for each group}.
-
-We did a similar thing last semester - remember we got the mean and median and min and max etc for \emph{each} value of a particular variable, when we were looking at the relationship between age and the reason someone got arrested. Now we are looking for the values of how many body worn video cameras are in use (\texttt{Q\_12}) between whether they are in use or not (\texttt{Q\_10A}):
+We did a similar thing last semester whereby we obtained these descriptive statistics for \emph{each} value of a particular variable when we examined the relationship between age and the reason someone was arrested. Here, we are looking for the values of how many body worn cameras are used (\texttt{Q\_12}) \emph{between} whether they are were acquired or not (\texttt{Q\_10A}):
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# If you do not remember what \textquotesingle{}\%\textgreater{}\%\textquotesingle{} means, refer to Lesson 2, section 2.4.2.2}
 \NormalTok{bwcs }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{group\_by}\NormalTok{(Q\_10A) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{summarize}\NormalTok{(}\AttributeTok{mean\_deployed =} \FunctionTok{mean}\NormalTok{(Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
@@ -3254,14 +3269,17 @@ We did a similar thing last semester - remember we got the mean and median and m
 ## 2 (2) Agency has not acquired                                     NaN
 \end{verbatim}
 
-So we see that in those agencies where there is any cameras used, the average number of cameras is about 32.
-But in agencies where there is no bodyworn camera at all, the average is NaN! What is this?!?
+We see that in agencies where BWCs were acquired, the average number of cameras is about 32. But in agencies where BWCs were not acquired, the average is \texttt{NaN}. What is this?
 
+\begin{figure}
+\centering
 \includegraphics{Images/nan.png}
+\caption{\textbf{Figure 4.2} NaN??}
+\end{figure}
 
-Well NaN in R stands for \textbf{N}ot \textbf{a} \textbf{N}umber. This is because, \emph{all} the values for those who have no cameras for how many cameras they have is \texttt{NA}. Hopefully this makes sense, but if not, ask now!
+\texttt{NaN} in \texttt{R} stands for \textbf{N}ot \textbf{a} \textbf{N}umber. The reason is \emph{all} the values for the number of cameras used (in reference to \texttt{Q\_12}) among agencies that had not acquired cameras (in reference \texttt{Q\_10A}) is missing (\texttt{NA}). It makes sense that this should be so, because if agencies responded in \texttt{Q\_10A} that they had not acquired any BWCs, then why would we expect them to give a number in \texttt{Q\_12} on how many cameras they used? \texttt{Q\_12} does not apply to them.
 
-I did say there are many ways to answer a question in R. We used \texttt{dplyr} above, this is the \texttt{tidyverse} way. But you could also use the \texttt{base\ R} way. Here we use the \texttt{mean()} function, but get the average for all the groups together:
+Now, the above was the \texttt{dplyr} way. But you could use the \texttt{base\ R} way with the \texttt{mean()} function:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3273,13 +3291,13 @@ I did say there are many ways to answer a question in R. We used \texttt{dplyr} 
 ## [1] 31.82024
 \end{verbatim}
 
-The answers are the same: 31.8 . This is because we know what one group (those who haven't adopdet bwcs yet) don't contribute to the average. We use both methods because there may be situations where one is more appropriate than the other (e.g., maybe you want to see means for the individual categories when they are not \texttt{NaN}).
+The answers from both ways are the same: 31.8 . This is because we know that one group (agencies that have not acquired BWCs) do not contribute to the average. We learn both methods because there may be situations where one is more appropriate than the other (e.g., maybe you want to see means for the individual categories when they are not \texttt{NaN}).
 
-Next, we check out the median, as, remember, the mean is susceptible to outliers. To get the median for each group, we use \texttt{summarise()} again but this time we include the \texttt{median()} rather than the \texttt{mean()} function:
+Next, we identify the median, as, remember, the mean is susceptible to outliers. To get the median for each group, we use \texttt{summarise()} but, this time, we include the \texttt{median()} rather than the \texttt{mean()} function:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Use the same format as above, this time using the median() function }
+\CommentTok{\# Use the same format as above, but this time use the median() function }
 \CommentTok{\# dplyr way }
 \NormalTok{bwcs }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(Q\_10A) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{med\_deployed =} \FunctionTok{median}\NormalTok{(Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
 \end{Highlighting}
@@ -3293,7 +3311,7 @@ Next, we check out the median, as, remember, the mean is susceptible to outliers
 ## 2 (2) Agency has not acquired                                       NA
 \end{verbatim}
 
-What about the base R way?
+What about the \texttt{base\ R} way?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3308,25 +3326,47 @@ What about the base R way?
 
 Again, both methods to obtain the median are the same, but the median differs a lot from the mean: it is 8.
 
-What does this mean? Well there must be a few agencies which have a \emph{lot} of body worn cameras, which may be skewing our mean upwards. When the median and the mean are far away, we have \emph{skew}.
+What does this mean? There must be a few agencies that use a \emph{lot} of body worn cameras, which distorts our mean to appear as if the majority of agencies use 32 cameras. When the median and the mean are very different from each other, we have what is known as \emph{skew}.
 
-Sometimes, we want to calculate these at once. This is where the \texttt{dplyr} way is most handy, where we can specify more than one way to summarise our data in the \texttt{summarise()} function, separated by commas. So we create 4 columns in our table:
+Now what if we want to calculate these descriptive statistics at once? This is where the \texttt{dplyr} way is most handy. To obtain these statistics together, we specify that we want to create four columns that will appear in the output as a table:
 
 \begin{itemize}
-\tightlist
 \item
-  \emph{mean\_deployed}, using the \texttt{mean()} function,
+  \begin{enumerate}
+  \def\labelenumi{(\arabic{enumi})}
+  \tightlist
+  \item
+    \emph{mean\_deployed}, using the \texttt{mean()} function
+  \end{enumerate}
 \item
-  \emph{median\_deployed}, using the \texttt{median()} function,
+  \begin{enumerate}
+  \def\labelenumi{(\arabic{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    \emph{median\_deployed}, using the \texttt{median()} function
+  \end{enumerate}
 \item
-  \emph{mode\_deployed}, using the \texttt{mlv()} function,
+  \begin{enumerate}
+  \def\labelenumi{(\arabic{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    \emph{mode\_deployed}, using the \texttt{mlv()} function
+  \end{enumerate}
 \item
-  and \emph{total}, using the \texttt{sum()} function.
+  \begin{enumerate}
+  \def\labelenumi{(\arabic{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    \emph{total}, using the \texttt{sum()} function
+  \end{enumerate}
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Table containing the mean, median, mode, and total number of BWCs deployed }
+\CommentTok{\# Table containing the mean, median, mode, and total number of BWCs used }
 \NormalTok{bwcs }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{group\_by}\NormalTok{(Q\_10A) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_deployed =} \FunctionTok{mean}\NormalTok{(Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
@@ -3346,15 +3386,17 @@ Sometimes, we want to calculate these at once. This is where the \texttt{dplyr} 
 
 Another handy package for descriptive statistics is \texttt{skimr}. The function \texttt{skim\ ()} produces measures of central tendency and measures of dispersion (we will learn more on these in the later section), and number of missing values.
 
-A great feature of this is that it also includes a histogram of the numeric variables specified. If you do not want to specify any variables, \texttt{skim()} will summarise your entire data frame, and this may be good, but it depends on the size of your dataset:
+A great feature is that it also includes a histogram of the numeric variables specified. If you do not want to specify any variables, \texttt{skim()} will summarise your entire data frame, and this may be good, but it depends on the size of your dataset:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(skimr)}
+\CommentTok{\# Ensure the package \textquotesingle{}skimr\textquotesingle{} is loaded or this will not work}
+\CommentTok{\# Produce a summary of your Q\_12 variable, grouped by Q\_10 using skim() }
+\NormalTok{bwcs }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Q\_10A) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{skim}\NormalTok{(Q\_12)}
 \end{Highlighting}
 \end{Shaded}
-
-Produce a summary of your Q\_12 variable, grouped by Q\_10 using skim()
 
 \begin{tabular}{l|l|l|r|r|r|r|r|r|r|r|r|l}
 \hline
@@ -3366,165 +3408,51 @@ numeric & Q\_12 & (2) Agency has not acquired & 2013 & 0.0000000 & NaN & NA & NA
 \hline
 \end{tabular}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{bwcs }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{group\_by}\NormalTok{(Q\_10A) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{skim}\NormalTok{(Q\_12)}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{outliers}{%
 \subsection{Outliers}\label{outliers}}
 
 Recall the main disadvantage of the mean: it is not robust to extreme values, otherwise known as \textbf{outliers}.
 
-What exactly constitutes an \emph{outlier}? In a general sense, an outlier is any observation that shows an extreme value on one of our variables. There are different approaches to define what is an outlier, here we will rely on using the interquartile range to do so.
+What exactly constitutes an \emph{outlier}? Generally, an outlier is any observation that shows an extreme value on one of our variables. There are different ways to define what an outlier is, but, in this class, we use the \textbf{interquartile range} (IQR) to do so.
 
-One way of determining whether a case is an outlier is if it is 1.5 multiplied by the \textbf{interquartile range} (IQR) above the 3rd quartile (very large measurement eg very many BWCs) or below the 1st quartile (very small measurement eg very few BWCs), or for extreme outliers, above or below by 3 multiplied by IQR. The IQR is another robust estimate and is the 75th percentile observation (the third quartile {[}Q3{]}) minus the 25th percentile observation (the first quartile {[}Q1{]}) in your distribution:
+The IQR is another robust estimate and is the 75th percentile observation (the third quartile {[}Q3{]}) minus the 25th percentile observation (the first quartile {[}Q1{]}) in your distribution:
 
 \[ IQR= Q3 - Q1 \]
 
-In the case of our body worn camera data, we can calculate these measures using the quantile() function. If we ask for the quantiles of the variable we get:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{quantile}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##   0%  25%  50%  75% 100% 
-##    0    3    8   20 1200
-\end{verbatim}
-
-This is our 5 number summary - you may remember this is the \textbf{1} - minimum, \textbf{2} - first quartile, \textbf{3} - second quartile (also known as the \emph{median}), \textbf{4} - third quartile, and \textbf{5} - maximum value. To get any one of these, we can request it with its appropriate number in square brackets, after the function. For example
-
-\texttt{quantile(bwcs\$Q\_12,\ na.rm\ =\ TRUE){[}1{]}} will give the minimum, \texttt{quantile(bwcs\$Q\_12,\ na.rm\ =\ TRUE){[}5{]}} will give the maximum, and so on!
-
-So, so get our inter quartile range, we would subtract our first quartile from our third quartile (remember \$ IQR= Q3 - Q1 \$) so this would be:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{quantile}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)[}\DecValTok{4}\NormalTok{] }\SpecialCharTok{{-}} \FunctionTok{quantile}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)[}\DecValTok{2}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 75% 
-##  17
-\end{verbatim}
-
-The \texttt{75\%} label is an artefact, and doesn't tell us much here, we can remove by wrapping the whole thing in the function \texttt{as.numeric()}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{quantile}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)[}\DecValTok{4}\NormalTok{] }\SpecialCharTok{{-}} \FunctionTok{quantile}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)[}\DecValTok{2}\NormalTok{])}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 17
-\end{verbatim}
-
-Woo we have our IQR! Now that you've gone through all that, I can tell you, there is also a function that will tell us the IQR. It is\ldots. drumroll please\ldots.. \texttt{IQR()}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{IQR}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 17
-\end{verbatim}
-
-We see we get the same number, 17, so we can trust this is a correct answer, now that we've gotten it 3 different ways\ldots{}
-
-So, what would be an outlier then? Remember back to the outlier definition we gave above:
-
-\begin{quote}
-a case is an outlier is if it is 1.5 multiplied by the \textbf{interquartile range} (IQR) above the 3rd quartile (very large measurement eg very many BWCs) or below the 1st quartile (very small measurement eg very few BWCs)
-\end{quote}
-
-So any agency is an outlier if it has either fewer than 1st quartile minus 1.5 times the IQR (\(Q1 - 1.5*IQR\)) body worn cameras, or more than 3rd quartile plus 1.5 times the IQR (\(Q3 + 1.5*IQR\)) body worn cameras. Let's get some numbers plugged into the equation:
-
-\(Q1 - 1.5*IQR\) is
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{quantile}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{{-}} \FloatTok{1.5}\SpecialCharTok{*}\FunctionTok{IQR}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] -22.5
-\end{verbatim}
-
-So\ldots{} any agency that has \emph{minus} 23 body worn cameras would be a negative outlier\ldots{} I imagine this is not a likely scenario\ldots{}
-
-What about high outliers?
-
-\(Q3 + 1.5*IQR\) is
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{quantile}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)[}\DecValTok{4}\NormalTok{] }\SpecialCharTok{+} \FloatTok{1.5}\SpecialCharTok{*}\FunctionTok{IQR}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 45.5
-\end{verbatim}
-
-This one is more realistic, any agency that has 46 or more body worn cameras is an outlier. What about extreme outliers in this direction? Remember that is anything more than 3 times the IQR above the 3rd quartile. In an equation:
-
-\(Q3 + 3*IQR\)
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{quantile}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)[}\DecValTok{4}\NormalTok{] }\SpecialCharTok{+} \DecValTok{3}\SpecialCharTok{*}\FunctionTok{IQR}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 71
-\end{verbatim}
-
-Any agencies with more than 71 body worn cameras are extreme outliers!
-
-A nice way to visualise this is with a boxplot. Remember, a boxplot visually represents yout 5-number-summary, like this:
-
-\begin{verbatim}
-## Warning: Transformation introduced infinite values in continuous x-axis
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Removed 97 rows containing non-finite values (stat_boxplot).
-\end{verbatim}
+Now you can also see where the outliers, and extreme outliers are. Outliers are anything above the orange line, extreme outliers are anything above the purple line:
 
 \includegraphics{04-descriptive-statistics_files/figure-latex/unnamed-chunk-29-1.pdf}
 
-Now you can also see where the outliers, and extreme outliers are. Outliers are anything above the orange line, extreme outliers are anything above the purple line:
+We could also show this in a histogram, where everything to the right of the orange line is an outlier, and everything to the right of the purple is an extreme outlier:
 
 \includegraphics{04-descriptive-statistics_files/figure-latex/unnamed-chunk-30-1.pdf}
 
-We could also show this in a histogram, where everything to the right of the orange line is an outlier, and everything to the right of the purple is an extreme outlier:
+--\textgreater{}
 
-\includegraphics{04-descriptive-statistics_files/figure-latex/unnamed-chunk-31-1.pdf}
+A popular method for determining outliers is known as \textbf{Tukey fences}. According to this method, outliers are seen as falling outside a lower or an upper inner fence. They are calculated from the following:
 
-A popular method for determining outliers is known as \textbf{Tukey fences}. According to this method, outliers are seen as falling within a lower or upper fence. They are calculated from the following:
+\[ Lower~ inner~ fence = Q1 - (1.5*IQR)\]
 
-\[ Lower~ fence = Q1 - 1.5(IQR)\]
+\[ Upper~inner ~ fence = Q3 + (1.5 * IQR) \]
 
-\[ Upper~ fence = Q3 - 1.5(IQR) \]
+In addition, extreme outliers are seen as falling outside a lower and upper outer fence and can be calculated from the following:
 
-\hypertarget{activity-4-determining-outliers-using-tukey-fences}{%
-\subsubsection{Activity 4: Determining outliers using Tukey fences}\label{activity-4-determining-outliers-using-tukey-fences}}
+\[ Lower~ outer ~fence = Q1 - (3 * IQR)\]
 
-Now we use the IQR to construct Tukey fences so to find and save the outliers for the \texttt{Q\_12} variable:
+\[ Upper~ outer~ fence = Q3 + (3 * IQR) \]
 
-First, let us get the IQR of the Q\_12 variable using the IQR function, and save this into an object called `bwc\_deployed\_iqr'.
+To visualise this, see Figure 4.3:
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth,height=\textheight]{Images/tukey.png}
+\caption{\textbf{Figure 4.3} Tukey fences}
+\end{figure}
+
+\hypertarget{activity-5-determining-outliers-using-tukey-fences}{%
+\subsubsection{Activity 5: Determining outliers using Tukey fences}\label{activity-5-determining-outliers-using-tukey-fences}}
+
+We obtain the IQR of our \texttt{Q\_12} variable using the \texttt{IQR} function, and save this into an object called \texttt{bwc\_deployed\_iqr}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3532,10 +3460,11 @@ First, let us get the IQR of the Q\_12 variable using the IQR function, and save
 \end{Highlighting}
 \end{Shaded}
 
-It is now saved as an object. You can see it holds the value for the IQR:
+It is now saved as an object and holds the value for the IQR:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Our \textquotesingle{}box\textquotesingle{} called \textquotesingle{}bwc\_deployed\_iqr\textquotesingle{} that holds the IQR of the variable Q\_12}
 \NormalTok{bwc\_deployed\_iqr}
 \end{Highlighting}
 \end{Shaded}
@@ -3544,7 +3473,7 @@ It is now saved as an object. You can see it holds the value for the IQR:
 ## [1] 17
 \end{verbatim}
 
-Now let's do the same. Then, get the 1st and 3rd quartiles of the Q\_12 variable using \texttt{quantile()} function and place them in objects:
+Next, we obtain the 1st and 3rd quartiles of the \texttt{Q\_12} variable using the \texttt{quantile()} function and place them in objects too:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3553,9 +3482,9 @@ Now let's do the same. Then, get the 1st and 3rd quartiles of the Q\_12 variable
 \end{Highlighting}
 \end{Shaded}
 
-Now we calculate the Tukey fences.
+Now, we calculate the Tukey fences and put them each in separate objects.
 
-First the lower Fence:
+The lower inner fence:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3569,7 +3498,7 @@ First the lower Fence:
 ## -22.5
 \end{verbatim}
 
-Then the Upper Fence:
+The upper inner fence:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3583,7 +3512,7 @@ Then the Upper Fence:
 ## 45.5
 \end{verbatim}
 
-You can also calculate the `outer fences' which are considered extreme outliers
+You can also calculate the `outer fences' which are considered extreme outliers:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3609,9 +3538,7 @@ You can also calculate the `outer fences' which are considered extreme outliers
 ##  71
 \end{verbatim}
 
-Are these numbers familiar? You can see, the Tukey fences are just the names given to what we calculated above!
-
-Now let's see how many agencies actually fall into outliers and extreme outliers categories. We will be oing back to the \texttt{filter()} functions for this. Remember we filter to keep all rows that meet a specific condition. In this case, we want all cases where the value for the variable Q\_12 (how many BWCs an agency has) is an outlier (greater than inner fence, but smaller than outer fence) and an extreme outlier (greater than outer fence). save them in separate objects called `outliers' and `outliers\_extreme'
+Let us see how many agencies are considered outliers and extreme outliers on how many BWCs they use. We revisit the \texttt{filter()} function for this. (See Lesson 2, section 2.4.3.1 .) Remember that we filter to keep all rows that meet a specific condition. In this case, we want all observations whose value for the variable \texttt{Q\_12} is an outlier (outside the inner fences but within the outer fences) and an extreme outlier (outside the outer fences). We will save them in separate objects called \texttt{outliers} and \texttt{outliers\_extreme}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3629,9 +3556,7 @@ and
 \end{Highlighting}
 \end{Shaded}
 
-Now we can look at these objects in our environment, and see that outliers has 282 rows (so 282 agencies that are outliers) while extreme\_outliers has 188 rows (so 282 agencies that are extreme outliers)!
-
-We can look at their characteristics on the number of BWCs with the \texttt{summary()} function:
+These new objects are now in our environment (that Environment pane in the top right of your \texttt{RStudio}). We can look at their characteristics on the number of BWCs used with the \texttt{summary()} function:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3657,48 +3582,43 @@ and
 ##    72.0   100.0   130.0   215.4   241.2  1200.0
 \end{verbatim}
 
-In your group google doc, type your answers to the following: (1) lower and upper inner fences, (2) lower and upper outer fences, (3) minimum of \texttt{outliers} and \texttt{outliers\_extreme}.
+In your group google doc, type your answers to the following: (1) lower and upper inner fences, (2) lower and upper outer fences, and (3) minimum of \texttt{outliers} and \texttt{outliers\_extreme}.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{on-skewness}{%
 \subsubsection{\texorpdfstring{\textbf{On Skewness}}{On Skewness}}\label{on-skewness}}
 
-Related to outliers is \textbf{skewness}. This has to do with the shape of the distribution. You might remember from last semester we discussed something called the bell curve, or normal distribution. This is how you expect your data to look if the mean and the median are the same exact value, and your data are distributed equally on the two sides.
+Related to outliers is \textbf{skewness}. This has to do with the shape of the distribution. You might remember from last semester we discussed something called the bell curve, or normal distribution. This is how you expect your data to look if the mean and the median are the same exact value, and your data are distributed equally on either side of this value.
 
-Here is a normal distribution:
+Here is a normal distribution (Figure 4.4):
+
+\includegraphics{04-descriptive-statistics_files/figure-latex/unnamed-chunk-42-1.pdf}
+
+A skewed distribution would pull the observations more so to the left or to the right, and you would have a long tail on either side. This would also cause your mean and median to be further apart.
+
+Here is a right skewed distribution (Figure 4.5):
 
 \includegraphics{04-descriptive-statistics_files/figure-latex/unnamed-chunk-43-1.pdf}
 
-Now a skewed distribution would pull to the left or to the right, where you have a long tail on either side. This would also cause your mean and median to get further apart.
-
-Here is a right skewed distribution:
+And here is a left skewed distribution (Figure 4.6):
 
 \includegraphics{04-descriptive-statistics_files/figure-latex/unnamed-chunk-44-1.pdf}
 
-And here is a left:
+So, how can we tell if our data are skewed? We can tell by visualising it!
 
-\includegraphics{04-descriptive-statistics_files/figure-latex/unnamed-chunk-45-1.pdf}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-So how can we tell if our data are skewed? Well exactly like above, what we want is to visualise it! We will do this in the next activity.
+\hypertarget{activity-6-visualizing-skewness-using-a-histogram}{%
+\subsubsection{Activity 6: Visualizing skewness using a histogram}\label{activity-6-visualizing-skewness-using-a-histogram}}
 
-\hypertarget{activity-5-visualizing-skewness-using-a-histogram}{%
-\subsubsection{Activity 5: Visualizing skewness using a histogram}\label{activity-5-visualizing-skewness-using-a-histogram}}
-
-When your distribution is skewed, the majority of cases veer more to the left or right of the distribution, with a tail of outliers. An initial way of checking for skewness is to use a histogram, like from last week:
-
-Remember to bring up the package ggplot2 if you have not done so
+When your distribution is skewed, the majority of cases veer more to the left or right of the distribution, with a tail of outliers. An initial way of checking for skewness is to use a histogram, like from last week.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(ggplot2)}
-\end{Highlighting}
-\end{Shaded}
+\CommentTok{\# To create a histogram of number of BWCs used, we will use the \textasciigrave{}ggplot()\textasciigrave{} function and the geometry for histogram which is \textasciigrave{}geom\_histogram()\textasciigrave{}}
+\CommentTok{\# Ensure the package ggplot2 is loaded}
 
-To create a histogram of number of BWCs deployed, we will use the \texttt{ggplot()} function and the geometry for histogram which is \texttt{geom\_histogram()}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ bwcs, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Q\_12)) }\SpecialCharTok{+} 
   \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{15}\NormalTok{, }\AttributeTok{fill =} \StringTok{"red"}\NormalTok{) }\SpecialCharTok{+} 
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Number of BWCs Deployed"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Number of Agencies"}\NormalTok{) }\SpecialCharTok{+} 
@@ -3711,13 +3631,17 @@ To create a histogram of number of BWCs deployed, we will use the \texttt{ggplot
 ## Warning: Removed 2031 rows containing non-finite values (stat_bin).
 \end{verbatim}
 
-\includegraphics{04-descriptive-statistics_files/figure-latex/unnamed-chunk-47-1.pdf}
+\includegraphics{04-descriptive-statistics_files/figure-latex/unnamed-chunk-45-1.pdf}
 
 What do you observe from the histogram? Discuss in your groups, or reflect if you are in the quiet room. What do you think the number of BWCs may depend on? Size of the agency? Willingness to adopt BWCs? Are you surprised by this data?
 
-\includegraphics{Images/bwcs.jpg}
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth,height=\textheight]{Images/bwcs.jpg}
+\caption{\textbf{Figure 4.7} Police Body Worn Cameras}
+\end{figure}
 
-From our histogram, we see that most agencies deployed fewer than 250 BWCs and only a small proportion deployed more than 800.
+From our histogram, we see that most agencies used fewer than 250 BWCs and only a small proportion deployed more than 800.
 
 Another way of checking for skewness is through the \texttt{skewness()} function from the \texttt{moments} package. Skewness is determined by the following:
 
@@ -3731,19 +3655,13 @@ Another way of checking for skewness is through the \texttt{skewness()} function
   negative value = means distribution is negatively skewed or skewed left
 \end{itemize}
 
-We calculate skewness for our variable \texttt{Q\_12}. Calculate skewness of Q\_12 and put it into an object called bwc\_skew:
+We calculate skewness for our variable \texttt{Q\_12}and put it into an object called \texttt{bwc\_skew}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{bwc\_skew }\OtherTok{\textless{}{-}} \FunctionTok{skewness}\NormalTok{(bwcs}\SpecialCharTok{$}\NormalTok{Q\_12, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: encountered a tie, and the difference between minimal and 
-##                    maximal value is > length('x') * 'tie.limit'
-## the distribution could be multimodal
-\end{verbatim}
 
 Now print the result. Will the skewness coefficient indicate negative, positive, or no skewness?
 
@@ -3754,7 +3672,7 @@ Now print the result. Will the skewness coefficient indicate negative, positive,
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 7.634726
+## [1] 7.640767
 \end{verbatim}
 
 We see a positive skew!
@@ -3766,15 +3684,20 @@ From the two ways of checking for skewness, \texttt{Q\_12} is an asymmetric dist
 \hypertarget{measures-of-dispersion}{%
 \subsection{Measures of Dispersion}\label{measures-of-dispersion}}
 
-What is meant by dispersion is the spread of values from the one value chosen to represent them all. That one value is usually the mean, or in the case of categorical variables, the mode. This is important because the single number to summarise our data might often mask variation. If last year you read ``The Tiger That Isn't'', you might remember the section about the ``white rainbow''. We know the vibrancy of the colours of the rainbow and we know what we would lack if we combined them to form a bland white band in the sky - the average of all the colours is white. If we just represented the rainbow by the average, we would miss quite a lot!
+What is meant by dispersion is the spread of values from the one value chosen to represent them all. That one value is usually the mean, or in the case of categorical variables, the mode. This is important because the single number to summarise our data might often mask variation. Last semester, we read \emph{The Tiger That Isn't} and you might remember the section about the `white rainbow'. We know the vibrancy of each of the colours of the rainbow, but if we combined these colours, they would form a bland white band in the sky - the average of all the colours is white. If we just represented the rainbow by the average, we would miss quite a lot!
 
+\begin{figure}
+\centering
 \includegraphics{Images/rainbow.jpg}
-Let's explore how we measure dispersion, and how we can interpret this to draw conclusions about the data.
+\caption{\textbf{Figure 4.8} Double rainbow?!}
+\end{figure}
 
-\hypertarget{activity-6-loading-the-other-dataset}{%
-\subsubsection{Activity 6: Loading the other dataset}\label{activity-6-loading-the-other-dataset}}
+Let us explore how we measure dispersion, and how we can interpret this to draw conclusions about the data.
 
-We learn about measures of dispersion using another dataset from the ICPSR website. The SISFCF survey has been conducted periodically since 1976, and the current survey (2004) data (04572-0001-Data.rda) can, too, be accessed at the ICPSR website and downloaded as an .rda file. Follow the same steps with loading the data as with the previous data on BWCs. Now, for this dataset, we do the following as well:
+\hypertarget{activity-7-loading-the-other-dataset}{%
+\subsubsection{Activity 7: Loading the other dataset}\label{activity-7-loading-the-other-dataset}}
+
+We learn about measures of dispersion using another dataset from the ICPSR website. The Survey of Inmates in State and Federal Correctional Facilities (SISFCF) survey has been conducted periodically since 1976, and the current survey (2004) data (04572-0001-Data.rda) can, too, be accessed at the ICPSR website and downloaded as an .rda file. Follow the same steps with loading the data as with the previous data on BWCs. Now, for this dataset, we do the following as well:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3786,7 +3709,7 @@ We learn about measures of dispersion using another dataset from the ICPSR websi
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Change the name of the data frame from da04572.0001 to \texttt{inmatesurvey04} by using the \texttt{\textless{}-} assignment operator. This will create an identical object but with a new name.
+  After the data loads into \texttt{RStudio}, it is now called `da04572.0001'. Put this into an object called \texttt{inmatesurvey04} by using the \texttt{\textless{}-} assignment operator.
 \end{enumerate}
 
 \begin{Shaded}
@@ -3808,12 +3731,12 @@ The \textbf{variation ratio} (VR) tells us the proportion of cases that are not 
 
 \[VR = 1 – ({\frac {N~modalcat~} {N~total~}})\]
 
-\(N~modalcat\) refers to the frequency of cases in the modal category, and \(N~total~\) refers to the total number of cases. This formula states that VR is equal to 1 minus the proportion of cases that are in the modal category, which is the same as saying the proportion of cases that are not in the modal category.
+\(N~modalcat\) refers to the frequency of observations in the modal category, and \(N~total~\) refers to the total number of observations. This formula states that VR is equal to 1 minus the proportion of observations that are in the modal category, which is the same as saying the proportion of observations that are not in the modal category.
 
-\hypertarget{activity-7-calculating-the-variation-ratio}{%
-\subsubsection{Activity 7: Calculating the variation ratio}\label{activity-7-calculating-the-variation-ratio}}
+\hypertarget{activity-8-calculating-the-variation-ratio}{%
+\subsubsection{Activity 8: Calculating the variation ratio}\label{activity-8-calculating-the-variation-ratio}}
 
-Now, for example, we are interested in knowing whether the modal category describes the overall work histories prior to arrest of federal inmates pretty accurately, or if there is a lot of variation in responses from inmates. To do so, we use the variable \texttt{V1748} which tells us about their work history prior to arrest.
+Now, for example, we are interested in knowing whether the modal category describes the overall work histories prior to arrest of federal inmates pretty accurately, or if there is a lot of variation in responses from inmates. To do so, we use the variable \texttt{V1748} which tells us about their work histories prior to arrest.
 
 We can look at a frequency table:
 
@@ -3829,7 +3752,7 @@ We can look at a frequency table:
 ##           2180            284             65              0              1
 \end{verbatim}
 
-Or we can use skim
+Or we can use \texttt{skim}:
 
 \begin{tabular}{l|l|r|r|l|r|l}
 \hline
@@ -3845,7 +3768,7 @@ factor & data & 1156 & 0.6863809 & FALSE & 4 & (1): 2180, (2): 284, (3): 65, (8)
 \end{Highlighting}
 \end{Shaded}
 
-Then, check if we have cases defined as missing using `is.na' to get a summary of missing cases
+Then, we check if we have any observations defined as missing using \texttt{is.na} to get a summary of missing cases:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3859,9 +3782,9 @@ Then, check if we have cases defined as missing using `is.na' to get a summary o
 ##  2530  1156
 \end{verbatim}
 
-This tells us that there are 2530 complete cases and 1156 NA values.
+This tells us that there are 2,530 complete observations and 1,156 missing ones.
 
-So we could tell from the tables above that `Full-time' is the mode, but we can also get R to provide the mode and save it in an object
+We could tell from the tables above that `Full-time' is the mode, but we can also get \texttt{R} to provide the mode and save it in an object:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3875,9 +3798,20 @@ So we could tell from the tables above that `Full-time' is the mode, but we can 
 ## 5 Levels: (1) Full-time (2) Part-time (3) Occasional ... (8) Refused
 \end{verbatim}
 
-So we have the modal category. But what about the variation ratio? To get this, we create two dataframes, and count the number of people who reported any employment (answers of (1) Full-time (2) Part-time and (3) Occasional) in one, and the numbers who reported the modal category (1) Full-time.
+What about the variation ratio? To get this, we create two objects: one for total number of observations and, in the other object, only the numbers who reported the modal category, which is Full-time (1).
 
-Store the value `full-time' in the object n\_mode
+To create the first object, get the number of total observations. Store this value in the object \texttt{n\_employed}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The \textquotesingle{}!\textquotesingle{} next to \textquotesingle{}is.na\textquotesingle{} is telling R to only keep observations that are not missing}
+\NormalTok{n\_employed }\OtherTok{\textless{}{-}}\NormalTok{ inmatesurvey04 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(V1748)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{n =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+To create the second object, store the value `full-time' in the object \texttt{n\_mode}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3887,17 +3821,7 @@ Store the value `full-time' in the object n\_mode
 \end{Highlighting}
 \end{Shaded}
 
-Now get the number of cases who reported being employed prior to arrest. Store this value in the object n\_employed
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{n\_employed }\OtherTok{\textless{}{-}}\NormalTok{ inmatesurvey04 }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(V1748)) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{n =} \FunctionTok{n}\NormalTok{())}
-\end{Highlighting}
-\end{Shaded}
-
-And finally, we can calculate the proportion. Store this value in the object proportion\_mode
+Finally, we can calculate the proportion. Store this value in the object \texttt{proportion\_mode}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3905,7 +3829,7 @@ And finally, we can calculate the proportion. Store this value in the object pro
 \end{Highlighting}
 \end{Shaded}
 
-We can use this to get the variation ratio. To do this, subtract proportion of cases in the modal category from 1 .
+We can use this to get the variation ratio. To do this, subtract the proportion of cases in the modal category from 1 .
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3923,8 +3847,8 @@ The VR is 0.1383, meaning that the work history among federal inmates prior to a
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{activity-8-onto-the-index-of-qualitative-variation-iqv}{%
-\subsubsection{Activity 8: Onto the Index of Qualitative Variation (IQV)}\label{activity-8-onto-the-index-of-qualitative-variation-iqv}}
+\hypertarget{activity-9-onto-the-index-of-qualitative-variation-iqv}{%
+\subsubsection{Activity 9: Onto the Index of Qualitative Variation (IQV)}\label{activity-9-onto-the-index-of-qualitative-variation-iqv}}
 
 The IQV is different from the VR because it considers dispersion across all categories, whereas the VR only views dispersion in terms of modal versus non-modal.
 
@@ -3932,15 +3856,7 @@ The IQV lies between 0 and 1 and tells you the variability of the distribution. 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(qualvar)}
-\end{Highlighting}
-\end{Shaded}
-
-Get the index of qualitative variation for the same variable: V1748
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#}
+\CommentTok{\# Get the index of qualitative variation for the same variable, V1748 }
 \NormalTok{IQV}\OtherTok{\textless{}{-}}\FunctionTok{as.vector}\NormalTok{(}\FunctionTok{table}\NormalTok{(inmatesurvey04}\SpecialCharTok{$}\NormalTok{V1748)) }
 
 \FunctionTok{DM}\NormalTok{(IQV, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
@@ -3951,7 +3867,7 @@ Get the index of qualitative variation for the same variable: V1748
 ## [1] 0.1729249
 \end{verbatim}
 
-What is value that you get in the output? Type the value in your google doc and what you think this value means.
+What is the value that you get in the output? Type the value in your google doc and what you think this value means.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -3960,15 +3876,14 @@ What is value that you get in the output? Type the value in your google doc and 
 
 These measures of dispersion are the most familiar because they are defined as the spread of values around a \emph{mean}. We revisit three of these: the range, variance, and standard deviation.
 
-\hypertarget{activity-9-the-range}{%
-\subsubsection{Activity 9: The range}\label{activity-9-the-range}}
+\hypertarget{activity-10-the-range}{%
+\subsubsection{Activity 10: The range}\label{activity-10-the-range}}
 
-The \textbf{range} is the difference between the maximum and minimum value in a given distribution. We use the ratio-level variable \texttt{V2254}, a measure of the age at which inmates stated they first started smoking cigarettes regularly, as an example:
-
-Examine the variable
+The \textbf{range} is the difference between the maximum and minimum value in a given distribution. We use the ratio-level variable \texttt{V2254}, a measure of the age at which inmates stated they first started smoking cigarettes regularly as an example:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Get to know the variable }
 \FunctionTok{attributes}\NormalTok{(inmatesurvey04}\SpecialCharTok{$}\NormalTok{V2254)}
 \end{Highlighting}
 \end{Shaded}
@@ -3979,12 +3894,15 @@ Examine the variable
 ##                     98                     97                      0
 \end{verbatim}
 
-Note that this variable has codes that do not indicate the number of times smoked. These are 0 - never smoked; 97 - Don't know; and 98 -- Refused. We notice that some categories are not about smoking, such as `Don't know' and `Refused', and including these will give us an incorrect result. To resolve this, we must convert irrelevant categories into missing data:
+Note that this variable has codes that do not indicate the number of times smoked. These are 0 (never smoked); 97 (Don't know); and 98 (Refused). We notice that these categories are not about smoking and including these will give us an incorrect result. To resolve this, we must convert irrelevant categories into missing data.
 
-First create a new variable so we do not write over the old one, calling it \texttt{age\_smoker\_range} using the \texttt{mutate()} function, first assigning it the values of the \texttt{V2254} variable, and then recoding each value (0, 97, 98) as a \texttt{NA} using the \texttt{na\_if()} function from the dplyr package.
+First, we create a new variable so we do not write over the original, calling it \texttt{age\_smoker\_range} using the \texttt{mutate()} function. This is a duplicate of the \texttt{V2254} variable, but we will recode each of the irrelevant values (0, 97, 98) as \texttt{NA} by using the \texttt{na\_if()} function from the \texttt{dplyr} package.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# We make this new variable using the values from the variable \textquotesingle{}V2254\textquotesingle{}}
+\CommentTok{\# Then we include it into our data frame \textquotesingle{}inmatesurvey04\textquotesingle{} by specifying the assignment operator}
+
 \NormalTok{inmatesurvey04 }\OtherTok{\textless{}{-}}\NormalTok{ inmatesurvey04 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{mutate}\NormalTok{(}\AttributeTok{age\_smoker\_range =}\NormalTok{ V2254,}
            \AttributeTok{age\_smoker\_range =} \FunctionTok{na\_if}\NormalTok{(age\_smoker\_range, }\DecValTok{0}\NormalTok{),}
@@ -3994,7 +3912,7 @@ First create a new variable so we do not write over the old one, calling it \tex
 \end{Highlighting}
 \end{Shaded}
 
-Now for the range. \texttt{range\ ()} function prints the minimum and maximum values.
+The \texttt{range\ ()} function prints the minimum and maximum values.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4008,22 +3926,9 @@ Now for the range. \texttt{range\ ()} function prints the minimum and maximum va
 ## [1]  1 57
 \end{verbatim}
 
-We can then use these to calculate the range by subtracting the minimum value from the maximum.
-
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{smoker\_range[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{{-}}\NormalTok{ smoker\_range[}\DecValTok{1}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 56
-\end{verbatim}
-
-Or we could also calculate the difference of that object using the \texttt{diff()}function.
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\CommentTok{\# We calculate the difference of that object to obtain the value}
 \FunctionTok{diff}\NormalTok{(smoker\_range)}
 \end{Highlighting}
 \end{Shaded}
@@ -4034,25 +3939,24 @@ Or we could also calculate the difference of that object using the \texttt{diff(
 
 What is the range? Input the answer in your google doc.
 
-BUT you can see something strange while figuring out the range: the minimum is one year old! This may be something we want to exclude in analyses as it might not be valid -- maybe a mistake in coding -- so conducting descriptive statistics can help with tidying your data.
+BUT you can see something strange while figuring out the range: the minimum is one year old! This may be something we want to exclude in future analyses as it might not be valid -- maybe a mistake in coding -- so conducting these descriptive statistics that you have been doing can help with tidying your data.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{activity-10-variance}{%
-\subsubsection{Activity 10: Variance}\label{activity-10-variance}}
+\hypertarget{activity-11-variance}{%
+\subsubsection{Activity 11: Variance}\label{activity-11-variance}}
 
-Now, the \textbf{variance} ( \(s^2\) ) is about spread, specifically the sum of the squared deviations from the mean, then divided by the total number of cases. The equation looks like this:
+Now, the \textbf{variance} ( \(s^2\) ) is about spread, specifically the sum of the squared deviations from the mean, then divided by the total number of observations. The equation looks like this:
 
 \[ s^2 = \frac{\sum(x - \mu)^2}{N}\]
 
-We use the function \texttt{var()} from the \texttt{stats} package that comes already preinstalled with base R.
+We use the function \texttt{var()} from the \texttt{stats} package that comes already preinstalled in \texttt{base\ R}.
 
-We use the variable \texttt{V2529}, which records the number of times inmates reported being written up for verbally assaulting a prison staff member, as an example:
-
-First, let us take a look at the variable
+We use the variable \texttt{V2529}, which records the number of times inmates reported being written up for verbally assaulting a prison staff member as an example:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# First, let us get to know the variable}
 \FunctionTok{summary}\NormalTok{(inmatesurvey04}\SpecialCharTok{$}\NormalTok{V2529)}
 \end{Highlighting}
 \end{Shaded}
@@ -4074,7 +3978,7 @@ First, let us take a look at the variable
 ##        998        997
 \end{verbatim}
 
-Now let's create a new variable so we do not write over the old one. We do this so we can code 997 and 998 values as missing - you can see these stand for Refused and Don't know .
+Now let us create a new variable so we do not write over the original one. We do this so we can recode `997' and `998' values as missing - you can see these stand for `Refused' and `Don't know' respectively.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4086,7 +3990,7 @@ Now let's create a new variable so we do not write over the old one. We do this 
 \end{Highlighting}
 \end{Shaded}
 
-Now let us calculate the variance
+Now let us calculate the variance:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4103,15 +4007,15 @@ The variance is 82.6, which is fairly dispersed, but if you got to know the data
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{activity-11-standard-deviation}{%
-\subsubsection{Activity 11: Standard deviation}\label{activity-11-standard-deviation}}
+\hypertarget{activity-12-standard-deviation}{%
+\subsubsection{Activity 12: Standard deviation}\label{activity-12-standard-deviation}}
 
-Last, we learn about the \textbf{standard deviation} (SD), which is the square root of the variance. The smaller it is, the more concentrated cases are around the mean, while larger values reflect a wider distance from the mean. In other words, the SD tells us how well the mean represents our data. Too large, then the mean is a poor representation, because there is too much variability. We use the variable \texttt{verb\_assault\_var} as an example:
-
-Calculate th standard deviation of the verb\_assault\_var variable and save it to an object
+Last, we learn about the \textbf{standard deviation} (SD), which is the square root of the variance. The smaller it is, the more concentrated the observations are around the mean, while larger values reflect a wider distance from the mean. In other words, the SD tells us how well the mean represents our data. Too large, then the mean is a poor representation, because there is too much variability. We use the variable \texttt{verb\_assault\_var} as an example:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Calculate the standard deviation of the \textquotesingle{}verb\_assault\_var\textquotesingle{} variable and save it to an object }
+
 \NormalTok{sd }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(inmatesurvey04}\SpecialCharTok{$}\NormalTok{verb\_assault\_var, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \NormalTok{sd}
 \end{Highlighting}
@@ -4121,7 +4025,7 @@ Calculate th standard deviation of the verb\_assault\_var variable and save it t
 ## [1] 9.090866
 \end{verbatim}
 
-Now, we told you that the standard deviation is the square root of the variance. You can double check, we will see if the SD, squared, matches the variance. Create a new object, var2, by taking the square of the standard deviation. We will call this var2.
+Recall that the SD is the square root of the variance. You can double check to see if the SD, squared, matches the variance. Create a new object, \texttt{var2}, by taking the square of the standard deviation:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4136,16 +4040,34 @@ Now, we told you that the standard deviation is the square root of the variance.
 
 Yes, it does match!
 
-The SD is 9.09087 meaning that this number of verbal assaults is one standard deviation above and below the mean, so the majority of reported verbal assaults, about 68\% of them (more on the 68-95-97 rule next week), should fall within 9.09 above and below the mean.
+The SD is 9.09087, meaning that this number of verbal assaults is one standard deviation above and below the mean, so the majority of reported verbal assaults, about 68\% of them (more on the 68-95-97 rule next week), should fall within 9.09 above and below the mean.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{summary-3}{%
 \section{SUMMARY}\label{summary-3}}
 
-Descriptive statistics was the name of the game today. These are measures we use to describe our data. First, we learned about measures of central tendency: the \textbf{mean}, \textbf{median}, and \textbf{mode}. Second, pesky \textbf{outliers} were examined along with their cousin \textbf{skewness}. A way of addressing outliers was through the robust estimate, the \textbf{interquartile range}. With skewness, visualizations were used to ascertain whether the distribution could be \textbf{positively skewed}. Third, we learned all about measures of dispersions: two for nominal and ordinal variables -- the \textbf{variation ratio} and the \textbf{index of qualitative variation} -- and three for interval and ratio variables -- the \textbf{range}, \textbf{variance}, and \textbf{standard deviation}. In some situations we found ourselves, missing values appeared. This is actually very common in data, so we addressed these with the R argument \textbf{na.rm}.
+Descriptive statistics was the name of the game today. These are measures we use to describe our data. First, we learned about measures of central tendency: the \textbf{mean}, \textbf{median}, and \textbf{mode}. Second, pesky \textbf{outliers} were examined along with their cousin \textbf{skewness}. A way of addressing outliers was through the robust estimate, the \textbf{interquartile range}. With skewness, visualizations were used to ascertain whether the distribution could be \textbf{positively skewed}. Third, we learned all about measures of dispersions: two for nominal and ordinal variables -- the \textbf{variation ratio} and the \textbf{index of qualitative variation} -- and three for interval and ratio variables -- the \textbf{range}, \textbf{variance}, and \textbf{standard deviation}. In some situations we found ourselves, missing values appeared. This is actually very common in data, so we addressed these with the \texttt{R} argument \textbf{na.rm}.
 
 Homework time!
+
+\hypertarget{answers-to-activities-where-applicable}{%
+\subsection{Answers to Activities (where applicable)}\label{answers-to-activities-where-applicable}}
+
+\begin{verbatim}
+1. -
+2. 199.33= mean(c(345, 100, 250, 100, 101, 300));  175.5= median(c(345, 100, 250, 100, 101, 300))
+3. Q_10A: binary categorical; Q_12: ratio/ discrete numeric 
+4. class(bwcs$Q_12) # we see this is a numeric variable
+5. outliers: any agency that has 46 or more (upper inner fence) or -22.5 (lower inner fence though this is not a likely scenario) body worn cameras; extreme outliers: any agency with more than 71 (upper outer fence) or -48 (lower outer fence- though, again, unlikely scenario) body worn cameras ; minimum: 46 (outlier) and 72 (outlier extreme)
+6. -
+7. -
+8. -
+9. The value is 0.1729, meaning that there is not much dispersion across the categories. This supports the result from the VR.
+10. The range of the age when federal inmates started smoking is 56.
+11. -
+12. -
+\end{verbatim}
 
 \hypertarget{inferential-statistics}{%
 \chapter{Inferential Statistics}\label{inferential-statistics}}
@@ -4258,22 +4180,30 @@ As you continue the remainder of this course unit, you will observe how importan
 \hypertarget{samples}{%
 \subsection{Samples}\label{samples}}
 
-Say we are curious about how widespread robbery in the UK has been in the past 12 months. We could obtain police-recorded data to tell us this information. We also, however, know from previous criminology classes that not many people report crimes to the police, so this data is limited, unable to tap into what is known as `the dark figure of crime'.
+Say we are curious about how widespread robbery in the UK has been in the past 12 months. We could obtain police-recorded data to tell us this information. We also, however, know from previous criminology classes that many people do not report crimes to the police, so this data is limited, unable to tap into what is known as `the dark figure of crime'.
 
-What we could do is survey everyone in the UK about whether they have been a victim of robbery in the past year and how many times they have been robbed. But surveying the entire \textbf{population} is not very practical because of time and financial constraints.
+One way to address this is self-report victimisation surveyrs, such as the \href{https://www.crimesurvey.co.uk/en/index.html}{Crime Survey for England and Wales}. While it might be ideal to survey everyone in the UK about whether they have been a victim of robbery in the past year and how many times they have been robbed, you might imagine, this is quite impractical. Surveying the entire \textbf{population} is not very practical because of time and financial constraints.
 
 Sure, eventually mass collection of data from the population may be possible in the future as we have seen with social media corporations, but even then, access and availability remain issues. Because of these limitations of collecting information from the population, we use a sample.
 
-A \textbf{sample} of the population is a small selection of that population of interest. Our sample should also have high \textbf{external validity}, which means they are a good representation of the population. To establish external validity depends on the way you collect your sample (e.g., random sampling versus convenience samples). This will make conclusions from a sample generalisable to the population. That is what the \emph{Crime Survey of England and Wales} does: sample from the population to get an estimate of how widespread crime and victimisation are in the whole of the population.
+A \textbf{sample} of the population is a small selection of that population of interest. You may recall from last semester and from your first year research methods courses about different approaches to sampling - that is different ways to select the people who you want to ask the questions to. In the case of such surveys, the aim is to choose the best sampling method to promote \textbf{external validity}.
 
-The big concern now is: how do we know that a sample is generalisable to the wider population? Is there a way to prove that?
+If our sample has high \textbf{external validity}, then those included in it are a good representation of the population. To establish external validity depends on the way you collect your sample (e.g., random sampling versus convenience samples). This will make conclusions from a sample generalisable to the population. That is what the \emph{Crime Survey of England and Wales} does: sample from the population to get an estimate of how widespread crime and victimisation are in the whole of the population.
 
-We create \textbf{synthetic data} to represent a fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population. Why the data are based on a fake population is because rarely do we have information on the whole population, of course.
+So how good is a sample at representing the characteristics of an entire population? In the real world, most of the time it is impossible to get whole population data. So to illustrate and show you how we can trust our statistics from our samples to represent the parameters in the populations from which they are derived, we will create a fake population, from which we can draw samples.
+
+We create \textbf{synthetic data} to represent a fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population.
+
+Last week we learned about distributions. Specifically, we focused on the \textbf{normal distribution}. This is also called a bell curve, because when we squint a little, the shape looks like a bell. Remember that normal distrbutions are symmetrical, (there is no skew!) and the mean is the same as the median. You can also look at measures of distribution, for example standard deviation, to realise how dispersed your data are. You can also know that about 68\% of your data fall within +/- 1 standard deviation of your mean, and 95\% of your data within +/- 2 standard deviations of your mean, and 99\% of your data within +/- 3 standard deviations of your mean, when your variable is normally distributed. Neat!
+
+\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+Much of the work we will be carrying out in the coming weeks in terms of drawing inferences about the population based on a sample will make the assumption that our data are normally distributed. This is something that you will keep having to check, and come back to. In our case study today, we will be creating a fake population, who's IQ scores follow a normal distribution. Let's get to this now!
 
 \hypertarget{activity-2-making-normally-distributed-synthetic-data}{%
 \subsubsection{Activity 2: Making normally distributed synthetic data}\label{activity-2-making-normally-distributed-synthetic-data}}
 
-The synthetic data will be randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. We create this population distribution by using the function \texttt{nrnorm\ ()} and assigning this to a vector object called \texttt{prob\_iq}:
+The synthetic data will consist og randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. We create this population distribution by using the function \texttt{nrnorm()} and assigning this to a vector object called \texttt{prob\_iq}. Within the \texttt{nrnorm()} function, we specify the parameters \texttt{n\ =}, \texttt{mean\ =}, and \texttt{sd\ =}. That is the \textbf{n}umber of observations we want (3.6 million, one for each of the probationers in the US, remember this is the \textbf{population}), the \textbf{mean} IQ score we want the population to have (that is 100, specified above), and the dispertion around this mean, given by the standard deviation in the \texttt{sd\ =} parameter (specified abo e as 15 IQ points).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4281,111 +4211,156 @@ The synthetic data will be randomly generated numbers to represent the intellige
 \end{Highlighting}
 \end{Shaded}
 
-Visualizing this distribution will help us identify its shape. We use \texttt{ggplot2}:
+Great, we now have a vector of numbers, all randomly created. Let's get some descriptives:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Have you brought up \textquotesingle{}ggplot2\textquotesingle{}?}
-
-\CommentTok{\# As our data is in a single vector object, we do not need to specify a data frame (as these have multiple vectors), so leave ggplot() empty}
-\FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+} 
-  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ prob\_iq), }\AttributeTok{bins =} \DecValTok{60}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{xintercept =} \FunctionTok{mean}\NormalTok{(prob\_iq)), }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{) }\CommentTok{\# We add a red line in the code to show the mean of the population IQ}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-3-1.pdf}
-
-Visualising the distribution of IQ scores, we observe that the scores are normally distributed, which is bell-shaped, and there is no skewness on other side. The majority of probationers have an IQ around the mean of 100. Now we conduct some descriptive statistics to know more about our data:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{mean}\NormalTok{(prob\_iq) }\CommentTok{\# 99.99508}
+\FunctionTok{mean}\NormalTok{(prob\_iq) }
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.9834
+## [1] 99.99615
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{median}\NormalTok{(prob\_iq) }\CommentTok{\# 99.99855}
+\FunctionTok{median}\NormalTok{(prob\_iq) }
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.97506
+## [1] 100.0021
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{sd}\NormalTok{(prob\_iq) }\CommentTok{\# 14.99377}
+\FunctionTok{sd}\NormalTok{(prob\_iq) }
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 15.00888
+## [1] 14.9966
 \end{verbatim}
 
-Your numbers may slightly differ from those in the comments, and that is okay, because this has to do with how computers generate random numbers. In your google doc, type the values from your output for the mean, median, and sd.
+You may notice a few things:
+
+\begin{itemize}
+\tightlist
+\item
+  1: the mean is not \textbf{exactly} 100 and the sd not \textbf{exactly} 15. But they are very very close.
+\item
+  2: your answers may be slightly different to the lab notes. This is because r is \emph{randomly} generating these numbers for you, every time you ask it to. So if you re-run the code above to re-create your `` object, you will get yet another set of numbers!
+\end{itemize}
+
+So what can we do? Well, we can set a specific seed from which the random numbers should grow. If we choose the same seed, then we will get the same set of random numbers. If we do this, we will all get the same results!
+
+So, if want our results to be the same, so we set a seed using the function \texttt{set.seed()}, which ensures it generates the exact same distribution for this session. Then we re-create the \texttt{prob\_iq} object:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1612}\NormalTok{) }\CommentTok{\# Use this number! }
+
+\NormalTok{prob\_iq }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\AttributeTok{n =} \DecValTok{3600000}\NormalTok{, }\AttributeTok{mean =} \DecValTok{100}\NormalTok{, }\AttributeTok{sd =} \DecValTok{15}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now again take the mean, the median, and the sd, and see that you are getting the same results as we are!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(prob\_iq) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 100.0032
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{median}\NormalTok{(prob\_iq) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 100.0035
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(prob\_iq) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 14.99679
+\end{verbatim}
+
+Great! Now we have these random IQ scores, let's build a data frame using the function \texttt{data.frame()} in which we will create 2 columns. One for a unique identifier for each probationer. Let's call this column \texttt{probationer\_id} and another for IQ let's call this one \texttt{IQ}. Name the whole dataframe \texttt{prob\_off}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prob\_off }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{probationer\_id =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3600000}\NormalTok{,      }\CommentTok{\# create a column and fill with all the numbers from 1 to 3.6 million}
+                       \AttributeTok{IQ =}\NormalTok{ prob\_iq )     }\CommentTok{\# create a column and fill with our random IQ scores}
+\end{Highlighting}
+\end{Shaded}
+
+Now we are nearly there with our fake population data, but for one last step. The values for IQ score must be whole numbers (integers). To achieve this, we will use the \texttt{round()} function. In the \texttt{round()} function you specify two things, first the object you wish to round (the numbers in the IQ column of our prob\_off dataframe so \texttt{prob\_off\$IQ}) and the number of decimals you would like displayed (since we want whole numbers, we want 0 decimals!).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prob\_off}\SpecialCharTok{$}\NormalTok{IQ }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(prob\_off}\SpecialCharTok{$}\NormalTok{IQ, }\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now we finally have our complete fake population of 3.6 million US probationers and their IQ scores. You can have a look at this data with the \texttt{View()} function. Let's also visualise this distribution will help us identify its shape. We use \texttt{ggplot2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Have you loaded the \textquotesingle{}ggplot2\textquotesingle{} library?}
+
+
+\FunctionTok{ggplot}\NormalTok{(prob\_off) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ IQ), }\AttributeTok{bins =} \DecValTok{60}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =} \FunctionTok{mean}\NormalTok{(prob\_off}\SpecialCharTok{$}\NormalTok{IQ), }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{) }\CommentTok{\# We add a red line in the code to show the mean of the population IQ}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+Visualising the distribution of IQ scores, we observe that the scores are normally distributed, which is bell-shaped, and there is no skewness on other side. The majority of probationers have an IQ around the mean of 100.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{activity-3-taking-a-sample-from-our-synthetic-population}{%
 \subsubsection{Activity 3: Taking a sample from (our synthetic) population}\label{activity-3-taking-a-sample-from-our-synthetic-population}}
 
-Your results may have differed from the ones in the comments, but we now want our results to be the same, so we set a seed using the function \texttt{set.seed()}, which ensures it generates the exact same distribution for this session.
+So above we created a dataset of all probationers in the US, all 3.6 million of them. This is our \textbf{population}. When we look at the mean, median, and standard deviation of this population, these numbers are the \emph{true} estimates of IQ scores in the population of American probationers.
 
-We then create a data frame with an ID column for each probationer and use the \texttt{round\ ()} function to tell \texttt{R} to round each IQ score to a whole number (zero decimal places):
+Now if we take a sample from this population, how accurate would our sample estimates be compared to the population estimates?
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1612}\NormalTok{) }\CommentTok{\# Use this number! }
-
-\CommentTok{\# Creating the prob\_off data frame with ID variable called ‘probationer\_id’ for all 3.6 million cases and including the IQ variable}
-\CommentTok{\# Rounding IQ variable to nearest whole number}
-\NormalTok{prob\_off }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{( }\AttributeTok{probationer\_id =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3600000}\NormalTok{, }\AttributeTok{IQ =} \FunctionTok{round}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{3600000}\NormalTok{, }\AttributeTok{mean =} \DecValTok{100}\NormalTok{, }\AttributeTok{sd =} \DecValTok{15}\NormalTok{), }\DecValTok{0}\NormalTok{) ) }
-
-\CommentTok{\# Some descriptive statistics}
-\FunctionTok{mean}\NormalTok{(prob\_off}\SpecialCharTok{$}\NormalTok{IQ) }\CommentTok{\# 100.0028 }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 100.0028
-\end{verbatim}
+First, we make a sample that is taken from our population. We draw a random sample of 100 probationers using the function \texttt{sample()} from the \texttt{mosaic} package:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{median}\NormalTok{(prob\_off}\SpecialCharTok{$}\NormalTok{IQ) }\CommentTok{\# 100 }
+\FunctionTok{library}\NormalTok{(mosaic)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## [1] 100
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{sd}\NormalTok{(prob\_off}\SpecialCharTok{$}\NormalTok{IQ) }\CommentTok{\# 14.99976}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 14.99976
-\end{verbatim}
-
-Your descriptive statistics should match the numbers in the above comments. These numbers are, for this example, the \emph{true} estimates of IQ scores in the population of American probationers. Now if we take a sample from this population, how accurate would our sample estimates be compared to the population estimates?
-
-First, we make a sample that is taken from our population. We draw a random sample of 100 probationers using the function \texttt{sample\ ()} from the \texttt{mosaic} package:
+In the \texttt{sample()} function, we specify two parameters. \texttt{x\ =} specifies what data set to sample from, and \texttt{size\ =} specifies the size of the sample to take. So in this case, to randomly select 100 probationers from the \texttt{prob\_off} dataframe we use:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# We take a sample of 100 from our data frame, ‘prob\_off’, and put it into an object called ‘sample1’}
 \NormalTok{sample1 }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\AttributeTok{x =}\NormalTok{ prob\_off, }\AttributeTok{size =} \DecValTok{100}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-\CommentTok{\# Some descriptive statistics of ‘sample1’}
+Now that we have our sample \texttt{sample1}, we can take some descriptive statistics of `sample1'
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(sample1}\SpecialCharTok{$}\NormalTok{IQ) }\CommentTok{\# 101.59 }
 \end{Highlighting}
 \end{Shaded}
@@ -4464,7 +4439,7 @@ We use the \texttt{do\ ()} and \texttt{group\_by\ ()} functions to demonstrate:
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-8-1.pdf}
+\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-13-1.pdf}
 
 The histogram of our sampling distribution shows this very important concept in inferential statistics: if you randomly draw repeated samples from the same population and calculate the mean of each sample, then plot the frequency of those means, you will get the \emph{normal distribution} -- that bell-shaped curve. This indicates that most samples drawn from the population will have a mean close to the true population mean.
 
@@ -4504,7 +4479,7 @@ What if we had repeated samples of 30 instead of 1,000? We use the function \tex
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-9-1.pdf}
+\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-14-1.pdf}
 
 From the density plot, all three sample distributions are normally distributed and have similar means to that of the population. Notice, however, that the larger the sample size, the more likely that the sample means are closer to those of the population. The distribution of sample sizes of 1,000, for example, is pointy, indicating that the IQ scores cluster very closely to the true population mean, whereas the distribution of the sample sizes of 30 is flatter, and its scores are more spread away from the true population mean. The implication is that if we draw small sized samples, we have a higher chance of having a sample that does not reflect the true population at all. Therefore, our findings and generalisations will be inaccurate.
 
@@ -4614,7 +4589,7 @@ Your numbers may differ a bit as we have not set a seed, but should be about 69.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-13-1.pdf}
+\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-18-1.pdf}
 
 Seeing the dashes that represent the confidence interval shows us that IQ scores will vary away from the mean of our sample, but 95\% of them will fall within this interval. Similar to what we learned about repeated samples, if we took 100 resamples of our population of probationers and obtained the sample means, the true population mean will fall within the confidence interval 95\% of the time. Thus, only 5\% of the time will our resamples fail to obtain the true population mean. We use \texttt{R} to illustrate this concept and introduce a new function \texttt{if\_else()} to do so:
 
@@ -4660,7 +4635,7 @@ We can visualise this to better understand what we have just found:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-15-1.pdf}
+\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-20-1.pdf}
 
 The visual shows the result obtained in the table, but here, you can see all 100 of the scores, their CIs, and how 95\% of the time, they capture the true population mean. In reality, we have no way of knowing whether we have captured the true population estimates in our sample, but the use of the confidence interval gives us \emph{confidence} that we are on the right track, so reporting CIs in your results is good practice for presenting your findings.
 
@@ -5014,7 +4989,7 @@ The normal distribution has some predictable characteristics about it. One is th
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.48671
+## [1] 0.48659
 \end{verbatim}
 
 The result should be close to .50 indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the \textbf{z-score} is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.
@@ -5030,11 +5005,11 @@ To create z-scores, we use the function \texttt{scale\ ()}. For the next example
 
 \begin{verbatim}
 ##   prisoner_id  IQ
-## 1           1 113
-## 2           2 102
-## 3           3 103
-## 4           4 108
-## 5           5 111
+## 1           1  97
+## 2           2 111
+## 3           3  92
+## 4           4 120
+## 5           5  72
 \end{verbatim}
 
 \begin{Shaded}
@@ -5052,7 +5027,7 @@ To create z-scores, we use the function \texttt{scale\ ()}. For the next example
 
 \begin{verbatim}
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9986604
+## 1           1 115  1.001722
 \end{verbatim}
 
 Where the z-score becomes practical is illustrated in the following example: say if a probation officer is writing a report for a prisoner who is about to be up for parole. The prisoner has an IQ of 124. The officer wants to give a good idea of how this score compares to all other prisoners. An apt way of doing this is to state the proportion of prisoners who have lower IQs. This can be done using the \texttt{pnormGC()} function from the \texttt{tigerstats} package:
@@ -5074,7 +5049,7 @@ Where the z-score becomes practical is illustrated in the following example: say
 \includegraphics{06-hypotheses_files/figure-latex/unnamed-chunk-10-1.pdf}
 
 \begin{verbatim}
-## [1] 0.9449778
+## [1] 0.9454991
 \end{verbatim}
 
 The output shows 0.9453, meaning that the prisoner has a higher IQ than over 94\% of the prison population.

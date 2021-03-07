@@ -96,24 +96,42 @@ As you continue the remainder of this course unit, you will observe how importan
 
 
 
-Say we are curious about how widespread robbery in the UK has been in the past 12 months. We could obtain police-recorded data to tell us this information. We also, however, know from previous criminology classes that not many people report crimes to the police, so this data is limited, unable to tap into what is known as ‘the dark figure of crime’. 
+Say we are curious about how widespread robbery in the UK has been in the past 12 months. We could obtain police-recorded data to tell us this information. We also, however, know from previous criminology classes that many people do not report crimes to the police, so this data is limited, unable to tap into what is known as ‘the dark figure of crime’. 
 
-What we could do is survey everyone in the UK about whether they have been a victim of robbery in the past year and how many times they have been robbed. But surveying the entire **population** is not very practical because of time and financial constraints.
+One way to address this is self-report victimisation surveyrs, such as the [Crime Survey for England and Wales](https://www.crimesurvey.co.uk/en/index.html). While it might be ideal to survey everyone in the UK about whether they have been a victim of robbery in the past year and how many times they have been robbed, you might imagine, this is quite impractical. Surveying the entire **population** is not very practical because of time and financial constraints.
 
 Sure, eventually mass collection of data from the population may be possible in the future as we have seen with social media corporations, but even then, access and availability remain issues. Because of these limitations of collecting information from the population, we use a sample. 
 
-A **sample** of the population is a small selection of that population of interest. Our sample should also have high **external validity**, which means they are a good representation of the population. To establish external validity depends on the way you collect your sample (e.g., random sampling versus convenience samples). This will make conclusions from a sample generalisable to the population. That is what the *Crime Survey of England and Wales* does: sample from the population to get an estimate of how widespread crime and victimisation are in the whole of the population. 
+A **sample** of the population is a small selection of that population of interest. You may recall from last semester and from your first year research methods courses about different approaches to sampling - that is different ways to select the people who you want to ask the questions to. In the case of such surveys, the aim is to choose the best sampling method to promote **external validity**.
 
-The big concern now is: how do we know that a sample is generalisable to the wider population? Is there a way to prove that?
+If our sample has high **external validity**, then those included in it are a good representation of the population. To establish external validity depends on the way you collect your sample (e.g., random sampling versus convenience samples). This will make conclusions from a sample generalisable to the population. That is what the *Crime Survey of England and Wales* does: sample from the population to get an estimate of how widespread crime and victimisation are in the whole of the population. 
 
-We create **synthetic data** to represent a fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population. Why the data are based on a fake population is because rarely do we have information on the whole population, of course. 
+<!-- The big concern now is: how do we know that a sample is generalisable to the wider population? Is there a way to prove that? -->
 
 
+So how good is a sample at representing the characteristics of an entire population? In the real world, most of the time it is impossible to get whole population data. So to illustrate and show you how we can trust our statistics from our samples to represent the parameters in the populations from which they are derived, we will create a fake population, from which we can draw samples. 
+
+
+We create **synthetic data** to represent a fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population. 
+<!-- Why the data are based on a fake population is because rarely do we have information on the whole population, of course.  -->
+
+
+
+
+
+
+Last week we learned about distributions. Specifically, we focused on the **normal distribution**. This is also called a bell curve, because when we squint a little, the shape looks like a bell. Remember that normal distrbutions are symmetrical, (there is no skew!) and the mean is the same as the median. You can also look at measures of distribution, for example standard deviation, to realise how dispersed your data are. You can also know that about 68% of your data fall within +/- 1 standard deviation of your mean, and 95% of your data within +/- 2 standard deviations of your mean, and 99% of your data within +/- 3 standard deviations of your mean, when your variable is normally distributed. Neat!
+
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-1-1.png)<!-- -->
+
+Much of the work we will be carrying out in the coming weeks in terms of drawing inferences about the population based on a sample will make the assumption that our data are normally distributed. This is something that you will keep having to check, and come back to. In our case study today, we will be creating a fake population, who's IQ scores follow a normal distribution. Let's get to this now!
 
 
 #### Activity 2: Making normally distributed synthetic data
 
-The synthetic data will be randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. We create this population distribution by using the function `nrnorm ()` and assigning this to a vector object called `prob_iq`:
+
+
+The synthetic data will consist og randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. We create this population distribution by using the function `nrnorm()` and assigning this to a vector object called `prob_iq`. Within the `nrnorm()` function, we specify the parameters `n = `, `mean =`, and `sd = `. That is the **n**umber of observations we want (3.6 million, one for each of the probationers in the US, remember this is the **population**), the **mean** IQ score we want the population to have (that is 100, specified above), and the dispertion around this mean, given by the standard deviation in the `sd =` parameter (specified abo e as 15 IQ points). 
 
 
 
@@ -125,61 +143,125 @@ prob_iq <- rnorm(n = 3600000, mean = 100, sd = 15)
 
 
 
-Visualizing this distribution will help us identify its shape. We use `ggplot2`:
+Great, we now have a vector of numbers, all randomly created. Let's get some descriptives: 
 
 
+```r
+mean(prob_iq) 
+```
 
+```
+## [1] 100.0016
+```
+
+```r
+median(prob_iq) 
+```
+
+```
+## [1] 99.99968
+```
+
+```r
+sd(prob_iq) 
+```
+
+```
+## [1] 15.00161
+```
+
+
+You may notice a few things: 
+
+- 1: the mean is not **exactly** 100 and the sd not **exactly** 15. But they are very very close.
+- 2: your answers may be slightly different to the lab notes. This is because r is *randomly* generating these numbers for you, every time you ask it to. So if you re-run the code above to re-create your `` object, you will get yet another set of numbers!
+
+
+So what can we do? Well, we can set a specific seed from which the random numbers should grow. If we choose the same seed, then we will get the same set of random numbers. If we do this, we will all get the same results!
+
+So, if want our results to be the same, so we set a seed using the function `set.seed()`, which ensures it generates the exact same distribution for this session. Then we re-create the `prob_iq` object: 
 
 
 
 
 ```r
-# Have you brought up 'ggplot2'?
+set.seed(1612) # Use this number! 
 
-# As our data is in a single vector object, we do not need to specify a data frame (as these have multiple vectors), so leave ggplot() empty
-ggplot() + 
-  geom_histogram(mapping = aes(x = prob_iq), bins = 60) + 
-  geom_vline(mapping = aes(xintercept = mean(prob_iq)), col = "red", linetype = "dashed") # We add a red line in the code to show the mean of the population IQ
+prob_iq <- rnorm(n = 3600000, mean = 100, sd = 15)
 ```
 
-<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+
+
+Now again take the mean, the median, and the sd, and see that you are getting the same results as we are!
+
+
+```r
+mean(prob_iq) 
+```
+
+```
+## [1] 100.0032
+```
+
+```r
+median(prob_iq) 
+```
+
+```
+## [1] 100.0035
+```
+
+```r
+sd(prob_iq) 
+```
+
+```
+## [1] 14.99679
+```
 
 
 
+Great! Now we have these random IQ scores, let's build a data frame using the function `data.frame()` in which we will create 2 columns. One for a unique identifier for each probationer. Let's call this column `probationer_id` and another for IQ let's call this one `IQ`. Name the whole dataframe `prob_off`: 
 
-Visualising the distribution of IQ scores, we observe that the scores are normally distributed, which is bell-shaped, and there is no skewness on other side. The majority of probationers have an IQ around the mean of 100. Now we conduct some descriptive statistics to know more about our data:
 
+```r
+prob_off <- data.frame(probationer_id = 1:3600000,      # create a column and fill with all the numbers from 1 to 3.6 million
+                       IQ = prob_iq )     # create a column and fill with our random IQ scores
+```
+
+
+
+Now we are nearly there with our fake population data, but for one last step. The values for IQ score must be whole numbers (integers). To achieve this, we will use the `round()` function. In the `round()` function you specify two things, first the object you wish to round (the numbers in the IQ column of our prob_off dataframe so `prob_off$IQ`) and the number of decimals you would like displayed (since we want whole numbers, we want 0 decimals!). 
+
+
+
+```r
+prob_off$IQ <- round(prob_off$IQ, 0)
+```
+
+
+Now we finally have our complete fake population of 3.6 million US probationers and their IQ scores. You can have a look at this data with the `View()` function. Let's also visualise this distribution will help us identify its shape. We use `ggplot2`:
 
 
 
 
 ```r
-mean(prob_iq) # 99.99508
+# Have you loaded the 'ggplot2' library?
+
+
+ggplot(prob_off) + 
+  geom_histogram(mapping = aes(x = IQ), bins = 60) + 
+  geom_vline(xintercept = mean(prob_off$IQ), col = "red", linetype = "dashed") # We add a red line in the code to show the mean of the population IQ
 ```
 
-```
-## [1] 100.0094
-```
-
-```r
-median(prob_iq) # 99.99855
-```
-
-```
-## [1] 100.0187
-```
-
-```r
-sd(prob_iq) # 14.99377
-```
-
-```
-## [1] 14.99792
-```
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
 
 
 
-Your numbers may slightly differ from those in the comments, and that is okay, because this has to do with how computers generate random numbers. In your google doc, type the values from your output for the mean, median, and sd.
+
+Visualising the distribution of IQ scores, we observe that the scores are normally distributed, which is bell-shaped, and there is no skewness on other side. The majority of probationers have an IQ around the mean of 100. 
+
+
 
 
 
@@ -194,61 +276,38 @@ Your numbers may slightly differ from those in the comments, and that is okay, b
 
 #### Activity 3: Taking a sample from (our synthetic) population
 
-Your results may have differed from the ones in the comments, but we now want our results to be the same, so we set a seed using the function `set.seed()`, which ensures it generates the exact same distribution for this session. 
-
-We then create a data frame with an ID column for each probationer and use the `round ()` function to tell `R` to round each IQ score to a whole number (zero decimal places):
 
 
+So above we created a dataset of all probationers in the US, all 3.6 million of them. This is our **population**. When we look at the mean, median, and standard deviation of this population, these numbers are the *true* estimates of IQ scores in the population of American probationers. 
+
+
+Now if we take a sample from this population, how accurate would our sample estimates be compared to the population estimates?
+
+First, we make a sample that is taken from our population. We draw a random sample of 100 probationers using the function `sample()` from the `mosaic` package:
 
 
 
-```r
-set.seed(1612) # Use this number! 
 
-# Creating the prob_off data frame with ID variable called ‘probationer_id’ for all 3.6 million cases and including the IQ variable
-# Rounding IQ variable to nearest whole number
-prob_off <- data.frame( probationer_id = 1:3600000, IQ = round(rnorm(3600000, mean = 100, sd = 15), 0) ) 
-
-# Some descriptive statistics
-mean(prob_off$IQ) # 100.0028 
-```
-
-```
-## [1] 100.0028
-```
 
 ```r
-median(prob_off$IQ) # 100 
-```
-
-```
-## [1] 100
-```
-
-```r
-sd(prob_off$IQ) # 14.99976
-```
-
-```
-## [1] 14.99976
+library(mosaic)
 ```
 
 
-
-Your descriptive statistics should match the numbers in the above comments. These numbers are, for this example, the *true* estimates of IQ scores in the population of American probationers. Now if we take a sample from this population, how accurate would our sample estimates be compared to the population estimates?
-
-First, we make a sample that is taken from our population. We draw a random sample of 100 probationers using the function `sample ()` from the `mosaic` package:
-
-
-
-
+In the `sample()` function, we specify two parameters. `x = ` specifies what data set to sample from, and `size =` specifies the size of the sample to take. So in this case, to randomly select 100 probationers from the `prob_off` dataframe we use: 
 
 
 ```r
 # We take a sample of 100 from our data frame, ‘prob_off’, and put it into an object called ‘sample1’
 sample1 <- sample(x = prob_off, size = 100)
+```
 
-# Some descriptive statistics of ‘sample1’
+
+Now that we have our sample `sample1`, we can take some descriptive statistics of ‘sample1’
+
+
+
+```r
 mean(sample1$IQ) # 101.59 
 ```
 
@@ -311,13 +370,7 @@ sample100 <- do(1000) * sample(x = prob_off, size = 100)
 sample_means100 <- sample100 %>% 
   group_by(.index) %>% # Group by .index  (the sample id)
   summarize(meanIQ = mean(IQ)) # Creating new variable of mean IQ
-```
 
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
 mean(sample_means100$meanIQ)
 ```
 
@@ -336,7 +389,7 @@ ggplot(data = sample_means100) +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
 
 
 
@@ -369,23 +422,11 @@ sample30 <- do(1000) * sample(x = prob_off, size = 30)
 sample_means1000 <- sample1000 %>% 
   group_by(.index) %>% 
   summarize(meanIQ = mean(IQ)) 
-```
 
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
 sample_means300 <- sample30 %>% 
   group_by(.index) %>% 
   summarize(meanIQ = mean(IQ)) 
-```
 
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
 # Bind them with our first example, which had 100 probationers in each sample 
 sample.means.total <- bind_rows(sample_means300, sample_means100, sample_means1000, .id = "sample.size")
 
@@ -395,7 +436,7 @@ ggplot(data = sample.means.total) +
   scale_fill_discrete(labels = c("30","100","1000"))
 ```
 
-<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
 
 
 
@@ -532,7 +573,7 @@ ggplot(data = sample1) +
   geom_vline(mapping = aes(xintercept = mean(IQ) - 1.96*sd(IQ)), col = "blue", linetype = "dashed")
 ```
 
-<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
 
 
 
@@ -589,7 +630,7 @@ ggplot(data = new.sample.ci100) +
   geom_point(mapping = aes(y = .index, x = meanIQ, colour = capture.mean))
 ```
 
-<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-20-1.png)<!-- -->
 
 
 
