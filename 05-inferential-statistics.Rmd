@@ -88,14 +88,14 @@ One way to address this limitation is with self-report victimisation surveys, su
 
 Sure, eventually mass collection of data from the population may be possible in the future as we have glimpsed with the sheer amount gathered by social media corporations, but even then, access and availability remain issues. Because of these limitations in collecting information from the population, we use a sample. 
 
-A **sample** of the population is a small selection of that population of interest. You may recall from last semester and from your first year research methods classes the different approaches to sampling - that is different ways to select individuals to form your sample. The aim of good sampling is to acheive **external validity**.
+A **sample** of the population is a small selection of that population of interest. You may recall from last semester and from your first year research methods classes the different approaches to sampling - that is different ways to select individuals to form your sample. Examples are random sampling and convenience sampling. The aim of good sampling is to acheive **external validity**.
 
-If our sample has high **external validity**, then those included in it are a good representation of the population. To establish external validity depends on the way you collect your sample (e.g., random sampling versus convenience samples). This will make conclusions from a sample generalisable to the population. That is what the *Crime Survey of England and Wales* does: sample from the population to get an estimate of how widespread crime and victimisation are in the whole of the population. 
+If our sample has high external validity, it means that our sample is representative of our population of interest. Therefore, we can be confident that whatever we say and conclude about our sample is generalisable to the population. That is what the *Crime Survey of England and Wales* does: sample from the population to get an estimate of how widespread crime and victimisation are in the whole of the population. 
 
 <!-- The big concern now is: how do we know that a sample is generalisable to the wider population? Is there a way to prove that? -->
 
 
-So how good is a sample at representing the characteristics of an entire population? In the real world, most of the time it is impossible to get whole population data. So to illustrate and show you how we can trust our statistics from our samples to represent the parameters in the populations from which they are derived, we will create a fake population, from which we can draw samples. 
+Now, how do we know that a sample is good at representing the characteristics of an entire population? In the real world, it is often impossible to get whole population data. So to illustrate and show you how we can trust our statistics from our samples to represent the parameters in the populations from which they are derived, we will create a fake population, from which we can draw samples. 
 
 
 We create **synthetic data** to represent a fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population. 
