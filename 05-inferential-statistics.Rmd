@@ -6,33 +6,20 @@
 #### **Learning Outcomes:** {-}
 -	Understand what inferential statistics are and why they are used
 -	Learn how samples can be used to draw conclusions about the population
--	Learn about and calculate standard errors and confidence intervals
-
-
+-	Learn about standard errors and confidence intervals and how to calculate them 
 
 
 #### **Today’s Learning Tools:** {-}
 
-
-
 ##### *Total number of activities*: 8 {-}
 
-
-
- 
 ##### *Data:* {-}
 -	Synthetic data we make ourselves
-
-
-
 
 ##### *Packages:* {-}
 -	`dplyr`
 -	`ggplot2`
 -	`mosaic`
-
-
-
 
 ##### *Functions introduced (and packages to which they belong)* {-}
 -	`bind_rows()` : Combine data frame(s) together row-wise (`dplyr`)
@@ -46,63 +33,62 @@
 -	`sample()` : Randomly sample from a vector or data frame (`mosaic`)
 -	`set.seed()` : Random number generator start point (`base R`)
 
-
+<br>
+<br>
 
 ---
-
-
 
 
 ## Generalising About the World from Data
 
-Last week we revisited a familiar sort of statistics: descriptive. But we also learned how to conduct these measures using `R`. Today we learn the other main branch of statistics: inferential. 
+Last week we revisited a familiar sort of statistics: descriptive. But we also learned how to conduct these statistics using `R`. Today, we learn the other main branch of statistics: inferential. 
 
-Whereas descriptive statistics is concerned with summarising and describing your data, **inferential (or frequentist) statistics** is concerned with using the data to say something about the world in which we live. Using samples drawn from our population of interest, we can conduct statistical analyses to generalise to our lives and what we observe around us. 
+Whereas descriptive statistics are concerned with summarising and describing your data, **inferential (or frequentist) statistics** are concerned with using the data to say something about the world in which we live. For example, we can make conclusions on body worn camera use in agencies across the country as a whole from data on only a handful of agencies. Using samples drawn from our population of interest, we can conduct statistical analyses to generalise to our lives and what we observe around us. 
 
-Inferences made from inferential statistics are not bound to one dataset and sample, and that is the strength of this type of statistics. Because, however, we will be saying something that is applicable to the ‘real’ world, we must understand the theory for which makes this possible. 
+Inferences made from inferential statistics are not bound to one dataset and sample, and that is the strength of this type of statistics. It is able to *generalise*, like in the previous example on body worn cameras. Because, however, we will be saying something that is applicable to the ‘real’ world, we must understand the theory for which makes this possible. 
 
 Today’s learning experience is the most theoretical of this course unit. To understand later inferential statistical analyses is to first understand the base on which they stand. Our three substantive topics today are: **samples**, **standard errors**, and **confidence intervals**. 
 
-
+<br>
 
 
 ### Activity 1: Our preparation routine
 
-As usual, we begin by opening your existing `R` project, then installing and loading the required packages as listed above under the 'Packages' subheader. 
+As usual, we begin by opening your existing `R` project, then installing (if need) and loading the required packages listed above under the 'Packages' subheading. 
 
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
+library(dplyr)
+library(ggplot2)
+library(mosaic)
 
+```
 
+<br>
+<br>
 
 ---
 
 
-
-
 ## Today’s 3
 
+As you continue the remainder of this course unit, you will observe how important it is to collect accurate information to conduct inferential statistics. Your findings and conclusions are only as good as their basis, and if that basis is a shoddy collection of data, what you have to say will reflect that. An important way to collect accurate information is to ensure that what we have is representative of that real world. This is where samples arrive to play. 
 
-
-
-As you continue the remainder of this course unit, you will observe how important it is to collect accurate information to conduct inferential statistics. Your findings are only as good as its basis, and if that basis is a shoddy collection of data, what you have to say will reflect that. An important way to collect accurate information is to ensure that what we have is representative of that real world. This is where samples arrive to play. 
-
-
+<br>
+<br>
 
 
 ---
 
 ### Samples
 
-
-
-
 Say we are curious about how widespread robbery in the UK has been in the past 12 months. We could obtain police-recorded data to tell us this information. We also, however, know from previous criminology classes that many people do not report crimes to the police, so this data is limited, unable to tap into what is known as ‘the dark figure of crime’. 
 
-One way to address this is self-report victimisation surveyrs, such as the [Crime Survey for England and Wales](https://www.crimesurvey.co.uk/en/index.html). While it might be ideal to survey everyone in the UK about whether they have been a victim of robbery in the past year and how many times they have been robbed, you might imagine, this is quite impractical. Surveying the entire **population** is not very practical because of time and financial constraints.
+One way to address this limitation is with self-report victimisation surveys, such as the [Crime Survey for England and Wales](https://www.crimesurvey.co.uk/en/index.html). While it might be ideal to survey everyone in the UK about whether they have been a victim of robbery in the past year and how many times they have been robbed, you might imagine that this is quite impractical. Surveying the entire **population** is not very pragmatic because of time and financial constraints.
 
-Sure, eventually mass collection of data from the population may be possible in the future as we have seen with social media corporations, but even then, access and availability remain issues. Because of these limitations of collecting information from the population, we use a sample. 
+Sure, eventually mass collection of data from the population may be possible in the future as we have glimpsed with the sheer amount gathered by social media corporations, but even then, access and availability remain issues. Because of these limitations in collecting information from the population, we use a sample. 
 
-A **sample** of the population is a small selection of that population of interest. You may recall from last semester and from your first year research methods courses about different approaches to sampling - that is different ways to select the people who you want to ask the questions to. In the case of such surveys, the aim is to choose the best sampling method to promote **external validity**.
+A **sample** of the population is a small selection of that population of interest. You may recall from last semester and from your first year research methods classes the different approaches to sampling - that is different ways to select individuals to form your sample. The aim of good sampling is to acheive **external validity**.
 
 If our sample has high **external validity**, then those included in it are a good representation of the population. To establish external validity depends on the way you collect your sample (e.g., random sampling versus convenience samples). This will make conclusions from a sample generalisable to the population. That is what the *Crime Survey of England and Wales* does: sample from the population to get an estimate of how widespread crime and victimisation are in the whole of the population. 
 
