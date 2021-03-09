@@ -457,7 +457,7 @@ After, let us create some data frame objects for each set of the 1,000 samples i
 
 ```{r}
 
-# Calculate the means IQ scores for each set of 1,000 samples 
+# Calculate the mean IQ scores for each set of 1,000 samples 
 
 sample_means30 <- sample30 %>% 
   group_by(.index) %>% 
