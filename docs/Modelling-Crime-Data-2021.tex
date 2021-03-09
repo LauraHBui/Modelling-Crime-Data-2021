@@ -4087,7 +4087,7 @@ Homework time!
 \item
   Learn how samples can be used to draw conclusions about the population
 \item
-  Learn about and calculate standard errors and confidence intervals
+  Learn about standard errors and confidence intervals and how to calculate them
 \end{itemize}
 
 \hypertarget{todays-learning-tools-4}{%
@@ -4155,50 +4155,50 @@ Homework time!
 \hypertarget{generalising-about-the-world-from-data}{%
 \section{Generalising About the World from Data}\label{generalising-about-the-world-from-data}}
 
-Last week we revisited a familiar sort of statistics: descriptive. But we also learned how to conduct these measures using \texttt{R}. Today we learn the other main branch of statistics: inferential.
+Last week we revisited a familiar sort of statistics: descriptive. But we also learned how to conduct these statistics using \texttt{R}. Today, we learn the other main branch of statistics: inferential.
 
-Whereas descriptive statistics is concerned with summarising and describing your data, \textbf{inferential (or frequentist) statistics} is concerned with using the data to say something about the world in which we live. Using samples drawn from our population of interest, we can conduct statistical analyses to generalise to our lives and what we observe around us.
+Whereas descriptive statistics are concerned with summarising and describing your data, \textbf{inferential (or frequentist) statistics} are concerned with using the data to say something about the world in which we live. For example, we can make conclusions on body worn camera use in agencies across the country as a whole from data on only a handful of agencies. Using samples drawn from our population of interest, we can conduct statistical analyses to generalise to our lives and what we observe around us.
 
-Inferences made from inferential statistics are not bound to one dataset and sample, and that is the strength of this type of statistics. Because, however, we will be saying something that is applicable to the `real' world, we must understand the theory for which makes this possible.
+Inferences made from inferential statistics are not bound to one dataset and sample, and that is the strength of this type of statistics. It is able to \emph{generalise}, like in the previous example on body worn cameras. Because, however, we will be saying something that is applicable to the `real' world, we must understand the theory for which makes this possible.
 
 Today's learning experience is the most theoretical of this course unit. To understand later inferential statistical analyses is to first understand the base on which they stand. Our three substantive topics today are: \textbf{samples}, \textbf{standard errors}, and \textbf{confidence intervals}.
 
 \hypertarget{activity-1-our-preparation-routine-1}{%
 \subsection{Activity 1: Our preparation routine}\label{activity-1-our-preparation-routine-1}}
 
-As usual, we begin by opening your existing \texttt{R} project, then installing and loading the required packages as listed above under the `Packages' subheader.
+As usual, we begin by opening your existing \texttt{R} project, then installing (if need) and loading the required packages listed above under the `Packages' subheading.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{todays-3-2}{%
 \section{Today's 3}\label{todays-3-2}}
 
-As you continue the remainder of this course unit, you will observe how important it is to collect accurate information to conduct inferential statistics. Your findings are only as good as its basis, and if that basis is a shoddy collection of data, what you have to say will reflect that. An important way to collect accurate information is to ensure that what we have is representative of that real world. This is where samples arrive to play.
+As you continue the remainder of this course unit, you will observe how important it is to collect accurate information to conduct inferential statistics. Your findings and conclusions are only as good as their basis, and if that basis is a shoddy collection of data, what you have to say will reflect that. An important way to collect accurate information is to ensure that what we have is representative of that real world. This is where samples arrive to play.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{samples}{%
 \subsection{Samples}\label{samples}}
 
-Say we are curious about how widespread robbery in the UK has been in the past 12 months. We could obtain police-recorded data to tell us this information. We also, however, know from previous criminology classes that many people do not report crimes to the police, so this data is limited, unable to tap into what is known as `the dark figure of crime'.
+Say we are curious about how widespread robbery in England and Wales has been in the past 12 months. We could obtain police-recorded data to tell us this information. We also, however, know from previous criminology classes that many people do not report crimes to the police, so this data is limited, unable to tap into what is known as `the dark figure of crime'.
 
-One way to address this is self-report victimisation surveyrs, such as the \href{https://www.crimesurvey.co.uk/en/index.html}{Crime Survey for England and Wales}. While it might be ideal to survey everyone in the UK about whether they have been a victim of robbery in the past year and how many times they have been robbed, you might imagine, this is quite impractical. Surveying the entire \textbf{population} is not very practical because of time and financial constraints.
+One way to address this limitation is with self-report victimisation surveys, such as the \href{https://www.crimesurvey.co.uk/en/index.html}{Crime Survey for England and Wales}. It would be ideal to survey everyone in England and Wales about whether they have been a victim of robbery in the past year and how many times they have been robbed. Surveying the entire \textbf{population}, however, is impractical because of time and financial constraints. So, although the Crime Survey addresses the limitation of police-recorded data, it is still unable to obtain information on the entire population of interest -- everyone living in England and Wales.
 
-Sure, eventually mass collection of data from the population may be possible in the future as we have seen with social media corporations, but even then, access and availability remain issues. Because of these limitations of collecting information from the population, we use a sample.
+Sure, eventually mass collection of data from the population may be possible in the future as we have glimpsed with the sheer amount gathered by social media corporations, but even then, access and availability remain issues. Because of these problems in collecting information from the population, we use a sample.
 
-A \textbf{sample} of the population is a small selection of that population of interest. You may recall from last semester and from your first year research methods courses about different approaches to sampling - that is different ways to select the people who you want to ask the questions to. In the case of such surveys, the aim is to choose the best sampling method to promote \textbf{external validity}.
+A \textbf{sample} is a small selection of that population of interest. You may recall from last semester and from your first year research methods classes the different approaches to sampling -- different ways to select individuals to form your sample. Examples are random sampling and convenience sampling. The aim of good sampling is to acheive \textbf{external validity}.
 
-If our sample has high \textbf{external validity}, then those included in it are a good representation of the population. To establish external validity depends on the way you collect your sample (e.g., random sampling versus convenience samples). This will make conclusions from a sample generalisable to the population. That is what the \emph{Crime Survey of England and Wales} does: sample from the population to get an estimate of how widespread crime and victimisation are in the whole of the population.
+If our sample has high external validity, it means that our sample is representative of our population of interest. Therefore, we can be confident that whatever we say and conclude about our sample can be generalised to the population. That is what the Crime Survey of England and Wales does: sample from the population to get an estimate of how widespread crime and victimisation are in the whole of the population.
 
-So how good is a sample at representing the characteristics of an entire population? In the real world, most of the time it is impossible to get whole population data. So to illustrate and show you how we can trust our statistics from our samples to represent the parameters in the populations from which they are derived, we will create a fake population, from which we can draw samples.
+How do we know that a sample is good at representing the population of interest? In the real world, as we have learned, it is often impossible to get data from the whole population. To illustrate how we can trust our statistics from our sample to represent the estimates in the population from which they are derived, also known as \textbf{parameters}, we will create a fake population from which we draw samples using \textbf{synthetic data}.
 
-We create \textbf{synthetic data} to represent a fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population.
+Last week, we learned about distributions. Specifically, we focused on the normal distribution. This is also called a bell curve, because when we squint a little, the shape looks like a bell. Remember that normal distrbutions are symmetrical (there is no skew) and the mean is the same as the median.
 
-Last week we learned about distributions. Specifically, we focused on the \textbf{normal distribution}. This is also called a bell curve, because when we squint a little, the shape looks like a bell. Remember that normal distrbutions are symmetrical, (there is no skew!) and the mean is the same as the median. You can also look at measures of distribution, for example standard deviation, to realise how dispersed your data are. You can also know that about 68\% of your data fall within +/- 1 standard deviation of your mean, and 95\% of your data within +/- 2 standard deviations of your mean, and 99\% of your data within +/- 3 standard deviations of your mean, when your variable is normally distributed. Neat!
+In addition, there were measures of distribution, or dispersion. For example, the standard deviation. Later we learn more about a nifty fact on the normal distribution. For now, the normal distribution below illustrates this nifty fact: 68\% of your data will fall within +/- 1 standard deviation of your mean; 95\% of your data within +/- 2 standard deviations of your mean; and 99\% of your data within +/- 3 standard deviations of your mean.
 
-\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-1-1.pdf}
+\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-2-1.pdf}
 
-Much of the work we will be carrying out in the coming weeks in terms of drawing inferences about the population based on a sample will make the assumption that our data are normally distributed. This is something that you will keep having to check, and come back to. In our case study today, we will be creating a fake population, who's IQ scores follow a normal distribution. Let's get to this now!
+Much of what we will be learning in the coming weeks will make the assumption that our data are normally distributed. Of course, there will be exceptions. This is something you will need to check for before embarking on further statistical analyses. For today, though, we focus on the normal distribution and we create synthetic data on intelligence quotient (IQ) scores of American probationers to show how a sample can be representative of the population.
 
 \hypertarget{activity-2-making-normally-distributed-synthetic-data}{%
 \subsubsection{Activity 2: Making normally distributed synthetic data}\label{activity-2-making-normally-distributed-synthetic-data}}
@@ -4207,11 +4207,16 @@ The synthetic data will consist og randomly generated numbers to represent the i
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Inside nrnorm(), we specify the parameters:}
+\CommentTok{\# n = number of observations, which is 3.6 milion {-}{-} our population of US probationers}
+\CommentTok{\# mean = IQ score of 100}
+\CommentTok{\# sd = dispersion of 15 IQ points around the mean}
+
 \NormalTok{prob\_iq }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\AttributeTok{n =} \DecValTok{3600000}\NormalTok{, }\AttributeTok{mean =} \DecValTok{100}\NormalTok{, }\AttributeTok{sd =} \DecValTok{15}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Great, we now have a vector of numbers, all randomly created. Let's get some descriptives:
+We now have a vector of numbers, all randomly created. Let us get some descriptive statistics:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4220,7 +4225,7 @@ Great, we now have a vector of numbers, all randomly created. Let's get some des
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 100.0046
+## [1] 99.99722
 \end{verbatim}
 
 \begin{Shaded}
@@ -4230,7 +4235,7 @@ Great, we now have a vector of numbers, all randomly created. Let's get some des
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.99874
+## [1] 99.99733
 \end{verbatim}
 
 \begin{Shaded}
@@ -4240,22 +4245,32 @@ Great, we now have a vector of numbers, all randomly created. Let's get some des
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 14.99404
+## [1] 14.99602
 \end{verbatim}
 
-You may notice a few things:
+By doing so, we are verifying that the mean and SD are indeed 100 and 15, but you may notice a few discrepancies:
 
 \begin{itemize}
-\tightlist
 \item
-  1: the mean is not \textbf{exactly} 100 and the sd not \textbf{exactly} 15. But they are very very close.
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    The mean is not \emph{exactly} 100 and the SD is not \emph{exactly} 15, although they are very close to those values.
+  \end{enumerate}
 \item
-  2: your answers may be slightly different to the lab notes. This is because r is \emph{randomly} generating these numbers for you, every time you ask it to. So if you re-run the code above to re-create your `` object, you will get yet another set of numbers!
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Your values may be slightly different to that of the lab notes. The reason is \texttt{R} \emph{randomly} generates these numbers for you. If you re-run the code with \texttt{rnorm} above to re-create your \texttt{prob\_iq}, you will get another set of numbers!
+  \end{enumerate}
 \end{itemize}
 
-So what can we do? Well, we can set a specific seed from which the random numbers should grow. If we choose the same seed, then we will get the same set of random numbers. If we do this, we will all get the same results!
+To ensure we have the same set of numbers, we can set a specific seed from which the random numbers should `grow'. If we choose the same seed, then we will get the same set of random numbers and, thus, the same results.
 
-So, if want our results to be the same, so we set a seed using the function \texttt{set.seed()}, which ensures it generates the exact same distribution for this session. Then we re-create the \texttt{prob\_iq} object:
+We set a seed using the function \texttt{set.seed()}, which ensures it generates the exact same distribution for this session. Then we re-create the \texttt{prob\_iq} object:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4265,7 +4280,7 @@ So, if want our results to be the same, so we set a seed using the function \tex
 \end{Highlighting}
 \end{Shaded}
 
-Now again take the mean, the median, and the sd, and see that you are getting the same results as we are!
+Again, obtain the mean, median, and the SD to verify that we have the same results:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4297,16 +4312,18 @@ Now again take the mean, the median, and the sd, and see that you are getting th
 ## [1] 14.99679
 \end{verbatim}
 
-Great! Now we have these random IQ scores, let's build a data frame using the function \texttt{data.frame()} in which we will create 2 columns. One for a unique identifier for each probationer. Let's call this column \texttt{probationer\_id} and another for IQ let's call this one \texttt{IQ}. Name the whole dataframe \texttt{prob\_off}:
+The values, though slightly different from those stated in our \texttt{rnorm()} code, should match those in the lab notes.
+
+With this set of random IQ scores, let us build a data frame using the function \texttt{data.frame()} in which we will create two columns: one for a unique identifier for each probationer called \texttt{probationer\_id} and another for IQ scores called \texttt{IQ}. The data frame object will be called \texttt{prob\_off}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{prob\_off }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{probationer\_id =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3600000}\NormalTok{,      }\CommentTok{\# create a column and fill with all the numbers from 1 to 3.6 million}
-                       \AttributeTok{IQ =}\NormalTok{ prob\_iq )     }\CommentTok{\# create a column and fill with our random IQ scores}
+\NormalTok{prob\_off }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{probationer\_id =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3600000}\NormalTok{,      }\CommentTok{\# create a column whose numbers range from 1 to 3.6 million}
+                       \AttributeTok{IQ =}\NormalTok{ prob\_iq )     }\CommentTok{\# create a column whose numbers are the random IQ scores}
 \end{Highlighting}
 \end{Shaded}
 
-Now we are nearly there with our fake population data, but for one last step. The values for IQ score must be whole numbers (integers). To achieve this, we will use the \texttt{round()} function. In the \texttt{round()} function you specify two things, first the object you wish to round (the numbers in the IQ column of our prob\_off dataframe so \texttt{prob\_off\$IQ}) and the number of decimals you would like displayed (since we want whole numbers, we want 0 decimals!).
+We now need one last step to complete our fake population data. The values for IQ score must be whole numbers (integers). To achieve this, we will use the \texttt{round()} function. In the \texttt{round()} function you specify two things, first the object you wish to round (the numbers in the IQ column of our prob\_off dataframe so \texttt{prob\_off\$IQ}) and the number of decimals you would like displayed (since we want whole numbers, we want 0 decimals!).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4327,7 +4344,7 @@ Now we finally have our complete fake population of 3.6 million US probationers 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-8-1.pdf}
+\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-9-1.pdf}
 
 Visualising the distribution of IQ scores, we observe that the scores are normally distributed, which is bell-shaped, and there is no skewness on other side. The majority of probationers have an IQ around the mean of 100.
 
@@ -4558,7 +4575,7 @@ So what does our variability look like? We can visualise this sampling distribut
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-19-1.pdf}
+\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-20-1.pdf}
 
 The histogram of our sampling distribution shows this very important concept in inferential statistics: in the case of an \textbf{unbiased estimator} what we see is that whenever we draw a sample, sometimes we \emph{over estimate} the parameter, and sometimes we \emph{under estimate} the parameter. In this case, this means that sometimes our sample mean is \emph{larger} than our population mean, and other times our sample mean is \emph{smaller} than the population mean. Usually the mean of the randomly selected sample will fall close to the populatin mean, but occasionally, it will fall far. Now - what is really exciting, is that if you randomly draw repeated samples from the same population and calculate the mean of each sample, then plot the frequency of those means, you will get the \emph{normal distribution} -- that bell-shaped curve! It doesn't even matter if your underlying data are normally distributed! Your sample statistics will be!
 
@@ -4645,7 +4662,7 @@ Now if you look at this dataframe, it has 3,000 samples in it, 1,000 with 30 peo
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-24-1.pdf}
+\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-25-1.pdf}
 
 From the density plot, all three sample distributions are normally distributed and have similar means to that of the population. (remember that the mean of the sampling distribution will be the true population parameter!)
 
@@ -4890,7 +4907,7 @@ Finally, to illustrate, we can visualise this to better understand what we have 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-36-1.pdf}
+\includegraphics{05-inferential-statistics_files/figure-latex/unnamed-chunk-37-1.pdf}
 
 The visual shows the result obtained in the table, but here, you can see all 100 of the scores, their CIs, and how 95\% of the time, they capture the true population mean. In reality, we have no way of knowing whether we have captured the true population estimates in our sample, but the use of the confidence interval gives us \emph{confidence} that we are on the right track, so reporting CIs in your results is good practice for presenting your findings.
 
@@ -5244,7 +5261,7 @@ The normal distribution has some predictable characteristics about it. One is th
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.4869493
+## [1] 0.4866147
 \end{verbatim}
 
 The result should be close to .50 indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the \textbf{z-score} is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.
@@ -5260,11 +5277,11 @@ To create z-scores, we use the function \texttt{scale\ ()}. For the next example
 
 \begin{verbatim}
 ##   prisoner_id  IQ
-## 1           1  66
-## 2           2 104
-## 3           3  94
-## 4           4 101
-## 5           5  90
+## 1           1  99
+## 2           2  97
+## 3           3 111
+## 4           4  92
+## 5           5 126
 \end{verbatim}
 
 \begin{Shaded}
@@ -5282,7 +5299,7 @@ To create z-scores, we use the function \texttt{scale\ ()}. For the next example
 
 \begin{verbatim}
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9995159
+## 1           1 115  1.000097
 \end{verbatim}
 
 Where the z-score becomes practical is illustrated in the following example: say if a probation officer is writing a report for a prisoner who is about to be up for parole. The prisoner has an IQ of 124. The officer wants to give a good idea of how this score compares to all other prisoners. An apt way of doing this is to state the proportion of prisoners who have lower IQs. This can be done using the \texttt{pnormGC()} function from the \texttt{tigerstats} package:
@@ -5304,7 +5321,7 @@ Where the z-score becomes practical is illustrated in the following example: say
 \includegraphics{06-hypotheses_files/figure-latex/unnamed-chunk-10-1.pdf}
 
 \begin{verbatim}
-## [1] 0.9451069
+## [1] 0.9451843
 \end{verbatim}
 
 The output shows 0.9453, meaning that the prisoner has a higher IQ than over 94\% of the prison population.

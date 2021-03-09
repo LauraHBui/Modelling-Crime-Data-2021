@@ -416,6 +416,7 @@ Now what if we want to calculate these descriptive statistics at once?  This is 
 - (2) *median_deployed*, using the `median()` function
 - (3) *mode_deployed*, using the `mlv()` function
 - (4) *total*, using the `sum()` function
+
 <br>
 
 
@@ -1353,6 +1354,7 @@ Descriptive statistics was the name of the game today. These are measures we use
 
 
 Homework time!
+
 
 
 ### Answers to Activities (where applicable)
