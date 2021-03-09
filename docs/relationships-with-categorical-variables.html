@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-03-07" />
+<meta name="date" content="2021-03-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -355,10 +355,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Get to know the datasets with the codes <code>View(nys_1)</code> and <code>View(nys_2)</code></p></li>
 <li><p>There is some code on scientific notation that we will ignore, so run <code>options(scipen=999)</code> to turn it off.</p></li>
 </ol>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="relationships-with-categorical-variables.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(nys_1)</span>
-<span id="cb301-2"><a href="relationships-with-categorical-variables.html#cb301-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(nys_2)</span>
-<span id="cb301-3"><a href="relationships-with-categorical-variables.html#cb301-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb301-4"><a href="relationships-with-categorical-variables.html#cb301-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="relationships-with-categorical-variables.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(nys_1)</span>
+<span id="cb333-2"><a href="relationships-with-categorical-variables.html#cb333-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(nys_2)</span>
+<span id="cb333-3"><a href="relationships-with-categorical-variables.html#cb333-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb333-4"><a href="relationships-with-categorical-variables.html#cb333-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)</span></code></pre></div>
 <hr />
 </div>
 <div id="todays-3-4" class="section level2" number="7.2">
@@ -381,30 +381,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(H_0\)</span>: There is no significant difference in frequency of getting drunk between males and females in the past year.</p>
 <p><span class="math inline">\(H_A\)</span>: There is a significant difference in frequency of getting drunk between males and females in the past year.</p>
 <p>We use the data frame, <code>nys_1</code>, to address our research question: Is there a difference in the amount of drunkenness between males and females? Before conducting our t-test, we need to check our variables of interest to see if they need any recoding. We use the function <code>summarize ()</code> to examine the sex variable ( <code>sex</code> ) and use the function <code>n ()</code> to obtain frequencies:</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="relationships-with-categorical-variables.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examining distribution of sex variable</span></span>
-<span id="cb302-2"><a href="relationships-with-categorical-variables.html#cb302-2" aria-hidden="true" tabindex="-1"></a>nys_1 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="relationships-with-categorical-variables.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examining distribution of sex variable</span></span>
+<span id="cb334-2"><a href="relationships-with-categorical-variables.html#cb334-2" aria-hidden="true" tabindex="-1"></a>nys_1 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##          sex     n
 ## *  &lt;dbl+lbl&gt; &lt;int&gt;
 ## 1 1 [Male]     918
 ## 2 2 [Female]   807</code></pre>
 <p>According to the output, there are 918 males and 807 females. In addition, the codes for each value are shown: males are coded ‘1’ whereas females are coded ‘2’. We may want to recode these values to make a dummy variable (binary but codes are 0 and 1) so that females are ‘1’ and males are ‘0’:</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="relationships-with-categorical-variables.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, recode ‘sex’ and store it in a new variable called ‘female’</span></span>
-<span id="cb304-2"><a href="relationships-with-categorical-variables.html#cb304-2" aria-hidden="true" tabindex="-1"></a>nys_1<span class="sc">$</span>female <span class="ot">&lt;-</span> <span class="fu">recode</span>(nys_1<span class="sc">$</span>sex, <span class="st">&#39;2&#39;</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">&#39;1&#39;</span> <span class="ot">=</span> <span class="dv">0</span>) </span>
-<span id="cb304-3"><a href="relationships-with-categorical-variables.html#cb304-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb304-4"><a href="relationships-with-categorical-variables.html#cb304-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Next, label the values so that female is ‘1’ and male is ‘0’</span></span>
-<span id="cb304-5"><a href="relationships-with-categorical-variables.html#cb304-5" aria-hidden="true" tabindex="-1"></a>nys_1 <span class="ot">&lt;-</span> nys_1 <span class="sc">%&gt;%</span> <span class="fu">add_value_labels</span>(<span class="at">female =</span> <span class="fu">c</span>(<span class="st">&quot;Female&quot;</span><span class="ot">=</span><span class="dv">1</span>, <span class="st">&quot;Male&quot;</span><span class="ot">=</span><span class="dv">0</span>)) </span>
-<span id="cb304-6"><a href="relationships-with-categorical-variables.html#cb304-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb304-7"><a href="relationships-with-categorical-variables.html#cb304-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check they were added correctly by getting frequencies </span></span>
-<span id="cb304-8"><a href="relationships-with-categorical-variables.html#cb304-8" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(nys_1, female)</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="relationships-with-categorical-variables.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, recode ‘sex’ and store it in a new variable called ‘female’</span></span>
+<span id="cb336-2"><a href="relationships-with-categorical-variables.html#cb336-2" aria-hidden="true" tabindex="-1"></a>nys_1<span class="sc">$</span>female <span class="ot">&lt;-</span> <span class="fu">recode</span>(nys_1<span class="sc">$</span>sex, <span class="st">&#39;2&#39;</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">&#39;1&#39;</span> <span class="ot">=</span> <span class="dv">0</span>) </span>
+<span id="cb336-3"><a href="relationships-with-categorical-variables.html#cb336-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb336-4"><a href="relationships-with-categorical-variables.html#cb336-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Next, label the values so that female is ‘1’ and male is ‘0’</span></span>
+<span id="cb336-5"><a href="relationships-with-categorical-variables.html#cb336-5" aria-hidden="true" tabindex="-1"></a>nys_1 <span class="ot">&lt;-</span> nys_1 <span class="sc">%&gt;%</span> <span class="fu">add_value_labels</span>(<span class="at">female =</span> <span class="fu">c</span>(<span class="st">&quot;Female&quot;</span><span class="ot">=</span><span class="dv">1</span>, <span class="st">&quot;Male&quot;</span><span class="ot">=</span><span class="dv">0</span>)) </span>
+<span id="cb336-6"><a href="relationships-with-categorical-variables.html#cb336-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb336-7"><a href="relationships-with-categorical-variables.html#cb336-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check they were added correctly by getting frequencies </span></span>
+<span id="cb336-8"><a href="relationships-with-categorical-variables.html#cb336-8" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(nys_1, female)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##       female     n
 ## *  &lt;dbl+lbl&gt; &lt;int&gt;
 ## 1 0 [Male]     918
 ## 2 1 [Female]   807</code></pre>
 <p>Now we check out our dependent variable <code>drunk</code> using the <code>skim()</code> function from the <code>skimr</code> package familiar from lesson 4:</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="relationships-with-categorical-variables.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use skim() function from skimr package to examine drunk variable </span></span>
-<span id="cb306-2"><a href="relationships-with-categorical-variables.html#cb306-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(nys_1, drunk)</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="relationships-with-categorical-variables.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use skim() function from skimr package to examine drunk variable </span></span>
+<span id="cb338-2"><a href="relationships-with-categorical-variables.html#cb338-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(nys_1, drunk)</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="6%" />
@@ -453,8 +453,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="relationships-with-categorical-variables.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out DV by variable ‘female’</span></span>
-<span id="cb307-2"><a href="relationships-with-categorical-variables.html#cb307-2" aria-hidden="true" tabindex="-1"></a>nys_1 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(female) <span class="sc">%&gt;%</span> <span class="fu">skim</span>(drunk)</span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="relationships-with-categorical-variables.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out DV by variable ‘female’</span></span>
+<span id="cb339-2"><a href="relationships-with-categorical-variables.html#cb339-2" aria-hidden="true" tabindex="-1"></a>nys_1 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(female) <span class="sc">%&gt;%</span> <span class="fu">skim</span>(drunk)</span></code></pre></div>
 <table>
 <colgroup>
 <col width="6%" />
@@ -524,8 +524,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>From the output, it seems that most youth did not report getting drunk in the past year; this is evidenced by the mean. The mean, however, shows that males have a slightly higher level of being drunk than females (1.61 as opposed to 0.82). Is this a statistically significant difference?</p>
 <p>Our observation of a difference between means prompts us to test whether this difference is an actual difference, or if it is attributed to chance.</p>
 <p>Before we conduct the test to tell us this, we conduct the <strong>test for equality of variance</strong>. This is an F-test that evaluates the null hypothesis that the variances of the two groups are equal. When we want to compare variances, we conduct this test as the variances may affect how we specify our t-test.</p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="relationships-with-categorical-variables.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DV comes first in code, then the IV</span></span>
-<span id="cb308-2"><a href="relationships-with-categorical-variables.html#cb308-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(nys_1<span class="sc">$</span>drunk<span class="sc">~</span>nys_1<span class="sc">$</span>female)</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="relationships-with-categorical-variables.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DV comes first in code, then the IV</span></span>
+<span id="cb340-2"><a href="relationships-with-categorical-variables.html#cb340-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(nys_1<span class="sc">$</span>drunk<span class="sc">~</span>nys_1<span class="sc">$</span>female)</span></code></pre></div>
 <pre><code>## 
 ##  F test to compare two variances
 ## 
@@ -538,8 +538,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ratio of variances 
 ##           1.772941</code></pre>
 <p>The information to focus on in the output are the alternative hypothesis, the F-statistic, and associated p-value. The alternative hypothesis states that the variances are not equal to 1, meaning they are not equal to each other. The p-value is very small, so we reject the null hypothesis that the variances are equal to each other. Conducting the F-test is an important step before the t-test because now we must set <code>var.equal</code> to <code>FALSE</code> in the following independent sample t-test.</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="relationships-with-categorical-variables.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the t-test with var.equal option set to false </span></span>
-<span id="cb310-2"><a href="relationships-with-categorical-variables.html#cb310-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(nys_1<span class="sc">$</span>drunk<span class="sc">~</span>nys_1<span class="sc">$</span>female, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="relationships-with-categorical-variables.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the t-test with var.equal option set to false </span></span>
+<span id="cb342-2"><a href="relationships-with-categorical-variables.html#cb342-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(nys_1<span class="sc">$</span>drunk<span class="sc">~</span>nys_1<span class="sc">$</span>female, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -551,11 +551,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sample estimates:
 ## mean in group 0 mean in group 1 
 ##        1.614208        0.818408</code></pre>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="relationships-with-categorical-variables.html#cb312-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can save your results in an object, too, to refer back to later:</span></span>
-<span id="cb312-2"><a href="relationships-with-categorical-variables.html#cb312-2" aria-hidden="true" tabindex="-1"></a>t_test_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(nys_1<span class="sc">$</span>drunk<span class="sc">~</span>nys_1<span class="sc">$</span>female, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb312-3"><a href="relationships-with-categorical-variables.html#cb312-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb312-4"><a href="relationships-with-categorical-variables.html#cb312-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print independent t-test results </span></span>
-<span id="cb312-5"><a href="relationships-with-categorical-variables.html#cb312-5" aria-hidden="true" tabindex="-1"></a>t_test_results</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="relationships-with-categorical-variables.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can save your results in an object, too, to refer back to later:</span></span>
+<span id="cb344-2"><a href="relationships-with-categorical-variables.html#cb344-2" aria-hidden="true" tabindex="-1"></a>t_test_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(nys_1<span class="sc">$</span>drunk<span class="sc">~</span>nys_1<span class="sc">$</span>female, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb344-3"><a href="relationships-with-categorical-variables.html#cb344-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb344-4"><a href="relationships-with-categorical-variables.html#cb344-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print independent t-test results </span></span>
+<span id="cb344-5"><a href="relationships-with-categorical-variables.html#cb344-5" aria-hidden="true" tabindex="-1"></a>t_test_results</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -578,16 +578,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(H_0\)</span>: There is no significant difference in the number of times a youth reported stealing something worth more than $50 between Wave 1 and Wave 2.</p>
 <p><span class="math inline">\(H_A\)</span>: There is a significant difference in the number of times a youth reported stealing something worth more than $50 between Wave 1 and Wave 2.</p>
 <p>As responses from both Waves 1 and 2 are required, cases without this pair of responses will be dropped automatically when our analysis is conducted. This t-test also requires the DV to be stored in two separate variables and the level of measurement to be ratio or interval. Let us get to know our data:</p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="relationships-with-categorical-variables.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View NYS wave 2 data </span></span>
-<span id="cb314-2"><a href="relationships-with-categorical-variables.html#cb314-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(nys_2)</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="relationships-with-categorical-variables.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View NYS wave 2 data </span></span>
+<span id="cb346-2"><a href="relationships-with-categorical-variables.html#cb346-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(nys_2)</span></code></pre></div>
 <p>The variable <code>CASEID</code> is the case identification numbers and these are found across all waves. We want to examine Waves 1 and 2, so will need to merge the waves together using the variable <code>CASEID</code>:</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="relationships-with-categorical-variables.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merging waves 1 and 2 of data together by CASEID</span></span>
-<span id="cb315-2"><a href="relationships-with-categorical-variables.html#cb315-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Putting this merged data into the data frame object called ‘nys_merged’</span></span>
-<span id="cb315-3"><a href="relationships-with-categorical-variables.html#cb315-3" aria-hidden="true" tabindex="-1"></a>nys_merged <span class="ot">&lt;-</span><span class="fu">merge</span>(nys_1, nys_2, <span class="at">by=</span><span class="st">&quot;CASEID&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="relationships-with-categorical-variables.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merging waves 1 and 2 of data together by CASEID</span></span>
+<span id="cb347-2"><a href="relationships-with-categorical-variables.html#cb347-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Putting this merged data into the data frame object called ‘nys_merged’</span></span>
+<span id="cb347-3"><a href="relationships-with-categorical-variables.html#cb347-3" aria-hidden="true" tabindex="-1"></a>nys_merged <span class="ot">&lt;-</span><span class="fu">merge</span>(nys_1, nys_2, <span class="at">by=</span><span class="st">&quot;CASEID&quot;</span>)</span></code></pre></div>
 <p>Now, for the dependent sample t-test whereby we use the variables <code>thftg50</code> and <code>thftg50_w2</code>:</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="relationships-with-categorical-variables.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let us run the dependent samples t-test </span></span>
-<span id="cb316-2"><a href="relationships-with-categorical-variables.html#cb316-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify TRUE for the paired option </span></span>
-<span id="cb316-3"><a href="relationships-with-categorical-variables.html#cb316-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(nys_merged<span class="sc">$</span>thftg50_w2, nys_merged<span class="sc">$</span>thftg50, <span class="at">paired=</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="relationships-with-categorical-variables.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let us run the dependent samples t-test </span></span>
+<span id="cb348-2"><a href="relationships-with-categorical-variables.html#cb348-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify TRUE for the paired option </span></span>
+<span id="cb348-3"><a href="relationships-with-categorical-variables.html#cb348-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(nys_merged<span class="sc">$</span>thftg50_w2, nys_merged<span class="sc">$</span>thftg50, <span class="at">paired=</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -609,13 +609,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <strong>chi-square statistic</strong> is a test of statistical significance for two categorical variables. It tells us how much the observed distribution differs from the one expected under the null hypothesis. To begin to even understand this definition, we start with cross tabulations or <strong>contingency tables</strong>. These appear as a table that shows the crossed frequency distributions of more than one variable simultaneously and are particularly helpful in exploring relationships between categorical variables that do not have too many categories. Specifically, cross-tabulations have the same meaning except they are applied only to relationships between two categorical variables.</p>
 <p>We produce a cross tabulation of victimisation ( <code>bcsvictim</code> ) and whether rubbish is a problem in the area where the respondent lives (<code>rubbcomm</code>). According to <em>Broken Windows Theory</em>, proposed by James Q. Wilson and George Kelling, we should see a relationship between these two variables.</p>
 <p>First, we check out our variables:</p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="relationships-with-categorical-variables.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seeing what class these variables are</span></span>
-<span id="cb318-2"><a href="relationships-with-categorical-variables.html#cb318-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(BCS0708<span class="sc">$</span>bcsvictim)</span></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="relationships-with-categorical-variables.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seeing what class these variables are</span></span>
+<span id="cb350-2"><a href="relationships-with-categorical-variables.html#cb350-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(BCS0708<span class="sc">$</span>bcsvictim)</span></code></pre></div>
 <pre><code>## [1] &quot;haven_labelled&quot; &quot;vctrs_vctr&quot;     &quot;double&quot;</code></pre>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="relationships-with-categorical-variables.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(BCS0708<span class="sc">$</span>rubbcomm)</span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="relationships-with-categorical-variables.html#cb352-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(BCS0708<span class="sc">$</span>rubbcomm)</span></code></pre></div>
 <pre><code>## [1] &quot;haven_labelled&quot; &quot;vctrs_vctr&quot;     &quot;double&quot;</code></pre>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="relationships-with-categorical-variables.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0-Not victim of crime; 1-Victim of crime</span></span>
-<span id="cb322-2"><a href="relationships-with-categorical-variables.html#cb322-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(BCS0708<span class="sc">$</span>bcsvictim) </span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="relationships-with-categorical-variables.html#cb354-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0-Not victim of crime; 1-Victim of crime</span></span>
+<span id="cb354-2"><a href="relationships-with-categorical-variables.html#cb354-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(BCS0708<span class="sc">$</span>bcsvictim) </span></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;experience of any crime in the previous 12 months&quot;
 ## 
@@ -628,8 +628,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $labels
 ## not a victim of crime       victim of crime 
 ##                     0                     1</code></pre>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="relationships-with-categorical-variables.html#cb324-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5-point Likert-scale ranging from 1 (very common) to 4 (not common) </span></span>
-<span id="cb324-2"><a href="relationships-with-categorical-variables.html#cb324-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(BCS0708<span class="sc">$</span>rubbcomm)</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="relationships-with-categorical-variables.html#cb356-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5-point Likert-scale ranging from 1 (very common) to 4 (not common) </span></span>
+<span id="cb356-2"><a href="relationships-with-categorical-variables.html#cb356-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(BCS0708<span class="sc">$</span>rubbcomm)</span></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;in the immediate area how common is litter\\rubbish&quot;
 ## 
@@ -644,32 +644,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                 1                 2                 3                 4 
 ##         not coded 
 ##                 5</code></pre>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="relationships-with-categorical-variables.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(BCS0708<span class="sc">$</span>bcsvictim)</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="relationships-with-categorical-variables.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(BCS0708<span class="sc">$</span>bcsvictim)</span></code></pre></div>
 <pre><code>## 
 ##    0    1 
 ## 9318 2358</code></pre>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="relationships-with-categorical-variables.html#cb328-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If you want the frequency distribution with labels, use ‘as_factor ()’</span></span>
-<span id="cb328-2"><a href="relationships-with-categorical-variables.html#cb328-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">as_factor</span>(BCS0708<span class="sc">$</span>bcsvictim))</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="relationships-with-categorical-variables.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If you want the frequency distribution with labels, use ‘as_factor ()’</span></span>
+<span id="cb360-2"><a href="relationships-with-categorical-variables.html#cb360-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">as_factor</span>(BCS0708<span class="sc">$</span>bcsvictim))</span></code></pre></div>
 <pre><code>## 
 ## not a victim of crime       victim of crime 
 ##                  9318                  2358</code></pre>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="relationships-with-categorical-variables.html#cb330-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">as_factor</span>(BCS0708<span class="sc">$</span>rubbcomm))</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="relationships-with-categorical-variables.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">as_factor</span>(BCS0708<span class="sc">$</span>rubbcomm))</span></code></pre></div>
 <pre><code>## 
 ##       very common     fairly common   not very common not at all common 
 ##               204              1244              4154              5463 
 ##         not coded 
 ##                 0</code></pre>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="relationships-with-categorical-variables.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for any missing values using ‘sum ()’ to count number of NA data</span></span>
-<span id="cb332-2"><a href="relationships-with-categorical-variables.html#cb332-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(BCS0708<span class="sc">$</span>bcsvictim))</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="relationships-with-categorical-variables.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for any missing values using ‘sum ()’ to count number of NA data</span></span>
+<span id="cb364-2"><a href="relationships-with-categorical-variables.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(BCS0708<span class="sc">$</span>bcsvictim))</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="relationships-with-categorical-variables.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Value of 5 indicates missing</span></span>
-<span id="cb334-2"><a href="relationships-with-categorical-variables.html#cb334-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(BCS0708<span class="sc">$</span>rubbcomm))</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="relationships-with-categorical-variables.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Value of 5 indicates missing</span></span>
+<span id="cb366-2"><a href="relationships-with-categorical-variables.html#cb366-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(BCS0708<span class="sc">$</span>rubbcomm))</span></code></pre></div>
 <pre><code>## [1] 611</code></pre>
 <p>For the DV, we are missing 611 cases. For this course unit, keep in mind that all the statistical tests you will learn rely on <strong>full cases analysis</strong> whereby the tests exclude cases that have missing values. There are appropriate ways in dealing with missing data but this is beyond the scope of this class.</p>
 <p>There are a couple of ways of producing cross tabulations in <code>R</code>:</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="relationships-with-categorical-variables.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic R</span></span>
-<span id="cb336-2"><a href="relationships-with-categorical-variables.html#cb336-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">as_factor</span>(BCS0708<span class="sc">$</span>bcsvictim), </span>
-<span id="cb336-3"><a href="relationships-with-categorical-variables.html#cb336-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as_factor</span>(BCS0708<span class="sc">$</span>rubbcomm))</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="relationships-with-categorical-variables.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic R</span></span>
+<span id="cb368-2"><a href="relationships-with-categorical-variables.html#cb368-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">as_factor</span>(BCS0708<span class="sc">$</span>bcsvictim), </span>
+<span id="cb368-3"><a href="relationships-with-categorical-variables.html#cb368-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as_factor</span>(BCS0708<span class="sc">$</span>rubbcomm))</span></code></pre></div>
 <pre><code>##                        
 ##                         very common fairly common not very common
 ##   not a victim of crime         141           876            3173
@@ -678,14 +678,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                         not at all common not coded
 ##   not a victim of crime              4614         0
 ##   victim of crime                     849         0</code></pre>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="relationships-with-categorical-variables.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dplyr</span></span>
-<span id="cb338-2"><a href="relationships-with-categorical-variables.html#cb338-2" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> BCS0708 <span class="sc">%&gt;%</span> <span class="co"># ‘fct_explicit_na()’ function from the forcats package to get an explicit factor level from our # missing values</span></span>
-<span id="cb338-3"><a href="relationships-with-categorical-variables.html#cb338-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="fu">fct_explicit_na</span>(<span class="fu">as_factor</span>(rubbcomm))) <span class="sc">%&gt;%</span> </span>
-<span id="cb338-4"><a href="relationships-with-categorical-variables.html#cb338-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We use the function ‘mean()’ as the variable is binary and because it is coded as 0 and 1.</span></span>
-<span id="cb338-5"><a href="relationships-with-categorical-variables.html#cb338-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>( <span class="at">count =</span> <span class="fu">n</span>(), <span class="at">outcome_1 =</span> <span class="fu">mean</span>(bcsvictim))</span>
-<span id="cb338-6"><a href="relationships-with-categorical-variables.html#cb338-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb338-7"><a href="relationships-with-categorical-variables.html#cb338-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto-print the results stored in the newly created object </span></span>
-<span id="cb338-8"><a href="relationships-with-categorical-variables.html#cb338-8" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="relationships-with-categorical-variables.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dplyr</span></span>
+<span id="cb370-2"><a href="relationships-with-categorical-variables.html#cb370-2" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> BCS0708 <span class="sc">%&gt;%</span> <span class="co"># ‘fct_explicit_na()’ function from the forcats package to get an explicit factor level from our # missing values</span></span>
+<span id="cb370-3"><a href="relationships-with-categorical-variables.html#cb370-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="fu">fct_explicit_na</span>(<span class="fu">as_factor</span>(rubbcomm))) <span class="sc">%&gt;%</span> </span>
+<span id="cb370-4"><a href="relationships-with-categorical-variables.html#cb370-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We use the function ‘mean()’ as the variable is binary and because it is coded as 0 and 1.</span></span>
+<span id="cb370-5"><a href="relationships-with-categorical-variables.html#cb370-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>( <span class="at">count =</span> <span class="fu">n</span>(), <span class="at">outcome_1 =</span> <span class="fu">mean</span>(bcsvictim))</span>
+<span id="cb370-6"><a href="relationships-with-categorical-variables.html#cb370-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb370-7"><a href="relationships-with-categorical-variables.html#cb370-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto-print the results stored in the newly created object </span></span>
+<span id="cb370-8"><a href="relationships-with-categorical-variables.html#cb370-8" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 3
 ##   `fct_explicit_na(as_factor(rubbcomm))` count outcome_1
 ## * &lt;fct&gt;                                  &lt;int&gt;     &lt;dbl&gt;
@@ -696,11 +696,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 (Missing)                                611     0.159</code></pre>
 <p>The <code>dplyr</code> coding seems more complicated than that of <code>basic R</code> but its output is clearer to read than the one produced by <code>R</code>, and it is more detailed. The proportion of victimised individuals are within each of the levels of the categorical, ordered measure of rubbish in the area. Victimisation appears higher (31%) in the areas where rubbish in the streets is a very common problem.</p>
 <p>To further explore contingency tables, the best package for this is <code>gmodels</code>. It allows you to produce cross tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. We use the function <code>CrossTable ()</code> , then the <code>with ()</code> function to identify the data frame at the outset instead of having to include it with each variable.</p>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="relationships-with-categorical-variables.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the rows in your table (rubbcomm) and then the variable that will define the columns # (bcsvictim)</span></span>
-<span id="cb340-2"><a href="relationships-with-categorical-variables.html#cb340-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(BCS0708, <span class="fu">CrossTable</span>(<span class="fu">as_factor</span>(rubbcomm), </span>
-<span id="cb340-3"><a href="relationships-with-categorical-variables.html#cb340-3" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">as_factor</span>(bcsvictim), </span>
-<span id="cb340-4"><a href="relationships-with-categorical-variables.html#cb340-4" aria-hidden="true" tabindex="-1"></a><span class="at">prop.chisq =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb340-5"><a href="relationships-with-categorical-variables.html#cb340-5" aria-hidden="true" tabindex="-1"></a><span class="at">format =</span> <span class="fu">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="relationships-with-categorical-variables.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the rows in your table (rubbcomm) and then the variable that will define the columns # (bcsvictim)</span></span>
+<span id="cb372-2"><a href="relationships-with-categorical-variables.html#cb372-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(BCS0708, <span class="fu">CrossTable</span>(<span class="fu">as_factor</span>(rubbcomm), </span>
+<span id="cb372-3"><a href="relationships-with-categorical-variables.html#cb372-3" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">as_factor</span>(bcsvictim), </span>
+<span id="cb372-4"><a href="relationships-with-categorical-variables.html#cb372-4" aria-hidden="true" tabindex="-1"></a><span class="at">prop.chisq =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb372-5"><a href="relationships-with-categorical-variables.html#cb372-5" aria-hidden="true" tabindex="-1"></a><span class="at">format =</span> <span class="fu">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</span></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|
@@ -750,11 +750,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>If your dependent variable is defining the columns, then you ask for the <em>row percentages</em></p></li>
 </ol>
 <p>Also, <em>you make the comparisons across the right percentages in the direction where they do not add up to a hundred percent</em>. For example, 30.88% of people who live in areas where rubbish is very common have been victimised, whereas only 15.54% of people who live in areas where rubbish is not at all common have been victimised in the previous year. To make it easier, we can ask <code>R</code> to only give us the percentages in which we are interested:</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="relationships-with-categorical-variables.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prop.c is column and prop.t is total</span></span>
-<span id="cb342-2"><a href="relationships-with-categorical-variables.html#cb342-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(BCS0708, <span class="fu">CrossTable</span>(<span class="fu">as_factor</span>(rubbcomm), </span>
-<span id="cb342-3"><a href="relationships-with-categorical-variables.html#cb342-3" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">as_factor</span>(bcsvictim), </span>
-<span id="cb342-4"><a href="relationships-with-categorical-variables.html#cb342-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">prop.chisq =</span> <span class="cn">FALSE</span>, <span class="at">prop.c =</span> <span class="cn">FALSE</span>, <span class="at">prop.t =</span> <span class="cn">FALSE</span>, <span class="at">format =</span></span>
-<span id="cb342-5"><a href="relationships-with-categorical-variables.html#cb342-5" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="relationships-with-categorical-variables.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prop.c is column and prop.t is total</span></span>
+<span id="cb374-2"><a href="relationships-with-categorical-variables.html#cb374-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(BCS0708, <span class="fu">CrossTable</span>(<span class="fu">as_factor</span>(rubbcomm), </span>
+<span id="cb374-3"><a href="relationships-with-categorical-variables.html#cb374-3" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">as_factor</span>(bcsvictim), </span>
+<span id="cb374-4"><a href="relationships-with-categorical-variables.html#cb374-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">prop.chisq =</span> <span class="cn">FALSE</span>, <span class="at">prop.c =</span> <span class="cn">FALSE</span>, <span class="at">prop.t =</span> <span class="cn">FALSE</span>, <span class="at">format =</span></span>
+<span id="cb374-5"><a href="relationships-with-categorical-variables.html#cb374-5" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</span></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|
@@ -792,10 +792,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 (1) compares these expected frequencies with the ones we actually observe in each of the cells, (2) then averages the differences across the cells, and (3) produces a standardised value, <em>χ</em><span class="math inline">\(^2\)</span> (the chi-square statistic).</p>
 <p>We then look at a chi-square distribution to see how probable or improbable this value is. But, in practice, the p-value helps us ascertain this more quickly.</p>
 <p><strong>Expected frequencies</strong> are the number of cases you would expect to see in each cell within a contingency table if there was no relationship between the two variables. <strong>Observed frequencies</strong> are the cases that we actually see in our sample. We use the <code>CrossTable ()</code> function again:</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="relationships-with-categorical-variables.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(BCS0708, <span class="fu">CrossTable</span>(<span class="fu">as_factor</span>(rubbcomm), </span>
-<span id="cb344-2"><a href="relationships-with-categorical-variables.html#cb344-2" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">as_factor</span>(bcsvictim), </span>
-<span id="cb344-3"><a href="relationships-with-categorical-variables.html#cb344-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">expected =</span> <span class="cn">TRUE</span>, <span class="at">prop.c =</span> <span class="cn">FALSE</span>, <span class="at">prop.t =</span> <span class="cn">FALSE</span>, <span class="at">format =</span></span>
-<span id="cb344-4"><a href="relationships-with-categorical-variables.html#cb344-4" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">&quot;SPSS&quot;</span>) ))</span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="relationships-with-categorical-variables.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(BCS0708, <span class="fu">CrossTable</span>(<span class="fu">as_factor</span>(rubbcomm), </span>
+<span id="cb376-2"><a href="relationships-with-categorical-variables.html#cb376-2" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">as_factor</span>(bcsvictim), </span>
+<span id="cb376-3"><a href="relationships-with-categorical-variables.html#cb376-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">expected =</span> <span class="cn">TRUE</span>, <span class="at">prop.c =</span> <span class="cn">FALSE</span>, <span class="at">prop.t =</span> <span class="cn">FALSE</span>, <span class="at">format =</span></span>
+<span id="cb376-4"><a href="relationships-with-categorical-variables.html#cb376-4" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">&quot;SPSS&quot;</span>) ))</span></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|
@@ -847,7 +847,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The output shows that, for example, 63 people lived in areas where rubbish was very common and experienced victimisation in the past year. Under the null hypothesis of no relationship, however, we should expect this value to be 41.69. Thus, more people are in this cell than we would expect under the null hypothesis.</p>
 <p>The chi-square value is 184.04, with 3 degrees of freedom (df). The df is obtained by the number of rows minus one, then multiplied by the number of columns minus one: (4 − 1)*(2 − 1). The probability associated with this particular value is nearly zero (1.180e-39). This value is considerably lower than the standard alpha level of 0.05. We conclude that there is a significant relationship between victimisation and the presence of rubbish. We reject the null hypothesis.</p>
 <p>If you do not want to use <code>CrossTable ()</code>, you can use <code>chisq.test ()</code> to give you the chi-square value:</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="relationships-with-categorical-variables.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(BCS0708<span class="sc">$</span>rubbcomm, BCS0708<span class="sc">$</span>bcsvictim)</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="relationships-with-categorical-variables.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(BCS0708<span class="sc">$</span>rubbcomm, BCS0708<span class="sc">$</span>bcsvictim)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -855,9 +855,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## X-squared = 184.04, df = 3, p-value &lt; 2.2e-16</code></pre>
 <p>The chi-square statistic only tells us whether there is a relationship or not between two variables; it says nothing about strength of relationship or exactly what differences between observed and expected frequencies are driving the results.</p>
 <p>For the chi-square to work though, it needs to have a sufficient number of cases in each cell. Notice that <code>R</code> was telling us that the minimum expected frequency is 41.68. One rule of thumb is that all expected cell counts should be above 5. If we have a small number in the cells, one alternative is to use <strong>Fisher’s exact test</strong>:</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="relationships-with-categorical-variables.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(BCS0708, <span class="fu">fisher.test</span>(rubbcomm, bcsvictim))</span></code></pre></div>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="relationships-with-categorical-variables.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If you get an error message about increasing the size of your workspace, do so with this code:</span></span>
-<span id="cb349-2"><a href="relationships-with-categorical-variables.html#cb349-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(BCS0708<span class="sc">$</span>rubbcomm, BCS0708<span class="sc">$</span>bcsvictim, <span class="at">workspace =</span> <span class="fl">2e+07</span>, <span class="at">hybrid =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="relationships-with-categorical-variables.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(BCS0708, <span class="fu">fisher.test</span>(rubbcomm, bcsvictim))</span></code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="relationships-with-categorical-variables.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If you get an error message about increasing the size of your workspace, do so with this code:</span></span>
+<span id="cb381-2"><a href="relationships-with-categorical-variables.html#cb381-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(BCS0708<span class="sc">$</span>rubbcomm, BCS0708<span class="sc">$</span>bcsvictim, <span class="at">workspace =</span> <span class="fl">2e+07</span>, <span class="at">hybrid =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Fisher&#39;s Exact Test for Count Data hybrid using asym.chisq. iff
 ##  (exp=5, perc=80, Emin=1)
@@ -869,10 +869,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Last, we had observed that there were differences between the observed and expected frequencies. This is called a <strong>residual</strong>. Some differences seem larger than others. For example, there were about 21 more people that lived in areas where rubbish was very common and they experienced victimisation than what were expected under the null hypothesis. When you see large differences, it is unsurprising to also expect that the cell in question may be playing a particularly strong role in driving the relationship between rubbish and victimisation.</p>
 <p>We are not sure, however, of what is considered a large residual. A statistic that helps address this is the <strong>adjusted standardised residuals</strong>, which behaves like a z-score. Residuals indicate the difference between the expected and the observed counts on a standardised scale. When the null hypothesis is true, there is only about a 5% chance that any particular standardised residual exceeds 2 in absolute value.</p>
 <p>Whenever you see differences that are greater than 2, the difference between expected and observed frequencies in that particular cell is significant and is driving the results of your chi-square test. Values above +3 or below −3 are considered convincing evidence of a true effect in that cell:</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="relationships-with-categorical-variables.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Include argument ‘asresid= TRUE’ to include adjusted standardised residuals</span></span>
-<span id="cb351-2"><a href="relationships-with-categorical-variables.html#cb351-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(BCS0708, <span class="fu">CrossTable</span>(<span class="fu">as_factor</span>(rubbcomm), <span class="fu">as_factor</span>(bcsvictim), <span class="at">expected =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb351-3"><a href="relationships-with-categorical-variables.html#cb351-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">prop.chisq =</span> <span class="cn">FALSE</span>, <span class="at">prop.c =</span> <span class="cn">FALSE</span>, <span class="at">prop.t =</span> <span class="cn">FALSE</span>, <span class="at">asresid =</span></span>
-<span id="cb351-4"><a href="relationships-with-categorical-variables.html#cb351-4" aria-hidden="true" tabindex="-1"></a>                           <span class="cn">TRUE</span>, <span class="at">format =</span> <span class="fu">c</span>(<span class="st">&quot;SPSS&quot;</span>) ))</span></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="relationships-with-categorical-variables.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Include argument ‘asresid= TRUE’ to include adjusted standardised residuals</span></span>
+<span id="cb383-2"><a href="relationships-with-categorical-variables.html#cb383-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(BCS0708, <span class="fu">CrossTable</span>(<span class="fu">as_factor</span>(rubbcomm), <span class="fu">as_factor</span>(bcsvictim), <span class="at">expected =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb383-3"><a href="relationships-with-categorical-variables.html#cb383-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">prop.chisq =</span> <span class="cn">FALSE</span>, <span class="at">prop.c =</span> <span class="cn">FALSE</span>, <span class="at">prop.t =</span> <span class="cn">FALSE</span>, <span class="at">asresid =</span></span>
+<span id="cb383-4"><a href="relationships-with-categorical-variables.html#cb383-4" aria-hidden="true" tabindex="-1"></a>                           <span class="cn">TRUE</span>, <span class="at">format =</span> <span class="fu">c</span>(<span class="st">&quot;SPSS&quot;</span>) ))</span></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|

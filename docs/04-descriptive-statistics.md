@@ -291,7 +291,7 @@ After you do so, we get to know more about `Q_12`. First, let us get the minimum
 
 
 ```r
- min(bwcs$Q_12, na.rm=TRUE)
+ min(bwcs$Q_12,  na.rm=TRUE)
 ```
 
 ```
@@ -416,6 +416,7 @@ Now what if we want to calculate these descriptive statistics at once?  This is 
 - (2) *median_deployed*, using the `median()` function
 - (3) *mode_deployed*, using the `mlv()` function
 - (4) *total*, using the `sum()` function
+
 <br>
 
 
@@ -857,7 +858,7 @@ ggplot(data = bwcs, mapping = aes(x = Q_12)) +
   geom_histogram(bins = 15, fill = "red") + 
   labs(x = "Number of BWCs Deployed", y = "Number of Agencies") + 
   ggtitle("Histogram of Number of BWCs Deployed") + 
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5)) 
 ```
 
 ```
@@ -1353,6 +1354,7 @@ Descriptive statistics was the name of the game today. These are measures we use
 
 
 Homework time!
+
 
 
 ### Answers to Activities (where applicable)
