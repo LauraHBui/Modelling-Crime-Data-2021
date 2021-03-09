@@ -214,57 +214,47 @@ prob_off <- data.frame(probationer_id = 1:3600000,      # create a column whose 
 ```
 <br>
 
-We now need one last step to complete our fake population data. The values for IQ score must be whole numbers (integers). To achieve this, we will use the `round()` function. In the `round()` function you specify two things, first the object you wish to round (the numbers in the IQ column of our prob_off dataframe so `prob_off$IQ`) and the number of decimals you would like displayed (since we want whole numbers, we want 0 decimals!). 
-
+We need one last step to complete our fake population data: the values for IQ score must be whole numbers (integers). To achieve this, we will use the `round()` function:
+<br>
 
 ```{r}
+
+# Here, we tell R that we want to round the numbers in our variable IQ
+# We specify 0 after our variable to tell R the number of decimal places we want displayed - we want zero decimal places because we want integers
 
 prob_off$IQ <- round(prob_off$IQ, 0)
 
 ```
+<br>
 
-
-Now we finally have our complete fake population of 3.6 million US probationers and their IQ scores. You can have a look at this data with the `View()` function. Let's also visualise this distribution will help us identify its shape. We use `ggplot2`:
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-library(ggplot2)
-
-```
+Our data of a fake population of 3.6 million US probationers and their IQ scores are complete. You can have a look at this data with the `View()` function. In addition, visualising this distribution will help us identify its shape. We use `ggplot2`:
+<br>
 
 ```{r}
 
-# Have you loaded the 'ggplot2' library?
+View(prob_off)
 
-
+# Double check whether 'ggplot2' is loaded
 ggplot(prob_off) + 
   geom_histogram(mapping = aes(x = IQ), bins = 60) + 
   geom_vline(xintercept = mean(prob_off$IQ), col = "red", linetype = "dashed") # We add a red line in the code to show the mean of the population IQ
 
 ```
 
+<br>
 
+From the histogram, we observe that the scores are normally distributed, which is bell-shaped, and there is no skewness on other side. The majority of probationers have an IQ around the mean of 100. 
 
-
-Visualising the distribution of IQ scores, we observe that the scores are normally distributed, which is bell-shaped, and there is no skewness on other side. The majority of probationers have an IQ around the mean of 100. 
-
-
-
-
-
+<br>
+<br>
 
 
 ---
 
 
-
-
-
-
 #### Activity 3: Taking a sample from (our synthetic) population
 
-
-
-So above we created a dataset of all probationers in the US, all 3.6 million of them. This is our **population**. When we look at the mean, median, and standard deviation of this population, these numbers are the *true* estimates of IQ scores in the population of American probationers. 
+From the above, we created a dataset of all 3.6 million probationers in the US. This is our **population**. When we look at the mean, median, and standard deviation of this population, these numbers are the *true* estimates of IQ scores in the population of American probationers. 
 
 
 Now if we take a sample from this population, how accurate would our sample estimates be compared to the population estimates?
