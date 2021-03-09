@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-03-07" />
+<meta name="date" content="2021-03-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -495,7 +495,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Similar to the previous activity, obtain the class of the variable <code>Q_12</code>. Type the code you used and what class the variable is in your group google doc.</p>
 <p>After you do so, we get to know more about <code>Q_12</code>. First, let us get the minimum value:
 <br></p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="descriptive-statistics.html#cb155-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">min</span>(bwcs<span class="sc">$</span>Q_12, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="descriptive-statistics.html#cb155-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">min</span>(bwcs<span class="sc">$</span>Q_12,  <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p><br></p>
 <p>And then the maximum:
@@ -943,7 +943,7 @@ We could also show this in a histogram, where everything to the right of the ora
 <span id="cb188-5"><a href="descriptive-statistics.html#cb188-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb188-6"><a href="descriptive-statistics.html#cb188-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Number of BWCs Deployed&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Agencies&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb188-7"><a href="descriptive-statistics.html#cb188-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Histogram of Number of BWCs Deployed&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb188-8"><a href="descriptive-statistics.html#cb188-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<span id="cb188-8"><a href="descriptive-statistics.html#cb188-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) </span></code></pre></div>
 <pre><code>## Warning: Removed 2031 rows containing non-finite values (stat_bin).</code></pre>
 <p><img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-45-1.png" width="672" />
 <br></p>

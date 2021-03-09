@@ -291,7 +291,7 @@ After you do so, we get to know more about `Q_12`. First, let us get the minimum
 
 
 ```r
- min(bwcs$Q_12, na.rm=TRUE)
+ min(bwcs$Q_12,  na.rm=TRUE)
 ```
 
 ```
@@ -857,7 +857,7 @@ ggplot(data = bwcs, mapping = aes(x = Q_12)) +
   geom_histogram(bins = 15, fill = "red") + 
   labs(x = "Number of BWCs Deployed", y = "Number of Agencies") + 
   ggtitle("Histogram of Number of BWCs Deployed") + 
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5)) 
 ```
 
 ```

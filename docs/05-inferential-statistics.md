@@ -131,7 +131,7 @@ Much of the work we will be carrying out in the coming weeks in terms of drawing
 
 
 
-The synthetic data will consist og randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. We create this population distribution by using the function `nrnorm()` and assigning this to a vector object called `prob_iq`. Within the `nrnorm()` function, we specify the parameters `n = `, `mean =`, and `sd = `. That is the **n**umber of observations we want (3.6 million, one for each of the probationers in the US, remember this is the **population**), the **mean** IQ score we want the population to have (that is 100, specified above), and the dispertion around this mean, given by the standard deviation in the `sd =` parameter (specified abo e as 15 IQ points). 
+The synthetic data will consist og randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. We create this population distribution by using the function `nrnorm()` and assigning this to a vector object called `prob_iq`. Within the `nrnorm()` function, we specify the parameters `n = `, `mean =`, and `sd = `. That is the **n**umber of observations we want (3.6 million, one for each of the probationers in the US, remember this is the **population**), the **mean** IQ score we want the population to have (that is 100, specified above), and the dispersion around this mean, given by the standard deviation in the `sd =` parameter (specified above as 15 IQ points). 
 
 
 
@@ -151,7 +151,7 @@ mean(prob_iq)
 ```
 
 ```
-## [1] 100.0016
+## [1] 100.0008
 ```
 
 ```r
@@ -159,7 +159,7 @@ median(prob_iq)
 ```
 
 ```
-## [1] 99.99968
+## [1] 100.004
 ```
 
 ```r
@@ -167,7 +167,7 @@ sd(prob_iq)
 ```
 
 ```
-## [1] 15.00161
+## [1] 14.99332
 ```
 
 
@@ -244,7 +244,6 @@ Now we finally have our complete fake population of 3.6 million US probationers 
 
 
 
-
 ```r
 # Have you loaded the 'ggplot2' library?
 
@@ -254,7 +253,7 @@ ggplot(prob_off) +
   geom_vline(xintercept = mean(prob_off$IQ), col = "red", linetype = "dashed") # We add a red line in the code to show the mean of the population IQ
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
 
 
 
@@ -333,19 +332,127 @@ sd(sample1$IQ) # 16.27485
 
 
 
-The results seem very close to the ‘true’ estimates from our population of probationers. The reason, though, is we have all set the same seed. But if we did not, we would get different estimates each time we took a random sample from the population. 
+The results seem very close to the ‘true’ estimates from our population of probationers. Let's try another sample with another seed: 
+
+
+```r
+set.seed(90201)
+sample2 <- sample(x = prob_off, size = 100)
+```
+
+
+Now that we have our second, sample `sample2`, we can take some descriptive statistics once more: 
 
 
 
+```r
+mean(sample2$IQ) # 100.81 
+```
+
+```
+## [1] 100.81
+```
+
+```r
+median(sample2$IQ) # 102.5 
+```
+
+```
+## [1] 102.5
+```
+
+```r
+sd(sample2$IQ) # 15.08206
+```
+
+```
+## [1] 15.08206
+```
+
+You can see we have slightly different numbers. This is because we took a different sample! The results are still close to our population measures, but they are different to sample 1. Alright, let's do this one more time!
+
+
+```r
+set.seed(42)
+sample3 <- sample(x = prob_off, size = 100)
+```
+
+Now the descriptives: 
+
+
+```r
+mean(sample3$IQ) # 99.41 
+```
+
+```
+## [1] 99.41
+```
+
+```r
+median(sample3$IQ) # 101 
+```
+
+```
+## [1] 101
+```
+
+```r
+sd(sample3$IQ) # 15.53497
+```
+
+```
+## [1] 15.53497
+```
+
+
+Again, we are getting slightly different numbers, as we have sampled a separate 100 probationers from our population of 3.6 million. Depending on which sample we chose, our conclusions would be different. This variation in estimates is known as **sampling variability**, an unavoidable consequence of randomly sampling observations from the population. 
+
+
+For example, above, we took 3 different samples. Let's look at the mean of each sample again:
+
+
+```r
+mean(sample1$IQ) 
+```
+
+```
+## [1] 101.59
+```
+
+```r
+mean(sample2$IQ) 
+```
+
+```
+## [1] 100.81
+```
+
+```r
+mean(sample3$IQ) 
+```
+
+```
+## [1] 99.41
+```
+
+Each time we get a slightly different value for the mean, depending on the sample which we look at. 
 
 ---
 
+**Sampling variability** 
 
-Getting different estimates each time we randomly sample from the population is a real problem facing researchers: each time you take a sample from your population of interest, its estimates may not be similar to the true but unknown estimates of that population. This variation in estimates is known as **sampling variability**, an unavoidable consequence of randomly sampling observations from the population. 
 
-Sampling variability makes up what is known as the **sampling distribution**. This distribution comprises the means of the many samples we draw from the same population. These two concepts are crucial to demonstrating how samples can be used to make inferences about the population. Here’s why:
+Getting different estimates each time we randomly sample from the population is a real problem facing researchers: each time you take a sample from your population of interest, we need to be confident that its estimates are similar to the true but unknown estimates of that population. 
 
-When we resample – take repeated samples from the same population of interest – we create many sample means. The interesting bit is that when you take the overall mean of a large number of sample means, it is very close to that true population mean of 100.
+Sampling variability makes up what is known as the **sampling distribution**. Sampling distribution of a sample statistic (for example the mean) refers to the distribution of that value if we were to take many many many many many many many samples, and each time, record the value. Then if we took all of these values, they will follow a normal distribution, the mean of which will be the true population value! This is really cool, and we will explore it in the next activity. 
+
+
+
+
+
+<!-- This distribution comprises the means of the many samples we draw from the same population. These two concepts are crucial to demonstrating how samples can be used to make inferences about the population. Here’s why: -->
+
+<!-- When we resample – take repeated samples from the same population of interest – we create many sample means. The interesting bit is that when you take the overall mean of a large number of sample means, it is very close to that true population mean of 100. -->
 
 
 
@@ -353,34 +460,42 @@ When we resample – take repeated samples from the same population of interest 
 
 #### Activity 4: The sampling distribution 
 
-We use the `do ()` and `group_by ()` functions to demonstrate:
 
+Let's demonstrate this with taking 1,000 samples of 100 people each, from the 3.6 million probationers. Imagine we got funding to run 1,000 surveys, each time we take a random sample of 100 probationers, and we take the mean IQ for the sample. 
+
+
+Remember the function to get one sample of 100 people above? It was `sample(x = prob_off, size = 100)`. Now to repeat this 1,000 times we can use the `do()` function, which tells R to do something multiple times. So to take 1,000 samples of 100 probationers we want to *do* `sample(x = prob_off, size = 100)` 1,000 times, like so: 
 
 
 
 ```r
-# We use the do () function to make 1,000 automatic resamples from the data frame ‘prob_off’
-# Each resample comprises 100 cases 
-# We put our 1,000 resamples into an object called ‘sample100’
-sample100 <- do(1000) * sample(x = prob_off, size = 100)
+sample1000 <- do(1000) * sample(x = prob_off, size = 100)
+```
 
-# Additional variables are now found in sample100, which helps us to calculate the mean IQ of each sample, for which there are now 1000 of them
 
-# Now select the sample100 data frame
-sample_means100 <- sample100 %>% 
+This might take a while (you are sampling 1,000 times after all!) so give R time to process. When done, you will see the sample1000 object appear in your environment. Have a look at it with `View()`.
+
+You can see we have the prisoner ID, and we have the IQ score, but we also have these new variables, `.row` and `.index`. `.row` refers to the probationer's position in their particular sample, while `.index` refers to the sample into which they belong. So if the `.index` says 1, they were in the 1st sample, 2, the 2nd sample, and so on up to 1000. To select a particular sample for example the 2nd one, you could use the `filter()` function in order to select all cases where `.index == 2`. But we want to keep all 1,000 samples. Instead, what we want is the **average IQ for each sample**.
+
+
+You may recall how to get the mean for each value of a categorical variable from last week! Specifically, we used `group_by()` and `summarise()`. Let's use these again, to create a new object, `sample_means1000`, which has the mean IQ for each sample (all 1,000 of them!): 
+
+
+```r
+sample_means1000 <- sample1000 %>% 
   group_by(.index) %>% # Group by .index  (the sample id)
   summarize(meanIQ = mean(IQ)) # Creating new variable of mean IQ
-
-mean(sample_means100$meanIQ)
 ```
 
-```
-## [1] 100.1112
-```
+The resulting dataframe (`sample_means1000`) has 2 columns, one for sample id and one for the mean score of IQ for that specific sample. It has 1,000 observations - one for each sample!
+
+
+So what does our variability look like? We can visualise this sampling distribution to compare to the previous population distribution
+
+
 
 ```r
-# We can visualise this sampling distribution to compare to the previous population distribution
-ggplot(data = sample_means100) + 
+ggplot(data = sample_means1000) + 
   geom_histogram(mapping = aes(x = meanIQ)) + 
   geom_vline(mapping = aes(xintercept = mean(meanIQ)), col = "red", linetype = "dashed")
 ```
@@ -389,13 +504,19 @@ ggplot(data = sample_means100) +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
 
 
 
-The histogram of our sampling distribution shows this very important concept in inferential statistics: if you randomly draw repeated samples from the same population and calculate the mean of each sample, then plot the frequency of those means, you will get the *normal distribution* -- that bell-shaped curve. This indicates that most samples drawn from the population will have a mean close to the true population mean. 
+The histogram of our sampling distribution shows this very important concept in inferential statistics: in the case of an **unbiased estimator** what we see is that whenever we draw a sample, sometimes we *over estimate* the parameter, and sometimes we *under estimate* the parameter. In this case, this means that sometimes our sample mean is *larger* than our population mean, and other times our sample mean is *smaller* than the population mean. Usually the mean of the randomly selected sample will fall close to the populatin mean, but occasionally, it will fall far. Now - what is really exciting, is that if you randomly draw repeated samples from the same population and calculate the mean of each sample, then plot the frequency of those means, you will get the *normal distribution* -- that bell-shaped curve! It doesn't even matter if your underlying data are normally distributed! Your sample statistics will be!
 
-According to our sampling distribution of probationer IQ scores, drawing a sample with a mean IQ score that is radically different from that of the population would be unlikely. This concept also applies to other point estimates such as the median and standard deviation, and not just the mean. Of course this also depends on sample size. 
+
+This indicates that most samples drawn from the population will have a mean close to the true population mean, and in general over/under estimate it in about equal amounts!
+
+So according to our sampling distribution of probationer IQ scores, drawing a sample with a mean IQ score that is radically different from that of the population would be unlikely. See above, how 68% of observations in a normal distribution fall within +/- 1 standard deviation of the mean? And 95% within +/- 2 standard deviations. This should be reassuring!
+
+**However** in real life, you are not ever going to conduct 1,000 surveys on 100 probationers each. Instead, you will have one survey, and you will have to make sure that your one sample is a good one. Random sampling is one approach, we see here, but another thing to think about is that of the **sample size**. The next activity explores this. 
+
 
 ---
 
@@ -405,44 +526,107 @@ According to our sampling distribution of probationer IQ scores, drawing a sampl
 
 #### Activity 5: Sample sizes
 
-What if we had repeated samples of 30 instead of 1,000? We use the function `bind_rows ()` to combine these different data frames of different sample sizes to answer our question:
+We came out pretty well in the above example, with our samples of 100 probationers. But is 100 a good number? What if we had repeated samples of 30 instead of 100. What about 1,000? 
+
+
+Well let's create 3 sets of 1,000 samples this time, to see how the sample size might affect our sampling distribution of our mean!
+
+
+Let's make the 3 samples new dataframe objects, and call them `sample30`, `sample100`, and `sample1000`:
+
+
+```r
+# 30 probationers in each sample 
+sample30 <- do(1000) * sample(x = prob_off, size = 30) 
+
+# 100 probationers in each sample 
+sample100 <- do(1000) * sample(x = prob_off, size = 100) 
+
+
+# 1000 probationers in each sample 
+sample1000 <- do(1000) * sample(x = prob_off, size = 1000) 
+```
+
+
+
+Now we have 3 dataframes, all with 1,000 samples of varying sample sizes. The first with 1,000 30-person samples, the second with 1,000 100-person samples, and the 3rd with 1,000 1000-person samples. Which one of these would you trust to best represent the population? Why? Do you come across anything like this in your own lives? Discuss in your groups if you're in the chatty rooms!
+
+
+In the meantime, let's also create a new dataframe for each set of 1,000 samples where we calculate the mean IQ for each one of them. 
+
+
+```r
+# Calculate the means IQ scores for each sample 
+
+sample_means30 <- sample30 %>% 
+  group_by(.index) %>% 
+  summarize(meanIQ = mean(IQ))
+
+sample_means100 <- sample100 %>% 
+  group_by(.index) %>% 
+  summarize(meanIQ = mean(IQ)) 
+
+sample_means1000 <- sample1000 %>% 
+  group_by(.index) %>% 
+  summarize(meanIQ = mean(IQ)) 
+```
+
+
+We now have 3 dataframes, each with 1,000 samples, but one with 30 people per sample, one with 100 peope per sample, and one with 1,000 people per sample. Let's bind these together, but first, for each one, create a new column called "sample_size" which tell us which one has how many people in each sample. 
+
+
+
+```r
+sample_means30 <- sample_means30 %>% mutate(sample_size = "30")
+
+sample_means100 <- sample_means100 %>% mutate(sample_size = "100")
+
+sample_means1000 <- sample_means1000 %>% mutate(sample_size = "1000")
+```
+
+
+
+
+We use the function `bind_rows()` to *bind* these different data frames of different sample sizes into one complete dataframe, to answer our question:
 
 
 
 
 
 ```r
-# 1000 probationers in each sample 
-sample1000 <- do(1000) * sample(x = prob_off, size = 1000) 
-
-# 30 probationers in each sample 
-sample30 <- do(1000) * sample(x = prob_off, size = 30) 
-
-# Calculate the means IQ scores for each sample 
-sample_means1000 <- sample1000 %>% 
-  group_by(.index) %>% 
-  summarize(meanIQ = mean(IQ)) 
-
-sample_means300 <- sample30 %>% 
-  group_by(.index) %>% 
-  summarize(meanIQ = mean(IQ)) 
-
-# Bind them with our first example, which had 100 probationers in each sample 
-sample.means.total <- bind_rows(sample_means300, sample_means100, sample_means1000, .id = "sample.size")
-
-# Density plot for comparison 
-ggplot(data = sample.means.total) + 
-  geom_density(mapping = aes(x = meanIQ, fill = sample.size), alpha = 0.5) +
-  scale_fill_discrete(labels = c("30","100","1000"))
+sample.means.total <- bind_rows(sample_means30, sample_means100, sample_means1000)
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
+
+Now if you look at this dataframe, it has 3,000 samples in it, 1,000 with 30 people in each, 1,000 with 100 people in each, and 1,000 with 1,000 people in each. Let's look at the distribution of the mean IQ for each of these three sets. We can use `geom_density` to create a density plot. Let's fill by sample_size, and let's set the opacity (`alpha = ` to 0.5 so we can see through each one for they will overlap)
 
 
 
-From the density plot, all three sample distributions are normally distributed and have similar means to that of the population. Notice, however, that the larger the sample size, the more likely that the sample means are closer to those of the population. The distribution of sample sizes of 1,000, for example, is pointy, indicating that the IQ scores cluster very closely to the true population mean, whereas the distribution of the sample sizes of 30 is flatter, and its scores are more spread away from the true population mean. The implication is that if we draw small sized samples, we have a higher chance of having a sample that does not reflect the true population at all. Therefore, our findings and generalisations will be inaccurate. 
 
 
+```r
+# Density plot for comparison 
+ggplot(data = sample.means.total) + 
+  geom_density(mapping = aes(x = meanIQ, fill = sample_size), alpha = 0.5) 
+```
+
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-24-1.png)<!-- -->
+
+
+
+From the density plot, all three sample distributions are normally distributed and have similar means to that of the population. (remember that the mean of the sampling distribution will be the true population parameter!)
+
+
+
+Notice, however, that the *larger the sample size, the more likely that the sample means are closer to those of the population*. The distribution of sample sizes of 1,000, for example, is tight and pointy, indicating that the IQ scores cluster very closely to the mean of the sampling distribution (and therefore the true population mean). 
+
+Whereas if we look at the distribution of the sample sizes of 30, it is flatter and wider - its scores are more spread away from the true population mean. The implication is that if we draw small sized samples, we have a higher chance of having a sample that does not reflect the true population at all. With small sample, we run the risk of getting a sample statistic that is further away from the population parameter than we do with larger samples. So generally, larger the sample the better. Otherwise, our findings and generalisations will be inaccurate. 
+
+
+So how do we know what sample size is big enough? For this, we carry out something known as a **power analysis** but we will get to that next week. For now, think "bigger is better" when it comes to sample size!
+
+
+So great, we can say all these things in our hypothetical world of the many many many samples from the same population. But like we said earlier, we don't really get a chance to do that in the real world. So how can we trust our samples? To do this, we can quantify our sample variabilty using **standard errors**. 
 
 
 ---
@@ -463,11 +647,11 @@ We can summarise the variability of the sampling distribution in an estimate cal
 
 
 ```r
-sd(sample_means300$meanIQ)
+sd(sample_means30$meanIQ)
 ```
 
 ```
-## [1] 2.695511
+## [1] 2.802161
 ```
 
 ```r
@@ -475,7 +659,7 @@ sd(sample_means100$meanIQ)
 ```
 
 ```
-## [1] 1.485388
+## [1] 1.468766
 ```
 
 ```r
@@ -483,35 +667,56 @@ sd(sample_means1000$meanIQ)
 ```
 
 ```
-## [1] 0.4774102
+## [1] 0.474146
 ```
 
 
+You can see that as the sample sizes get larger, we see a smaller result for the standard deviation of our sampling distribution - or the standard error of our sample. 
 
 What we have learned is succinctly referred to as the **Central Limit Theorem**. This theorem states that as sample sizes get larger, the means of the sampling distribution approaches normal distribution; it is able to reflect the true population estimate. 
 
-With the synthetic data, we have demonstrated how samples can estimate the population, which is usually unknown to us. The SE is helpful for when we want to know the extent to which the mean of the sample we have, drawn from a population whose estimates are unknown to us, is an accurate estimation of the true mean in that population. We calculate the SE in `R` by dividing the standard deviation of our IQ variable by the square root of our sample size:
+With the synthetic data, we have demonstrated how samples can estimate the population, which is usually unknown to us. The SE is helpful for when we want to know the extent to which the mean of the sample we have, drawn from a population whose estimates are unknown to us, is an accurate estimation of the true mean in that population. 
 
 
-
+But I promised a way to quantify our sample variability without having to do 1000 repeat samples. Well, excitingly, we can calculate the standard error from just one sample! Let's do this by using a sample of 1,000 people. Let's make a new one of these: 
 
 
 ```r
-# Select our data frame with all 1000 samples
-sample1000 %>% 
-  filter(.index == 1) %>% # Filter the first one (choose any)
-  summarize(SE = sd(IQ)/sqrt(1000)) # Calculate the error
+set.seed(1234)
+new_1000_sample <- sample(prob_off, 1000)
+```
+
+Now we can get the standard error by dividing the standard deviation of the IQ variable in this sample by the square root of our sample size (in this case 1000):
+
+$SE = \sigma/\sqrt(n)$
+
+
+In `R`: 
+
+
+```r
+sd(new_1000_sample$IQ)/sqrt(1000)
 ```
 
 ```
-##          SE
-## 1 0.4783743
+## [1] 0.4887421
 ```
 
 
 
+The SE is 0.4887421. What does this mean? Well remember that the standard error is the standard deviation of the sampling distribution of our sample statistic (here the mean). And remember what percentage of observations, within a normal distribution, fall within some standard deviations away from the mean?
 
-The SE is 0.4783, which indicates that the mean of our sample of 1,000 American probationers is .50 away from the true population mean of said probationers – very close. 
+- 68% between +/- 1 standard deviation from the mean
+- 95% between +/- 2 standard deviations away from the mean
+- 99% between +/- 3 standard deviations away from the mean
+
+
+So, with our standard error above, we can say that almost all of the samples (95%) will produce a statistic (in this case a mean) which are within +/- 2* 0.4887421, so within +/- 0.9774842 or about 1 IQ point away from the true mean IQ for the whole population of 3.6 million probationers!
+
+
+
+This is how we can use the theory of the sampling distribution of the mean to then look into our one sample, and be able to estimate how representative are the estimates we derive from them about the whole population. How cool is that?! It is the power of statistics all in our hands!
+
 
 
 
@@ -522,93 +727,151 @@ The SE is 0.4783, which indicates that the mean of our sample of 1,000 American 
 ### Confidence Intervals
 
 
+The last thing we will learn about is a  better way of communicating the extent of inaccuracy in sample estimates. Communicating uncertainty when talking about statistics is an incredibly important topic! In statistics, we are making generalisations, we are making inferences about a population based on some data we collected from a sample. This means that we will always have some element of error and uncertainty in our conclusions. 
 
-
-A better way of communicating the extent of inaccuracy in sample estimates is to use **confidence intervals** (CIs). These appear as an interval that tells you the margin of error – how many percentage points is your sample estimate away from the population estimate. We calculate them by, first, returning to our normal distribution. 
-
-A characteristic of the normal distribution is that 95% of values will fall within 1.96 standard deviations of the mean.  This is derived from the **68-95-99.7 rule**, or known as an empirical rule, which states that 68% of cases in the distribution will fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within three SD. 
+One way to clearly quantify and communicate our uncertainty is to use **confidence intervals** (CIs). These appear as an interval that tells you the margin of error – far away is your sample statistic from the population parameter. We calculate them by, first, returning to our normal distribution, and its **68-95-99 rule**, or known as an empirical rule, which states that 68% of cases in the distribution will fall within one standard deviation above and below the mean; 95% within two SD; and 99% within three SD. 
 
 
 
 
 #### Activity 7: The 68-95-97 rule in action
 
-Two observations to note: first, last week we learned about standard deviations and that there was mention of 68% of verbal assaults falling within one SD; it was a reference to this rule. Second, there is a contradiction with the numbers. If 95% of values fall within 1.96 SD, then why does the empirical rule state that 95% of values will fall within 2 SD? The former (1.96) is the precise number and the latter (2) is an approximation, meant to help you memorise this rule easier than if the value was a non-integer like 1.96. 
+Two observations to note: first, last week we learned about standard deviations and that there was mention of 68% of verbal assaults falling within one SD; it was a reference to this rule. Second, there is a contradiction with the numbers. If 95% of values fall within 1.96 SD, then why does the empirical rule state that 95% of values will fall within 2 SD, and why have you been saying this so far? Well, I'm simply rounding up. The former (1.96) is the precise number and the latter (2) is an approximation, meant to help you memorise this rule easier than if the value was a non-integer like 1.96. 
 
-If 95% of values of the normal distribution fall within 1.96 SD of the mean, we are able to calculate the upper and lower boundaries of this particular confidence interval: 
-
-
+If 95% of values of the normal distribution fall within 1.96 SD of the mean, we are able to calculate the upper and lower boundaries of this particular confidence interval using this 1.96 value (also known as z-value) from our sample using the following formula: 
 
 
-
-```r
-# One-off sample containing 1000 probationers 
-sample1 <- sample(x = prob_off, size = 1000) 
-
-# Constructing the confidence interval using what we know about SDs and normal distributions
-sample1 %>% 
-  summarize(lower = mean(IQ)-1.96*sd(IQ), meaniq = mean(IQ), upper =
-              mean(IQ)+1.96*sd(IQ))
-```
-
-```
-##      lower  meaniq   upper
-## 1 69.72398 100.539 131.354
-```
+$\bar{x} \pm 1.96*{sd}/{\sqrt{n}}$
 
 
-
-
-Your numbers may differ a bit as we have not set a seed, but should be about 69.724 for the lower boundary ; 131.354 for the upper boundary; and 100.539 for the mean. We add these using the `geom_vline` function to a density plot visual to better understand our obtained interval:
-
+Let's look back at our `sample1` object. Then take the mean of IQ in this sample: 
 
 
 
 ```r
-ggplot(data = sample1) + 
-  geom_density(mapping = aes(x = IQ)) + 
-  geom_vline(mapping = aes(xintercept = mean(IQ)), col = "red", linetype = "dashed") +
-  geom_vline(mapping = aes(xintercept = mean(IQ) + 
-                             1.96*sd(IQ)), col = "blue", linetype = "dashed") +
-  geom_vline(mapping = aes(xintercept = mean(IQ) - 1.96*sd(IQ)), col = "blue", linetype = "dashed")
+mean(sample1$IQ, na.rm = TRUE)
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
+```
+## [1] 101.59
+```
+
+
+Now to create the lower bound for the confidence interval around this sample statistic, we take this mean minus 1.96 times the standard deviation:
+
+
+```r
+mean(sample1$IQ, na.rm = TRUE) - 1.96*sd(sample1$IQ)/sqrt(100)
+```
+
+```
+## [1] 98.40013
+```
+
+
+And to get the upper bound, you add the same value (1.96*the standard deviation) to the mean: 
+
+
+```r
+mean(sample1$IQ, na.rm = TRUE) + 1.96*sd(sample1$IQ)/sqrt(100)
+```
+
+```
+## [1] 104.7799
+```
 
 
 
-Seeing the dashes that represent the confidence interval shows us that IQ scores will vary away from the mean of our sample, but 95% of them will fall within this interval. Similar to what we learned about repeated samples, if we took 100 resamples of our population of probationers and obtained the sample means, the true population mean will fall within the confidence interval 95% of the time. Thus, only 5% of the time will our resamples fail to obtain the true population mean.  We use `R` to illustrate this concept and introduce a new function `if_else()` to do so:
+<!-- We can visualise these add these using a density plot for the distribution of IQ scores in our sample, and the the `geom_vline` function to show the mean (red line) and the +/- standard deviation (blue line), and the upper and lower CIs (green line): -->
 
 
+
+<!-- ```{r} -->
+
+<!-- ggplot(data = sample1) +  -->
+<!--   geom_density(mapping = aes(x = IQ)) +  -->
+<!--   geom_vline(mapping = aes(xintercept = mean(IQ)), col = "red", linetype = "dashed") + -->
+<!--   geom_vline(mapping = aes(xintercept = mean(IQ) +  -->
+<!--                              1.96*sd(IQ)), col = "blue", linetype = "dashed") + -->
+<!--   geom_vline(mapping = aes(xintercept = mean(IQ) - 1.96*sd(IQ)), col = "blue", linetype = "dashed") +  -->
+<!--   geom_vline(mapping = aes(xintercept = mean(IQ) +  -->
+<!--                              1.96*sd(IQ)/sqrt(100)), col = "green", linetype = "dashed") + -->
+<!--   geom_vline(mapping = aes(xintercept = mean(IQ) - 1.96*sd(IQ)/sqrt(100)), col = "green", linetype = "dashed") -->
+
+<!-- ``` -->
+
+
+
+Seeing the dashes that represent the confidence interval shows us that IQ scores will vary away from the mean of our sample, but 95% of them will fall within this interval. Similar to what we learned about repeated samples, if we took 100 resamples of our population of probationers and obtained the sample means, the true population mean will fall within the confidence interval 95% of the time. Thus, only 5% of the time will our resamples fail to obtain the true population mean.  
+
+
+So here, we can conclude from our sample that the mean IQ for all probationers will be somewhere between 98.4001302 and 101.908987. 
+
+
+What if we took a different sample though? You can repeat the steps above for sample 2 and sample 3, and you will see the following conclusions: 
+
+- **Sample 2**: we conclude that the mean IQ for all probationers will be somewhere between 97.8539159 and 103.7660841. 
+- **Sample 3**: we conclude that the mean IQ for all probationers will be somewhere between 96.3651461 and 102.4548539. 
+
+
+With each different sample we get a slightly different upper and lower bound. So how can we trust this? Well since we know that we have 95% of observations within +/- 1.96 standard deviations from the mean of the sampling distribution, we can conclude that on the whole, the confidence intervals derived from 95% of our samples will contain the true population parameter!
+
+Don't believe me? Let's plot this!
+
+First let's take our population parameter, the true mean IQ for all probationers in the US: 
 
 
 ```r
 # Create a vector containing the true population mean from prob_off
 true.mean <- mean(prob_off$IQ)
+```
 
+
+Then, let's take another 100 samples of 100 probationers in each sample: 
+
+
+```r
+set.seed(1897)
+new_sample_100 <- do(1000) * sample(prob_off, size = 100)
+```
+
+Now for each sample, calculate the mean and the lower and upper CIs (remember above the formula to get these CIs!)
+
+
+```r
 # Select the sample of 1,000 samples, each with 100 probationers and place in object, ‘new.sample.ci100’
-new.sample.ci100 <- sample_means100 %>%
-  slice(1:100) %>% #Take the first 100 means 
-  mutate(lower = meanIQ-1.96*sd(meanIQ), upper = meanIQ+1.96*sd(meanIQ), # Compute lower and upper boundaries to create a new variable called ‘capture.mean’
-         capture.mean = if_else(condition = lower > true.mean | upper < true.mean, true = "no", false = "yes")) # Specify code below to be: If lower > true mean or upper < true mean then capture.mean will #be "yes" 
+new.sample.ci100 <- new_sample_100 %>% 
+  group_by(.index) %>% 
+  summarise(sample_mean = mean(IQ), 
+         sample_sd = sd(IQ),
+         lower_ci = sample_mean-1.96*sample_sd/sqrt(100), 
+         upper_ci = sample_mean+1.96*sample_sd/sqrt(100)) 
+```
+
+
+If you have a look at this new dataframe `new.sample.ci100` you can see that for each one of our 100 samples, we have the sample mean, as well as the sd and the calculated upper and lower CI. Let's revisit what we learned from recoding, and use the `if_else()` function to create an additional variable, which tells us whether or not each one of the CIs contains the true population mean (`true.mean` above). 
+
+
+```r
+new.sample.ci100 <- new.sample.ci100 %>% 
+  mutate(capture.mean = if_else(condition = lower_ci > true.mean | upper_ci < true.mean, true = "no", false = "yes")) # Specify code below to be: If lower > true mean or upper < true mean then capture.mean will #be "yes" 
 # If not, capture.mean will be "no"
+```
+
+We can now use this to produce a table to show new variable and how many Cis captured the true population mean: 
 
 
-# Produce table to show new variable and how many Cis captured population mean
+```r
 table(new.sample.ci100$capture.mean)
 ```
 
 ```
 ## 
 ##  no yes 
-##   4  96
+##  42 958
 ```
 
-
-
-Your result may slightly differ but, in this example, 96% of CIs obtained the true population mean and 4% did not, which is close to what we expected. 
-
-
+Looks like our samples fared better than we would hope, in this example 958% contained our true population mean, and  42% did not, but it's still close to what we expected. What if we were to do this with 1000 samples of 100? What do you think the yes vs nos would look like then? What about 10,000 samples? Discuss in your groups. 
 
 
 ---
@@ -618,7 +881,7 @@ Your result may slightly differ but, in this example, 96% of CIs obtained the tr
 
 #### Activity 8: Visualising confidence intervals
 
-We can visualise this to better understand what we have just found:
+Finally, to illustrate, we can visualise this to better understand what we have just found:
 
 
 
@@ -626,11 +889,11 @@ We can visualise this to better understand what we have just found:
 ```r
 ggplot(data = new.sample.ci100) + 
   geom_vline(mapping = aes(xintercept = true.mean), linetype = "dashed") +
-  geom_errorbarh(mapping = aes(xmin = lower, xmax = upper, y = .index, colour = capture.mean)) + # Creating error bars to represent CIs and colouring in which ones captured population mean #and did not by ‘capture.mean’
-  geom_point(mapping = aes(y = .index, x = meanIQ, colour = capture.mean))
+  geom_errorbarh(mapping = aes(xmin = lower_ci, xmax = upper_ci, y = .index, colour = capture.mean)) + # Creating error bars to represent CIs and colouring in which ones captured population mean #and did not by ‘capture.mean’
+  geom_point(mapping = aes(y = .index, x = sample_mean, colour = capture.mean))
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-20-1.png)<!-- -->
+![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-36-1.png)<!-- -->
 
 
 
