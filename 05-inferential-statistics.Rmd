@@ -714,7 +714,7 @@ Then, let's take another 100 samples of 100 probationers in each sample:
 
 ```{r}
 set.seed(1897)
-new_sample_100 <- do(1000) * sample(prob_off, size = 100)
+new_sample_100 <- do(100) * sample(prob_off, size = 100)
 
 ```
 

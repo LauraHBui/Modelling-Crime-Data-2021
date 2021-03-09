@@ -4225,7 +4225,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.99722
+## [1] 99.99179
 \end{verbatim}
 
 \begin{Shaded}
@@ -4235,7 +4235,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.99733
+## [1] 99.98515
 \end{verbatim}
 
 \begin{Shaded}
@@ -4245,7 +4245,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 14.99602
+## [1] 15.00863
 \end{verbatim}
 
 By doing so, we are verifying that the mean and SD are indeed 100 and 15, but you may notice a few discrepancies:
@@ -4847,7 +4847,7 @@ Then, let's take another 100 samples of 100 probationers in each sample:
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{1897}\NormalTok{)}
-\NormalTok{new\_sample\_100 }\OtherTok{\textless{}{-}} \FunctionTok{do}\NormalTok{(}\DecValTok{1000}\NormalTok{) }\SpecialCharTok{*} \FunctionTok{sample}\NormalTok{(prob\_off, }\AttributeTok{size =} \DecValTok{100}\NormalTok{)}
+\NormalTok{new\_sample\_100 }\OtherTok{\textless{}{-}} \FunctionTok{do}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{*} \FunctionTok{sample}\NormalTok{(prob\_off, }\AttributeTok{size =} \DecValTok{100}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4886,10 +4886,10 @@ We can now use this to produce a table to show new variable and how many Cis cap
 \begin{verbatim}
 ## 
 ##  no yes 
-##  42 958
+##   4  96
 \end{verbatim}
 
-Looks like our samples fared better than we would hope, in this example 958\% contained our true population mean, and 42\% did not, but it's still close to what we expected. What if we were to do this with 1000 samples of 100? What do you think the yes vs nos would look like then? What about 10,000 samples? Discuss in your groups.
+Looks like our samples fared better than we would hope, in this example 96\% contained our true population mean, and 4\% did not, but it's still close to what we expected. What if we were to do this with 1000 samples of 100? What do you think the yes vs nos would look like then? What about 10,000 samples? Discuss in your groups.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -5261,7 +5261,7 @@ The normal distribution has some predictable characteristics about it. One is th
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.4866147
+## [1] 0.4869893
 \end{verbatim}
 
 The result should be close to .50 indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the \textbf{z-score} is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.
@@ -5277,11 +5277,11 @@ To create z-scores, we use the function \texttt{scale\ ()}. For the next example
 
 \begin{verbatim}
 ##   prisoner_id  IQ
-## 1           1  99
-## 2           2  97
-## 3           3 111
-## 4           4  92
-## 5           5 126
+## 1           1 140
+## 2           2 124
+## 3           3 106
+## 4           4  62
+## 5           5  83
 \end{verbatim}
 
 \begin{Shaded}
@@ -5299,7 +5299,7 @@ To create z-scores, we use the function \texttt{scale\ ()}. For the next example
 
 \begin{verbatim}
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  1.000097
+## 1           1 115 0.9998623
 \end{verbatim}
 
 Where the z-score becomes practical is illustrated in the following example: say if a probation officer is writing a report for a prisoner who is about to be up for parole. The prisoner has an IQ of 124. The officer wants to give a good idea of how this score compares to all other prisoners. An apt way of doing this is to state the proportion of prisoners who have lower IQs. This can be done using the \texttt{pnormGC()} function from the \texttt{tigerstats} package:
@@ -5321,7 +5321,7 @@ Where the z-score becomes practical is illustrated in the following example: say
 \includegraphics{06-hypotheses_files/figure-latex/unnamed-chunk-10-1.pdf}
 
 \begin{verbatim}
-## [1] 0.9451843
+## [1] 0.9451885
 \end{verbatim}
 
 The output shows 0.9453, meaning that the prisoner has a higher IQ than over 94\% of the prison population.

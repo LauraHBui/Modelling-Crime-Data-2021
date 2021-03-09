@@ -138,7 +138,7 @@ mean(prob_iq)
 ```
 
 ```
-## [1] 100.0011
+## [1] 99.99068
 ```
 
 ```r
@@ -146,7 +146,7 @@ median(prob_iq)
 ```
 
 ```
-## [1] 100.0093
+## [1] 100.0018
 ```
 
 ```r
@@ -154,7 +154,7 @@ sd(prob_iq)
 ```
 
 ```
-## [1] 14.99725
+## [1] 15.00199
 ```
 <br>
 
@@ -818,7 +818,7 @@ Then, let's take another 100 samples of 100 probationers in each sample:
 
 ```r
 set.seed(1897)
-new_sample_100 <- do(1000) * sample(prob_off, size = 100)
+new_sample_100 <- do(100) * sample(prob_off, size = 100)
 ```
 
 Now for each sample, calculate the mean and the lower and upper CIs (remember above the formula to get these CIs!)
@@ -854,10 +854,10 @@ table(new.sample.ci100$capture.mean)
 ```
 ## 
 ##  no yes 
-##  42 958
+##   4  96
 ```
 
-Looks like our samples fared better than we would hope, in this example 958% contained our true population mean, and  42% did not, but it's still close to what we expected. What if we were to do this with 1000 samples of 100? What do you think the yes vs nos would look like then? What about 10,000 samples? Discuss in your groups. 
+Looks like our samples fared better than we would hope, in this example 96% contained our true population mean, and  4% did not, but it's still close to what we expected. What if we were to do this with 1000 samples of 100? What do you think the yes vs nos would look like then? What about 10,000 samples? Discuss in your groups. 
 
 
 ---
