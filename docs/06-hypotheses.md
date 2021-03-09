@@ -342,7 +342,7 @@ ggplot() +
   theme_minimal()
 ```
 
-![](06-hypotheses_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 
 
@@ -413,7 +413,7 @@ nrow(IQ_Over_100)/nrow(PrisonerIQ)
 ```
 
 ```
-## [1] 0.486424
+## [1] 0.4869653
 ```
 
 
@@ -434,11 +434,11 @@ PrisonerIQ[1:5,]
 
 ```
 ##   prisoner_id  IQ
-## 1           1 110
-## 2           2  75
-## 3           3  93
-## 4           4  75
-## 5           5  99
+## 1           1 100
+## 2           2 100
+## 3           3  76
+## 4           4  93
+## 5           5 112
 ```
 
 ```r
@@ -454,7 +454,7 @@ PrisonerIQ[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115   0.99932
+## 1           1 115 0.9986268
 ```
 
 
@@ -479,10 +479,10 @@ sd<-sd(PrisonerIQ$IQ)
 pnormGC(124, region="below", mean=m, sd=sd,graph=TRUE) 
 ```
 
-![](06-hypotheses_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 ```
-## [1] 0.9450873
+## [1] 0.9449792
 ```
 
 
@@ -501,7 +501,7 @@ Recall from the previous week, the 68-95-99.7 rule. This is helpful to keep in m
 pnormGC(bound=c(85, 115),region="between", mean=100,sd=15,graph=TRUE)
 ```
 
-![](06-hypotheses_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 ```
 ## [1] 0.6826895

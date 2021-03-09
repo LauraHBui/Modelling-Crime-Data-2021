@@ -96,10 +96,10 @@ todays-3-2
 samples
 activity-2-making-normally-distributed-synthetic-data
 activity-3-taking-a-sample-from-our-synthetic-population
-activity-4-the-sampling-distribution
+activity-4-the-sampling-distribution-of-our-probationers
 activity-5-sample-sizes
-standard-errors
-activity-6-the-central-limit-theorem
+the-standard-error
+activity-6-interpreting-the-se
 confidence-intervals
 activity-7-the-68-95-97-rule-in-action
 activity-8-visualising-confidence-intervals
