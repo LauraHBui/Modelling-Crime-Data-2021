@@ -295,9 +295,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h5><em>Functions introduced (and packages to which they belong)</em></h5>
 <ul>
 <li><code>bind_rows()</code> : Combine data frame(s) together row-wise (<code>dplyr</code>)</li>
-<li><code>geom_density()</code> : Geometry layer for density plots (<code>ggplot2</code>)</li>
-<li><code>geom_errorbar()</code> : Draw error bars by specifying maximum and minimum value (<code>ggplot2</code>)</li>
 <li><code>do()</code> : Loop for resampling (<code>mosaic</code>)</li>
+<li><code>geom_density()</code> : Geometry layer for density plots (<code>ggplot2</code>)</li>
+<li><code>geom_errorbarh()</code> : Draw horizontal error bars by specifying maximum and minimum value (<code>ggplot2</code>)</li>
 <li><code>geom_vline()</code> : Geometry layer for adding vertical lines (<code>ggplot2</code>)</li>
 <li><code>if_else()</code> : Tests conditions for true or false, taking on values for each (<code>dplyr</code>)</li>
 <li><code>rnorm()</code> : Create synthetic normally distributed data (<code>base R</code>)</li>
@@ -352,8 +352,8 @@ Why the data are based on a fake population is because rarely do we have informa
 <p>Much of what we will be learning in the coming weeks will make the assumption that our data are normally distributed. Of course, there will be exceptions. This is something you will need to check for before embarking on further statistical analyses. For today, though, we focus on the normal distribution and we create synthetic data on intelligence quotient (IQ) scores of American probationers to show how a sample can be representative of the population.</p>
 <div id="activity-2-making-normally-distributed-synthetic-data" class="section level4">
 <h4><span class="header-section-number">5.2.1.1</span> Activity 2: Making normally distributed synthetic data</h4>
-<p>The synthetic data will consist og randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. We create this population distribution by using the function <code>nrnorm()</code> and assigning this to a vector object called <code>prob_iq</code>. Within the <code>nrnorm()</code> function, we specify the parameters <code>n =</code>, <code>mean =</code>, and <code>sd =</code>. That is the <strong>n</strong>umber of observations we want (3.6 million, one for each of the probationers in the US, remember this is the <strong>population</strong>), the <strong>mean</strong> IQ score we want the population to have (that is 100, specified above), and the dispersion around this mean, given by the standard deviation in the <code>sd =</code> parameter (specified above as 15 IQ points).</p>
-<p><br>
+<p>The synthetic data will consist og randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15.</p>
+<p>We create this population distribution by using the function <code>nrnorm()</code> and assigning this to a vector object called <code>prob_iq</code>. Within the <code>nrnorm()</code> function, we specify the parameters <code>n =</code>, <code>mean =</code>, and <code>sd =</code>. That is the <strong>n</strong>umber of observations we want (3.6 million, one for each of the probationers in the US, remember this is the <strong>population</strong>), the <strong>mean</strong> IQ score we want the population to have (that is 100, specified above), and the dispersion around this mean, given by the standard deviation in the <code>sd =</code> parameter (specified above as 15 IQ points).
 <br></p>
 <div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" title="1"><span class="co"># Inside nrnorm(), we specify the parameters:</span></a>
 <a class="sourceLine" id="cb235-2" title="2"><span class="co"># n = number of observations, which is 3.6 milion -- our population of US probationers</span></a>
@@ -365,11 +365,11 @@ Why the data are based on a fake population is because rarely do we have informa
 <p>We now have a vector of numbers, all randomly created. Let us get some descriptive statistics:
 <br></p>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="kw">mean</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 99.99995</code></pre>
+<pre><code>## [1] 99.992</code></pre>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1"><span class="kw">median</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 99.99581</code></pre>
+<pre><code>## [1] 99.99202</code></pre>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1"><span class="kw">sd</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 14.99801</code></pre>
+<pre><code>## [1] 15.00239</code></pre>
 <p><br></p>
 <p>By doing so, we are verifying that the mean and SD are indeed 100 and 15, but you may notice a few discrepancies:</p>
 <ul>
@@ -380,6 +380,7 @@ Why the data are based on a fake population is because rarely do we have informa
 <li>Your values may be slightly different to that of the lab notes. The reason is <code>R</code> <em>randomly</em> generates these numbers for you. If you re-run the code with <code>rnorm</code> above to re-create your <code>prob_iq</code>, you will get another set of numbers!</li>
 </ol></li>
 </ul>
+<p><br></p>
 <p>To ensure we have the same set of numbers, we can set a specific seed from which the random numbers should ‘grow’. If we choose the same seed, then we will get the same set of random numbers and, thus, the same results.</p>
 <p>We set a seed using the function <code>set.seed()</code>, which ensures it generates the exact same distribution for this session. Then we re-create the <code>prob_iq</code> object:
 <br></p>
@@ -539,9 +540,8 @@ Why the data are based on a fake population is because rarely do we have informa
 <a class="sourceLine" id="cb283-4" title="4"><span class="co"># 100 probationers in each sample </span></a>
 <a class="sourceLine" id="cb283-5" title="5">sample100 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">100</span>) </a>
 <a class="sourceLine" id="cb283-6" title="6"></a>
-<a class="sourceLine" id="cb283-7" title="7"></a>
-<a class="sourceLine" id="cb283-8" title="8"><span class="co"># 1000 probationers in each sample </span></a>
-<a class="sourceLine" id="cb283-9" title="9">sample1000 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">1000</span>) </a></code></pre></div>
+<a class="sourceLine" id="cb283-7" title="7"><span class="co"># 1000 probationers in each sample </span></a>
+<a class="sourceLine" id="cb283-8" title="8">sample1000 &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">1000</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> prob_off, <span class="dt">size =</span> <span class="dv">1000</span>) </a></code></pre></div>
 <p><br></p>
 <p>Now we have three data frames, all with 1,000 samples of varying sample sizes: The first has one-thousand 30-person samples, the second with one-thousand 100-person samples, and the third with one-thousand 1,000-person samples.</p>
 <p>Which one of these would you trust to best represent the population? Why? Discuss in your groups if you are in the chatty rooms.</p>
@@ -635,9 +635,8 @@ Why the data are based on a fake population is because rarely do we have informa
 <li>95% between +/- 2 standard deviations away from the mean</li>
 <li>99% between +/- 3 standard deviations away from the mean</li>
 </ul>
-<p><br>
-<br></p>
-<p>With our sE above, and because we are dealing with the normal distribution, we can say that 95% of the sample will produce a mean which is within above or below 2 * 0.4887421; in other words, within +/- 0.9774842, or within approximately one IQ point above and below the mean IQ for the whole population of 3.6 million probationers – close to the true estimate.</p>
+<p><br></p>
+<p>With our above SE, and because we are dealing with the normal distribution, we can say that 95% of the sample will produce a mean which is within above or below 2 * 0.4887421; in other words, within +/- 0.9774842, or within approximately one IQ point above and below the mean IQ for the whole population of 3.6 million probationers – this is close to the true estimate.</p>
 <p>This is how we can use the sampling distribution of the mean to estimate how representative the sample mean is to that of the population.</p>
 <p>Reka exclaims: ‘How cool is that?! It is the power of statistics all in our hands!’</p>
 <p><br>
@@ -657,7 +656,7 @@ Why the data are based on a fake population is because rarely do we have informa
 <p><br></p>
 <p><span class="math inline">\(\bar{x} \pm 1.96*{sd}/{\sqrt{n}}\)</span></p>
 <p><br></p>
-<p>Let us revisit our <code>sample1</code> object. We obtain its the mean of IQ:
+<p>Let us revisit our <code>sample1</code> object. We obtain its mean of IQ:
 <br></p>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" title="1"><span class="kw">mean</span>(sample1<span class="op">$</span>IQ, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 101.59</code></pre>
@@ -685,11 +684,13 @@ Why the data are based on a fake population is because rarely do we have informa
 <!-- ``` -->
 <!--Seeing the dashes that represent the confidence interval shows us that IQ scores will vary away from the mean of our sample, but 95% of them will fall within this interval. Similar to what we learned about repeated samples, if we took 100 resamples of our population of probationers and obtained the sample means, the true population mean will fall within the confidence interval 95% of the time. Thus, only 5% of the time will our resamples fail to obtain the true population mean.  -->
 <p>We can conclude from our sample that the mean IQ for all probationers will be somewhere between 98.4001302 and 101.908987.</p>
-<p>What if we took a different sample though? You can repeat the steps above for sample 2 and sample 3, and you will see the following conclusions:</p>
+<p>What if we took a different sample though? You can repeat the steps above for sample 2 and sample 3, and you will see the following conclusions:
+<br></p>
 <ul>
 <li><strong>Sample 2</strong>: we conclude that the mean IQ for all probationers will be somewhere between 97.8539159 and 103.7660841.</li>
 <li><strong>Sample 3</strong>: we conclude that the mean IQ for all probationers will be somewhere between 96.3651461 and 102.4548539.</li>
 </ul>
+<p><br></p>
 <p>With each different sample, we get a slightly different upper and lower bound of the CIs. How can we trust this? Since we know that we have 95% of observations within 1.96 SD above and below the mean of the sampling distribution, we can conclude that on the whole, the confidence intervals derived from 95% of our samples will contain the true population parameter.</p>
 <p>Seems unbelievable? Let us plot this:</p>
 <p>First, we take our population parameter, the true mean IQ for all probationers in the US: <br></p>
@@ -721,14 +722,14 @@ Why the data are based on a fake population is because rarely do we have informa
 <a class="sourceLine" id="cb313-3" title="3">new.sample.ci100 &lt;-<span class="st"> </span>new.sample.ci100 <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb313-4" title="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">capture.mean =</span> <span class="kw">if_else</span>(<span class="dt">condition =</span> lower_ci <span class="op">&lt;</span><span class="st"> </span>true.mean <span class="op">&amp;</span><span class="st"> </span>upper_ci <span class="op">&gt;</span><span class="st"> </span>true.mean, <span class="dt">true =</span> <span class="st">&quot;yes&quot;</span>, <span class="dt">false =</span> <span class="st">&quot;no&quot;</span>)) </a></code></pre></div>
 <p><br></p>
-<p>We now use this to produce a small table to show how many CIs captured the true population mean, as indicated in the new variable, <code>capture.mean</code>:
+<p>We now use this to produce a tiny table to show how many CIs captured the true population mean, as indicated in the new variable, <code>capture.mean</code>:
 <br></p>
 <div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" title="1"><span class="kw">table</span>(new.sample.ci100<span class="op">$</span>capture.mean)</a></code></pre></div>
 <pre><code>## 
 ##  no yes 
 ##   4  96</code></pre>
 <p><br></p>
-<p>According to our little table, about 95% of the CIs from our samples contained the true population estimate. In this example 96% contained our true population mean, and 4% did not, and it is close to what we expected. What if we were to do this with 1,000 samples of 100? What do you think the little table of ‘yes’ and ‘no’ would look like then? What about 10,000 samples? Discuss in your groups.</p>
+<p>According to our tiny table, about 95% of the CIs from our samples contained the true population estimate. In this example 96% contained our true population mean, and 4% did not, and it is close to what we expected. What if we were to do this with 1,000 samples of 100? What do you think the tiny table of ‘yes’ and ‘no’ would look like then? What about 10,000 samples? Discuss in your groups.</p>
 <p><br>
 <br></p>
 <hr />
@@ -743,7 +744,7 @@ Why the data are based on a fake population is because rarely do we have informa
 <a class="sourceLine" id="cb316-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> .index, <span class="dt">x =</span> sample_mean, <span class="dt">colour =</span> capture.mean))</a></code></pre></div>
 <p><img src="05-inferential-statistics_files/figure-html/unnamed-chunk-35-1.png" width="672" />
 <br></p>
-<p>The visual shows the result obtained in our little table, but here, you can see all 100 sample means, their CIs, and how 95% of the time, they capture the true population mean. In reality, we have no way of knowing whether we have captured the true population estimates in our sample, but the use of the confidence interval gives us <em>confidence</em> that we are on the right track, so reporting CIs in your results is good practice for presenting your findings.</p>
+<p>The visual shows the result obtained in our tiny table, but here, you can see all 100 sample means, their CIs, and how 95% of the time, they capture the true population mean. In reality, we have no way of knowing whether we have captured the true population estimates in our sample, but the use of the confidence interval gives us <em>confidence</em> that we are on the right track, so reporting CIs in your results is good practice for presenting your findings.</p>
 <p><br>
 <br></p>
 <hr />

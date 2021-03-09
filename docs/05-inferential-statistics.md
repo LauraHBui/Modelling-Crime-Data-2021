@@ -23,10 +23,10 @@
 
 ##### *Functions introduced (and packages to which they belong)* {-}
 -	`bind_rows()` : Combine data frame(s) together row-wise (`dplyr`)
--	`geom_density()` : Geometry layer for density plots (`ggplot2`)
--	`geom_errorbar()` : Draw error bars by specifying maximum and minimum value (`ggplot2`)
 -	`do()` : Loop for resampling (`mosaic`)
--	`geom_vline()` : Geometry layer for adding vertical lines (`ggplot2`)
+-	`geom_density()` : Geometry layer for density plots (`ggplot2`)
+-	`geom_errorbarh()` : Draw horizontal error bars by specifying maximum and minimum value (`ggplot2`)
+- `geom_vline()` : Geometry layer for adding vertical lines (`ggplot2`)
 -	`if_else()` : Tests conditions for true or false, taking on values for each (`dplyr`)
 -	`rnorm()` : Create synthetic normally distributed data (`base R`)
 -	`round()` : Rounds to nearest whole number or specified number of decimals (`base R`)
@@ -111,11 +111,9 @@ Much of what we will be learning in the coming weeks will make the assumption th
 #### Activity 2: Making normally distributed synthetic data
 
 
+The synthetic data will consist og randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. 
 
-The synthetic data will consist og randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. We create this population distribution by using the function `nrnorm()` and assigning this to a vector object called `prob_iq`. Within the `nrnorm()` function, we specify the parameters `n = `, `mean =`, and `sd = `. That is the **n**umber of observations we want (3.6 million, one for each of the probationers in the US, remember this is the **population**), the **mean** IQ score we want the population to have (that is 100, specified above), and the dispersion around this mean, given by the standard deviation in the `sd =` parameter (specified above as 15 IQ points). 
-
-
-<br>
+We create this population distribution by using the function `nrnorm()` and assigning this to a vector object called `prob_iq`. Within the `nrnorm()` function, we specify the parameters `n = `, `mean =`, and `sd = `. That is the **n**umber of observations we want (3.6 million, one for each of the probationers in the US, remember this is the **population**), the **mean** IQ score we want the population to have (that is 100, specified above), and the dispersion around this mean, given by the standard deviation in the `sd =` parameter (specified above as 15 IQ points). 
 <br>
 
 
@@ -138,7 +136,7 @@ mean(prob_iq)
 ```
 
 ```
-## [1] 99.99995
+## [1] 99.992
 ```
 
 ```r
@@ -146,7 +144,7 @@ median(prob_iq)
 ```
 
 ```
-## [1] 99.99581
+## [1] 99.99202
 ```
 
 ```r
@@ -154,7 +152,7 @@ sd(prob_iq)
 ```
 
 ```
-## [1] 14.99801
+## [1] 15.00239
 ```
 <br>
 
@@ -162,6 +160,8 @@ By doing so, we are verifying that the mean and SD are indeed 100 and 15, but yo
 
 - 1. The mean is not *exactly* 100 and the SD is not *exactly* 15, although they are very close to those values.
 - 2. Your values may be slightly different to that of the lab notes. The reason is `R` *randomly* generates these numbers for you. If you re-run the code with `rnorm` above to re-create your `prob_iq`, you will get another set of numbers!
+
+<br>
 
 To ensure we have the same set of numbers, we can set a specific seed from which the random numbers should 'grow'. If we choose the same seed, then we will get the same set of random numbers and, thus, the same results.
 
@@ -512,7 +512,6 @@ sample30 <- do(1000) * sample(x = prob_off, size = 30)
 # 100 probationers in each sample 
 sample100 <- do(1000) * sample(x = prob_off, size = 100) 
 
-
 # 1000 probationers in each sample 
 sample1000 <- do(1000) * sample(x = prob_off, size = 1000) 
 ```
@@ -617,7 +616,6 @@ One approach to articulate this uncertainty is by quantifying our sample variabi
 
 
 ### The Standard Error
-
 <br>
 
 #### Activity 6: Interpreting the SE
@@ -704,10 +702,9 @@ Recall from Activity 4, the mention of 68% and 95% of observations in the normal
 - 99% between +/- 3 standard deviations away from the mean
 
 <br>
-<br>
 
 
-With our sE above, and because we are dealing with the normal distribution, we can say that 95% of the sample will produce a mean which is within above or below 2 * 0.4887421; in other words, within +/- 0.9774842, or within approximately one IQ point above and below the mean IQ for the whole population of 3.6 million probationers -- close to the true estimate.
+With our above SE, and because we are dealing with the normal distribution, we can say that 95% of the sample will produce a mean which is within above or below 2 * 0.4887421; in other words, within +/- 0.9774842, or within approximately one IQ point above and below the mean IQ for the whole population of 3.6 million probationers -- this is close to the true estimate.
 
 This is how we can use the sampling distribution of the mean to estimate how representative the sample mean is to that of the population. 
 
@@ -740,7 +737,7 @@ $\bar{x} \pm 1.96*{sd}/{\sqrt{n}}$
 
 <br>
 
-Let us revisit our `sample1` object. We obtain its the mean of IQ: 
+Let us revisit our `sample1` object. We obtain its mean of IQ: 
 <br>
 
 
@@ -805,10 +802,12 @@ mean(sample1$IQ, na.rm = TRUE) + 1.96*sd(sample1$IQ)/sqrt(100)
 We can conclude from our sample that the mean IQ for all probationers will be somewhere between 98.4001302 and 101.908987. 
 
 What if we took a different sample though? You can repeat the steps above for sample 2 and sample 3, and you will see the following conclusions: 
+<br>
 
 - **Sample 2**: we conclude that the mean IQ for all probationers will be somewhere between 97.8539159 and 103.7660841. 
 - **Sample 3**: we conclude that the mean IQ for all probationers will be somewhere between 96.3651461 and 102.4548539. 
 
+<br>
 
 With each different sample, we get a slightly different upper and lower bound of the CIs. How can we trust this? Since we know that we have 95% of observations within 1.96 SD above and below the mean of the sampling distribution, we can conclude that on the whole, the confidence intervals derived from 95% of our samples will contain the true population parameter.
 
@@ -870,7 +869,7 @@ new.sample.ci100 <- new.sample.ci100 %>%
 ```
 <br>
 
-We now use this to produce a small table to show how many CIs captured the true population mean, as indicated in the new variable, `capture.mean`: 
+We now use this to produce a tiny table to show how many CIs captured the true population mean, as indicated in the new variable, `capture.mean`: 
 <br>
 
 
@@ -885,7 +884,7 @@ table(new.sample.ci100$capture.mean)
 ```
 <br>
 
-According to our little table, about 95% of the CIs from our samples contained the true population estimate. In this example 96% contained our true population mean, and  4% did not, and it is close to what we expected. What if we were to do this with 1,000 samples of 100? What do you think the little table of 'yes' and 'no' would look like then? What about 10,000 samples? Discuss in your groups. 
+According to our tiny table, about 95% of the CIs from our samples contained the true population estimate. In this example 96% contained our true population mean, and  4% did not, and it is close to what we expected. What if we were to do this with 1,000 samples of 100? What do you think the tiny table of 'yes' and 'no' would look like then? What about 10,000 samples? Discuss in your groups. 
 
 <br>
 <br>
@@ -912,7 +911,7 @@ ggplot(data = new.sample.ci100) +
 <br>
 
 
-The visual shows the result obtained in our little table, but here, you can see all 100 sample means, their CIs, and how 95% of the time, they capture the true population mean. In reality, we have no way of knowing whether we have captured the true population estimates in our sample, but the use of the confidence interval gives us *confidence* that we are on the right track, so reporting CIs in your results is good practice for presenting your findings. 
+The visual shows the result obtained in our tiny table, but here, you can see all 100 sample means, their CIs, and how 95% of the time, they capture the true population mean. In reality, we have no way of knowing whether we have captured the true population estimates in our sample, but the use of the confidence interval gives us *confidence* that we are on the right track, so reporting CIs in your results is good practice for presenting your findings. 
 
 <br>
 <br>
