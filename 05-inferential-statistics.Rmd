@@ -25,7 +25,7 @@
 -	`bind_rows()` : Combine data frame(s) together row-wise (`dplyr`)
 -	`do()` : Loop for resampling (`mosaic`)
 -	`geom_density()` : Geometry layer for density plots (`ggplot2`)
--	`geom_errorbarh()` : Draw horizontal error bars by specifying maximum and minimum value (`ggplot2`)
+-	`geom_errorbarh()` : Draws horizontal error bars by specifying maximum and minimum value (`ggplot2`)
 - `geom_vline()` : Geometry layer for adding vertical lines (`ggplot2`)
 -	`if_else()` : Tests conditions for true or false, taking on values for each (`dplyr`)
 -	`rnorm()` : Create synthetic normally distributed data (`base R`)
