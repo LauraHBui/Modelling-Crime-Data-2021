@@ -113,7 +113,7 @@ Much of what we will be learning in the coming weeks will make the assumption th
 
 The synthetic data will consist og randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15. 
 
-We create this population distribution by using the function `nrnorm()` and assigning this to a vector object called `prob_iq`. Within the `nrnorm()` function, we specify the parameters `n = `, `mean =`, and `sd = `. That is the **n**umber of observations we want (3.6 million, one for each of the probationers in the US, remember this is the **population**), the **mean** IQ score we want the population to have (that is 100, specified above), and the dispersion around this mean, given by the standard deviation in the `sd =` parameter (specified above as 15 IQ points). 
+We create this population distribution by using the function `nrnorm()` and assigning this to a vector object called `prob_iq`: 
 <br>
 
 
@@ -136,7 +136,7 @@ mean(prob_iq)
 ```
 
 ```
-## [1] 99.992
+## [1] 100.0025
 ```
 
 ```r
@@ -144,7 +144,7 @@ median(prob_iq)
 ```
 
 ```
-## [1] 99.99202
+## [1] 100.0006
 ```
 
 ```r
@@ -152,7 +152,7 @@ sd(prob_iq)
 ```
 
 ```
-## [1] 15.00239
+## [1] 14.99867
 ```
 <br>
 
