@@ -136,7 +136,7 @@ mean(prob_iq)
 ```
 
 ```
-## [1] 100.0008
+## [1] 99.99645
 ```
 
 ```r
@@ -144,7 +144,7 @@ median(prob_iq)
 ```
 
 ```
-## [1] 99.99991
+## [1] 100.0006
 ```
 
 ```r
@@ -152,7 +152,7 @@ sd(prob_iq)
 ```
 
 ```
-## [1] 14.99793
+## [1] 14.99299
 ```
 <br>
 
@@ -797,7 +797,7 @@ mean(sample1$IQ, na.rm = TRUE) + 1.96*sd(sample1$IQ)/sqrt(100)
 <!--Seeing the dashes that represent the confidence interval shows us that IQ scores will vary away from the mean of our sample, but 95% of them will fall within this interval. Similar to what we learned about repeated samples, if we took 100 resamples of our population of probationers and obtained the sample means, the true population mean will fall within the confidence interval 95% of the time. Thus, only 5% of the time will our resamples fail to obtain the true population mean.  -->
 
 
-We can conclude from our sample that the mean IQ for all probationers will be somewhere between 98.4001302 and 101.908987. 
+We can conclude from our sample that the mean IQ for all probationers will be somewhere between 98.4001302 and 104.7798698. 
 
 What if we took a different sample though? You can repeat the steps above for sample 2 and sample 3, and you will see the following conclusions: 
 <br>
@@ -920,7 +920,7 @@ The visual shows the result obtained in our tiny table, but here, you can see al
 
 ## SUMMARY
 
-Today was a theoretical demonstration of why **samples** can be used to estimate what is happening in the **population**. Samples with high **external validity** can do so. This is the foundation of inferential statistics - the use of samples to draw conclusions about the population. We used **synthetic data** to show why. Despite **sampling variability**, the means of the **sampling distribution** demonstrate that it is able to approximate the normal distribution and, therefore, the true population estimates. This is further demonstrated by the **central limit theorem**, which clarifies that sample size matters in producing more accurate estimates of the population. A nifty fact we could use to interpret results from the normal distribution was the **68-95-99.7 rule**. We learned about communicating uncertainty in our data by presenting the standard error (of the mean) and **confidence intervals**. These are useful in establishing how accurate our estimates are, because in reality, rarely are the population estimates known. 
+Today was a theoretical demonstration of why **samples** can be used to estimate what is happening in the **population**. Samples with high **external validity** can do so. This is the foundation of inferential statistics - the use of samples to draw conclusions about the population. We used **synthetic data** to show why. Despite **sampling variability**, the means of the **sampling distribution** demonstrate that it is able to approximate the normal distribution and, therefore, the true population estimates. This is further demonstrated by the **central limit theorem**, which clarifies that sample size matters in producing more accurate estimates of the population. A nifty fact we could use to interpret results from the normal distribution was the **68-95-99.7 rule**. We learned about communicating uncertainty in our data by presenting the **standard error** (of the mean) and **confidence intervals**. These are useful in establishing how accurate our estimates are, because in reality, rarely are the population estimates known. 
 
 
 <br>

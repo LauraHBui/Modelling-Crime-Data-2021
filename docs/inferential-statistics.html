@@ -365,11 +365,11 @@ Why the data are based on a fake population is because rarely do we have informa
 <p>We now have a vector of numbers, all randomly created. Let us get some descriptive statistics:
 <br></p>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="kw">mean</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 100.0008</code></pre>
+<pre><code>## [1] 99.99645</code></pre>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1"><span class="kw">median</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 99.99991</code></pre>
+<pre><code>## [1] 100.0006</code></pre>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1"><span class="kw">sd</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 14.99793</code></pre>
+<pre><code>## [1] 14.99299</code></pre>
 <p><br></p>
 <p>By doing so, we are verifying that the mean and SD are indeed 100 and 15, but you may notice a few discrepancies:</p>
 <ul>
@@ -682,7 +682,7 @@ Why the data are based on a fake population is because rarely do we have informa
 <!--   geom_vline(mapping = aes(xintercept = mean(IQ) - 1.96*sd(IQ)/sqrt(100)), col = "green", linetype = "dashed") -->
 <!-- ``` -->
 <!--Seeing the dashes that represent the confidence interval shows us that IQ scores will vary away from the mean of our sample, but 95% of them will fall within this interval. Similar to what we learned about repeated samples, if we took 100 resamples of our population of probationers and obtained the sample means, the true population mean will fall within the confidence interval 95% of the time. Thus, only 5% of the time will our resamples fail to obtain the true population mean.  -->
-<p>We can conclude from our sample that the mean IQ for all probationers will be somewhere between 98.4001302 and 101.908987.</p>
+<p>We can conclude from our sample that the mean IQ for all probationers will be somewhere between 98.4001302 and 104.7798698.</p>
 <p>What if we took a different sample though? You can repeat the steps above for sample 2 and sample 3, and you will see the following conclusions:
 <br></p>
 <ul>
@@ -752,7 +752,7 @@ Why the data are based on a fake population is because rarely do we have informa
 </div>
 <div id="summary-4" class="section level2">
 <h2><span class="header-section-number">5.3</span> SUMMARY</h2>
-<p>Today was a theoretical demonstration of why <strong>samples</strong> can be used to estimate what is happening in the <strong>population</strong>. Samples with high <strong>external validity</strong> can do so. This is the foundation of inferential statistics - the use of samples to draw conclusions about the population. We used <strong>synthetic data</strong> to show why. Despite <strong>sampling variability</strong>, the means of the <strong>sampling distribution</strong> demonstrate that it is able to approximate the normal distribution and, therefore, the true population estimates. This is further demonstrated by the <strong>central limit theorem</strong>, which clarifies that sample size matters in producing more accurate estimates of the population. A nifty fact we could use to interpret results from the normal distribution was the <strong>68-95-99.7 rule</strong>. We learned about communicating uncertainty in our data by presenting the standard error (of the mean) and <strong>confidence intervals</strong>. These are useful in establishing how accurate our estimates are, because in reality, rarely are the population estimates known.</p>
+<p>Today was a theoretical demonstration of why <strong>samples</strong> can be used to estimate what is happening in the <strong>population</strong>. Samples with high <strong>external validity</strong> can do so. This is the foundation of inferential statistics - the use of samples to draw conclusions about the population. We used <strong>synthetic data</strong> to show why. Despite <strong>sampling variability</strong>, the means of the <strong>sampling distribution</strong> demonstrate that it is able to approximate the normal distribution and, therefore, the true population estimates. This is further demonstrated by the <strong>central limit theorem</strong>, which clarifies that sample size matters in producing more accurate estimates of the population. A nifty fact we could use to interpret results from the normal distribution was the <strong>68-95-99.7 rule</strong>. We learned about communicating uncertainty in our data by presenting the <strong>standard error</strong> (of the mean) and <strong>confidence intervals</strong>. These are useful in establishing how accurate our estimates are, because in reality, rarely are the population estimates known.</p>
 <p><br>
 <br></p>
 <p>Homework time!</p>
