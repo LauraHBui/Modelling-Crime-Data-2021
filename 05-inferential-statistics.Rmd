@@ -361,7 +361,7 @@ Take our three samples we created previously as an example. We had compared thei
 #### Activity 4: The sampling distribution of our probationers
 
 
-Let us demonstrate the sampling distribution by taking 1,000 samples of 100 people each from the 3.6 million probationers. Imagine we received funding to administer IQ tests. Each time, we take a random sample of 100 probationers, administer them an IQ test, and take the mean IQ of that sample. These mean IQs from each sample are the sample means.
+Let us demonstrate the sampling distribution by taking 1,000 samples of 100 people each from the 3.6 million probationers. Imagine we received funding to administer general intelligence tests. Each time, we take a random sample of 100 probationers, administer them a general intelligence test, and take the mean IQ of that sample. These mean IQs from each sample are the sample means.
 
 Before, we had used the function `sample()` to obtain one sample of 100 people (`sample(x = prob_off, size = 100)`). We do something similar except we repeat this 1,000 times by using the `do()` function, which tells `R` to do something multiple times:
 <br>
@@ -424,7 +424,7 @@ According to our sampling distribution of probationer IQ scores, drawing a sampl
 <br>
 
 
-In real life, however, you are not likely to conduct IQ tests on 100 probationers, 1,000 times. Instead, you are likely to administer tests to one sample, and you will have to ensure that your sample is a good one. Random sampling is one approach, as we done so far, but another important aspect to think about is the **sample size**. The next activity explores this. 
+In real life, however, you are not likely to conduct general intelligence tests on 100 probationers, 1,000 times. Instead, you are likely to administer tests to one sample, and you will have to ensure that your sample is a good one. Random sampling is one approach, as we done so far, but another important aspect to think about is the **sample size**. The next activity explores this. 
 
 <br>
 <br>
