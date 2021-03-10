@@ -13,15 +13,12 @@
 ##### **Today’s learning tools**: {-}
 
 ##### *Total number of activities*: 8 {-}
-<br>
 
 ##### *Data*: {-}
 - N/A 
-<br>
 
 ##### *Packages*: {-}
 - `dplyr`
-<br>
 
 ##### *Functions introduced (and packages to which they belong)* {-}
 - `c()` : Concatenates elements to create vectors (`base R`)
