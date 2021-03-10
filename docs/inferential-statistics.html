@@ -312,7 +312,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="generalising-about-the-world-from-data" class="section level2">
 <h2><span class="header-section-number">5.1</span> Generalising About the World from Data</h2>
-<p>Last week we revisited a familiar sort of statistics: descriptive. But we also learned how to conduct these statistics using <code>R</code>. Today, we learn the other main branch of statistics: inferential.</p>
+<p>Last time, we revisited a familiar sort of statistics: descriptive. But we also learned how to conduct these statistics using <code>R</code>. Today, we learn the other main branch of statistics: inferential.</p>
 <p>Whereas descriptive statistics are concerned with summarising and describing your data, <strong>inferential (or frequentist) statistics</strong> are concerned with using the data to say something about the world in which we live. For example, we can make conclusions on body worn camera use in agencies across the country as a whole from data on only a handful of agencies. Using samples drawn from our population of interest, we can conduct statistical analyses to generalise to our lives and what we observe around us.</p>
 <p>Inferences made from inferential statistics are not bound to one dataset and sample, and that is the strength of this type of statistics. It is able to <em>generalise</em>, like in the previous example on body worn cameras. Because, however, we will be saying something that is applicable to the ‘real’ world, we must understand the theory for which makes this possible.</p>
 <p>Today’s learning experience is the most theoretical of this course unit. To understand later inferential statistical analyses is to first understand the base on which they stand. Our three substantive topics today are: <strong>samples</strong>, <strong>standard errors</strong>, and <strong>confidence intervals</strong>.</p>
@@ -342,7 +342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>How do we know that a sample is good at representing the population of interest? In the real world, as we have learned, it is often impossible to get data from the whole population. To illustrate how we can trust our statistics from our sample to represent the estimates in the population from which they are derived, also known as <strong>parameters</strong>, we will create a fake population from which we draw samples using <strong>synthetic data</strong>.</p>
 <!-- We create **synthetic data** to represent this fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population. 
 Why the data are based on a fake population is because rarely do we have information on the whole population, of course.  -->
-<p>Last week, we learned about distributions. Specifically, we focused on the normal distribution. This is also called a bell curve, because when we squint a little, the shape looks like a bell. Remember that normal distrbutions are symmetrical (there is no skew) and the mean is the same as the median. The below visual is that very distribution. It also depicts a nifty fact of every normal distribution called the <strong>68-95-99 rule</strong>, which we will learn more about in this lesson. (It will be first introduced in section 5.2.1.3 .)</p>
+<p>Last time, we, too, learned about distributions. Specifically, we focused on the normal distribution. This is also called a bell curve, because when we squint a little, the shape looks like a bell. Remember that normal distributions are symmetrical (there is no skew) and the mean is the same as the median. The below visual is that very distribution. It also depicts a nifty fact of every normal distribution called the <strong>68-95-99.7 rule</strong>, which we will learn more about in this lesson. (It will be first introduced in section 5.2.1.3 .)</p>
 <!--In addition, there were measures of distribution, or dispersion. For example, the standard deviation. Later we learn more about a nifty fact on the normal distribution. For now, the normal distribution below illustrates this nifty fact: 68% of your data will fall within +/- 1 standard deviation of your mean; 95% of your data within +/- 2 standard deviations of your mean; and 99% of your data within +/- 3 standard deviations of your mean.-->
 <p><br>
 <br></p>
@@ -352,7 +352,7 @@ Why the data are based on a fake population is because rarely do we have informa
 <p>Much of what we will be learning in the coming weeks will make the assumption that our data are normally distributed. Of course, there will be exceptions. This is something you will need to check for before embarking on further statistical analyses. For today, though, we focus on the normal distribution and we create synthetic data on intelligence quotient (IQ) scores of American probationers to show how a sample can be representative of the population.</p>
 <div id="activity-2-making-normally-distributed-synthetic-data" class="section level4">
 <h4><span class="header-section-number">5.2.1.1</span> Activity 2: Making normally distributed synthetic data</h4>
-<p>The synthetic data will consist og randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15.</p>
+<p>The synthetic data will consist of randomly generated numbers to represent the intelligence quotient (IQ) scores of every probationer in the US, which is a population of about 3.6 million. For this example, we assume the mean IQ scores to be 100 and the standard deviation to be 15.</p>
 <p>We create this population distribution by using the function <code>nrnorm()</code> and assigning this to a vector object called <code>prob_iq</code>:
 <br></p>
 <div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" title="1"><span class="co"># Inside nrnorm(), we specify the parameters:</span></a>
@@ -365,11 +365,11 @@ Why the data are based on a fake population is because rarely do we have informa
 <p>We now have a vector of numbers, all randomly created. Let us get some descriptive statistics:
 <br></p>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="kw">mean</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 100.0013</code></pre>
+<pre><code>## [1] 100.0008</code></pre>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1"><span class="kw">median</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 100.0112</code></pre>
+<pre><code>## [1] 99.99991</code></pre>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1"><span class="kw">sd</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 14.99161</code></pre>
+<pre><code>## [1] 14.99793</code></pre>
 <p><br></p>
 <p>By doing so, we are verifying that the mean and SD are indeed 100 and 15, but you may notice a few discrepancies:</p>
 <ul>
@@ -522,12 +522,12 @@ Why the data are based on a fake population is because rarely do we have informa
 <p><br></p>
 <p>The histogram of our sampling distribution shows this very important concept in inferential statistics: what we see is that whenever we draw a sample, sometimes we <em>overestimate</em> the parameter and sometimes we <em>underestimate</em> the parameter. This means that sometimes our sample mean is <em>larger</em> than our population mean and, in other times, it is <em>smaller</em> than the population mean.</p>
 <p>Usually the mean of the randomly selected sample will fall close to the populatin mean, but occasionally, it will fall far from it. What is exciting is that if you randomly draw repeated samples from the same population and calculate the mean of each sample, then plot the frequency of those means, you will get the <em>normal distribution</em> - that bell-shaped curve. It does not even matter if your data are normally distributed - your sample statistics will be! This indicates that most samples drawn from the population will have a mean close to the true population mean.</p>
-<p>According to our sampling distribution of probationer IQ scores, drawing a sample with a mean IQ score that is radically different from that of the population would be unlikely. From the histogram, observe how 68% of observations in a normal distribution fall within one standard deviation above and below the mean and 95% within two standard deviations above and below the mean. This should be reassuring. This is the <strong>68-95-99 rule</strong>, or known as an empirical rule, whereby:</p>
+<p>According to our sampling distribution of probationer IQ scores, drawing a sample with a mean IQ score that is radically different from that of the population would be unlikely. From the histogram, observe how 68% of observations in a normal distribution fall within one standard deviation above and below the mean and 95% within two standard deviations above and below the mean. This should be reassuring. This is the <strong>68-95-99.7 rule</strong>, or known as an empirical rule, whereby:</p>
 <p><br></p>
 <ul>
 <li>68% between +/- 1 standard deviation from the mean</li>
 <li>95% between +/- 2 standard deviations away from the mean</li>
-<li>99% between +/- 3 standard deviations away from the mean</li>
+<li>99.7% between +/- 3 standard deviations away from the mean</li>
 </ul>
 <p><br></p>
 <p>In real life, however, you are not likely to conduct IQ tests on 100 probationers, 1,000 times. Instead, you are likely to administer tests to one sample, and you will have to ensure that your sample is a good one. Random sampling is one approach, as we done so far, but another important aspect to think about is the <strong>sample size</strong>. The next activity explores this.</p>
@@ -634,7 +634,7 @@ Why the data are based on a fake population is because rarely do we have informa
 <div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" title="1"><span class="kw">sd</span>(new_<span class="dv">1000</span>_sample<span class="op">$</span>IQ)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1000</span>)</a></code></pre></div>
 <pre><code>## [1] 0.4887421</code></pre>
 <p><br></p>
-<p>The SE (of the mean) is 0.4887421. How to interpret and communicate this estimate? A way of talking about this has to do with the <em>68-95-99 rule</em>.</p>
+<p>The SE (of the mean) is 0.4887421. How to interpret and communicate this estimate? A way of talking about this has to do with the <em>68-95-99.7 rule</em>.</p>
 <p>With our above SE, and because we are dealing with the normal distribution, we can say that 95% of the sample will produce a mean which is within above or below 2 * 0.4887421; in other words, within +/- 0.9774842, or within approximately one IQ point above and below the mean IQ for the whole population of 3.6 million probationers – this is close to the true estimate.</p>
 <p>This is how we can use the sampling distribution of the mean to estimate how representative the sample mean is to that of the population.</p>
 <p>Reka exclaims: ‘How cool is that?! It is the power of statistics all in our hands!’</p>
@@ -648,9 +648,9 @@ Why the data are based on a fake population is because rarely do we have informa
 <p>The last thing we will learn about is a better way of communicating the extent of inaccuracy in sample estimates. Communicating uncertainty when talking about statistics is an incredibly important topic! In inferential statistics, we are making generalisations - making inferences about a population based on some data we collected from a sample. This means that we will always have some element of error and uncertainty in our conclusions.</p>
 <p>One way to clearly quantify and communicate our uncertainty is to use <strong>confidence intervals</strong> (CIs). These appear as an interval that tells you the margin of error – how far away is your sample statistic from the population parameter. We calculate them by, first, returning to our normal distribution, and its 68-95-99 rule.</p>
 <p><br></p>
-<div id="activity-7-the-68-95-97-rule-in-action" class="section level4">
-<h4><span class="header-section-number">5.2.3.1</span> Activity 7: The 68-95-97 rule in action</h4>
-<p>Two observations to note: first, last week, we learned about standard deviations (SD) and there was mention of 68% of verbal assaults falling within one SD; it was a reference to this 68-95-97 rule. Second, there is a contradiction with the numbers. If 95% of values fall within 1.96 SD, then why does this rule state that 95% of values will fall within two SD, which we have been stating throughout this lesson too? We are simply rounding up. The former (1.96) is the precise number and the latter (2) is an approximation, meant to help you memorise this rule easier than if the value was a non-integer like 1.96.</p>
+<div id="activity-7-the-68-95-99.7-rule-in-action" class="section level4">
+<h4><span class="header-section-number">5.2.3.1</span> Activity 7: The 68-95-99.7 rule in action</h4>
+<p>Two observations to note: first, last week, we learned about standard deviations (SD) and there was mention of 68% of verbal assaults falling within one SD; it was a reference to this 68-95-99.7 rule. Second, there is a contradiction with the numbers. If 95% of values fall within 1.96 SD, then why does this rule state that 95% of values will fall within two SD, which we have been stating throughout this lesson too? We are simply rounding up. The former (1.96) is the precise number and the latter (2) is an approximation, meant to help you memorise this rule easier than if the value was a non-integer like 1.96.</p>
 <p>If 95% of values of the normal distribution fall within 1.96 SD of the mean, we are able to calculate the upper and lower bounds of this particular confidence interval using this 1.96 value (also known as the z-value) from our sample using the following formula:</p>
 <p><br></p>
 <p><span class="math inline">\(\bar{x} \pm 1.96*{sd}/{\sqrt{n}}\)</span></p>
@@ -752,7 +752,7 @@ Why the data are based on a fake population is because rarely do we have informa
 </div>
 <div id="summary-4" class="section level2">
 <h2><span class="header-section-number">5.3</span> SUMMARY</h2>
-<p>Today was a theoretical demonstration of why <strong>samples</strong> can be used to estimate what is happening in the <strong>population</strong>. Samples with high <strong>external validity</strong> can do so. This is the foundation of inferential statistics - the use of samples to draw conclusions about the population. We used <strong>synthetic data</strong> to show why. Despite <strong>sampling variability</strong>, the means of the <strong>sampling distribution</strong> demonstrate that it is able to approximate the normal distribution and, therefore, the true population estimates. This is further demonstrated by the <strong>central limit theorem</strong>, which clarifies that sample size matters in producing more accurate estimates of the population. We learned about communicating uncertainty in our data by presenting the standard error (of the mean) and <strong>confidence intervals</strong>. These are useful in establishing how accurate our estimates are, because in reality, rarely are the population estimates known.</p>
+<p>Today was a theoretical demonstration of why <strong>samples</strong> can be used to estimate what is happening in the <strong>population</strong>. Samples with high <strong>external validity</strong> can do so. This is the foundation of inferential statistics - the use of samples to draw conclusions about the population. We used <strong>synthetic data</strong> to show why. Despite <strong>sampling variability</strong>, the means of the <strong>sampling distribution</strong> demonstrate that it is able to approximate the normal distribution and, therefore, the true population estimates. This is further demonstrated by the <strong>central limit theorem</strong>, which clarifies that sample size matters in producing more accurate estimates of the population. A nifty fact we could use to interpret results from the normal distribution was the <strong>68-95-99.7 rule</strong>. We learned about communicating uncertainty in our data by presenting the standard error (of the mean) and <strong>confidence intervals</strong>. These are useful in establishing how accurate our estimates are, because in reality, rarely are the population estimates known.</p>
 <p><br>
 <br></p>
 <p>Homework time!</p>
