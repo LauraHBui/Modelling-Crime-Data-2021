@@ -620,7 +620,7 @@ Reka exclaims: 'How cool is that?! It is the power of statistics all in our hand
 
 The last thing we will learn about is a  better way of communicating the extent of inaccuracy in sample estimates. Communicating uncertainty when talking about statistics is an incredibly important topic! In inferential statistics, we are making generalisations - making inferences about a population based on some data we collected from a sample. This means that we will always have some element of error and uncertainty in our conclusions. 
 
-One way to clearly quantify and communicate our uncertainty is to use **confidence intervals** (CIs). These appear as an interval that tells you the margin of error – how far away is your sample statistic from the population parameter. We calculate them by, first, returning to our normal distribution, and its 68-95-99 rule.
+One way to clearly quantify and communicate our uncertainty is to use **confidence intervals** (CIs). These appear as an interval that tells you the margin of error – how far away is your sample statistic from the population parameter. We calculate them by, first, returning to our normal distribution, and its 68-95-99.7 rule.
 
 <br>
 
