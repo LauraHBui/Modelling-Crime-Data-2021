@@ -25,7 +25,7 @@
 -	`bind_rows()` : Combine data frame(s) together row-wise (`dplyr`)
 -	`do()` : Loop for resampling (`mosaic`)
 -	`geom_density()` : Geometry layer for density plots (`ggplot2`)
--	`geom_errorbarh()` : Draw horizontal error bars by specifying maximum and minimum value (`ggplot2`)
+-	`geom_errorbarh()` : Draws horizontal error bars by specifying maximum and minimum value (`ggplot2`)
 - `geom_vline()` : Geometry layer for adding vertical lines (`ggplot2`)
 -	`if_else()` : Tests conditions for true or false, taking on values for each (`dplyr`)
 -	`rnorm()` : Create synthetic normally distributed data (`base R`)
@@ -93,9 +93,9 @@ How do we know that a sample is good at representing the population of interest?
 <!-- We create **synthetic data** to represent this fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population. 
 Why the data are based on a fake population is because rarely do we have information on the whole population, of course.  -->
 
-Last week, we learned about distributions. Specifically, we focused on the normal distribution. This is also called a bell curve, because when we squint a little, the shape looks like a bell. Remember that normal distrbutions are symmetrical (there is no skew) and the mean is the same as the median. 
+Last week, we learned about distributions. Specifically, we focused on the normal distribution. This is also called a bell curve, because when we squint a little, the shape looks like a bell. Remember that normal distrbutions are symmetrical (there is no skew) and the mean is the same as the median. The below visual is that very distribution. It also depicts a nifty fact of every normal distribution called the **68-95-99 rule**, which we will learn more about in this lesson. (It will be first introduced in section 5.2.1.3 .)
 
-In addition, there were measures of distribution, or dispersion. For example, the standard deviation. Later we learn more about a nifty fact on the normal distribution. For now, the normal distribution below illustrates this nifty fact: 68% of your data will fall within +/- 1 standard deviation of your mean; 95% of your data within +/- 2 standard deviations of your mean; and 99% of your data within +/- 3 standard deviations of your mean.
+<!--In addition, there were measures of distribution, or dispersion. For example, the standard deviation. Later we learn more about a nifty fact on the normal distribution. For now, the normal distribution below illustrates this nifty fact: 68% of your data will fall within +/- 1 standard deviation of your mean; 95% of your data within +/- 2 standard deviations of your mean; and 99% of your data within +/- 3 standard deviations of your mean.-->
 
 <br>
 <br>
@@ -136,7 +136,7 @@ mean(prob_iq)
 ```
 
 ```
-## [1] 100.0025
+## [1] 100.0013
 ```
 
 ```r
@@ -144,7 +144,7 @@ median(prob_iq)
 ```
 
 ```
-## [1] 100.0006
+## [1] 100.0112
 ```
 
 ```r
@@ -152,7 +152,7 @@ sd(prob_iq)
 ```
 
 ```
-## [1] 14.99867
+## [1] 14.99161
 ```
 <br>
 
@@ -485,7 +485,16 @@ The histogram of our sampling distribution shows this very important concept in 
 
 Usually the mean of the randomly selected sample will fall close to the populatin mean, but occasionally, it will fall far from it. What is exciting is that if you randomly draw repeated samples from the same population and calculate the mean of each sample, then plot the frequency of those means, you will get the *normal distribution* - that bell-shaped curve. It does not even matter if your data are normally distributed - your sample statistics will be! This indicates that most samples drawn from the population will have a mean close to the true population mean.
 
-According to our sampling distribution of probationer IQ scores, drawing a sample with a mean IQ score that is radically different from that of the population would be unlikely. From the histogram, observe how 68% of observations in a normal distribution fall within one standard deviation above and below the mean and 95% within two standard deviations above and below the mean. This should be reassuring. You may wonder how we know about this 68% and 95% of observations - this has to do with a rule we will learn soon enough.
+According to our sampling distribution of probationer IQ scores, drawing a sample with a mean IQ score that is radically different from that of the population would be unlikely. From the histogram, observe how 68% of observations in a normal distribution fall within one standard deviation above and below the mean and 95% within two standard deviations above and below the mean. This should be reassuring. This is the **68-95-99 rule**, or known as an empirical rule, whereby:
+
+<br>
+
+- 68% between +/- 1 standard deviation from the mean
+- 95% between +/- 2 standard deviations away from the mean
+- 99% between +/- 3 standard deviations away from the mean
+
+<br>
+
 
 In real life, however, you are not likely to conduct IQ tests on 100 probationers, 1,000 times. Instead, you are likely to administer tests to one sample, and you will have to ensure that your sample is a good one. Random sampling is one approach, as we done so far, but another important aspect to think about is the **sample size**. The next activity explores this. 
 
@@ -527,7 +536,7 @@ After, let us create some data frame objects for each set of the 1,000 samples i
 
 
 ```r
-# Calculate the means IQ scores for each set of 1,000 samples 
+# Calculate the mean IQ scores for each set of 1,000 samples 
 
 sample_means30 <- sample30 %>% 
   group_by(.index) %>% 
@@ -691,18 +700,7 @@ sd(new_1000_sample$IQ)/sqrt(1000)
 <br>
 
 
-The SE (of the mean) is 0.4887421. How to interpret and communicate this estimate? A way of talking about this has to do with the **68-95-99 rule**, or known as an empirical rule.
-
-Recall from Activity 4, the mention of 68% and 95% of observations in the normal distribution. This understanding is derived from this 68-95-99 rule, whereby:
-
-<br>
-
-- 68% between +/- 1 standard deviation from the mean
-- 95% between +/- 2 standard deviations away from the mean
-- 99% between +/- 3 standard deviations away from the mean
-
-<br>
-
+The SE (of the mean) is 0.4887421. How to interpret and communicate this estimate? A way of talking about this has to do with the *68-95-99 rule*.
 
 With our above SE, and because we are dealing with the normal distribution, we can say that 95% of the sample will produce a mean which is within above or below 2 * 0.4887421; in other words, within +/- 0.9774842, or within approximately one IQ point above and below the mean IQ for the whole population of 3.6 million probationers -- this is close to the true estimate.
 
@@ -727,9 +725,9 @@ One way to clearly quantify and communicate our uncertainty is to use **confiden
 
 #### Activity 7: The 68-95-97 rule in action
 
-Two observations to note: first, last week, we learned about standard deviations (SD) and there was mention of 68% of verbal assaults falling within one SD; it was a reference to this 68-95-97 rule. Second, there is a contradiction with the numbers. If 95% of values fall within 1.96 SD, then why does the this rule state that 95% of values will fall within 2 SD, which we have been stating throughout this lesson too? We are simply rounding up. The former (1.96) is the precise number and the latter (2) is an approximation, meant to help you memorise this rule easier than if the value was a non-integer like 1.96. 
+Two observations to note: first, last week, we learned about standard deviations (SD) and there was mention of 68% of verbal assaults falling within one SD; it was a reference to this 68-95-97 rule. Second, there is a contradiction with the numbers. If 95% of values fall within 1.96 SD, then why does this rule state that 95% of values will fall within two SD, which we have been stating throughout this lesson too? We are simply rounding up. The former (1.96) is the precise number and the latter (2) is an approximation, meant to help you memorise this rule easier than if the value was a non-integer like 1.96. 
 
-If 95% of values of the normal distribution fall within 1.96 SD of the mean, we are able to calculate the upper and lower boundaries of this particular confidence interval using this 1.96 value (also known as the z-value) from our sample using the following formula: 
+If 95% of values of the normal distribution fall within 1.96 SD of the mean, we are able to calculate the upper and lower bounds of this particular confidence interval using this 1.96 value (also known as the z-value) from our sample using the following formula: 
 
 <br>
 
