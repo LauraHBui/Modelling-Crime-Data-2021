@@ -139,7 +139,7 @@ mean(prob_iq)
 ```
 
 ```
-## [1] 99.99544
+## [1] 99.9984
 ```
 
 ```r
@@ -147,7 +147,7 @@ median(prob_iq)
 ```
 
 ```
-## [1] 99.98731
+## [1] 99.99819
 ```
 
 ```r
@@ -155,7 +155,7 @@ sd(prob_iq)
 ```
 
 ```
-## [1] 14.99604
+## [1] 15.00273
 ```
 <br>
 
@@ -802,13 +802,13 @@ mean(sample1$IQ, na.rm = TRUE) + 1.96*sd(sample1$IQ)/sqrt(100)
 <!--Seeing the dashes that represent the confidence interval shows us that IQ scores will vary away from the mean of our sample, but 95% of them will fall within this interval. Similar to what we learned about repeated samples, if we took 100 resamples of our population of probationers and obtained the sample means, the true population mean will fall within the confidence interval 95% of the time. Thus, only 5% of the time will our resamples fail to obtain the true population mean.  -->
 
 
-We can conclude from our sample that the mean IQ for all probationers will be somewhere between 98.4001302 and 104.7798698. 
+We can conclude from our sample that, 95% of the time, when we calculate the CI this way, the mean IQ for all probationers will be somewhere between 98.4001302 and 104.7798698. You could also interpret the values as: 'We are 95% confident that the mean in the population is between ... and ...'. **Do NOT ever state this as: 'There is a 95% chance that the mean is between ... and ...'**. To say this contradicts the fact that the true population value is fixed and unknown, and it is either inside or outside of the CI with 100% certainty.
 
 What if we took a different sample though? You can repeat the steps above for sample 2 and sample 3, and you will see the following conclusions: 
 <br>
 
-- **Sample 2**: we conclude that the mean IQ for all probationers will be somewhere between 97.8539159 and 103.7660841. 
-- **Sample 3**: we conclude that the mean IQ for all probationers will be somewhere between 96.3651461 and 102.4548539. 
+- **Sample 2**: we conclude that, when we take repeated samples from the same population, 95% of the time, the mean IQ for all probationers will be somewhere between 97.8539159 and 103.7660841. 
+- **Sample 3**: we conclude that, from 95% of our samples, the mean IQ for all probationers will be somewhere between 96.3651461 and 102.4548539. 
 
 <br>
 
