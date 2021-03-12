@@ -102,7 +102,7 @@ How do we know that a sample is good at representing the population of interest?
 <!-- We create **synthetic data** to represent this fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population. 
 Why the data are based on a fake population is because rarely do we have information on the whole population, of course.  -->
 
-Last time, we learned about distributions too. Specifically, we focused on the normal distribution. This is also called a bell curve, because when we squint a little, the shape looks like a bell. Remember that normal distributions are symmetrical (there is no skew) and the mean is the same as the median. The below visual is that very distribution. It also depicts a nifty fact of every normal distribution called the **68-95-99.7 rule**, which we will learn more about in this lesson. (It will be first introduced in section 5.2.1.3 .)
+Last time, we learned about distributions too. Specifically, we focused on the normal distribution. This is also called a bell curve, because when we squint a little, the shape looks like a bell. Remember that normal distributions are symmetrical (there is no skew) and the mean is the same as the median. The below visual is that very distribution. It also depicts a nifty fact of every normal distribution called the **68-95-99.7 rule**, which we will learn more about in this lesson. (It will be first introduced in section 5.2.1.5 .)
 
 <!--In addition, there were measures of distribution, or dispersion. For example, the standard deviation. Later we learn more about a nifty fact on the normal distribution. For now, the normal distribution below illustrates this nifty fact: 68% of your data will fall within +/- 1 standard deviation of your mean; 95% of your data within +/- 2 standard deviations of your mean; and 99% of your data within +/- 3 standard deviations of your mean.-->
 
@@ -527,7 +527,7 @@ ggplot(data = sample.means.total) +
 
 <br>
 
-Density plots are useful if we want to compare distributions of a numeric variable across levels of a categorical variable. These plots enable comparisons because they standardise the frequencies of each level or group - the area under each curve of the density plots add up to 1. If you want to compare three or more groups or levels, the density plot is the most appropriate. To read more on these plots, click [here](https://clauswilke.com/dataviz/histograms-density-plots.html).
+Density plots are useful if we want to compare distributions of a numeric variable across levels of a categorical variable. These plots enable comparisons because they standardise the frequencies of each level or group - the area under each curve of the density plots adds up to 1. If you want to compare three or more groups or levels, the density plot is the most appropriate. To read more on these plots, click [here](https://clauswilke.com/dataviz/histograms-density-plots.html).
 
 In this present case, the numeric variable is `meanIQ` and the categorical variable is `sample_size`. From the density plot, all three sample distributions are normally distributed and have similar means to that of the population. (Remember that the mean of the sampling distribution will be the true population estimate [i.e., parameter].)
 

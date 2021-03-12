@@ -345,7 +345,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>How do we know that a sample is good at representing the population of interest? In the real world, as we have learned, it is often impossible to get data from the whole population. To illustrate how we can trust our statistics from our sample to represent the estimates in the population from which they are derived, also known as <strong>parameters</strong>, we will create a fake population from which we draw samples using <strong>synthetic data</strong>.</p>
 <!-- We create **synthetic data** to represent this fake population to demonstrate how it is possible for a sample to be used to estimate what goes on in the whole population. 
 Why the data are based on a fake population is because rarely do we have information on the whole population, of course.  -->
-<p>Last time, we learned about distributions too. Specifically, we focused on the normal distribution. This is also called a bell curve, because when we squint a little, the shape looks like a bell. Remember that normal distributions are symmetrical (there is no skew) and the mean is the same as the median. The below visual is that very distribution. It also depicts a nifty fact of every normal distribution called the <strong>68-95-99.7 rule</strong>, which we will learn more about in this lesson. (It will be first introduced in section 5.2.1.3 .)</p>
+<p>Last time, we learned about distributions too. Specifically, we focused on the normal distribution. This is also called a bell curve, because when we squint a little, the shape looks like a bell. Remember that normal distributions are symmetrical (there is no skew) and the mean is the same as the median. The below visual is that very distribution. It also depicts a nifty fact of every normal distribution called the <strong>68-95-99.7 rule</strong>, which we will learn more about in this lesson. (It will be first introduced in section 5.2.1.5 .)</p>
 <!--In addition, there were measures of distribution, or dispersion. For example, the standard deviation. Later we learn more about a nifty fact on the normal distribution. For now, the normal distribution below illustrates this nifty fact: 68% of your data will fall within +/- 1 standard deviation of your mean; 95% of your data within +/- 2 standard deviations of your mean; and 99% of your data within +/- 3 standard deviations of your mean.-->
 <p><br>
 <br></p>
@@ -369,11 +369,11 @@ Why the data are based on a fake population is because rarely do we have informa
 <p>We now have a vector of numbers, all randomly created. Let us get some descriptive statistics:
 <br></p>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="kw">mean</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 99.99992</code></pre>
+<pre><code>## [1] 99.99544</code></pre>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1"><span class="kw">median</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 100.0069</code></pre>
+<pre><code>## [1] 99.98731</code></pre>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1"><span class="kw">sd</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 15.00072</code></pre>
+<pre><code>## [1] 14.99604</code></pre>
 <p><br></p>
 <p>By obtaining some descriptive statistics, we are verifying that the mean and SD are indeed 100 and 15, but you may notice a few discrepancies:</p>
 <ul>
@@ -595,7 +595,7 @@ Why the data are based on a fake population is because rarely do we have informa
 <a class="sourceLine" id="cb292-3" title="3"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> meanIQ, <span class="dt">fill =</span> sample_size), <span class="dt">alpha =</span> <span class="fl">0.5</span>) </a></code></pre></div>
 <p><img src="05-inferential-statistics_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p><br></p>
-<p>Density plots are useful if we want to compare distributions of a numeric variable across levels of a categorical variable. These plots enable comparisons because they standardise the frequencies of each level or group - the area under each curve of the density plots add up to 1. If you want to compare three or more groups or levels, the density plot is the most appropriate. To read more on these plots, click <a href="https://clauswilke.com/dataviz/histograms-density-plots.html">here</a>.</p>
+<p>Density plots are useful if we want to compare distributions of a numeric variable across levels of a categorical variable. These plots enable comparisons because they standardise the frequencies of each level or group - the area under each curve of the density plots adds up to 1. If you want to compare three or more groups or levels, the density plot is the most appropriate. To read more on these plots, click <a href="https://clauswilke.com/dataviz/histograms-density-plots.html">here</a>.</p>
 <p>In this present case, the numeric variable is <code>meanIQ</code> and the categorical variable is <code>sample_size</code>. From the density plot, all three sample distributions are normally distributed and have similar means to that of the population. (Remember that the mean of the sampling distribution will be the true population estimate [i.e., parameter].)</p>
 <p>Notice, however, that the <em>larger the sample size, the more likely that the sample means are closer to those of the population</em>. The distribution of sample sizes of 1,000, for example, is tight and pointy, indicating that the IQ scores cluster very closely to the mean of the sampling distribution (and, therefore, the true population mean). If we look at the distribution of the sample sizes of 30, however, it is flatter and wider - its scores are more spread out from the true population mean.</p>
 <p>The implication is that if we draw small sized samples, we have a higher chance of having a sample that does not reflect the true population at all. With small samples, we run the risk of getting a sample statistic that is further away from the population parameter than we would with larger samples. So, generally, the larger the sample size, the better. Otherwise, our findings and generalisations may be inaccurate.</p>
