@@ -94,8 +94,10 @@ generalising-about-the-world-from-data
 activity-1-our-preparation-routine-1
 todays-3-2
 samples
+how-samples-are-representative-of-the-population
 activity-2-making-normally-distributed-synthetic-data
-activity-3-taking-a-sample-from-our-synthetic-population
+activity-3-taking-a-sample-from-our-fake-population
+the-sampling-distribution
 activity-4-the-sampling-distribution-of-our-probationers
 activity-5-sample-sizes
 the-standard-error

@@ -1,7 +1,7 @@
 --- 
 title: "CRIM20452 Modelling Criminological Data"
 author: "Laura Bui & Reka Solymosi"
-date: "2021-03-10"
+date: "2021-03-12"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -27,7 +27,7 @@ description: "This is a companion workbook for the 2nd year undergraduate module
 <br>
 
 
-Welcome to Modelling Criminological Data. This is the online tutorial for the class's weekly lab sessions.
+Welcome to Modelling Criminological Data. This is the online tutorial, also known as the lab notes, for the class's weekly lab sessions.
 
 The class aims to introduce you to some basic principles and ideas required to understand data analysis. This will help you develop a better grasp of the statistics batted around in the media, by politicians, and by scientists around a variety of issues. In this class, we use the data analysis software `R` to explore and analyse data, interpret statistical results, and to encourage curiosity.
 
