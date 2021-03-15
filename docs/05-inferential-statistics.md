@@ -139,7 +139,7 @@ mean(prob_iq)
 ```
 
 ```
-## [1] 100.0183
+## [1] 99.99159
 ```
 
 ```r
@@ -147,7 +147,7 @@ median(prob_iq)
 ```
 
 ```
-## [1] 100.0207
+## [1] 99.98596
 ```
 
 ```r
@@ -155,7 +155,7 @@ sd(prob_iq)
 ```
 
 ```
-## [1] 15.0038
+## [1] 15.00233
 ```
 <br>
 
@@ -609,7 +609,7 @@ ggplot(data = sample.means.total) +
 
 <br>
 
-Density plots are useful if we want to compare distributions of a numeric variable across levels of a categorical variable. These plots enable comparisons because they standardise the frequencies of each level or group - the area under each curve of the density plots adds up to 1. If you want to compare three or more groups or levels, the density plot is the most appropriate. To read more on these plots, click [here](https://clauswilke.com/dataviz/histograms-density-plots.html).
+Density plots are useful if we want to compare distributions of a numeric variable across levels of a categorical variable. These plots enable comparisons because they standardise the frequencies of each level or group - the area under each curve of the density plots adds up to 1. If you want to compare two or three groups/levels, the density plot is the most appropriate. To read more on these plots, click [here](https://clauswilke.com/dataviz/histograms-density-plots.html).
 
 In this present case, the numeric variable is `meanIQ` and the categorical variable is `sample_size`. From the density plot, all three sample distributions are normally distributed and have similar means to that of the population. (Remember that the mean of the sampling distribution will be the true population estimate [i.e., parameter].)
 

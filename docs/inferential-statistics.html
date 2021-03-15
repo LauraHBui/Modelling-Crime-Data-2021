@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-03-12" />
+<meta name="date" content="2021-03-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -369,11 +369,11 @@ Why the data are based on a fake population is because rarely do we have informa
 <p>We now have a vector of numbers, all randomly created. Let us get some descriptive statistics:
 <br></p>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="kw">mean</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 100.0183</code></pre>
+<pre><code>## [1] 99.99159</code></pre>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1"><span class="kw">median</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 100.0207</code></pre>
+<pre><code>## [1] 99.98596</code></pre>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1"><span class="kw">sd</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 15.0038</code></pre>
+<pre><code>## [1] 15.00233</code></pre>
 <p><br></p>
 <p>By obtaining some descriptive statistics, we are verifying that the mean and SD are indeed 100 and 15, but you may notice a few discrepancies:</p>
 <ul>
@@ -595,7 +595,7 @@ Why the data are based on a fake population is because rarely do we have informa
 <a class="sourceLine" id="cb292-3" title="3"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> meanIQ, <span class="dt">fill =</span> sample_size), <span class="dt">alpha =</span> <span class="fl">0.5</span>) </a></code></pre></div>
 <p><img src="05-inferential-statistics_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p><br></p>
-<p>Density plots are useful if we want to compare distributions of a numeric variable across levels of a categorical variable. These plots enable comparisons because they standardise the frequencies of each level or group - the area under each curve of the density plots adds up to 1. If you want to compare three or more groups or levels, the density plot is the most appropriate. To read more on these plots, click <a href="https://clauswilke.com/dataviz/histograms-density-plots.html">here</a>.</p>
+<p>Density plots are useful if we want to compare distributions of a numeric variable across levels of a categorical variable. These plots enable comparisons because they standardise the frequencies of each level or group - the area under each curve of the density plots adds up to 1. If you want to compare two or three groups/levels, the density plot is the most appropriate. To read more on these plots, click <a href="https://clauswilke.com/dataviz/histograms-density-plots.html">here</a>.</p>
 <p>In this present case, the numeric variable is <code>meanIQ</code> and the categorical variable is <code>sample_size</code>. From the density plot, all three sample distributions are normally distributed and have similar means to that of the population. (Remember that the mean of the sampling distribution will be the true population estimate [i.e., parameter].)</p>
 <p>Notice, however, that the <em>larger the sample size, the more likely that the sample means are closer to those of the population</em>. The distribution of sample sizes of 1,000, for example, is tight and pointy, indicating that the IQ scores cluster very closely to the mean of the sampling distribution (and, therefore, the true population mean). If we look at the distribution of the sample sizes of 30, however, it is flatter and wider - its scores are more spread out from the true population mean.</p>
 <p>The implication is that if we draw small sized samples, we have a higher chance of having a sample that does not reflect the true population at all. With small samples, we run the risk of getting a sample statistic that is further away from the population parameter than we would with larger samples. So, generally, the larger the sample size, the better. Otherwise, our findings and generalisations may be inaccurate.</p>

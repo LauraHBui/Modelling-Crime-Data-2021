@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-03-12" />
+<meta name="date" content="2021-03-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -454,17 +454,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb328-10" title="10"></a>
 <a class="sourceLine" id="cb328-11" title="11"><span class="co"># Divide ‘IQ_Over_100’ by total number of prisoner IQ scores</span></a>
 <a class="sourceLine" id="cb328-12" title="12"><span class="kw">nrow</span>(IQ_Over_<span class="dv">100</span>)<span class="op">/</span><span class="kw">nrow</span>(PrisonerIQ)</a></code></pre></div>
-<pre><code>## [1] 0.4871153</code></pre>
+<pre><code>## [1] 0.486806</code></pre>
 <p>The result should be close to .50 indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the <strong>z-score</strong> is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.</p>
 <p>To create z-scores, we use the function <code>scale ()</code>. For the next example, we take the IQ of five prisoners and change the IQ of the first prisoner from 102 to 115 so that it is easy to show that this prisoner’s z-score is 1. The reason is the prisoner’s IQ score of 115 is one standard deviation above the population mean. (Remember: μ = 100; SD = 15):</p>
 <div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" title="1"><span class="co"># View the first 5 prisoner IQs</span></a>
 <a class="sourceLine" id="cb330-2" title="2">PrisonerIQ[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] </a></code></pre></div>
-<pre><code>##   prisoner_id IQ
-## 1           1 98
-## 2           2 97
-## 3           3 92
-## 4           4 88
-## 5           5 86</code></pre>
+<pre><code>##   prisoner_id  IQ
+## 1           1  80
+## 2           2 113
+## 3           3 119
+## 4           4  99
+## 5           5 109</code></pre>
 <div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" title="1"><span class="co"># Change the IQ of prisoner #1 </span></a>
 <a class="sourceLine" id="cb332-2" title="2">PrisonerIQ<span class="op">$</span>IQ[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">115</span></a>
 <a class="sourceLine" id="cb332-3" title="3"></a>
@@ -474,7 +474,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb332-7" title="7"><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></a>
 <a class="sourceLine" id="cb332-8" title="8">PrisonerIQ[<span class="dv">1</span>,]</a></code></pre></div>
 <pre><code>##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9998975</code></pre>
+## 1           1 115 0.9994081</code></pre>
 <p>Where the z-score becomes practical is illustrated in the following example: say if a probation officer is writing a report for a prisoner who is about to be up for parole. The prisoner has an IQ of 124. The officer wants to give a good idea of how this score compares to all other prisoners. An apt way of doing this is to state the proportion of prisoners who have lower IQs. This can be done using the <code>pnormGC()</code> function from the <code>tigerstats</code> package:</p>
 <div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" title="1"><span class="co"># The mean should be 100 but, in reality, it is not precise, so we calculate it and put in the #object ‘m’</span></a>
 <a class="sourceLine" id="cb334-2" title="2">m&lt;-<span class="kw">mean</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
@@ -486,7 +486,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb334-8" title="8"><span class="co"># interested in IQ scores below 124</span></a>
 <a class="sourceLine" id="cb334-9" title="9"><span class="kw">pnormGC</span>(<span class="dv">124</span>, <span class="dt">region=</span><span class="st">&quot;below&quot;</span>, <span class="dt">mean=</span>m, <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>) </a></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre><code>## [1] 0.9452197</code></pre>
+<pre><code>## [1] 0.9451121</code></pre>
 <p>The output shows 0.9453, meaning that the prisoner has a higher IQ than over 94% of the prison population.</p>
 <p>Recall from the previous week, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68% of cases in the distribution fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within 3 SD. We demonstrate this rule by using the <code>pnormGC ()</code> function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:</p>
 <div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" title="1"><span class="co"># Specify ‘between’ for ‘region’ because we are interested in proportion of prisoners between the two given values</span></a>
