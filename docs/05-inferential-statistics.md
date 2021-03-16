@@ -139,7 +139,7 @@ mean(prob_iq)
 ```
 
 ```
-## [1] 99.99159
+## [1] 100.0041
 ```
 
 ```r
@@ -147,7 +147,7 @@ median(prob_iq)
 ```
 
 ```
-## [1] 99.98596
+## [1] 99.98698
 ```
 
 ```r
@@ -155,7 +155,7 @@ sd(prob_iq)
 ```
 
 ```
-## [1] 15.00233
+## [1] 15.00527
 ```
 <br>
 
@@ -814,7 +814,7 @@ What if we took a different sample though? You can repeat the steps above for sa
 
 With each different sample, we get a slightly different upper and lower bound of the CIs. How can we trust this? Since we know that we have 95% of observations within 1.96 SD above and below the mean of the sampling distribution, we can conclude that on the whole, the confidence intervals derived from 95% of our samples will contain the true population parameter.
 
-Seems unbelievable? Let us plot this:
+Seems unbelievable? Let us view this:
 
 First, we take our parameter, the true mean IQ for all probationers in the US: <br>
 
@@ -934,6 +934,8 @@ Today was a theoretical demonstration of why **samples** can be used to estimate
 Homework time!
 
 
+<br>
+<br>
 
 
 

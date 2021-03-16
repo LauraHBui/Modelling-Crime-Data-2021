@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-03-15" />
+<meta name="date" content="2021-03-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -369,11 +369,11 @@ Why the data are based on a fake population is because rarely do we have informa
 <p>We now have a vector of numbers, all randomly created. Let us get some descriptive statistics:
 <br></p>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="kw">mean</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 99.99159</code></pre>
+<pre><code>## [1] 100.0041</code></pre>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1"><span class="kw">median</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 99.98596</code></pre>
+<pre><code>## [1] 99.98698</code></pre>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1"><span class="kw">sd</span>(prob_iq) </a></code></pre></div>
-<pre><code>## [1] 15.00233</code></pre>
+<pre><code>## [1] 15.00527</code></pre>
 <p><br></p>
 <p>By obtaining some descriptive statistics, we are verifying that the mean and SD are indeed 100 and 15, but you may notice a few discrepancies:</p>
 <ul>
@@ -698,7 +698,7 @@ Why the data are based on a fake population is because rarely do we have informa
 </ul>
 <p><br></p>
 <p>With each different sample, we get a slightly different upper and lower bound of the CIs. How can we trust this? Since we know that we have 95% of observations within 1.96 SD above and below the mean of the sampling distribution, we can conclude that on the whole, the confidence intervals derived from 95% of our samples will contain the true population parameter.</p>
-<p>Seems unbelievable? Let us plot this:</p>
+<p>Seems unbelievable? Let us view this:</p>
 <p>First, we take our parameter, the true mean IQ for all probationers in the US: <br></p>
 <div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" title="1"><span class="co"># Create a vector containing the true population mean from prob_off</span></a>
 <a class="sourceLine" id="cb308-2" title="2">true.mean &lt;-<span class="st"> </span><span class="kw">mean</span>(prob_off<span class="op">$</span>IQ)</a></code></pre></div>
@@ -763,6 +763,8 @@ Why the data are based on a fake population is because rarely do we have informa
 <p><br>
 <br></p>
 <p>Homework time!</p>
+<p><br>
+<br></p>
 
 </div>
 </div>
