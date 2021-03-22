@@ -49,6 +49,7 @@ Inferences made from inferential statistics are not bound to one dataset and sam
 
 Today’s learning experience is the most theoretical of this course unit. To understand later inferential statistical analyses is to first understand the base on which they stand. 
 
+
 <br>
 
 

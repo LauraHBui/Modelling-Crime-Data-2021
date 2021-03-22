@@ -33,7 +33,6 @@
   
 <link rel="prev" href="strength-of-relationships.html"/>
 
-<script src="libs/header-attrs-2.7.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,26 +53,25 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,135 +132,110 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a>
-<ul>
+<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a><ul>
+<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-1-identifying-your-operating-system"><i class="fa fa-check"></i><b>1.1.1</b> Activity 1: Identifying your operating system</a></li>
 <li class="chapter" data-level="1.1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-2-install-r-r-studio"><i class="fa fa-check"></i><b>1.1.2</b> Activity 2: Install R &amp; R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-rstudio"><i class="fa fa-check"></i><b>1.2</b> Getting to know <code>RStudio</code></a>
-<ul>
+<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-rstudio"><i class="fa fa-check"></i><b>1.2</b> Getting to know <code>RStudio</code></a><ul>
 <li class="chapter" data-level="1.2.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#the-four-panes-of-r-studio"><i class="fa fa-check"></i><b>1.2.1</b> The four panes of R Studio</a></li>
 <li class="chapter" data-level="1.2.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#customising-r-studio"><i class="fa fa-check"></i><b>1.2.2</b> Customising R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a>
-<ul>
+<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#operators-and-functions"><i class="fa fa-check"></i><b>1.3.1</b> Operators and Functions</a></li>
 <li class="chapter" data-level="1.3.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.3.2</b> Objects</a></li>
 <li class="chapter" data-level="1.3.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.4</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a>
-<ul>
+<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a><ul>
 <li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#the-tidyverse"><i class="fa fa-check"></i><b>2.1</b> The Tidyverse</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-1-making-yourself-a-project"><i class="fa fa-check"></i><b>2.2.1</b> Activity 1: Making yourself a project</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-2-importing-and-viewing-data"><i class="fa fa-check"></i><b>2.3.1</b> Activity 2: Importing and Viewing Data</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a>
-<ul>
+<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#variables"><i class="fa fa-check"></i><b>2.4.1</b> Variables</a></li>
 <li class="chapter" data-level="2.4.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.4.2</b> Labels</a></li>
 <li class="chapter" data-level="2.4.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#subsetting"><i class="fa fa-check"></i><b>2.4.3</b> Subsetting</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a>
-<ul>
+<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#answers-to-activities-if-applicable"><i class="fa fa-check"></i><b>2.5.1</b> Answers to activities (if applicable)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a>
-<ul>
+<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="data-visualization.html"><a href="data-visualization.html#activity-1-getting-ready"><i class="fa fa-check"></i><b>3.1.1</b> Activity 1: Getting Ready</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>3.2</b> ggplot2</a></li>
-<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="data-visualization.html"><a href="data-visualization.html#layers"><i class="fa fa-check"></i><b>3.3.1</b> Layers</a></li>
 <li class="chapter" data-level="3.3.2" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-categorical-data"><i class="fa fa-check"></i><b>3.3.2</b> Graphs for Categorical Data</a></li>
 <li class="chapter" data-level="3.3.3" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-numeric-data"><i class="fa fa-check"></i><b>3.3.3</b> Graphs for Numeric Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a>
-<ul>
+<li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="data-visualization.html"><a href="data-visualization.html#answers-to-activities"><i class="fa fa-check"></i><b>3.4.1</b> ANSWERS TO ACTIVITIES:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a>
-<ul>
+<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#activity-1-our-preparation-routine"><i class="fa fa-check"></i><b>4.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#central-tendency"><i class="fa fa-check"></i><b>4.2.1</b> Central Tendency</a></li>
 <li class="chapter" data-level="4.2.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#outliers"><i class="fa fa-check"></i><b>4.2.2</b> Outliers</a></li>
 <li class="chapter" data-level="4.2.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#measures-of-dispersion"><i class="fa fa-check"></i><b>4.2.3</b> Measures of Dispersion</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a>
-<ul>
+<li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#answers-to-activities-where-applicable"><i class="fa fa-check"></i><b>4.3.1</b> Answers to Activities (where applicable)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a>
-<ul>
+<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a><ul>
+<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#activity-1-our-preparation-routine-1"><i class="fa fa-check"></i><b>5.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#samples"><i class="fa fa-check"></i><b>5.2.1</b> Samples</a></li>
 <li class="chapter" data-level="5.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#the-standard-error"><i class="fa fa-check"></i><b>5.2.2</b> The Standard Error</a></li>
 <li class="chapter" data-level="5.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#confidence-intervals"><i class="fa fa-check"></i><b>5.2.3</b> Confidence Intervals</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#summary-4"><i class="fa fa-check"></i><b>5.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-testing"><i class="fa fa-check"></i><b>6.1</b> Hypothesis Testing</a></li>
-<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a><ul>
+<li class="chapter" data-level="6.1" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-testing"><i class="fa fa-check"></i><b>6.1</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="hypotheses.html"><a href="hypotheses.html#the-null-hypothesis"><i class="fa fa-check"></i><b>6.1.1</b> The null hypothesis</a></li>
+<li class="chapter" data-level="6.1.2" data-path="hypotheses.html"><a href="hypotheses.html#directional-hypotheses"><i class="fa fa-check"></i><b>6.1.2</b> Directional hypotheses</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="hypotheses.html"><a href="hypotheses.html#statistical-significance"><i class="fa fa-check"></i><b>6.2.1</b> Statistical Significance</a></li>
 <li class="chapter" data-level="6.2.2" data-path="hypotheses.html"><a href="hypotheses.html#a-binomial-test"><i class="fa fa-check"></i><b>6.2.2</b> A Binomial Test</a></li>
 <li class="chapter" data-level="6.2.3" data-path="hypotheses.html"><a href="hypotheses.html#single-sample-significance-tests"><i class="fa fa-check"></i><b>6.2.3</b> Single-sample significance tests</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="hypotheses.html"><a href="hypotheses.html#summary-5"><i class="fa fa-check"></i><b>6.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a>
-<ul>
+<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a><ul>
 <li class="chapter" data-level="7.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#associating-with-categorical-variables"><i class="fa fa-check"></i><b>7.1</b> Associating with Categorical Variables</a></li>
-<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#independent-and-dependent-variables"><i class="fa fa-check"></i><b>7.2.1</b> Independent and Dependent Variables</a></li>
 <li class="chapter" data-level="7.2.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#the-t-test"><i class="fa fa-check"></i><b>7.2.2</b> The T-Test</a></li>
 <li class="chapter" data-level="7.2.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#chi-square"><i class="fa fa-check"></i><b>7.2.3</b> Chi-square</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#summary-6"><i class="fa fa-check"></i><b>7.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a>
-<ul>
+<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a><ul>
 <li class="chapter" data-level="8.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#measures-of-association"><i class="fa fa-check"></i><b>8.1</b> Measures of Association</a></li>
-<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-nominal-variables"><i class="fa fa-check"></i><b>8.2.1</b> Between Categorical, Nominal Variables</a></li>
 <li class="chapter" data-level="8.2.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-ordinal-variables"><i class="fa fa-check"></i><b>8.2.2</b> Between Categorical, Ordinal Variables</a></li>
 <li class="chapter" data-level="8.2.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-numeric-variables"><i class="fa fa-check"></i><b>8.2.3</b> Between Numeric Variables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#summary-7"><i class="fa fa-check"></i><b>8.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a>
-<ul>
+<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a><ul>
 <li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#multiple-and-simultaneous-relationships"><i class="fa fa-check"></i><b>9.1</b> Multiple and Simultaneous Relationships</a></li>
-<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="regression.html"><a href="regression.html#assumptions-of-ols-regression"><i class="fa fa-check"></i><b>9.2.1</b> Assumptions of OLS Regression</a></li>
 <li class="chapter" data-level="9.2.2" data-path="regression.html"><a href="regression.html#interpreting-ols-regression"><i class="fa fa-check"></i><b>9.2.2</b> Interpreting OLS Regression</a></li>
 <li class="chapter" data-level="9.2.3" data-path="regression.html"><a href="regression.html#logistic-regression"><i class="fa fa-check"></i><b>9.2.3</b> Logistic Regression</a></li>
@@ -289,7 +262,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regression" class="section level1" number="9">
+<div id="regression" class="section level1">
 <h1><span class="header-section-number">Chapter 9</span> Regression</h1>
 <div id="ols-logistic-regressions" class="section level4 unnumbered">
 <h4><em>OLS &amp; Logistic Regressions</em></h4>
@@ -338,18 +311,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 </div>
 </div>
-<div id="multiple-and-simultaneous-relationships" class="section level2" number="9.1">
+<div id="multiple-and-simultaneous-relationships" class="section level2">
 <h2><span class="header-section-number">9.1</span> Multiple and Simultaneous Relationships</h2>
 <p>Our learning on inferential statistics, so far, has been on single relationships between two variables. One of the major drawbacks of previous analyses of single relationships is that, even though you are able to test for statistical significance, you cannot ascertain prediction very well. In other words, you were unable to say for certain that one variable predicted another variable; we merely could say ‘there was a relationship’ or ‘there was no relationship.’</p>
 <p>Although we got into the habit of arranging our variables as independent and dependent variables, these terms are more relevant to regression. The reason is, not only can we establish significant relationships, we also can say with relatively more clarity, how that relationship looks like – which variable is impacting on what other variable.</p>
 <p>Another major drawback of previous analyses on bivariate relationships is that you are less certain about whether the relationship and its effect size would still hold in the face of other variables. For example, would a significant relationship between peer group and violence still exist when the relationship between unemployment and violence is considered? This last lesson is on analyses that establish predictive relationships and test multiple relationships between two variables at the same time.</p>
 <hr />
 </div>
-<div id="todays-3-6" class="section level2" number="9.2">
+<div id="todays-3-6" class="section level2">
 <h2><span class="header-section-number">9.2</span> Today’s 3</h2>
 <p>Our main topic of the day is <strong>regression</strong> and we learn two forms: ordinary least squares (OLS) and logistic. The former is applied to dependent variables that are measured at interval or numeric level, while the latter is applied to dependent variables that are binary and measured at the nominal level. The three topics are: assumptions of OLS regression; interpreting OLS regression; and logistic regression.</p>
 <hr />
-<div id="assumptions-of-ols-regression" class="section level3" number="9.2.1">
+<div id="assumptions-of-ols-regression" class="section level3">
 <h3><span class="header-section-number">9.2.1</span> Assumptions of OLS Regression</h3>
 <p><strong>Ordinary least squares (OLS)</strong> regression is a popular technique used to explore whether one or multiple independent variables (X) can predict or explain the variation in the dependent variable (Y). When multiple independent variables are included simultaneously, they are called <strong>covariates</strong>; when only one independent variable is used, the OLS regression is called <strong>bivariate regression</strong>. OLS regression has been the mainstay analysis in the social sciences.</p>
 <p>To begin, we do the following:</p>
@@ -363,96 +336,96 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(H_0\)</span>: Age does not predict perceived level of antisocial behaviour in one’s neighbourhood.</p>
 <p><span class="math inline">\(H_A\)</span>: Age predicts perceived level of antisocial behaviour in one’s neighbourhood.</p>
 <p>Our initial step is to get to know our data:</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="regression.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Age variable</span></span>
-<span id="cb462-2"><a href="regression.html#cb462-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>age)</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" title="1"><span class="co"># Age variable</span></a>
+<a class="sourceLine" id="cb484-2" title="2"><span class="kw">summary</span>(df<span class="op">$</span>age)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   16.00   36.00   51.00   51.19   66.00   99.00     118</code></pre>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="regression.html#cb464-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Antisocial variable</span></span>
-<span id="cb464-2"><a href="regression.html#cb464-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>antisocx)</span></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb486-1" title="1"><span class="co"># Antisocial variable</span></a>
+<a class="sourceLine" id="cb486-2" title="2"><span class="kw">summary</span>(df<span class="op">$</span>antisocx)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##  -4.015  -0.559   0.177   0.000   0.788   1.215   26695</code></pre>
 <p>Both variables have missing data. You could ignore the ‘NAs’, but when we run regression, it will conduct a <em>listwise deletion</em>, which is when cases are dropped from your analysis if they have missing data on either the independent variable (IV) or the dependent variable (DV). As we now want descriptive statistics of cases we will be using, we will delete the cases that will be dropped anyway. We use the <code>complete.cases ()</code> function to keep cases that have valid responses in both the IV and DV:</p>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="regression.html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with 35,371 cases</span></span>
-<span id="cb466-2"><a href="regression.html#cb466-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df) </span></code></pre></div>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb488-1" title="1"><span class="co"># Start with 35,371 cases</span></a>
+<a class="sourceLine" id="cb488-2" title="2"><span class="kw">nrow</span>(df) </a></code></pre></div>
 <pre><code>## [1] 35371</code></pre>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="regression.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain only complete cases</span></span>
-<span id="cb468-2"><a href="regression.html#cb468-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[(<span class="fu">complete.cases</span>(df<span class="sc">$</span>age) <span class="sc">&amp;</span> <span class="fu">complete.cases</span>(df<span class="sc">$</span>antisocx)), ]</span>
-<span id="cb468-3"><a href="regression.html#cb468-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb468-4"><a href="regression.html#cb468-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Left with 8,650 cases after dropping NAs</span></span>
-<span id="cb468-5"><a href="regression.html#cb468-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df) </span></code></pre></div>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb490-1" title="1"><span class="co"># Retain only complete cases</span></a>
+<a class="sourceLine" id="cb490-2" title="2">df &lt;-<span class="st"> </span>df[(<span class="kw">complete.cases</span>(df<span class="op">$</span>age) <span class="op">&amp;</span><span class="st"> </span><span class="kw">complete.cases</span>(df<span class="op">$</span>antisocx)), ]</a>
+<a class="sourceLine" id="cb490-3" title="3"></a>
+<a class="sourceLine" id="cb490-4" title="4"><span class="co"># Left with 8,650 cases after dropping NAs</span></a>
+<a class="sourceLine" id="cb490-5" title="5"><span class="kw">nrow</span>(df) </a></code></pre></div>
 <pre><code>## [1] 8650</code></pre>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="regression.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summaries of just the 8,650 cases </span></span>
-<span id="cb470-2"><a href="regression.html#cb470-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>age)</span></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb492-1" title="1"><span class="co"># Summaries of just the 8,650 cases </span></a>
+<a class="sourceLine" id="cb492-2" title="2"><span class="kw">summary</span>(df<span class="op">$</span>age)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   16.00   36.00   50.00   50.82   66.00   98.00</code></pre>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="regression.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>antisocx)</span></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb494-1" title="1"><span class="kw">summary</span>(df<span class="op">$</span>antisocx)</a></code></pre></div>
 <pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 ## -4.014557 -0.552077  0.178767  0.001823  0.788219  1.215267</code></pre>
 <p>To conduct OLS regression, or linear regression for short, a number of assumptions must be met, so you will need to test for them. Failure to do so will result in a possibly incorrect model and drawing conclusions from it would be silly. We only, however, briefly go through the first four assumptions because going into detail is beyond the scope of this class.</p>
 <p>The purpose of today is more to introduce you to regression and learn how to use it and interpret the output. For this class, we find that the assumption of linearity is important to go into detail. Going through this assumption in detail will give you a better understanding of OLS regression itself and how it operates. We now go through each of the five assumptions of OLS regression before using the technique.</p>
 <hr />
-<div id="independence-of-errors" class="section level4" number="9.2.1.1">
+<div id="independence-of-errors" class="section level4">
 <h4><span class="header-section-number">9.2.1.1</span> Independence of errors</h4>
 <p>Errors of the prediction, which make up the regression line, are assumed to be independent of each other. The term <em>heteroscedasticity</em> is used to describe this violation of independence of errors. When we violate this assumption, our points in the scatterplot resemble the shape of a funnel. If there is dependency between the observations, you would need to use other models that are not covered in this course.</p>
 </div>
-<div id="equal-variances-of-errors" class="section level4" number="9.2.1.2">
+<div id="equal-variances-of-errors" class="section level4">
 <h4><span class="header-section-number">9.2.1.2</span> Equal Variances of errors</h4>
 <p>If the variance of our residuals is unequal, we will need different estimation methods, but this issue is minor. The reason it is a minor issue is that regression is considered a <em>robust</em> estimation, meaning that it is not too sensitive to changes in the variance.</p>
 </div>
-<div id="normality-of-errors" class="section level4" number="9.2.1.3">
+<div id="normality-of-errors" class="section level4">
 <h4><span class="header-section-number">9.2.1.3</span> Normality of errors</h4>
 <p>Residuals are assumed to be normally distributed. Gelman and Hill (2007) believe this to be the least important of the assumptions because regression inferences tend to be robust regarding non-normality of the errors. Your results, however, may be sensitive to large outliers so you will need to drop them if appropriate.</p>
 </div>
-<div id="multicollinearity" class="section level4" number="9.2.1.4">
+<div id="multicollinearity" class="section level4">
 <h4><span class="header-section-number">9.2.1.4</span> Multicollinearity</h4>
 <p>When you are including more than one IV, <strong>multicollinearity</strong> may be a concern. Independent variables that are highly correlated with each other mean that they are tapping into the same construct. For example, if you include two IVs, parental attachment and parental discipline, you may find that they are highly related to each other because both measure a similar idea.</p>
 <p>One indication is that if you run a Pearson’s correlation for the two IVs and get a value of 0.6 or 0.7, you should start investigating further. Another way to check for multicollinearity is through the <em>variance inflation factor</em> (VIF). How high the VIF should be before multicollinearity is a concern is debatable: here, anything above 5 should be a matter of concern. With this analysis, IVs should be numeric. We include an additional covariate, confidence in the police (<code>confx</code>), to illustrate. The VIF for our variables is conducted with the <code>vif ()</code> function in the <code>car</code> package:</p>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="regression.html#cb474-1" aria-hidden="true" tabindex="-1"></a>cal_vif <span class="ot">&lt;-</span> <span class="fu">lm</span>(antisocx <span class="sc">~</span> age <span class="sc">+</span> confx, <span class="at">data =</span> df) </span>
-<span id="cb474-2"><a href="regression.html#cb474-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb474-3"><a href="regression.html#cb474-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(cal_vif)</span></code></pre></div>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb496-1" title="1">cal_vif &lt;-<span class="st"> </span><span class="kw">lm</span>(antisocx <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>confx, <span class="dt">data =</span> df) </a>
+<a class="sourceLine" id="cb496-2" title="2"></a>
+<a class="sourceLine" id="cb496-3" title="3"><span class="kw">vif</span>(cal_vif)</a></code></pre></div>
 <pre><code>##      age    confx 
 ## 1.003988 1.003988</code></pre>
 <p>The VIF values are below 5 and indicate that including both variables, <code>age</code> and <code>confx</code>, in the same model does not pose any multicollinearity concerns.</p>
 </div>
-<div id="linearity" class="section level4" number="9.2.1.5">
+<div id="linearity" class="section level4">
 <h4><span class="header-section-number">9.2.1.5</span> Linearity</h4>
 <p>Similar to Pearson’s correlation, a linear relationship must be established before conducting the analysis. If the relationship is non-linear, your predicted values will be wrong, and it will systematically miss the true pattern of the mean of Y.</p>
 <p>Say, for example, you randomly drew a case from the dataset. What would be your best guess on the value of that case’s perceived antisocial behaviour in the neighbourhood (<code>antisocx</code>)? Likely, you say a value near the mean (M = 0.001823) of the sample. Next, we visualise our variable distributions:</p>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="regression.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> age, <span class="at">data =</span> df)</span></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb498-1" title="1"><span class="kw">qplot</span>(<span class="dt">x =</span> age, <span class="dt">data =</span> df)</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="09-regression_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="regression.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> antisocx, <span class="at">data =</span> df)</span></code></pre></div>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb500-1" title="1"><span class="kw">qplot</span>(<span class="dt">x =</span> antisocx, <span class="dt">data =</span> df)</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="09-regression_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="regression.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="co"># antisocx is negatively skewed</span></span>
-<span id="cb480-2"><a href="regression.html#cb480-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb480-3"><a href="regression.html#cb480-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out how the variables covary together</span></span>
-<span id="cb480-4"><a href="regression.html#cb480-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx)) <span class="sc">+</span> </span>
-<span id="cb480-5"><a href="regression.html#cb480-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">2</span>, <span class="at">position=</span><span class="st">&quot;jitter&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb502-1" title="1"><span class="co"># antisocx is negatively skewed</span></a>
+<a class="sourceLine" id="cb502-2" title="2"></a>
+<a class="sourceLine" id="cb502-3" title="3"><span class="co"># Checking out how the variables covary together</span></a>
+<a class="sourceLine" id="cb502-4" title="4"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb502-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">2</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>)</a></code></pre></div>
 <p><img src="09-regression_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
 <p>If you were to guess that case’s perceived level of antisocial behaviour in the neighbourhood, but now based it on the scatterplot, and learned they were aged 30, what would your answer now be? Before, we based our guess on descriptive measures of central tendency and dispersion, which included all ages. Now, we are asked to guess knowing that the person is aged 30. If we were to now guess the level of perceived antisocial behaviour, we would try and guess the mean of those who are also aged 30. This is what is known as the <em>conditional mean</em> – the mean of Y for each value of X.</p>
 <p>We create a trend line through the scatterplot, which represents the mean of the variable on the y-axis, <code>antisocx</code>, and we want the means computed for each age:</p>
-<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="regression.html#cb481-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb481-2"><a href="regression.html#cb481-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx), <span class="at">alpha=</span>.<span class="dv">2</span>) <span class="sc">+</span> </span>
-<span id="cb481-3"><a href="regression.html#cb481-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx), <span class="at">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="at">fun.y=</span>mean,</span>
-<span id="cb481-4"><a href="regression.html#cb481-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb503-1" title="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb503-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb503-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="dt">fun.y=</span>mean,</a>
+<a class="sourceLine" id="cb503-4" title="4">            <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">size=</span><span class="dv">1</span>)  </a></code></pre></div>
 <pre><code>## No summary function supplied, defaulting to `mean_se()`</code></pre>
 <p><img src="09-regression_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Plotting the conditional means shows us that the mean of perceived antisocial behaviour for those respondents around the age of 30 is around −0.3. This would be a better guess than the mean for all ages, 0.0018. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:</p>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="regression.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years</span></span>
-<span id="cb483-2"><a href="regression.html#cb483-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb483-3"><a href="regression.html#cb483-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx), <span class="at">alpha=</span>.<span class="dv">2</span>) <span class="sc">+</span> </span>
-<span id="cb483-4"><a href="regression.html#cb483-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">round</span>(age<span class="sc">/</span><span class="dv">5</span>)<span class="sc">*</span><span class="dv">5</span>, <span class="at">y =</span> antisocx), <span class="at">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="at">fun.y=</span>mean,</span>
-<span id="cb483-5"><a href="regression.html#cb483-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb505-1" title="1"><span class="co"># Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years</span></a>
+<a class="sourceLine" id="cb505-2" title="2"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb505-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb505-4" title="4"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">round</span>(age<span class="op">/</span><span class="dv">5</span>)<span class="op">*</span><span class="dv">5</span>, <span class="dt">y =</span> antisocx), <span class="dt">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="dt">fun.y=</span>mean,</a>
+<a class="sourceLine" id="cb505-5" title="5">            <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">size=</span><span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## No summary function supplied, defaulting to `mean_se()`</code></pre>
 <p><img src="09-regression_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>The blue trend line shows us that there is an upward trend, meaning that as age increases, so do perceptions of antisocial behaviour in the neighbourhood. Like what we did above, OLS regression tries to capture the trend or pattern of the data by drawing a straight line of predicted values as the model of the data:</p>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="regression.html#cb485-1" aria-hidden="true" tabindex="-1"></a><span class="co"># method=lm asks for the linear regression line </span></span>
-<span id="cb485-2"><a href="regression.html#cb485-2" aria-hidden="true" tabindex="-1"></a><span class="co"># se=FALSE asks not to print confidence interval </span></span>
-<span id="cb485-3"><a href="regression.html#cb485-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Other arguments specify the colour, thickness of the line </span></span>
-<span id="cb485-4"><a href="regression.html#cb485-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> antisocx)) <span class="sc">+</span> </span>
-<span id="cb485-5"><a href="regression.html#cb485-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb485-6"><a href="regression.html#cb485-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb507-1" title="1"><span class="co"># method=lm asks for the linear regression line </span></a>
+<a class="sourceLine" id="cb507-2" title="2"><span class="co"># se=FALSE asks not to print confidence interval </span></a>
+<a class="sourceLine" id="cb507-3" title="3"><span class="co"># Other arguments specify the colour, thickness of the line </span></a>
+<a class="sourceLine" id="cb507-4" title="4"><span class="kw">ggplot</span>(<span class="dt">data =</span> df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb507-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">.2</span>, <span class="dt">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb507-6" title="6"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="09-regression_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>The red <strong>regression line</strong> gives you guesses or predictions for the value of perceived level of antisocial behaviour based on information that we have about age. The line can also be seen as one that tries to summarise the pattern of what is going on among points. The line is, of course, linear. It does not go through all the points, however.
@@ -464,7 +437,7 @@ As Bock et al. (2012) highlight:</p>
 <hr />
 </div>
 </div>
-<div id="interpreting-ols-regression" class="section level3" number="9.2.2">
+<div id="interpreting-ols-regression" class="section level3">
 <h3><span class="header-section-number">9.2.2</span> Interpreting OLS Regression</h3>
 <p>In this section, we learn how to interpret bivariate and multiple regression output. Now that we know what the regression line is, how do we draw one? Two points are needed to do so:</p>
 <ol style="list-style-type: decimal">
@@ -477,15 +450,15 @@ As Bock et al. (2012) highlight:</p>
 <p>It is not unusual to observe that some points will fall above the line (a positive error value), while other points will fall below it (a negative error value). If we wanted to sum these error values, the problem is that the positive values would cancel out the negative values, underreporting our overall error. This would then incorrectly suggest that our regression line was perfect.</p>
 <p>To resolve this issue, the error values are squared before they are summed. This is called the <em>error sum of squares</em>. Our regression model is trying to find a line fit that has the least (squared) error. Hence, least squared estimation.</p>
 <hr />
-<div id="bivariate-regression" class="section level4" number="9.2.2.1">
+<div id="bivariate-regression" class="section level4">
 <h4><span class="header-section-number">9.2.2.1</span> Bivariate Regression</h4>
 <p>To fit the model, we use the <code>lm()</code> function using the formula specification <code>(Y ~ X)</code>:</p>
-<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="regression.html#cb487-1" aria-hidden="true" tabindex="-1"></a>fit_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(antisocx <span class="sc">~</span> age, <span class="at">data =</span> df)</span>
-<span id="cb487-2"><a href="regression.html#cb487-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb487-3"><a href="regression.html#cb487-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get to know the data</span></span>
-<span id="cb487-4"><a href="regression.html#cb487-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(fit_1)</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb509-1" title="1">fit_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(antisocx <span class="op">~</span><span class="st"> </span>age, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb509-2" title="2"></a>
+<a class="sourceLine" id="cb509-3" title="3"><span class="co"># Get to know the data</span></a>
+<a class="sourceLine" id="cb509-4" title="4"><span class="kw">class</span>(fit_<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;lm&quot;</code></pre>
-<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="regression.html#cb489-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(fit_1)</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb511-1" title="1"><span class="kw">attributes</span>(fit_<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## $names
 ##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
 ##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
@@ -493,7 +466,7 @@ As Bock et al. (2012) highlight:</p>
 ## 
 ## $class
 ## [1] &quot;lm&quot;</code></pre>
-<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="regression.html#cb491-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_1)</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" title="1"><span class="kw">summary</span>(fit_<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = antisocx ~ age, data = df)
@@ -510,8 +483,8 @@ As Bock et al. (2012) highlight:</p>
 ## Residual standard error: 0.9705 on 8648 degrees of freedom
 ## Multiple R-squared:  0.05616,    Adjusted R-squared:  0.05606 
 ## F-statistic: 514.6 on 1 and 8648 DF,  p-value: &lt; 0.00000000000000022</code></pre>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="regression.html#cb493-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A more concise display of results is using ‘display ()’ from arm package:</span></span>
-<span id="cb493-2"><a href="regression.html#cb493-2" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(fit_1)</span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb515-1" title="1"><span class="co"># A more concise display of results is using ‘display ()’ from arm package:</span></a>
+<a class="sourceLine" id="cb515-2" title="2"><span class="kw">display</span>(fit_<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## lm(formula = antisocx ~ age, data = df)
 ##             coef.est coef.se
 ## (Intercept) -0.65     0.03  
@@ -527,49 +500,49 @@ As Bock et al. (2012) highlight:</p>
 <li><p><span class="math inline">\(R^2\)</span>: This is known as the percent of variance explained, and it is a measure of the strength of our model. This value ranges from 0 to 1. Towards 1, the better we are able to account for variation in our outcome Y with our IV(s). In other words, the stronger the relationship is between Y and X. Weisburd and Britt (2009: 437) suggest that, in criminal justice research, values greater than .40 are rare, but if we obtain such a value, it is considered a powerful model. If the value is lower than .20, the model is considered relatively weak. The output shows that <span class="math inline">\(R^2\)</span> for our model was about .06 (the multiple r-squared value). We interpret this as our model explains 6% of the variance in the level of perceived antisocial behaviour.</p></li>
 </ol>
 <div class="figure">
-<img src="Images/residual.jpg" alt="" />
+<img src="Images/residual.jpg" alt="Figure 9.1 Residuals visualized" />
 <p class="caption"><strong>Figure 9.1</strong> Residuals visualized</p>
 </div>
 <p>To understand <span class="math inline">\(R^2\)</span>, we refer to <strong>residuals</strong> (<em>e</em>). These are the distance between each point in the dataset and the regression line. The distance represents the amount of error. Previously, this was mentioned in the context of least squares estimation. Residuals matter because it tells us how much variation is still unexplained and considers the fact that we cannot perfectly predict perceived antisocial behaviour each time by using the information on age. In actuality, our regression equation should be:</p>
 <p><span class="math display">\[y = b_0 + b_1x_i + e\]</span></p>
 <hr />
 </div>
-<div id="multiple-regression" class="section level4" number="9.2.2.2">
+<div id="multiple-regression" class="section level4">
 <h4><span class="header-section-number">9.2.2.2</span> Multiple Regression</h4>
 <p>At the start of the session, there was mention of one of the major drawbacks of looking at only bivariate relationships. One was that these analyses did not consider other possible explanations. It could be that you have a statistically significant relationship, but without considering other variables that may explain this relationship, your significant result could, in fact, be <em>spurious</em> – an association that should not be taken very seriously. For some ridiculous examples, click <a href="http://tylervigen.com/spurious-correlations">here</a>.</p>
 <p>Multiple regression is a way for assessing the relevance of competing explanations. For example, we think there is a relationship between age and perceived antisocial behaviour levels, but we have not considered whether other reasons may provide a better explanation for these perceptions. Maybe previous victimisation or fear of crime may be better contenders.</p>
 <p>The equation for multiple regression is similar to bivariate regression except it includes more coefficients:</p>
 <p><span class="math display">\[y = b_0 + b_1x_i + b_2x_{ii} +... b_nx_n + e\]</span></p>
 <p>For this example, we include additional variables to our model: sex (<code>sex</code>), previous victimisation in past 12 months (<code>bcsvictim</code>), and confidence in the police (<code>confx</code>). First, we check out these variables and tidy them as necessary. Then we will run our regression:</p>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="regression.html#cb495-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out what type of class</span></span>
-<span id="cb495-2"><a href="regression.html#cb495-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb495-3"><a href="regression.html#cb495-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df<span class="sc">$</span>confx) </span></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb517-1" title="1"><span class="co"># Checking out what type of class</span></a>
+<a class="sourceLine" id="cb517-2" title="2"></a>
+<a class="sourceLine" id="cb517-3" title="3"><span class="kw">class</span>(df<span class="op">$</span>confx) </a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="regression.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df<span class="sc">$</span>bcsvictim)</span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb519-1" title="1"><span class="kw">class</span>(df<span class="op">$</span>bcsvictim)</a></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="regression.html#cb499-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attach labels to bcsvictim and make ordering false </span></span>
-<span id="cb499-2"><a href="regression.html#cb499-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>bcsvictim <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>bcsvictim, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;not victim&quot;</span>, <span class="st">&quot;Yes victim&quot;</span>), <span class="at">ordered =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb499-3"><a href="regression.html#cb499-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb499-4"><a href="regression.html#cb499-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sex</span></span>
-<span id="cb499-5"><a href="regression.html#cb499-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span> (df<span class="sc">$</span>sex)</span></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb521-1" title="1"><span class="co"># attach labels to bcsvictim and make ordering false </span></a>
+<a class="sourceLine" id="cb521-2" title="2">df<span class="op">$</span>bcsvictim &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>bcsvictim, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;not victim&quot;</span>, <span class="st">&quot;Yes victim&quot;</span>), <span class="dt">ordered =</span> <span class="ot">FALSE</span>) </a>
+<a class="sourceLine" id="cb521-3" title="3"></a>
+<a class="sourceLine" id="cb521-4" title="4"><span class="co"># Sex</span></a>
+<a class="sourceLine" id="cb521-5" title="5"><span class="kw">class</span> (df<span class="op">$</span>sex)</a></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="regression.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>sex)</span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb523-1" title="1"><span class="kw">table</span>(df<span class="op">$</span>sex)</a></code></pre></div>
 <pre><code>## 
 ##    1    2 
 ## 4064 4586</code></pre>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="regression.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode sex as dummy variable (0 and 1) where female is 0 and ordered is false</span></span>
-<span id="cb503-2"><a href="regression.html#cb503-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender <span class="ot">&lt;-</span> df<span class="sc">$</span>sex</span>
-<span id="cb503-3"><a href="regression.html#cb503-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender[df<span class="sc">$</span>gender<span class="sc">==</span><span class="st">&quot;2&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;0&quot;</span></span>
-<span id="cb503-4"><a href="regression.html#cb503-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>gender, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>), <span class="at">ordered =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb503-5"><a href="regression.html#cb503-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Double check values match original variable</span></span>
-<span id="cb503-6"><a href="regression.html#cb503-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>gender)</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb525-1" title="1"><span class="co"># Recode sex as dummy variable (0 and 1) where female is 0 and ordered is false</span></a>
+<a class="sourceLine" id="cb525-2" title="2">df<span class="op">$</span>gender &lt;-<span class="st"> </span>df<span class="op">$</span>sex</a>
+<a class="sourceLine" id="cb525-3" title="3">df<span class="op">$</span>gender[df<span class="op">$</span>gender<span class="op">==</span><span class="st">&quot;2&quot;</span>] &lt;-<span class="st"> &quot;0&quot;</span></a>
+<a class="sourceLine" id="cb525-4" title="4">df<span class="op">$</span>gender &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>gender, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>), <span class="dt">ordered =</span> <span class="ot">FALSE</span>) </a>
+<a class="sourceLine" id="cb525-5" title="5"><span class="co"># Double check values match original variable</span></a>
+<a class="sourceLine" id="cb525-6" title="6"><span class="kw">table</span>(df<span class="op">$</span>gender)</a></code></pre></div>
 <pre><code>## 
 ## female   male 
 ##   4586   4064</code></pre>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="regression.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now let us run the multiple regression</span></span>
-<span id="cb505-2"><a href="regression.html#cb505-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb505-3"><a href="regression.html#cb505-3" aria-hidden="true" tabindex="-1"></a>fit_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(antisocx <span class="sc">~</span> age <span class="sc">+</span> gender <span class="sc">+</span> bcsvictim <span class="sc">+</span> confx, <span class="at">data =</span> df)</span>
-<span id="cb505-4"><a href="regression.html#cb505-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_2)</span></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb527-1" title="1"><span class="co"># Now let us run the multiple regression</span></a>
+<a class="sourceLine" id="cb527-2" title="2"></a>
+<a class="sourceLine" id="cb527-3" title="3">fit_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(antisocx <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>bcsvictim <span class="op">+</span><span class="st"> </span>confx, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb527-4" title="4"><span class="kw">summary</span>(fit_<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = antisocx ~ age + gender + bcsvictim + confx, data = df)
@@ -598,7 +571,7 @@ As Bock et al. (2012) highlight:</p>
 <li><p><span class="math inline">\(R^2\)</span>: The <span class="math inline">\(R^2\)</span> is higher than that of our previous bivariate regression model. It will, however, inevitably increase whenever new variables are added to the model, regardless if they are only weakly related to the DV. Having said this, the new <span class="math inline">\(R^2\)</span> value suggests that the addition of the three new variables improves our previous model.</p></li>
 </ol>
 <p>If you would like to professionally present your results, you can use the function <code>tab_model ()</code> from the <code>sjplot</code> package:</p>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="regression.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2)</span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb529-1" title="1"><span class="kw">tab_model</span>(fit_<span class="dv">2</span>)</a></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -709,8 +682,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="regression.html#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change name of DV</span></span>
-<span id="cb508-2"><a href="regression.html#cb508-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2, <span class="at">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb530-1" title="1"><span class="co"># Change name of DV</span></a>
+<a class="sourceLine" id="cb530-2" title="2"><span class="kw">tab_model</span>(fit_<span class="dv">2</span>, <span class="dt">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</a></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -821,8 +794,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="regression.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change name of IVs</span></span>
-<span id="cb509-2"><a href="regression.html#cb509-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2, <span class="at">pred.labels =</span> <span class="fu">c</span>(<span class="st">&quot;(Intercept)&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Victimisation&quot;</span>, <span class="st">&quot;Confidence in Police&quot;</span>), <span class="at">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb531-1" title="1"><span class="co"># Change name of IVs</span></a>
+<a class="sourceLine" id="cb531-2" title="2"><span class="kw">tab_model</span>(fit_<span class="dv">2</span>, <span class="dt">pred.labels =</span> <span class="kw">c</span>(<span class="st">&quot;(Intercept)&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Victimisation&quot;</span>, <span class="st">&quot;Confidence in Police&quot;</span>), <span class="dt">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</a></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -936,57 +909,57 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <hr />
 </div>
 </div>
-<div id="logistic-regression" class="section level3" number="9.2.3">
+<div id="logistic-regression" class="section level3">
 <h3><span class="header-section-number">9.2.3</span> Logistic Regression</h3>
 <p>Now, what if our dependent variable is categorical and binary? This is where <strong>logistic regression</strong>, a technique belonging to a family of techniques called <strong>generalized linear models</strong>, is appropriate. Those assumptions of linearity and normality are not issues because this technique, itself, is not based on the normal distribution.</p>
 <p>In criminology, it is often the case that our DV has only two categories. For example, victim or not a victim; arrested or not arrested. This form of regression models the probability of belonging to one of the levels of the binary outcome.</p>
 <p>For this example, we are interested in the relationship between race and receiving harsher treatment for possession of marijuana. We use the dataset <code>Arrests</code> from the <code>effects</code> package. This data includes information on police treatment of individuals arrested for possession of marijuana in Toronto, Canada. Our DV is whether the arrestee was released with summons; if they were not, they received harsh treatment such as being brought to the police station or held for bail:</p>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="regression.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effects)</span>
-<span id="cb510-2"><a href="regression.html#cb510-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Arrests, <span class="at">package=</span><span class="st">&quot;effects&quot;</span>) <span class="co"># It will tell you that the dataset are not found, but it is there</span></span>
-<span id="cb510-3"><a href="regression.html#cb510-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb510-4"><a href="regression.html#cb510-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out our DV</span></span>
-<span id="cb510-5"><a href="regression.html#cb510-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb532-1" title="1"><span class="kw">library</span>(effects)</a>
+<a class="sourceLine" id="cb532-2" title="2"><span class="kw">data</span>(Arrests, <span class="dt">package=</span><span class="st">&quot;effects&quot;</span>) <span class="co"># It will tell you that the dataset are not found, but it is there</span></a>
+<a class="sourceLine" id="cb532-3" title="3"></a>
+<a class="sourceLine" id="cb532-4" title="4"><span class="co"># Checking out our DV</span></a>
+<a class="sourceLine" id="cb532-5" title="5"><span class="kw">table</span>(Arrests<span class="op">$</span>released)</a></code></pre></div>
 <pre><code>## 
 ##   No  Yes 
 ##  892 4334</code></pre>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="regression.html#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out the order of the levels in the DV</span></span>
-<span id="cb512-2"><a href="regression.html#cb512-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb534-1" title="1"><span class="co"># Checking out the order of the levels in the DV</span></a>
+<a class="sourceLine" id="cb534-2" title="2"><span class="kw">attributes</span>(Arrests<span class="op">$</span>released)</a></code></pre></div>
 <pre><code>## $levels
 ## [1] &quot;No&quot;  &quot;Yes&quot;
 ## 
 ## $class
 ## [1] &quot;factor&quot;</code></pre>
 <p>Logistic regression will predict probabilities associated with the level whose first letter is further in the alphabet — this would be ‘yes’, the respondent was released with a summons. But this is not our level of interest. We will need to reorder the levels in the DV using the <code>relevel</code> function:</p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="regression.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse the order</span></span>
-<span id="cb514-2"><a href="regression.html#cb514-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Rename the levels so that it is clear we now mean &#39;yes&#39; to harsh treatment</span></span>
-<span id="cb514-3"><a href="regression.html#cb514-3" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>harsher <span class="ot">&lt;-</span> <span class="fu">relevel</span>(Arrests<span class="sc">$</span>released, <span class="st">&quot;Yes&quot;</span>)</span>
-<span id="cb514-4"><a href="regression.html#cb514-4" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>harsher <span class="ot">&lt;-</span> <span class="fu">factor</span>(Arrests<span class="sc">$</span>harsher, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb514-5"><a href="regression.html#cb514-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb514-6"><a href="regression.html#cb514-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  Check that it matches the original variable ‘released’ but in reverse order</span></span>
-<span id="cb514-7"><a href="regression.html#cb514-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>harsher)</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb536-1" title="1"><span class="co"># Reverse the order</span></a>
+<a class="sourceLine" id="cb536-2" title="2"><span class="co">#Rename the levels so that it is clear we now mean &#39;yes&#39; to harsh treatment</span></a>
+<a class="sourceLine" id="cb536-3" title="3">Arrests<span class="op">$</span>harsher &lt;-<span class="st"> </span><span class="kw">relevel</span>(Arrests<span class="op">$</span>released, <span class="st">&quot;Yes&quot;</span>)</a>
+<a class="sourceLine" id="cb536-4" title="4">Arrests<span class="op">$</span>harsher &lt;-<span class="st"> </span><span class="kw">factor</span>(Arrests<span class="op">$</span>harsher, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>), <span class="dt">ordered =</span> <span class="ot">TRUE</span>) </a>
+<a class="sourceLine" id="cb536-5" title="5"></a>
+<a class="sourceLine" id="cb536-6" title="6"><span class="co">#  Check that it matches the original variable ‘released’ but in reverse order</span></a>
+<a class="sourceLine" id="cb536-7" title="7"><span class="kw">table</span>(Arrests<span class="op">$</span>harsher)</a></code></pre></div>
 <pre><code>## 
 ##   No  Yes 
 ## 4334  892</code></pre>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="regression.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb538-1" title="1"><span class="kw">table</span>(Arrests<span class="op">$</span>released)</a></code></pre></div>
 <pre><code>## 
 ##   No  Yes 
 ##  892 4334</code></pre>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="regression.html#cb518-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We will also reverse the levels in our race variable so that ‘white’ is ‘0’</span></span>
-<span id="cb518-2"><a href="regression.html#cb518-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>colour)</span></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb540-1" title="1"><span class="co"># We will also reverse the levels in our race variable so that ‘white’ is ‘0’</span></a>
+<a class="sourceLine" id="cb540-2" title="2"><span class="kw">table</span>(Arrests<span class="op">$</span>colour)</a></code></pre></div>
 <pre><code>## 
 ## Black White 
 ##  1288  3938</code></pre>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="regression.html#cb520-1" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>race <span class="ot">&lt;-</span> Arrests<span class="sc">$</span>colour</span>
-<span id="cb520-2"><a href="regression.html#cb520-2" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>race <span class="ot">&lt;-</span> <span class="fu">relevel</span>(Arrests<span class="sc">$</span>race, <span class="st">&quot;White&quot;</span>)</span>
-<span id="cb520-3"><a href="regression.html#cb520-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb520-4"><a href="regression.html#cb520-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check to see coding has changed</span></span>
-<span id="cb520-5"><a href="regression.html#cb520-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>race)</span></code></pre></div>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb542-1" title="1">Arrests<span class="op">$</span>race &lt;-<span class="st"> </span>Arrests<span class="op">$</span>colour</a>
+<a class="sourceLine" id="cb542-2" title="2">Arrests<span class="op">$</span>race &lt;-<span class="st"> </span><span class="kw">relevel</span>(Arrests<span class="op">$</span>race, <span class="st">&quot;White&quot;</span>)</a>
+<a class="sourceLine" id="cb542-3" title="3"></a>
+<a class="sourceLine" id="cb542-4" title="4"><span class="co"># Check to see coding has changed</span></a>
+<a class="sourceLine" id="cb542-5" title="5"><span class="kw">table</span>(Arrests<span class="op">$</span>race)</a></code></pre></div>
 <pre><code>## 
 ## White Black 
 ##  3938  1288</code></pre>
 <p>Now that we have arranged the codes of our variables of interest, we fit the logistic regression model using the <code>glm ()</code> function and specify a logit model (<code>family=”binomial”</code>). We include three other variables in the model to see to what extent race seems to matter in harsher police treatment even when we adjust or consider sex, employment, and previous police contacts:</p>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="regression.html#cb522-1" aria-hidden="true" tabindex="-1"></a>fit_3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(harsher <span class="sc">~</span> race <span class="sc">+</span> checks <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb522-2"><a href="regression.html#cb522-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_3)</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb544-1" title="1">fit_<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">glm</span>(harsher <span class="op">~</span><span class="st"> </span>race <span class="op">+</span><span class="st"> </span>checks <span class="op">+</span><span class="st"> </span>sex <span class="op">+</span><span class="st"> </span>employed, <span class="dt">data=</span>Arrests, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</a>
+<a class="sourceLine" id="cb544-2" title="2"><span class="kw">summary</span>(fit_<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = harsher ~ race + checks + sex + employed, family = &quot;binomial&quot;, 
@@ -1015,11 +988,11 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <p>All IVs are significantly associated with harsher police treatment except for sex. We see that every one unit increase in the number of previous police contacts, the log odds of receiving harsher treatment (versus being released on summons) increases by 0.36 adjusting for the other variables in the model.</p>
 <p>Observe that variables that are categorical have a label next to them in the output. For example, sex has ‘male’ next to it; race has ‘black’ next to it; employed has ‘yes’ next to it. These are the categories you are comparing to the reference category (whichever category is coded ‘0’). So, being black increases the log odds of receiving harsh treatment by 0.49 compared to being white, while being employed decreases the log odds of harsh treatment by 0.77 compared to being unemployed.</p>
 <p>This is good, but most people find interpreting log odds, well, odd – it is not very intuitive. It is common to use the <strong>odds ratio</strong> (OR) to interpret logistic regression. We convert these values into ORs:</p>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="regression.html#cb524-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(fit_3))</span></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb546-1" title="1"><span class="kw">exp</span>(<span class="kw">coef</span>(fit_<span class="dv">3</span>))</a></code></pre></div>
 <pre><code>## (Intercept)   raceBlack      checks     sexMale employedYes 
 ##   0.1490516   1.6422658   1.4304108   1.0430528   0.4585312</code></pre>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="regression.html#cb526-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can add confidence intervals</span></span>
-<span id="cb526-2"><a href="regression.html#cb526-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">cbind</span>(<span class="at">OR =</span> <span class="fu">coef</span>(fit_3), <span class="fu">confint</span>(fit_3)))</span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb548-1" title="1"><span class="co"># We can add confidence intervals</span></a>
+<a class="sourceLine" id="cb548-2" title="2"><span class="kw">exp</span>(<span class="kw">cbind</span>(<span class="dt">OR =</span> <span class="kw">coef</span>(fit_<span class="dv">3</span>), <span class="kw">confint</span>(fit_<span class="dv">3</span>)))</a></code></pre></div>
 <pre><code>## Waiting for profiling to be done...</code></pre>
 <pre><code>##                    OR     2.5 %    97.5 %
 ## (Intercept) 0.1490516 0.1081600 0.2026495
@@ -1027,9 +1000,9 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 ## checks      1.4304108 1.3601419 1.5049266
 ## sexMale     1.0430528 0.7830594 1.4090622
 ## employedYes 0.4585312 0.3892103 0.5407210</code></pre>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="regression.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Another way of getting the results, which uses less typing, is to use the Logit() function from the lessr package</span></span>
-<span id="cb529-2"><a href="regression.html#cb529-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb529-3"><a href="regression.html#cb529-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Logit</span>(harsher <span class="sc">~</span> checks <span class="sc">+</span> colour <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">brief=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb551-1" title="1"><span class="co"># Another way of getting the results, which uses less typing, is to use the Logit() function from the lessr package</span></a>
+<a class="sourceLine" id="cb551-2" title="2"></a>
+<a class="sourceLine" id="cb551-3" title="3"><span class="kw">Logit</span>(harsher <span class="op">~</span><span class="st"> </span>checks <span class="op">+</span><span class="st"> </span>colour <span class="op">+</span><span class="st"> </span>sex <span class="op">+</span><span class="st"> </span>employed, <span class="dt">data=</span>Arrests, <span class="dt">brief=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## 
 ## Response Variable:   harsher
 ## Predictor Variable 1:  checks
@@ -1092,16 +1065,16 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 ## &gt;&gt;&gt; No collinearity analysis because not all variables are numeric.</code></pre>
 <p>If the odds ratio is greater than 1, it indicates that the odds of receiving harsh treatment increases when the independent variable, too, increases. Previous police contacts increase the odds of harsher treatment by 43% and being black increases the odds of harsher treatment by 64% (all the while adjusting for the other variables in the model). Employment, however, has an odds ratio of 0.45. If the OR is between 0 and 1, it is considered a negative relationship. Referring to the confidence intervals is also helpful: if 0 is within the interval, the result is statistically non-significant. Take the 95% CI of sex, for example.</p>
 <p>For both types of regression, it is inappropriate to make comparisons between IVs. You cannot directly compare the coefficients of one IV to the other, unless they use the same metric. For more ways to interpret ORs in logistic regression, refer to the <a href="https://stats.idre.ucla.edu/other/mult-pkg/faq/general/faq-how-do-i-interpret-odds-ratios-in-logistic-regression/">UCLA Institute for Digital Research and Education</a></p>
-<div id="model-fit" class="section level4" number="9.2.3.1">
+<div id="model-fit" class="section level4">
 <h4><span class="header-section-number">9.2.3.1</span> <strong>Model Fit</strong></h4>
 <p>Now, how well is the fit of our logistic regression model? In order words, how well does our IVs collectively predict the DV? Recall from OLS regression, we assessed how well our overall model predicts the DV by observing the <em>F-statistic</em> and <em><span class="math inline">\(R^2\)</span></em>. This is not the case for logistic regression. The reason is, in our familiar linear regression, we understand residual variation (related to that regression line) through the error sum of squares. In logistic regression, there is not one way to understand residual variation, but several, because of its binary outcome. This results in different ways of understanding model fit: (1) quantitative prediction, focused on how close the prediction is to being correct; (2) qualitative prediction, focused on whether the prediction is correct or incorrect; or (3) both. We go through the first one.</p>
 </div>
-<div id="quantitative-prediction" class="section level4" number="9.2.3.2">
+<div id="quantitative-prediction" class="section level4">
 <h4><span class="header-section-number">9.2.3.2</span> <em>Quantitative Prediction</em></h4>
 <p>A common measure for evaluating model fit is the <strong>deviance</strong>, also known as -2LL. It measures how accurate the prediction is by multiplying the log likelihood statistic by -2. This <em>log-likelihood statistic</em> measures how much unexplained variance remains after the model is fitted, whereby larger values reflect poorer fit. Larger values of -2LL, similarly, indicate worse prediction.</p>
 <p>The logistic regression model can be estimated using an approach of probability called <em>maximum likelihood estimation</em>, which calculates the probability of obtaining a certain result given the IVs in the model. It does so by minimising that -2LL. This is like what OLS regression does with the error sum of squares – tries to minimise it. Thus, -2LL is to logistic regression as the error sum of squares is to OLS regression.</p>
 <p>When we re-run our model, we find that -2LL is in the form of <em>null</em> and <em>residual</em> deviances towards the bottom of the output:</p>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="regression.html#cb531-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Logit</span>(harsher <span class="sc">~</span> checks <span class="sc">+</span> colour <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">brief=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb553-1" title="1"><span class="kw">Logit</span>(harsher <span class="op">~</span><span class="st"> </span>checks <span class="op">+</span><span class="st"> </span>colour <span class="op">+</span><span class="st"> </span>sex <span class="op">+</span><span class="st"> </span>employed, <span class="dt">data=</span>Arrests, <span class="dt">brief=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## 
 ## Response Variable:   harsher
 ## Predictor Variable 1:  checks
@@ -1163,8 +1136,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 ## 
 ## &gt;&gt;&gt; No collinearity analysis because not all variables are numeric.</code></pre>
 <p>The null deviance is the value of -2LL for a model without any IVs, whereas the residual deviance is the value of -2LL for our present model. We test to see if the null hypothesis, that the regression coefficients (IVs) equal zero, is true. We do so by calculating the <em>model chi-squared</em>. This is the difference between both deviances:</p>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="regression.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All the information we need to calculate the model chi-squared is already in our model object</span></span>
-<span id="cb533-2"><a href="regression.html#cb533-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fit_3)</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb555-1" title="1"><span class="co"># All the information we need to calculate the model chi-squared is already in our model object</span></a>
+<a class="sourceLine" id="cb555-2" title="2"><span class="kw">names</span>(fit_<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>##  [1] &quot;coefficients&quot;      &quot;residuals&quot;         &quot;fitted.values&quot;    
 ##  [4] &quot;effects&quot;           &quot;R&quot;                 &quot;rank&quot;             
 ##  [7] &quot;qr&quot;                &quot;family&quot;            &quot;linear.predictors&quot;
@@ -1175,26 +1148,26 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 ## [22] &quot;call&quot;              &quot;formula&quot;           &quot;terms&quot;            
 ## [25] &quot;data&quot;              &quot;offset&quot;            &quot;control&quot;          
 ## [28] &quot;method&quot;            &quot;contrasts&quot;         &quot;xlevels&quot;</code></pre>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="regression.html#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We now calculate said chi-squared by taking the difference of the deviances </span></span>
-<span id="cb535-2"><a href="regression.html#cb535-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, null.deviance <span class="sc">-</span> deviance)</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb557-1" title="1"><span class="co"># We now calculate said chi-squared by taking the difference of the deviances </span></a>
+<a class="sourceLine" id="cb557-2" title="2"><span class="kw">with</span>(fit_<span class="dv">3</span>, null.deviance <span class="op">-</span><span class="st"> </span>deviance)</a></code></pre></div>
 <pre><code>## [1] 445.5594</code></pre>
 <p>Our obtained value is: 445.56. We do not know, though, how big or small this value is to determine how predictive our model is. We will need a test of statistical significance:</p>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="regression.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtaining the p-value</span></span>
-<span id="cb537-2"><a href="regression.html#cb537-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, <span class="fu">pchisq</span>(null.deviance <span class="sc">-</span> deviance, df.null <span class="sc">-</span> df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb559-1" title="1"><span class="co"># Obtaining the p-value</span></a>
+<a class="sourceLine" id="cb559-2" title="2"><span class="kw">with</span>(fit_<span class="dv">3</span>, <span class="kw">pchisq</span>(null.deviance <span class="op">-</span><span class="st"> </span>deviance, df.null <span class="op">-</span><span class="st"> </span>df.residual, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>))</a></code></pre></div>
 <pre><code>## [1] 3.961177e-95</code></pre>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="regression.html#cb539-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Incorporating previous calculation of difference between deviances</span></span>
-<span id="cb539-2"><a href="regression.html#cb539-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df.null - df.residual: calculating the degrees of freedom (should equal the number of IVs in the model)</span></span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb561-1" title="1"><span class="co"># Incorporating previous calculation of difference between deviances</span></a>
+<a class="sourceLine" id="cb561-2" title="2"><span class="co"># df.null - df.residual: calculating the degrees of freedom (should equal the number of IVs in the model)</span></a></code></pre></div>
 <p>The p-value is smaller than α = 0.05, so we conclude that our model is a better fit than a model with no IVs (or predictors).</p>
 <p>In addition, <a href="https://methods.sagepub.com/book/logistic-regression-from-introductory-to-advanced-concepts-and-applications">Professor Scott Menard (2010)</a> suggests calculating the <em>likelihood ratio <span class="math inline">\(R^2\)</span></em>, also known as the Hosmer/Lemeshow <span class="math inline">\(R^2\)</span>, by taking the difference of the previous deviances and dividing it by the null deviance. The likelihood ratio <span class="math inline">\(R^2\)</span> tells you the extent to which including your IVs in your model reduces the variation, or error, as measured by the null deviance. The value can range from 0 to 1, where higher values mean better predictive accuracy:</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="regression.html#cb540-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Likelihood ratio R2</span></span>
-<span id="cb540-2"><a href="regression.html#cb540-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, (null.deviance <span class="sc">-</span> deviance)<span class="sc">/</span>null.deviance)</span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb562-1" title="1"><span class="co">#Likelihood ratio R2</span></a>
+<a class="sourceLine" id="cb562-2" title="2"><span class="kw">with</span>(fit_<span class="dv">3</span>, (null.deviance <span class="op">-</span><span class="st"> </span>deviance)<span class="op">/</span>null.deviance)</a></code></pre></div>
 <pre><code>## [1] 0.09328629</code></pre>
 <p>This particular <span class="math inline">\(R^2\)</span> is considered a ‘pseudo- <span class="math inline">\(R^2\)</span>’ as it is not the same as the one obtained in OLS/ linear regression. There are many kinds of pseudo ones but Menard recommended the likelihood ratio one because (1) of its conceptual similarity to the <span class="math inline">\(R^2\)</span> in OLS regression; (2) it is not easily swayed by the base rate (the number of cases that have the charateristic of interest); (3) it is easy to interpret; and (4) it can also be used in other generalised linear models, such as ones with categorical DVs with more than two levels.</p>
 <hr />
 </div>
 </div>
 </div>
-<div id="summary-8" class="section level2" number="9.3">
+<div id="summary-8" class="section level2">
 <h2><span class="header-section-number">9.3</span> SUMMARY</h2>
 <p>Regression allows us to look at relationships between variables while including other variables, called <strong>covariates</strong>, in the model. For OLS regression, assumptions must be met before embarking on fitting this model, and has to do with building the <strong>regression line</strong> whereby the line starts at the <strong>intercept</strong> and its angle is determined by the <strong>slope</strong>. <strong>Residuals</strong> form the equation to determine the <span class="math inline">\(R^2\)</span> and is the error of the model. When the DV is binary, logistic regression is appropriate. The <strong>odds ratio</strong> is an easier way to interpret logistic regression. We assess model fit through quantitative prediction measures of deviance, and it is recommended to use the likelihood ratio <span class="math inline">\(R^2\)</span> instead of other pseudo <span class="math inline">\(R^2s\)</span></p>
 <p>Homework time!</p>

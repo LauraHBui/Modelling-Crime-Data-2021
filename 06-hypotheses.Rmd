@@ -6,7 +6,7 @@
 #### Learning Outcomes: {-}
 -	Know what hypotheses are and how to use them in inferential statistics
 -	Understand what statistical significance is and how to interpret p-values
--	Know what hypothesis tests are and begin to understand how to conduct them
+-	Know what hypothesis tests are and how to conduct a couple of them
 
 
 
@@ -17,7 +17,7 @@
 
 
 ##### *Data:* {-}
--	Synthetic data
+-	Synthetic data 
 
 
 
@@ -42,7 +42,8 @@
 -	`which()` : Provides the position of the elements such as in a row (`base R`)
 -	`z_test()` : Function created in this chapter for a single-sample z-test
 
-
+<br>
+<br>
 
  
 ---
@@ -55,173 +56,203 @@
 
 
 
-Last week we were introduced to inferential statistics, where we used a sample of observations, taken from the population, to draw conclusions about this population from which they were drawn. We did this to understand how a sample statistic (such as the sample mean) can be used to make inferences about the population parameters (such as the true mean value in the population). 
+Last time, we were introduced to inferential statistics: we used a sample of observations, taken from the population, to draw conclusions about this population. We did this to understand how a sample statistic (such as the sample mean) can be used to make inferences about the parameters (such as the true mean value in the population). 
 
 
-However, we often use samples not only to draw inferences about sample statistics such as the mean, but to answer research questions. For example, you might want to know, do students experience more burglary than non-students? Do men worry about crime more so than women? Do different ethnic groups have different levels of trust in the police? 
+We often, however, use samples not only to make inferences about the population of interest, but to also answer research questions. For example, we might want to know if students experience more burglary than non-students? Do men worry about crime more so than women? Do different ethnic groups have different levels of trust in the police? 
 
 
-In this session, we are going to learn the first step in making predictions about our world: hypothesis testing. In crime and criminal justice research, **hypotheses** (essentially predictions) are made and tested frequently. Hypotheses suppose (predict) what we will observe in our data. For example, we might think that a new intervention programme will reduce reoffending; or we might think that low self-control is predictive of later criminal behaviour; or we might think that adverts on reporting sexual harassment on public transport will increase awareness and reduce sexual victimisation rates. These are all hypotheses about specific population (offenders who may reoffend, potential offenders who have varying levels of self-control, people who take public transport). However, as we learned last week, we cannot test an entire population. Therefore, instead, when hypothesis testing, we take a sample of this population, and use this sample to draw our inferences. 
+In this session, we are going to learn the first step in making predictions about our world: hypothesis testing. In crime and criminal justice research, **hypotheses** (essentially predictions) are made and tested frequently. Hypotheses estimate what we will observe in our data. 
 
 
-
-When we test our hypothesis, we test to see if our prediction is true for the population of interest. For example, let's say we hypothesize that the new intervention programme will reduce reoffending among at-risk young people in Manchester. There are different study designs to answer this question, for example last semester we learned about [randomised control trials](https://www.bi.team/publications/test-learn-adapt-developing-public-policy-with-randomised-controlled-trials/). If we take *a sample* of at-risk young people in Manchester, and randomly assign them to control (no intervention) and treatment (our new intervention programme), we can then compare re-offending (outcome) in these two samples. The way we approach to test this outome is called *hypothesis testing* as we test the hypothesis that our intervention had an effect. Once we carry out our hypothesis testing (which is what we will learn to do today), and our result shows this, we then can generalise our result to the population of all at-risk young people in Manchester. 
-
-
-
-Now science (which is what we're up to at this point!) is funny in that unlike what it sounds like above, we don't actually set out to *prove our intervention works*. Instead, what we try to do is *try to disprove* that our intervention works. It may sound like scientists are a bunch of negative pessimists, but it's the paradigm of scientific research which we follow. While we don't have time to get into philosophy of science in this module (shame, I know!) if you are interested, read up on [Karl Popper and falsification](https://plato.stanford.edu/entries/popper/) if this is something you find interesting!
-
-![https://xkcd.com/2078/](Images/popper.png)
+Having been informed by previous research and evidence, we might predict the following: that a new intervention programme will reduce reoffending; low self-control is predictive of later criminal behaviour; adverts on reporting sexual harassment on public transport will increase awareness and, in turn, reduce sexual victimisation rates. These are all hypotheses about a specific population (offenders who may reoffend; potential offenders who have varying levels of self-control; people who take public transport). As we learned from last time, though, we cannot test an entire population. Therefore, instead, with hypothesis testing, we take a sample from our population of interest, and use this sample to draw our inferences. 
 
 
 
-So this is the approach which we follow with hypothesis testing. Instead of showing that our hypothesis is correct, what we want to show is that *NOT* our hypothesis is *NOT* correct. How do we do this? 
+When we test our hypothesis, we test to see if our prediction is true for the population of interest. For example, we hypothesize that a new intervention programme will reduce reoffending among at-risk young people in Manchester. There are different research designs that can answer this question; for example, last semester, we learned about [randomised control trials](https://www.bi.team/publications/test-learn-adapt-developing-public-policy-with-randomised-controlled-trials/). 
 
 
-We turn to something called a **null hypothesis**. The **null hypothesis** takes our hypothesis and states instead what we expect to see if our hypothesis were *not true* in the population. Then, when we carry out our hypothesis testing, we aim to reject the **null hypothesis**. 
+If we use a randomised control trial, we take a sample of at-risk young people in Manchester and randomly assign them to either a control (no intervention) or treatment (our new intervention programme) group. We can then compare the level of reoffending between these two groups to confirm whether our hypothesis is true. This is known as  **hypothesis testing**, as we test the hypothesis that the new intervention had an effect (i.e., reduced reoffending). After, we can generalise our result to the population of all at-risk young people in Manchester. 
 
 
-For example, thinking about questions of relationship between the treatment (new intervention) and outcome (re-offending), while our brains are thinking the hypothesis *the intervention reduces re-offending*, the **null hypothesis** which we'll be testing actually states that *there is no relationship between our variables*. In this case, our null hypothesis ($H_0$) would be that the new intervention programme will not reduce reoffending – and therefore there will be no difference in re-offending rates between those who participated (control) and those who did not participate (treatment) in the programme. To distringuish our hypothesis from our null hypothesis, our hypothesis ($H_A$) is considered the *alternative* (hence the ‘A’) of the null hypothesis. So we test the null hypothesis (of no effect) and we will either *reject* or *fail to reject* thus null hypothesis. Going back to our negative science, if we fail to reject our null hypothesis, this means we manage to disprove our alternative hypothesis. If this happened in our intervention, we should stop asking for funding for our programme, because we cannot claim that it works in reducing re-offending. 
+Although it seems like the example of the new intervention programme is about demonstrating that the programme works in reducing reoffending, in actuality, we do not set out to *prove* that it works. What we try to do with hypothesis testing is to *try to disprove* that our intervention works. It may sound like scientists are a bunch of negative pessimists, it is about reducing doubt and increasing certainty in our findings. This is the paradigm of scientific research that we will follow. 
 
 
-On the other hand, if we fail to reject our null hypothesis, that is the good news, it seems then that as far as we can tell, there is a relationship between our variables (treatment and outcome), or in other words, a difference between control and treatment groups in re-offending. This means we tried to disprove the relationship, we failed to do so, so we can continue to believe our programme has an effect on re-offending, and we can continue asking for funders to support it in good conscience. Notice that at no point do we say *we proved this works* as we cannot actually do this. All we can do is fail to disprove. Someone else can come along, and try to disprove this again. This is science. If they get the same results as we do, we can say that **our results replicate**. If we do not, then our findings come into question. We talkeda about this a little last semester. If you're interested more, I can recommend the book [Science Fictions by Stuart Ritchie](https://www.penguin.co.uk/books/111/1117290/science-fictions/9781847925657.html).    
+While we do not have time to get into the philosophy of science in this class, if you are interested, read up on [Karl Popper and falsification](https://plato.stanford.edu/entries/popper/).
+
+<br>
+
+![**Figure 1** Karl Popper and falsification](Images/popper.png)
+
+(https://xkcd.com/2078/)
+
+<br>
+
+This is the approach that we follow with hypothesis testing -- instead of showing that our hypothesis is correct, we want to demonstrate that the hypothesis that is *NOT* ours is *NOT* correct. How do we do this? 
+
+<br>
+
+### The null hypothesis
+
+We do this with something called a **null hypothesis**. The null hypothesis can be seen as the opposite of our hypothesis -- what is expected if our hypothesis were *not true* in the population. When we carry out our hypothesis testing, we aim to reject the **null hypothesis**. 
+
+Our hypothesis ($H_A$) is considered the *alternative* (hence the ‘A’) of the null hypothesis ($H_0$). Returning to our intervention programme example, $H_A$ was: the intervention reduces reoffending. The $H_0$, however, will state that *there is no relationship between the intervention and reoffending*. In other words, the new intervention programme will not reduce reoffending and, therefore, there will be no difference in reoffending rates between participants in the control and treatment groups. 
+
+We test the null hypothesis and we will either *reject* or *fail to reject* it. If we reject our null hypothesis, that is good, because it seems that, as far as we can tell, there is a relationship between our variables (intervention and reoffending), or in other words, a difference between control and treatment groups in reoffending. Another way of understanding this is that we had tried to disprove that there was a relationship between the variables and were unable. Thus, we can continue to believe the new intervention has an effect on reoffending, and we can continue asking funders to support it in good conscience.
+
+If, however, we fail to reject $H_0$, this means we managed to disprove $H_A$. Applied to the example of the new intervention for at-risk Manchester youth, we should stop asking for funding to support this intervention because we cannot claim that it works in reducing reoffending. 
+
+Notice that at no point did we say 'we proved this works', as we cannot actually do this. All we can do is disprove or fail to disprove. Someone else can come along and try to disprove. This is science. If this someone obtains the same results as we have, we can say that *our results replicate*. If different results were obtained, then our findings come into question. This may sound familiar from last semester. If you are interested in the sordid misadventures of scientific (primarily psychological) research, [Science Fictions by Stuart Ritchie](https://www.penguin.co.uk/books/111/1117290/science-fictions/9781847925657.html) is a recommended read.    
+
+
+<br>
 
 
 #### Activity 1: Example Hypotheses
 
 
-In this first activity let's look at some hypotheses and then some null hypotheses. We will then construct some of our own. 
+In this activity, let us look at some (alternative) hypotheses and then some null hypotheses. We will then construct some of our own. 
 
 
-First, if we consider above our example of re-offending, let's formalise our hypotheses. 
+First, we consider our previous example of youth reoffending and formalise our hypotheses. 
 
 
 Our alternative hypothesis could be formalised as: 
+<br>
 
-- $H_A$: There is a difference in re-offending rates between those who participated in the new intervention programme and those who did not participate in said programme.  
+- $H_A$: There is a difference in reoffending rates between those who participated in the new intervention programme and those who did not participate in said programme.  
 
-In contrast, our null hypothesis should therefore say: 
+<br>
+In contrast, our null hypothesis should be stated as:
+<br>
 
 - $H_0$: There is no difference in reoffending rates between those who participated and those who did not participate in the new intervention programme
 
+<br>
 
-What about for the question about how low self-control is predictive of later criminal behaviour?
+What about the research question on how low self-control is predictive of later criminal behaviour?
 
 
-I'll help again with the alternative hypothesis: 
-
+Here is the alternative hypothesis: 
+<br>
 
 - $H_A$: There is a relationship between engaging in criminal behaviour and scoring low on assessments of self-control. 
 
-
-Now what do you think the null hypothesis might look like? Think about this in your groups, write your answers in the google docs. 
-
-
-And finally, we considered whether adverts on reporting sexual harassment on public transport will increase awareness. If we wanted to test this, what would our $H_A$ look like? What about our $H_0$?
+<br>
+Now, what do you think the accompanying null hypothesis might be? Think about this and type it out in the google docs. 
 
 
-When we make predictions, we always state both hypotheses: $H_0$  and $H_A$. This is how we dormalise what we are carrying out our analysis to find, and it helps guide us to understand what test to use on our sample, and what sort of conclusions we'll be able to make about our population from them. 
+And, finally, we considered whether adverts on reporting sexual harassment on public transport will increase awareness. If we wanted to test this, what would our $H_A$ look like? What about our $H_0$?
 
+<br>
 
-#### Activity 2: Directional Hypotheses
+When we make predictions, we always state both $H_0$ and $H_A$. Doing so communicates the specific aim of our statistical analyses (e.g., to disprove that there is no difference in levels of reoffending) and helps guide us in selecting appropriate analyses to use on our sample as well as what sort of conclusions can be made from them about our population of interest. 
 
-When we're formulating our hypotheses, we can also choose whether the hypothesis is a **directional hypothesis** or a **non-directional hypothesis**. 
-
-
-A **directional hypothesis** is where you specify the direction of the relationship expected and a **non-directional hypothesis** is where you are only interested in whether there is any difference between groups. 
-
-
-
-Our example above for re-offending the is a non-directional hypothesis because we do not state specifically whether we want reoffending rates to be lower or higher in each group of young people. Look again at our alternative hypothesis: 
-
-- $H_A$: There is a difference in re-offending rates between those who participated in the new intervention programme and those who did not participate in said programme.  
-
-In contrast, our null hypothesis also only refers to a difference between the two groups: 
-
-- $H_0$: There is no difference in reoffending rates between those who participated and those who did not participate in the new intervention programme
-
-
-In this example, if we see *any* difference in the two groups, we reject our null hypothesis. In the results above, we said that this is great, because it means our intervention worked, and we can apply for more funding. But we didn't say anything about the **direction** of the relationship. We accept there is a difference no matter the direction - even if it means there is actually more re-offending in our treatment group...!
-
-
-If we want to focus on difference in only one direction, we must choose a *directional* hypothesis, also known as a one-tailed hypothesis. We will demonstrate how hypothesis testing works below, and it will soon become clear why that is.
-
-
-For now, just try to think what might be a *directional* hypothesis way to formalise our $H_A$ and $H_0$ for our intervention to reduce re-offending study. Discuss and write in your google docs what you think. We will come back to this later!.
-
-
-
-
-
-
+<br>
+<br>
 
 ---
 
 
+### Directional hypotheses
+
+When we are formulating our hypothesis, we can also choose whether it is a **directional hypothesis** or a **non-directional hypothesis**. 
+
+A directional hypothesis is where you specify the direction of the relationship expected, whereas a non-directional hypothesis is where you are only interested in whether there is a relationship between variables (i.e., any difference between groups). 
+
+The new intervention on reoffending example is a non-directional hypothesis because we do not state specifically whether we want reoffending rates to be lower or higher in each group of at-risk young people. Here, again, is the alternative hypothesis: 
+<br>
+
+- $H_A$: There is a difference in reoffending rates between those who participated in the new intervention programme and those who did not participate in said programme.  
+
+<br>
+
+In contrast, our null hypothesis also only refers to a difference between the two groups: 
+<br>
+
+- $H_0$: There is no difference in reoffending rates between those who participated and those who did not participate in the new intervention programme
+<br>
+
+With this, if we observe *any* difference between the two groups, we reject our null hypothesis. Previously, we mentioned that this result was great because it meant our intervention worked, so we can apply for more funding. But we did not say anything about the *direction* of this relationship -- we stated that there was a difference but did not account for the possibility that it could mean there was actually more reoffending among those who participated in the intervention than those who did not!
+
+<br>
+
+#### Activity 2: Applying knowledge on directional hypotheses
+
+Think what might be a *directional* hypothesis for our new-intervention-to-reduce-reoffending example. Discuss this in your chatty group and type in your google docs the directional $H_A$ and $H_0$. We will revisit this later.
+
+
+<br>
+<br>
+
+---
 
 
 ## Today’s 3
 
-
-
-
-To understand hypotheses in action, we learn three substantive concepts today: **statistical significance**, **binominal test**, and **single sample significance tests**.  
-
-
-
----
-
-
-
+To understand hypotheses in action, we learn three substantive concepts today: **statistical significance**, **binominal test**, and **single-sample significance tests**.  
+<br>
 
 ### Statistical Significance
 
+When testing whether there is a relationship between two variables (e.g., intervention and reoffending), you may hear the term **statistical significance**. You may have read this in criminology articles in your other classes. You might read something like:
 
+<br>
 
-When testing whether there is a relationship between two variables (like our intervention and re-offending) you may hear the term **statistical significance**. You may have read this in criminology papers, and other reading for your modules. You might read something like:
+> 'There is a statistically significant relationship between the treatment of a new intervention and reoffending rates among at-risk young people.'
 
-> "There is a statistically significant relationship between the treatment of a new intervention and re-offending rates in young people."
+<br>
 
+What is meant by statistical significance? It is a misleading term because it seems to mean that the result is *significant* or *important* in some way, but that is incorrect. When we test for statistical significance, we are simply testing to see whether we can confidently generalise from our sample to our population. 
 
-What is meant by **statistical significance**? It is a misleading term because it seems to mean that the result is *significant* or *important* in some way, but that is not correct. When we test for statistical significance, we are simply testing to see whether we can confidently generalise from our sample to our population. Statistical significance does not tell us about how big any difference in reoffending is between our two groups for example, all it tells us is whether or we are confident that the difference found in our *samples* can be generalised to the *population*. 
+Statistical significance also does not tell us about how big any difference in reoffending is between our two groups, for example. All it tells us is whether *we are confident* that the difference observed in our sample can be generalised to the population. What is meant by 'we are confident'? Confidence is key in hypothesis testing. If we reject the null hypothesis, we want to be confident that it is actually false. 
 
+In criminology, and across the social sciences, it is common to want to be at least 95% confident in our result. (Recall our 95% confidence intervals recently learned.) While 95% sounds steep, keep in mind that this implies that we are willing to be wrong 5% of the time. If our study of reoffending, for example, is repeatedly replicated, we expect about 1 in 20 of the results to reach incorrect conclusions. 
 
-What do I mean by "we are *confident*"? Confidence is key in hypothesis testing. If we reject the null hypothesis, we want to be confident that it is actually false. In criminology, and across the social sciences, it is common to want to be at least 95% confident in our result (you might recall our 95% confidence intervals from last week...!). While 95% sounds high, keep in mind that this implies that we are willing to be wrong 5% of the time. If our study of re-offending is replicated over and over and over again, we expect about 1 in 20 of the results to reach incorrect conclusions, to be wrong. 
+Why are we willing to accept error? The reason is we cannot be 100% confident; we usually do not have information from the entire population, so find ourselves trying to decide whether our null hypothesis is false without being so sure of the true result in the population.
 
+<br>
 
-So why 95%, why are we willing to accept this error? We cannot be 100% confident because we usually do not have information from the entire population, so find ourselves trying to decide whether our null hypothesis is false without being so sure of the true result in the population. Because of this uncertainty, we need to be wary of **Type 1 error**.  This error, known also as a *false positive*, is when we reject the null hypothesis when it is actually true. In addition, there is also **Type 2 error**, *a false negative*, which is when we fail to reject the null hypothesis even though it is actually false. The image below might help understand these errors:
+#### Type 1 error
 
+Because of this uncertainty, we need to be wary of **type 1 error**.  This error, known also as a *false positive*, occurs when we reject the null hypothesis when it is actually true. In addition, there is also **type 2 error**, *a false negative*, which occurs when we fail to reject the null hypothesis even though it is actually false. The image below might help understand these errors:
 
+<br>
 
 
 ![**Figure 6.1** Type 1 and Type 2 errors](Images/errors.jpg)
 
-
+<br>
 
 
 <!-- We mentioned earlier that you start your study with clarifying and formalising your hypotheses. Hypotheses are created before the researcher collects outcome data for the study and conducts any analysis. This is good practice and ethical as well, because if the hypotheses are stated after data has been collected and analysed, then the researcher may be tempted to change the hypotheses, so will dishonestly influence the tests of statistical significance. Also, this affects Type 1 error because we are increasing its likelihood through bad practice – we want to leave that 5% of getting it wrong to chance only. -->
 
-So, in testing for statistical significance, we are concerned with rejecting the null hypothesis with high confidence that it is actually false. For this, we will need to identify the risk of making a type 1 error and hope that the risk is as small as possible in a test of **statistical significance**. How to calculate this risk? We do this by testing to see if the probability of the null hypothesis being true is less than the level of type 1 error specified. 
+In testing for statistical significance, we are concerned with rejecting the null hypothesis with high confidence that it is actually false. For this, we will need to identify the risk of making a type 1 error and hope that the risk is as small as possible in a **test of statistical significance**. 
 
+How to calculate this risk of type 1 error? We do this by testing to see if the probability of the null hypothesis being true is less than the level of type 1 error specified. 
+
+<br>
+
+#### Significance level
 
 The level specified is called the **significance level** and is denoted by alpha (α). In the social sciences, it is usually set at α = 0.05 to indicate that we want to be 95% confident in our rejection of the null hypothesis. We then use this value as a cut-off value. If the probability of the null hypothesis is less than α = 0.05, for example, then we can reject it. If, however, the probability is greater than α = 0.05, then we have failed to reject the null hypothesis. 
 
-
-The probability obtained is the **p-value**, short for probability value, and it tells us how likely we are to observe that certain result or effect which we found in our sample, if the null hypothesis were to be true. 
+The probability obtained is the **p-value**, short for probability value, and it tells us how likely we are to observe that certain result or effect which we found in our sample if the null hypothesis were true. 
 <!-- That is why if the probability is less then 5%, then it is unlikely to happen.  -->
 
-The terminology is important here: we can only say we ‘reject’ or ‘fail to reject’ the null hypothesis; we cannot say we ‘accept’ the null hypothesis because testing for statistical significance is not about finding out if the null hypothesis is correct. 
+Again, (like the 'disprove or fail to disprove' the null hypothesis), the terminology is important here: we can only say we ‘reject’ or ‘fail to reject’ the null hypothesis; we cannot say we ‘accept’ the null hypothesis because testing for statistical significance is not about finding out if the null hypothesis is correct. 
+
+Let us return to the intervention for reoffending example: we find that one year after allocating the young people into treatment and control groups, 10 out of the 50 young people in the treatment group went on to reoffend whereas, in the control group, 28 out of the 50 went on to reoffend. 
+
+When we hypothesis test, we will look for whether this difference in reoffending numbers is *statistically significant* -- that is, the probability of this between-group difference  occurring when our null hypothesis -- that the new intervention has no effect -- is true. If we find this probability to be small (less than our cut-off value of $\alpha = 0.05$), we *reject the null hypothesis*. If, however, we find the probability to be larger than our cut-off value of $\alpha = 0.05$, then we *fail to reject* our null hypothesis. 
 
 
-So let's say for our study of the two groups of at-risk young people we find that in our 1-year follow-up, we find that in the treatment group, 10 out of the 50 young people went on to reoffend whereas, in the control group, 28 out of the 50 went on to reoffend. Remember - this is what we see in our sample. When we carry out our hypothesis testing, we will look for whether this difference is **statistically significant**, that is, the probability to observe this difference between two samples in the event that our null hypothesis (that our intervention has no effect) is true. If we find this probability to be small (less than our cut-off value of $\alpha = 0.05$), we *reject the null hypothesis*. If we find the probability to be larger than our cut-off value of $\alpha = 0.05$, then we *fail to reject* our null hypothesis. 
-
-
-So how can we calculate this value? We do this in the next section. 
+Now, how can we calculate this probability value? We learn this in the next section. 
 
 
 <!-- Another important point: lately, there has been substantial [calls to get rid of p-values and statistical significance](https://www.vox.com/latest-news/2019/3/22/18275913/statistical-significance-p-values-explained). The problem is that the p-value is often misunderstood and even misused. It has come to be misinterpreted as either the study worked (a good study) or did not work (a bad study). **That is why including confidence intervals is good practice**. Even though the practice of relying on p-values is controversial, we learn about statistical significance in this course unit because many studies still use it. Understanding what it actually is will prevent misinterpretation.  -->
 
-
+<br>
 
 
 

@@ -286,7 +286,7 @@ Following the grammar of graphics layered approach, let us first specify the dat
 ggplot(data = burglary_df)
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 <br>
 
@@ -303,7 +303,7 @@ Recall that aesthetics are about mapping the visual properties. As our research 
 ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count))
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 <br>
 
@@ -322,7 +322,7 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count)) +
   geom_point()
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 ```r
 # We are saying, ‘Hey R, may you please make me a graphic using the data "burglary_df” and map the variables “incscore” to the x-axis and “burglary_count” to the y-axis, then pass this information through (using “ + ” ) to make a scatterplot?’
@@ -352,7 +352,7 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, colou
   geom_point()
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 <br>
 
@@ -388,7 +388,7 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
   scale_colour_brewer(palette = "Spectral")
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 <br>
 
@@ -406,7 +406,7 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
   scale_color_viridis_d() # or scale_color_viridis_c() for a continuous variable 
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 <br>
 
@@ -434,7 +434,7 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
   scale_color_brewer(palette = "Spectral")
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 <br>
 <br>
@@ -456,7 +456,7 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
   labs(x = "Income score", y = "Burglary count", title = "Income and burglary and victimization", color = "Local Authority")
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 <br>
 <br>
@@ -478,7 +478,7 @@ ggplot(data = burglary_df, mapping = aes(x = incscore, y = burglary_count, color
   theme_minimal()
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
 <br>
 <br>
@@ -511,7 +511,7 @@ ggplot(data = burglary_df) +
   labs(x = "Deprivation Score", y = "Number of Lower Super Output Areas")
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 <br>
 
@@ -536,7 +536,7 @@ ggplot(data = burglary_df) +
   labs(x = "Deprivation Score", y = "Number of Lower Super Output Areas", fill = "Local Authority")
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 
 <br>
 
@@ -553,7 +553,7 @@ ggplot(data = burglary_df) +
   labs(x = "Local Authority", y = "Number of Lower Super Output Areas", fill = "Deprivation Score")
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-15-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 
 <br>
 
@@ -584,7 +584,7 @@ ggplot(data = burglary_df) +
   labs(x = "Local Authority", y = "Number of Lower Super Output Areas", fill = "Deprivation Score")
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-16-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 <br>
 
@@ -615,7 +615,7 @@ ggplot(data = burglary_df) +
   facet_wrap(~LAname)
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 
 ```r
 # By default, facet_wrap fixes the y-axis of each graph to make comparisons easier
@@ -657,7 +657,7 @@ ggplot(data = burglary_df, mapping = aes(x = IMDscore)) +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 <br>
 
@@ -672,7 +672,7 @@ ggplot(data = burglary_df, mapping = aes(x = IMDscore)) +
   geom_histogram(binwidth = 1)
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
 <br>
 
@@ -703,7 +703,7 @@ ggplot(data = monthly_df, aes(x = as.factor(Month), y = n, group = crime_type, l
   geom_point()
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-20-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 ```r
 # We are saying, ‘Hey R, may you please make a graphic using the data frame “monthly_df”, and map the variable “month” (turning it into a factor) to the x-axis and “n” to the y-axis, and group this information by “crime_type”, showing different patterns for each crime type, then pass this information through (“ +”) to make a line graph, and pass this information through (“ +”) to make a scatterplot of the time points too?’
@@ -742,7 +742,7 @@ my_whisker_plot +
   labs(x = "Deprivation Scale", y = "Number of Burglaries")
 ```
 
-![](03-data-visualisation_files/figure-epub3/unnamed-chunk-21-1.png)<!-- -->
+<img src="03-data-visualisation_files/figure-html/unnamed-chunk-21-1.png" width="672" />
 
 <br>
 

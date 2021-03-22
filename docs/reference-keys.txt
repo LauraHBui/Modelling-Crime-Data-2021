@@ -108,10 +108,14 @@ activity-8-visualising-confidence-intervals
 summary-4
 hypotheses
 hypothesis-testing
+the-null-hypothesis
 activity-1-example-hypotheses
-activity-2-directional-hypotheses
+directional-hypotheses
+activity-2-applying-knowledge-on-directional-hypotheses
 todays-3-3
 statistical-significance
+type-1-error
+significance-level
 a-binomial-test
 activity-3-distributions
 activity-4-making-assumptions
