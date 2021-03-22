@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-03-16" />
+<meta name="date" content="2021-03-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="a-first-lesson-about-r.html"/>
 <link rel="next" href="data-visualization.html"/>
+<script src="libs/header-attrs-2.7.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,25 +54,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -132,107 +134,135 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a><ul>
-<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a><ul>
+<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-1-identifying-your-operating-system"><i class="fa fa-check"></i><b>1.1.1</b> Activity 1: Identifying your operating system</a></li>
 <li class="chapter" data-level="1.1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-2-install-r-r-studio"><i class="fa fa-check"></i><b>1.1.2</b> Activity 2: Install R &amp; R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-rstudio"><i class="fa fa-check"></i><b>1.2</b> Getting to know <code>RStudio</code></a><ul>
+<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-rstudio"><i class="fa fa-check"></i><b>1.2</b> Getting to know <code>RStudio</code></a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#the-four-panes-of-r-studio"><i class="fa fa-check"></i><b>1.2.1</b> The four panes of R Studio</a></li>
 <li class="chapter" data-level="1.2.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#customising-r-studio"><i class="fa fa-check"></i><b>1.2.2</b> Customising R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a><ul>
+<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a>
+<ul>
 <li class="chapter" data-level="1.3.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#operators-and-functions"><i class="fa fa-check"></i><b>1.3.1</b> Operators and Functions</a></li>
 <li class="chapter" data-level="1.3.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.3.2</b> Objects</a></li>
 <li class="chapter" data-level="1.3.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.4</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a><ul>
+<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#the-tidyverse"><i class="fa fa-check"></i><b>2.1</b> The Tidyverse</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a><ul>
+<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-1-making-yourself-a-project"><i class="fa fa-check"></i><b>2.2.1</b> Activity 1: Making yourself a project</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a><ul>
+<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-2-importing-and-viewing-data"><i class="fa fa-check"></i><b>2.3.1</b> Activity 2: Importing and Viewing Data</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a><ul>
+<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#variables"><i class="fa fa-check"></i><b>2.4.1</b> Variables</a></li>
 <li class="chapter" data-level="2.4.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.4.2</b> Labels</a></li>
 <li class="chapter" data-level="2.4.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#subsetting"><i class="fa fa-check"></i><b>2.4.3</b> Subsetting</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a><ul>
+<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#answers-to-activities-if-applicable"><i class="fa fa-check"></i><b>2.5.1</b> Answers to activities (if applicable)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a><ul>
-<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a><ul>
+<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="data-visualization.html"><a href="data-visualization.html#activity-1-getting-ready"><i class="fa fa-check"></i><b>3.1.1</b> Activity 1: Getting Ready</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>3.2</b> ggplot2</a></li>
-<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a><ul>
+<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="data-visualization.html"><a href="data-visualization.html#layers"><i class="fa fa-check"></i><b>3.3.1</b> Layers</a></li>
 <li class="chapter" data-level="3.3.2" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-categorical-data"><i class="fa fa-check"></i><b>3.3.2</b> Graphs for Categorical Data</a></li>
 <li class="chapter" data-level="3.3.3" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-numeric-data"><i class="fa fa-check"></i><b>3.3.3</b> Graphs for Numeric Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a><ul>
+<li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="data-visualization.html"><a href="data-visualization.html#answers-to-activities"><i class="fa fa-check"></i><b>3.4.1</b> ANSWERS TO ACTIVITIES:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
-<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#activity-1-our-preparation-routine"><i class="fa fa-check"></i><b>4.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#central-tendency"><i class="fa fa-check"></i><b>4.2.1</b> Central Tendency</a></li>
 <li class="chapter" data-level="4.2.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#outliers"><i class="fa fa-check"></i><b>4.2.2</b> Outliers</a></li>
 <li class="chapter" data-level="4.2.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#measures-of-dispersion"><i class="fa fa-check"></i><b>4.2.3</b> Measures of Dispersion</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a><ul>
+<li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#answers-to-activities-where-applicable"><i class="fa fa-check"></i><b>4.3.1</b> Answers to Activities (where applicable)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a><ul>
-<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a><ul>
+<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#activity-1-our-preparation-routine-1"><i class="fa fa-check"></i><b>5.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#samples"><i class="fa fa-check"></i><b>5.2.1</b> Samples</a></li>
 <li class="chapter" data-level="5.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#the-standard-error"><i class="fa fa-check"></i><b>5.2.2</b> The Standard Error</a></li>
 <li class="chapter" data-level="5.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#confidence-intervals"><i class="fa fa-check"></i><b>5.2.3</b> Confidence Intervals</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#summary-4"><i class="fa fa-check"></i><b>5.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a><ul>
+<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-testing"><i class="fa fa-check"></i><b>6.1</b> Hypothesis Testing</a></li>
-<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="hypotheses.html"><a href="hypotheses.html#statistical-significance"><i class="fa fa-check"></i><b>6.2.1</b> Statistical Significance</a></li>
 <li class="chapter" data-level="6.2.2" data-path="hypotheses.html"><a href="hypotheses.html#a-binomial-test"><i class="fa fa-check"></i><b>6.2.2</b> A Binomial Test</a></li>
 <li class="chapter" data-level="6.2.3" data-path="hypotheses.html"><a href="hypotheses.html#single-sample-significance-tests"><i class="fa fa-check"></i><b>6.2.3</b> Single-sample significance tests</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="hypotheses.html"><a href="hypotheses.html#summary-5"><i class="fa fa-check"></i><b>6.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a><ul>
+<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#associating-with-categorical-variables"><i class="fa fa-check"></i><b>7.1</b> Associating with Categorical Variables</a></li>
-<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#independent-and-dependent-variables"><i class="fa fa-check"></i><b>7.2.1</b> Independent and Dependent Variables</a></li>
 <li class="chapter" data-level="7.2.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#the-t-test"><i class="fa fa-check"></i><b>7.2.2</b> The T-Test</a></li>
 <li class="chapter" data-level="7.2.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#chi-square"><i class="fa fa-check"></i><b>7.2.3</b> Chi-square</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#summary-6"><i class="fa fa-check"></i><b>7.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a><ul>
+<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#measures-of-association"><i class="fa fa-check"></i><b>8.1</b> Measures of Association</a></li>
-<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-nominal-variables"><i class="fa fa-check"></i><b>8.2.1</b> Between Categorical, Nominal Variables</a></li>
 <li class="chapter" data-level="8.2.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-ordinal-variables"><i class="fa fa-check"></i><b>8.2.2</b> Between Categorical, Ordinal Variables</a></li>
 <li class="chapter" data-level="8.2.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-numeric-variables"><i class="fa fa-check"></i><b>8.2.3</b> Between Numeric Variables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#summary-7"><i class="fa fa-check"></i><b>8.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a><ul>
+<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#multiple-and-simultaneous-relationships"><i class="fa fa-check"></i><b>9.1</b> Multiple and Simultaneous Relationships</a></li>
-<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="regression.html"><a href="regression.html#assumptions-of-ols-regression"><i class="fa fa-check"></i><b>9.2.1</b> Assumptions of OLS Regression</a></li>
 <li class="chapter" data-level="9.2.2" data-path="regression.html"><a href="regression.html#interpreting-ols-regression"><i class="fa fa-check"></i><b>9.2.2</b> Interpreting OLS Regression</a></li>
 <li class="chapter" data-level="9.2.3" data-path="regression.html"><a href="regression.html#logistic-regression"><i class="fa fa-check"></i><b>9.2.3</b> Logistic Regression</a></li>
@@ -259,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-to-know-your-data" class="section level1">
+<div id="getting-to-know-your-data" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Getting to know your data</h1>
 <div id="variables-labels-and-subsetting" class="section level4 unnumbered">
 <h4><em>Variables, Labels, and Subsetting</em></h4>
@@ -324,25 +354,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 </div>
 </div>
-<div id="the-tidyverse" class="section level2">
+<div id="the-tidyverse" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> The Tidyverse</h2>
 <p>Last time, we installed our first package, <code>dplyr</code>. This is one of a number of packages from what is known as <strong>tidyverse</strong>.</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/tidyverse-logo.png" alt="Figure 2.1 Tidyverse logo" style="width:30.0%" />
+<img src="Images/tidyverse-logo.png" style="width:30.0%" alt="" />
 <p class="caption"><strong>Figure 2.1</strong> Tidyverse logo</p>
 </div>
 <p><br></p>
 <p>The tidyverse contains packages that help us carry out <strong>wrangling</strong> (i.e., cleaning variables), analysis, plotting, and modelling of our data. The ethos of tidyverse is that working and using tidy data makes our lives easier in the long run, allows us to stick to specific conventions, and enables us to share with others who follow this approach. Essentially, tidy data makes data analysis easy to carry out and to communicate to others.</p>
 <p>So what is tidy data?</p>
 <p><br>
-<img src="Images/tidydata_1.jpg" alt="Figure 3.2 Tidy data by Alison Horst" style="width:80.0%" /></p>
+<img src="Images/tidydata_1.jpg" style="width:80.0%" alt="Figure 3.2 Tidy data by Alison Horst" /></p>
 <p><br></p>
 <p>Like what was mentioned in last week’s lesson, our columns represent our variables, but, also, our cases (or better known in the tidyverse as <strong>observations</strong>) are our rows, whereby each cell is a value of that column’s given variable for the observation in that row.</p>
 <p>In this class, we will be working with tidy data. Generally, if you have messy data, which is common in the real world of data analysis, your first task is to wrangle it until it is in a tidy shape similar to the ones described in Figures 2.2 and 2.3.</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/tidydata_2.jpg" alt="Figure 2.3 Tidy data versus messy data by Alison Horst" style="width:80.0%" />
+<img src="Images/tidydata_2.jpg" style="width:80.0%" alt="" />
 <p class="caption"><strong>Figure 2.3</strong> Tidy data versus messy data by Alison Horst</p>
 </div>
 <p><br></p>
@@ -351,8 +381,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- We will be using the following packages this week: `dplyr`, `here`, `haven`, `tibble`, `labelled`, and `sjlabelled`. You can see this above in the packages tab. Make sure you have each one installed. Remember to install a package you must run `install_packages("packagename")`! -->
 <p>Let us get started and load <code>dplyr</code>:
 <br></p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="kw">library</span>(dplyr)</a></code></pre></div>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.6.3</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="getting-to-know-your-data.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
@@ -361,33 +390,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1"><span class="co"># Like last week, you can also check the &#39;Packages&#39; tab in the &#39;Files, Plots...&#39; pane to see if the box next to &#39;dplyr&#39; has been ticked</span></a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="getting-to-know-your-data.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Like last week, you can also check the &#39;Packages&#39; tab in the &#39;Files, Plots...&#39; pane to see if the box next to &#39;dplyr&#39; has been ticked</span></span></code></pre></div>
 <p><br>
 <br></p>
 <hr />
 </div>
-<div id="r-projects-getting-your-work-files-organised" class="section level2">
+<div id="r-projects-getting-your-work-files-organised" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> R Projects – Getting Your Work Files Organised</h2>
 <p>Although today is focused on tidy data, it is also helpful if whatever you are working on is also tidy and found in one easily accessible folder. By saving work inside a <strong>project</strong>, you can find files such as data and scripts related to specific work in a single working directory. Let us get into the habit of doing this:
 <br>
 <br></p>
-<div id="activity-1-making-yourself-a-project" class="section level3">
+<div id="activity-1-making-yourself-a-project" class="section level3" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> Activity 1: Making yourself a project</h3>
 <p>• Click on the top right tab called <em>Project: (None)</em> - Figure 2.4</p>
 <div class="figure">
-<img src="Images/project.png" alt="Figure 2.4 Click on Project: (None)" style="width:50.0%" />
+<img src="Images/project.png" style="width:50.0%" alt="" />
 <p class="caption"><strong>Figure 2.4</strong> Click on Project: (None)</p>
 </div>
 <p><br></p>
 <p>In the options that appear, choose <em>Existing Directory</em>. The reason is you may have already created a folder for this work if you had saved your script from last week and from what you have done so far today. For example, Reka had saved a folder called ‘modelling2021’ with her scripts in it and will have her project in that same place too (see Figures 2.5 and 2.6).</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/existing_dir.png" alt="Figure 2.5 Existing directory" style="width:50.0%" />
+<img src="Images/existing_dir.png" style="width:50.0%" alt="" />
 <p class="caption"><strong>Figure 2.5</strong> Existing directory</p>
 </div>
 <p><br></p>
 <div class="figure">
-<img src="Images/browse_proj_dir.png" alt="Figure 2.6 Create project from existing directory" style="width:50.0%" />
+<img src="Images/browse_proj_dir.png" style="width:50.0%" alt="" />
 <p class="caption"><strong>Figure 2.6</strong> Create project from existing directory</p>
 </div>
 <p><br></p>
@@ -402,13 +431,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <br></p>
 <p>Inside your project, you can organise it by having separate files: one for scripts, one for data, one for outputs, and another for visuals. You can make these with the function <code>dir.create()</code>:
 <br></p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1"><span class="co"># For example, to make a sub-folder called &#39;Datasets&#39; in your project folder, type this into your console pane:</span></a>
-<a class="sourceLine" id="cb53-2" title="2"><span class="kw">dir.create</span>(<span class="st">&quot;Datasets&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="getting-to-know-your-data.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, to make a sub-folder called &#39;Datasets&#39; in your project folder, type this into your console pane:</span></span>
+<span id="cb51-2"><a href="getting-to-know-your-data.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;Datasets&quot;</span>)</span></code></pre></div>
 <p><br></p>
 <p>Another example: to create the online tutorial for this class, we have a project called <code>Modelling-Crime-Data-2021</code>. Figure 2.7 shows that this title appears in the top right hand corner and its contents, including sub-folders, appear in under the <em>Files</em> tab in the <em>Files, Plots…</em> pane.</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/project2.png" alt="Figure 2.7 How a project appears" style="width:40.0%" />
+<img src="Images/project2.png" style="width:40.0%" alt="" />
 <p class="caption"><strong>Figure 2.7</strong> How a project appears</p>
 </div>
 <p><br></p>
@@ -418,16 +447,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br>
 <br></p>
 <hr />
-<div id="the-here-package" class="section level4">
+<div id="the-here-package" class="section level4" number="2.2.1.1">
 <h4><span class="header-section-number">2.2.1.1</span> The <code>here</code> package</h4>
 <p>Whenever you want to locate certain files within your Project, use the <code>here</code> package:
 <br></p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1"><span class="co"># First, you must install it if you have not done so:</span></a>
-<a class="sourceLine" id="cb54-2" title="2"><span class="kw">install.packages</span>(<span class="st">&quot;here&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1"><span class="co"># Then bring it up with &#39;library()&#39; because it may not come up automatically after installing it</span></a>
-<a class="sourceLine" id="cb55-2" title="2"><span class="kw">library</span>(here)</a></code></pre></div>
-<pre><code>## Warning: package &#39;here&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## here() starts at C:/Users/buihl/Desktop/Modelling-Crime-Data-2021</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="getting-to-know-your-data.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, you must install it if you have not done so:</span></span>
+<span id="cb52-2"><a href="getting-to-know-your-data.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;here&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="getting-to-know-your-data.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Then bring it up with &#39;library()&#39; because it may not come up automatically after installing it</span></span>
+<span id="cb53-2"><a href="getting-to-know-your-data.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
+<pre><code>## here() starts at /Users/reka/Dropbox (The University of Manchester)/modelling2021/Modelling-Crime-Data-2021</code></pre>
 <p><br></p>
 <p>Using the <code>here</code> package is better than typing out the exact location of your file, which can be tedious. The next section shows how to use the <code>here()</code> function from said package to import data from the National Crime Victimization Survey (NCVS).</p>
 <p><br>
@@ -436,18 +464,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="importing-data" class="section level2">
+<div id="importing-data" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Importing Data</h2>
 <p>Here is another <code>tidyverse</code> package to install:
 <br></p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;haven&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1"><span class="kw">library</span>(haven)</a></code></pre></div>
-<pre><code>## Warning: package &#39;haven&#39; was built under R version 3.6.3</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="getting-to-know-your-data.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;haven&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="getting-to-know-your-data.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span></code></pre></div>
 <p><br></p>
 <p><code>haven</code> enables <code>R</code> to understand various data formats used by other statistical packages such as SPSS and STATA. We will need this package to open data in its diverse forms. When we worked with Excel last semester in <em>Making Sense of Criminological Data</em>, we could only open certain type of files. With <code>R</code>, we can open a wide range of data files, which opens up many possibilities of analysis for us. Let us give this a try now.</p>
 <p><br>
 <br></p>
-<div id="activity-2-importing-and-viewing-data" class="section level3">
+<div id="activity-2-importing-and-viewing-data" class="section level3" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Activity 2: Importing and Viewing Data</h3>
 <p>Go to the class Blackboard. Then click on <em>Learning materials</em> and then on <em>Week 2</em> where you will find the dataset ‘NCVS lone offender assaults 1992 to 2013’.</p>
 <p>Download the data into the <em>Datasets</em> sub-folder in your working directory you had created using the function <code>dir.create()</code>.</p>
@@ -467,8 +494,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 <p>Completing these steps, we now can load our dataset and place it inside a data frame called <code>ncvs</code>:
 <br></p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1"><span class="co"># Importing our SPSS dataset and naming it ‘ncvs’ </span></a>
-<a class="sourceLine" id="cb61-2" title="2">ncvs &lt;-<span class="st"> </span><span class="kw">read_spss</span>(<span class="kw">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;NCVS lone offender assaults 1992 to 2013.sav&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="getting-to-know-your-data.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing our SPSS dataset and naming it ‘ncvs’ </span></span>
+<span id="cb57-2"><a href="getting-to-know-your-data.html#cb57-2" aria-hidden="true" tabindex="-1"></a>ncvs <span class="ot">&lt;-</span> <span class="fu">read_spss</span>(<span class="fu">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;NCVS lone offender assaults 1992 to 2013.sav&quot;</span>))</span></code></pre></div>
 <p><br></p>
 <p>What you are saying to <code>R</code> is the following:</p>
 <blockquote>
@@ -478,7 +505,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <br>
 To view the new data frame, <code>ncvs</code>, type:
 <br></p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1"><span class="kw">View</span>(ncvs)</a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="getting-to-know-your-data.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(ncvs)</span></code></pre></div>
 <p><br></p>
 <p>A tab appears labelled ‘ncvs’. In it, you can view all its contents. In your group google sheets, type how many ‘entries’ and ‘columns’ there are in our data frame, <code>ncvs</code>.</p>
 <!-- # 23,969 entries and 47 columns -->
@@ -488,21 +515,21 @@ To view the new data frame, <code>ncvs</code>, type:
 <hr />
 </div>
 </div>
-<div id="todays-3-topics-1" class="section level2">
+<div id="todays-3-topics-1" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Today’s 3 (TOPICS)</h2>
 <p>We now have data to tidy in <code>R</code>, so onto our three main topics for this week: <strong>variables</strong>, <strong>labels</strong>, and <strong>subsetting</strong>.
 <br></p>
-<div id="variables" class="section level3">
+<div id="variables" class="section level3" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> Variables</h3>
 <p>Variables can be persons, places, things, or ideas that we are interested in studying. For example, height and favourite football team.</p>
 <p>Last week, we learned a little on how to examine what our variables are. Let us revisit this. One of the first things we do to get to know our <code>ncvs</code> data frame is to identify the number of rows and columns by using the function <code>View()</code> as we did above, or, a more direct way, the function <code>dim()</code>:
 <br></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1"><span class="kw">dim</span>(ncvs)</a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="getting-to-know-your-data.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(ncvs)</span></code></pre></div>
 <pre><code>## [1] 23969    47</code></pre>
 <p><br></p>
 <p>Like your answer from Activity 2, the data frame<code>ncvs</code> has 47 columns, meaning that it has 47 variables. What are these variables all called? We can get their names using the <code>names</code> function:
 <br></p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1"><span class="kw">names</span>(ncvs)</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="getting-to-know-your-data.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(ncvs)</span></code></pre></div>
 <pre><code>##  [1] &quot;YEAR&quot;                &quot;V2119&quot;               &quot;V2129&quot;              
 ##  [4] &quot;V3014&quot;               &quot;V3016&quot;               &quot;V3018&quot;              
 ##  [7] &quot;V3021&quot;               &quot;V3023&quot;               &quot;V3023A&quot;             
@@ -530,7 +557,7 @@ To view the new data frame, <code>ncvs</code>, type:
 <p>For <strong>categorical variables</strong>, we can have variables that are nominal (no order), ordinal (have an order), or binary (only two possible options, like ‘yes’ and ‘no’).</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/nominal_ordinal_binary.png" alt="Figure 2.8 Categorial variables by Allison Horst" style="width:70.0%" />
+<img src="Images/nominal_ordinal_binary.png" style="width:70.0%" alt="" />
 <p class="caption"><strong>Figure 2.8</strong> Categorial variables by Allison Horst</p>
 </div>
 <p><br></p>
@@ -538,17 +565,17 @@ To view the new data frame, <code>ncvs</code>, type:
 <p>Another way to classify numeric variables is to distinguish between discrete and continuous variables. <em>Discrete</em> numeric variables have set values that make sense. For example, crime is one such variable. It is understandable to have 30 burglaries in May and 50 burglaries in December, but it is not understandable to have 45.2482 burglaries. <em>Continuous</em> numeric variables, however, can take on any value between a lower and upper bound and be meaningful. For example, weight and height. Here is an apt illustration:</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/continuous_discrete.png" alt="Figure 2.9 Discrete versus continuous numeric variables by Allison Horst" style="width:70.0%" />
+<img src="Images/continuous_discrete.png" style="width:70.0%" alt="" />
 <p class="caption"><strong>Figure 2.9</strong> Discrete versus continuous numeric variables by Allison Horst</p>
 </div>
 <p><br>
 <br></p>
 </div>
-<div id="variables-in-r" class="section level4">
+<div id="variables-in-r" class="section level4" number="2.4.1.1">
 <h4><span class="header-section-number">2.4.1.1</span> Variables in <code>R</code></h4>
 <p>So, how are these levels of measurement among variables relevant in <code>R</code>? Nominal and ordinal variables are encoded as a <strong>factor</strong> class because they are categorical characteristics, so take on a limited number of values; factors are like the integer vector introduced last week but each integer is a label. Numeric variables, on the other hand, are encoded as a <strong>numeric</strong> class.</p>
 <p><br></p>
-<div id="activity-3-identifying-a-variables-level-of-measurement" class="section level5">
+<div id="activity-3-identifying-a-variables-level-of-measurement" class="section level5" number="2.4.1.1.1">
 <h5><span class="header-section-number">2.4.1.1.1</span> Activity 3: Identifying a variable’s level of measurement</h5>
 <p>Identifying the level of measurement should be straightforward when examining each variable. In some cases, however, <code>R</code> may not quite grasp what kind of variable you are working with. Thus, you will need to find out what <code>R</code> thinks your variable is classed as.</p>
 <p>How do you ask <code>R</code> what your variable is? Let us find out by using our <code>ncvs</code> data frame.</p>
@@ -556,8 +583,8 @@ To view the new data frame, <code>ncvs</code>, type:
 <p>It is: <code>dataframe$variablename</code></p>
 <p>If we want to find out about the variable <code>injured</code> (whether the person was injured or not) from our data frame <code>ncvs</code>, for example, we can refer to the variable specifically. Let us use the <code>attributes()</code> function to examine this variable.
 <br></p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1"><span class="co"># To see the class of a specific variable, such as the variable ‘injured’, we use:</span></a>
-<a class="sourceLine" id="cb67-2" title="2"><span class="kw">attributes</span>(ncvs<span class="op">$</span>injured)</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="getting-to-know-your-data.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To see the class of a specific variable, such as the variable ‘injured’, we use:</span></span>
+<span id="cb63-2"><a href="getting-to-know-your-data.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(ncvs<span class="sc">$</span>injured)</span></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;Victim Sustained Injuries During Vicitmization&quot;
 ## 
@@ -573,9 +600,9 @@ To view the new data frame, <code>ncvs</code>, type:
 ## $labels
 ## uninjured   injured 
 ##         0         1</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1"><span class="co"># The $ symbol allows us to access specific variables in a data frame object</span></a>
-<a class="sourceLine" id="cb69-2" title="2"></a>
-<a class="sourceLine" id="cb69-3" title="3"><span class="co"># The $ symbol must be accompanied by the name of the data frame!</span></a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="getting-to-know-your-data.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The $ symbol allows us to access specific variables in a data frame object</span></span>
+<span id="cb65-2"><a href="getting-to-know-your-data.html#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="getting-to-know-your-data.html#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The $ symbol must be accompanied by the name of the data frame!</span></span></code></pre></div>
 <p><br></p>
 <p>We can see the label (‘Victim Sustained Injuries During Vicitmization’), and the values (at the bottom) indicating ‘0’ for ‘uninjured’ and ‘1’ for ‘injured’. This appears to be a categorical variable with 2 possible values; therefore, a <em>binary</em> variable.</p>
 <p>Now your turn: find out what is the class of the variable <code>weaponpresent</code>. In your googledoc, type out the answer and the code you used to get that answer.</p>
@@ -590,14 +617,14 @@ To view the new data frame, <code>ncvs</code>, type:
 <!-- This tells you about every single column (all 47 variables) in the dataframe!  -->
 </div>
 </div>
-<div id="formatting-classes-and-value-labels" class="section level4">
+<div id="formatting-classes-and-value-labels" class="section level4" number="2.4.1.2">
 <h4><span class="header-section-number">2.4.1.2</span> Formatting Classes and Value Labels</h4>
 <p>In some cases, you may want to make changes to how variables are classed. For example, in our data frame <code>nvcs</code>, some of the variables are classed as <code>haven_labelled</code>.</p>
 <p>What is this, you ask? When we use the <code>haven()</code> function to import data, <code>R</code> keeps the information associated with that file – specifically the value labels that were in the dataset. In practice, therefore, you can find categorical data in <code>R</code> embedded in very different types of vectors (e.g., character, factor, or haven labelled) depending on decisions taken by whomever created the data frame.</p>
 <p>Although we understand why these variables are labelled as <code>haven_labelled</code>, they do not help us understand what class these variables actually are. If we know a variable is classed as factor, We can change it to be so. For example, we want to change the class of variable <code>V3018</code> to be accurately classed as factor:
 <br></p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="co"># V3018 is a binary variable indicating sex</span></a>
-<a class="sourceLine" id="cb70-2" title="2"><span class="kw">attributes</span>(ncvs<span class="op">$</span>V3018)</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="getting-to-know-your-data.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># V3018 is a binary variable indicating sex</span></span>
+<span id="cb66-2"><a href="getting-to-know-your-data.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(ncvs<span class="sc">$</span>V3018)</span></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;SEX (ALLOCATED)&quot;
 ## 
@@ -613,17 +640,17 @@ To view the new data frame, <code>ncvs</code>, type:
 ## $labels
 ##            Male          Female         Residue Out of universe 
 ##               1               2               8               9</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="co"># It is indeed classed as &#39;haven-labelled&#39;</span></a>
-<a class="sourceLine" id="cb72-2" title="2"></a>
-<a class="sourceLine" id="cb72-3" title="3"><span class="co"># Naming the newly created factor &#39;sex&#39; so we do not erase the original variable</span></a>
-<a class="sourceLine" id="cb72-4" title="4"><span class="co"># Specify the order we want our variable labels using &#39;labels= c()&#39;</span></a>
-<a class="sourceLine" id="cb72-5" title="5">ncvs<span class="op">$</span>sex &lt;-<span class="st"> </span><span class="kw">factor</span>(ncvs<span class="op">$</span>V3018, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>))</a>
-<a class="sourceLine" id="cb72-6" title="6"></a>
-<a class="sourceLine" id="cb72-7" title="7"><span class="kw">table</span>(ncvs<span class="op">$</span>sex)</a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="getting-to-know-your-data.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It is indeed classed as &#39;haven-labelled&#39;</span></span>
+<span id="cb68-2"><a href="getting-to-know-your-data.html#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="getting-to-know-your-data.html#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Naming the newly created factor &#39;sex&#39; so we do not erase the original variable</span></span>
+<span id="cb68-4"><a href="getting-to-know-your-data.html#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the order we want our variable labels using &#39;labels= c()&#39;</span></span>
+<span id="cb68-5"><a href="getting-to-know-your-data.html#cb68-5" aria-hidden="true" tabindex="-1"></a>ncvs<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(ncvs<span class="sc">$</span>V3018, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>))</span>
+<span id="cb68-6"><a href="getting-to-know-your-data.html#cb68-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-7"><a href="getting-to-know-your-data.html#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(ncvs<span class="sc">$</span>sex)</span></code></pre></div>
 <pre><code>## 
 ##   male female 
 ##  12533  11436</code></pre>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="kw">attributes</span>(ncvs<span class="op">$</span>sex)</a></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="getting-to-know-your-data.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(ncvs<span class="sc">$</span>sex)</span></code></pre></div>
 <pre><code>## $levels
 ## [1] &quot;male&quot;   &quot;female&quot;
 ## 
@@ -634,7 +661,7 @@ To view the new data frame, <code>ncvs</code>, type:
 <p><br>
 <br></p>
 </div>
-<div id="recoding-and-creating-new-variables" class="section level4">
+<div id="recoding-and-creating-new-variables" class="section level4" number="2.4.1.3">
 <h4><span class="header-section-number">2.4.1.3</span> Recoding and Creating New Variables</h4>
 <p>What if we want to create a new variable? Here are three scenarios where we would want to do so:</p>
 <p><br></p>
@@ -645,7 +672,7 @@ To view the new data frame, <code>ncvs</code>, type:
 <p>We address all three scenarios in turn. Recoding and creating new variables is called <strong>data wrangling</strong> and the package <code>dplyr</code> is most appropriate for doing so.</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/dplyr_wrangling.png" alt="Figure 2.9 Data wrangling by Allison Horst" style="width:70.0%" />
+<img src="Images/dplyr_wrangling.png" style="width:70.0%" alt="" />
 <p class="caption"><strong>Figure 2.9</strong> Data wrangling by Allison Horst</p>
 </div>
 <p><br></p>
@@ -654,12 +681,12 @@ To view the new data frame, <code>ncvs</code>, type:
 <br></p>
 <hr />
 </div>
-<div id="activity-4-creating-a-new-variable-by-recoding-an-existing-one" class="section level4">
+<div id="activity-4-creating-a-new-variable-by-recoding-an-existing-one" class="section level4" number="2.4.1.4">
 <h4><span class="header-section-number">2.4.1.4</span> Activity 4: Creating a new variable by recoding an existing one</h4>
 <p>For scenario 1, we want to recode our existing <code>injured</code> variable. We view a frequency table of this variable to understand why. The frequency table tells us the number of times each value for the variable occurs. This is similar to the Pivot Table function in Excel from last semester.</p>
 <p>In <code>R</code>, the way to create a frequency table for one variable is to use the function <code>table()</code>. Inside the brackets, you would type the data frame and the variable you want to create the frequency table for. We want a frequency table for the <code>injured</code> variable:
 <br></p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">table</span>(ncvs<span class="op">$</span>injured)</a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="getting-to-know-your-data.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(ncvs<span class="sc">$</span>injured)</span></code></pre></div>
 <pre><code>## 
 ##     0     1 
 ## 16160  7809</code></pre>
@@ -668,24 +695,24 @@ To view the new data frame, <code>ncvs</code>, type:
 <p>Although we know what the numbers represent, we might forget or someone else unfamiliar with the data views the variable and may not know what the values mean. In this case, it would be helpful to change the numbers ‘0’ and ‘1’ to what they represent.</p>
 <p>To do so, we create a new variable whereby a new column appears in the data frame. It is similar to when you create an object. Remember:
 <br></p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1">name &lt;-<span class="st"> &quot;Reka&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="getting-to-know-your-data.html#cb74-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">&quot;Reka&quot;</span></span></code></pre></div>
 <p><br></p>
 <p>The only difference is that we must attach this new object (which appears as a column) to the dataframe, and that the number of things we put in this object needs to match the number of rows in that data frame. As we are creating a new variable from one that already has the same number of rows, this is not an issue.</p>
 <p>Let us again create a duplicate variable of the <code>injured</code> variable:
 <br></p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="co"># Create the new variable ‘injured_new’ from ‘injured’ </span></a>
-<a class="sourceLine" id="cb79-2" title="2">ncvs<span class="op">$</span>injured_new &lt;-ncvs<span class="op">$</span>injured </a></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="getting-to-know-your-data.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the new variable ‘injured_new’ from ‘injured’ </span></span>
+<span id="cb75-2"><a href="getting-to-know-your-data.html#cb75-2" aria-hidden="true" tabindex="-1"></a>ncvs<span class="sc">$</span>injured_new <span class="ot">&lt;-</span>ncvs<span class="sc">$</span>injured </span></code></pre></div>
 <p><br></p>
 <p>View the <code>ncvs</code> data frame. Notice that a new column, <code>injured_new</code>, appeared at the end with the exact same contents as the variable <code>injured</code>. We will now change those ‘0’ and ‘1’ values.</p>
 <p>A function to change values is <code>as_factor()</code> from the <code>haven</code> package. This function takes the labels assigned to the values of the variable, and changes those original values into these very labels.
 <br></p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1"><span class="co"># Remember: You can check what package each function we learn today belongs to by referring to the top of each online lesson, under &#39;Functions Introduced&#39;</span></a>
-<a class="sourceLine" id="cb80-2" title="2"></a>
-<a class="sourceLine" id="cb80-3" title="3">ncvs<span class="op">$</span>injury_r &lt;-<span class="st"> </span><span class="kw">as_factor</span>(ncvs<span class="op">$</span>injured)</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="getting-to-know-your-data.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remember: You can check what package each function we learn today belongs to by referring to the top of each online lesson, under &#39;Functions Introduced&#39;</span></span>
+<span id="cb76-2"><a href="getting-to-know-your-data.html#cb76-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-3"><a href="getting-to-know-your-data.html#cb76-3" aria-hidden="true" tabindex="-1"></a>ncvs<span class="sc">$</span>injury_r <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(ncvs<span class="sc">$</span>injured)</span></code></pre></div>
 <p><br></p>
 <p>In the data frame <code>ncvs</code>, you will see this new column <code>injured_r</code>. If we make the frequency table with this new variable, we see that the values are readily understandable as ‘uninjured’ and ‘injured’:
 <br></p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="kw">table</span>(ncvs<span class="op">$</span>injury_r)</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="getting-to-know-your-data.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(ncvs<span class="sc">$</span>injury_r)</span></code></pre></div>
 <pre><code>## 
 ## uninjured   injured 
 ##     16160      7809</code></pre>
@@ -707,25 +734,25 @@ To view the new data frame, <code>ncvs</code>, type:
 <!--  -->
 <hr />
 </div>
-<div id="activity-5-creating-a-composite-variable-from-more-than-1-existing-variable" class="section level4">
+<div id="activity-5-creating-a-composite-variable-from-more-than-1-existing-variable" class="section level4" number="2.4.1.5">
 <h4><span class="header-section-number">2.4.1.5</span> Activity 5: Creating a composite variable from more than 1 existing variable</h4>
 <p>We turn to Scenario 2: we want to create a new variable in our <code>ncvs</code> data frame that indicates the severity of the victimization experienced by the respondent.</p>
 <p>That severity will be measured by two variables: (1) whether the offender had a weapon and (2) whether the victim sustained an injury during their victimization. These are not necessarily the best variables to use in measuring victimization severity; this example, however, should illustrate how you might combine variables to create a new one.</p>
 <p>Before we do this, we need to know if we can actually do so by getting to know those variables of interest. By using the function <code>count()</code>, we get a good sense of what the values represent and the number of respondents in each of those values for both variables.
 <br></p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1"><span class="co"># Is the appropriate package, &#39;dplyr&#39;, loaded?</span></a>
-<a class="sourceLine" id="cb83-2" title="2"></a>
-<a class="sourceLine" id="cb83-3" title="3"><span class="co"># Using count ( ) for ‘injured’ and ‘weaponpresent’</span></a>
-<a class="sourceLine" id="cb83-4" title="4"><span class="kw">count</span>(ncvs, injured)</a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="getting-to-know-your-data.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Is the appropriate package, &#39;dplyr&#39;, loaded?</span></span>
+<span id="cb79-2"><a href="getting-to-know-your-data.html#cb79-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-3"><a href="getting-to-know-your-data.html#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Using count ( ) for ‘injured’ and ‘weaponpresent’</span></span>
+<span id="cb79-4"><a href="getting-to-know-your-data.html#cb79-4" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(ncvs, injured)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##         injured     n
-##       &lt;dbl+lbl&gt; &lt;int&gt;
+## *     &lt;dbl+lbl&gt; &lt;int&gt;
 ## 1 0 [uninjured] 16160
 ## 2 1 [injured]    7809</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="kw">count</span>(ncvs, weaponpresent)</a></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="getting-to-know-your-data.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(ncvs, weaponpresent)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   weaponpresent     n
-##           &lt;dbl&gt; &lt;int&gt;
+## *         &lt;dbl&gt; &lt;int&gt;
 ## 1             0 15814
 ## 2             1  6652
 ## 3            NA  1503</code></pre>
@@ -734,18 +761,18 @@ To view the new data frame, <code>ncvs</code>, type:
 <p>Now what if we wanted to combine these, so we can have a score of severity, which takes into consideration presence of weapon and injury?</p>
 <p>There is a particular function from the <code>dplyr</code> package that is very handy for creating a new variable from more than 1 variable. It is called <code>mutate</code>. The <code>mutate()</code> function will create a new column in our data frame that comprises the sum of both of these variables, keeping the old variables too:
 <br></p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1"><span class="co"># Create the new variable with mutate: </span></a>
-<a class="sourceLine" id="cb87-2" title="2"></a>
-<a class="sourceLine" id="cb87-3" title="3"><span class="co"># 1. The first argument inside the `mutate` function is the data frame into which we want to create the new variable</span></a>
-<a class="sourceLine" id="cb87-4" title="4"><span class="co"># 2. After the comma, we insert the equation that adds together the variables &#39;injured&#39; and &#39;weaponpresent&#39; to create the new variable called &#39;severity&#39;</span></a>
-<a class="sourceLine" id="cb87-5" title="5"><span class="co"># 3. This new variable is saved in the data frame `ncvs` (to do so, it overwrites the old version of &#39;ncvs&#39;)</span></a>
-<a class="sourceLine" id="cb87-6" title="6"></a>
-<a class="sourceLine" id="cb87-7" title="7">ncvs &lt;-<span class="st"> </span><span class="kw">mutate</span>(ncvs, <span class="dt">severity =</span> injured <span class="op">+</span><span class="st"> </span>weaponpresent)</a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="getting-to-know-your-data.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the new variable with mutate: </span></span>
+<span id="cb83-2"><a href="getting-to-know-your-data.html#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-3"><a href="getting-to-know-your-data.html#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. The first argument inside the `mutate` function is the data frame into which we want to create the new variable</span></span>
+<span id="cb83-4"><a href="getting-to-know-your-data.html#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. After the comma, we insert the equation that adds together the variables &#39;injured&#39; and &#39;weaponpresent&#39; to create the new variable called &#39;severity&#39;</span></span>
+<span id="cb83-5"><a href="getting-to-know-your-data.html#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. This new variable is saved in the data frame `ncvs` (to do so, it overwrites the old version of &#39;ncvs&#39;)</span></span>
+<span id="cb83-6"><a href="getting-to-know-your-data.html#cb83-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-7"><a href="getting-to-know-your-data.html#cb83-7" aria-hidden="true" tabindex="-1"></a>ncvs <span class="ot">&lt;-</span> <span class="fu">mutate</span>(ncvs, <span class="at">severity =</span> injured <span class="sc">+</span> weaponpresent)</span></code></pre></div>
 <p><br></p>
 <p>Now view the data frame to see the new variable <code>severity</code>. The <code>severity</code> variable is ordinal, where ‘0’ is the least severe (neither a weapon was used nor the victim injured), ‘1’ is more severe (either the offender wielded a weapon or the victim reported being injured), and ‘2’ is the most severe (the respondent reported being injured and the offender had a weapon).</p>
 <p>Let us see the new variable in the frequency table:
 <br></p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="kw">table</span>(ncvs<span class="op">$</span>severity)</a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="getting-to-know-your-data.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(ncvs<span class="sc">$</span>severity)</span></code></pre></div>
 <pre><code>## 
 ##     0     1     2 
 ##  9945 10862  1659</code></pre>
@@ -753,11 +780,11 @@ To view the new data frame, <code>ncvs</code>, type:
 <p>You can then add value labels to reflect your understanding of the summed scores. To do so, you can over-write the existing <code>severity</code> variable (instead of making an additional duplicate variable).</p>
 <p>You do so by specifying it on the left side of the <code>&lt;-</code> (assignment operator). Then, on the right side, you use the <code>recode()</code> function. Inside the brackets of the <code>recode()</code> function, we specify the variable we want to change, and then we follow with a list of values. Notice that the numbers must be between the crooked quote marks ````:
 <br></p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1">ncvs<span class="op">$</span>severity &lt;-<span class="st"> </span><span class="kw">recode</span>(ncvs<span class="op">$</span>severity, <span class="st">`</span><span class="dt">0</span><span class="st">`</span> =<span class="st"> &quot;not at all severe&quot;</span>, <span class="st">`</span><span class="dt">1</span><span class="st">`</span> =<span class="st"> &quot;somewhat severe&quot;</span>, <span class="st">`</span><span class="dt">2</span><span class="st">`</span> =<span class="st"> &quot;very severe&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="getting-to-know-your-data.html#cb86-1" aria-hidden="true" tabindex="-1"></a>ncvs<span class="sc">$</span>severity <span class="ot">&lt;-</span> <span class="fu">recode</span>(ncvs<span class="sc">$</span>severity, <span class="st">`</span><span class="at">0</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;not at all severe&quot;</span>, <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;somewhat severe&quot;</span>, <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;very severe&quot;</span>)</span></code></pre></div>
 <p><br></p>
 <p>View this new version of the <code>severity</code> variable in a frequency table:
 <br></p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">table</span>(ncvs<span class="op">$</span>severity)</a></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="getting-to-know-your-data.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(ncvs<span class="sc">$</span>severity)</span></code></pre></div>
 <pre><code>## 
 ## not at all severe   somewhat severe       very severe 
 ##              9945             10862              1659</code></pre>
@@ -776,19 +803,19 @@ To view the new data frame, <code>ncvs</code>, type:
 <br></p>
 <hr />
 </div>
-<div id="activity-6-recoding" class="section level4">
+<div id="activity-6-recoding" class="section level4" number="2.4.1.6">
 <h4><span class="header-section-number">2.4.1.6</span> Activity 6: Recoding</h4>
 <p>Now to Scenario 3: we want to turn the variable <code>relationship</code> into a binary variable called <code>notstranger</code> whereby the offender was either a stranger (0) or was known to the victim (1).</p>
 <p>First, we use the <code>table()</code> function to create a frequency table for <code>relationship</code>, and it has four categories:
 <br></p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1"><span class="kw">table</span>(ncvs<span class="op">$</span>relationship)</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="getting-to-know-your-data.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(ncvs<span class="sc">$</span>relationship)</span></code></pre></div>
 <pre><code>## 
 ##    0    1    2    3 
 ## 6547 2950 4576 9227</code></pre>
 <p><br></p>
 <p>What do these categories mean? We can use the <code>as_factor()</code> function from the <code>haven</code> package to find out:
 <br></p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="kw">table</span>(<span class="kw">as_factor</span>(ncvs<span class="op">$</span>relationship))</a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="getting-to-know-your-data.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">as_factor</span>(ncvs<span class="sc">$</span>relationship))</span></code></pre></div>
 <pre><code>## 
 ##        stranger  slightly known casual acquiant      well known      Don&#39;t know 
 ##            6547            2950            4576            9227               0</code></pre>
@@ -797,10 +824,10 @@ To view the new data frame, <code>ncvs</code>, type:
 <p>We want to turn this into a binary variable. So let us use <code>mutate()</code> and a new function called <code>case_when()</code>.</p>
 <p>Think of <code>case_when()</code> as an ‘if’ logical statement. It allows us to make changes to a variable that are conditional on some requirement. For example, we specify that values greater than ‘0’ (values 1 to 3) mean ‘not a stranger’ and values equal to ‘0’ mean ‘stranger’:
 <br></p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1">ncvs &lt;-<span class="st"> </span><span class="kw">mutate</span>(ncvs, </a>
-<a class="sourceLine" id="cb97-2" title="2">               <span class="dt">notstranger =</span> <span class="kw">case_when</span>(</a>
-<a class="sourceLine" id="cb97-3" title="3">                 relationship <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Stranger&quot;</span>,</a>
-<a class="sourceLine" id="cb97-4" title="4">                 relationship <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Not a stranger&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="getting-to-know-your-data.html#cb93-1" aria-hidden="true" tabindex="-1"></a>ncvs <span class="ot">&lt;-</span> <span class="fu">mutate</span>(ncvs, </span>
+<span id="cb93-2"><a href="getting-to-know-your-data.html#cb93-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">notstranger =</span> <span class="fu">case_when</span>(</span>
+<span id="cb93-3"><a href="getting-to-know-your-data.html#cb93-3" aria-hidden="true" tabindex="-1"></a>                 relationship <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Stranger&quot;</span>,</span>
+<span id="cb93-4"><a href="getting-to-know-your-data.html#cb93-4" aria-hidden="true" tabindex="-1"></a>                 relationship <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Not a stranger&quot;</span>))</span></code></pre></div>
 <p><br></p>
 <!--```{r}
 
@@ -823,7 +850,7 @@ You could also say, if it is 0 then stranger, and if it is greater than 0 then i
 Same results. -->
 <p>To verify that we have recoded a new binary variable:
 <br></p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1"><span class="kw">table</span>(ncvs<span class="op">$</span>notstranger)</a></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="getting-to-know-your-data.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(ncvs<span class="sc">$</span>notstranger)</span></code></pre></div>
 <pre><code>## 
 ## Not a stranger       Stranger 
 ##          16753           6547</code></pre>
@@ -834,11 +861,11 @@ Same results. -->
 <hr />
 </div>
 </div>
-<div id="labels" class="section level3">
+<div id="labels" class="section level3" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> Labels</h3>
 <p>Variables sometimes come with labels – these are very brief descriptions of the variable itself and what its values are. We are familiar with <em>variable</em> labels because of our previous activities. Now, <em>value</em> labels are very useful when we have a nominal or ordinal level variable in our dataset that has been assigned numeric values. To have a look at what are your variable and value labels, use the function <code>attributes()</code>:
 <br></p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" title="1"><span class="kw">attributes</span>(ncvs<span class="op">$</span>injured)</a></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="getting-to-know-your-data.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(ncvs<span class="sc">$</span>injured)</span></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;Victim Sustained Injuries During Vicitmization&quot;
 ## 
@@ -854,19 +881,19 @@ Same results. -->
 ## $labels
 ## uninjured   injured 
 ##         0         1</code></pre>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" title="1"><span class="co"># You can also use var_label() and get_labels() too, but attributes() shows both types of labels</span></a></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="getting-to-know-your-data.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can also use var_label() and get_labels() too, but attributes() shows both types of labels</span></span></code></pre></div>
 <p><br></p>
 <p>Returning to a familiar variable, <code>injured</code>, the output in the console shows that ‘uninjured’ is labelled ‘0’ and ‘injured’ is labelled ‘1’. Maybe, though, you do not like the labels that are attached to the variable values. Perhaps they do not make sense or they do not help you to understand better what this variable measures. If so, we can remove and change the labels.</p>
 <p><br>
 <br></p>
-<div id="activity-7-removing-labels" class="section level4">
+<div id="activity-7-removing-labels" class="section level4" number="2.4.2.1">
 <h4><span class="header-section-number">2.4.2.1</span> Activity 7: Removing labels</h4>
 <p>We return to the <code>injured</code> variable from the <code>ncvs</code> dataframe. We, again, are going to make a duplicate variable of <code>injured</code> to learn how to remove and add labels. We do this because it is good practice to leave your original variables alone in case you need to go back to them.
 <br></p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1"><span class="co"># Make a new variable that is a duplicate of the original one, but naming it ‘injured_no_labels’</span></a>
-<a class="sourceLine" id="cb103-2" title="2">ncvs<span class="op">$</span>injured_no_labels &lt;-<span class="st"> </span>ncvs<span class="op">$</span>injured</a>
-<a class="sourceLine" id="cb103-3" title="3"></a>
-<a class="sourceLine" id="cb103-4" title="4"><span class="kw">attributes</span>(ncvs<span class="op">$</span>injured_no_labels)</a></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="getting-to-know-your-data.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a new variable that is a duplicate of the original one, but naming it ‘injured_no_labels’</span></span>
+<span id="cb99-2"><a href="getting-to-know-your-data.html#cb99-2" aria-hidden="true" tabindex="-1"></a>ncvs<span class="sc">$</span>injured_no_labels <span class="ot">&lt;-</span> ncvs<span class="sc">$</span>injured</span>
+<span id="cb99-3"><a href="getting-to-know-your-data.html#cb99-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-4"><a href="getting-to-know-your-data.html#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(ncvs<span class="sc">$</span>injured_no_labels)</span></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;Victim Sustained Injuries During Vicitmization&quot;
 ## 
@@ -888,39 +915,39 @@ Same results. -->
 <p><br></p>
 <p>After loading the two new packages, we remove variable and value labels:
 <br></p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1"><span class="co"># Remove variable labels </span></a>
-<a class="sourceLine" id="cb105-2" title="2">ncvs<span class="op">$</span>injured_no_labels &lt;-<span class="st"> </span><span class="kw">remove_var_label</span>(ncvs<span class="op">$</span>injured_no_labels) </a>
-<a class="sourceLine" id="cb105-3" title="3"></a>
-<a class="sourceLine" id="cb105-4" title="4"><span class="co"># Check that they were removed </span></a>
-<a class="sourceLine" id="cb105-5" title="5"><span class="kw">var_label</span>(ncvs<span class="op">$</span>injured_no_labels)</a></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="getting-to-know-your-data.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove variable labels </span></span>
+<span id="cb101-2"><a href="getting-to-know-your-data.html#cb101-2" aria-hidden="true" tabindex="-1"></a>ncvs<span class="sc">$</span>injured_no_labels <span class="ot">&lt;-</span> <span class="fu">remove_var_label</span>(ncvs<span class="sc">$</span>injured_no_labels) </span>
+<span id="cb101-3"><a href="getting-to-know-your-data.html#cb101-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-4"><a href="getting-to-know-your-data.html#cb101-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check that they were removed </span></span>
+<span id="cb101-5"><a href="getting-to-know-your-data.html#cb101-5" aria-hidden="true" tabindex="-1"></a><span class="fu">var_label</span>(ncvs<span class="sc">$</span>injured_no_labels)</span></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="co"># Remove value labels </span></a>
-<a class="sourceLine" id="cb107-2" title="2">ncvs<span class="op">$</span>injured_no_labels &lt;-<span class="st"> </span><span class="kw">remove_labels</span>(ncvs<span class="op">$</span>injured_no_labels, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))  </a>
-<a class="sourceLine" id="cb107-3" title="3"></a>
-<a class="sourceLine" id="cb107-4" title="4"><span class="co"># Check that they were removed </span></a>
-<a class="sourceLine" id="cb107-5" title="5"><span class="kw">get_labels</span>(ncvs<span class="op">$</span>injured_no_labels)</a></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="getting-to-know-your-data.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove value labels </span></span>
+<span id="cb103-2"><a href="getting-to-know-your-data.html#cb103-2" aria-hidden="true" tabindex="-1"></a>ncvs<span class="sc">$</span>injured_no_labels <span class="ot">&lt;-</span> <span class="fu">remove_labels</span>(ncvs<span class="sc">$</span>injured_no_labels, <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>))  </span>
+<span id="cb103-3"><a href="getting-to-know-your-data.html#cb103-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-4"><a href="getting-to-know-your-data.html#cb103-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check that they were removed </span></span>
+<span id="cb103-5"><a href="getting-to-know-your-data.html#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="fu">get_labels</span>(ncvs<span class="sc">$</span>injured_no_labels)</span></code></pre></div>
 <pre><code>## NULL</code></pre>
 <p><br></p>
 <p>Now to add a label:
 <br></p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="co"># Add variable label </span></a>
-<a class="sourceLine" id="cb109-2" title="2"><span class="kw">var_label</span>(ncvs<span class="op">$</span>injured_no_labels) &lt;-<span class="st"> &quot;Whether Victim Sustained Injuries&quot;</span> </a>
-<a class="sourceLine" id="cb109-3" title="3"></a>
-<a class="sourceLine" id="cb109-4" title="4"><span class="co"># Check that they were added </span></a>
-<a class="sourceLine" id="cb109-5" title="5"><span class="kw">var_label</span>(ncvs<span class="op">$</span>injured_no_labels)</a></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="getting-to-know-your-data.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add variable label </span></span>
+<span id="cb105-2"><a href="getting-to-know-your-data.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var_label</span>(ncvs<span class="sc">$</span>injured_no_labels) <span class="ot">&lt;-</span> <span class="st">&quot;Whether Victim Sustained Injuries&quot;</span> </span>
+<span id="cb105-3"><a href="getting-to-know-your-data.html#cb105-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-4"><a href="getting-to-know-your-data.html#cb105-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check that they were added </span></span>
+<span id="cb105-5"><a href="getting-to-know-your-data.html#cb105-5" aria-hidden="true" tabindex="-1"></a><span class="fu">var_label</span>(ncvs<span class="sc">$</span>injured_no_labels)</span></code></pre></div>
 <pre><code>## [1] &quot;Whether Victim Sustained Injuries&quot;</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="co"># Add value labels </span></a>
-<a class="sourceLine" id="cb111-2" title="2">ncvs<span class="op">$</span>injured_no_labels &lt;-<span class="kw">add_labels</span>(ncvs<span class="op">$</span>injured_no_labels, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">`</span><span class="dt">uninjured</span><span class="st">`</span> =<span class="st"> </span><span class="dv">0</span>, <span class="st">`</span><span class="dt">injured</span><span class="st">`</span> =<span class="st"> </span><span class="dv">1</span>)) </a>
-<a class="sourceLine" id="cb111-3" title="3"></a>
-<a class="sourceLine" id="cb111-4" title="4"><span class="co"># Check that they were added </span></a>
-<a class="sourceLine" id="cb111-5" title="5"><span class="kw">get_labels</span>(ncvs<span class="op">$</span>injured_no_labels)</a></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="getting-to-know-your-data.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add value labels </span></span>
+<span id="cb107-2"><a href="getting-to-know-your-data.html#cb107-2" aria-hidden="true" tabindex="-1"></a>ncvs<span class="sc">$</span>injured_no_labels <span class="ot">&lt;-</span><span class="fu">add_labels</span>(ncvs<span class="sc">$</span>injured_no_labels, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">uninjured</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">0</span>, <span class="st">`</span><span class="at">injured</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">1</span>)) </span>
+<span id="cb107-3"><a href="getting-to-know-your-data.html#cb107-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-4"><a href="getting-to-know-your-data.html#cb107-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check that they were added </span></span>
+<span id="cb107-5"><a href="getting-to-know-your-data.html#cb107-5" aria-hidden="true" tabindex="-1"></a><span class="fu">get_labels</span>(ncvs<span class="sc">$</span>injured_no_labels)</span></code></pre></div>
 <pre><code>## [1] &quot;uninjured&quot; &quot;injured&quot;</code></pre>
 <p><br></p>
 <p>Nothing to add in the googledoc so far, since Activity 4, so onto the next activity.</p>
 <p><br>
 <br></p>
 </div>
-<div id="note-pipes" class="section level4">
+<div id="note-pipes" class="section level4" number="2.4.2.2">
 <h4><span class="header-section-number">2.4.2.2</span> Note: pipes</h4>
 <p><br>
 <img src="Images/logo_pipe.png" alt="Figure 2.10 The pipe operator" /></p>
@@ -931,50 +958,50 @@ Same results. -->
 <hr />
 </div>
 </div>
-<div id="subsetting" class="section level3">
+<div id="subsetting" class="section level3" number="2.4.3">
 <h3><span class="header-section-number">2.4.3</span> Subsetting</h3>
 <p><br></p>
-<div id="activity-8-ways-to-subset-data" class="section level4">
+<div id="activity-8-ways-to-subset-data" class="section level4" number="2.4.3.1">
 <h4><span class="header-section-number">2.4.3.1</span> Activity 8: Ways to subset data</h4>
 <p>Through <code>tidyverse</code> functions, we can subset our data frames or vectors based on some criteria. Using the function <code>select()</code>, we can subset variables by number or name:
 <br></p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="co"># Using select () to subset by the first two variables</span></a>
-<a class="sourceLine" id="cb113-2" title="2">ncvs_df_<span class="dv">1</span> &lt;-<span class="st"> </span>ncvs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="getting-to-know-your-data.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using select () to subset by the first two variables</span></span>
+<span id="cb109-2"><a href="getting-to-know-your-data.html#cb109-2" aria-hidden="true" tabindex="-1"></a>ncvs_df_1 <span class="ot">&lt;-</span> ncvs <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) </span></code></pre></div>
 <p><br></p>
 <p>If we wanted to select only the variables <code>injured</code>, <code>weaponpresent</code>, and <code>severity</code>:
 <br></p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1"><span class="co"># Using select () to subset by three select variables</span></a>
-<a class="sourceLine" id="cb114-2" title="2">ncvs_df_<span class="dv">2</span> &lt;-<span class="st"> </span>ncvs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(injured, weaponpresent, severity) </a></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="getting-to-know-your-data.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using select () to subset by three select variables</span></span>
+<span id="cb110-2"><a href="getting-to-know-your-data.html#cb110-2" aria-hidden="true" tabindex="-1"></a>ncvs_df_2 <span class="ot">&lt;-</span> ncvs <span class="sc">%&gt;%</span> <span class="fu">select</span>(injured, weaponpresent, severity) </span></code></pre></div>
 <p><br></p>
 <p>Using the function <code>slice()</code>, we can subset rows by number. To get only the first row:
 <br></p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1"><span class="co"># Get the first row</span></a>
-<a class="sourceLine" id="cb115-2" title="2">first_row_of_ncvs &lt;-<span class="st"> </span>ncvs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(<span class="dv">1</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="getting-to-know-your-data.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the first row</span></span>
+<span id="cb111-2"><a href="getting-to-know-your-data.html#cb111-2" aria-hidden="true" tabindex="-1"></a>first_row_of_ncvs <span class="ot">&lt;-</span> ncvs <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span>) </span></code></pre></div>
 <p><br></p>
 <p>To get more rows, you can use the ‘from:to’ notation. To get the first two rows, for example, you say ‘from 1 to 2’, that is ‘1:2’:
 <br></p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1"><span class="co"># Get the first two rows </span></a>
-<a class="sourceLine" id="cb116-2" title="2">first_two_rows_of_ncvs &lt;-<span class="st"> </span>ncvs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="getting-to-know-your-data.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the first two rows </span></span>
+<span id="cb112-2"><a href="getting-to-know-your-data.html#cb112-2" aria-hidden="true" tabindex="-1"></a>first_two_rows_of_ncvs <span class="ot">&lt;-</span> ncvs <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) </span></code></pre></div>
 <p><br></p>
 <p>You can subset select rows and columns by taking <code>slice()</code> and combining it with <code>select()</code>. For example:
 <br></p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1"><span class="co"># Get the first two variables and first two rows </span></a>
-<a class="sourceLine" id="cb117-2" title="2">first_two_rows_cols &lt;-<span class="st"> </span>ncvs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="getting-to-know-your-data.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the first two variables and first two rows </span></span>
+<span id="cb113-2"><a href="getting-to-know-your-data.html#cb113-2" aria-hidden="true" tabindex="-1"></a>first_two_rows_cols <span class="ot">&lt;-</span> ncvs <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
 <p><br></p>
 <div class="figure">
-<img src="Images/dplyr_filter.jpg" alt="Figure 2.11 Filter by Allison Horst" style="width:80.0%" />
+<img src="Images/dplyr_filter.jpg" style="width:80.0%" alt="" />
 <p class="caption"><strong>Figure 2.11</strong> Filter by Allison Horst</p>
 </div>
 <p><br></p>
 <p>Use the <code>filter()</code> function to subset observations (i.e., rows) based on conditions. For example, we only want those for which the <code>injured</code> variable was equal to 1, so we run:
 <br></p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1">only_injured &lt;-<span class="st"> </span>ncvs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(injured <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="getting-to-know-your-data.html#cb114-1" aria-hidden="true" tabindex="-1"></a>only_injured <span class="ot">&lt;-</span> ncvs <span class="sc">%&gt;%</span> <span class="fu">filter</span>(injured <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><br></p>
 <p>These filters can be combined using conditions and (<code>&amp;</code>) and or (<code>|</code>) except we call this subset of the data frame ‘knew_of_and_injured’:
 <br></p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="co"># We want a subset called &#39;knew_of_and_injured&#39; which comprises responses greater than 0 in the &#39;relationship&#39; variable and responses equal to 1 in the &#39;injured&#39; variable</span></a>
-<a class="sourceLine" id="cb119-2" title="2">knew_of_and_injured &lt;-<span class="st"> </span>ncvs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb119-3" title="3"><span class="kw">filter</span>(relationship <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>injured <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="getting-to-know-your-data.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We want a subset called &#39;knew_of_and_injured&#39; which comprises responses greater than 0 in the &#39;relationship&#39; variable and responses equal to 1 in the &#39;injured&#39; variable</span></span>
+<span id="cb115-2"><a href="getting-to-know-your-data.html#cb115-2" aria-hidden="true" tabindex="-1"></a>knew_of_and_injured <span class="ot">&lt;-</span> ncvs <span class="sc">%&gt;%</span> </span>
+<span id="cb115-3"><a href="getting-to-know-your-data.html#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(relationship <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> injured <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><br></p>
 <p>Say if we wanted the first five rows of <code>knew_of_and_injured</code>. How would we do that? In your group googledoc, type out the code you think will help you create a (sub-)subset <code>knew_of_and_injured</code> of its first five rows. Call this new subset ‘injuredfiveknew’.
 <br>
@@ -982,7 +1009,7 @@ Same results. -->
 <!-- injuredfiveknew <- KnewOfandInjured %>% slice(1:5)--></p>
 <hr />
 </div>
-<div id="activity-9-subsetting-the-sequel" class="section level4">
+<div id="activity-9-subsetting-the-sequel" class="section level4" number="2.4.3.2">
 <h4><span class="header-section-number">2.4.3.2</span> Activity 9: Subsetting, the Sequel</h4>
 <p>We now have a subset called <code>injuredfiveknew</code>. Say we only want to keep the variables <code>V3014</code> (age) and <code>V3018</code> (sex). How would you make an object that only contains these two variables from <code>injuredfiveknew</code>?</p>
 <p>Recall that you would need to use the function <code>select()</code>to select variables. But in this example, instead of inserting ’ : ’ like in the previous code, you would need to insert a ‘,’. Understanding what ‘:’ means and viewing the order of the variables in <code>injuredfiveknew</code> will give you insight into why.</p>
@@ -994,7 +1021,7 @@ Same results. -->
 </div>
 </div>
 </div>
-<div id="summary-1" class="section level2">
+<div id="summary-1" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> SUMMARY</h2>
 <p>Today you were further introduced to <strong>tidyverse</strong> packages that helped you to tidy your data. First, we learned to put our work into a <strong>project</strong> and then how to import data using a package called <code>haven</code>. Whenever we specify a data frame, we learned a nifty short-cut: the <strong>pipe operator</strong> - <code>%&gt;%</code> - which allows us to specify the data frame only once when we code.</p>
 <p>Our three main topics today had to do with helping us tidy. There was a lot of <strong>data wrangling</strong> too. One topic were the variables themselves where we learned about the <strong>factor</strong> and <strong>numeric</strong> classes, and how to make and <strong>recode</strong> new variables. Two, we learned how to remove and add variable and value labels so that we can understand what our variables are measuring. Three, we then learned to subset our data, whereby we make new dataframes that include only the columns – variables – or rows – observations – we want. We tidied our data using the TIDYVERSE WAY!</p>
@@ -1005,7 +1032,7 @@ Same results. -->
 <br>
 <br>
 <br></p>
-<div id="answers-to-activities-if-applicable" class="section level3">
+<div id="answers-to-activities-if-applicable" class="section level3" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Answers to activities (if applicable)</h3>
 <ul>
 <li><ol style="list-style-type: decimal">

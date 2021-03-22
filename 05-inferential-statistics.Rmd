@@ -237,10 +237,12 @@ prob_off$IQ <- round(prob_off$IQ, 0)
 Our data of a fake population of 3.6 million US probationers and their IQ scores are complete. You can have a look at this data with the `View()` function. In addition, visualising this distribution will help us identify its shape. We use `ggplot2`:
 <br>
 
-```{r}
+```{r, eval = FALSE}
 
 View(prob_off)
+```
 
+```{r}
 # Double check that 'ggplot2' is loaded
 ggplot(prob_off) + 
   geom_histogram(mapping = aes(x = IQ), bins = 60) + 
@@ -741,7 +743,10 @@ new.sample.ci100 <- new_sample_100 %>%
          sample_sd = sd(IQ),
          lower_ci = sample_mean-1.96*sample_sd/sqrt(100), 
          upper_ci = sample_mean+1.96*sample_sd/sqrt(100)) 
+```
 
+
+```{r, eval = FALSE}
 View(new.sample.ci100)
 
 

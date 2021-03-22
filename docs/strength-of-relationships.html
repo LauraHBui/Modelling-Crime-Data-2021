@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-03-16" />
+<meta name="date" content="2021-03-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="relationships-with-categorical-variables.html"/>
 <link rel="next" href="regression.html"/>
+<script src="libs/header-attrs-2.7.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,25 +54,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -132,107 +134,135 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a><ul>
-<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a><ul>
+<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-1-identifying-your-operating-system"><i class="fa fa-check"></i><b>1.1.1</b> Activity 1: Identifying your operating system</a></li>
 <li class="chapter" data-level="1.1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-2-install-r-r-studio"><i class="fa fa-check"></i><b>1.1.2</b> Activity 2: Install R &amp; R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-rstudio"><i class="fa fa-check"></i><b>1.2</b> Getting to know <code>RStudio</code></a><ul>
+<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-rstudio"><i class="fa fa-check"></i><b>1.2</b> Getting to know <code>RStudio</code></a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#the-four-panes-of-r-studio"><i class="fa fa-check"></i><b>1.2.1</b> The four panes of R Studio</a></li>
 <li class="chapter" data-level="1.2.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#customising-r-studio"><i class="fa fa-check"></i><b>1.2.2</b> Customising R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a><ul>
+<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a>
+<ul>
 <li class="chapter" data-level="1.3.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#operators-and-functions"><i class="fa fa-check"></i><b>1.3.1</b> Operators and Functions</a></li>
 <li class="chapter" data-level="1.3.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.3.2</b> Objects</a></li>
 <li class="chapter" data-level="1.3.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.4</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a><ul>
+<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#the-tidyverse"><i class="fa fa-check"></i><b>2.1</b> The Tidyverse</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a><ul>
+<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-1-making-yourself-a-project"><i class="fa fa-check"></i><b>2.2.1</b> Activity 1: Making yourself a project</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a><ul>
+<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-2-importing-and-viewing-data"><i class="fa fa-check"></i><b>2.3.1</b> Activity 2: Importing and Viewing Data</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a><ul>
+<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#variables"><i class="fa fa-check"></i><b>2.4.1</b> Variables</a></li>
 <li class="chapter" data-level="2.4.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.4.2</b> Labels</a></li>
 <li class="chapter" data-level="2.4.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#subsetting"><i class="fa fa-check"></i><b>2.4.3</b> Subsetting</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a><ul>
+<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#answers-to-activities-if-applicable"><i class="fa fa-check"></i><b>2.5.1</b> Answers to activities (if applicable)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a><ul>
-<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a><ul>
+<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="data-visualization.html"><a href="data-visualization.html#activity-1-getting-ready"><i class="fa fa-check"></i><b>3.1.1</b> Activity 1: Getting Ready</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>3.2</b> ggplot2</a></li>
-<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a><ul>
+<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="data-visualization.html"><a href="data-visualization.html#layers"><i class="fa fa-check"></i><b>3.3.1</b> Layers</a></li>
 <li class="chapter" data-level="3.3.2" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-categorical-data"><i class="fa fa-check"></i><b>3.3.2</b> Graphs for Categorical Data</a></li>
 <li class="chapter" data-level="3.3.3" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-numeric-data"><i class="fa fa-check"></i><b>3.3.3</b> Graphs for Numeric Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a><ul>
+<li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="data-visualization.html"><a href="data-visualization.html#answers-to-activities"><i class="fa fa-check"></i><b>3.4.1</b> ANSWERS TO ACTIVITIES:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
-<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#activity-1-our-preparation-routine"><i class="fa fa-check"></i><b>4.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#central-tendency"><i class="fa fa-check"></i><b>4.2.1</b> Central Tendency</a></li>
 <li class="chapter" data-level="4.2.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#outliers"><i class="fa fa-check"></i><b>4.2.2</b> Outliers</a></li>
 <li class="chapter" data-level="4.2.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#measures-of-dispersion"><i class="fa fa-check"></i><b>4.2.3</b> Measures of Dispersion</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a><ul>
+<li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#answers-to-activities-where-applicable"><i class="fa fa-check"></i><b>4.3.1</b> Answers to Activities (where applicable)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a><ul>
-<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a><ul>
+<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#activity-1-our-preparation-routine-1"><i class="fa fa-check"></i><b>5.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#samples"><i class="fa fa-check"></i><b>5.2.1</b> Samples</a></li>
 <li class="chapter" data-level="5.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#the-standard-error"><i class="fa fa-check"></i><b>5.2.2</b> The Standard Error</a></li>
 <li class="chapter" data-level="5.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#confidence-intervals"><i class="fa fa-check"></i><b>5.2.3</b> Confidence Intervals</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#summary-4"><i class="fa fa-check"></i><b>5.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a><ul>
+<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-testing"><i class="fa fa-check"></i><b>6.1</b> Hypothesis Testing</a></li>
-<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="hypotheses.html"><a href="hypotheses.html#statistical-significance"><i class="fa fa-check"></i><b>6.2.1</b> Statistical Significance</a></li>
 <li class="chapter" data-level="6.2.2" data-path="hypotheses.html"><a href="hypotheses.html#a-binomial-test"><i class="fa fa-check"></i><b>6.2.2</b> A Binomial Test</a></li>
 <li class="chapter" data-level="6.2.3" data-path="hypotheses.html"><a href="hypotheses.html#single-sample-significance-tests"><i class="fa fa-check"></i><b>6.2.3</b> Single-sample significance tests</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="hypotheses.html"><a href="hypotheses.html#summary-5"><i class="fa fa-check"></i><b>6.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a><ul>
+<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#associating-with-categorical-variables"><i class="fa fa-check"></i><b>7.1</b> Associating with Categorical Variables</a></li>
-<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#independent-and-dependent-variables"><i class="fa fa-check"></i><b>7.2.1</b> Independent and Dependent Variables</a></li>
 <li class="chapter" data-level="7.2.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#the-t-test"><i class="fa fa-check"></i><b>7.2.2</b> The T-Test</a></li>
 <li class="chapter" data-level="7.2.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#chi-square"><i class="fa fa-check"></i><b>7.2.3</b> Chi-square</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#summary-6"><i class="fa fa-check"></i><b>7.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a><ul>
+<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#measures-of-association"><i class="fa fa-check"></i><b>8.1</b> Measures of Association</a></li>
-<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-nominal-variables"><i class="fa fa-check"></i><b>8.2.1</b> Between Categorical, Nominal Variables</a></li>
 <li class="chapter" data-level="8.2.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-ordinal-variables"><i class="fa fa-check"></i><b>8.2.2</b> Between Categorical, Ordinal Variables</a></li>
 <li class="chapter" data-level="8.2.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-numeric-variables"><i class="fa fa-check"></i><b>8.2.3</b> Between Numeric Variables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#summary-7"><i class="fa fa-check"></i><b>8.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a><ul>
+<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#multiple-and-simultaneous-relationships"><i class="fa fa-check"></i><b>9.1</b> Multiple and Simultaneous Relationships</a></li>
-<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="regression.html"><a href="regression.html#assumptions-of-ols-regression"><i class="fa fa-check"></i><b>9.2.1</b> Assumptions of OLS Regression</a></li>
 <li class="chapter" data-level="9.2.2" data-path="regression.html"><a href="regression.html#interpreting-ols-regression"><i class="fa fa-check"></i><b>9.2.2</b> Interpreting OLS Regression</a></li>
 <li class="chapter" data-level="9.2.3" data-path="regression.html"><a href="regression.html#logistic-regression"><i class="fa fa-check"></i><b>9.2.3</b> Logistic Regression</a></li>
@@ -259,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="strength-of-relationships" class="section level1">
+<div id="strength-of-relationships" class="section level1" number="8">
 <h1><span class="header-section-number">Chapter 8</span> Strength of Relationships</h1>
 <div id="between-categorical-nominal-categorical-ordinal-numeric-variables" class="section level4 unnumbered">
 <h4><em>Between Categorical Nominal, Categorical Ordinal, &amp; Numeric Variables</em></h4>
@@ -307,7 +337,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 </div>
 </div>
-<div id="measures-of-association" class="section level2">
+<div id="measures-of-association" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Measures of Association</h2>
 <p>So far in the course, we have learned ways of measuring whether there is a relationship between variables. If there is a relationship between variables, it means that the value of IV can be used to predict the value of the DV. Although we are able to test for statistical significance, we are unable to say anything about how <em>strong</em> these associations between variables are.</p>
 <p>In crime and criminal justice research, not only are we interested in whether there is a relationship between variables, but we are also interested in the size of that relationship. Knowing the strength of the relationship is useful because it indicates the size of the difference. It addresses the question of ‘To what extent is this relationship generalisable?’ instead of merely ‘Is there a relationship or not?’</p>
@@ -321,110 +351,110 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <hr />
 </div>
-<div id="todays-3-5" class="section level2">
+<div id="todays-3-5" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Today’s 3</h2>
 <p>We will learn how to run effect sizes and how to interpret them. First, we learn how to do so among categorical, nominal variables; then, second, with categorical, ordinal variables; and, third, with numeric variables.</p>
 <hr />
-<div id="between-categorical-nominal-variables" class="section level3">
+<div id="between-categorical-nominal-variables" class="section level3" number="8.2.1">
 <h3><span class="header-section-number">8.2.1</span> Between Categorical, Nominal Variables</h3>
 <p>Following last week’s lesson on the chi-square analysis, the effect size for the relationship between two categorical variables can be conducted after obtaining the <em>χ</em>2 statistic. A number of measures are available to test <em>how related</em> the two variables are to each other. We learn three of them: <em>phi</em>, <em>Cramer’s V</em>, and <em>Goodman and Kruskal’s lambda and tau</em>.</p>
-<div id="phi" class="section level4">
+<div id="phi" class="section level4" number="8.2.1.1">
 <h4><span class="header-section-number">8.2.1.1</span> Phi</h4>
 <p>This measure builds directly off of the chi-square statistic, but it is for the strength of association between two <em>binary</em> variables. It is used for 2×2 tables to obtain a measure of association ranging from 0 to 1, whereby higher values indicate a stronger relationship.
 What this measure does is account for the sample size under observation, as the chi-square statistic is influenced by it. We obtain the <strong>phi</strong> coefficient by dividing the chi-square value by the sample size and taking the square root of that result, but we can do this in <code>R</code>. For example, we would like to know whether there is a relationship between sex and reporting victimisation to the police, and what is the strength of that relationship. We obtain the relevant variables, then conduct a chi-square analysis and obtain the phi coefficient:</p>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" title="1"><span class="co"># Create copies of the variables, rename them so it is easier to remember </span></a>
-<a class="sourceLine" id="cb401-2" title="2"><span class="co"># sex is variable ‘QDEM3’</span></a>
-<a class="sourceLine" id="cb401-3" title="3"><span class="kw">table</span>(seattle_df<span class="op">$</span>QDEM3)</a></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="strength-of-relationships.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create copies of the variables, rename them so it is easier to remember </span></span>
+<span id="cb411-2"><a href="strength-of-relationships.html#cb411-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sex is variable ‘QDEM3’</span></span>
+<span id="cb411-3"><a href="strength-of-relationships.html#cb411-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(seattle_df<span class="sc">$</span>QDEM3)</span></code></pre></div>
 <pre><code>## 
 ##    1    2 
 ## 1145 1075</code></pre>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" title="1"><span class="co"># Use factor () function to create factor variable ‘sex’</span></a>
-<a class="sourceLine" id="cb403-2" title="2">seattle_df<span class="op">$</span>sex &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>QDEM3, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;female&quot;</span> ,</a>
-<a class="sourceLine" id="cb403-3" title="3">                                                                        <span class="st">&quot;male&quot;</span>))</a>
-<a class="sourceLine" id="cb403-4" title="4"></a>
-<a class="sourceLine" id="cb403-5" title="5"><span class="co"># Reported victimisation to police is ‘Q58E’</span></a>
-<a class="sourceLine" id="cb403-6" title="6"><span class="kw">table</span>(seattle_df<span class="op">$</span>Q58E)</a></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="strength-of-relationships.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use factor () function to create factor variable ‘sex’</span></span>
+<span id="cb413-2"><a href="strength-of-relationships.html#cb413-2" aria-hidden="true" tabindex="-1"></a>seattle_df<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(seattle_df<span class="sc">$</span>QDEM3, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;female&quot;</span> ,</span>
+<span id="cb413-3"><a href="strength-of-relationships.html#cb413-3" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">&quot;male&quot;</span>))</span>
+<span id="cb413-4"><a href="strength-of-relationships.html#cb413-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb413-5"><a href="strength-of-relationships.html#cb413-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Reported victimisation to police is ‘Q58E’</span></span>
+<span id="cb413-6"><a href="strength-of-relationships.html#cb413-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(seattle_df<span class="sc">$</span>Q58E)</span></code></pre></div>
 <pre><code>## 
 ##   -1    0    1    8    9 
 ## 1582  379  255    2    2</code></pre>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" title="1"><span class="co"># Use factor () function to create factor variable ‘reported_to_police’</span></a>
-<a class="sourceLine" id="cb405-2" title="2">seattle_df<span class="op">$</span>reported_to_police &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>Q58E, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">labels =</span></a>
-<a class="sourceLine" id="cb405-3" title="3">                                          <span class="kw">c</span>(<span class="st">&quot;no&quot;</span> , <span class="st">&quot;yes&quot;</span>))</a>
-<a class="sourceLine" id="cb405-4" title="4"></a>
-<a class="sourceLine" id="cb405-5" title="5"><span class="co"># Chi-square analysis </span></a>
-<a class="sourceLine" id="cb405-6" title="6"><span class="co"># Place variable objects into new object ‘chi’</span></a>
-<a class="sourceLine" id="cb405-7" title="7">chi&lt;-<span class="kw">table</span>(seattle_df<span class="op">$</span>sex, seattle_df<span class="op">$</span>reported_to_police) </a>
-<a class="sourceLine" id="cb405-8" title="8"><span class="co"># Make sure the relationship is significant first</span></a>
-<a class="sourceLine" id="cb405-9" title="9"><span class="kw">chisq.test</span>(chi)</a></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="strength-of-relationships.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use factor () function to create factor variable ‘reported_to_police’</span></span>
+<span id="cb415-2"><a href="strength-of-relationships.html#cb415-2" aria-hidden="true" tabindex="-1"></a>seattle_df<span class="sc">$</span>reported_to_police <span class="ot">&lt;-</span> <span class="fu">factor</span>(seattle_df<span class="sc">$</span>Q58E, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">labels =</span></span>
+<span id="cb415-3"><a href="strength-of-relationships.html#cb415-3" aria-hidden="true" tabindex="-1"></a>                                          <span class="fu">c</span>(<span class="st">&quot;no&quot;</span> , <span class="st">&quot;yes&quot;</span>))</span>
+<span id="cb415-4"><a href="strength-of-relationships.html#cb415-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb415-5"><a href="strength-of-relationships.html#cb415-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Chi-square analysis </span></span>
+<span id="cb415-6"><a href="strength-of-relationships.html#cb415-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Place variable objects into new object ‘chi’</span></span>
+<span id="cb415-7"><a href="strength-of-relationships.html#cb415-7" aria-hidden="true" tabindex="-1"></a>chi<span class="ot">&lt;-</span><span class="fu">table</span>(seattle_df<span class="sc">$</span>sex, seattle_df<span class="sc">$</span>reported_to_police) </span>
+<span id="cb415-8"><a href="strength-of-relationships.html#cb415-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure the relationship is significant first</span></span>
+<span id="cb415-9"><a href="strength-of-relationships.html#cb415-9" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(chi)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
 ## data:  chi
 ## X-squared = 5.8156, df = 1, p-value = 0.01588</code></pre>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" title="1"><span class="co"># Chi-square is significant ( p= 0.01588)</span></a>
-<a class="sourceLine" id="cb407-2" title="2"></a>
-<a class="sourceLine" id="cb407-3" title="3"><span class="co"># Calculate the phi coefficient </span></a>
-<a class="sourceLine" id="cb407-4" title="4"><span class="kw">Phi</span>(seattle_df<span class="op">$</span>sex, seattle_df<span class="op">$</span>reported_to_police)</a></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="strength-of-relationships.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chi-square is significant ( p= 0.01588)</span></span>
+<span id="cb417-2"><a href="strength-of-relationships.html#cb417-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb417-3"><a href="strength-of-relationships.html#cb417-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the phi coefficient </span></span>
+<span id="cb417-4"><a href="strength-of-relationships.html#cb417-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Phi</span>(seattle_df<span class="sc">$</span>sex, seattle_df<span class="sc">$</span>reported_to_police)</span></code></pre></div>
 <pre><code>## [1] 0.09903062</code></pre>
 <p>The phi value is about 0.1, and as the range is 0 to 1, it seems that this value is closer to 0 than it is to 1. We conclude that this is a weak association between a respondent’s sex and whether they reported their victimisation to the police.</p>
 <hr />
 </div>
-<div id="cramers-v" class="section level4">
+<div id="cramers-v" class="section level4" number="8.2.1.2">
 <h4><span class="header-section-number">8.2.1.2</span> Cramer’s V</h4>
 <p>For tables that are larger than 2x2, meaning these categorical variables are not binary, <strong>Cramer’s V</strong> is appropriate (although using Cramer’s V on a 2x2 table will produce the same value as that of the phi coefficient). Interpreting this value is similar to phi: a range from 0 to 1 with higher values indicating a stronger relationship. An advantage of Cramer’s V is that it is not swayed by sample size, so if you had suspected that the chi-square statistic was the result of a large sample size, this value can help determine that:</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" title="1"><span class="co"># Cramer&#39;s V test for the same relationship detailed above to show that it is exactly like phi: </span></a>
-<a class="sourceLine" id="cb409-2" title="2"><span class="kw">CramerV</span>(seattle_df<span class="op">$</span>sex, seattle_df<span class="op">$</span>reported_to_police)</a></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="strength-of-relationships.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cramer&#39;s V test for the same relationship detailed above to show that it is exactly like phi: </span></span>
+<span id="cb419-2"><a href="strength-of-relationships.html#cb419-2" aria-hidden="true" tabindex="-1"></a><span class="fu">CramerV</span>(seattle_df<span class="sc">$</span>sex, seattle_df<span class="sc">$</span>reported_to_police)</span></code></pre></div>
 <pre><code>## [1] 0.09903062</code></pre>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" title="1"><span class="co"># Now for non-binary variable, Q52, ‘How often do you worry about being attacked in your neighbourhood’</span></a>
-<a class="sourceLine" id="cb411-2" title="2"></a>
-<a class="sourceLine" id="cb411-3" title="3"><span class="co"># Checking it out</span></a>
-<a class="sourceLine" id="cb411-4" title="4"><span class="kw">table</span>(seattle_df<span class="op">$</span>Q52)</a></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="strength-of-relationships.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now for non-binary variable, Q52, ‘How often do you worry about being attacked in your neighbourhood’</span></span>
+<span id="cb421-2"><a href="strength-of-relationships.html#cb421-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb421-3"><a href="strength-of-relationships.html#cb421-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking it out</span></span>
+<span id="cb421-4"><a href="strength-of-relationships.html#cb421-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(seattle_df<span class="sc">$</span>Q52)</span></code></pre></div>
 <pre><code>## 
 ##    1    2    3    4    8    9 
 ## 1584  354  167   98   12    5</code></pre>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" title="1"><span class="co"># Make a copy of the Q52 variable </span></a>
-<a class="sourceLine" id="cb413-2" title="2">seattle_df<span class="op">$</span>worry_attacked &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>Q52, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">labels =</span></a>
-<a class="sourceLine" id="cb413-3" title="3">                                      <span class="kw">c</span>(<span class="st">&quot;Less than once a month&quot;</span> , <span class="st">&quot;once a month&quot;</span>,</a>
-<a class="sourceLine" id="cb413-4" title="4">                                        <span class="st">&quot;about o nce a week&quot;</span>, <span class="st">&quot;everyday&quot;</span>))</a>
-<a class="sourceLine" id="cb413-5" title="5"></a>
-<a class="sourceLine" id="cb413-6" title="6"><span class="co"># Run a chi-square test to make sure there is a significant relationship </span></a>
-<a class="sourceLine" id="cb413-7" title="7"><span class="co"># Save the result in the object &quot;chi2&quot; </span></a>
-<a class="sourceLine" id="cb413-8" title="8">chi2 &lt;-<span class="st"> </span><span class="kw">table</span>(seattle_df<span class="op">$</span>worry_attacked, seattle_df<span class="op">$</span>sex) </a>
-<a class="sourceLine" id="cb413-9" title="9"><span class="kw">chisq.test</span>(chi2)</a></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="strength-of-relationships.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a copy of the Q52 variable </span></span>
+<span id="cb423-2"><a href="strength-of-relationships.html#cb423-2" aria-hidden="true" tabindex="-1"></a>seattle_df<span class="sc">$</span>worry_attacked <span class="ot">&lt;-</span> <span class="fu">factor</span>(seattle_df<span class="sc">$</span>Q52, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="at">labels =</span></span>
+<span id="cb423-3"><a href="strength-of-relationships.html#cb423-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="fu">c</span>(<span class="st">&quot;Less than once a month&quot;</span> , <span class="st">&quot;once a month&quot;</span>,</span>
+<span id="cb423-4"><a href="strength-of-relationships.html#cb423-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;about o nce a week&quot;</span>, <span class="st">&quot;everyday&quot;</span>))</span>
+<span id="cb423-5"><a href="strength-of-relationships.html#cb423-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb423-6"><a href="strength-of-relationships.html#cb423-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Run a chi-square test to make sure there is a significant relationship </span></span>
+<span id="cb423-7"><a href="strength-of-relationships.html#cb423-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the result in the object &quot;chi2&quot; </span></span>
+<span id="cb423-8"><a href="strength-of-relationships.html#cb423-8" aria-hidden="true" tabindex="-1"></a>chi2 <span class="ot">&lt;-</span> <span class="fu">table</span>(seattle_df<span class="sc">$</span>worry_attacked, seattle_df<span class="sc">$</span>sex) </span>
+<span id="cb423-9"><a href="strength-of-relationships.html#cb423-9" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(chi2)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  chi2
 ## X-squared = 38.092, df = 3, p-value = 2.702e-08</code></pre>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" title="1"><span class="co"># Conduct the Cramer&#39;s V test of association on the contingency table </span></a>
-<a class="sourceLine" id="cb415-2" title="2"><span class="co"># You can use the object ‘chi2’ for convenience </span></a>
-<a class="sourceLine" id="cb415-3" title="3"><span class="kw">CramerV</span>(chi2)</a></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="strength-of-relationships.html#cb425-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conduct the Cramer&#39;s V test of association on the contingency table </span></span>
+<span id="cb425-2"><a href="strength-of-relationships.html#cb425-2" aria-hidden="true" tabindex="-1"></a><span class="co"># You can use the object ‘chi2’ for convenience </span></span>
+<span id="cb425-3"><a href="strength-of-relationships.html#cb425-3" aria-hidden="true" tabindex="-1"></a><span class="fu">CramerV</span>(chi2)</span></code></pre></div>
 <pre><code>## [1] 0.1314953</code></pre>
 <p>Like the phi, the value shows a relatively small relationship between residents’ sex and how often they worry about being attacked in their neighbourhood.</p>
 <hr />
 </div>
 </div>
-<div id="between-categorical-ordinal-variables" class="section level3">
+<div id="between-categorical-ordinal-variables" class="section level3" number="8.2.2">
 <h3><span class="header-section-number">8.2.2</span> Between Categorical, Ordinal Variables</h3>
 <p>In some common situations in crime and criminal justice research, we work with survey data that have ordered response categories. For example, a likert scale of how strongly someone feels about abolishing the death penalty.</p>
 <p>We learn two measures that deal with relationships between categorical, ordinal variables: Goodman-Kruskal’s Gamma and Somers’ D. Both use concordant and discordant pairs of observations to estimate the effect size. <strong>Concordant pairs</strong> are observations where the rankings are consistent for both variables, and <strong>discordant pairs</strong> are observations whose rankings are inconsistent for both variables. If a pair of observations has the same rank on the variables of interest, they are considered a <strong>tied pair</strong>.</p>
 <hr />
-<div id="goodman-kruskal-gamma" class="section level4">
+<div id="goodman-kruskal-gamma" class="section level4" number="8.2.2.1">
 <h4><span class="header-section-number">8.2.2.1</span> Goodman-Kruskal Gamma</h4>
 <p><strong>Gamma</strong> can take on values ranging from −1 to +1, where: 0 indicates no relationship at all; a negative value indicates a negative relationship; and a positive value a positive relationship. The closer the value is to either −1 or +1, the stronger the relationship is between variables.</p>
 <p>For this example, we test the association between two measures commonly used to gauge community informal social control. The first variable, <code>Q20A</code>, is based on a survey question asking respondents how likely it is that their neighbours would do something about a group of neighbourhood children skipping school. The second variable, <code>Q20B</code>, asks respondents how likely it is that neighbours would do something if children were spray painting graffiti on a neighbourhood building.</p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" title="1"><span class="co"># First, check and recode your variables if necessary </span></a>
-<a class="sourceLine" id="cb417-2" title="2"><span class="kw">table</span>(seattle_df<span class="op">$</span>Q20A)</a></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="strength-of-relationships.html#cb427-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, check and recode your variables if necessary </span></span>
+<span id="cb427-2"><a href="strength-of-relationships.html#cb427-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(seattle_df<span class="sc">$</span>Q20A)</span></code></pre></div>
 <pre><code>## 
 ##   1   2   3   4   8   9 
 ## 432 701 784 207  87   9</code></pre>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb419-1" title="1"><span class="co"># Recode Q20A- check the codebook on the variable&#39;s ranking</span></a>
-<a class="sourceLine" id="cb419-2" title="2">seattle_df<span class="op">$</span>intv.truancy &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>Q20A, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">labels =</span></a>
-<a class="sourceLine" id="cb419-3" title="3">                                    <span class="kw">c</span>(<span class="st">&quot;very likely&quot;</span> , <span class="st">&quot;likely&quot;</span>, <span class="st">&quot;unlikely&quot;</span>, <span class="st">&quot;very</span></a>
-<a class="sourceLine" id="cb419-4" title="4"><span class="st">                                      unlikely&quot;</span>))</a>
-<a class="sourceLine" id="cb419-5" title="5"></a>
-<a class="sourceLine" id="cb419-6" title="6"><span class="co"># Review everything was coded correctly </span></a>
-<a class="sourceLine" id="cb419-7" title="7"><span class="kw">table</span>(seattle_df<span class="op">$</span>intv.truancy)</a></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="strength-of-relationships.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode Q20A- check the codebook on the variable&#39;s ranking</span></span>
+<span id="cb429-2"><a href="strength-of-relationships.html#cb429-2" aria-hidden="true" tabindex="-1"></a>seattle_df<span class="sc">$</span>intv.truancy <span class="ot">&lt;-</span> <span class="fu">factor</span>(seattle_df<span class="sc">$</span>Q20A, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="at">labels =</span></span>
+<span id="cb429-3"><a href="strength-of-relationships.html#cb429-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">c</span>(<span class="st">&quot;very likely&quot;</span> , <span class="st">&quot;likely&quot;</span>, <span class="st">&quot;unlikely&quot;</span>, <span class="st">&quot;very</span></span>
+<span id="cb429-4"><a href="strength-of-relationships.html#cb429-4" aria-hidden="true" tabindex="-1"></a><span class="st">                                      unlikely&quot;</span>))</span>
+<span id="cb429-5"><a href="strength-of-relationships.html#cb429-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb429-6"><a href="strength-of-relationships.html#cb429-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Review everything was coded correctly </span></span>
+<span id="cb429-7"><a href="strength-of-relationships.html#cb429-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(seattle_df<span class="sc">$</span>intv.truancy)</span></code></pre></div>
 <pre><code>## 
 ##                                          very likely 
 ##                                                  432 
@@ -434,72 +464,72 @@ What this measure does is account for the sample size under observation, as the 
 ##                                                  784 
 ## very\n                                      unlikely 
 ##                                                  207</code></pre>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb421-1" title="1"><span class="kw">class</span>(seattle_df<span class="op">$</span>intv.truancy)</a></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="strength-of-relationships.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(seattle_df<span class="sc">$</span>intv.truancy)</span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb423-1" title="1"><span class="co"># Now do the same for the graffiti variable </span></a>
-<a class="sourceLine" id="cb423-2" title="2"><span class="kw">table</span>(seattle_df<span class="op">$</span>Q20B)</a></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="strength-of-relationships.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now do the same for the graffiti variable </span></span>
+<span id="cb433-2"><a href="strength-of-relationships.html#cb433-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(seattle_df<span class="sc">$</span>Q20B)</span></code></pre></div>
 <pre><code>## 
 ##    1    2    3    4    8    9 
 ## 1198  761  177   43   35    6</code></pre>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb425-1" title="1">seattle_df<span class="op">$</span>intv.graff&lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>Q20B, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">labels =</span></a>
-<a class="sourceLine" id="cb425-2" title="2">                                 <span class="kw">c</span>(<span class="st">&quot;very likely&quot;</span> , <span class="st">&quot;likely&quot;</span>, <span class="st">&quot;unlikely&quot;</span>, <span class="st">&quot;very unlikely&quot;</span>)) </a>
-<a class="sourceLine" id="cb425-3" title="3"></a>
-<a class="sourceLine" id="cb425-4" title="4"><span class="kw">table</span>(seattle_df<span class="op">$</span>intv.graff)</a></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="strength-of-relationships.html#cb435-1" aria-hidden="true" tabindex="-1"></a>seattle_df<span class="sc">$</span>intv.graff<span class="ot">&lt;-</span> <span class="fu">factor</span>(seattle_df<span class="sc">$</span>Q20B, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="at">labels =</span></span>
+<span id="cb435-2"><a href="strength-of-relationships.html#cb435-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">c</span>(<span class="st">&quot;very likely&quot;</span> , <span class="st">&quot;likely&quot;</span>, <span class="st">&quot;unlikely&quot;</span>, <span class="st">&quot;very unlikely&quot;</span>)) </span>
+<span id="cb435-3"><a href="strength-of-relationships.html#cb435-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb435-4"><a href="strength-of-relationships.html#cb435-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(seattle_df<span class="sc">$</span>intv.graff)</span></code></pre></div>
 <pre><code>## 
 ##   very likely        likely      unlikely very unlikely 
 ##          1198           761           177            43</code></pre>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" title="1"><span class="kw">class</span>(seattle_df<span class="op">$</span>intv.graff)</a></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="strength-of-relationships.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(seattle_df<span class="sc">$</span>intv.graff)</span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" title="1"><span class="co"># Assess the relationship between these two variables </span></a>
-<a class="sourceLine" id="cb429-2" title="2"><span class="kw">GoodmanKruskalGamma</span>(seattle_df<span class="op">$</span>intv.truancy, seattle_df<span class="op">$</span>intv.graff, <span class="dt">conf.level =</span> <span class="fl">.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="strength-of-relationships.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assess the relationship between these two variables </span></span>
+<span id="cb439-2"><a href="strength-of-relationships.html#cb439-2" aria-hidden="true" tabindex="-1"></a><span class="fu">GoodmanKruskalGamma</span>(seattle_df<span class="sc">$</span>intv.truancy, seattle_df<span class="sc">$</span>intv.graff, <span class="at">conf.level =</span> .<span class="dv">95</span>)</span></code></pre></div>
 <pre><code>##     gamma    lwr.ci    upr.ci 
 ## 0.6315274 0.5898587 0.6731960</code></pre>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb431-1" title="1"><span class="co"># We can also run it using a table saved as an R object </span></a>
-<a class="sourceLine" id="cb431-2" title="2">x &lt;-<span class="st"> </span><span class="kw">table</span>(seattle_df<span class="op">$</span>intv.truancy, seattle_df<span class="op">$</span>intv.graff) </a>
-<a class="sourceLine" id="cb431-3" title="3">gamma_neighbor_intervene &lt;-<span class="st"> </span><span class="kw">GoodmanKruskalGamma</span>(x, <span class="dt">conf.level =</span> <span class="fl">.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="strength-of-relationships.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can also run it using a table saved as an R object </span></span>
+<span id="cb441-2"><a href="strength-of-relationships.html#cb441-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">table</span>(seattle_df<span class="sc">$</span>intv.truancy, seattle_df<span class="sc">$</span>intv.graff) </span>
+<span id="cb441-3"><a href="strength-of-relationships.html#cb441-3" aria-hidden="true" tabindex="-1"></a>gamma_neighbor_intervene <span class="ot">&lt;-</span> <span class="fu">GoodmanKruskalGamma</span>(x, <span class="at">conf.level =</span> .<span class="dv">95</span>)</span></code></pre></div>
 <p>We specified the <code>conf.level</code> option and get a 95% confidence interval around the gamma coefficient. The value we receive is 0.63, which, in addition to the confidence interval that does not overlap with 0, indicates a fairly strong statistically significant and positive association between the two variables.</p>
 <hr />
 </div>
-<div id="somers-d" class="section level4">
+<div id="somers-d" class="section level4" number="8.2.2.2">
 <h4><span class="header-section-number">8.2.2.2</span> Somers’ D</h4>
 <p><strong>Somer’s D</strong> provides a value between −1 and +1, whereby values closer to −1 and +1 indicate better prediction ability. This commonly used measure for ordinal variables indicates how much improvement in the prediction of the dependent variable is attributed to information we know from the independent variable.</p>
 <p>We use the <code>SomersDelta</code> function from the <code>DescTools</code> package to conduct Somers’ D. We examine the relationship between the respondents’ perception of their neighbour’s willingness to exert informal social control and how likely the respondent would miss their neighbourhood if they moved away (<code>Q7</code>):</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" title="1"><span class="co"># Recode the variable Q7 </span></a>
-<a class="sourceLine" id="cb432-2" title="2">seattle_df<span class="op">$</span>miss_neigh &lt;-<span class="st"> </span><span class="kw">factor</span>(seattle_df<span class="op">$</span>Q7, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;very likely&quot;</span> , <span class="st">&quot;likely&quot;</span>, <span class="st">&quot;unlikely&quot;</span>, <span class="st">&quot;very unlikely&quot;</span>)) </a>
-<a class="sourceLine" id="cb432-3" title="3"></a>
-<a class="sourceLine" id="cb432-4" title="4"><span class="co"># Check our newly coded variable </span></a>
-<a class="sourceLine" id="cb432-5" title="5"><span class="kw">table</span>(seattle_df<span class="op">$</span>miss_neigh)</a></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="strength-of-relationships.html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode the variable Q7 </span></span>
+<span id="cb442-2"><a href="strength-of-relationships.html#cb442-2" aria-hidden="true" tabindex="-1"></a>seattle_df<span class="sc">$</span>miss_neigh <span class="ot">&lt;-</span> <span class="fu">factor</span>(seattle_df<span class="sc">$</span>Q7, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;very likely&quot;</span> , <span class="st">&quot;likely&quot;</span>, <span class="st">&quot;unlikely&quot;</span>, <span class="st">&quot;very unlikely&quot;</span>)) </span>
+<span id="cb442-3"><a href="strength-of-relationships.html#cb442-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb442-4"><a href="strength-of-relationships.html#cb442-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check our newly coded variable </span></span>
+<span id="cb442-5"><a href="strength-of-relationships.html#cb442-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(seattle_df<span class="sc">$</span>miss_neigh)</span></code></pre></div>
 <pre><code>## 
 ##   very likely        likely      unlikely very unlikely 
 ##          1094           760           244           102</code></pre>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb434-1" title="1"><span class="co"># To run Somers&#39; D, first save the contingency table in the R object &quot;z&quot; </span></a>
-<a class="sourceLine" id="cb434-2" title="2">z &lt;-<span class="st"> </span><span class="kw">table</span>(seattle_df<span class="op">$</span>intv.graff, seattle_df<span class="op">$</span>miss_neigh) </a>
-<a class="sourceLine" id="cb434-3" title="3"></a>
-<a class="sourceLine" id="cb434-4" title="4"><span class="co"># Now run the Somers&#39; D measure </span></a>
-<a class="sourceLine" id="cb434-5" title="5"><span class="co"># ‘direction’ tells R which variable should be considered the IV</span></a>
-<a class="sourceLine" id="cb434-6" title="6"><span class="co"># It defaults to row, so if you excluded this option, the function would still provide you with a value</span></a>
-<a class="sourceLine" id="cb434-7" title="7"><span class="kw">SomersDelta</span>(z, <span class="dt">direction =</span> <span class="st">&quot;row&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="strength-of-relationships.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To run Somers&#39; D, first save the contingency table in the R object &quot;z&quot; </span></span>
+<span id="cb444-2"><a href="strength-of-relationships.html#cb444-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">table</span>(seattle_df<span class="sc">$</span>intv.graff, seattle_df<span class="sc">$</span>miss_neigh) </span>
+<span id="cb444-3"><a href="strength-of-relationships.html#cb444-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb444-4"><a href="strength-of-relationships.html#cb444-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Now run the Somers&#39; D measure </span></span>
+<span id="cb444-5"><a href="strength-of-relationships.html#cb444-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ‘direction’ tells R which variable should be considered the IV</span></span>
+<span id="cb444-6"><a href="strength-of-relationships.html#cb444-6" aria-hidden="true" tabindex="-1"></a><span class="co"># It defaults to row, so if you excluded this option, the function would still provide you with a value</span></span>
+<span id="cb444-7"><a href="strength-of-relationships.html#cb444-7" aria-hidden="true" tabindex="-1"></a><span class="fu">SomersDelta</span>(z, <span class="at">direction =</span> <span class="st">&quot;row&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>##    somers    lwr.ci    upr.ci 
 ## 0.1867064 0.1502957 0.2231171</code></pre>
 <p>Somers’ D is positive, but close to 0, meaning that perception of neighbours’ willingness to intervene is a poor predictor of how much respondents would miss their neighbourhood if they moved. The confidence interval around the estimate does not overlap with 0 meaning that the association is statistically significant, even though the association is weak.</p>
 <hr />
 </div>
 </div>
-<div id="between-numeric-variables" class="section level3">
+<div id="between-numeric-variables" class="section level3" number="8.2.3">
 <h3><span class="header-section-number">8.2.3</span> Between Numeric Variables</h3>
 <p>This section is about measuring the strength of relationships between two ratio/ interval variables. Load Professor Patrick Sharkey’s dataset (sharkey.csv), which is a study on the effect of nonprofit organisations on the levels of crime, using the <code>read_csv()</code> function. Alternatively, you can load the dataset from the <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/46WIH0">Dataverse website</a>.</p>
 <p>Name the data frame <code>sharkey</code>, and if you dislike scientific notation, you can turn it off in <code>R</code> by using <code>options(scipen=999)</code>.</p>
 <p>First, we examine our bivariate relationship between variables of interest through a scatterplot. The reason for this is we need to figure out if the variables have a <strong>linear relationship</strong>, and this determines what test we need to use. The extent to which two variables move together is called <strong>covariation</strong>: one variable can increase and so will the other (positive linear relationship); one variable can decrease while the other increases (negative linear relationship).</p>
 <p>We focus on the year 2012, which is the most recent year in the dataset, and on only a few select variables. We will place them in a data frame named, <code>df</code>. To do this, we will use the <code>filter()</code> and <code>select()</code> functions from the <code>dplyr</code> package. Then, we will remove the dataset from <code>R</code> using the <code>rm()</code> function.</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb436-1" title="1">df &lt;-<span class="st"> </span><span class="kw">filter</span>(sharkey, year <span class="op">==</span><span class="st"> &quot;2012&quot;</span>) </a>
-<a class="sourceLine" id="cb436-2" title="2">df &lt;-<span class="st"> </span><span class="kw">select</span>(df, place_name, state_name, black, lesshs, unemployed, fborn,</a>
-<a class="sourceLine" id="cb436-3" title="3">             incarceration, log_viol_r, largest50) </a>
-<a class="sourceLine" id="cb436-4" title="4"></a>
-<a class="sourceLine" id="cb436-5" title="5"><span class="co"># Goodbye sharkey</span></a>
-<a class="sourceLine" id="cb436-6" title="6"><span class="kw">rm</span>(sharkey)</a>
-<a class="sourceLine" id="cb436-7" title="7"></a>
-<a class="sourceLine" id="cb436-8" title="8"><span class="co"># View the number of cities located in each of the 44 states</span></a>
-<a class="sourceLine" id="cb436-9" title="9"><span class="kw">table</span>(df<span class="op">$</span>state_name)</a></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="strength-of-relationships.html#cb446-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">filter</span>(sharkey, year <span class="sc">==</span> <span class="st">&quot;2012&quot;</span>) </span>
+<span id="cb446-2"><a href="strength-of-relationships.html#cb446-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">select</span>(df, place_name, state_name, black, lesshs, unemployed, fborn,</span>
+<span id="cb446-3"><a href="strength-of-relationships.html#cb446-3" aria-hidden="true" tabindex="-1"></a>             incarceration, log_viol_r, largest50) </span>
+<span id="cb446-4"><a href="strength-of-relationships.html#cb446-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb446-5"><a href="strength-of-relationships.html#cb446-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Goodbye sharkey</span></span>
+<span id="cb446-6"><a href="strength-of-relationships.html#cb446-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(sharkey)</span>
+<span id="cb446-7"><a href="strength-of-relationships.html#cb446-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb446-8"><a href="strength-of-relationships.html#cb446-8" aria-hidden="true" tabindex="-1"></a><span class="co"># View the number of cities located in each of the 44 states</span></span>
+<span id="cb446-9"><a href="strength-of-relationships.html#cb446-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>state_name)</span></code></pre></div>
 <pre><code>## 
 ##              Alabama               Alaska              Arizona 
 ##                    4                    1                    9 
@@ -533,10 +563,10 @@ What this measure does is account for the sample size under observation, as the 
 ##                    6                    3</code></pre>
 <p>The variables we now have contain information on the demographic composition of those cities (percent black population, percent without high school degree, percent unemployed, percent foreign born) and criminal justice characteristics (incarceration rate and the rate of sworn full-time police officers). In addition, we have measures of the violence rate and a binary variable that tells us if the city is one of the 50 largest in the country (value ‘1’ means one of the 50 largest).</p>
 <p>As the first step in exploring relationships is to visualise them, we create a scatterplot between the log of the violence rate (<code>log_viol_r</code>) and unemployment (<code>unemployed</code>) using the <code>ggplot()</code> function in the <code>ggplot2</code> package:</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb438-1" title="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> unemployed, <span class="dt">y =</span> log_viol_r)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb438-2" title="2"><span class="co"># Jitter adds a little random noise </span></a>
-<a class="sourceLine" id="cb438-3" title="3"><span class="co"># This makes points less likely to overlap one another in the plot </span></a>
-<a class="sourceLine" id="cb438-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">2</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="strength-of-relationships.html#cb448-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> unemployed, <span class="at">y =</span> log_viol_r)) <span class="sc">+</span> </span>
+<span id="cb448-2"><a href="strength-of-relationships.html#cb448-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Jitter adds a little random noise </span></span>
+<span id="cb448-3"><a href="strength-of-relationships.html#cb448-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This makes points less likely to overlap one another in the plot </span></span>
+<span id="cb448-4"><a href="strength-of-relationships.html#cb448-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">2</span>, <span class="at">position=</span><span class="st">&quot;jitter&quot;</span>)</span></code></pre></div>
 <p><img src="08-strength-relationship_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>Is there a linear relationship between violence and unemployment? Does it look as if cities that have a high score on the x-axis (unemployment) also have a high score on the y-axis (violent crime)? It is hard to see but there is a trend: cities with more unemployment seem to have more violence. Notice, for example, how at high levels of unemployment, there are places with high levels of violence.</p>
 <p>As there is a linear relationship, we conduct a <strong>Pearson’s correlation</strong> test. This test tells you whether the two variables are significantly related to one another – whether they covary. A p-value is provided to determine this. Also provided is a Pearson’s r value, which indicates the strength of the relationship between the two variables. The value ranges from −1 (a negative linear relationship) to 1 (a positive linear relationship). Values that are closer to 1 or −1 suggest a stronger relationship.</p>
@@ -548,9 +578,9 @@ What this measure does is account for the sample size under observation, as the 
 <p><span class="math inline">\(H_0\)</span>: There is no correlation between the violence rate and unemployment.</p>
 <p><span class="math inline">\(H_A\)</span>: There is a correlation between the violence rate and unemployment.</p>
 <p>We use the <code>cor ()</code> function and <code>cor.test</code> from <code>base R</code> to conduct a Pearson’s correlation:</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb439-1" title="1"><span class="kw">cor</span>(df<span class="op">$</span>log_viol_r, df<span class="op">$</span>unemployed)</a></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="strength-of-relationships.html#cb449-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>log_viol_r, df<span class="sc">$</span>unemployed)</span></code></pre></div>
 <pre><code>## [1] 0.5368416</code></pre>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb441-1" title="1"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="strength-of-relationships.html#cb451-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="sc">~</span> log_viol_r <span class="sc">+</span> unemployed, <span class="at">data=</span>df, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -566,16 +596,16 @@ What this measure does is account for the sample size under observation, as the 
 <p>As our relationship was linear and our results are statistically significant, we reject the null hypothesis. We conclude that there is a statistically significant relationship between the violence rate and unemployment.</p>
 <p>Now what about bivariate relationships where linearity is not met? This would call for either <strong>Kendall’s tau</strong> and <strong>Spearman’s correlation</strong>, nonparametric versions of Pearson’s correlation. Kendall’s tau is more accurate when you have a small sample size compared to Spearman’s rho.</p>
 <p>We again use the function <code>cor.test ()</code> to conduct these:</p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb443-1" title="1"><span class="co"># We purposely add an outlier so that the relationship is no longer linear</span></a>
-<a class="sourceLine" id="cb443-2" title="2"><span class="co"># This will produce a fictitious city with a very high level of unemployment and the lowest level of violence</span></a>
-<a class="sourceLine" id="cb443-3" title="3"><span class="co"># For convenience, we will first further reduce the number of variables </span></a>
-<a class="sourceLine" id="cb443-4" title="4">df_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">select</span>(df, unemployed, log_viol_r) </a>
-<a class="sourceLine" id="cb443-5" title="5"></a>
-<a class="sourceLine" id="cb443-6" title="6"><span class="co"># To add cases to data frame, use the add_row() function from the tibble package</span></a>
-<a class="sourceLine" id="cb443-7" title="7">df_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">add_row</span>(df_<span class="dv">1</span>, <span class="dt">unemployed =</span> <span class="dv">20</span>, <span class="dt">log_viol_r =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb443-8" title="8"></a>
-<a class="sourceLine" id="cb443-9" title="9"><span class="co"># Conducting a Kendall</span></a>
-<a class="sourceLine" id="cb443-10" title="10"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df_<span class="dv">1</span>, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="strength-of-relationships.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We purposely add an outlier so that the relationship is no longer linear</span></span>
+<span id="cb453-2"><a href="strength-of-relationships.html#cb453-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This will produce a fictitious city with a very high level of unemployment and the lowest level of violence</span></span>
+<span id="cb453-3"><a href="strength-of-relationships.html#cb453-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For convenience, we will first further reduce the number of variables </span></span>
+<span id="cb453-4"><a href="strength-of-relationships.html#cb453-4" aria-hidden="true" tabindex="-1"></a>df_1 <span class="ot">&lt;-</span> <span class="fu">select</span>(df, unemployed, log_viol_r) </span>
+<span id="cb453-5"><a href="strength-of-relationships.html#cb453-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb453-6"><a href="strength-of-relationships.html#cb453-6" aria-hidden="true" tabindex="-1"></a><span class="co"># To add cases to data frame, use the add_row() function from the tibble package</span></span>
+<span id="cb453-7"><a href="strength-of-relationships.html#cb453-7" aria-hidden="true" tabindex="-1"></a>df_1 <span class="ot">&lt;-</span> <span class="fu">add_row</span>(df_1, <span class="at">unemployed =</span> <span class="dv">20</span>, <span class="at">log_viol_r =</span> <span class="dv">1</span>)</span>
+<span id="cb453-8"><a href="strength-of-relationships.html#cb453-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb453-9"><a href="strength-of-relationships.html#cb453-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Conducting a Kendall</span></span>
+<span id="cb453-10"><a href="strength-of-relationships.html#cb453-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="sc">~</span> log_viol_r <span class="sc">+</span> unemployed, <span class="at">data=</span>df_1, <span class="at">method =</span> <span class="st">&quot;kendall&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Kendall&#39;s rank correlation tau
 ## 
@@ -585,8 +615,8 @@ What this measure does is account for the sample size under observation, as the 
 ## sample estimates:
 ##      tau 
 ## 0.345979</code></pre>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb445-1" title="1"><span class="co"># Conducting a Spearman</span></a>
-<a class="sourceLine" id="cb445-2" title="2"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_viol_r <span class="op">+</span><span class="st"> </span>unemployed, <span class="dt">data=</span>df_<span class="dv">1</span>, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="strength-of-relationships.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conducting a Spearman</span></span>
+<span id="cb455-2"><a href="strength-of-relationships.html#cb455-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="sc">~</span> log_viol_r <span class="sc">+</span> unemployed, <span class="at">data=</span>df_1, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## Warning in cor.test.default(x = c(7.2830276, 6.79316, 6.478019, 5.949461, :
 ## Cannot compute exact p-value with ties</code></pre>
 <pre><code>## 
@@ -602,7 +632,7 @@ What this measure does is account for the sample size under observation, as the 
 <hr />
 </div>
 </div>
-<div id="summary-7" class="section level2">
+<div id="summary-7" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> SUMMARY</h2>
 <p>Today was all about <strong>effect sizes</strong> where we learned how to produce them. For relationships between nominal variables, we have the following options: <strong>phi</strong> and <strong>Cramer’s V</strong>. Then, for relationships between ordinal variables, we used <strong>concordant and discordant pairs</strong> to find effect sizes through <strong>Gamma</strong> and <strong>Somers’ D</strong>. We then learned to produce effect sizes for relationships between numeric relationships, and an important assumption had to do with <strong>covariation</strong>: <strong>Pearson’s correlation</strong> when the relationship is <strong>linear</strong> and nonparametric tests, <strong>Kendall’s tau</strong> and <strong>Spearman’s correlation</strong>, when the relationship is not.</p>
 <p>Homework time!</p>

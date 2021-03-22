@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-03-16" />
+<meta name="date" content="2021-03-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="inferential-statistics.html"/>
 <link rel="next" href="relationships-with-categorical-variables.html"/>
+<script src="libs/header-attrs-2.7.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,25 +54,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -132,107 +134,135 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a><ul>
-<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a><ul>
+<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-1-identifying-your-operating-system"><i class="fa fa-check"></i><b>1.1.1</b> Activity 1: Identifying your operating system</a></li>
 <li class="chapter" data-level="1.1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-2-install-r-r-studio"><i class="fa fa-check"></i><b>1.1.2</b> Activity 2: Install R &amp; R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-rstudio"><i class="fa fa-check"></i><b>1.2</b> Getting to know <code>RStudio</code></a><ul>
+<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-rstudio"><i class="fa fa-check"></i><b>1.2</b> Getting to know <code>RStudio</code></a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#the-four-panes-of-r-studio"><i class="fa fa-check"></i><b>1.2.1</b> The four panes of R Studio</a></li>
 <li class="chapter" data-level="1.2.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#customising-r-studio"><i class="fa fa-check"></i><b>1.2.2</b> Customising R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a><ul>
+<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a>
+<ul>
 <li class="chapter" data-level="1.3.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#operators-and-functions"><i class="fa fa-check"></i><b>1.3.1</b> Operators and Functions</a></li>
 <li class="chapter" data-level="1.3.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.3.2</b> Objects</a></li>
 <li class="chapter" data-level="1.3.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.4</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a><ul>
+<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#the-tidyverse"><i class="fa fa-check"></i><b>2.1</b> The Tidyverse</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a><ul>
+<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-1-making-yourself-a-project"><i class="fa fa-check"></i><b>2.2.1</b> Activity 1: Making yourself a project</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a><ul>
+<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-2-importing-and-viewing-data"><i class="fa fa-check"></i><b>2.3.1</b> Activity 2: Importing and Viewing Data</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a><ul>
+<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#variables"><i class="fa fa-check"></i><b>2.4.1</b> Variables</a></li>
 <li class="chapter" data-level="2.4.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.4.2</b> Labels</a></li>
 <li class="chapter" data-level="2.4.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#subsetting"><i class="fa fa-check"></i><b>2.4.3</b> Subsetting</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a><ul>
+<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#answers-to-activities-if-applicable"><i class="fa fa-check"></i><b>2.5.1</b> Answers to activities (if applicable)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a><ul>
-<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a><ul>
+<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="data-visualization.html"><a href="data-visualization.html#activity-1-getting-ready"><i class="fa fa-check"></i><b>3.1.1</b> Activity 1: Getting Ready</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>3.2</b> ggplot2</a></li>
-<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a><ul>
+<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="data-visualization.html"><a href="data-visualization.html#layers"><i class="fa fa-check"></i><b>3.3.1</b> Layers</a></li>
 <li class="chapter" data-level="3.3.2" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-categorical-data"><i class="fa fa-check"></i><b>3.3.2</b> Graphs for Categorical Data</a></li>
 <li class="chapter" data-level="3.3.3" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-numeric-data"><i class="fa fa-check"></i><b>3.3.3</b> Graphs for Numeric Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a><ul>
+<li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="data-visualization.html"><a href="data-visualization.html#answers-to-activities"><i class="fa fa-check"></i><b>3.4.1</b> ANSWERS TO ACTIVITIES:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
-<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#activity-1-our-preparation-routine"><i class="fa fa-check"></i><b>4.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#central-tendency"><i class="fa fa-check"></i><b>4.2.1</b> Central Tendency</a></li>
 <li class="chapter" data-level="4.2.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#outliers"><i class="fa fa-check"></i><b>4.2.2</b> Outliers</a></li>
 <li class="chapter" data-level="4.2.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#measures-of-dispersion"><i class="fa fa-check"></i><b>4.2.3</b> Measures of Dispersion</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a><ul>
+<li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#answers-to-activities-where-applicable"><i class="fa fa-check"></i><b>4.3.1</b> Answers to Activities (where applicable)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a><ul>
-<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a><ul>
+<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#activity-1-our-preparation-routine-1"><i class="fa fa-check"></i><b>5.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#samples"><i class="fa fa-check"></i><b>5.2.1</b> Samples</a></li>
 <li class="chapter" data-level="5.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#the-standard-error"><i class="fa fa-check"></i><b>5.2.2</b> The Standard Error</a></li>
 <li class="chapter" data-level="5.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#confidence-intervals"><i class="fa fa-check"></i><b>5.2.3</b> Confidence Intervals</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#summary-4"><i class="fa fa-check"></i><b>5.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a><ul>
+<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-testing"><i class="fa fa-check"></i><b>6.1</b> Hypothesis Testing</a></li>
-<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="hypotheses.html"><a href="hypotheses.html#statistical-significance"><i class="fa fa-check"></i><b>6.2.1</b> Statistical Significance</a></li>
 <li class="chapter" data-level="6.2.2" data-path="hypotheses.html"><a href="hypotheses.html#a-binomial-test"><i class="fa fa-check"></i><b>6.2.2</b> A Binomial Test</a></li>
 <li class="chapter" data-level="6.2.3" data-path="hypotheses.html"><a href="hypotheses.html#single-sample-significance-tests"><i class="fa fa-check"></i><b>6.2.3</b> Single-sample significance tests</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="hypotheses.html"><a href="hypotheses.html#summary-5"><i class="fa fa-check"></i><b>6.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a><ul>
+<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#associating-with-categorical-variables"><i class="fa fa-check"></i><b>7.1</b> Associating with Categorical Variables</a></li>
-<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#independent-and-dependent-variables"><i class="fa fa-check"></i><b>7.2.1</b> Independent and Dependent Variables</a></li>
 <li class="chapter" data-level="7.2.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#the-t-test"><i class="fa fa-check"></i><b>7.2.2</b> The T-Test</a></li>
 <li class="chapter" data-level="7.2.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#chi-square"><i class="fa fa-check"></i><b>7.2.3</b> Chi-square</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#summary-6"><i class="fa fa-check"></i><b>7.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a><ul>
+<li class="chapter" data-level="8" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html"><i class="fa fa-check"></i><b>8</b> Strength of Relationships</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#measures-of-association"><i class="fa fa-check"></i><b>8.1</b> Measures of Association</a></li>
-<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="8.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-nominal-variables"><i class="fa fa-check"></i><b>8.2.1</b> Between Categorical, Nominal Variables</a></li>
 <li class="chapter" data-level="8.2.2" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-categorical-ordinal-variables"><i class="fa fa-check"></i><b>8.2.2</b> Between Categorical, Ordinal Variables</a></li>
 <li class="chapter" data-level="8.2.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#between-numeric-variables"><i class="fa fa-check"></i><b>8.2.3</b> Between Numeric Variables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="strength-of-relationships.html"><a href="strength-of-relationships.html#summary-7"><i class="fa fa-check"></i><b>8.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a><ul>
+<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#multiple-and-simultaneous-relationships"><i class="fa fa-check"></i><b>9.1</b> Multiple and Simultaneous Relationships</a></li>
-<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a><ul>
+<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="regression.html"><a href="regression.html#assumptions-of-ols-regression"><i class="fa fa-check"></i><b>9.2.1</b> Assumptions of OLS Regression</a></li>
 <li class="chapter" data-level="9.2.2" data-path="regression.html"><a href="regression.html#interpreting-ols-regression"><i class="fa fa-check"></i><b>9.2.2</b> Interpreting OLS Regression</a></li>
 <li class="chapter" data-level="9.2.3" data-path="regression.html"><a href="regression.html#logistic-regression"><i class="fa fa-check"></i><b>9.2.3</b> Logistic Regression</a></li>
@@ -259,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hypotheses" class="section level1">
+<div id="hypotheses" class="section level1" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Hypotheses</h1>
 <div id="statistical-significance-binominal-test-single-sample-significance-tests" class="section level4 unnumbered">
 <h4><em>Statistical Significance, Binominal Test, Single Sample Significance Tests</em></h4>
@@ -306,41 +336,138 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 </div>
 </div>
-<div id="hypothesis-testing" class="section level2">
+<div id="hypothesis-testing" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Hypothesis Testing</h2>
-<p>Last time we were introduced to inferential statistics, which uses a sample to draw conclusions about the population. We did not cover types of analyses, however. Instead, as a basis for understanding why samples can be used to say something about the population, we learned the theory that demonstrated why this was so.</p>
-<p>Today we learn the first step in making predictions about our world: hypothesis testing. In crime and criminal justice research, <strong>hypotheses</strong>, essentially predictions, are made frequently – a new intervention programme will reduce reoffending; low self-control is predictive of later criminal behaviour; adverts on reporting sexual harassment on public transport will increase awareness and reduce sexual victimisation rates.</p>
-<p>When we test our hypothesis, we test to see if our prediction is true for the population of interest. For example, if we hypothesize that the new intervention programme will reduce reoffending among at-risk young people in Manchester, and our result shows this, we then can generalise our result to the population of all at-risk young people in Manchester.</p>
-<p>In hypothesis testing, we aim to reject the <strong>null hypothesis</strong>. This states that there is no relationship between our variables. Using the previous example, our null hypothesis (<span class="math inline">\(H_0\)</span>) would be that the new intervention programme will not reduce reoffending – there will be no difference in reoffending rates between those who participated and those who did not participate in the programme. Our hypothesis (<span class="math inline">\(H_A\)</span>) is considered the <em>alternative</em> (hence the ‘A’) of the null hypothesis, which means that there is a relationship between our variables, or in other words, a difference between groups.</p>
-<p>Example Hypotheses :</p>
-<p><span class="math inline">\(H_0\)</span>: There is no difference in reoffending rates between those who participated and those who did not participate in the new intervention programme</p>
-<p><span class="math inline">\(H_A\)</span>: There is a difference in reoffending rates between those who participated in the new intervention programme and those who did not participate in said programme</p>
-<p>Therefore, when we make predictions, we always state two hypotheses: <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span>. Stating hypotheses can take two forms: a <strong>directional hypothesis</strong> where you specify the direction or the relationship expected and a <strong>non-directional hypothesis</strong> where you are only interested in whether there is a difference between groups. Our example is a non-directional hypothesis because we do not state specifically whether we want reoffending rates to be lower or higher in each group of young people.</p>
-<p>Confidence is key in hypothesis testing. If we reject the null hypothesis, we want to be confident that it is actually false. In criminology, and across the social sciences, we want to be at least 95% confident in our result. This implies that we are willing to be wrong 5% of the time. We cannot be 100% confident because we usually do not have information from the entire population, so find ourselves trying to decide whether our null hypothesis is false without being so sure of the true result in the population. Because of this uncertainty, we need to be wary of <strong>Type 1 error</strong>. This error, known also as a false positive, is when we reject the null hypothesis when it is actually true. In addition, there is also <em>Type 2 error</em>, a false negative, which is when we fail to reject the null hypothesis even though it is actually false.</p>
+<p>Last week we were introduced to inferential statistics, where we used a sample of observations, taken from the population, to draw conclusions about this population from which they were drawn. We did this to understand how a sample statistic (such as the sample mean) can be used to make inferences about the population parameters (such as the true mean value in the population).</p>
+<p>However, we often use samples not only to draw inferences about sample statistics such as the mean, but to answer research questions. For example, you might want to know, do students experience more burglary than non-students? Do men worry about crime more so than women? Do different ethnic groups have different levels of trust in the police?</p>
+<p>In this session, we are going to learn the first step in making predictions about our world: hypothesis testing. In crime and criminal justice research, <strong>hypotheses</strong> (essentially predictions) are made and tested frequently. Hypotheses suppose (predict) what we will observe in our data. For example, we might think that a new intervention programme will reduce reoffending; or we might think that low self-control is predictive of later criminal behaviour; or we might think that adverts on reporting sexual harassment on public transport will increase awareness and reduce sexual victimisation rates. These are all hypotheses about specific population (offenders who may reoffend, potential offenders who have varying levels of self-control, people who take public transport). However, as we learned last week, we cannot test an entire population. Therefore, instead, when hypothesis testing, we take a sample of this population, and use this sample to draw our inferences.</p>
+<p>When we test our hypothesis, we test to see if our prediction is true for the population of interest. For example, let’s say we hypothesize that the new intervention programme will reduce reoffending among at-risk young people in Manchester. There are different study designs to answer this question, for example last semester we learned about <a href="https://www.bi.team/publications/test-learn-adapt-developing-public-policy-with-randomised-controlled-trials/">randomised control trials</a>. If we take <em>a sample</em> of at-risk young people in Manchester, and randomly assign them to control (no intervention) and treatment (our new intervention programme), we can then compare re-offending (outcome) in these two samples. The way we approach to test this outome is called <em>hypothesis testing</em> as we test the hypothesis that our intervention had an effect. Once we carry out our hypothesis testing (which is what we will learn to do today), and our result shows this, we then can generalise our result to the population of all at-risk young people in Manchester.</p>
+<p>Now science (which is what we’re up to at this point!) is funny in that unlike what it sounds like above, we don’t actually set out to <em>prove our intervention works</em>. Instead, what we try to do is <em>try to disprove</em> that our intervention works. It may sound like scientists are a bunch of negative pessimists, but it’s the paradigm of scientific research which we follow. While we don’t have time to get into philosophy of science in this module (shame, I know!) if you are interested, read up on <a href="https://plato.stanford.edu/entries/popper/">Karl Popper and falsification</a> if this is something you find interesting!</p>
 <div class="figure">
-<img src="Images/errors.jpg" alt="Figure 6.1 Type 1 and Type 2 errors" />
-<p class="caption"><strong>Figure 6.1</strong> Type 1 and Type 2 errors</p>
+<img src="Images/popper.png" alt="" />
+<p class="caption"><a href="https://xkcd.com/2078/" class="uri">https://xkcd.com/2078/</a></p>
 </div>
-<p>Hypotheses are created before the researcher collects outcome data for the study and conducts any analysis. This is good practice and ethical as well, because if the hypotheses are stated after data has been collected and analysed, then the researcher may be tempted to change the hypotheses, so will dishonestly influence the tests of statistical significance. Also, this affects Type 1 error because we are increasing its likelihood through bad practice – we want to leave that 5% of getting it wrong to chance only.</p>
-<p>As we are concerned with rejecting the null hypothesis with high confidence that it is actually false, we will need to identify the risk of making a type 1 error and hope that the risk is as small as possible in a test of <strong>statistical significance</strong>. How to calculate this risk?</p>
+<p>So this is the approach which we follow with hypothesis testing. Instead of showing that our hypothesis is correct, what we want to show is that <em>NOT</em> our hypothesis is <em>NOT</em> correct. How do we do this?</p>
+<p>We turn to something called a <strong>null hypothesis</strong>. The <strong>null hypothesis</strong> takes our hypothesis and states instead what we expect to see if our hypothesis were <em>not true</em> in the population. Then, when we carry out our hypothesis testing, we aim to reject the <strong>null hypothesis</strong>.</p>
+<p>For example, thinking about questions of relationship between the treatment (new intervention) and outcome (re-offending), while our brains are thinking the hypothesis <em>the intervention reduces re-offending</em>, the <strong>null hypothesis</strong> which we’ll be testing actually states that <em>there is no relationship between our variables</em>. In this case, our null hypothesis (<span class="math inline">\(H_0\)</span>) would be that the new intervention programme will not reduce reoffending – and therefore there will be no difference in re-offending rates between those who participated (control) and those who did not participate (treatment) in the programme. To distringuish our hypothesis from our null hypothesis, our hypothesis (<span class="math inline">\(H_A\)</span>) is considered the <em>alternative</em> (hence the ‘A’) of the null hypothesis. So we test the null hypothesis (of no effect) and we will either <em>reject</em> or <em>fail to reject</em> thus null hypothesis. Going back to our negative science, if we fail to reject our null hypothesis, this means we manage to disprove our alternative hypothesis. If this happened in our intervention, we should stop asking for funding for our programme, because we cannot claim that it works in reducing re-offending.</p>
+<p>On the other hand, if we fail to reject our null hypothesis, that is the good news, it seems then that as far as we can tell, there is a relationship between our variables (treatment and outcome), or in other words, a difference between control and treatment groups in re-offending. This means we tried to disprove the relationship, we failed to do so, so we can continue to believe our programme has an effect on re-offending, and we can continue asking for funders to support it in good conscience. Notice that at no point do we say <em>we proved this works</em> as we cannot actually do this. All we can do is fail to disprove. Someone else can come along, and try to disprove this again. This is science. If they get the same results as we do, we can say that <strong>our results replicate</strong>. If we do not, then our findings come into question. We talkeda about this a little last semester. If you’re interested more, I can recommend the book <a href="https://www.penguin.co.uk/books/111/1117290/science-fictions/9781847925657.html">Science Fictions by Stuart Ritchie</a>.</p>
+<div id="activity-1-example-hypotheses" class="section level4" number="6.1.0.1">
+<h4><span class="header-section-number">6.1.0.1</span> Activity 1: Example Hypotheses</h4>
+<p>In this first activity let’s look at some hypotheses and then some null hypotheses. We will then construct some of our own.</p>
+<p>First, if we consider above our example of re-offending, let’s formalise our hypotheses.</p>
+<p>Our alternative hypothesis could be formalised as:</p>
+<ul>
+<li><span class="math inline">\(H_A\)</span>: There is a difference in re-offending rates between those who participated in the new intervention programme and those who did not participate in said programme.</li>
+</ul>
+<p>In contrast, our null hypothesis should therefore say:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: There is no difference in reoffending rates between those who participated and those who did not participate in the new intervention programme</li>
+</ul>
+<p>What about for the question about how low self-control is predictive of later criminal behaviour?</p>
+<p>I’ll help again with the alternative hypothesis:</p>
+<ul>
+<li><span class="math inline">\(H_A\)</span>: There is a relationship between engaging in criminal behaviour and scoring low on assessments of self-control.</li>
+</ul>
+<p>Now what do you think the null hypothesis might look like? Think about this in your groups, write your answers in the google docs.</p>
+<p>And finally, we considered whether adverts on reporting sexual harassment on public transport will increase awareness. If we wanted to test this, what would our <span class="math inline">\(H_A\)</span> look like? What about our <span class="math inline">\(H_0\)</span>?</p>
+<p>When we make predictions, we always state both hypotheses: <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span>. This is how we dormalise what we are carrying out our analysis to find, and it helps guide us to understand what test to use on our sample, and what sort of conclusions we’ll be able to make about our population from them.</p>
+</div>
+<div id="activity-2-directional-hypotheses" class="section level4" number="6.1.0.2">
+<h4><span class="header-section-number">6.1.0.2</span> Activity 2: Directional Hypotheses</h4>
+<p>When we’re formulating our hypotheses, we can also choose whether the hypothesis is a <strong>directional hypothesis</strong> or a <strong>non-directional hypothesis</strong>.</p>
+<p>A <strong>directional hypothesis</strong> is where you specify the direction of the relationship expected and a <strong>non-directional hypothesis</strong> is where you are only interested in whether there is any difference between groups.</p>
+<p>Our example above for re-offending the is a non-directional hypothesis because we do not state specifically whether we want reoffending rates to be lower or higher in each group of young people. Look again at our alternative hypothesis:</p>
+<ul>
+<li><span class="math inline">\(H_A\)</span>: There is a difference in re-offending rates between those who participated in the new intervention programme and those who did not participate in said programme.</li>
+</ul>
+<p>In contrast, our null hypothesis also only refers to a difference between the two groups:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: There is no difference in reoffending rates between those who participated and those who did not participate in the new intervention programme</li>
+</ul>
+<p>In this example, if we see <em>any</em> difference in the two groups, we reject our null hypothesis. In the results above, we said that this is great, because it means our intervention worked, and we can apply for more funding. But we didn’t say anything about the <strong>direction</strong> of the relationship. We accept there is a difference no matter the direction - even if it means there is actually more re-offending in our treatment group…!</p>
+<p>If we want to focus on difference in only one direction, we must choose a <em>directional</em> hypothesis, also known as a one-tailed hypothesis. We will demonstrate how hypothesis testing works below, and it will soon become clear why that is.</p>
+<p>For now, just try to think what might be a <em>directional</em> hypothesis way to formalise our <span class="math inline">\(H_A\)</span> and <span class="math inline">\(H_0\)</span> for our intervention to reduce re-offending study. Discuss and write in your google docs what you think. We will come back to this later!.</p>
 <hr />
 </div>
-<div id="todays-3-3" class="section level2">
+</div>
+<div id="todays-3-3" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Today’s 3</h2>
 <p>To understand hypotheses in action, we learn three substantive concepts today: <strong>statistical significance</strong>, <strong>binominal test</strong>, and <strong>single sample significance tests</strong>.</p>
 <hr />
-<div id="statistical-significance" class="section level3">
+<div id="statistical-significance" class="section level3" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Statistical Significance</h3>
-<p>What is meant by <strong>statistical significance</strong>? It is a misleading term because it seems to mean that the result is significant or important, but that is not correct. When we test for statistical significance, we are testing to see if the probability of the null hypothesis being true is less than the level of type 1 error specified.</p>
-<p>The level specified is called the <strong>significance level</strong> and is denoted by the alpha-level (α). In the social sciences, it is usually set at α = 0.05 to indicate that we want to be 95% confident in our rejection of the null hypothesis. If the probability of the null hypothesis is less than α = 0.05, for example, then we can reject it. If, however, the probability is greater than α = 0.05, then we have failed to reject the null hypothesis.</p>
-<p>The probability obtained is the <strong>p-value</strong>, short for probability value, and it tells us how likely that certain result or effect will happen if the null hypothesis is true. That is why if the probability is less then 5%, then it is unlikely to happen.</p>
+<p>When testing whether there is a relationship between two variables (like our intervention and re-offending) you may hear the term <strong>statistical significance</strong>. You may have read this in criminology papers, and other reading for your modules. You might read something like:</p>
+<blockquote>
+<p>“There is a statistically significant relationship between the treatment of a new intervention and re-offending rates in young people.”</p>
+</blockquote>
+<p>What is meant by <strong>statistical significance</strong>? It is a misleading term because it seems to mean that the result is <em>significant</em> or <em>important</em> in some way, but that is not correct. When we test for statistical significance, we are simply testing to see whether we can confidently generalise from our sample to our population. Statistical significance does not tell us about how big any difference in reoffending is between our two groups for example, all it tells us is whether or we are confident that the difference found in our <em>samples</em> can be generalised to the <em>population</em>.</p>
+<p>What do I mean by “we are <em>confident</em>”? Confidence is key in hypothesis testing. If we reject the null hypothesis, we want to be confident that it is actually false. In criminology, and across the social sciences, it is common to want to be at least 95% confident in our result (you might recall our 95% confidence intervals from last week…!). While 95% sounds high, keep in mind that this implies that we are willing to be wrong 5% of the time. If our study of re-offending is replicated over and over and over again, we expect about 1 in 20 of the results to reach incorrect conclusions, to be wrong.</p>
+<p>So why 95%, why are we willing to accept this error? We cannot be 100% confident because we usually do not have information from the entire population, so find ourselves trying to decide whether our null hypothesis is false without being so sure of the true result in the population. Because of this uncertainty, we need to be wary of <strong>Type 1 error</strong>. This error, known also as a <em>false positive</em>, is when we reject the null hypothesis when it is actually true. In addition, there is also <strong>Type 2 error</strong>, <em>a false negative</em>, which is when we fail to reject the null hypothesis even though it is actually false. The image below might help understand these errors:</p>
+<div class="figure">
+<img src="Images/errors.jpg" alt="" />
+<p class="caption"><strong>Figure 6.1</strong> Type 1 and Type 2 errors</p>
+</div>
+<!-- We mentioned earlier that you start your study with clarifying and formalising your hypotheses. Hypotheses are created before the researcher collects outcome data for the study and conducts any analysis. This is good practice and ethical as well, because if the hypotheses are stated after data has been collected and analysed, then the researcher may be tempted to change the hypotheses, so will dishonestly influence the tests of statistical significance. Also, this affects Type 1 error because we are increasing its likelihood through bad practice – we want to leave that 5% of getting it wrong to chance only. -->
+<p>So, in testing for statistical significance, we are concerned with rejecting the null hypothesis with high confidence that it is actually false. For this, we will need to identify the risk of making a type 1 error and hope that the risk is as small as possible in a test of <strong>statistical significance</strong>. How to calculate this risk? We do this by testing to see if the probability of the null hypothesis being true is less than the level of type 1 error specified.</p>
+<p>The level specified is called the <strong>significance level</strong> and is denoted by alpha (α). In the social sciences, it is usually set at α = 0.05 to indicate that we want to be 95% confident in our rejection of the null hypothesis. We then use this value as a cut-off value. If the probability of the null hypothesis is less than α = 0.05, for example, then we can reject it. If, however, the probability is greater than α = 0.05, then we have failed to reject the null hypothesis.</p>
+<p>The probability obtained is the <strong>p-value</strong>, short for probability value, and it tells us how likely we are to observe that certain result or effect which we found in our sample, if the null hypothesis were to be true.
+<!-- That is why if the probability is less then 5%, then it is unlikely to happen.  --></p>
 <p>The terminology is important here: we can only say we ‘reject’ or ‘fail to reject’ the null hypothesis; we cannot say we ‘accept’ the null hypothesis because testing for statistical significance is not about finding out if the null hypothesis is correct.</p>
-<p>Another important point: lately, there has been substantial <a href="https://www.vox.com/latest-news/2019/3/22/18275913/statistical-significance-p-values-explained">calls to get rid of p-values and statistical significance</a>. The problem is that the p-value is often misunderstood and even misused. It has come to be misinterpreted as either the study worked (a good study) or did not work (a bad study). <strong>That is why including confidence intervals is good practice</strong>. Even though the practice of relying on p-values is controversial, we learn about statistical significance in this course unit because many studies still use it. Understanding what it actually is will prevent misinterpretation.</p>
-<p>Now that we have established what is statistical significance, we must identify the most appropriate test for statistical significance. Selecting an appropriate test depends on a number of assumptions. The remainder of the course unit will introduce you to a number of these tests. For today, we learn about specific hypothesis tests using the binomial distribution and then the normal distribution, and each have their own set of assumptions. We begin with hypothesis testing using the binomial distribution.</p>
+<p>So let’s say for our study of the two groups of at-risk young people we find that in our 1-year follow-up, we find that in the treatment group, 10 out of the 50 young people went on to reoffend whereas, in the control group, 28 out of the 50 went on to reoffend. Remember - this is what we see in our sample. When we carry out our hypothesis testing, we will look for whether this difference is <strong>statistically significant</strong>, that is, the probability to observe this difference between two samples in the event that our null hypothesis (that our intervention has no effect) is true. If we find this probability to be small (less than our cut-off value of <span class="math inline">\(\alpha = 0.05\)</span>), we <em>reject the null hypothesis</em>. If we find the probability to be larger than our cut-off value of <span class="math inline">\(\alpha = 0.05\)</span>, then we <em>fail to reject</em> our null hypothesis.</p>
+<p>So how can we calculate this value? We do this in the next section.</p>
+<!-- Another important point: lately, there has been substantial [calls to get rid of p-values and statistical significance](https://www.vox.com/latest-news/2019/3/22/18275913/statistical-significance-p-values-explained). The problem is that the p-value is often misunderstood and even misused. It has come to be misinterpreted as either the study worked (a good study) or did not work (a bad study). **That is why including confidence intervals is good practice**. Even though the practice of relying on p-values is controversial, we learn about statistical significance in this course unit because many studies still use it. Understanding what it actually is will prevent misinterpretation.  -->
 <hr />
 </div>
-<div id="a-binomial-test" class="section level3">
+<div id="a-binomial-test" class="section level3" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> A Binomial Test</h3>
+<p>Now that we have established what is statistical significance, we must identify the most appropriate test for statistical significance. Selecting an appropriate test depends on a number of assumptions. The remainder of the course unit will introduce you to a number of these tests. For today, we learn about specific hypothesis tests using the binomial distribution and then the normal distribution, and each have their own set of assumptions. We illustrate hypothesis testing using the binomial distribution.</p>
+<div id="activity-3-distributions" class="section level4" number="6.2.2.1">
+<h4><span class="header-section-number">6.2.2.1</span> Activity 3: Distributions</h4>
+<p>In the previous week we spoke a lot about the normal distribution. We also mentioned that the sampling distribution of your sample statistic (eg mean) will always follow a normal distribution, even if your data follow different distributions. And your data often will! For example, count data often follows a <a href="">Poisson distribution</a>. And here, in the case of our re-offending of young people study, we are looking at a <a href="">Binomial</a> distribution. Binary variables (when there are only two outcomes, which are mutually exclusive - remember the illustrations where the animals were either extinct or not) may follow a Binomial distribution. We can code binary data as 0s and 1s, where 1s are our event (sometimes called successes) and 0s are when you don’t observe the event (sometimes called failures).</p>
+<p>In the case of our data on re-offending, we could consider re-offending an event (1) while not having re-offended at the 1-year follow up the absence of this event (0). You can see why we don’t always want to call the event the “success”, you might get funny looks if you say that the young people re-offending is a success…!</p>
+<p>So in any case, let’s get some fake data up again for our young people. We use the <code>data.frame()</code> function to build a data frame. We will give each young person an id of 1 to 100 (it’s an anonymous study), and then we will assign 50 to treatment and 50 to control (I say assign, here we are making the data up!!!) and then we assign values for the binary varaible of whether they had re-offended or not by the time of our 1-year follow-up.</p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="hypotheses.html#cb304-1" aria-hidden="true" tabindex="-1"></a>young_people <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb304-2"><a href="hypotheses.html#cb304-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>), </span>
+<span id="cb304-3"><a href="hypotheses.html#cb304-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;treatment&quot;</span>, <span class="dv">50</span>), <span class="fu">rep</span>(<span class="st">&quot;control&quot;</span>, <span class="dv">50</span>)), </span>
+<span id="cb304-4"><a href="hypotheses.html#cb304-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">reoffended =</span>  <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">40</span>), <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">28</span>), <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">22</span>))</span>
+<span id="cb304-5"><a href="hypotheses.html#cb304-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Let’s see the distribution of our outcome variable, re-offending:</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="hypotheses.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb305-2"><a href="hypotheses.html#cb305-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb305-3"><a href="hypotheses.html#cb305-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(young_people, <span class="fu">aes</span>(<span class="at">x =</span> reoffended)) <span class="sc">+</span> </span>
+<span id="cb305-4"><a href="hypotheses.html#cb305-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">2</span>, <span class="at">fill =</span> <span class="st">&quot;black&quot;</span>, <span class="at">col =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb305-5"><a href="hypotheses.html#cb305-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb305-6"><a href="hypotheses.html#cb305-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb305-7"><a href="hypotheses.html#cb305-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Re-offending at 1-year follow up&quot;</span>)</span></code></pre></div>
+<p><img src="06-hypotheses_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>We can see that overall there is quite a high count of re-offending in our follow-up.</p>
+<p>But what we are interested in is probability to have see the number of successes (re-offences) in our outcome. What does this look like for our binomial distribution? Remember that we are looking at a probability distribution, which tells us what is the probability that we get a certain number of young people reoffending? We have 100 young people, what is the probability of having <span class="math inline">\(k\)</span> number of them re-offend? (i.e. <span class="math inline">\(P(X=k)\)</span>). For our binomial distribution, we calculate the probability of observing <span class="math inline">\(k\)</span> young people who re-offended for each possible <span class="math inline">\(k\)</span>. So for example, we want to calculate what is the probability that exactly one young person re-offended. Then that exactly two young people re-offended. Then that exactly three young people re-offended. And so on…!</p>
+<p>So what is the probability for each one of these outcomes? We use the equation below to calculate this:</p>
+<p><span class="math inline">\(Binomial(n,k,p) = C(n,k) * p^k * (1-p)^{n-k}\)</span></p>
+<p>Where <span class="math inline">\(C(n,k)\)</span> refers to all the possible combinations in which you can have <span class="math inline">\(k\)</span> people re-offend in our sample of <span class="math inline">\(n\)</span>. So for example for the probability that 38 people re-offended out of our sample of 100, we calculate this <span class="math inline">\(C(n,k) = {n!}/{(n-k)!}\)</span> as <span class="math inline">\(C(100,38) = {100!}/{100!*(100-38)!}\)</span>. <code>!</code> means <code>factorial</code>, which in R you can caluclate with the <code>factorial()</code> function.</p>
+<p>So</p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="hypotheses.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">100</span>)<span class="sc">/</span><span class="fu">factorial</span>(<span class="dv">100-38</span>)</span></code></pre></div>
+<pre><code>## [1] 2.965564e+72</code></pre>
+<p>You can see there are many many different ways in which we can choose 38 re-offenders.</p>
+<p>The last thing left to plug into the equation is <code>p</code>, which is the probability of an outcome. Assuming that the re-offending is as likely an outcome as not re-offending, this value is 0.5 (as there are only two possible outcomes!).</p>
+<p>So binging it all together, the probability that we get exactly one re-offence in our data is:</p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="hypotheses.html#cb308-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">factorial</span>(<span class="dv">100</span>)<span class="sc">/</span>(<span class="fu">factorial</span>(<span class="dv">100</span>)<span class="sc">*</span><span class="fu">factorial</span>(<span class="dv">100-38</span>)))<span class="sc">*</span>( <span class="fl">0.5</span><span class="sc">^</span><span class="dv">38</span>) <span class="sc">*</span> ((<span class="dv">1</span><span class="fl">-0.5</span>)<span class="sc">^</span>(<span class="dv">100-38</span>))</span></code></pre></div>
+<pre><code>## [1] 2.50671e-116</code></pre>
+<p>Now we can use some pseudo-random numbers to simulate what our binomial probability distribution will look like. I use simulation of 1000 replications of this study, with sample sizes of 100 young people each, something like we did last week, but I won’t cover how to do this, as it’s not important for you here, but I’ll show you the output anyway:</p>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<p><img src="06-hypotheses_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>You can see that if generally in the population without any treatment we assume it’s about 50/50 whether a young person re-offends, these are the sort of re-offending outcomes we can expect to observe. We can see our sample overall (both ground together) are on the left tail of this distribution. Let’s move on now to how we can use this for hypothesis testing.</p>
+</div>
+<div id="activity-4-making-assumptions" class="section level4" number="6.2.2.2">
+<h4><span class="header-section-number">6.2.2.2</span> Activity 4: Making Assumptions</h4>
+<p>All the ways in which we will be learning hypothesis testing rely on certain assumptions about your data. If these assumptions are violated, then the tests may not be as effective as we’d like, and can even result in erroneous conclusions. Therefore it is very important to consider the assumptions, and address whether these are <em>met</em> or <em>violated</em> by our data.</p>
 <p>Hypothesis testing using the binomial distribution have the following assumptions:</p>
 <ol style="list-style-type: decimal">
 <li><p><em>Level of measurement:</em> the variable is binary, meaning it measures only two possible categories.</p></li>
@@ -348,12 +475,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><em>Sample:</em> high external validity</p></li>
 <li><p><em>Hypothesis:</em> stated before collection and analysis of data</p></li>
 </ol>
-<p>We will, once again, create synthetic data of an evaluation of our example intervention programme. The sample comprises 100 at-risk young people who are randomly assigned to two groups: 50 to a treatment group that receives the intervention that aims to prevent them from committing future offences and 50 to the control group that receives no intervention. We evaluate this programme to see if it works and if it can be generalised to all at-risk youth in Manchester. As the outcome has only two options – success and failure – we rely on the <strong>binomial distribution</strong>.</p>
-<p>In <code>R</code>, we run the <code>prop.test ()</code> function to test the null hypothesis that the proportions, or probabilities of success, are the same or equal in several groups. Say we find that in the treatment group, 10 out of the 50 went on to reoffend whereas, in the control group, 28 out of the 50 went on to reoffend.</p>
-<p>We could stop here and conclude, ‘Yes, there is a difference between groups, and by golly, the intervention works.’ But remember that chance, or random variation, is inherent in all phenomena, so this observation could just be a mere fluke. That is why we conduct a test of statistical significance. This one is called a ‘two-sample proportion test’:</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" title="1"><span class="co"># The first concatenate (c () ) contains the numbers that went onto reoffend</span></a>
-<a class="sourceLine" id="cb317-2" title="2"><span class="co"># The second concatenate contains the total numbers in each group</span></a>
-<a class="sourceLine" id="cb317-3" title="3"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>))</a></code></pre></div>
+<p>How can we check that these assumptions are met?</p>
+<ul>
+<li>Well the first one asks about the <em>level of measurement</em> of our outcome variable. Since that is a binary variable (for each young person, we know whether they re-offended (1) or not (0)), this assumption is <em>met</em>.</li>
+<li>The second assumption, about the shape of the distribution, the test makes no assumptions. Therefore there is nothing to check!</li>
+<li>The third question asks about our sample. Are they likely to be representative of the population? This is usually best assessed by looking at the sampling strategy - e.g. are they selected using some random (probability) sampling technique? While here we are creating fake data, in real-world studies you will hear about the sampling, and how it ensures this validity.</li>
+<li>Finally the fourth question asks us whether we stated our hypothesis before collecting our data. In this case, we did, we formalised our <span class="math inline">\(H_A\)</span> and <span class="math inline">\(H_0\)</span> before collecting our data.</li>
+</ul>
+</div>
+<div id="activity-5-statistical-significance-with-proportions-test" class="section level4" number="6.2.2.3">
+<h4><span class="header-section-number">6.2.2.3</span> Activity 5: Statistical significance with proportions test</h4>
+<p>Now that we have addressed the assumptions, let’s look at our data again. The sample comprises 100 at-risk young people who are randomly assigned to two groups: 50 to a treatment group that receives the intervention that aims to prevent them from committing future offences and 50 to the control group that receives no intervention. We evaluate this programme to see if it works and if it can be generalised to all at-risk youth in Manchester, by checking in 1 year on as a follow-up, to see whether the young people re-offended at different proportions in the two groups. As the outcome has only two options – success and failure – we rely on the <strong>binomial distribution</strong>.</p>
+<p>In <code>R</code>, we run the <code>prop.test()</code> function to test the null hypothesis that the proportions, or probabilities of success, are the same or equal in several groups.</p>
+<p>Let’s look at the differences in re-offending between the two groups We can use the <code>facet_wrap()</code> function in <code>ggplot2</code> to look at the two groups side by side:</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="hypotheses.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(young_people, <span class="fu">aes</span>(<span class="at">x =</span> reoffended)) <span class="sc">+</span> </span>
+<span id="cb313-2"><a href="hypotheses.html#cb313-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">2</span>, <span class="at">fill =</span> <span class="st">&quot;black&quot;</span>, <span class="at">col =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb313-3"><a href="hypotheses.html#cb313-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb313-4"><a href="hypotheses.html#cb313-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb313-5"><a href="hypotheses.html#cb313-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Re-offending at 1-year follow up&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb313-6"><a href="hypotheses.html#cb313-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>group)</span></code></pre></div>
+<p><img src="06-hypotheses_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Wow we see very different proportions in the two groups!</p>
+<p>Let’s look at the number of people who re-offended in each group.</p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="hypotheses.html#cb314-1" aria-hidden="true" tabindex="-1"></a>young_people <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(group, reoffended) <span class="sc">%&gt;%</span> <span class="fu">count</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 3
+## # Groups:   group, reoffended [4]
+##   group     reoffended     n
+##   &lt;chr&gt;          &lt;dbl&gt; &lt;int&gt;
+## 1 control            0    22
+## 2 control            1    28
+## 3 treatment          0    40
+## 4 treatment          1    10</code></pre>
+<p>We find that in the treatment group, 10 out of the 50 went on to reoffend whereas, in the control group, 28 out of the 50 went on to reoffend.</p>
+<p>We could stop here and conclude, ‘Yes, there is a difference between groups, and by golly, the intervention works.’ But remember that chance, or random variation, is inherent in all phenomena, so this observation could just be a mere fluke. That is why we conduct a test of statistical significance. This one is called a ‘two-sample proportion test’. So like mentioned we use the <code>prop.test()</code> function, and we need to give two <em>pairs</em> of values, <code>x</code> and <code>n</code>. For the <code>x</code> value, we need to specify the number of successes (1s) in each group. We have 10 successes (number of young people who have re-offended…. you can see why “success” is an awkward word to use for many criminology research…!) in the treatment group, and 28 in the control. So here we put them together as <code>c(10, 28)</code>. The second value pair, <code>n</code>, refers to the sample sizes of each group. Here we had the same number (50) in each group so the value is <code>c(50,50)</code>. Bring it together like so:</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="hypotheses.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The first concatenate (c () ) contains the numbers that went onto reoffend</span></span>
+<span id="cb316-2"><a href="hypotheses.html#cb316-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The second concatenate contains the total numbers in each group</span></span>
+<span id="cb316-3"><a href="hypotheses.html#cb316-3" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">50</span>))</span></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity correction
 ## 
@@ -365,75 +522,91 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sample estimates:
 ## prop 1 prop 2 
 ##   0.20   0.56</code></pre>
-<p>The output is a little ugly, but you can refer to the help documentation for more detail on the output by typing <code>?prop.test</code>. Let us focus on some of the results:</p>
+<p>The output is a little ugly, but you can refer to the help documentation for more detail on the output by typing <code>?prop.test</code>.</p>
+<p>You can see there are some points of interest in there for us. We can extract them individually by saving the results into a new object. Let’s call this <code>reoff_results</code>:</p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="hypotheses.html#cb318-1" aria-hidden="true" tabindex="-1"></a>reoff_results <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">50</span>))</span></code></pre></div>
+<p>Then we can extract this from our new object <code>reoff_results</code> the same way we refer to variables in dataframes, by using the <code>$</code> operator.</p>
+<p>Let us focus on interpreting these results:</p>
 <ul>
-<li><p>P-value: probability of the null hypothesis is true – it is less than α = 0.05</p></li>
-<li><p>Alternative hypothesis: the direction of the hypothesis – We expect between-group differences in either direction so it is two-sided</p></li>
-<li><p>prop1 and prop2: proportions attributed to each group – 20% in one group (10/ 50) and 56% in the other (28/ 50)</p></li>
+<li><strong>P-value</strong>: probability of observing this difference in proportions given the null hypothesis is true. To extract this value we need <code>$p.value</code> and then check – is it less than α = 0.05 ?</li>
 </ul>
-<p>The p-value is less than the specified α = 0.05, so we can say that the difference is statistically significant. We have evidence to reject the null hypothesis that no difference in reoffending exists between the treatment and control groups. This suggests that <em>something</em> is happening because of the intervention, but we are not sure what.</p>
-<p>Now, if we want a directional hypothesis? For example, we expect that reoffending reduces in the treatment group compared to the control group:</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" title="1"><span class="co"># We add ‘alternative=’ and specify ‘less’ to indicate we expect the treatment group to have a smaller probability of reoffending than the control</span></a>
-<a class="sourceLine" id="cb319-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
-<pre><code>## 
-##  2-sample test for equality of proportions with continuity correction
-## 
-## data:  c(10, 28) out of c(50, 50)
-## X-squared = 12.267, df = 1, p-value = 0.0002306
-## alternative hypothesis: less
-## 95 percent confidence interval:
-##  -1.0000000 -0.1917075
-## sample estimates:
-## prop 1 prop 2 
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="hypotheses.html#cb319-1" aria-hidden="true" tabindex="-1"></a>reoff_results<span class="sc">$</span>p.value</span></code></pre></div>
+<pre><code>## [1] 0.0004611492</code></pre>
+<ul>
+<li><strong>Alternative hypothesis</strong>: although we should specify the direction of the hypothesis before even collecting our data, R reminds us of our choices here. Since let’s say initially we expect between-group differences in either direction so it is <strong>non-directional</strong> or <strong>two-sided</strong>.</li>
+</ul>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="hypotheses.html#cb321-1" aria-hidden="true" tabindex="-1"></a>reoff_results<span class="sc">$</span>alternative</span></code></pre></div>
+<pre><code>## [1] &quot;two.sided&quot;</code></pre>
+<ul>
+<li><strong>The estimate</strong>: this gives you the proportion of successess attributed to each group – 20% in one group (10/ 50) (prop1) and 56% in the other (28/ 50) (prop2)</li>
+</ul>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="hypotheses.html#cb323-1" aria-hidden="true" tabindex="-1"></a>reoff_results<span class="sc">$</span>estimate</span></code></pre></div>
+<pre><code>## prop 1 prop 2 
 ##   0.20   0.56</code></pre>
-<p>Again, the p-value is less than α = 0.05, so we have sufficient indication to reject our null hypothesis. In other words, there is evidence to suggest that the at-risk youth in the treatment did offend less than in the control group due to the intervention, and this finding is statistically significant – we can generalise this result to the population which they represent.</p>
+<p><strong>So how do you interpret these numbers?</strong></p>
+<p>The p-value is less than the specified <span class="math inline">\(\alpha\)</span> = 0.05, so we can <em>reject our null hypothesis of no difference</em> say that the difference in re-offending between the two groups is statistically significant. We have evidence to reject the null hypothesis that no difference in re-offending exists between the treatment and control groups. This suggests that <em>something</em> is happening because of the intervention, but we are not sure what. We could now turn to look at the proportions in each group, and state that we can see fewer proportion of young people who went through the treatment re-offended than those in the control, who did not receive the treatment. But what if we wanted</p>
+</div>
+<div id="activity-6-directional-tests" class="section level4" number="6.2.2.4">
+<h4><span class="header-section-number">6.2.2.4</span> Activity 6: Directional tests</h4>
+<p>Now, what about if we want a directional hypothesis? For example, we expect that re-offending reduces in the treatment group compared to the control group. In this case, we think that the treatment group will have <em>less</em> re-offending, and this becomes our <span class="math inline">\(H_A\)</span> which we are testing. As our hypothesis has changed, the test we use has changed. Remember the assumptions of our test, that we have specified our hypotheses in advance? This is why this is important! In reality we will only run one hypothesis test. Here we just demonstrate multiple for you to learn!</p>
+<p>Okay, so how to test for a one-tailed (one-sided) <em>directional</em> hypothesis? Well we can specify within the <code>prop.test()</code> function what we want our <code>aternative</code> hypothesis to be.</p>
+<p>By default, <code>prop.test()</code> function will preform a “two.sided” test (non-directional hypothesis). This is why we did not have to specify this parameter above (although we were reminded with the <code>$alternative</code> output of our results!). To specify, we can choose which way we think the direction will go. We can choose “less” or “greater” depending on whether we think that re-offending in our treatment group will be less than in the control, or greater than in the control. Ideally, we want our treatment to <em>reduce</em> re-offending, not increase it (although remember the <em>scared straight</em> interventions we discussed last semester??), so we will choose “less” here:</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="hypotheses.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We add ‘alternative=’ and specify ‘less’ to indicate we expect the treatment group to have a smaller probability of reoffending than the control</span></span>
+<span id="cb325-2"><a href="hypotheses.html#cb325-2" aria-hidden="true" tabindex="-1"></a>reoff_directional_results <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
+<p>So what are the results now? Well first let’s check the <span class="math inline">\(H_A\)</span> we just tested with the test we just performed:</p>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="hypotheses.html#cb326-1" aria-hidden="true" tabindex="-1"></a>reoff_directional_results<span class="sc">$</span>alternative</span></code></pre></div>
+<pre><code>## [1] &quot;less&quot;</code></pre>
+<p>We see the <span class="math inline">\(H_A\)</span> we tested is that the treatment group has re-offended (succeeded??) <em>less</em> than the control group.</p>
+<p>Great! Does this change our conclusions?</p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="hypotheses.html#cb328-1" aria-hidden="true" tabindex="-1"></a>reoff_directional_results<span class="sc">$</span>p.value</span></code></pre></div>
+<pre><code>## [1] 0.0002305746</code></pre>
+<p>Doesn’t seem so. Again, the p-value is less than <span class="math inline">\(\alpha\)</span> = 0.05, so we have sufficient indication to reject our null hypothesis. In other words, there is evidence to suggest that the at-risk youth in the treatment did offend less than in the control group due to the intervention, and this finding is statistically significant – we can generalise this result to the population which they represent.</p>
 <p>Now if, for example, we found out that the therapist hired to deliver the intervention was a fraud, we may be worried the treatment group did worse than the control group. We then would expect a directional hypothesis where reoffending is higher in the treatment group than that of the control. We run the two-sample proportion test again, but with a slight difference to the direction:</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" title="1"><span class="co"># We specify ‘greater’ following ‘alternative’ to indicate our expected direction for the treatment group relative to the control group</span></a>
-<a class="sourceLine" id="cb321-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
-<pre><code>## 
-##  2-sample test for equality of proportions with continuity correction
-## 
-## data:  c(10, 28) out of c(50, 50)
-## X-squared = 12.267, df = 1, p-value = 0.9998
-## alternative hypothesis: greater
-## 95 percent confidence interval:
-##  -0.5282925  1.0000000
-## sample estimates:
-## prop 1 prop 2 
-##   0.20   0.56</code></pre>
-<p>The p-value is greater than the specified 0.05, meaning that we have failed to reject the null hypothesis, and we do not have adequate evidence to support our hypothesis that our intervention increases reoffending.</p>
-<p>With this example, we have committed some bad practice: we did multiple hypothesis tests. This is a no-no: stick to one hypothesis and test that. Our purpose here, however, was to demonstrate how to run the binomial test. Recall that it is important to state your hypotheses before you collect and analyse your data.</p>
-<p>Including confidence intervals (CIs) is good practice, and it is possible to create them for binomial proportions. For example, we would like to build CIs around the proportion of the outcome for each group. We use the <code>BinomCI ()</code> function in the <code>DescTools</code> package to do so:</p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" title="1"><span class="co"># CIs for treatment group where 10 reoffended</span></a>
-<a class="sourceLine" id="cb323-2" title="2"><span class="kw">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="hypotheses.html#cb330-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We specify ‘greater’ following ‘alternative’ to indicate our expected direction for the treatment group relative to the control group</span></span>
+<span id="cb330-2"><a href="hypotheses.html#cb330-2" aria-hidden="true" tabindex="-1"></a>reoff_greater_results<span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">28</span>), <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
+<p>Let’s check the p-value</p>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="hypotheses.html#cb331-1" aria-hidden="true" tabindex="-1"></a>reoff_greater_results<span class="sc">$</span>p.value</span></code></pre></div>
+<pre><code>## [1] 0.9997694</code></pre>
+<p>The p-value is greater than the specified 0.05, meaning that we have failed to reject the null hypothesis, and we do not have adequate evidence to support our hypothesis that our intervention <em>increases</em> re-offending.</p>
+<p><strong>NOTE:: </strong>With this example, we have committed some bad practice: we did multiple hypothesis tests. This is a no-no: stick to one hypothesis and test that. Our purpose here, however, was to demonstrate how to run the binomial test. Recall that it is important to state your hypotheses before you collect and analyse your data.</p>
+</div>
+<div id="activity-7-confidence-intervals" class="section level4" number="6.2.2.5">
+<h4><span class="header-section-number">6.2.2.5</span> Activity 7: Confidence Intervals</h4>
+<p>Last week we introduced Confidence Intervals. Including confidence intervals (CIs) is good practice, and it is possible to create them for binomial proportions. For example, we would like to build CIs around the proportion of the outcome for each group. We use the <code>BinomCI ()</code> function in the <code>DescTools</code> package to do so. We specify 3 parameters, (1) the number of successes (re-offenders), the sample size (50 for each group), and the confidence level (let’s stick with 95%):</p>
+<p>First for the treatment group:</p>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="hypotheses.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb333-2"><a href="hypotheses.html#cb333-2" aria-hidden="true" tabindex="-1"></a><span class="co"># CIs for treatment group where 10 reoffended</span></span>
+<span id="cb333-3"><a href="hypotheses.html#cb333-3" aria-hidden="true" tabindex="-1"></a><span class="fu">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>##      est    lwr.ci    upr.ci
 ## [1,] 0.2 0.1124375 0.3303711</code></pre>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" title="1"><span class="co"># CIs for control group where 28 reoffended</span></a>
-<a class="sourceLine" id="cb325-2" title="2"><span class="co"># By default, confidence level is 95% but have added in ‘conf.level’ to show that you can change the confidence level to, say, 99 </span></a>
-<a class="sourceLine" id="cb325-3" title="3"><span class="kw">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<p>Then for the treatment:</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="hypotheses.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CIs for control group where 28 reoffended</span></span>
+<span id="cb335-2"><a href="hypotheses.html#cb335-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb335-3"><a href="hypotheses.html#cb335-3" aria-hidden="true" tabindex="-1"></a><span class="fu">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>##       est    lwr.ci   upr.ci
 ## [1,] 0.56 0.4230603 0.688378</code></pre>
 <p>In the CI for the treatment group, 11 to 33% of young people exposed to the intervention will reoffend, whereas the CI for the control group indicates that 42 to 69% of the young people not exposed to the intervention will reoffend. This seems like a large difference. To get a better understanding, we visualise this using <code>ggplot</code>:</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" title="1"><span class="co"># Taking the previous coding and placing them in objects</span></a>
-<a class="sourceLine" id="cb327-2" title="2">treatment_group &lt;-<span class="st"> </span><span class="kw">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) </a>
-<a class="sourceLine" id="cb327-3" title="3">control_group &lt;-<span class="st"> </span><span class="kw">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a>
-<a class="sourceLine" id="cb327-4" title="4"></a>
-<a class="sourceLine" id="cb327-5" title="5"><span class="co"># Creating two error bar layers, one for each group</span></a>
-<a class="sourceLine" id="cb327-6" title="6"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb327-7" title="7"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> treatment_group[<span class="dv">2</span>], <span class="dt">ymax =</span> treatment_group[<span class="dv">3</span>], <span class="dt">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb327-8" title="8"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> treatment_group[<span class="dv">1</span>], <span class="dt">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_errorbar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> control_group[<span class="dv">2</span>], <span class="dt">ymax =</span> control_group[<span class="dv">3</span>], <span class="dt">x =</span> <span class="st">&quot;control&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb327-9" title="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> control_group[<span class="dv">1</span>], <span class="dt">x =</span> <span class="st">&quot;control&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb327-10" title="10"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Group&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb327-11" title="11"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Proportion who reoffended at follow-up&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb327-12" title="12"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
-<p><img src="06-hypotheses_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="hypotheses.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Taking the previous coding and placing them in objects</span></span>
+<span id="cb337-2"><a href="hypotheses.html#cb337-2" aria-hidden="true" tabindex="-1"></a>treatment_group <span class="ot">&lt;-</span> <span class="fu">BinomCI</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) </span>
+<span id="cb337-3"><a href="hypotheses.html#cb337-3" aria-hidden="true" tabindex="-1"></a>control_group <span class="ot">&lt;-</span> <span class="fu">BinomCI</span>(<span class="dv">28</span>, <span class="dv">50</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb337-4"><a href="hypotheses.html#cb337-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb337-5"><a href="hypotheses.html#cb337-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating two error bar layers, one for each group</span></span>
+<span id="cb337-6"><a href="hypotheses.html#cb337-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb337-7"><a href="hypotheses.html#cb337-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">ymin =</span> treatment_group[<span class="dv">2</span>], <span class="at">ymax =</span> treatment_group[<span class="dv">3</span>], <span class="at">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb337-8"><a href="hypotheses.html#cb337-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> treatment_group[<span class="dv">1</span>], <span class="at">x =</span> <span class="st">&quot;treatment&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;treatment&quot;</span>)) <span class="sc">+</span> <span class="fu">geom_errorbar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">ymin =</span> control_group[<span class="dv">2</span>], <span class="at">ymax =</span> control_group[<span class="dv">3</span>], <span class="at">x =</span> <span class="st">&quot;control&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb337-9"><a href="hypotheses.html#cb337-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> control_group[<span class="dv">1</span>], <span class="at">x =</span> <span class="st">&quot;control&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;control&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb337-10"><a href="hypotheses.html#cb337-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Group&quot;</span>) <span class="sc">+</span></span>
+<span id="cb337-11"><a href="hypotheses.html#cb337-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion who reoffended at follow-up&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb337-12"><a href="hypotheses.html#cb337-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="06-hypotheses_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p>Visualising our results, we see further support that the intervention reduces reoffending: the confidence intervals for each group do not overlap and the proportion for the control group is lower than that of the treatment group. When the CIs between groups do not overlap, this is good because it indicates that the two groups likely come from two different populations.</p>
 <hr />
 </div>
-<div id="single-sample-significance-tests" class="section level3">
+</div>
+<div id="single-sample-significance-tests" class="section level3" number="6.2.3">
 <h3><span class="header-section-number">6.2.3</span> Single-sample significance tests</h3>
-<p>For this section, we learn some hypothesis tests that use the normal distribution.</p>
-<p>Hypothesis testing using the normal distribution have the following assumptions:</p>
+<p>For this section, we learn some hypothesis tests that use the <em>normal distribution</em>.</p>
+<p>Remember we’re starting with our assumptions. Hypothesis testing using the normal distribution have the following assumptions:</p>
 <ol style="list-style-type: decimal">
 <li><p><em>Level of measurement:</em> the variable is interval or ratio level</p></li>
 <li><p><em>Shape of the population distribution:</em> normal distribution</p></li>
@@ -441,151 +614,161 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><em>Hypothesis:</em> stated before collection and analysis of data</p></li>
 </ol>
 <p>Unlike the binominal test, which compared groups, we will be comparing a single group – our sample – to the population. This may sound strange because we have learned that information about the population is rare, so we must make do with uncertainty. In some cases, however, we may know the population parameter and these tests can be used. When comparing our sample to a known population, we use the z- distribution; if we have to compare with an unknown population, we use the t-distribution. The z- and t- distributions are types of normal distributions.</p>
-<p>The normal distribution has some predictable characteristics about it. One is that half of the distribution will always be below the mean, and the other half will be above the mean. We demonstrate this by creating a synthetic data of 1.5 million US prisoner IQ scores, drawn from a population that is normally distributed (μ = 100; SD = 15). We then test whether half of our population have an IQ above the mean. We introduce two new functions: <code>which ()</code> to select a subset of prisoners who have an IQ of 100 + and <code>nrow ()</code>, which divides the number of prisoners with an IQ of 100+ by the total number of prisoners:</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" title="1"><span class="co"># Make synthetic data which includes the variables ‘prisoner_id’ and ‘IQ’</span></a>
-<a class="sourceLine" id="cb328-2" title="2"><span class="co"># ‘prisoner_id’ has 1 to 1.5 million IDs while ‘IQ’ has scores generated by ‘rnorm’ function </span></a>
-<a class="sourceLine" id="cb328-3" title="3"><span class="co"># Place data frame in object called ‘PrisonerIQ’</span></a>
-<a class="sourceLine" id="cb328-4" title="4">PrisonerIQ &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">prisoner_id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">1500000</span>, <span class="dt">IQ =</span> <span class="kw">round</span>(<span class="kw">rnorm</span>(<span class="dv">1500000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>)) </a>
-<a class="sourceLine" id="cb328-5" title="5"></a>
-<a class="sourceLine" id="cb328-6" title="6"><span class="co"># Using ‘which’ function to make subset of prisoners with IQ above 100</span></a>
-<a class="sourceLine" id="cb328-7" title="7"><span class="co"># ‘which’ is to the left of the ‘,’ at the end of code to specify that we are selecting rows</span></a>
-<a class="sourceLine" id="cb328-8" title="8"><span class="co"># Place subset in object called ‘IQ_Over_100’</span></a>
-<a class="sourceLine" id="cb328-9" title="9">IQ_Over_<span class="dv">100</span> &lt;-<span class="st"> </span>PrisonerIQ[ <span class="kw">which</span>(PrisonerIQ<span class="op">$</span>IQ<span class="op">&gt;</span><span class="dv">100</span>) ,] </a>
-<a class="sourceLine" id="cb328-10" title="10"></a>
-<a class="sourceLine" id="cb328-11" title="11"><span class="co"># Divide ‘IQ_Over_100’ by total number of prisoner IQ scores</span></a>
-<a class="sourceLine" id="cb328-12" title="12"><span class="kw">nrow</span>(IQ_Over_<span class="dv">100</span>)<span class="op">/</span><span class="kw">nrow</span>(PrisonerIQ)</a></code></pre></div>
-<pre><code>## [1] 0.4867213</code></pre>
+<p>The normal distribution has some predictable characteristics about it. One is that half of the distribution will always be below the mean, and the other half will be above the mean. We demonstrate this by creating a synthetic data of 1.5 million US prisoner IQ scores, drawn from a population that is normally distributed (<span class="math inline">\(\mu\)</span> = 100; SD = 15). We then test whether half of our population have an IQ above the mean. We introduce two new functions: <code>which()</code> to select a subset of prisoners who have an IQ of 100 + and <code>nrow()</code>, which divides the number of prisoners with an IQ of 100+ by the total number of prisoners:</p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="hypotheses.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make synthetic data which includes the variables ‘prisoner_id’ and ‘IQ’</span></span>
+<span id="cb338-2"><a href="hypotheses.html#cb338-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ‘prisoner_id’ has 1 to 1.5 million IDs while ‘IQ’ has scores generated by ‘rnorm’ function </span></span>
+<span id="cb338-3"><a href="hypotheses.html#cb338-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Place data frame in object called ‘prisoner_iq’</span></span>
+<span id="cb338-4"><a href="hypotheses.html#cb338-4" aria-hidden="true" tabindex="-1"></a>prisoner_iq <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="at">prisoner_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1500000</span>, <span class="at">IQ =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">1500000</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>), <span class="dv">0</span>)) </span>
+<span id="cb338-5"><a href="hypotheses.html#cb338-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb338-6"><a href="hypotheses.html#cb338-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Using ‘which’ function to make subset of prisoners with IQ above 100</span></span>
+<span id="cb338-7"><a href="hypotheses.html#cb338-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ‘which’ is to the left of the ‘,’ at the end of code to specify that we are selecting rows</span></span>
+<span id="cb338-8"><a href="hypotheses.html#cb338-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Place subset in object called ‘iq_over_100’</span></span>
+<span id="cb338-9"><a href="hypotheses.html#cb338-9" aria-hidden="true" tabindex="-1"></a>iq_over_100 <span class="ot">&lt;-</span> prisoner_iq <span class="sc">%&gt;%</span> <span class="fu">filter</span>(IQ <span class="sc">&gt;</span> <span class="dv">100</span>)</span>
+<span id="cb338-10"><a href="hypotheses.html#cb338-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb338-11"><a href="hypotheses.html#cb338-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide ‘iq_over_100’ by total number of prisoner IQ scores</span></span>
+<span id="cb338-12"><a href="hypotheses.html#cb338-12" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(iq_over_100)<span class="sc">/</span><span class="fu">nrow</span>(prisoner_iq)</span></code></pre></div>
+<pre><code>## [1] 0.4867987</code></pre>
 <p>The result should be close to .50 indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the <strong>z-score</strong> is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.</p>
-<p>To create z-scores, we use the function <code>scale ()</code>. For the next example, we take the IQ of five prisoners and change the IQ of the first prisoner from 102 to 115 so that it is easy to show that this prisoner’s z-score is 1. The reason is the prisoner’s IQ score of 115 is one standard deviation above the population mean. (Remember: μ = 100; SD = 15):</p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" title="1"><span class="co"># View the first 5 prisoner IQs</span></a>
-<a class="sourceLine" id="cb330-2" title="2">PrisonerIQ[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] </a></code></pre></div>
+<div id="activity-8-calculating-a-z-score" class="section level4" number="6.2.3.1">
+<h4><span class="header-section-number">6.2.3.1</span> Activity 8: Calculating a z-score</h4>
+<p>This should all be sounding a bit familiar now. All the z-score does is express in standard deviations, how far away a particular observed value lies from the mean. The z score of any observed value can be calculated by subtracting the mean from the observation, and dividing by the standard deviation. Simply:</p>
+<p><span class="math inline">\(z = \frac{x - \mu}{\sigma}\)</span></p>
+<p>However, since R is nice to us, we can make it even simpler to create z-scores, we can use the function <code>scale()</code>. For the next example, we take the IQ of five prisoners and change the IQ of the first prisoner from 102 to 115 so that it is easy to show that this prisoner’s z-score is 1. The reason is the prisoner’s IQ score of 115 is one standard deviation above the population mean. (Remember: <span class="math inline">\(\mu\)</span> = 100; SD = 15):</p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="hypotheses.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first 5 prisoner IQs</span></span>
+<span id="cb340-2"><a href="hypotheses.html#cb340-2" aria-hidden="true" tabindex="-1"></a>prisoner_iq[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,] </span></code></pre></div>
 <pre><code>##   prisoner_id  IQ
-## 1           1 106
-## 2           2  83
-## 3           3 115
-## 4           4 110
-## 5           5 112</code></pre>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" title="1"><span class="co"># Change the IQ of prisoner #1 </span></a>
-<a class="sourceLine" id="cb332-2" title="2">PrisonerIQ<span class="op">$</span>IQ[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">115</span></a>
-<a class="sourceLine" id="cb332-3" title="3"></a>
-<a class="sourceLine" id="cb332-4" title="4"><span class="co"># Create a variable storing z-scores of IQs </span></a>
-<a class="sourceLine" id="cb332-5" title="5">PrisonerIQ<span class="op">$</span>z_scoreIQ &lt;-<span class="st"> </span><span class="kw">scale</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
-<a class="sourceLine" id="cb332-6" title="6"></a>
-<a class="sourceLine" id="cb332-7" title="7"><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></a>
-<a class="sourceLine" id="cb332-8" title="8">PrisonerIQ[<span class="dv">1</span>,]</a></code></pre></div>
+## 1           1  98
+## 2           2 108
+## 3           3 109
+## 4           4 111
+## 5           5  97</code></pre>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="hypotheses.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the IQ of prisoner #1 </span></span>
+<span id="cb342-2"><a href="hypotheses.html#cb342-2" aria-hidden="true" tabindex="-1"></a>prisoner_iq<span class="sc">$</span>IQ[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">115</span></span>
+<span id="cb342-3"><a href="hypotheses.html#cb342-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb342-4"><a href="hypotheses.html#cb342-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a variable storing z-scores of IQs </span></span>
+<span id="cb342-5"><a href="hypotheses.html#cb342-5" aria-hidden="true" tabindex="-1"></a>prisoner_iq<span class="sc">$</span>z_scoreIQ <span class="ot">&lt;-</span> <span class="fu">scale</span>(prisoner_iq<span class="sc">$</span>IQ) </span>
+<span id="cb342-6"><a href="hypotheses.html#cb342-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb342-7"><a href="hypotheses.html#cb342-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></span>
+<span id="cb342-8"><a href="hypotheses.html#cb342-8" aria-hidden="true" tabindex="-1"></a>prisoner_iq[<span class="dv">1</span>,]</span></code></pre></div>
 <pre><code>##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9990069</code></pre>
+## 1           1 115 0.9994118</code></pre>
+<p>To show that this is the same z-score you would get with the formula above, go ahead and calculate <span class="math inline">\(z = \frac{x - \mu}{\sigma}\)</span>:</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="hypotheses.html#cb344-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">115</span> <span class="sc">-</span> <span class="fu">mean</span>(prisoner_iq<span class="sc">$</span>IQ))<span class="sc">/</span><span class="fu">sd</span>(prisoner_iq<span class="sc">$</span>IQ)</span></code></pre></div>
+<pre><code>## [1] 0.9994118</code></pre>
+<p>Same value!</p>
 <p>Where the z-score becomes practical is illustrated in the following example: say if a probation officer is writing a report for a prisoner who is about to be up for parole. The prisoner has an IQ of 124. The officer wants to give a good idea of how this score compares to all other prisoners. An apt way of doing this is to state the proportion of prisoners who have lower IQs. This can be done using the <code>pnormGC()</code> function from the <code>tigerstats</code> package:</p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" title="1"><span class="co"># The mean should be 100 but, in reality, it is not precise, so we calculate it and put in the #object ‘m’</span></a>
-<a class="sourceLine" id="cb334-2" title="2">m&lt;-<span class="kw">mean</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
-<a class="sourceLine" id="cb334-3" title="3"></a>
-<a class="sourceLine" id="cb334-4" title="4"><span class="co"># Same with sd; it should be 15 but we calculate it to get a precise estimate and put in object #‘sd’</span></a>
-<a class="sourceLine" id="cb334-5" title="5">sd&lt;-<span class="kw">sd</span>(PrisonerIQ<span class="op">$</span>IQ) </a>
-<a class="sourceLine" id="cb334-6" title="6"></a>
-<a class="sourceLine" id="cb334-7" title="7"><span class="co"># Enter the prisoner’s IQ score and specify ‘below’ following ‘region’ because we are </span></a>
-<a class="sourceLine" id="cb334-8" title="8"><span class="co"># interested in IQ scores below 124</span></a>
-<a class="sourceLine" id="cb334-9" title="9"><span class="kw">pnormGC</span>(<span class="dv">124</span>, <span class="dt">region=</span><span class="st">&quot;below&quot;</span>, <span class="dt">mean=</span>m, <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>) </a></code></pre></div>
-<p><img src="06-hypotheses_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre><code>## [1] 0.9450253</code></pre>
-<p>The output shows 0.9453, meaning that the prisoner has a higher IQ than over 94% of the prison population.</p>
-<p>Recall from the previous week, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68% of cases in the distribution fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within 3 SD. We demonstrate this rule by using the <code>pnormGC ()</code> function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" title="1"><span class="co"># Specify ‘between’ for ‘region’ because we are interested in proportion of prisoners between the two given values</span></a>
-<a class="sourceLine" id="cb336-2" title="2"><span class="kw">pnormGC</span>(<span class="dt">bound=</span><span class="kw">c</span>(<span class="dv">85</span>, <span class="dv">115</span>),<span class="dt">region=</span><span class="st">&quot;between&quot;</span>, <span class="dt">mean=</span><span class="dv">100</span>,<span class="dt">sd=</span><span class="dv">15</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</a></code></pre></div>
-<p><img src="06-hypotheses_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="hypotheses.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tigerstats)</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="hypotheses.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The mean should be 100 but, in reality, it is not precise, so we calculate it and put in the #object ‘iq_m’</span></span>
+<span id="cb347-2"><a href="hypotheses.html#cb347-2" aria-hidden="true" tabindex="-1"></a>iq_m<span class="ot">&lt;-</span><span class="fu">mean</span>(prisoner_iq<span class="sc">$</span>IQ) </span>
+<span id="cb347-3"><a href="hypotheses.html#cb347-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-4"><a href="hypotheses.html#cb347-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Same with sd; it should be 15 but we calculate it to get a precise estimate and put in object #‘iq_sd’</span></span>
+<span id="cb347-5"><a href="hypotheses.html#cb347-5" aria-hidden="true" tabindex="-1"></a>iq_sd<span class="ot">&lt;-</span><span class="fu">sd</span>(prisoner_iq<span class="sc">$</span>IQ) </span>
+<span id="cb347-6"><a href="hypotheses.html#cb347-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-7"><a href="hypotheses.html#cb347-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter the prisoner’s IQ score and specify ‘below’ following ‘region’ because we are </span></span>
+<span id="cb347-8"><a href="hypotheses.html#cb347-8" aria-hidden="true" tabindex="-1"></a><span class="co"># interested in IQ scores below 124</span></span>
+<span id="cb347-9"><a href="hypotheses.html#cb347-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pnormGC</span>(<span class="dv">124</span>, <span class="at">region=</span><span class="st">&quot;below&quot;</span>, <span class="at">mean=</span>iq_m, <span class="at">sd=</span>iq_sd,<span class="at">graph=</span><span class="cn">TRUE</span>) </span></code></pre></div>
+<p><img src="06-hypotheses_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<pre><code>## [1] 0.945133</code></pre>
+<p>The output shows the shaded area at 0.9453, meaning that the prisoner has a higher IQ than over 94% of the prison population.</p>
+<p>Recall from the previous week, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68% of cases in the distribution fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within 3 SD. We demonstrate this rule by using the <code>pnormGC()</code> function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="hypotheses.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify ‘between’ for ‘region’ because we are interested in proportion of prisoners between the two given values</span></span>
+<span id="cb349-2"><a href="hypotheses.html#cb349-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnormGC</span>(<span class="at">bound=</span><span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">115</span>),<span class="at">region=</span><span class="st">&quot;between&quot;</span>, <span class="at">mean=</span><span class="dv">100</span>,<span class="at">sd=</span><span class="dv">15</span>,<span class="at">graph=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="06-hypotheses_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <pre><code>## [1] 0.6826895</code></pre>
 <p>And, yes, it shows that 68% of the IQ scores do fall within 1 SD of the mean.</p>
 <hr />
-<div id="single-sample-z-tests-for-means" class="section level4">
-<h4><span class="header-section-number">6.2.3.1</span> <strong>Single sample z-tests for means</strong></h4>
+</div>
+<div id="activity-9-single-sample-z-tests-for-means" class="section level4" number="6.2.3.2">
+<h4><span class="header-section-number">6.2.3.2</span> Activity 9: Single sample z-tests for means</h4>
 <p>Returning to the parole board example, say if the officer wanted to know, with 99% confidence, if the average IQ at this specific prison is significantly different from those of all prisons in the UK. The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 103 (SD =18). As the population parameter is known on prisoner IQ, a <strong>single sample z-test</strong> is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:</p>
 <p><span class="math inline">\(H_0\)</span>: The mean IQ of the population from which our sample of prisoners was drawn is the same as the mean IQ of the UK prison population (mean = 100).</p>
 <p><span class="math inline">\(H_A\)</span>: The mean IQ of the population from which our sample of prisoners was drawn is not the same as the mean IQ of the UK prison population (mean ≠ 100).</p>
 <p>We create our own function called ’ z_test ’ so that other prisons can easily compare their IQ scores to that of all prisoners. In addition, we use <code>cat()</code>, which combines our string text to label our z-score in the output and the computed z-score together.</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" title="1"><span class="co"># Specifying inputs in the order that the user needs to enter them : mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared</span></a>
-<a class="sourceLine" id="cb338-2" title="2">z_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
-<a class="sourceLine" id="cb338-3" title="3">  z &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)) <span class="co"># Equation for one-sample z-test</span></a>
-<a class="sourceLine" id="cb338-4" title="4">  <span class="kw">return</span>(<span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z)) <span class="co"># Report z-score to the user</span></a>
-<a class="sourceLine" id="cb338-5" title="5"></a>
-<a class="sourceLine" id="cb338-6" title="6">} <span class="co"># End function</span></a>
-<a class="sourceLine" id="cb338-7" title="7"></a>
-<a class="sourceLine" id="cb338-8" title="8"><span class="co"># Test it with our example by supplying estimates </span></a>
-<a class="sourceLine" id="cb338-9" title="9"><span class="kw">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="hypotheses.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifying inputs in the order that the user needs to enter them : mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared</span></span>
+<span id="cb351-2"><a href="hypotheses.html#cb351-2" aria-hidden="true" tabindex="-1"></a>z_test<span class="ot">&lt;-</span><span class="cf">function</span>(xbar, sd, n, mu) { </span>
+<span id="cb351-3"><a href="hypotheses.html#cb351-3" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">&lt;-</span> (xbar<span class="sc">-</span>mu) <span class="sc">/</span> (sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)) <span class="co"># Equation for one-sample z-test</span></span>
+<span id="cb351-4"><a href="hypotheses.html#cb351-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">&#39;z =&#39;</span>, z)) <span class="co"># Report z-score to the user</span></span>
+<span id="cb351-5"><a href="hypotheses.html#cb351-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb351-6"><a href="hypotheses.html#cb351-6" aria-hidden="true" tabindex="-1"></a>} <span class="co"># End function</span></span>
+<span id="cb351-7"><a href="hypotheses.html#cb351-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb351-8"><a href="hypotheses.html#cb351-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Test it with our example by supplying estimates </span></span>
+<span id="cb351-9"><a href="hypotheses.html#cb351-9" aria-hidden="true" tabindex="-1"></a><span class="fu">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</span></code></pre></div>
 <pre><code>## z = 2.544056</code></pre>
-<p>Including the p-value would be helpful so we edit our code and use the function <code>pnorm ()</code> to compute the probability value.</p>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" title="1"><span class="co"># Same as above</span></a>
-<a class="sourceLine" id="cb340-2" title="2">z_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
-<a class="sourceLine" id="cb340-3" title="3">z &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)) </a>
-<a class="sourceLine" id="cb340-4" title="4"></a>
-<a class="sourceLine" id="cb340-5" title="5"><span class="co"># This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non-directional </span></a>
-<a class="sourceLine" id="cb340-6" title="6">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(z)) </a>
-<a class="sourceLine" id="cb340-7" title="7"></a>
-<a class="sourceLine" id="cb340-8" title="8"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </a>
-<a class="sourceLine" id="cb340-9" title="9"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p)) <span class="co"># Added code to return p-value</span></a>
-<a class="sourceLine" id="cb340-10" title="10">} </a>
-<a class="sourceLine" id="cb340-11" title="11"></a>
-<a class="sourceLine" id="cb340-12" title="12"><span class="co"># Test it with our example again </span></a>
-<a class="sourceLine" id="cb340-13" title="13"><span class="kw">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</a></code></pre></div>
+<p>Including the p-value would be helpful so we edit our code and use the function <code>pnorm()</code> to compute the probability value.</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="hypotheses.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Same as above</span></span>
+<span id="cb353-2"><a href="hypotheses.html#cb353-2" aria-hidden="true" tabindex="-1"></a>z_test<span class="ot">&lt;-</span><span class="cf">function</span>(xbar, sd, n, mu) { </span>
+<span id="cb353-3"><a href="hypotheses.html#cb353-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (xbar<span class="sc">-</span>mu) <span class="sc">/</span> (sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)) </span>
+<span id="cb353-4"><a href="hypotheses.html#cb353-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb353-5"><a href="hypotheses.html#cb353-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non-directional </span></span>
+<span id="cb353-6"><a href="hypotheses.html#cb353-6" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fu">abs</span>(z)) </span>
+<span id="cb353-7"><a href="hypotheses.html#cb353-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb353-8"><a href="hypotheses.html#cb353-8" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>( <span class="fu">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </span>
+<span id="cb353-9"><a href="hypotheses.html#cb353-9" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span><span class="sc">\n</span><span class="st">p-value =&#39;</span>, p)) <span class="co"># Added code to return p-value</span></span>
+<span id="cb353-10"><a href="hypotheses.html#cb353-10" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb353-11"><a href="hypotheses.html#cb353-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb353-12"><a href="hypotheses.html#cb353-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Test it with our example again </span></span>
+<span id="cb353-13"><a href="hypotheses.html#cb353-13" aria-hidden="true" tabindex="-1"></a><span class="fu">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</span></code></pre></div>
 <pre><code>## z = 2.544056 
 ## p-value = 0.01095734</code></pre>
 <p>Remember that the officer wanted to be 99% confident, and this means that the significance level would be set at α = 0.01 and not α = 0.05 (this is if we are 95% confident). As so, our p-value is greater than the alpha level so we fail to reject the null hypothesis.</p>
 <hr />
 </div>
-<div id="single-sample-z-tests-for-proportions" class="section level4">
-<h4><span class="header-section-number">6.2.3.2</span> <strong>Single Sample z-tests for Proportions</strong></h4>
+<div id="activity-10-single-sample-z-tests-for-proportions" class="section level4" number="6.2.3.3">
+<h4><span class="header-section-number">6.2.3.3</span> Activity 10: Single Sample z-tests for Proportions</h4>
 <p>Our next example is to do with evaluating a new prison education programme. The foundation supporting the programme would like to achieve a success rate of 75% among 100,000 prisoners participating in he programme. Success is defined as completion of the six-month course.</p>
 <p>After the programme ran, there is conflicting information about its success: managers of the programme claim they achieved higher than the 75% success rate, while a journalist investigating the programme claimed it was below 75%. You want to get to the bottom of this, so you collect information from 150 of the prisoners who enrolled on the programme using independent random sampling.</p>
 <p>Your data shows that 85% of the participants successfully completed the programme. What to make of your result? Let’s set up the hypotheses where we want a non-directional alternative hypothesis:</p>
 <p><span class="math inline">\(H_0\)</span>: The success rate of the program is 0.75% (P = 0.75).</p>
 <p><span class="math inline">\(H_A\)</span>: The success rate of the program is not 0.75% (P ≠ 0.75)</p>
 <p>To test this, we use a <strong>single-sample z-test for proportions</strong> because we are concerned with comparing the percentages or proportions between our sample and the known population. We create another new function:</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" title="1"><span class="co"># Specifying inputs: p is proportion of success, P is proportion of success in population, n is sample size</span></a>
-<a class="sourceLine" id="cb342-2" title="2">prop_z_test&lt;-<span class="cf">function</span>(p, P, n) { </a>
-<a class="sourceLine" id="cb342-3" title="3"></a>
-<a class="sourceLine" id="cb342-4" title="4">Numerator&lt;-(p <span class="op">-</span><span class="st"> </span>P) </a>
-<a class="sourceLine" id="cb342-5" title="5"></a>
-<a class="sourceLine" id="cb342-6" title="6">PQ&lt;-<span class="st"> </span>P <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span><span class="op">-</span>P) </a>
-<a class="sourceLine" id="cb342-7" title="7"></a>
-<a class="sourceLine" id="cb342-8" title="8"><span class="co"># Standard error</span></a>
-<a class="sourceLine" id="cb342-9" title="9">Denominator&lt;-<span class="kw">sqrt</span>(PQ <span class="op">/</span><span class="st"> </span>n) </a>
-<a class="sourceLine" id="cb342-10" title="10">z&lt;-<span class="st"> </span>Numerator <span class="op">/</span><span class="st"> </span>Denominator </a>
-<a class="sourceLine" id="cb342-11" title="11"></a>
-<a class="sourceLine" id="cb342-12" title="12"><span class="co"># Return the z-value and p-value to the user</span></a>
-<a class="sourceLine" id="cb342-13" title="13">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(z)) </a>
-<a class="sourceLine" id="cb342-14" title="14"></a>
-<a class="sourceLine" id="cb342-15" title="15"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </a>
-<a class="sourceLine" id="cb342-16" title="16"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p)) </a>
-<a class="sourceLine" id="cb342-17" title="17">} </a>
-<a class="sourceLine" id="cb342-18" title="18"></a>
-<a class="sourceLine" id="cb342-19" title="19"><span class="co"># Let&#39;s test it using the values from our problem </span></a>
-<a class="sourceLine" id="cb342-20" title="20"><span class="kw">prop_z_test</span>(<span class="fl">0.85</span>, <span class="fl">0.75</span>, <span class="dv">150</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="hypotheses.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifying inputs: p is proportion of success, P is proportion of success in population, n is sample size</span></span>
+<span id="cb355-2"><a href="hypotheses.html#cb355-2" aria-hidden="true" tabindex="-1"></a>prop_z_test<span class="ot">&lt;-</span><span class="cf">function</span>(p, P, n) { </span>
+<span id="cb355-3"><a href="hypotheses.html#cb355-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb355-4"><a href="hypotheses.html#cb355-4" aria-hidden="true" tabindex="-1"></a>Numerator<span class="ot">&lt;-</span>(p <span class="sc">-</span> P) </span>
+<span id="cb355-5"><a href="hypotheses.html#cb355-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb355-6"><a href="hypotheses.html#cb355-6" aria-hidden="true" tabindex="-1"></a>PQ<span class="ot">&lt;-</span> P <span class="sc">*</span> (<span class="dv">1</span><span class="sc">-</span>P) </span>
+<span id="cb355-7"><a href="hypotheses.html#cb355-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb355-8"><a href="hypotheses.html#cb355-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard error</span></span>
+<span id="cb355-9"><a href="hypotheses.html#cb355-9" aria-hidden="true" tabindex="-1"></a>Denominator<span class="ot">&lt;-</span><span class="fu">sqrt</span>(PQ <span class="sc">/</span> n) </span>
+<span id="cb355-10"><a href="hypotheses.html#cb355-10" aria-hidden="true" tabindex="-1"></a>z<span class="ot">&lt;-</span> Numerator <span class="sc">/</span> Denominator </span>
+<span id="cb355-11"><a href="hypotheses.html#cb355-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb355-12"><a href="hypotheses.html#cb355-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the z-value and p-value to the user</span></span>
+<span id="cb355-13"><a href="hypotheses.html#cb355-13" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fu">abs</span>(z)) </span>
+<span id="cb355-14"><a href="hypotheses.html#cb355-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb355-15"><a href="hypotheses.html#cb355-15" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>( <span class="fu">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </span>
+<span id="cb355-16"><a href="hypotheses.html#cb355-16" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span><span class="sc">\n</span><span class="st">p-value =&#39;</span>, p)) </span>
+<span id="cb355-17"><a href="hypotheses.html#cb355-17" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb355-18"><a href="hypotheses.html#cb355-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb355-19"><a href="hypotheses.html#cb355-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s test it using the values from our problem </span></span>
+<span id="cb355-20"><a href="hypotheses.html#cb355-20" aria-hidden="true" tabindex="-1"></a><span class="fu">prop_z_test</span>(<span class="fl">0.85</span>, <span class="fl">0.75</span>, <span class="dv">150</span>)</span></code></pre></div>
 <pre><code>## z = 2.828427 
 ## p-value = 0.004677735</code></pre>
 <p>The z-score is 2.828427 and the p-value is statistically significant. We reject the null hypothesis and conclude that the success rate is not 75%.</p>
 <hr />
 </div>
-<div id="single-sample-t-tests-for-means" class="section level4">
-<h4><span class="header-section-number">6.2.3.3</span> <strong>Single-sample t-tests for Means</strong></h4>
+<div id="activity-11-single-sample-t-tests-for-means" class="section level4" number="6.2.3.4">
+<h4><span class="header-section-number">6.2.3.4</span> Activity 11: Single-sample t-tests for Means</h4>
 <p>When the population parameter is unknown and we want to compare our sample to it, we use the t-distribution. From the previous example, let us say that average test scores were also collected for those prisoners who completed the six-month education course.</p>
 <p>The foundation defined success as 65 for the test. Again, managers claimed the average scores were higher than this, whereas the journalist claimed the average was below 65. You have collected test score information from 50 prisoners and find that the mean is 60 and SD is 15. What conclusions can be made about the <em>larger population of prisoners</em> at the 95% confidence level?</p>
 <p><em>Hypotheses</em></p>
 <p><span class="math inline">\(H_0\)</span>: The mean test score for prisoners who have completed the program is 65 (μ = 65).</p>
 <p><span class="math inline">\(H_A\)</span>: The mean test score for prisoners who have completed the program is not 65 (μ ≠ 65).</p>
 <p>We conduct a <strong>single-sample t-test for means</strong>, which is similar to the previous z-tests except it is for an unknown population, which in this case, is the overall population of prisoners and not just the ones who had completed the six-month education programme. We modify the code from the <code>z_test ()</code> function:</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" title="1"><span class="co"># Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65</span></a>
-<a class="sourceLine" id="cb344-2" title="2">single_t_test&lt;-<span class="cf">function</span>(xbar, sd, n, mu) { </a>
-<a class="sourceLine" id="cb344-3" title="3"></a>
-<a class="sourceLine" id="cb344-4" title="4"><span class="co"># Equation for one-sample z-test</span></a>
-<a class="sourceLine" id="cb344-5" title="5">t &lt;-<span class="st"> </span>(xbar<span class="op">-</span>mu) <span class="op">/</span><span class="st"> </span>(sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)) </a>
-<a class="sourceLine" id="cb344-6" title="6"></a>
-<a class="sourceLine" id="cb344-7" title="7"><span class="co"># Report t-score and p-value to the user</span></a>
-<a class="sourceLine" id="cb344-8" title="8">p&lt;-<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(t)) </a>
-<a class="sourceLine" id="cb344-9" title="9"></a>
-<a class="sourceLine" id="cb344-10" title="10"><span class="kw">return</span>( <span class="kw">cat</span>(<span class="st">&#39;t =&#39;</span>, t, </a>
-<a class="sourceLine" id="cb344-11" title="11"><span class="st">&#39;</span><span class="ch">\n</span><span class="st">p-value =&#39;</span>, p))</a>
-<a class="sourceLine" id="cb344-12" title="12">} </a>
-<a class="sourceLine" id="cb344-13" title="13"></a>
-<a class="sourceLine" id="cb344-14" title="14"><span class="co"># Test it with our example </span></a>
-<a class="sourceLine" id="cb344-15" title="15"><span class="kw">single_t_test</span>(<span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">51</span>, <span class="dv">65</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="hypotheses.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65</span></span>
+<span id="cb357-2"><a href="hypotheses.html#cb357-2" aria-hidden="true" tabindex="-1"></a>single_t_test<span class="ot">&lt;-</span><span class="cf">function</span>(xbar, sd, n, mu) { </span>
+<span id="cb357-3"><a href="hypotheses.html#cb357-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb357-4"><a href="hypotheses.html#cb357-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Equation for one-sample z-test</span></span>
+<span id="cb357-5"><a href="hypotheses.html#cb357-5" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> (xbar<span class="sc">-</span>mu) <span class="sc">/</span> (sd <span class="sc">/</span> <span class="fu">sqrt</span>(n <span class="sc">-</span> <span class="dv">1</span>)) </span>
+<span id="cb357-6"><a href="hypotheses.html#cb357-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb357-7"><a href="hypotheses.html#cb357-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Report t-score and p-value to the user</span></span>
+<span id="cb357-8"><a href="hypotheses.html#cb357-8" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fu">abs</span>(t)) </span>
+<span id="cb357-9"><a href="hypotheses.html#cb357-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb357-10"><a href="hypotheses.html#cb357-10" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>( <span class="fu">cat</span>(<span class="st">&#39;t =&#39;</span>, t, </span>
+<span id="cb357-11"><a href="hypotheses.html#cb357-11" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span><span class="sc">\n</span><span class="st">p-value =&#39;</span>, p))</span>
+<span id="cb357-12"><a href="hypotheses.html#cb357-12" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb357-13"><a href="hypotheses.html#cb357-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb357-14"><a href="hypotheses.html#cb357-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Test it with our example </span></span>
+<span id="cb357-15"><a href="hypotheses.html#cb357-15" aria-hidden="true" tabindex="-1"></a><span class="fu">single_t_test</span>(<span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">51</span>, <span class="dv">65</span>)</span></code></pre></div>
 <pre><code>## t = -2.357023 
 ## p-value = 0.01842213</code></pre>
 <p>The t-value of -2.357023 is statistically significant, so we have sufficient support to reject the null hypothesis. We conclude that the mean test score for prisoners who completed the programme is not 65.</p>
@@ -593,7 +776,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="summary-5" class="section level2">
+<div id="summary-5" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> SUMMARY</h2>
 <p>Today, we learned that to make predictions about the population from our sample, we must create <strong>hypotheses</strong>. When we test our hypothesis, we aspire to reject the <strong>null hypothesis</strong>, which tells us no differences exist. To ensure we reject the null accurately, however, we must be wary of <strong>type 1 error</strong> so we consider this error in tests of <strong>statistical significance</strong> and in evaluating our <strong>p-values</strong>. These hypothesis tests we learned today in <code>R</code> used the <strong>binomial distribution</strong> as well as the normal distribution, and required us to set our hypotheses at the outset as either <strong>directional</strong> or <strong>non-directional</strong>. Hypothesis tests that used the normal distribution were for <strong>single samples</strong> and statistical significance was determined by <strong>z scores</strong> and <strong>t values</strong>.</p>
 <p>Homework time…</p>
