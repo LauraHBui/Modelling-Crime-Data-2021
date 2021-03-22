@@ -299,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Know what hypotheses are and how to use them in inferential statistics</li>
 <li>Understand what statistical significance is and how to interpret p-values</li>
-<li>Know what hypothesis tests are and how to conduct a few of them in <code>R</code> using the z and t values</li>
+<li>Know what hypothesis tests are and begin to understand how to conduct them</li>
 </ul>
 </div>
 <div id="todays-learning-tools-5" class="section level4 unnumbered">
@@ -323,7 +323,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h5><em>Functions introduced (and packages to which they belong)</em></h5>
 <ul>
 <li><code>BinomCI()</code> : Compute confidence intervals for binomial proportions (<code>DescTools</code>)</li>
-<li><code>cat()</code> : Combines/concatenates character values and prints them (<code>base R</code>)</li>
 <li><code>nrow()</code> : Counts the number of rows (<code>base R</code>)</li>
 <li><code>pnorm()</code> : Probability of random variable following normal distribution (<code>stats</code>)</li>
 <li><code>pnormGC()</code> : Compute probabilities for normal random variables (<code>tigerstats</code>)</li>
@@ -605,7 +604,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="single-sample-significance-tests" class="section level3" number="6.2.3">
 <h3><span class="header-section-number">6.2.3</span> Single-sample significance tests</h3>
-<p>For this section, we learn some hypothesis tests that use the <em>normal distribution</em>.</p>
+<p>For this section, we learn about hypothesis tests that use the <em>normal distribution</em>.</p>
 <p>Remember we’re starting with our assumptions. Hypothesis testing using the normal distribution have the following assumptions:</p>
 <ol style="list-style-type: decimal">
 <li><p><em>Level of measurement:</em> the variable is interval or ratio level</p></li>
@@ -627,7 +626,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb338-10"><a href="hypotheses.html#cb338-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb338-11"><a href="hypotheses.html#cb338-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide ‘iq_over_100’ by total number of prisoner IQ scores</span></span>
 <span id="cb338-12"><a href="hypotheses.html#cb338-12" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(iq_over_100)<span class="sc">/</span><span class="fu">nrow</span>(prisoner_iq)</span></code></pre></div>
-<pre><code>## [1] 0.4867987</code></pre>
+<pre><code>## [1] 0.4872027</code></pre>
 <p>The result should be close to .50 indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the <strong>z-score</strong> is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.</p>
 <div id="activity-8-calculating-a-z-score" class="section level4" number="6.2.3.1">
 <h4><span class="header-section-number">6.2.3.1</span> Activity 8: Calculating a z-score</h4>
@@ -637,11 +636,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="hypotheses.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first 5 prisoner IQs</span></span>
 <span id="cb340-2"><a href="hypotheses.html#cb340-2" aria-hidden="true" tabindex="-1"></a>prisoner_iq[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,] </span></code></pre></div>
 <pre><code>##   prisoner_id  IQ
-## 1           1  98
-## 2           2 108
-## 3           3 109
-## 4           4 111
-## 5           5  97</code></pre>
+## 1           1 116
+## 2           2  82
+## 3           3 117
+## 4           4  97
+## 5           5  98</code></pre>
 <div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="hypotheses.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the IQ of prisoner #1 </span></span>
 <span id="cb342-2"><a href="hypotheses.html#cb342-2" aria-hidden="true" tabindex="-1"></a>prisoner_iq<span class="sc">$</span>IQ[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">115</span></span>
 <span id="cb342-3"><a href="hypotheses.html#cb342-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -651,10 +650,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb342-7"><a href="hypotheses.html#cb342-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></span>
 <span id="cb342-8"><a href="hypotheses.html#cb342-8" aria-hidden="true" tabindex="-1"></a>prisoner_iq[<span class="dv">1</span>,]</span></code></pre></div>
 <pre><code>##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9994118</code></pre>
+## 1           1 115 0.9997245</code></pre>
 <p>To show that this is the same z-score you would get with the formula above, go ahead and calculate <span class="math inline">\(z = \frac{x - \mu}{\sigma}\)</span>:</p>
 <div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="hypotheses.html#cb344-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">115</span> <span class="sc">-</span> <span class="fu">mean</span>(prisoner_iq<span class="sc">$</span>IQ))<span class="sc">/</span><span class="fu">sd</span>(prisoner_iq<span class="sc">$</span>IQ)</span></code></pre></div>
-<pre><code>## [1] 0.9994118</code></pre>
+<pre><code>## [1] 0.9997245</code></pre>
 <p>Same value!</p>
 <p>Where the z-score becomes practical is illustrated in the following example: say if a probation officer is writing a report for a prisoner who is about to be up for parole. The prisoner has an IQ of 124. The officer wants to give a good idea of how this score compares to all other prisoners. An apt way of doing this is to state the proportion of prisoners who have lower IQs. This can be done using the <code>pnormGC()</code> function from the <code>tigerstats</code> package:</p>
 <div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="hypotheses.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tigerstats)</span></code></pre></div>
@@ -668,117 +667,144 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb347-8"><a href="hypotheses.html#cb347-8" aria-hidden="true" tabindex="-1"></a><span class="co"># interested in IQ scores below 124</span></span>
 <span id="cb347-9"><a href="hypotheses.html#cb347-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pnormGC</span>(<span class="dv">124</span>, <span class="at">region=</span><span class="st">&quot;below&quot;</span>, <span class="at">mean=</span>iq_m, <span class="at">sd=</span>iq_sd,<span class="at">graph=</span><span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
-<pre><code>## [1] 0.945133</code></pre>
+<pre><code>## [1] 0.9451849</code></pre>
 <p>The output shows the shaded area at 0.9453, meaning that the prisoner has a higher IQ than over 94% of the prison population.</p>
 <p>Recall from the previous week, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68% of cases in the distribution fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within 3 SD. We demonstrate this rule by using the <code>pnormGC()</code> function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:</p>
 <div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="hypotheses.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify ‘between’ for ‘region’ because we are interested in proportion of prisoners between the two given values</span></span>
 <span id="cb349-2"><a href="hypotheses.html#cb349-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnormGC</span>(<span class="at">bound=</span><span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">115</span>),<span class="at">region=</span><span class="st">&quot;between&quot;</span>, <span class="at">mean=</span><span class="dv">100</span>,<span class="at">sd=</span><span class="dv">15</span>,<span class="at">graph=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <pre><code>## [1] 0.6826895</code></pre>
-<p>And, yes, it shows that 68% of the IQ scores do fall within 1 SD of the mean.</p>
+<p>And, yes, it shows that 68% of the IQ scores do fall within +/-1 standard deviation of the mean, in the case of a normal distribution.</p>
 <hr />
 </div>
 <div id="activity-9-single-sample-z-tests-for-means" class="section level4" number="6.2.3.2">
 <h4><span class="header-section-number">6.2.3.2</span> Activity 9: Single sample z-tests for means</h4>
-<p>Returning to the parole board example, say if the officer wanted to know, with 99% confidence, if the average IQ at this specific prison is significantly different from those of all prisons in the UK. The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 103 (SD =18). As the population parameter is known on prisoner IQ, a <strong>single sample z-test</strong> is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:</p>
+<p>So how can we use this to test hyptheses? Returning to the parole board example, say if the officer wanted to know, with 99% confidence, if the average IQ at this specific prison is significantly different from those of all prisons in the UK.</p>
+<p>Let’s say that we have a prison with a random selection of 233 prisoners. Let’s sample this now from our population.</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="hypotheses.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb351-2"><a href="hypotheses.html#cb351-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb351-3"><a href="hypotheses.html#cb351-3" aria-hidden="true" tabindex="-1"></a>prison_1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(prisoner_iq, <span class="dv">233</span>)</span></code></pre></div>
+<p>The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 101.8497854 (SD = 14.219605).</p>
+<p>As the population parameter (mean IQ for all prisoners) is known (it is 100, see our simulated population data above), a <strong>single sample z-test</strong> is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:</p>
 <p><span class="math inline">\(H_0\)</span>: The mean IQ of the population from which our sample of prisoners was drawn is the same as the mean IQ of the UK prison population (mean = 100).</p>
 <p><span class="math inline">\(H_A\)</span>: The mean IQ of the population from which our sample of prisoners was drawn is not the same as the mean IQ of the UK prison population (mean ≠ 100).</p>
-<p>We create our own function called ’ z_test ’ so that other prisons can easily compare their IQ scores to that of all prisoners. In addition, we use <code>cat()</code>, which combines our string text to label our z-score in the output and the computed z-score together.</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="hypotheses.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifying inputs in the order that the user needs to enter them : mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared</span></span>
-<span id="cb351-2"><a href="hypotheses.html#cb351-2" aria-hidden="true" tabindex="-1"></a>z_test<span class="ot">&lt;-</span><span class="cf">function</span>(xbar, sd, n, mu) { </span>
-<span id="cb351-3"><a href="hypotheses.html#cb351-3" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">&lt;-</span> (xbar<span class="sc">-</span>mu) <span class="sc">/</span> (sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)) <span class="co"># Equation for one-sample z-test</span></span>
-<span id="cb351-4"><a href="hypotheses.html#cb351-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">&#39;z =&#39;</span>, z)) <span class="co"># Report z-score to the user</span></span>
-<span id="cb351-5"><a href="hypotheses.html#cb351-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb351-6"><a href="hypotheses.html#cb351-6" aria-hidden="true" tabindex="-1"></a>} <span class="co"># End function</span></span>
-<span id="cb351-7"><a href="hypotheses.html#cb351-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb351-8"><a href="hypotheses.html#cb351-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Test it with our example by supplying estimates </span></span>
-<span id="cb351-9"><a href="hypotheses.html#cb351-9" aria-hidden="true" tabindex="-1"></a><span class="fu">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</span></code></pre></div>
-<pre><code>## z = 2.544056</code></pre>
-<p>Including the p-value would be helpful so we edit our code and use the function <code>pnorm()</code> to compute the probability value.</p>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="hypotheses.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Same as above</span></span>
-<span id="cb353-2"><a href="hypotheses.html#cb353-2" aria-hidden="true" tabindex="-1"></a>z_test<span class="ot">&lt;-</span><span class="cf">function</span>(xbar, sd, n, mu) { </span>
-<span id="cb353-3"><a href="hypotheses.html#cb353-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (xbar<span class="sc">-</span>mu) <span class="sc">/</span> (sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)) </span>
-<span id="cb353-4"><a href="hypotheses.html#cb353-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb353-5"><a href="hypotheses.html#cb353-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non-directional </span></span>
-<span id="cb353-6"><a href="hypotheses.html#cb353-6" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fu">abs</span>(z)) </span>
-<span id="cb353-7"><a href="hypotheses.html#cb353-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb353-8"><a href="hypotheses.html#cb353-8" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>( <span class="fu">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </span>
-<span id="cb353-9"><a href="hypotheses.html#cb353-9" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span><span class="sc">\n</span><span class="st">p-value =&#39;</span>, p)) <span class="co"># Added code to return p-value</span></span>
-<span id="cb353-10"><a href="hypotheses.html#cb353-10" aria-hidden="true" tabindex="-1"></a>} </span>
-<span id="cb353-11"><a href="hypotheses.html#cb353-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb353-12"><a href="hypotheses.html#cb353-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Test it with our example again </span></span>
-<span id="cb353-13"><a href="hypotheses.html#cb353-13" aria-hidden="true" tabindex="-1"></a><span class="fu">z_test</span>(<span class="dv">103</span>, <span class="dv">18</span>, <span class="dv">233</span>, <span class="dv">100</span>)</span></code></pre></div>
-<pre><code>## z = 2.544056 
-## p-value = 0.01095734</code></pre>
-<p>Remember that the officer wanted to be 99% confident, and this means that the significance level would be set at α = 0.01 and not α = 0.05 (this is if we are 95% confident). As so, our p-value is greater than the alpha level so we fail to reject the null hypothesis.</p>
+<blockquote>
+<p>Note: we ‘know’ the population mean because we made a hypothetical population. We might not know this in real life, but our hypothetical officer might have a <em>hypothesis</em> that the population mean is 100 IQ. We can test against this hypothesised population mean.</p>
+</blockquote>
+<p>How can we test this? Well we need to calculate a z-test statistic. To calculate the z-test statistic we need the following parameters: the sample mean (<span class="math inline">\(\bar{x}\)</span>), the sample standard deviation (<span class="math inline">\(\sigma\)</span>), the sample size (<span class="math inline">\(n\)</span>), and the known (or hypothesised) population mean (<span class="math inline">\(\mu\)</span>). The equation to calculate the z-test statistic is as follows:</p>
+<p><span class="math inline">\(z = \frac{\bar{x}-\mu}{\sigma/\sqrt{n}}\)</span></p>
+<p>So the difference between the sample mean and the population mean over the standard deviation divided by the square root of the sample size.</p>
+<p>To compute this in R first we need each of these values:</p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="hypotheses.html#cb352-1" aria-hidden="true" tabindex="-1"></a>xbar <span class="ot">&lt;-</span> <span class="fu">mean</span>(prison_1<span class="sc">$</span>IQ) <span class="co"># sample mean</span></span>
+<span id="cb352-2"><a href="hypotheses.html#cb352-2" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># (hypothesised) population mean</span></span>
+<span id="cb352-3"><a href="hypotheses.html#cb352-3" aria-hidden="true" tabindex="-1"></a>iq_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(prison_1<span class="sc">$</span>IQ) <span class="co"># sample standard deviation </span></span>
+<span id="cb352-4"><a href="hypotheses.html#cb352-4" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> <span class="fu">nrow</span>(prison_1) <span class="co"># the number of prisoners in our sample</span></span></code></pre></div>
+<p>We can now compute our test statistic using the parameters calculated above.</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="hypotheses.html#cb353-1" aria-hidden="true" tabindex="-1"></a> z_stat <span class="ot">&lt;-</span> (xbar<span class="sc">-</span>mu) <span class="sc">/</span> (iq_sd <span class="sc">/</span> <span class="fu">sqrt</span>(sample_size)) <span class="co"># Equation for one-sample z-test</span></span>
+<span id="cb353-2"><a href="hypotheses.html#cb353-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb353-3"><a href="hypotheses.html#cb353-3" aria-hidden="true" tabindex="-1"></a>z_stat</span></code></pre></div>
+<pre><code>## [1] 1.985692</code></pre>
+<!-- We create our own function called ' z_test ' so that other prisons can easily compare their IQ scores to that of all prisoners. In addition, we use `cat()`, which combines our string text to label our z-score in the output and the computed z-score together. -->
+<!-- The function we create `z_test()` will take as parameters the sample mean (xbar), the sample standard deviation (sd), the sample size (n), and the known (or hypothesised) population mean (mu):  -->
+<!--  z <- (xbar-mu) / (sd / sqrt(n))  -->
+<!-- ```{r} -->
+<!-- # Specifying inputs in the order that the user needs to enter them : sample mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared -->
+<!-- z_test<-function(xbar, sd, n, mu) {  -->
+<!--   z <- (xbar-mu) / (sd / sqrt(n)) # Equation for one-sample z-test -->
+<!--   return(cat('z =', z)) # Report z-score to the user -->
+<!-- } # End function -->
+<!-- # Test it with our example by supplying estimates  -->
+<!-- z_test(xbar, iq_sd, 233, 100) -->
+<!-- ``` -->
+<!-- Including the p-value would be helpful so we edit our code and use the function `pnorm()` to compute the probability value.  -->
+<!-- ``` {r} -->
+<!-- # Same as above -->
+<!-- z_test<-function(xbar, sd, n, mu) {  -->
+<!-- z <- (xbar-mu) / (sd / sqrt(n))  -->
+<!-- # This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non-directional  -->
+<!-- p<-2 * pnorm(-abs(z))  -->
+<!-- return( cat('z =', z,  -->
+<!-- '\np-value =', p)) # Added code to return p-value -->
+<!-- }  -->
+<!-- # Test it with our example again  -->
+<!-- z_test(103, 18, 233, 100) -->
+<!-- ``` -->
+<p>So we get this test statistic of 1.9856915, but how can we interpret this? Well you can use this z-test statistic to find <em>the associated p-value</em>. How can we do that?</p>
+<p>The traditional way (something about <em>back in my day…!!</em> ha) is to look up the associated p-value with each z-score in the back of a textbook - which usually would contain a <a href="https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf">z-table</a></p>
+<p>If you look at the table above, you will see, for a score of -0.7, at <span class="math inline">\(\alpha = 0.05\)</span> the associated value in the table linked above is <em>0.22663</em> (rougly 0.23). This is greater than the alpha of 0.05, and so we <em>cannot reject the null hypothesis</em>.</p>
+<p>There is another way to find the p-value. The z-statistic is in fact a z-score on a normal distribution. And the p-value is the probability of seeing these outcomes if the null hypotheses were true. We can refer back to our <code>pnormGC()</code> function, to see what this value may be:</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="hypotheses.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnormGC</span>(z_stat, <span class="at">region=</span><span class="st">&quot;below&quot;</span>, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>, <span class="at">graph=</span><span class="cn">TRUE</span>) </span></code></pre></div>
+<p><img src="06-hypotheses_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<pre><code>## [1] 0.9764662</code></pre>
+<p>You can see that the value is 0.2302. This is a more precise approximation than our lookup table (where we had to round 1.9856915 to -0.7), and so we are getting a more precise p-value.</p>
+<p>But also did we specify a direction? We did not! So actually, we should be looking at a two-tailed probabiity:</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="hypotheses.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnormGC</span>(<span class="at">bound=</span><span class="fu">c</span>(z_stat, <span class="sc">-</span>z_stat), <span class="at">region=</span><span class="st">&quot;outside&quot;</span>, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>, <span class="at">graph=</span><span class="cn">TRUE</span>) </span></code></pre></div>
+<p><img src="06-hypotheses_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<pre><code>## [1] 0.04706759</code></pre>
+<p>You will see our value has increased to 0.4602. In fact, this is simply 2 times the original p-value we got (<span class="math inline">\(2*0.23 = 0.46\)</span>). You can also see here that the <em>two tails</em> of the distribution are shaded as our non-directional hypothesis is a two-tailed test!</p>
+<p>Above, when we were looking at a directional hypothesis, it only took into consideration <em>one tail</em> of the distribution, hence it being called a one-tailed test! <em>mind.blown</em></p>
+<p>Now you don’t usually need the visualisation for this, we just included it to help learn the concepts. We can get our associated p-value with the z_statistic using the <code>pnorm()</code> function:</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="hypotheses.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(z_stat)</span></code></pre></div>
+<pre><code>## [1] 0.9764662</code></pre>
+<p>And since we have a non-directional hypothesis, we times this by two (we’re interested in TWO-TAILED hypotheses):</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="hypotheses.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(z_stat)<span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 1.952932</code></pre>
+<p>Now a final thing -
+Remember that the officer wanted to be 99% confident, and this means that the significance level would be set at <span class="math inline">\(\alpha\)</span> = 0.01 and not <span class="math inline">\(\alpha\)</span> = 0.05 (this is if we are 95% confident). However, at this point still, our p-value is greater than the alpha level so we fail to reject the null hypothesis.</p>
 <hr />
-</div>
-<div id="activity-10-single-sample-z-tests-for-proportions" class="section level4" number="6.2.3.3">
-<h4><span class="header-section-number">6.2.3.3</span> Activity 10: Single Sample z-tests for Proportions</h4>
-<p>Our next example is to do with evaluating a new prison education programme. The foundation supporting the programme would like to achieve a success rate of 75% among 100,000 prisoners participating in he programme. Success is defined as completion of the six-month course.</p>
-<p>After the programme ran, there is conflicting information about its success: managers of the programme claim they achieved higher than the 75% success rate, while a journalist investigating the programme claimed it was below 75%. You want to get to the bottom of this, so you collect information from 150 of the prisoners who enrolled on the programme using independent random sampling.</p>
-<p>Your data shows that 85% of the participants successfully completed the programme. What to make of your result? Let’s set up the hypotheses where we want a non-directional alternative hypothesis:</p>
-<p><span class="math inline">\(H_0\)</span>: The success rate of the program is 0.75% (P = 0.75).</p>
-<p><span class="math inline">\(H_A\)</span>: The success rate of the program is not 0.75% (P ≠ 0.75)</p>
-<p>To test this, we use a <strong>single-sample z-test for proportions</strong> because we are concerned with comparing the percentages or proportions between our sample and the known population. We create another new function:</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="hypotheses.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifying inputs: p is proportion of success, P is proportion of success in population, n is sample size</span></span>
-<span id="cb355-2"><a href="hypotheses.html#cb355-2" aria-hidden="true" tabindex="-1"></a>prop_z_test<span class="ot">&lt;-</span><span class="cf">function</span>(p, P, n) { </span>
-<span id="cb355-3"><a href="hypotheses.html#cb355-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb355-4"><a href="hypotheses.html#cb355-4" aria-hidden="true" tabindex="-1"></a>Numerator<span class="ot">&lt;-</span>(p <span class="sc">-</span> P) </span>
-<span id="cb355-5"><a href="hypotheses.html#cb355-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb355-6"><a href="hypotheses.html#cb355-6" aria-hidden="true" tabindex="-1"></a>PQ<span class="ot">&lt;-</span> P <span class="sc">*</span> (<span class="dv">1</span><span class="sc">-</span>P) </span>
-<span id="cb355-7"><a href="hypotheses.html#cb355-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb355-8"><a href="hypotheses.html#cb355-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard error</span></span>
-<span id="cb355-9"><a href="hypotheses.html#cb355-9" aria-hidden="true" tabindex="-1"></a>Denominator<span class="ot">&lt;-</span><span class="fu">sqrt</span>(PQ <span class="sc">/</span> n) </span>
-<span id="cb355-10"><a href="hypotheses.html#cb355-10" aria-hidden="true" tabindex="-1"></a>z<span class="ot">&lt;-</span> Numerator <span class="sc">/</span> Denominator </span>
-<span id="cb355-11"><a href="hypotheses.html#cb355-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb355-12"><a href="hypotheses.html#cb355-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the z-value and p-value to the user</span></span>
-<span id="cb355-13"><a href="hypotheses.html#cb355-13" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fu">abs</span>(z)) </span>
-<span id="cb355-14"><a href="hypotheses.html#cb355-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb355-15"><a href="hypotheses.html#cb355-15" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>( <span class="fu">cat</span>(<span class="st">&#39;z =&#39;</span>, z, </span>
-<span id="cb355-16"><a href="hypotheses.html#cb355-16" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span><span class="sc">\n</span><span class="st">p-value =&#39;</span>, p)) </span>
-<span id="cb355-17"><a href="hypotheses.html#cb355-17" aria-hidden="true" tabindex="-1"></a>} </span>
-<span id="cb355-18"><a href="hypotheses.html#cb355-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb355-19"><a href="hypotheses.html#cb355-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s test it using the values from our problem </span></span>
-<span id="cb355-20"><a href="hypotheses.html#cb355-20" aria-hidden="true" tabindex="-1"></a><span class="fu">prop_z_test</span>(<span class="fl">0.85</span>, <span class="fl">0.75</span>, <span class="dv">150</span>)</span></code></pre></div>
-<pre><code>## z = 2.828427 
-## p-value = 0.004677735</code></pre>
-<p>The z-score is 2.828427 and the p-value is statistically significant. We reject the null hypothesis and conclude that the success rate is not 75%.</p>
-<hr />
-</div>
-<div id="activity-11-single-sample-t-tests-for-means" class="section level4" number="6.2.3.4">
-<h4><span class="header-section-number">6.2.3.4</span> Activity 11: Single-sample t-tests for Means</h4>
-<p>When the population parameter is unknown and we want to compare our sample to it, we use the t-distribution. From the previous example, let us say that average test scores were also collected for those prisoners who completed the six-month education course.</p>
-<p>The foundation defined success as 65 for the test. Again, managers claimed the average scores were higher than this, whereas the journalist claimed the average was below 65. You have collected test score information from 50 prisoners and find that the mean is 60 and SD is 15. What conclusions can be made about the <em>larger population of prisoners</em> at the 95% confidence level?</p>
-<p><em>Hypotheses</em></p>
-<p><span class="math inline">\(H_0\)</span>: The mean test score for prisoners who have completed the program is 65 (μ = 65).</p>
-<p><span class="math inline">\(H_A\)</span>: The mean test score for prisoners who have completed the program is not 65 (μ ≠ 65).</p>
-<p>We conduct a <strong>single-sample t-test for means</strong>, which is similar to the previous z-tests except it is for an unknown population, which in this case, is the overall population of prisoners and not just the ones who had completed the six-month education programme. We modify the code from the <code>z_test ()</code> function:</p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="hypotheses.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65</span></span>
-<span id="cb357-2"><a href="hypotheses.html#cb357-2" aria-hidden="true" tabindex="-1"></a>single_t_test<span class="ot">&lt;-</span><span class="cf">function</span>(xbar, sd, n, mu) { </span>
-<span id="cb357-3"><a href="hypotheses.html#cb357-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb357-4"><a href="hypotheses.html#cb357-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Equation for one-sample z-test</span></span>
-<span id="cb357-5"><a href="hypotheses.html#cb357-5" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> (xbar<span class="sc">-</span>mu) <span class="sc">/</span> (sd <span class="sc">/</span> <span class="fu">sqrt</span>(n <span class="sc">-</span> <span class="dv">1</span>)) </span>
-<span id="cb357-6"><a href="hypotheses.html#cb357-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb357-7"><a href="hypotheses.html#cb357-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Report t-score and p-value to the user</span></span>
-<span id="cb357-8"><a href="hypotheses.html#cb357-8" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fu">abs</span>(t)) </span>
-<span id="cb357-9"><a href="hypotheses.html#cb357-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb357-10"><a href="hypotheses.html#cb357-10" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>( <span class="fu">cat</span>(<span class="st">&#39;t =&#39;</span>, t, </span>
-<span id="cb357-11"><a href="hypotheses.html#cb357-11" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span><span class="sc">\n</span><span class="st">p-value =&#39;</span>, p))</span>
-<span id="cb357-12"><a href="hypotheses.html#cb357-12" aria-hidden="true" tabindex="-1"></a>} </span>
-<span id="cb357-13"><a href="hypotheses.html#cb357-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb357-14"><a href="hypotheses.html#cb357-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Test it with our example </span></span>
-<span id="cb357-15"><a href="hypotheses.html#cb357-15" aria-hidden="true" tabindex="-1"></a><span class="fu">single_t_test</span>(<span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">51</span>, <span class="dv">65</span>)</span></code></pre></div>
-<pre><code>## t = -2.357023 
-## p-value = 0.01842213</code></pre>
-<p>The t-value of -2.357023 is statistically significant, so we have sufficient support to reject the null hypothesis. We conclude that the mean test score for prisoners who completed the programme is not 65.</p>
+<!-- #### Activity 10: Single Sample z-tests for Proportions -->
+<!-- Our next example is to do with evaluating a new prison education programme. The foundation supporting the programme would like to achieve a success rate of 75% among 100,000 prisoners participating in he programme. Success is defined as completion of the six-month course.  -->
+<!-- After the programme ran, there is conflicting information about its success: managers of the programme claim they achieved higher than the 75% success rate, while a journalist investigating the programme claimed it was below 75%. You want to get to the bottom of this, so you collect information from 150 of the prisoners who enrolled on the programme using independent random sampling.  -->
+<!-- Your data shows that 85% of the participants successfully completed the programme. What to make of your result? Let’s set up the hypotheses where we want a non-directional alternative hypothesis: -->
+<!-- $H_0$: The success rate of the program is 0.75% (P = 0.75).  -->
+<!-- $H_A$: The success rate of the program is not 0.75% (P ≠ 0.75) -->
+<!-- To test this, we use a **single-sample z-test for proportions** because we are concerned with comparing the percentages or proportions between our sample and the known population. We create another new function: -->
+<!-- ```{r} -->
+<!-- # Specifying inputs: p is proportion of success, P is proportion of success in population, n is sample size -->
+<!-- prop_z_test<-function(p, P, n) {  -->
+<!-- Numerator<-(p - P)  -->
+<!-- PQ<- P * (1-P)  -->
+<!-- # Standard error -->
+<!-- Denominator<-sqrt(PQ / n)  -->
+<!-- z<- Numerator / Denominator  -->
+<!-- # Return the z-value and p-value to the user -->
+<!-- p<-2 * pnorm(-abs(z))  -->
+<!-- return( cat('z =', z,  -->
+<!-- '\np-value =', p))  -->
+<!-- }  -->
+<!-- # Let's test it using the values from our problem  -->
+<!-- prop_z_test(0.85, 0.75, 150) -->
+<!-- ``` -->
+<!-- The z-score is 2.828427 and the p-value is statistically significant. We reject the null hypothesis and conclude that the success rate is not 75%.  -->
+<!-- --- -->
+<!-- #### Activity 11: Single-sample t-tests for Means -->
+<!-- When the population parameter is unknown and we want to compare our sample to it, we use the t-distribution. From the previous example, let us say that average test scores were also collected for those prisoners who completed the six-month education course.  -->
+<!-- The foundation defined success as 65 for the test. Again, managers claimed the average scores were higher than this, whereas the journalist claimed the average was below 65. You have collected test score information from 50 prisoners and find that the mean is 60 and SD is 15. What conclusions can be made about the *larger population of prisoners* at the 95% confidence level? -->
+<!-- *Hypotheses* -->
+<!-- $H_0$: The mean test score for prisoners who have completed the program is 65 (μ = 65). -->
+<!-- $H_A$: The mean test score for prisoners who have completed the program is not 65 (μ ≠ 65). -->
+<!-- We conduct a **single-sample t-test for means**, which is similar to the previous z-tests except it is for an unknown population, which in this case, is the overall population of prisoners and not just the ones who had completed the six-month education programme. We modify the code from the `z_test ()` function: -->
+<!-- ```{r} -->
+<!-- # Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65 -->
+<!-- single_t_test<-function(xbar, sd, n, mu) {  -->
+<!-- # Equation for one-sample z-test -->
+<!-- t <- (xbar-mu) / (sd / sqrt(n - 1))  -->
+<!-- # Report t-score and p-value to the user -->
+<!-- p<-2 * pnorm(-abs(t))  -->
+<!-- return( cat('t =', t,  -->
+<!-- '\np-value =', p)) -->
+<!-- }  -->
+<!-- # Test it with our example  -->
+<!-- single_t_test(60, 15, 51, 65) -->
+<!-- ``` -->
+<!-- The t-value of -2.357023 is statistically significant, so we have sufficient support to reject the null hypothesis. We conclude that the mean test score for prisoners who completed the programme is not 65.  -->
 <hr />
 </div>
 </div>
 </div>
 <div id="summary-5" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> SUMMARY</h2>
-<p>Today, we learned that to make predictions about the population from our sample, we must create <strong>hypotheses</strong>. When we test our hypothesis, we aspire to reject the <strong>null hypothesis</strong>, which tells us no differences exist. To ensure we reject the null accurately, however, we must be wary of <strong>type 1 error</strong> so we consider this error in tests of <strong>statistical significance</strong> and in evaluating our <strong>p-values</strong>. These hypothesis tests we learned today in <code>R</code> used the <strong>binomial distribution</strong> as well as the normal distribution, and required us to set our hypotheses at the outset as either <strong>directional</strong> or <strong>non-directional</strong>. Hypothesis tests that used the normal distribution were for <strong>single samples</strong> and statistical significance was determined by <strong>z scores</strong> and <strong>t values</strong>.</p>
+<p>Today, we learned that to make predictions about the population from our sample, we must create <strong>hypotheses</strong>. When we test our hypothesis, we aspire to reject the <strong>null hypothesis</strong>, which tells us no differences exist. To ensure we reject the null accurately, however, we must be wary of <strong>type 1 error</strong> so we consider this error in tests of <strong>statistical significance</strong> and in evaluating our <strong>p-values</strong>. These hypothesis tests we learned today in <code>R</code> used the <strong>binomial distribution</strong> as well as the normal distribution, and required us to set our hypotheses at the outset as either <strong>directional</strong> or <strong>non-directional</strong>. Hypothesis tests that used the normal distribution were explored for <strong>single samples</strong> and statistical significance was determined by <strong>z scores</strong> . In most cases going forward, the functions we use in R will be computing p-values for you, but it’s important to understand what these are, where they come from, and what they mean, to be able to correctly interpret these.</p>
 <p>Homework time…</p>
 
 </div>

@@ -4228,7 +4228,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 100.0081
+## [1] 100.0024
 \end{verbatim}
 
 \begin{Shaded}
@@ -4238,7 +4238,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 100.0181
+## [1] 99.99742
 \end{verbatim}
 
 \begin{Shaded}
@@ -4248,7 +4248,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 14.99775
+## [1] 15.00756
 \end{verbatim}
 
 By obtaining some descriptive statistics, we are verifying that the mean and SD are indeed 100 and 15, but you may notice a few discrepancies:
@@ -4961,7 +4961,7 @@ Homework time!
 \item
   Understand what statistical significance is and how to interpret p-values
 \item
-  Know what hypothesis tests are and how to conduct a few of them in \texttt{R} using the z and t values
+  Know what hypothesis tests are and begin to understand how to conduct them
 \end{itemize}
 
 \hypertarget{todays-learning-tools-5}{%
@@ -5002,8 +5002,6 @@ Homework time!
 \tightlist
 \item
   \texttt{BinomCI()} : Compute confidence intervals for binomial proportions (\texttt{DescTools})
-\item
-  \texttt{cat()} : Combines/concatenates character values and prints them (\texttt{base\ R})
 \item
   \texttt{nrow()} : Counts the number of rows (\texttt{base\ R})
 \item
@@ -5565,7 +5563,7 @@ Visualising our results, we see further support that the intervention reduces re
 \hypertarget{single-sample-significance-tests}{%
 \subsection{Single-sample significance tests}\label{single-sample-significance-tests}}
 
-For this section, we learn some hypothesis tests that use the \emph{normal distribution}.
+For this section, we learn about hypothesis tests that use the \emph{normal distribution}.
 
 Remember we're starting with our assumptions. Hypothesis testing using the normal distribution have the following assumptions:
 
@@ -5603,7 +5601,7 @@ The normal distribution has some predictable characteristics about it. One is th
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.4871927
+## [1] 0.4869553
 \end{verbatim}
 
 The result should be close to .50 indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the \textbf{z-score} is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.
@@ -5627,10 +5625,10 @@ However, since R is nice to us, we can make it even simpler to create z-scores, 
 \begin{verbatim}
 ##   prisoner_id  IQ
 ## 1           1 121
-## 2           2  98
-## 3           3 109
-## 4           4 103
-## 5           5 105
+## 2           2 101
+## 3           3  97
+## 4           4 112
+## 5           5  93
 \end{verbatim}
 
 \begin{Shaded}
@@ -5648,7 +5646,7 @@ However, since R is nice to us, we can make it even simpler to create z-scores, 
 
 \begin{verbatim}
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9997211
+## 1           1 115  1.000589
 \end{verbatim}
 
 To show that this is the same z-score you would get with the formula above, go ahead and calculate \(z = \frac{x - \mu}{\sigma}\):
@@ -5660,7 +5658,7 @@ To show that this is the same z-score you would get with the formula above, go a
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9997211
+## [1] 1.000589
 \end{verbatim}
 
 Same value!
@@ -5690,7 +5688,7 @@ Where the z-score becomes practical is illustrated in the following example: say
 \includegraphics{06-hypotheses_files/figure-latex/unnamed-chunk-25-1.pdf}
 
 \begin{verbatim}
-## [1] 0.945166
+## [1] 0.945257
 \end{verbatim}
 
 The output shows the shaded area at 0.9453, meaning that the prisoner has a higher IQ than over 94\% of the prison population.
@@ -5710,165 +5708,143 @@ Recall from the previous week, the 68-95-99.7 rule. This is helpful to keep in m
 ## [1] 0.6826895
 \end{verbatim}
 
-And, yes, it shows that 68\% of the IQ scores do fall within 1 SD of the mean.
+And, yes, it shows that 68\% of the IQ scores do fall within +/-1 standard deviation of the mean, in the case of a normal distribution.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{activity-9-single-sample-z-tests-for-means}{%
 \subsubsection{Activity 9: Single sample z-tests for means}\label{activity-9-single-sample-z-tests-for-means}}
 
-Returning to the parole board example, say if the officer wanted to know, with 99\% confidence, if the average IQ at this specific prison is significantly different from those of all prisons in the UK. The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 103 (SD =18). As the population parameter is known on prisoner IQ, a \textbf{single sample z-test} is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer's hypotheses:
+So how can we use this to test hyptheses? Returning to the parole board example, say if the officer wanted to know, with 99\% confidence, if the average IQ at this specific prison is significantly different from those of all prisons in the UK.
+
+Let's say that we have a prison with a random selection of 233 prisoners. Let's sample this now from our population.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(mosaic)}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+\NormalTok{prison\_1 }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(prisoner\_iq, }\DecValTok{233}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 100.944206 (SD = 15.7469585).
+
+As the population parameter (mean IQ for all prisoners) is known (it is 100, see our simulated population data above), a \textbf{single sample z-test} is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer's hypotheses:
 
 \(H_0\): The mean IQ of the population from which our sample of prisoners was drawn is the same as the mean IQ of the UK prison population (mean = 100).
 
 \(H_A\): The mean IQ of the population from which our sample of prisoners was drawn is not the same as the mean IQ of the UK prison population (mean ≠ 100).
 
-We create our own function called ' z\_test ' so that other prisons can easily compare their IQ scores to that of all prisoners. In addition, we use \texttt{cat()}, which combines our string text to label our z-score in the output and the computed z-score together.
+\begin{quote}
+Note: we `know' the population mean because we made a hypothetical population. We might not know this in real life, but our hypothetical officer might have a \emph{hypothesis} that the population mean is 100 IQ. We can test against this hypothesised population mean.
+\end{quote}
+
+How can we test this? Well we need to calculate a z-test statistic. To calculate the z-test statistic we need the following parameters: the sample mean (\(\bar{x}\)), the sample standard deviation (\(\sigma\)), the sample size (\(n\)), and the known (or hypothesised) population mean (\(\mu\)). The equation to calculate the z-test statistic is as follows:
+
+\(z = \frac{\bar{x}-\mu}{\sigma/\sqrt{n}}\)
+
+So the difference between the sample mean and the population mean over the standard deviation divided by the square root of the sample size.
+
+To compute this in R first we need each of these values:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Specifying inputs in the order that the user needs to enter them : mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared}
-\NormalTok{z\_test}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(xbar, sd, n, mu) \{ }
-\NormalTok{  z }\OtherTok{\textless{}{-}}\NormalTok{ (xbar}\SpecialCharTok{{-}}\NormalTok{mu) }\SpecialCharTok{/}\NormalTok{ (sd }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n)) }\CommentTok{\# Equation for one{-}sample z{-}test}
-  \FunctionTok{return}\NormalTok{(}\FunctionTok{cat}\NormalTok{(}\StringTok{\textquotesingle{}z =\textquotesingle{}}\NormalTok{, z)) }\CommentTok{\# Report z{-}score to the user}
+\NormalTok{xbar }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(prison\_1}\SpecialCharTok{$}\NormalTok{IQ) }\CommentTok{\# sample mean}
+\NormalTok{mu }\OtherTok{\textless{}{-}} \DecValTok{100} \CommentTok{\# (hypothesised) population mean}
+\NormalTok{iq\_sd }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(prison\_1}\SpecialCharTok{$}\NormalTok{IQ) }\CommentTok{\# sample standard deviation }
+\NormalTok{sample\_size }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(prison\_1) }\CommentTok{\# the number of prisoners in our sample}
+\end{Highlighting}
+\end{Shaded}
 
-\NormalTok{\} }\CommentTok{\# End function}
+We can now compute our test statistic using the parameters calculated above.
 
-\CommentTok{\# Test it with our example by supplying estimates }
-\FunctionTok{z\_test}\NormalTok{(}\DecValTok{103}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{233}\NormalTok{, }\DecValTok{100}\NormalTok{)}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ z\_stat }\OtherTok{\textless{}{-}}\NormalTok{ (xbar}\SpecialCharTok{{-}}\NormalTok{mu) }\SpecialCharTok{/}\NormalTok{ (iq\_sd }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(sample\_size)) }\CommentTok{\# Equation for one{-}sample z{-}test}
+
+\NormalTok{z\_stat}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## z = 2.544056
+## [1] 0.9152675
 \end{verbatim}
 
-Including the p-value would be helpful so we edit our code and use the function \texttt{pnorm()} to compute the probability value.
+So we get this test statistic of 0.9152675, but how can we interpret this? Well you can use this z-test statistic to find \emph{the associated p-value}. How can we do that?
+
+The traditional way (something about \emph{back in my day\ldots!!} ha) is to look up the associated p-value with each z-score in the back of a textbook - which usually would contain a \href{https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf}{z-table}
+
+If you look at the table above, you will see, for a score of -0.7, at \(\alpha = 0.05\) the associated value in the table linked above is \emph{0.22663} (rougly 0.23). This is greater than the alpha of 0.05, and so we \emph{cannot reject the null hypothesis}.
+
+There is another way to find the p-value. The z-statistic is in fact a z-score on a normal distribution. And the p-value is the probability of seeing these outcomes if the null hypotheses were true. We can refer back to our \texttt{pnormGC()} function, to see what this value may be:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Same as above}
-\NormalTok{z\_test}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(xbar, sd, n, mu) \{ }
-\NormalTok{z }\OtherTok{\textless{}{-}}\NormalTok{ (xbar}\SpecialCharTok{{-}}\NormalTok{mu) }\SpecialCharTok{/}\NormalTok{ (sd }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n)) }
+\FunctionTok{pnormGC}\NormalTok{(z\_stat, }\AttributeTok{region=}\StringTok{"below"}\NormalTok{, }\AttributeTok{mean=}\DecValTok{0}\NormalTok{, }\AttributeTok{sd=}\DecValTok{1}\NormalTok{, }\AttributeTok{graph=}\ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
 
-\CommentTok{\# This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non{-}directional }
-\NormalTok{p}\OtherTok{\textless{}{-}}\DecValTok{2} \SpecialCharTok{*} \FunctionTok{pnorm}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{abs}\NormalTok{(z)) }
+\includegraphics{06-hypotheses_files/figure-latex/unnamed-chunk-30-1.pdf}
 
-\FunctionTok{return}\NormalTok{( }\FunctionTok{cat}\NormalTok{(}\StringTok{\textquotesingle{}z =\textquotesingle{}}\NormalTok{, z, }
-\StringTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}n}\StringTok{p{-}value =\textquotesingle{}}\NormalTok{, p)) }\CommentTok{\# Added code to return p{-}value}
-\NormalTok{\} }
+\begin{verbatim}
+## [1] 0.8199744
+\end{verbatim}
 
-\CommentTok{\# Test it with our example again }
-\FunctionTok{z\_test}\NormalTok{(}\DecValTok{103}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{233}\NormalTok{, }\DecValTok{100}\NormalTok{)}
+You can see that the value is 0.2302. This is a more precise approximation than our lookup table (where we had to round 0.9152675 to -0.7), and so we are getting a more precise p-value.
+
+But also did we specify a direction? We did not! So actually, we should be looking at a two-tailed probabiity:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pnormGC}\NormalTok{(}\AttributeTok{bound=}\FunctionTok{c}\NormalTok{(z\_stat, }\SpecialCharTok{{-}}\NormalTok{z\_stat), }\AttributeTok{region=}\StringTok{"outside"}\NormalTok{, }\AttributeTok{mean=}\DecValTok{0}\NormalTok{, }\AttributeTok{sd=}\DecValTok{1}\NormalTok{, }\AttributeTok{graph=}\ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{06-hypotheses_files/figure-latex/unnamed-chunk-31-1.pdf}
+
+\begin{verbatim}
+## [1] 0.3600512
+\end{verbatim}
+
+You will see our value has increased to 0.4602. In fact, this is simply 2 times the original p-value we got (\(2*0.23 = 0.46\)). You can also see here that the \emph{two tails} of the distribution are shaded as our non-directional hypothesis is a two-tailed test!
+
+Above, when we were looking at a directional hypothesis, it only took into consideration \emph{one tail} of the distribution, hence it being called a one-tailed test! \emph{mind.blown}
+
+Now you don't usually need the visualisation for this, we just included it to help learn the concepts. We can get our associated p-value with the z\_statistic using the \texttt{pnorm()} function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pnorm}\NormalTok{(z\_stat)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## z = 2.544056 
-## p-value = 0.01095734
+## [1] 0.8199744
 \end{verbatim}
 
-Remember that the officer wanted to be 99\% confident, and this means that the significance level would be set at α = 0.01 and not α = 0.05 (this is if we are 95\% confident). As so, our p-value is greater than the alpha level so we fail to reject the null hypothesis.
+And since we have a non-directional hypothesis, we times this by two (we're interested in TWO-TAILED hypotheses):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pnorm}\NormalTok{(z\_stat)}\SpecialCharTok{*}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.639949
+\end{verbatim}
+
+Now a final thing -
+Remember that the officer wanted to be 99\% confident, and this means that the significance level would be set at \(\alpha\) = 0.01 and not \(\alpha\) = 0.05 (this is if we are 95\% confident). However, at this point still, our p-value is greater than the alpha level so we fail to reject the null hypothesis.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{activity-10-single-sample-z-tests-for-proportions}{%
-\subsubsection{Activity 10: Single Sample z-tests for Proportions}\label{activity-10-single-sample-z-tests-for-proportions}}
-
-Our next example is to do with evaluating a new prison education programme. The foundation supporting the programme would like to achieve a success rate of 75\% among 100,000 prisoners participating in he programme. Success is defined as completion of the six-month course.
-
-After the programme ran, there is conflicting information about its success: managers of the programme claim they achieved higher than the 75\% success rate, while a journalist investigating the programme claimed it was below 75\%. You want to get to the bottom of this, so you collect information from 150 of the prisoners who enrolled on the programme using independent random sampling.
-
-Your data shows that 85\% of the participants successfully completed the programme. What to make of your result? Let's set up the hypotheses where we want a non-directional alternative hypothesis:
-
-\(H_0\): The success rate of the program is 0.75\% (P = 0.75).
-
-\(H_A\): The success rate of the program is not 0.75\% (P ≠ 0.75)
-
-To test this, we use a \textbf{single-sample z-test for proportions} because we are concerned with comparing the percentages or proportions between our sample and the known population. We create another new function:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Specifying inputs: p is proportion of success, P is proportion of success in population, n is sample size}
-\NormalTok{prop\_z\_test}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(p, P, n) \{ }
-
-\NormalTok{Numerator}\OtherTok{\textless{}{-}}\NormalTok{(p }\SpecialCharTok{{-}}\NormalTok{ P) }
-
-\NormalTok{PQ}\OtherTok{\textless{}{-}}\NormalTok{ P }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{P) }
-
-\CommentTok{\# Standard error}
-\NormalTok{Denominator}\OtherTok{\textless{}{-}}\FunctionTok{sqrt}\NormalTok{(PQ }\SpecialCharTok{/}\NormalTok{ n) }
-\NormalTok{z}\OtherTok{\textless{}{-}}\NormalTok{ Numerator }\SpecialCharTok{/}\NormalTok{ Denominator }
-
-\CommentTok{\# Return the z{-}value and p{-}value to the user}
-\NormalTok{p}\OtherTok{\textless{}{-}}\DecValTok{2} \SpecialCharTok{*} \FunctionTok{pnorm}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{abs}\NormalTok{(z)) }
-
-\FunctionTok{return}\NormalTok{( }\FunctionTok{cat}\NormalTok{(}\StringTok{\textquotesingle{}z =\textquotesingle{}}\NormalTok{, z, }
-\StringTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}n}\StringTok{p{-}value =\textquotesingle{}}\NormalTok{, p)) }
-\NormalTok{\} }
-
-\CommentTok{\# Let\textquotesingle{}s test it using the values from our problem }
-\FunctionTok{prop\_z\_test}\NormalTok{(}\FloatTok{0.85}\NormalTok{, }\FloatTok{0.75}\NormalTok{, }\DecValTok{150}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## z = 2.828427 
-## p-value = 0.004677735
-\end{verbatim}
-
-The z-score is 2.828427 and the p-value is statistically significant. We reject the null hypothesis and conclude that the success rate is not 75\%.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{activity-11-single-sample-t-tests-for-means}{%
-\subsubsection{Activity 11: Single-sample t-tests for Means}\label{activity-11-single-sample-t-tests-for-means}}
-
-When the population parameter is unknown and we want to compare our sample to it, we use the t-distribution. From the previous example, let us say that average test scores were also collected for those prisoners who completed the six-month education course.
-
-The foundation defined success as 65 for the test. Again, managers claimed the average scores were higher than this, whereas the journalist claimed the average was below 65. You have collected test score information from 50 prisoners and find that the mean is 60 and SD is 15. What conclusions can be made about the \emph{larger population of prisoners} at the 95\% confidence level?
-
-\emph{Hypotheses}
-
-\(H_0\): The mean test score for prisoners who have completed the program is 65 (μ = 65).
-
-\(H_A\): The mean test score for prisoners who have completed the program is not 65 (μ ≠ 65).
-
-We conduct a \textbf{single-sample t-test for means}, which is similar to the previous z-tests except it is for an unknown population, which in this case, is the overall population of prisoners and not just the ones who had completed the six-month education programme. We modify the code from the \texttt{z\_test\ ()} function:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65}
-\NormalTok{single\_t\_test}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(xbar, sd, n, mu) \{ }
-
-\CommentTok{\# Equation for one{-}sample z{-}test}
-\NormalTok{t }\OtherTok{\textless{}{-}}\NormalTok{ (xbar}\SpecialCharTok{{-}}\NormalTok{mu) }\SpecialCharTok{/}\NormalTok{ (sd }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{)) }
-
-\CommentTok{\# Report t{-}score and p{-}value to the user}
-\NormalTok{p}\OtherTok{\textless{}{-}}\DecValTok{2} \SpecialCharTok{*} \FunctionTok{pnorm}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{abs}\NormalTok{(t)) }
-
-\FunctionTok{return}\NormalTok{( }\FunctionTok{cat}\NormalTok{(}\StringTok{\textquotesingle{}t =\textquotesingle{}}\NormalTok{, t, }
-\StringTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}n}\StringTok{p{-}value =\textquotesingle{}}\NormalTok{, p))}
-\NormalTok{\} }
-
-\CommentTok{\# Test it with our example }
-\FunctionTok{single\_t\_test}\NormalTok{(}\DecValTok{60}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{51}\NormalTok{, }\DecValTok{65}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## t = -2.357023 
-## p-value = 0.01842213
-\end{verbatim}
-
-The t-value of -2.357023 is statistically significant, so we have sufficient support to reject the null hypothesis. We conclude that the mean test score for prisoners who completed the programme is not 65.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{summary-5}{%
 \section{SUMMARY}\label{summary-5}}
 
-Today, we learned that to make predictions about the population from our sample, we must create \textbf{hypotheses}. When we test our hypothesis, we aspire to reject the \textbf{null hypothesis}, which tells us no differences exist. To ensure we reject the null accurately, however, we must be wary of \textbf{type 1 error} so we consider this error in tests of \textbf{statistical significance} and in evaluating our \textbf{p-values}. These hypothesis tests we learned today in \texttt{R} used the \textbf{binomial distribution} as well as the normal distribution, and required us to set our hypotheses at the outset as either \textbf{directional} or \textbf{non-directional}. Hypothesis tests that used the normal distribution were for \textbf{single samples} and statistical significance was determined by \textbf{z scores} and \textbf{t values}.
+Today, we learned that to make predictions about the population from our sample, we must create \textbf{hypotheses}. When we test our hypothesis, we aspire to reject the \textbf{null hypothesis}, which tells us no differences exist. To ensure we reject the null accurately, however, we must be wary of \textbf{type 1 error} so we consider this error in tests of \textbf{statistical significance} and in evaluating our \textbf{p-values}. These hypothesis tests we learned today in \texttt{R} used the \textbf{binomial distribution} as well as the normal distribution, and required us to set our hypotheses at the outset as either \textbf{directional} or \textbf{non-directional}. Hypothesis tests that used the normal distribution were explored for \textbf{single samples} and statistical significance was determined by \textbf{z scores} . In most cases going forward, the functions we use in R will be computing p-values for you, but it's important to understand what these are, where they come from, and what they mean, to be able to correctly interpret these.
 
 Homework time\ldots{}
 

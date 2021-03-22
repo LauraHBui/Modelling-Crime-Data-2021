@@ -6,7 +6,7 @@
 #### Learning Outcomes: {-}
 -	Know what hypotheses are and how to use them in inferential statistics
 -	Understand what statistical significance is and how to interpret p-values
--	Know what hypothesis tests are and how to conduct a few of them in `R` using the z and t values 
+-	Know what hypothesis tests are and begin to understand how to conduct them
 
 
 
@@ -33,7 +33,6 @@
 
 ##### *Functions introduced (and packages to which they belong)* {-}
 -	`BinomCI()` : Compute confidence intervals for binomial proportions (`DescTools`)
--	`cat()` : Combines/concatenates character values and prints them (`base R`)
 -	`nrow()` : Counts the number of rows (`base R`)
 -	`pnorm()` : Probability of random variable following normal distribution (`stats`)
 -	`pnormGC()` : Compute probabilities for normal random variables (`tigerstats`)
@@ -691,7 +690,7 @@ Visualising our results, we see further support that the intervention reduces re
 
 
 
-For this section, we learn some hypothesis tests that use the *normal distribution*. 
+For this section, we learn about hypothesis tests that use the *normal distribution*. 
 
 Remember we're starting with our assumptions. Hypothesis testing using the normal distribution have the following assumptions: 
 
@@ -743,7 +742,7 @@ nrow(iq_over_100)/nrow(prisoner_iq)
 ```
 
 ```
-## [1] 0.4862027
+## [1] 0.4864067
 ```
 
 
@@ -773,11 +772,11 @@ prisoner_iq[1:5,]
 
 ```
 ##   prisoner_id  IQ
-## 1           1  89
-## 2           2  85
-## 3           3  90
-## 4           4  93
-## 5           5 101
+## 1           1 121
+## 2           2  95
+## 3           3 115
+## 4           4  87
+## 5           5  86
 ```
 
 ```r
@@ -793,7 +792,7 @@ prisoner_iq[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  1.000246
+## 1           1 115 0.9996689
 ```
 
 
@@ -806,7 +805,7 @@ To show that this is the same z-score you would get with the formula above, go a
 ```
 
 ```
-## [1] 1.000246
+## [1] 0.9996689
 ```
 
 Same value! 
@@ -839,7 +838,7 @@ pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=TRUE)
 ![](06-hypotheses_files/figure-epub3/unnamed-chunk-25-1.png)<!-- -->
 
 ```
-## [1] 0.9451802
+## [1] 0.9451344
 ```
 
 
@@ -867,7 +866,7 @@ pnormGC(bound=c(85, 115),region="between", mean=100,sd=15,graph=TRUE)
 
 
 
-And, yes, it shows that 68% of the IQ scores do fall within 1 SD of the mean. 
+And, yes, it shows that 68% of the IQ scores do fall within +/-1 standard deviation of the mean, in the case of a normal distribution. 
 
 
 
@@ -880,10 +879,24 @@ And, yes, it shows that 68% of the IQ scores do fall within 1 SD of the mean.
 
 
 
+So how can we use this to test hyptheses? Returning to the parole board example, say if the officer wanted to know, with 99% confidence, if the average IQ at this specific prison is significantly different from those of all prisons in the UK. 
 
-Returning to the parole board example, say if the officer wanted to know, with 99% confidence, if the average IQ at this specific prison is significantly different from those of all prisons in the UK. The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 103 (SD =18). As the population parameter is known on prisoner IQ, a **single sample z-test** is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:
+
+Let's say that we have a prison with a random selection of 233 prisoners. Let's sample this now from our population. 
 
 
+
+```r
+library(mosaic)
+set.seed(1234)
+prison_1 <- sample(prisoner_iq, 233)
+```
+
+
+
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 99.9871245 (SD = 16.2659685). 
+
+As the population parameter (mean IQ for all prisoners) is known (it is 100, see our simulated population data above), a **single sample z-test** is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:
 
 
 $H_0$: The mean IQ of the population from which our sample of prisoners was drawn is the same as the mean IQ of the UK prison population (mean = 100).
@@ -894,63 +907,167 @@ $H_0$: The mean IQ of the population from which our sample of prisoners was draw
 $H_A$:  The mean IQ of the population from which our sample of prisoners was drawn is not the same as the mean IQ of the UK prison population (mean ≠ 100).
 
 
+> Note: we 'know' the population mean because we made a hypothetical population. We might not know this in real life, but our hypothetical officer might have a *hypothesis* that the population mean is 100 IQ. We can test against this hypothesised population mean. 
 
 
-We create our own function called ' z_test ' so that other prisons can easily compare their IQ scores to that of all prisoners. In addition, we use `cat()`, which combines our string text to label our z-score in the output and the computed z-score together.
+How can we test this? Well we need to calculate a z-test statistic. To calculate the z-test statistic we need the following parameters: the sample mean ($\bar{x}$), the sample standard deviation ($\sigma$), the sample size ($n$), and the known (or hypothesised) population mean ($\mu$). The equation to calculate the z-test statistic is as follows: 
 
 
+$z = \frac{\bar{x}-\mu}{\sigma/\sqrt{n}}$
+
+So the difference between the sample mean and the population mean over the standard deviation divided by the square root of the sample size. 
 
 
-```r
-# Specifying inputs in the order that the user needs to enter them : mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared
-z_test<-function(xbar, sd, n, mu) { 
-  z <- (xbar-mu) / (sd / sqrt(n)) # Equation for one-sample z-test
-  return(cat('z =', z)) # Report z-score to the user
-
-} # End function
-
-# Test it with our example by supplying estimates 
-z_test(103, 18, 233, 100)
-```
-
-```
-## z = 2.544056
-```
-
-
-
-
-Including the p-value would be helpful so we edit our code and use the function `pnorm()` to compute the probability value. 
-
-
+To compute this in R first we need each of these values: 
 
 
 
 ```r
-# Same as above
-z_test<-function(xbar, sd, n, mu) { 
-z <- (xbar-mu) / (sd / sqrt(n)) 
-
-# This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non-directional 
-p<-2 * pnorm(-abs(z)) 
-
-return( cat('z =', z, 
-'\np-value =', p)) # Added code to return p-value
-} 
-
-# Test it with our example again 
-z_test(103, 18, 233, 100)
-```
-
-```
-## z = 2.544056 
-## p-value = 0.01095734
+xbar <- mean(prison_1$IQ) # sample mean
+mu <- 100 # (hypothesised) population mean
+iq_sd <- sd(prison_1$IQ) # sample standard deviation 
+sample_size <- nrow(prison_1) # the number of prisoners in our sample
 ```
 
 
+We can now compute our test statistic using the parameters calculated above. 
 
 
-Remember that the officer wanted to be 99% confident, and this means that the significance level would be set at α = 0.01 and not α = 0.05 (this is if we are 95% confident). As so, our p-value is greater than the alpha level so we fail to reject the null hypothesis. 
+
+```r
+ z_stat <- (xbar-mu) / (iq_sd / sqrt(sample_size)) # Equation for one-sample z-test
+
+z_stat
+```
+
+```
+## [1] -0.01208268
+```
+
+
+<!-- We create our own function called ' z_test ' so that other prisons can easily compare their IQ scores to that of all prisoners. In addition, we use `cat()`, which combines our string text to label our z-score in the output and the computed z-score together. -->
+
+<!-- The function we create `z_test()` will take as parameters the sample mean (xbar), the sample standard deviation (sd), the sample size (n), and the known (or hypothesised) population mean (mu):  -->
+
+
+<!--  z <- (xbar-mu) / (sd / sqrt(n))  -->
+
+
+<!-- ```{r} -->
+
+<!-- # Specifying inputs in the order that the user needs to enter them : sample mean, standard deviation,number of prisons, and the population mean that the sample mean to which it will be compared -->
+<!-- z_test<-function(xbar, sd, n, mu) {  -->
+<!--   z <- (xbar-mu) / (sd / sqrt(n)) # Equation for one-sample z-test -->
+<!--   return(cat('z =', z)) # Report z-score to the user -->
+
+<!-- } # End function -->
+
+<!-- # Test it with our example by supplying estimates  -->
+<!-- z_test(xbar, iq_sd, 233, 100) -->
+
+<!-- ``` -->
+
+
+
+
+<!-- Including the p-value would be helpful so we edit our code and use the function `pnorm()` to compute the probability value.  -->
+
+
+
+
+<!-- ``` {r} -->
+
+<!-- # Same as above -->
+<!-- z_test<-function(xbar, sd, n, mu) {  -->
+<!-- z <- (xbar-mu) / (sd / sqrt(n))  -->
+
+<!-- # This is the new bit: we multiply ‘pnorm’ by 2 to indicate that our hypothesis is non-directional  -->
+<!-- p<-2 * pnorm(-abs(z))  -->
+
+<!-- return( cat('z =', z,  -->
+<!-- '\np-value =', p)) # Added code to return p-value -->
+<!-- }  -->
+
+<!-- # Test it with our example again  -->
+<!-- z_test(103, 18, 233, 100) -->
+
+<!-- ``` -->
+
+So we get this test statistic of -0.0120827, but how can we interpret this? Well you can use this z-test statistic to find *the associated p-value*. How can we do that? 
+
+
+The traditional way (something about *back in my day...!!* ha) is to look up the associated p-value with each z-score in the back of a textbook - which usually would contain a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf)
+
+
+If you look at the table above, you will see, for a score of -0.7, at $\alpha = 0.05$ the associated value in the table linked above is *0.22663* (rougly 0.23). This is greater than the alpha of 0.05, and so we *cannot reject the null hypothesis*.
+
+
+There is another way to find the p-value. The z-statistic is in fact a z-score on a normal distribution. And the p-value is the probability of seeing these outcomes if the null hypotheses were true. We can refer back to our `pnormGC()` function, to see what this value may be: 
+
+
+```r
+pnormGC(z_stat, region="below", mean=0, sd=1, graph=TRUE) 
+```
+
+![](06-hypotheses_files/figure-epub3/unnamed-chunk-30-1.png)<!-- -->
+
+```
+## [1] 0.4951798
+```
+
+
+You can see that the value is 0.2302. This is a more precise approximation than our lookup table (where we had to round -0.0120827 to -0.7), and so we are getting a more precise p-value. 
+
+
+But also did we specify a direction? We did not! So actually, we should be looking at a two-tailed probabiity: 
+
+
+
+```r
+pnormGC(bound=c(z_stat, -z_stat), region="outside", mean=0, sd=1, graph=TRUE) 
+```
+
+![](06-hypotheses_files/figure-epub3/unnamed-chunk-31-1.png)<!-- -->
+
+```
+## [1] 0.9903596
+```
+
+
+You will see our value has increased to 0.4602. In fact, this is simply 2 times the original p-value we got ($2*0.23 = 0.46$). You can also see here that the *two tails* of the distribution are shaded as our non-directional hypothesis is a two-tailed test!
+
+
+Above, when we were looking at a directional hypothesis, it only took into consideration *one tail* of the distribution, hence it being called a one-tailed test! *mind.blown*
+
+
+Now you don't usually need the visualisation for this, we just included it to help learn the concepts. We can get our associated p-value with the z_statistic using the `pnorm()` function: 
+
+
+
+```r
+pnorm(z_stat)
+```
+
+```
+## [1] 0.4951798
+```
+
+
+And since we have a non-directional hypothesis, we times this by two (we're interested in TWO-TAILED hypotheses): 
+
+
+
+```r
+pnorm(z_stat)*2
+```
+
+```
+## [1] 0.9903596
+```
+
+
+Now a final thing - 
+Remember that the officer wanted to be 99% confident, and this means that the significance level would be set at $\alpha$ = 0.01 and not $\alpha$ = 0.05 (this is if we are 95% confident). However, at this point still, our p-value is greater than the alpha level so we fail to reject the null hypothesis. 
 
 
 
@@ -958,131 +1075,123 @@ Remember that the officer wanted to be 99% confident, and this means that the si
 
 
 
-#### Activity 10: Single Sample z-tests for Proportions
+<!-- #### Activity 10: Single Sample z-tests for Proportions -->
 
 
 
 
-Our next example is to do with evaluating a new prison education programme. The foundation supporting the programme would like to achieve a success rate of 75% among 100,000 prisoners participating in he programme. Success is defined as completion of the six-month course. 
+<!-- Our next example is to do with evaluating a new prison education programme. The foundation supporting the programme would like to achieve a success rate of 75% among 100,000 prisoners participating in he programme. Success is defined as completion of the six-month course.  -->
 
-After the programme ran, there is conflicting information about its success: managers of the programme claim they achieved higher than the 75% success rate, while a journalist investigating the programme claimed it was below 75%. You want to get to the bottom of this, so you collect information from 150 of the prisoners who enrolled on the programme using independent random sampling. 
+<!-- After the programme ran, there is conflicting information about its success: managers of the programme claim they achieved higher than the 75% success rate, while a journalist investigating the programme claimed it was below 75%. You want to get to the bottom of this, so you collect information from 150 of the prisoners who enrolled on the programme using independent random sampling.  -->
 
-Your data shows that 85% of the participants successfully completed the programme. What to make of your result? Let’s set up the hypotheses where we want a non-directional alternative hypothesis:
+<!-- Your data shows that 85% of the participants successfully completed the programme. What to make of your result? Let’s set up the hypotheses where we want a non-directional alternative hypothesis: -->
 
 
 
 
-$H_0$: The success rate of the program is 0.75% (P = 0.75). 
+<!-- $H_0$: The success rate of the program is 0.75% (P = 0.75).  -->
 
 
 
 
-$H_A$: The success rate of the program is not 0.75% (P ≠ 0.75)
+<!-- $H_A$: The success rate of the program is not 0.75% (P ≠ 0.75) -->
 
 
 
 
-To test this, we use a **single-sample z-test for proportions** because we are concerned with comparing the percentages or proportions between our sample and the known population. We create another new function:
+<!-- To test this, we use a **single-sample z-test for proportions** because we are concerned with comparing the percentages or proportions between our sample and the known population. We create another new function: -->
 
 
 
 
+<!-- ```{r} -->
 
-```r
-# Specifying inputs: p is proportion of success, P is proportion of success in population, n is sample size
-prop_z_test<-function(p, P, n) { 
+<!-- # Specifying inputs: p is proportion of success, P is proportion of success in population, n is sample size -->
+<!-- prop_z_test<-function(p, P, n) {  -->
 
-Numerator<-(p - P) 
+<!-- Numerator<-(p - P)  -->
 
-PQ<- P * (1-P) 
+<!-- PQ<- P * (1-P)  -->
 
-# Standard error
-Denominator<-sqrt(PQ / n) 
-z<- Numerator / Denominator 
+<!-- # Standard error -->
+<!-- Denominator<-sqrt(PQ / n)  -->
+<!-- z<- Numerator / Denominator  -->
 
-# Return the z-value and p-value to the user
-p<-2 * pnorm(-abs(z)) 
+<!-- # Return the z-value and p-value to the user -->
+<!-- p<-2 * pnorm(-abs(z))  -->
 
-return( cat('z =', z, 
-'\np-value =', p)) 
-} 
+<!-- return( cat('z =', z,  -->
+<!-- '\np-value =', p))  -->
+<!-- }  -->
 
-# Let's test it using the values from our problem 
-prop_z_test(0.85, 0.75, 150)
-```
+<!-- # Let's test it using the values from our problem  -->
+<!-- prop_z_test(0.85, 0.75, 150) -->
 
-```
-## z = 2.828427 
-## p-value = 0.004677735
-```
+<!-- ``` -->
 
 
 
 
-The z-score is 2.828427 and the p-value is statistically significant. We reject the null hypothesis and conclude that the success rate is not 75%. 
+<!-- The z-score is 2.828427 and the p-value is statistically significant. We reject the null hypothesis and conclude that the success rate is not 75%.  -->
 
 
 
----
+<!-- --- -->
 
-#### Activity 11: Single-sample t-tests for Means
+<!-- #### Activity 11: Single-sample t-tests for Means -->
 
 
 
 
-When the population parameter is unknown and we want to compare our sample to it, we use the t-distribution. From the previous example, let us say that average test scores were also collected for those prisoners who completed the six-month education course. 
+<!-- When the population parameter is unknown and we want to compare our sample to it, we use the t-distribution. From the previous example, let us say that average test scores were also collected for those prisoners who completed the six-month education course.  -->
 
-The foundation defined success as 65 for the test. Again, managers claimed the average scores were higher than this, whereas the journalist claimed the average was below 65. You have collected test score information from 50 prisoners and find that the mean is 60 and SD is 15. What conclusions can be made about the *larger population of prisoners* at the 95% confidence level?
+<!-- The foundation defined success as 65 for the test. Again, managers claimed the average scores were higher than this, whereas the journalist claimed the average was below 65. You have collected test score information from 50 prisoners and find that the mean is 60 and SD is 15. What conclusions can be made about the *larger population of prisoners* at the 95% confidence level? -->
 
 
 
 
-*Hypotheses*
+<!-- *Hypotheses* -->
 
 
-$H_0$: The mean test score for prisoners who have completed the program is 65 (μ = 65).
+<!-- $H_0$: The mean test score for prisoners who have completed the program is 65 (μ = 65). -->
 
 
 
 
-$H_A$: The mean test score for prisoners who have completed the program is not 65 (μ ≠ 65).
+<!-- $H_A$: The mean test score for prisoners who have completed the program is not 65 (μ ≠ 65). -->
 
 
 
 
-We conduct a **single-sample t-test for means**, which is similar to the previous z-tests except it is for an unknown population, which in this case, is the overall population of prisoners and not just the ones who had completed the six-month education programme. We modify the code from the `z_test ()` function:
+<!-- We conduct a **single-sample t-test for means**, which is similar to the previous z-tests except it is for an unknown population, which in this case, is the overall population of prisoners and not just the ones who had completed the six-month education programme. We modify the code from the `z_test ()` function: -->
 
 
 
 
+<!-- ```{r} -->
 
-```r
-# Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65
-single_t_test<-function(xbar, sd, n, mu) { 
+<!-- # Specifying inputs: xbar is sample mean, sd is sample standard deviation, n is sample size, mu is defined by null hypothesis and is 65 -->
+<!-- single_t_test<-function(xbar, sd, n, mu) {  -->
 
-# Equation for one-sample z-test
-t <- (xbar-mu) / (sd / sqrt(n - 1)) 
+<!-- # Equation for one-sample z-test -->
+<!-- t <- (xbar-mu) / (sd / sqrt(n - 1))  -->
 
-# Report t-score and p-value to the user
-p<-2 * pnorm(-abs(t)) 
+<!-- # Report t-score and p-value to the user -->
+<!-- p<-2 * pnorm(-abs(t))  -->
 
-return( cat('t =', t, 
-'\np-value =', p))
-} 
+<!-- return( cat('t =', t,  -->
+<!-- '\np-value =', p)) -->
+<!-- }  -->
 
-# Test it with our example 
-single_t_test(60, 15, 51, 65)
-```
+<!-- # Test it with our example  -->
+<!-- single_t_test(60, 15, 51, 65) -->
 
-```
-## t = -2.357023 
-## p-value = 0.01842213
-```
+<!-- ``` -->
 
 
 
 
-The t-value of -2.357023 is statistically significant, so we have sufficient support to reject the null hypothesis. We conclude that the mean test score for prisoners who completed the programme is not 65. 
+<!-- The t-value of -2.357023 is statistically significant, so we have sufficient support to reject the null hypothesis. We conclude that the mean test score for prisoners who completed the programme is not 65.  -->
 
 
 
@@ -1093,7 +1202,7 @@ The t-value of -2.357023 is statistically significant, so we have sufficient sup
 
 
 
-Today, we learned that to make predictions about the population from our sample, we must create **hypotheses**. When we test our hypothesis, we aspire to reject the **null hypothesis**, which tells us no differences exist. To ensure we reject the null accurately, however, we must be wary of **type 1 error** so we consider this error in tests of **statistical significance** and in evaluating our **p-values**. These hypothesis tests we learned today in `R` used the **binomial distribution** as well as the normal distribution, and required us to set our hypotheses at the outset as either **directional** or **non-directional**. Hypothesis tests that used the normal distribution were for **single samples** and statistical significance was determined by **z scores** and **t values**. 
+Today, we learned that to make predictions about the population from our sample, we must create **hypotheses**. When we test our hypothesis, we aspire to reject the **null hypothesis**, which tells us no differences exist. To ensure we reject the null accurately, however, we must be wary of **type 1 error** so we consider this error in tests of **statistical significance** and in evaluating our **p-values**. These hypothesis tests we learned today in `R` used the **binomial distribution** as well as the normal distribution, and required us to set our hypotheses at the outset as either **directional** or **non-directional**. Hypothesis tests that used the normal distribution were explored for **single samples** and statistical significance was determined by **z scores** . In most cases going forward, the functions we use in R will be computing p-values for you, but it's important to understand what these are, where they come from, and what they mean, to be able to correctly interpret these. 
 
 
 

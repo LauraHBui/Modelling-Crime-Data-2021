@@ -121,8 +121,6 @@ activity-7-confidence-intervals
 single-sample-significance-tests
 activity-8-calculating-a-z-score
 activity-9-single-sample-z-tests-for-means
-activity-10-single-sample-z-tests-for-proportions
-activity-11-single-sample-t-tests-for-means
 summary-5
 relationships-with-categorical-variables
 associating-with-categorical-variables
