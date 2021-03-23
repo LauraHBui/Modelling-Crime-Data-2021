@@ -116,13 +116,14 @@ todays-3-3
 statistical-significance
 type-1-error
 significance-level
-a-binomial-test
+hypothesis-tests-for-the-binomial-distribution
 activity-3-distributions
+visualising-the-binomial-distribution
 activity-4-making-assumptions
 activity-5-statistical-significance-with-proportions-test
 activity-6-directional-tests
 activity-7-confidence-intervals
-single-sample-significance-tests
+hypothesis-tests-for-the-normal-distribution
 activity-8-calculating-a-z-score
 activity-9-single-sample-z-tests-for-means
 summary-5

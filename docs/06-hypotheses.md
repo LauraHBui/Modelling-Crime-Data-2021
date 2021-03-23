@@ -26,6 +26,7 @@
 -	`DescTools`
 -	`dplyr`
 -	`ggplot2`
+- `mosaic`
 -	`tigerstats`
 
 
@@ -37,10 +38,9 @@
 -	`pnorm()` : Probability of random variable following normal distribution (`stats`)
 -	`pnormGC()` : Compute probabilities for normal random variables (`tigerstats`)
 -	`prop.test()` : Test null hypothesis that proportions in groups are the same (`base R`)
--	`prop_z_test()` : Single-sample z-test for proportions we created in this chapter
 -	`scale()` : Mean centers or rescales a numeric variable (`base R`)
 -	`which()` : Provides the position of the elements such as in a row (`base R`)
--	`z_test()` : Function created in this chapter for a single-sample z-test
+
 
 <br>
 <br>
@@ -52,8 +52,6 @@
 
 
 ## Hypothesis Testing
-
-
 
 
 Last time, we were introduced to inferential statistics: we used a sample of observations, taken from the population, to draw conclusions about this population. We did this to understand how a sample statistic (such as the sample mean) can be used to make inferences about the parameters (such as the true mean value in the population). 
@@ -72,17 +70,17 @@ Having been informed by previous research and evidence, we might predict the fol
 When we test our hypothesis, we test to see if our prediction is true for the population of interest. For example, we hypothesize that a new intervention programme will reduce reoffending among at-risk young people in Manchester. There are different research designs that can answer this question; for example, last semester, we learned about [randomised control trials](https://www.bi.team/publications/test-learn-adapt-developing-public-policy-with-randomised-controlled-trials/). 
 
 
-If we use a randomised control trial, we take a sample of at-risk young people in Manchester and randomly assign them to either a control (no intervention) or treatment (our new intervention programme) group. We can then compare the level of reoffending between these two groups to confirm whether our hypothesis is true. This is known as  **hypothesis testing**, as we test the hypothesis that the new intervention had an effect (i.e., reduced reoffending). After, we can generalise our result to the population of all at-risk young people in Manchester. 
+If we use a randomised control trial, we take a sample of at-risk young people in Manchester and randomly assign them to either a control (no intervention) or treatment (our new intervention programme) group. After one year, we can then compare the level of reoffending between these two groups to confirm whether our hypothesis is true. This is known as  **hypothesis testing**, as we test the hypothesis that the new intervention had an effect (i.e., reduced reoffending). After, we can generalise our result to the population of all at-risk young people in Manchester. 
 
 
-Although it seems like the example of the new intervention programme is about demonstrating that the programme works in reducing reoffending, in actuality, we do not set out to *prove* that it works. What we try to do with hypothesis testing is to *try to disprove* that our intervention works. It may sound like scientists are a bunch of negative pessimists, it is about reducing doubt and increasing certainty in our findings. This is the paradigm of scientific research that we will follow. 
+Although it seems like the example of the new intervention programme is about demonstrating that the programme works in reducing reoffending after one year, in actuality, we do not set out to *prove* that it works. What we try to do with hypothesis testing is to *try to disprove* that our intervention works. It may sound like scientists are a bunch of negative pessimists, but it is about reducing doubt and increasing certainty in our findings. This is the paradigm of scientific research that we will follow. 
 
 
 While we do not have time to get into the philosophy of science in this class, if you are interested, read up on [Karl Popper and falsification](https://plato.stanford.edu/entries/popper/).
 
 <br>
 
-![**Figure 1** Karl Popper and falsification](Images/popper.png)
+![**Figure 6.1** Karl Popper and falsification](Images/popper.png)
 
 (https://xkcd.com/2078/)
 
@@ -168,9 +166,11 @@ The new intervention on reoffending example is a non-directional hypothesis beca
 <br>
 
 In contrast, our null hypothesis also only refers to a difference between the two groups: 
+
 <br>
 
 - $H_0$: There is no difference in reoffending rates between those who participated and those who did not participate in the new intervention programme
+
 <br>
 
 With this, if we observe *any* difference between the two groups, we reject our null hypothesis. Previously, we mentioned that this result was great because it meant our intervention worked, so we can apply for more funding. But we did not say anything about the *direction* of this relationship -- we stated that there was a difference but did not account for the possibility that it could mean there was actually more reoffending among those who participated in the intervention than those who did not!
@@ -190,7 +190,10 @@ Think what might be a *directional* hypothesis for our new-intervention-to-reduc
 
 ## Today’s 3
 
-To understand hypotheses in action, we learn three substantive concepts today: **statistical significance**, **binominal test**, and **single-sample significance tests**.  
+To understand hypotheses in action, we learn three substantive concepts today: **statistical significance**, **the binominal distribution**, and **single-sample significance tests**. Before we begin, do ensure all appropriate packages are loaded; they are always listed at the top of each lesson.
+
+
+
 <br>
 
 ### Statistical Significance
@@ -220,7 +223,7 @@ Because of this uncertainty, we need to be wary of **type 1 error**.  This error
 <br>
 
 
-![**Figure 6.1** Type 1 and Type 2 errors](Images/errors.jpg)
+![**Figure 6.2** Type 1 and Type 2 errors](Images/errors.jpg){width=70%}
 
 <br>
 
@@ -259,76 +262,80 @@ Now, how can we calculate this probability value? We learn this in the next sect
 ---
 
 
+### Hypothesis Tests for the Binomial Distribution
 
+Now that we have established what is statistical significance, we must identify the most appropriate test for it. Selecting an appropriate test depends on a number of assumptions. The remainder of the course unit will introduce you to a number of these tests. For today, we learn specific hypothesis tests based on the binomial distribution and then the normal distribution, and each have their own set of assumptions. We illustrate hypothesis testing using the binomial distribution.
 
-### A Binomial Test
-
-
-
-Now that we have established what is statistical significance, we must identify the most appropriate test for statistical significance. Selecting an appropriate test depends on a number of assumptions. The remainder of the course unit will introduce you to a number of these tests. For today, we learn about specific hypothesis tests using the binomial distribution and then the normal distribution, and each have their own set of assumptions. We illustrate hypothesis testing using the binomial distribution.
-
-
+<br>
 
 #### Activity 3: Distributions
 
+In the previous lesson, much talk was on the normal distribution. We also mentioned that the sampling distribution of your sample statistic (e.g., mean) will always follow a normal distribution, even if your data follow different distributions. And your data often will! 
 
-In the previous week we spoke a lot about the normal distribution. We also mentioned that the sampling distribution of your sample statistic (eg mean) will always follow a normal distribution, even if your data follow different distributions. And your data often will! For example, count data often follows a [Poisson distribution](). And here, in the case of our re-offending of young people study, we are looking at a [Binomial]() distribution. Binary variables (when there are only two outcomes, which are mutually exclusive - remember the illustrations where the animals were either extinct or not) may follow a Binomial distribution. We can code binary data as 0s and 1s, where 1s are our event (sometimes called successes) and 0s are when you don't observe the event (sometimes called failures). 
+For example, count data often follows a [Poisson distribution](https://bookdown.org/gabriel_butler/ECON41Labs/tutorial-5-the-poisson-distribution.html). And here, in the case of our youth reoffending intervention, we are looking at a Binomial distribution. The **binominal distribution** describes the probability of observing events from a binary variable (i.e., only two possible options). We can code binary data as '0' and '1', where '1' is the presence of our event (sometimes called successes) and '0' is the absence of that event (sometimes called failures). 
 
+With our data on youth reoffending, we could consider, at the one-year follow up, reoffending an event ('1') while not having reoffended the absence of this event ('0'). You can also see why we do not always want to call the event the 'success' -- you might get funny looks if you say that young people reoffending is a success!
 
-
-In the case of our data on re-offending, we could consider re-offending an event (1) while not having re-offended at the 1-year follow up the absence of this event (0). You can see why we don't always want to call the event the "success", you might get funny looks if you say that the young people re-offending is a success...!
-
-
-So in any case, let's get some fake data up again for our young people. We use the `data.frame()` function to build a data frame. We will give each young person an id of 1 to 100 (it's an anonymous study), and then we will assign 50 to treatment and 50 to control (I say assign, here we are making the data up!!!) and then we assign values for the binary varaible of whether they had re-offended or not by the time of our 1-year follow-up. 
+Now let us create synthetic data again, but this time it will be on the youth reoffending intervention example. We will 'assign' 50 to the treatment and 50 to the control group. Then we specify how many did and did not reoffend in each group by the time of our one-year follow-up for our binary variable, `reoffended`. 
+<br>
 
 
 ```r
-young_people <- data.frame(
+# Create a data frame called 'young_people'
+# Give each young person an ID of 1 to 100 (because it is an anonymous study)
+# 'group' to specify how many in treatment or control group
+# 'reoffended' creates our made-up values for reoffending
+
+young_people <- data.frame( 
   id = c(1:100), 
   group = c(rep("treatment", 50), rep("control", 50)), 
   reoffended =  c(rep(1, 10), rep(0, 40), rep(1, 28), rep(0, 22))
 )
 ```
+<br>
 
+Let us see the distribution of our outcome variable, `reoffended`: 
+<br>
 
-Let's see the distribution of our outcome variable, re-offending: 
-
-
-
-```r
-library(ggplot2)
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 3.6.3
-```
 
 ```r
 ggplot(young_people, aes(x = reoffended)) + 
   geom_histogram(bins = 2, fill = "black", col = "white") + 
   theme_minimal() + 
   scale_x_continuous(breaks = c(0,1)) + 
-  labs(title = "Re-offending at 1-year follow up")
+  labs(title = "Reoffending at 1-year follow up")
 ```
 
-<img src="06-hypotheses_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
-We can see that overall there is quite a high count of re-offending in our follow-up. 
+<br>
 
+We observe that, overall, there is quite a high count of reoffending in our follow-up -- about 40% 
 
-But what we are interested in is probability to have see the number of successes (re-offences) in our outcome.  What does this look like for our binomial distribution? Remember that we are looking at a probability distribution, which tells us what is the probability that we get a certain number of young people reoffending? We have 100 young people, what is the probability of having $k$ number of them re-offend? (i.e. $P(X=k)$). For our binomial distribution, we calculate the probability of observing $k$ young people who re-offended for each possible $k$. So for example, we want to calculate what is the probability that exactly one young person re-offended. Then that exactly two young people re-offended. Then that exactly three young people re-offended. And so on...!
+But what we are interested in is the *probability* of observing the number of reoffending 'events'. As the binominal distribution is a probability distribution, it can tell us what the probability is of obtaining a certain number of young people reoffending. We have 100 young people, so what is the probability of having $k$ number of them reoffend? (i.e. $P(X=k)$). 
 
+For our binomial distribution, we calculate the probability of observing $k$ young people who reoffended for each possible $k$. In other words, we want to calculate what is the probability that exactly one young person reoffended; then for exactly two young people; and then for three young people, and so on.
 
-So what is the probability for each one of these outcomes? We use the equation below to calculate this:
+What is the probability for each one of these outcomes? We use the equation below to calculate this:
 
+<br>
 
 $Binomial(n,k,p) = C(n,k) * p^k * (1-p)^{n-k}$
 
+<br>
 
-Where $C(n,k)$ refers to all the possible combinations in which you can have $k$ people re-offend in our sample of $n$. So for example for the probability that 38 people re-offended out of our sample of 100, we calculate this $C(n,k) = {n!}/{(n-k)!}$ as $C(100,38) = {100!}/{100!*(100-38)!}$. `!` means `factorial`, which in R you can caluclate with the `factorial()` function. 
+Where $C(n,k)$ refers to all the possible combinations in which you can have $k$ people reoffend in our sample of $n$. 
 
+For example, for the probability that exactly 38 young people reoffended out of our sample of 100, we calculate this:
 
-So
+<br>
+
+$C(n,k) = {n!}/{(n-k)!}$ as $C(100,38) = {100!}/{100!*(100-38)!}$ 
+
+<br>
+
+Whereby `!` means factorial (i.e., multiply the given number by all of the positive whole numbers less than it), which in `R` you can calculate with the `factorial()` function: 
+<br>
 
 
 ```r
@@ -338,14 +345,14 @@ factorial(100)/factorial(100-38)
 ```
 ## [1] 2.965564e+72
 ```
+<br>
 
-You can see there are many many different ways in which we can choose 38 re-offenders. 
+The value shows that there are many different ways in which we can choose 38 reoffenders. 
 
+Last, what we must plug into the equation is `p`, which is the probability of an outcome. Assuming that the reoffending is as likely an outcome as not reoffending, this value is 0.5 (as there are only two possible outcomes). 
 
-The last thing left to plug into the equation is `p`, which is the probability of an outcome. Assuming that the re-offending is as likely an outcome as not re-offending, this value is 0.5 (as there are only two possible outcomes!). 
-
-So binging it all together, the probability that we get exactly one re-offence in our data is: 
-
+Together, the probability that we get exactly 38 young people reoffending in our data is: 
+<br>
 
 
 
@@ -356,106 +363,94 @@ So binging it all together, the probability that we get exactly one re-offence i
 ```
 ## [1] 2.50671e-116
 ```
+<br>
+
+<br>
+
+#### Visualising the binomial distribution
+
+To visualise our binomial distribution, we could create a simulation of 1,000 replications for this reoffending example, with n = 100 young people in each, and it would look like this:
+<br>
 
 
+<br>
 
-Now we can use some pseudo-random numbers to simulate what our binomial probability distribution will look like. I use simulation of 1000 replications of this study, with sample sizes of 100 young people each, something like we did last week, but I won't cover how to do this, as it's not important for you here, but I'll show you the output anyway:
+From the distribution, we would presume that it is about a 50% chance whether a young person reoffends without having received any intervention in the population. These are the sort of reoffending outcomes we can expect to observe. We can see our sample, overall, is on the left tail of this distribution (although this left skew is not so obvious). Let us move on now to how we can use this for hypothesis testing. 
 
+<br>
+<br>
 
-```
-## Warning: package 'dplyr' was built under R version 3.6.3
-```
+---
 
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-<img src="06-hypotheses_files/figure-html/unnamed-chunk-5-1.png" width="672" />
-
-You can see that if generally in the population without any treatment we assume it's about 50/50 whether a young person re-offends, these are the sort of re-offending outcomes we can expect to observe. We can see our sample overall (both ground together) are on the left tail of this distribution. Let's move on now to how we can use this for hypothesis testing. 
+#### Activity 4: Making Assumptions 
 
 
-#### Activity 4: Making Assumptions
-
-
-All the ways in which we will be learning hypothesis testing rely on certain assumptions about your data. If these assumptions are violated, then the tests may not be as effective as we'd like, and can even result in erroneous conclusions. Therefore it is very important to consider the assumptions, and address whether these are *met* or *violated* by our data. 
-
-
+All the ways in which we will be learning hypothesis testing rely on certain assumptions about the data. If these assumptions are violated, then the tests may not be as accurate as we would like, resulting in erroneous conclusions. Therefore, it is very important to consider the assumptions, and address whether these are *met* or *violated* by our data. 
 
 
 Hypothesis testing using the binomial distribution have the following assumptions: 
 
-
-
+<br>
 
 1.	*Level of measurement:* the variable is binary, meaning it measures only two possible categories.
 
-
-
-
 2.	*Shape of the population distribution:* None
-
-
-
 
 3.	*Sample:* high external validity
 
-
-
-
 4.	*Hypothesis:* stated before collection and analysis of data
+<br>
 
+<br>
 
+How can we check that these assumptions are met? We go through each assumption:
 
-How can we check that these assumptions are met? 
+First, identify the *level of measurement* of our outcome variable. Since `reoffended` is a binary variable, this assumption is *met*. 
 
-- Well the first one asks about the *level of measurement* of our outcome variable. Since that is a binary variable (for each young person, we know whether they re-offended (1) or not (0)), this assumption is *met*. 
-- The second assumption, about the shape of the distribution, the test makes no assumptions. Therefore there is nothing to check!
-- The third question asks about our sample. Are they likely to be representative of the population? This is usually best assessed by looking at the sampling strategy - e.g. are they selected using some random (probability) sampling technique? While here we are creating fake data, in real-world studies you will hear about the sampling, and how it ensures this validity.
-- Finally the fourth question asks us whether we stated our hypothesis before collecting our data. In this case, we did, we formalised our $H_A$ and $H_0$ before collecting our data. 
+Second, the test makes no assumptions about the shape of the distribution, so this is fine.
 
+Third, a way to check for external validity is by identifying the sampling strategy. For example, was a random (probability) sampling technique used? While, here, we create synthetic data, in actual studies, you will hear about the sampling and how it ensures this validity. For now, this is okay too. 
+
+Fourth, we had stated our hypothesis before 'collecting' our data, and so, this assumption is met as well.
+
+<br>
+<br>
+
+---
 
 #### Activity 5: Statistical significance with proportions test
 
 
-Now that we have addressed the assumptions, let's look at our data again. The sample comprises 100 at-risk young people who are randomly assigned to two groups: 50 to a treatment group that receives the intervention that aims to prevent them from committing future offences and 50 to the control group that receives no intervention. We evaluate this programme to see if it works and if it can be generalised to all at-risk youth in Manchester, by checking in 1 year on as a follow-up, to see whether the young people re-offended at different proportions in the two groups. As the outcome has only two options – success and failure – we rely on the **binomial distribution**. 
+Our assumptions for hypothesis testing with a binomial distribution are met, so let us refresh our memory of our example data -- our sample comprises 100 at-risk young people who are randomly assigned to two groups: 50 to a treatment group that receives the intervention that aims to prevent them from committing future offences and 50 to the control group that receives no intervention. We evaluate this programme to see if it works and if it can be generalised to all at-risk youth in Manchester by checking in after one year as a follow-up. The follow-up will provide us with information on whether the young people reoffended at different proportions in the two groups. As the outcome has only two options – success and failure – we rely on the binomial distribution. 
 
 In `R`, we run the `prop.test()` function to test the null hypothesis that the proportions, or probabilities of success, are the same or equal in several groups. 
 
-
-Let's look at the differences in re-offending between the two groups We can use the `facet_wrap()` function in `ggplot2` to look at the two groups side by side: 
+We observe any differences in reoffending between the two groups by using the `facet_wrap()` function in `ggplot2` so to look at the groups side by side: 
+<br>
 
 
 ```r
 ggplot(young_people, aes(x = reoffended)) + 
   geom_histogram(bins = 2, fill = "black", col = "white") + 
-  theme_minimal() + 
+  theme_minimal() + # This makes the background white; see Lesson 3, Activity 8
   scale_x_continuous(breaks = c(0,1)) + 
-  labs(title = "Re-offending at 1-year follow up") + 
+  labs(title = "Reoffending at one-year follow-up") + 
   facet_wrap(~group)
 ```
 
-<img src="06-hypotheses_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
-Wow we see very different proportions in the two groups!
+<br>
 
-Let's look at the number of people who re-offended in each group. 
+The visual shows very different proportions in the two groups!
+
+Now let us look at the number of people who reoffended in each group:
+<br>
 
 
 ```r
+# If you do not remember what '%>%' is, see Lesson 2, Section 2.4.2.2, on pipes
+
 young_people %>% group_by(group, reoffended) %>% count()
 ```
 
@@ -469,12 +464,16 @@ young_people %>% group_by(group, reoffended) %>% count()
 ## 3 treatment          0    40
 ## 4 treatment          1    10
 ```
-
+<br>
 
 We find that in the treatment group, 10 out of the 50 went on to reoffend whereas, in the control group, 28 out of the 50 went on to reoffend. 
 
-We could stop here and conclude, ‘Yes, there is a difference between groups, and by golly, the intervention works.’ But remember that chance, or random variation, is inherent in all phenomena, so this observation could just be a mere fluke. That is why we conduct a test of statistical significance. This one is called a ‘two-sample proportion test’. So like mentioned we use the `prop.test()` function, and we need to give two *pairs* of values, `x` and `n`. For the `x` value, we need to specify the number of successes (1s) in each group. We have 10 successes (number of young people who have re-offended.... you can see why "success" is an awkward word to use for many criminology research...!) in the treatment group, and 28 in the control. So here we put them together as `c(10, 28)`. The second value pair, `n`, refers to the sample sizes of each group. Here we had the same number (50) in each group so the value is `c(50,50)`. Bring it together like so:
+We could stop here and conclude, ‘Yes, there is a difference between groups, and by golly, the intervention works.’ But remember that chance, or random variation, is inherent in all phenomena, so this observation could just be a mere fluke -- uncertainty abounds. That is why we conduct a test of statistical significance.
 
+The particular hypothesis test we will use is called a **two-sample proportion test**. Like mentioned previously with the `prop.test()` function, we need to give two *pairs* of values: `x` and `n`. 
+
+For the `x` value, we need to specify the number of event present ('1's) in each group. We have 10 events present (number of young people who have reoffended) in the treatment group, and 28 in the control group. We then combine them as `c(10, 28)`. The second value pair, `n`, refers to the sample sizes of each group. Here, we have 50 in each group so the value pair is `c(50,50)`. We now can conduct the two-sample proportion test:
+<br>
 
 
 
@@ -488,7 +487,7 @@ prop.test(x = c(10, 28), n = c(50, 50))
 ## 
 ## 	2-sample test for equality of proportions with continuity correction
 ## 
-## data:  c(10, 28) out of c(50, 50)
+## data:  c out of c10 out of 5028 out of 50
 ## X-squared = 12.267, df = 1, p-value = 0.0004611
 ## alternative hypothesis: two.sided
 ## 95 percent confidence interval:
@@ -497,33 +496,22 @@ prop.test(x = c(10, 28), n = c(50, 50))
 ## prop 1 prop 2 
 ##   0.20   0.56
 ```
+<br>
 
 
+The output is a little ugly, but you can refer to the help documentation for more detail on the output by typing `?prop.test` into the console pane. 
 
-The output is a little ugly, but you can refer to the help documentation for more detail on the output by typing `?prop.test`. 
-
-You can see there are some points of interest in there for us. We can extract them individually by saving the results into a new object. Let's call this `reoff_results`:
-
+You can see there are some points of interest in the output. We can extract them individually by saving the results into a new object called `reoff_results`:
+<br>
 
 
 ```r
 reoff_results <- prop.test(x = c(10, 28), n = c(50, 50))
 ```
+<br>
 
-Then we can extract this from our new object `reoff_results` the same way we refer to variables in dataframes, by using the `$` operator. 
-
-
-
-Let us focus on interpreting these results: 
-
-
-
-
--	**P-value**: probability of observing this difference in proportions given the null hypothesis is true. To extract this value we need `$p.value` and then check – is it less than α = 0.05 ?
-
-
-
-
+We can actually extract whatever interests us from our new object `reoff_results` the same way we refer to variables in dataframes, by using the `$` operator. Let us start with extracting the p-value (`$p.value`) and interpreting it: 
+<br>
 
 
 ```r
@@ -533,12 +521,13 @@ reoff_results$p.value
 ```
 ## [1] 0.0004611492
 ```
+<br>
 
 
+Recall that the p-value is the probability of observing this difference (in proportions) when the null hypothesis is true -- is it less than α = 0.05 ? 
 
-
--	**Alternative hypothesis**: although we should specify the direction of the hypothesis before even collecting our data, R reminds us of our choices here. Since let's say initially we expect between-group differences in either direction so it is **non-directional** or **two-sided**. 
-
+With our (alternative) hypothesis ($H_A$), although we should have specified the direction of the hypothesis before collecting our data, `R` reminds us of our choices here. If we had expected between-group differences in either direction, it would be **non-directional** or **two-sided**, and extracting that information confirms this:
+<br>
 
 
 ```r
@@ -548,9 +537,9 @@ reoff_results$alternative
 ```
 ## [1] "two.sided"
 ```
+<br>
 
-
-- **The estimate**: this gives you the proportion of successess attributed to each group – 20% in one group (10/ 50) (prop1) and 56% in the other (28/ 50) (prop2)
+The estimate gives you the proportion of successess attributed to each group – 20% in one group (10/ 50) (prop 1) and 56% in the other (28/ 50) (prop 2):
 
 
 
@@ -562,37 +551,35 @@ reoff_results$estimate
 ## prop 1 prop 2 
 ##   0.20   0.56
 ```
+<br>
 
+Let us elaborate on our interpretations further. Below is how you would aptly interpret your results:
 
-**So how do you interpret these numbers?**
+The p-value is less than the specified $\alpha$ = 0.05, so we can *reject our null hypothesis* and state that the difference in reoffending between the two groups is statistically significant. We have evidence to reject the null hypothesis that no difference in reoffending exists between the treatment and control groups. This suggests that *something* is happening because of the intervention, but we are not sure what. But we could look at the proportions in each group and state that a smaller proportion of young people who had the intervention reoffended compared with those who did not receive the intervention (20% as opposed to 56%). 
 
-
-The p-value is less than the specified $\alpha$ = 0.05, so we can *reject our null hypothesis of no difference* say that the difference in re-offending between the two groups is statistically significant. We have evidence to reject the null hypothesis that no difference in re-offending exists between the treatment and control groups. This suggests that *something* is happening because of the intervention, but we are not sure what. We could now turn to look at the proportions in each group, and state that we can see fewer proportion of young people who went through the treatment re-offended than those in the control, who did not receive the treatment. But what if we wanted 
-
+<br>
+<br>
 
 #### Activity 6: Directional tests
 
-Now, what about if we want a directional hypothesis? For example, we expect that re-offending reduces in the treatment group compared to the control group. In this case, we think that the treatment group will have *less* re-offending, and this becomes our $H_A$ which we are testing. As our hypothesis has changed, the test we use has changed. Remember the assumptions of our test, that we have specified our hypotheses in advance? This is why this is important! In reality we will only run one hypothesis test. Here we just demonstrate multiple for you to learn!
+Now, what if we did specify a direction for our hypothesis? For example, we expected that reoffending reduces in the treatment group compared with the control group. Our directional hypothesis is that the treatment group will have *less* levels of reoffending, so we will need to test it. This would also be considered a one-tailed (one-sided) hypothesis.
 
+Since our hypothesis has changed, the test we use will need to change. As, for this example, we now have a directional hypothesis and we can specify within the `prop.test()` function what we want our alternative hypothesis to be.
 
+By default, the `prop.test()` function will perform a two-sided test (non-directional hypothesis). This is why we did not have to specify what type of hypothesis we had previously. For this, we can choose which way we think the direction will go. We can choose 'less' or 'greater' depending on whether we think that reoffending in our treatment group will be less than in the control group, or greater than in the control group. 
 
-Okay, so how to test for a one-tailed (one-sided) *directional* hypothesis? Well we can specify within the `prop.test()` function what we want our `aternative` hypothesis to be. 
-
-
-By default, `prop.test()` function will preform a "two.sided" test (non-directional hypothesis). This is why we did not have to specify this parameter above (although we were reminded with the `$alternative` output of our results!). To specify, we can choose which way we think the direction will go. We can choose "less" or "greater" depending on whether we think that re-offending in our treatment group will be less than in the control, or greater than in the control. Ideally, we want our treatment to *reduce* re-offending, not increase it (although remember the *scared straight* interventions we discussed last semester??), so we will choose "less" here: 
-
-
+In our present example, we want our treatment to *reduce* reoffending, not increase it, so we will choose 'less': 
+<br>
 
 
 ```r
 # We add ‘alternative=’ and specify ‘less’ to indicate we expect the treatment group to have a smaller probability of reoffending than the control
 reoff_directional_results <- prop.test(x = c(10, 28), n = c(50, 50), alternative = "less")
 ```
+<br>
 
-
-So what are the results now? Well first let's check the $H_A$ we just tested with the test we just performed: 
-
-
+First, let us check the $H_A$ to confirm its type and direction: 
+<br>
 
 
 ```r
@@ -602,13 +589,10 @@ reoff_directional_results$alternative
 ```
 ## [1] "less"
 ```
+<br>
 
-
-We see the $H_A$ we tested is that the treatment group has re-offended (succeeded??) *less* than the control group. 
-
-Great! Does this change our conclusions?
-
-
+It is indeed 'less', but does this change our conclusions compared to that of the non-directional hypothesis?
+<br>
 
 
 ```r
@@ -618,24 +602,22 @@ reoff_directional_results$p.value
 ```
 ## [1] 0.0002305746
 ```
+<br>
 
+Does not seem so because the p-value is less than $\alpha$ = 0.05. We have sufficient evidence to reject our null hypothesis. In other words, there is evidence to suggest that the at-risk youth in the treatment group did re-offend less than in the control group due to the intervention, and this finding is statistically significant – we can generalise this result to the population which they represent. 
 
-
-Doesn't seem so. Again, the p-value is less than $\alpha$ = 0.05, so we have sufficient indication to reject our null hypothesis. In other words, there is evidence to suggest that the at-risk youth in the treatment did offend less than in the control group due to the intervention, and this finding is statistically significant – we can generalise this result to the population which they represent. 
-
-Now if, for example, we found out that the therapist hired to deliver the intervention was a fraud, we may be worried the treatment group did worse than the control group. We then would expect a directional hypothesis where reoffending is higher in the treatment group than that of the control. We run the two-sample proportion test again, but with a slight difference to the direction:
-
-
-
+Now if, for example, we found out that the therapist hired to deliver the intervention was a fraud. We may be worried that the treatment group did worse than the control group. We then would expect a directional hypothesis where reoffending is higher in the treatment group than that of the control group. We run the two-sample proportion test again, but with a slight difference to the direction:
+<br>
 
 
 ```r
 # We specify ‘greater’ following ‘alternative’ to indicate our expected direction for the treatment group relative to the control group
 reoff_greater_results<- prop.test(x = c(10, 28), n = c(50, 50), alternative = "greater")
 ```
+<br>
 
-
-Let's check the p-value
+Let us check the p-value:
+<br>
 
 
 ```r
@@ -645,26 +627,22 @@ reoff_greater_results$p.value
 ```
 ## [1] 0.9997694
 ```
+<br>
 
-The p-value is greater than the specified 0.05, meaning that we have failed to reject the null hypothesis, and we do not have adequate evidence to support our hypothesis that our intervention *increases* re-offending. 
+The p-value is greater than the specified 0.05, meaning that we have failed to reject the null hypothesis, and we do not have adequate evidence to support our hypothesis that our intervention *increases* reoffending. 
 
-**NOTE:: **With this example, we have committed some bad practice: we did multiple hypothesis tests. This is a no-no: stick to one hypothesis and test that. Our purpose here, however, was to demonstrate how to run the binomial test. Recall that it is important to state your hypotheses before you collect and analyse your data.
+**NOTE:** With this example, we have committed some bad practice: we did multiple hypothesis tests. This is a no-no: stick to one hypothesis and test that. Our purpose here, however, was to demonstrate how to run binomial tests. Recall that it is important to state your hypotheses before you collect and analyse your data.
 
+<br>
+<br>
 
 #### Activity 7: Confidence Intervals
 
-Last week we introduced Confidence Intervals.  Including confidence intervals (CIs) is good practice, and it is possible to create them for binomial proportions. For example, we would like to build CIs around the proportion of the outcome for each group. We use the `BinomCI ()` function in the `DescTools` package to do so. We specify 3 parameters, (1) the number of successes (re-offenders), the sample size (50 for each group), and the confidence level (let's stick with 95%):
+Last time, we were introduced to confidence intervals (CIs). Including them is good practice, and it is possible to create them for binomial proportions. For example, we would like to build CIs around the proportion of the outcome for each group. 
 
+We use the `BinomCI ()` function in the `DescTools` package to do so. We specify three values: (1) the number of present events (reoffenders), the sample size (50 for each group), and the confidence level (95%):
+<br>
 
-First for the treatment group: 
-
-```r
-library(DescTools)
-```
-
-```
-## Warning: package 'DescTools' was built under R version 3.6.3
-```
 
 ```r
 # CIs for treatment group where 10 reoffended
@@ -676,12 +654,8 @@ BinomCI(10, 50, conf.level = 0.95)
 ## [1,] 0.2 0.1124375 0.3303711
 ```
 
-Then for the treatment: 
-
-
 ```r
 # CIs for control group where 28 reoffended
-
 BinomCI(28, 50, conf.level = 0.95)
 ```
 
@@ -689,17 +663,10 @@ BinomCI(28, 50, conf.level = 0.95)
 ##       est    lwr.ci   upr.ci
 ## [1,] 0.56 0.4230603 0.688378
 ```
-
-
-
+<br>
 
 In the CI for the treatment group, 11 to 33% of young people exposed to the intervention will reoffend, whereas the CI for the control group indicates that 42 to 69% of the young people not exposed to the intervention will reoffend. This seems like a large difference. To get a better understanding, we visualise this using `ggplot`:
-
-
-
-
-
-
+<br>
 
 
 ```r
@@ -718,60 +685,44 @@ ggplot() +
 ```
 
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+<br>
+
+Visualising our results, we observe further support that the intervention reduces reoffending: the confidence intervals for each group do not overlap and the proportion for the control group is lower than that of the treatment group. 
 
 
-
-
-Visualising our results, we see further support that the intervention reduces reoffending: the confidence intervals for each group do not overlap and the proportion for the control group is lower than that of the treatment group. When the CIs between groups do not overlap, this is good because it indicates that the two groups likely come from two different populations. 
-
-
-
-
+<br>
+<br>
 
 ---
 
 
 
-
-### Single-sample significance tests
-
-
+### Hypothesis Tests for the Normal Distribution
 
 
 For this section, we learn about hypothesis tests that use the *normal distribution*. 
 
-Remember we're starting with our assumptions. Hypothesis testing using the normal distribution have the following assumptions: 
-
-
-
+We begin with checking the assumptions. Hypothesis testing using the normal distribution have the following assumptions: 
+<br>
 
 1.	*Level of measurement:* the variable is interval or ratio level
 
-
-
-
 2.	*Shape of the population distribution:* normal distribution
-
-
-
 
 3.	*Sample:* high external validity
 
-
-
-
 4.	*Hypothesis:* stated before collection and analysis of data
 
+<br>
 
+Unlike the binominal test(s), which compared groups, we will be comparing a single group – our sample – to the population. This may sound strange because we have learned that information about the population is rare, so we must make do with uncertainty. 
 
+In some cases, however, we may know the parameter from the population and these tests can be used. When comparing our sample to a known population, we use the z- distribution; if we have to compare with an unknown population, we use the t-distribution. The z- and t- distributions are types of normal distributions.
 
-Unlike the binominal test, which compared groups, we will be comparing a single group – our sample – to the population. This may sound strange because we have learned that information about the population is rare, so we must make do with uncertainty. In some cases, however, we may know the population parameter and these tests can be used. When comparing our sample to a known population, we use the z- distribution; if we have to compare with an unknown population, we use the t-distribution. The z- and t- distributions are types of normal distributions.
+The normal distribution has some predictable characteristics about it. One is that half of the distribution will always be below the mean, and the other half will be above the mean. We demonstrate this by creating a synthetic data of 1.5 million US prisoner IQ scores, drawn from a population that is normally distributed ($\mu$ = 100; SD = 15). 
 
-
-The normal distribution has some predictable characteristics about it. One is that half of the distribution will always be below the mean, and the other half will be above the mean. We demonstrate this by creating a synthetic data of 1.5 million US prisoner IQ scores, drawn from a population that is normally distributed ($\mu$ = 100; SD = 15). We then test whether half of our population have an IQ above the mean. We introduce two new functions: `which()` to select a subset of prisoners who have an IQ of 100 + and `nrow()`, which divides the number of prisoners with an IQ of 100+ by the total number of prisoners: 
-
-
-
+We then test whether half of our population have an IQ above the mean. We introduce two new functions: `which()` to select a subset of prisoners who have an IQ of 100+ and `nrow()`, which divides the number of prisoners with an IQ of 100+ by the total number of prisoners: 
+<br>
 
 
 ```r
@@ -779,6 +730,7 @@ The normal distribution has some predictable characteristics about it. One is th
 # ‘prisoner_id’ has 1 to 1.5 million IDs while ‘IQ’ has scores generated by ‘rnorm’ function 
 # Place data frame in object called ‘prisoner_iq’
 prisoner_iq <- data.frame( prisoner_id = 1:1500000, IQ = round(rnorm(1500000, mean = 100, sd = 15), 0)) 
+
 
 # Using ‘which’ function to make subset of prisoners with IQ above 100
 # ‘which’ is to the left of the ‘,’ at the end of code to specify that we are selecting rows
@@ -790,27 +742,27 @@ nrow(iq_over_100)/nrow(prisoner_iq)
 ```
 
 ```
-## [1] 0.4863087
+## [1] 0.4864273
 ```
+<br>
 
+The result should be close to .50, indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the **z-score** is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean. 
 
-
-
-The result should be close to .50 indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the **z-score** is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean. 
-
+<br>
 
 #### Activity 8: Calculating a z-score
 
 
-This should all be sounding a bit familiar now. All the z-score does is express in standard deviations, how far away a particular observed value lies from the mean. The z score of any observed value can be calculated by subtracting the mean from the observation, and dividing by the standard deviation. Simply: 
+This should all be sounding a bit familiar now. All the z-score does is express, in standard deviations, how far away a particular observed value lies from the mean. The z-score of any observed value can be calculated by subtracting the mean from the observation, and dividing by the standard deviation: 
+
+<br>
 
 $z = \frac{x - \mu}{\sigma}$
 
+<br>
 
-However, since R is nice to us, we can make it even simpler to create z-scores, we can use the function `scale()`. For the next example, we take the IQ of five prisoners and change the IQ of the first prisoner from 102 to 115 so that it is easy to show that this prisoner’s z-score is 1. The reason is the prisoner’s IQ score of 115 is one standard deviation above the population mean. (Remember: $\mu$ = 100; SD = 15):
-
-
-
+With `R`, we can make it simpler to create z-scores with the function `scale()`. For this next example, we take the IQ of five prisoners and change the IQ of the first prisoner from 102 to 115 so that it is easy to show that this prisoner’s z-score is 1. The reason is the prisoner’s IQ score of 115 is one standard deviation above the population mean. (Remember: $\mu$ = 100; SD = 15):
+<br>
 
 
 ```r
@@ -820,11 +772,11 @@ prisoner_iq[1:5,]
 
 ```
 ##   prisoner_id  IQ
-## 1           1 120
-## 2           2 105
-## 3           3 111
-## 4           4  89
-## 5           5  93
+## 1           1 103
+## 2           2  87
+## 3           3 112
+## 4           4  91
+## 5           5  98
 ```
 
 ```r
@@ -840,12 +792,12 @@ prisoner_iq[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  1.000122
+## 1           1 115  1.000687
 ```
+<br>
 
-
-To show that this is the same z-score you would get with the formula above, go ahead and calculate $z = \frac{x - \mu}{\sigma}$:
-
+<!--To show that this is the same z-score you would get with the formula above, we  calculate the z-score using the equation, $z = \frac{x - \mu}{\sigma}$:
+<br>
 
 
 ```r
@@ -853,22 +805,13 @@ To show that this is the same z-score you would get with the formula above, go a
 ```
 
 ```
-## [1] 1.000122
+## [1] 1.000687
 ```
-
-Same value! 
+<br> -->
 
 
 Where the z-score becomes practical is illustrated in the following example: say if a probation officer is writing a report for a prisoner who is about to be up for parole. The prisoner has an IQ of 124. The officer wants to give a good idea of how this score compares to all other prisoners. An apt way of doing this is to state the proportion of prisoners who have lower IQs. This can be done using the `pnormGC()` function from the `tigerstats` package:
-
-
-
-
-
-```r
-library(tigerstats)
-```
-
+<br>
 
 
 ```r
@@ -883,21 +826,18 @@ iq_sd<-sd(prisoner_iq$IQ)
 pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=TRUE) 
 ```
 
-<img src="06-hypotheses_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 ```
-## [1] 0.9451812
+## [1] 0.9452662
 ```
-
-
+<br>
 
 
 The output shows the shaded area at 0.9453, meaning that the prisoner has a higher IQ than over 94% of the prison population. 
 
-Recall from the previous week, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68% of cases in the distribution fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within 3 SD. We demonstrate this rule by using the `pnormGC()` function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:
-
-
-
+Recall from the previous lesson, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68% of cases in the distribution fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within 3 SD. We demonstrate this rule by using the `pnormGC()` function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:
+<br>
 
 
 ```r
@@ -905,69 +845,80 @@ Recall from the previous week, the 68-95-99.7 rule. This is helpful to keep in m
 pnormGC(bound=c(85, 115),region="between", mean=100,sd=15,graph=TRUE)
 ```
 
-<img src="06-hypotheses_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 ```
 ## [1] 0.6826895
 ```
-
-
-
+<br>
 
 And, yes, it shows that 68% of the IQ scores do fall within +/-1 standard deviation of the mean, in the case of a normal distribution. 
 
-
+<br>
+<br>
 
 ---
 
 
-
-
 #### Activity 9: Single sample z-tests for means
 
+Now, how can we use this to test hyptheses? Returning to the parole board example, say if the officer wanted to know, with 99% confidence, the average IQ at this specific prison is significantly different from those of all prisons in the UK. 
 
-
-So how can we use this to test hyptheses? Returning to the parole board example, say if the officer wanted to know, with 99% confidence, if the average IQ at this specific prison is significantly different from those of all prisons in the UK. 
-
-
-Let's say that we have a prison with a random selection of 233 prisoners. Let's sample this now from our population. 
-
+Let us say that we have a prison with a random selection of 233 prisoners. We then sample this from our population: 
+<br>
 
 
 ```r
-library(mosaic)
 set.seed(1234)
-prison_1 <- sample(prisoner_iq, 233)
+prison_1 <- sample(prisoner_iq, 233) # Is the 'mosaic' package loaded?
 ```
+<br>
 
 
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 97.7982833 (SD = 15.4949268). 
 
-The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 98.3819742 (SD = 15.1818012). 
+As the parameter (mean IQ for all prisoners in the population) is known, a **single sample z-test** is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:
 
-As the population parameter (mean IQ for all prisoners) is known (it is 100, see our simulated population data above), a **single sample z-test** is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:
-
+<br>
 
 $H_0$: The mean IQ of the population from which our sample of prisoners was drawn is the same as the mean IQ of the UK prison population (mean = 100).
 
-
-
-
 $H_A$:  The mean IQ of the population from which our sample of prisoners was drawn is not the same as the mean IQ of the UK prison population (mean ≠ 100).
 
+<br>
 
-> Note: we 'know' the population mean because we made a hypothetical population. We might not know this in real life, but our hypothetical officer might have a *hypothesis* that the population mean is 100 IQ. We can test against this hypothesised population mean. 
+> Note: we 'know' the population mean because we made a hypothetical population. We might not know this in real life, but our hypothetical officer might have a *hypothesis* that the population mean is 100 IQ. Thus, we can test our sample mean against the hypothesised population mean. 
 
+<br>
 
-How can we test this? Well we need to calculate a z-test statistic. To calculate the z-test statistic we need the following parameters: the sample mean ($\bar{x}$), the sample standard deviation ($\sigma$), the sample size ($n$), and the known (or hypothesised) population mean ($\mu$). The equation to calculate the z-test statistic is as follows: 
+To test, we need to calculate a z-test statistic. To calculate this statistic, we need the following statistics: 
 
+<br>
+
+From the sample:
+- Mean ($\bar{x}$) ; 
+- Size ($n$)
+
+<br>
+From the population:
+- Known (or hypothesised) population mean ($\mu$)
+- Standard deviation ($\sigma$)
+
+<br>
+
+The equation to calculate the z-test statistic is as follows: 
+
+<br>
 
 $z = \frac{\bar{x}-\mu}{\sigma/\sqrt{n}}$
 
-So the difference between the sample mean and the population mean over the standard deviation divided by the square root of the sample size. 
+<br>
+
+It is the difference between the sample mean and the population mean over the standard deviation divided by the square root of the sample size. 
 
 
-To compute this in R first we need each of these values: 
-
+To compute this in `R`, first, we need each of these values: 
+<br>
 
 
 ```r
@@ -976,22 +927,23 @@ mu <- 100 # (hypothesised) population mean
 iq_sd <- sd(prison_1$IQ) # sample standard deviation 
 sample_size <- nrow(prison_1) # the number of prisoners in our sample
 ```
+<br>
 
-
-We can now compute our test statistic using the parameters calculated above. 
-
+We can now compute our test statistic using the values calculated above: 
+<br>
 
 
 ```r
- z_stat <- (xbar-mu) / (iq_sd / sqrt(sample_size)) # Equation for one-sample z-test
+# Equation for one-sample z-test
+z_stat <- (xbar-mu) / (iq_sd / sqrt(sample_size)) 
 
 z_stat
 ```
 
 ```
-## [1] -1.626822
+## [1] -2.168952
 ```
-
+<br>
 
 <!-- We create our own function called ' z_test ' so that other prisons can easily compare their IQ scores to that of all prisoners. In addition, we use `cat()`, which combines our string text to label our z-score in the output and the computed z-score together. -->
 
@@ -1041,55 +993,60 @@ z_stat
 
 <!-- ``` -->
 
-So we get this test statistic of -1.6268222, but how can we interpret this? Well you can use this z-test statistic to find *the associated p-value*. How can we do that? 
+We obtained this test statistic of -2.1689517, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
 
+Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf)
 
-The traditional way (something about *back in my day...!!* ha) is to look up the associated p-value with each z-score in the back of a textbook - which usually would contain a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf)
+If you click on the link above, you will see that, for example, a z-score of -0.75, at $\alpha$ = 0.05 , is associated with the value 0.22663 in the table. You find this by starting on the left side and identifying '-0.7'; then go to the top of the table and locate '.05' (as -0.7 - 0.05 = -0.75). The value 0.22663 is greater than the alpha of 0.05, and so we would fail to reject the null hypothesis.
 
-
-If you look at the table above, you will see, for a score of -0.7, at $\alpha = 0.05$ the associated value in the table linked above is *0.22663* (rougly 0.23). This is greater than the alpha of 0.05, and so we *cannot reject the null hypothesis*.
-
-
-There is another way to find the p-value. The z-statistic is in fact a z-score on a normal distribution. And the p-value is the probability of seeing these outcomes if the null hypotheses were true. We can refer back to our `pnormGC()` function, to see what this value may be: 
+Another way to find the p-value is to know that the z-statistic is, in fact, a z-score on a normal distribution. The p-value is the probability of seeing these outcomes if the null hypothesis were true. We can refer back to our `pnormGC()` function to see what this value may be: 
+<br>
 
 
 ```r
-pnormGC(z_stat, region="below", mean=0, sd=1, graph=TRUE) 
+z_score <- pnormGC(z_stat, region="below", mean=0, sd=1, graph=TRUE) 
+```
+
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-29-1.png" width="672" />
+
+```r
+z_score
+```
+
+```
+## [1] 0.01504318
+```
+
+<br>
+
+The value is 0.0150432. This is a more precise approximation than our lookup table (where we had to round -2.1689517), and so we are getting a more precise p-value. 
+
+We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability: 
+<br>
+
+
+```r
+z_score_two <- pnormGC(bound=c(z_stat, -z_stat), region="outside", mean=0, sd=1, graph=TRUE) 
 ```
 
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-30-1.png" width="672" />
 
-```
-## [1] 0.05188743
-```
-
-
-You can see that the value is 0.2302. This is a more precise approximation than our lookup table (where we had to round -1.6268222 to -0.7), and so we are getting a more precise p-value. 
-
-
-But also did we specify a direction? We did not! So actually, we should be looking at a two-tailed probabiity: 
-
-
-
 ```r
-pnormGC(bound=c(z_stat, -z_stat), region="outside", mean=0, sd=1, graph=TRUE) 
+z_score_two 
 ```
 
-<img src="06-hypotheses_files/figure-html/unnamed-chunk-31-1.png" width="672" />
-
 ```
-## [1] 0.1037749
+## [1] 0.03008635
 ```
+<br>
+
+You will see our value has increased to 0.0300864. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
+
+When we were looking at a directional hypothesis, it only took into consideration *one-tail* of the distribution, hence it being called a one-tailed test. 
 
 
-You will see our value has increased to 0.4602. In fact, this is simply 2 times the original p-value we got ($2*0.23 = 0.46$). You can also see here that the *two tails* of the distribution are shaded as our non-directional hypothesis is a two-tailed test!
-
-
-Above, when we were looking at a directional hypothesis, it only took into consideration *one tail* of the distribution, hence it being called a one-tailed test! *mind.blown*
-
-
-Now you don't usually need the visualisation for this, we just included it to help learn the concepts. We can get our associated p-value with the z_statistic using the `pnorm()` function: 
-
+Now you do not usually need the visualisation for this, but we just included it to help you learn the concepts. We can get our associated p-value for `z_stat`  using the `pnorm()` function: 
+<br>
 
 
 ```r
@@ -1097,12 +1054,12 @@ pnorm(z_stat)
 ```
 
 ```
-## [1] 0.05188743
+## [1] 0.01504318
 ```
+<br>
 
-
-And since we have a non-directional hypothesis, we times this by two (we're interested in TWO-TAILED hypotheses): 
-
+And, since, we actually have a non-directional hypothesis, we can multiply this by two, as it is a two-tailed hypothesis: 
+<br>
 
 
 ```r
@@ -1110,16 +1067,16 @@ pnorm(z_stat)*2
 ```
 
 ```
-## [1] 0.1037749
+## [1] 0.03008635
 ```
 
 
-Now a final thing - 
-Remember that the officer wanted to be 99% confident, and this means that the significance level would be set at $\alpha$ = 0.01 and not $\alpha$ = 0.05 (this is if we are 95% confident). However, at this point still, our p-value is greater than the alpha level so we fail to reject the null hypothesis. 
+And one more thing: remember that the officer wanted to be 99% confident, and this means that the significance level would be set at $\alpha$ = 0.01 and not $\alpha$ = 0.05 (this is if we are 95% confident; 1 - 0.95 = 0.05).  IN our example, though, our p-value is greater than the alpha level, so we fail to reject the null hypothesis. 
+
+<br>
+<br>
 
 
-
----
 
 
 
@@ -1245,16 +1202,21 @@ Remember that the officer wanted to be 99% confident, and this means that the si
 
 ---
 
+
 ## SUMMARY
 
 
+Today, we learned that to make predictions about the population from our sample, we must create **hypotheses**. When we test our hypothesis, we aspire to reject the **null hypothesis**, which tells us no differences exist. To ensure we reject the null accurately, however, we must be wary of **type 1 error**, so we consider this error in tests of **statistical significance** and in evaluating our **p-values**. These hypothesis tests we learned today in `R` used the **binomial distribution** as well as the normal distribution, and required us to set our hypotheses at the outset as either **directional** or **non-directional**. Hypothesis tests that used the normal distribution were explored for **single samples** and statistical significance was determined by **z-scores** . With further statistical analyses, however, many of the functions used in `R` will compute p-values for you, but it is important to understand what these are, where they come from, and what they mean so to be able to correctly communicate your results. 
 
-
-Today, we learned that to make predictions about the population from our sample, we must create **hypotheses**. When we test our hypothesis, we aspire to reject the **null hypothesis**, which tells us no differences exist. To ensure we reject the null accurately, however, we must be wary of **type 1 error** so we consider this error in tests of **statistical significance** and in evaluating our **p-values**. These hypothesis tests we learned today in `R` used the **binomial distribution** as well as the normal distribution, and required us to set our hypotheses at the outset as either **directional** or **non-directional**. Hypothesis tests that used the normal distribution were explored for **single samples** and statistical significance was determined by **z scores** . In most cases going forward, the functions we use in R will be computing p-values for you, but it's important to understand what these are, where they come from, and what they mean, to be able to correctly interpret these. 
-
+<br>
 
 
 Homework time...
+
+
+<br>
+<br>
+
 
 
 
