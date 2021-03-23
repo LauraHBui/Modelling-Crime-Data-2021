@@ -742,7 +742,7 @@ nrow(iq_over_100)/nrow(prisoner_iq)
 ```
 
 ```
-## [1] 0.486608
+## [1] 0.486644
 ```
 <br>
 
@@ -772,11 +772,11 @@ prisoner_iq[1:5,]
 
 ```
 ##   prisoner_id  IQ
-## 1           1  92
+## 1           1  76
 ## 2           2  92
-## 3           3 118
-## 4           4  82
-## 5           5 126
+## 3           3  77
+## 4           4 115
+## 5           5 112
 ```
 
 ```r
@@ -792,7 +792,7 @@ prisoner_iq[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  1.001085
+## 1           1 115 0.9988748
 ```
 <br>
 
@@ -805,7 +805,7 @@ prisoner_iq[1,]
 ```
 
 ```
-## [1] 1.001085
+## [1] 0.9988748
 ```
 <br> -->
 
@@ -829,7 +829,7 @@ pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=TRUE)
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 ```
-## [1] 0.9453243
+## [1] 0.9450257
 ```
 <br>
 
@@ -875,7 +875,7 @@ prison_1 <- sample(prisoner_iq, 233) # Is the 'mosaic' package loaded?
 <br>
 
 
-The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 100.4206009 (SD = 15.6252974). 
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 100.0214592 (SD = 15.5195778). 
 
 As the parameter (mean IQ for all prisoners in the population) is known, a **single sample z-test** is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:
 
@@ -896,12 +896,14 @@ To test, we need to calculate a z-test statistic. To calculate this statistic, w
 <br>
 
 From the sample:
-- Mean ($\bar{x}$) ; 
+
+- Mean ($\bar{x}$); 
 - Size ($n$)
 
 <br>
 From the population:
-- Known (or hypothesised) population mean ($\mu$)
+
+- Known (or hypothesised) population mean ($\mu$);
 - Standard deviation ($\sigma$)
 
 <br>
@@ -941,7 +943,7 @@ z_stat
 ```
 
 ```
-## [1] 0.4108846
+## [1] 0.0211063
 ```
 <br>
 
@@ -993,7 +995,7 @@ z_stat
 
 <!-- ``` -->
 
-We obtained this test statistic of 0.4108846, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
+We obtained this test statistic of 0.0211063, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
 
 Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf)
 
@@ -1014,12 +1016,12 @@ z_score
 ```
 
 ```
-## [1] 0.6594214
+## [1] 0.5084196
 ```
 
 <br>
 
-The value is 0.6594214. This is a more precise approximation than our lookup table (where we had to round 0.4108846), and so we are getting a more precise p-value. 
+The value is 0.5084196. This is a more precise approximation than our lookup table (where we had to round 0.0211063), and so we are getting a more precise p-value. 
 
 We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability: 
 <br>
@@ -1036,11 +1038,11 @@ z_score_two
 ```
 
 ```
-## [1] 0.6811572
+## [1] 0.9831609
 ```
 <br>
 
-You will see our value has increased to 0.6811572. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
+You will see our value has increased to 0.9831609. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
 
 When we were looking at a directional hypothesis, it only took into consideration *one-tail* of the distribution, hence it being called a one-tailed test. 
 
@@ -1054,7 +1056,7 @@ pnorm(z_stat)
 ```
 
 ```
-## [1] 0.6594214
+## [1] 0.5084196
 ```
 <br>
 
@@ -1067,11 +1069,11 @@ pnorm(z_stat)*2
 ```
 
 ```
-## [1] 1.318843
+## [1] 1.016839
 ```
 
 
-And one more thing: remember that the officer wanted to be 99% confident, and this means that the significance level would be set at $\alpha$ = 0.01 and not $\alpha$ = 0.05 (this is if we are 95% confident; 1 - 0.95 = 0.05).  IN our example, though, our p-value is greater than the alpha level, so we fail to reject the null hypothesis. 
+And one more thing: remember that the officer wanted to be 99% confident, and this means that the significance level would be set at $\alpha$ = 0.01 and not $\alpha$ = 0.05 (this is if we are 95% confident; 1 - 0.95 = 0.05).  In our example, though, our p-value is greater than the alpha level, so we fail to reject the null hypothesis. 
 
 <br>
 <br>

@@ -837,12 +837,14 @@ To test, we need to calculate a z-test statistic. To calculate this statistic, w
 <br>
 
 From the sample:
-- Mean ($\bar{x}$) ; 
+
+- Mean ($\bar{x}$); 
 - Size ($n$)
 
 <br>
 From the population:
-- Known (or hypothesised) population mean ($\mu$)
+
+- Known (or hypothesised) population mean ($\mu$);
 - Standard deviation ($\sigma$)
 
 <br>
@@ -990,7 +992,7 @@ pnorm(z_stat)*2
 ```
 
 
-And one more thing: remember that the officer wanted to be 99% confident, and this means that the significance level would be set at $\alpha$ = 0.01 and not $\alpha$ = 0.05 (this is if we are 95% confident; 1 - 0.95 = 0.05).  IN our example, though, our p-value is greater than the alpha level, so we fail to reject the null hypothesis. 
+And one more thing: remember that the officer wanted to be 99% confident, and this means that the significance level would be set at $\alpha$ = 0.01 and not $\alpha$ = 0.05 (this is if we are 95% confident; 1 - 0.95 = 0.05).  In our example, though, our p-value is greater than the alpha level, so we fail to reject the null hypothesis. 
 
 <br>
 <br>
