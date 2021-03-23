@@ -1,6 +1,6 @@
 
 # Hypotheses
-#### *Statistical Significance, Binominal Test, Single Sample Significance Tests* {-}
+#### *Statistical Significance & Hypothesis Tests for Binominal and Normal Distributions* {-}
 
 
 #### Learning Outcomes: {-}
@@ -190,7 +190,7 @@ Think what might be a *directional* hypothesis for our new-intervention-to-reduc
 
 ## Today’s 3
 
-To understand hypotheses in action, we learn three substantive concepts today: **statistical significance**, **the binominal distribution**, and **single-sample significance tests**. Before we begin, do ensure all appropriate packages are loaded; they are always listed at the top of each lesson.
+To understand hypotheses in action, we learn three substantive concepts today: **statistical significance**, and hypothesis tests for **the binominal distribution**, and **the normal distribution**. Before we begin, do ensure all appropriate packages are loaded; they are always listed at the top of each lesson.
 
 
 
@@ -742,7 +742,7 @@ nrow(iq_over_100)/nrow(prisoner_iq)
 ```
 
 ```
-## [1] 0.4864273
+## [1] 0.486608
 ```
 <br>
 
@@ -772,11 +772,11 @@ prisoner_iq[1:5,]
 
 ```
 ##   prisoner_id  IQ
-## 1           1 103
-## 2           2  87
-## 3           3 112
-## 4           4  91
-## 5           5  98
+## 1           1  92
+## 2           2  92
+## 3           3 118
+## 4           4  82
+## 5           5 126
 ```
 
 ```r
@@ -792,7 +792,7 @@ prisoner_iq[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  1.000687
+## 1           1 115  1.001085
 ```
 <br>
 
@@ -805,7 +805,7 @@ prisoner_iq[1,]
 ```
 
 ```
-## [1] 1.000687
+## [1] 1.001085
 ```
 <br> -->
 
@@ -829,7 +829,7 @@ pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=TRUE)
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 ```
-## [1] 0.9452662
+## [1] 0.9453243
 ```
 <br>
 
@@ -875,7 +875,7 @@ prison_1 <- sample(prisoner_iq, 233) # Is the 'mosaic' package loaded?
 <br>
 
 
-The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 97.7982833 (SD = 15.4949268). 
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 100.4206009 (SD = 15.6252974). 
 
 As the parameter (mean IQ for all prisoners in the population) is known, a **single sample z-test** is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:
 
@@ -941,7 +941,7 @@ z_stat
 ```
 
 ```
-## [1] -2.168952
+## [1] 0.4108846
 ```
 <br>
 
@@ -993,7 +993,7 @@ z_stat
 
 <!-- ``` -->
 
-We obtained this test statistic of -2.1689517, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
+We obtained this test statistic of 0.4108846, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
 
 Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf)
 
@@ -1014,12 +1014,12 @@ z_score
 ```
 
 ```
-## [1] 0.01504318
+## [1] 0.6594214
 ```
 
 <br>
 
-The value is 0.0150432. This is a more precise approximation than our lookup table (where we had to round -2.1689517), and so we are getting a more precise p-value. 
+The value is 0.6594214. This is a more precise approximation than our lookup table (where we had to round 0.4108846), and so we are getting a more precise p-value. 
 
 We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability: 
 <br>
@@ -1036,11 +1036,11 @@ z_score_two
 ```
 
 ```
-## [1] 0.03008635
+## [1] 0.6811572
 ```
 <br>
 
-You will see our value has increased to 0.0300864. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
+You will see our value has increased to 0.6811572. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
 
 When we were looking at a directional hypothesis, it only took into consideration *one-tail* of the distribution, hence it being called a one-tailed test. 
 
@@ -1054,7 +1054,7 @@ pnorm(z_stat)
 ```
 
 ```
-## [1] 0.01504318
+## [1] 0.6594214
 ```
 <br>
 
@@ -1067,7 +1067,7 @@ pnorm(z_stat)*2
 ```
 
 ```
-## [1] 0.03008635
+## [1] 1.318843
 ```
 
 

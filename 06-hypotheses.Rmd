@@ -1,6 +1,6 @@
 
 # Hypotheses
-#### *Statistical Significance, Binominal Test, Single Sample Significance Tests* {-}
+#### *Statistical Significance & Hypothesis Tests for Binominal and Normal Distributions* {-}
 
 
 #### Learning Outcomes: {-}
@@ -190,7 +190,7 @@ Think what might be a *directional* hypothesis for our new-intervention-to-reduc
 
 ## Today’s 3
 
-To understand hypotheses in action, we learn three substantive concepts today: **statistical significance**, **the binominal distribution**, and **single-sample significance tests**. Before we begin, do ensure all appropriate packages are loaded; they are always listed at the top of each lesson.
+To understand hypotheses in action, we learn three substantive concepts today: **statistical significance**, and hypothesis tests for **the binominal distribution**, and **the normal distribution**. Before we begin, do ensure all appropriate packages are loaded; they are always listed at the top of each lesson.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
