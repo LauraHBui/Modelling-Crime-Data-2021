@@ -35,7 +35,7 @@
 ##### *Functions introduced (and packages to which they belong)* {-}
 -	`BinomCI()` : Compute confidence intervals for binomial proportions (`DescTools`)
 -	`nrow()` : Counts the number of rows (`base R`)
--	`pnorm()` : Probability of random variable following normal distribution (`stats`)
+-	`pnorm()` : Probability of random variable following normal distribution (`base R`)
 -	`pnormGC()` : Compute probabilities for normal random variables (`tigerstats`)
 -	`prop.test()` : Test null hypothesis that proportions in groups are the same (`base R`)
 -	`scale()` : Mean centers or rescales a numeric variable (`base R`)
