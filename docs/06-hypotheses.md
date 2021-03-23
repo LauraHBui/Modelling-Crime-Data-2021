@@ -742,7 +742,7 @@ nrow(iq_over_100)/nrow(prisoner_iq)
 ```
 
 ```
-## [1] 0.4862247
+## [1] 0.487594
 ```
 <br>
 
@@ -772,11 +772,11 @@ prisoner_iq[1:5,]
 
 ```
 ##   prisoner_id  IQ
-## 1           1  79
-## 2           2  74
-## 3           3  76
-## 4           4 120
-## 5           5  98
+## 1           1  73
+## 2           2 103
+## 3           3  83
+## 4           4 111
+## 5           5 117
 ```
 
 ```r
@@ -792,7 +792,7 @@ prisoner_iq[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  0.999423
+## 1           1 115 0.9979759
 ```
 <br>
 
@@ -805,7 +805,7 @@ prisoner_iq[1,]
 ```
 
 ```
-## [1] 0.999423
+## [1] 0.9979759
 ```
 <br> -->
 
@@ -829,7 +829,7 @@ pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=TRUE)
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 ```
-## [1] 0.9450931
+## [1] 0.9449602
 ```
 <br>
 
@@ -875,7 +875,7 @@ prison_1 <- sample(prisoner_iq, 233) # Is the 'mosaic' package loaded?
 <br>
 
 
-The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 101.3090129 (SD = 16.6388814). 
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 98.5107296 (SD = 15.8764387). 
 
 As the parameter (mean IQ for all prisoners in the population) is known, a **single sample z-test** is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:
 
@@ -943,7 +943,7 @@ z_stat
 ```
 
 ```
-## [1] 1.200875
+## [1] -1.431853
 ```
 <br>
 
@@ -995,7 +995,7 @@ z_stat
 
 <!-- ``` -->
 
-We obtained this test statistic of 1.2008749, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
+We obtained this test statistic of -1.431853, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
 
 Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf)
 
@@ -1006,43 +1006,43 @@ Another way to find the p-value is to know that the z-statistic is, in fact, a z
 
 
 ```r
-z_score <- pnormGC(z_stat, region="below", mean=0, sd=1, graph=TRUE) 
+z_stat_1 <- pnormGC(z_stat, region="below", mean=0, sd=1, graph=TRUE) 
 ```
 
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-29-1.png" width="672" />
 
 ```r
-z_score
+z_stat_1
 ```
 
 ```
-## [1] 0.8851001
+## [1] 0.07609295
 ```
 
 <br>
 
-The value is 0.8851001. This is a more precise approximation than our lookup table (where we had to round 1.2008749), and so we are getting a more precise p-value. 
+The value is 0.076093. This is a more precise approximation than our lookup table (where we had to round -1.431853), and so we are getting a more precise p-value. 
 
 We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability: 
 <br>
 
 
 ```r
-z_score_two <- pnormGC(bound=c(z_stat, -z_stat), region="outside", mean=0, sd=1, graph=TRUE) 
+z_stat_2 <- pnormGC(bound=c(z_stat, -z_stat), region="outside", mean=0, sd=1, graph=TRUE) 
 ```
 
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-30-1.png" width="672" />
 
 ```r
-z_score_two 
+z_stat_2 
 ```
 
 ```
-## [1] 0.2297997
+## [1] 0.1521859
 ```
 <br>
 
-You will see our value has increased to 0.2297997. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
+You will see our value has increased to 0.1521859. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
 
 When we were looking at a directional hypothesis, it only took into consideration *one-tail* of the distribution, hence it being called a one-tailed test. 
 
@@ -1056,7 +1056,7 @@ pnorm(z_stat)
 ```
 
 ```
-## [1] 0.8851001
+## [1] 0.07609295
 ```
 <br>
 
@@ -1069,7 +1069,7 @@ pnorm(z_stat)*2
 ```
 
 ```
-## [1] 1.7702
+## [1] 0.1521859
 ```
 
 
