@@ -13,7 +13,7 @@
 
 #### Today’s Learning Tools: {-}
 
-
+##### *Total number of activities*: 9 {-}
 
 
 ##### *Data:* {-}
@@ -57,7 +57,7 @@
 Last time, we were introduced to inferential statistics: we used a sample of observations, taken from the population, to draw conclusions about this population. We did this to understand how a sample statistic (such as the sample mean) can be used to make inferences about the parameters (such as the true mean value in the population). 
 
 
-We often, however, use samples not only to make inferences about the population of interest, but to also answer research questions. For example, we might want to know if students experience more burglary than non-students? Do men worry about crime more so than women? Do different ethnic groups have different levels of trust in the police? 
+We often, however, use samples not only to make inferences about the population of interest, but to also answer research questions. For example, we might want to know if students experience more burglary than non-students; do men worry about crime more so than women? Do different ethnic groups have different levels of trust in the police? 
 
 
 In this session, we are going to learn the first step in making predictions about our world: hypothesis testing. In crime and criminal justice research, **hypotheses** (essentially predictions) are made and tested frequently. Hypotheses estimate what we will observe in our data. 
@@ -742,7 +742,7 @@ nrow(iq_over_100)/nrow(prisoner_iq)
 ```
 
 ```
-## [1] 0.486722
+## [1] 0.487042
 ```
 <br>
 
@@ -772,11 +772,11 @@ prisoner_iq[1:5,]
 
 ```
 ##   prisoner_id  IQ
-## 1           1 133
-## 2           2  95
-## 3           3 100
-## 4           4  88
-## 5           5  85
+## 1           1 124
+## 2           2  89
+## 3           3  96
+## 4           4 130
+## 5           5  96
 ```
 
 ```r
@@ -792,7 +792,7 @@ prisoner_iq[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  1.001025
+## 1           1 115 0.9999612
 ```
 <br>
 
@@ -805,7 +805,7 @@ prisoner_iq[1,]
 ```
 
 ```
-## [1] 1.001025
+## [1] 0.9999612
 ```
 <br> -->
 
@@ -829,7 +829,7 @@ pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=TRUE)
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 ```
-## [1] 0.9453586
+## [1] 0.9452616
 ```
 <br>
 
@@ -875,7 +875,7 @@ prison_1 <- sample(prisoner_iq, 233) # Is the 'mosaic' package loaded?
 <br>
 
 
-The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 99.3476395 (SD = 14.0747452). 
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 99.695279 (SD = 13.8095676). 
 
 As the parameter (mean IQ for all prisoners in the population) is known, a **single sample z-test** is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:
 
@@ -943,7 +943,7 @@ z_stat
 ```
 
 ```
-## [1] -0.7074978
+## [1] -0.3368219
 ```
 <br>
 
@@ -995,7 +995,7 @@ z_stat
 
 <!-- ``` -->
 
-We obtained this test statistic of -0.7074978, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
+We obtained this test statistic of -0.3368219, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
 
 Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf)
 
@@ -1016,12 +1016,12 @@ z_stat_1
 ```
 
 ```
-## [1] 0.2396286
+## [1] 0.3681256
 ```
 
 <br>
 
-The value is 0.2396286. This is a more precise approximation than our lookup table (where we had to round -0.7074978), and so we are getting a more precise p-value. 
+The value is 0.3681256. This is a more precise approximation than our lookup table (where we had to round -0.3368219), and so we are getting a more precise p-value. 
 
 We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability: 
 <br>
@@ -1038,11 +1038,11 @@ z_stat_2
 ```
 
 ```
-## [1] 0.4792572
+## [1] 0.7362512
 ```
 <br>
 
-You will see our value has increased to 0.4792572. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
+You will see our value has increased to 0.7362512. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
 
 When we were looking at a directional hypothesis, it only took into consideration *one-tail* of the distribution, hence it being called a one-tailed test. 
 
@@ -1056,7 +1056,7 @@ pnorm(z_stat)
 ```
 
 ```
-## [1] 0.2396286
+## [1] 0.3681256
 ```
 <br>
 
@@ -1069,7 +1069,7 @@ pnorm(z_stat)*2
 ```
 
 ```
-## [1] 0.4792572
+## [1] 0.7362512
 ```
 
 
