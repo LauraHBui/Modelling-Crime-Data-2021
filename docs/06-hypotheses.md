@@ -372,7 +372,7 @@ Together, the probability that we get exactly 38 young people reoffending in our
 To visualise our binomial distribution, we could create a simulation of 1,000 replications for this reoffending example, with n = 100 young people in each, and it would look like this:
 <br>
 
-
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 <br>
 
 From the distribution, we would presume that it is about a 50% chance whether a young person reoffends without having received any intervention in the population. These are the sort of reoffending outcomes we can expect to observe. We can see our sample, overall, is on the left tail of this distribution (although this left skew is not so obvious). Let us move on now to how we can use this for hypothesis testing. 
@@ -742,7 +742,7 @@ nrow(iq_over_100)/nrow(prisoner_iq)
 ```
 
 ```
-## [1] 0.486644
+## [1] 0.4862247
 ```
 <br>
 
@@ -772,11 +772,11 @@ prisoner_iq[1:5,]
 
 ```
 ##   prisoner_id  IQ
-## 1           1  76
-## 2           2  92
-## 3           3  77
-## 4           4 115
-## 5           5 112
+## 1           1  79
+## 2           2  74
+## 3           3  76
+## 4           4 120
+## 5           5  98
 ```
 
 ```r
@@ -792,7 +792,7 @@ prisoner_iq[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9988748
+## 1           1 115  0.999423
 ```
 <br>
 
@@ -805,7 +805,7 @@ prisoner_iq[1,]
 ```
 
 ```
-## [1] 0.9988748
+## [1] 0.999423
 ```
 <br> -->
 
@@ -829,7 +829,7 @@ pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=TRUE)
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 ```
-## [1] 0.9450257
+## [1] 0.9450931
 ```
 <br>
 
@@ -875,7 +875,7 @@ prison_1 <- sample(prisoner_iq, 233) # Is the 'mosaic' package loaded?
 <br>
 
 
-The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 100.0214592 (SD = 15.5195778). 
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 101.3090129 (SD = 16.6388814). 
 
 As the parameter (mean IQ for all prisoners in the population) is known, a **single sample z-test** is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:
 
@@ -943,7 +943,7 @@ z_stat
 ```
 
 ```
-## [1] 0.0211063
+## [1] 1.200875
 ```
 <br>
 
@@ -995,7 +995,7 @@ z_stat
 
 <!-- ``` -->
 
-We obtained this test statistic of 0.0211063, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
+We obtained this test statistic of 1.2008749, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
 
 Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf)
 
@@ -1016,12 +1016,12 @@ z_score
 ```
 
 ```
-## [1] 0.5084196
+## [1] 0.8851001
 ```
 
 <br>
 
-The value is 0.5084196. This is a more precise approximation than our lookup table (where we had to round 0.0211063), and so we are getting a more precise p-value. 
+The value is 0.8851001. This is a more precise approximation than our lookup table (where we had to round 1.2008749), and so we are getting a more precise p-value. 
 
 We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability: 
 <br>
@@ -1038,11 +1038,11 @@ z_score_two
 ```
 
 ```
-## [1] 0.9831609
+## [1] 0.2297997
 ```
 <br>
 
-You will see our value has increased to 0.9831609. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
+You will see our value has increased to 0.2297997. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
 
 When we were looking at a directional hypothesis, it only took into consideration *one-tail* of the distribution, hence it being called a one-tailed test. 
 
@@ -1056,7 +1056,7 @@ pnorm(z_stat)
 ```
 
 ```
-## [1] 0.5084196
+## [1] 0.8851001
 ```
 <br>
 
@@ -1069,7 +1069,7 @@ pnorm(z_stat)*2
 ```
 
 ```
-## [1] 1.016839
+## [1] 1.7702
 ```
 
 

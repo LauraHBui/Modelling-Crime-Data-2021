@@ -376,7 +376,7 @@ Together, the probability that we get exactly 38 young people reoffending in our
 To visualise our binomial distribution, we could create a simulation of 1,000 replications for this reoffending example, with n = 100 young people in each, and it would look like this:
 <br>
 
-```{r, echo = FALSE, warning=FALSE, eval=FALSE}
+```{r, echo = FALSE, warning=FALSE, message=FALSE,}
 
 f <- 1000 # Number of samples
 k <- 100 # Number of young people
