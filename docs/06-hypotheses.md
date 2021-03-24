@@ -687,7 +687,7 @@ ggplot() +
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 <br>
 
-Visualising our results, we observe further support that the intervention reduces reoffending: the confidence intervals for each group do not overlap and the proportion for the control group is lower than that of the treatment group. 
+Visualising our results, we observe further support that the intervention reduces reoffending: the confidence intervals for each group do not overlap and the proportion for the treatment group is lower than for the control group.
 
 
 <br>
@@ -742,7 +742,7 @@ nrow(iq_over_100)/nrow(prisoner_iq)
 ```
 
 ```
-## [1] 0.487042
+## [1] 0.486696
 ```
 <br>
 
@@ -772,10 +772,10 @@ prisoner_iq[1:5,]
 
 ```
 ##   prisoner_id  IQ
-## 1           1 124
-## 2           2  89
-## 3           3  96
-## 4           4 130
+## 1           1 105
+## 2           2 123
+## 3           3 122
+## 4           4  92
 ## 5           5  96
 ```
 
@@ -792,7 +792,7 @@ prisoner_iq[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9999612
+## 1           1 115  1.000093
 ```
 <br>
 
@@ -805,7 +805,7 @@ prisoner_iq[1,]
 ```
 
 ```
-## [1] 0.9999612
+## [1] 1.000093
 ```
 <br> -->
 
@@ -829,7 +829,7 @@ pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=TRUE)
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 ```
-## [1] 0.9452616
+## [1] 0.9451575
 ```
 <br>
 
@@ -875,7 +875,7 @@ prison_1 <- sample(prisoner_iq, 233) # Is the 'mosaic' package loaded?
 <br>
 
 
-The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 99.695279 (SD = 13.8095676). 
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 98.9699571 (SD = 14.6291498). 
 
 As the parameter (mean IQ for all prisoners in the population) is known, a **single sample z-test** is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:
 
@@ -943,7 +943,7 @@ z_stat
 ```
 
 ```
-## [1] -0.3368219
+## [1] -1.074767
 ```
 <br>
 
@@ -995,7 +995,7 @@ z_stat
 
 <!-- ``` -->
 
-We obtained this test statistic of -0.3368219, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
+We obtained this test statistic of -1.0747667, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
 
 Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf)
 
@@ -1016,12 +1016,12 @@ z_stat_1
 ```
 
 ```
-## [1] 0.3681256
+## [1] 0.1412396
 ```
 
 <br>
 
-The value is 0.3681256. This is a more precise approximation than our lookup table (where we had to round -0.3368219), and so we are getting a more precise p-value. 
+The value is 0.1412396. This is a more precise approximation than our lookup table (where we had to round -1.0747667), and so we are getting a more precise p-value. 
 
 We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability: 
 <br>
@@ -1038,11 +1038,11 @@ z_stat_2
 ```
 
 ```
-## [1] 0.7362512
+## [1] 0.2824792
 ```
 <br>
 
-You will see our value has increased to 0.7362512. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
+You will see our value has increased to 0.2824792. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
 
 When we were looking at a directional hypothesis, it only took into consideration *one-tail* of the distribution, hence it being called a one-tailed test. 
 
@@ -1056,7 +1056,7 @@ pnorm(z_stat)
 ```
 
 ```
-## [1] 0.3681256
+## [1] 0.1412396
 ```
 <br>
 
@@ -1069,7 +1069,7 @@ pnorm(z_stat)*2
 ```
 
 ```
-## [1] 0.7362512
+## [1] 0.2824792
 ```
 
 
