@@ -39,7 +39,6 @@
 -	`pnormGC()` : Compute probabilities for normal random variables (`tigerstats`)
 -	`prop.test()` : Test null hypothesis that proportions in groups are the same (`base R`)
 -	`scale()` : Mean centers or rescales a numeric variable (`base R`)
--	`which()` : Provides the position of the elements such as in a row (`base R`)
 
 
 <br>
@@ -692,7 +691,7 @@ In some cases, however, we may know the parameter from the population and these 
 
 The normal distribution has some predictable characteristics about it. One is that half of the distribution will always be below the mean, and the other half will be above the mean. We demonstrate this by creating a synthetic data of 1.5 million US prisoner IQ scores, drawn from a population that is normally distributed ($\mu$ = 100; SD = 15). 
 
-We then test whether half of our population have an IQ above the mean. We introduce two new functions: `which()` to select a subset of prisoners who have an IQ of 100+ and `nrow()`, which divides the number of prisoners with an IQ of 100+ by the total number of prisoners: 
+We then test whether half of our population have an IQ above the mean. We introduce a new function: `nrow()`, which divides the number of prisoners with an IQ of 100+ by the total number of prisoners: 
 <br>
 
 ```{r}
@@ -702,9 +701,6 @@ We then test whether half of our population have an IQ above the mean. We introd
 # Place data frame in object called ‘prisoner_iq’
 prisoner_iq <- data.frame( prisoner_id = 1:1500000, IQ = round(rnorm(1500000, mean = 100, sd = 15), 0)) 
 
-
-# Using ‘which’ function to make subset of prisoners with IQ above 100
-# ‘which’ is to the left of the ‘,’ at the end of code to specify that we are selecting rows
 # Place subset in object called ‘iq_over_100’
 iq_over_100 <- prisoner_iq %>% filter(IQ > 100)
 
