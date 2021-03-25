@@ -691,7 +691,7 @@ In some cases, however, we may know the parameter from the population and these 
 
 The normal distribution has some predictable characteristics about it. One is that half of the distribution will always be below the mean, and the other half will be above the mean. We demonstrate this by creating a synthetic data of 1.5 million US prisoner IQ scores, drawn from a population that is normally distributed ($\mu$ = 100; SD = 15). 
 
-We then test whether half of our population have an IQ above the mean. We introduce a new function: `nrow()`, which counts the numnber of rows. Here, using this function will help us divide the number of prisoners with an IQ of 100+ by the total number of prisoners: 
+We then test whether half of our population have an IQ above the mean. We introduce a new function: `nrow()`, which counts the number of rows. Here, using this function will help us divide the number of prisoners with an IQ of 100+ by the total number of prisoners: 
 <br>
 
 ```{r}
@@ -745,7 +745,7 @@ prisoner_iq[1,]
 ```
 <br>
 
-<!--To show that this is the same z-score you would get with the formula above, we  calculate the z-score using the equation, $z = \frac{x - \mu}{\sigma}$:
+To show that this is the same z-score you would get with the formula above, we  calculate the z-score using the equation, $z = \frac{x - \mu}{\sigma}$:
 <br>
 
 ```{r}
@@ -753,7 +753,9 @@ prisoner_iq[1,]
 (115 - mean(prisoner_iq$IQ))/sd(prisoner_iq$IQ)
 
 ```
-<br> -->
+<br>
+
+When you round this number, you can see it is "1". 
 
 
 Where the z-score becomes practical is illustrated in the following example: say if a probation officer is writing a report for a prisoner who is about to be up for parole. The prisoner has an IQ of 124. The officer wants to give a good idea of how this score compares to all other prisoners. An apt way of doing this is to state the proportion of prisoners who have lower IQs. This can be done using the `pnormGC()` function from the `tigerstats` package:
@@ -775,7 +777,7 @@ pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=TRUE)
 <br>
 
 
-The output shows the shaded area at 0.9453, meaning that the prisoner has a higher IQ than over 94% of the prison population. 
+The output shows the shaded area at `r pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=FALSE) `, meaning that the prisoner has a higher IQ than over `r round(pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=TRUE)*100 ,1)`94% of the prison population. 
 
 Recall from the previous lesson, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68% of cases in the distribution fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within 3 SD. We demonstrate this rule by using the `pnormGC()` function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:
 <br>
@@ -806,6 +808,7 @@ Let us say that we have a prison with a random selection of 233 prisoners. We th
 ```{r}
 
 set.seed(1234)
+
 prison_1 <- sample(prisoner_iq, 233) # Is the 'mosaic' package loaded?
 
 ```
@@ -835,13 +838,14 @@ To test, we need to calculate a z-test statistic. To calculate this statistic, w
 From the sample:
 
 - Mean ($\bar{x}$); 
+- Standard deviation ($\sigma$)
 - Size ($n$)
 
 <br>
 From the population:
 
 - Known (or hypothesised) population mean ($\mu$);
-- Standard deviation ($\sigma$)
+
 
 <br>
 

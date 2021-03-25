@@ -722,10 +722,6 @@ library(dplyr)
 ```
 
 ```
-## Warning: package 'dplyr' was built under R version 3.6.3
-```
-
-```
 ## 
 ## Attaching package: 'dplyr'
 ```
