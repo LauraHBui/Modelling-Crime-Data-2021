@@ -4228,7 +4228,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.99071
+## [1] 99.99592
 \end{verbatim}
 
 \begin{Shaded}
@@ -4238,7 +4238,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.98762
+## [1] 99.9926
 \end{verbatim}
 
 \begin{Shaded}
@@ -5618,7 +5618,7 @@ We then test whether half of our population have an IQ above the mean. We introd
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.4867647
+## [1] 0.486036
 \end{verbatim}
 
 The result should be close to .50, indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the \textbf{z-score} is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.
@@ -5641,11 +5641,11 @@ With \texttt{R}, we can make it simpler to create z-scores with the function \te
 
 \begin{verbatim}
 ##   prisoner_id  IQ
-## 1           1 127
-## 2           2 121
-## 3           3 114
-## 4           4  92
-## 5           5  98
+## 1           1 100
+## 2           2 101
+## 3           3  96
+## 4           4 124
+## 5           5  97
 \end{verbatim}
 
 \begin{Shaded}
@@ -5663,7 +5663,7 @@ With \texttt{R}, we can make it simpler to create z-scores with the function \te
 
 \begin{verbatim}
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9982424
+## 1           1 115  1.000967
 \end{verbatim}
 
 To show that this is the same z-score you would get with the formula above, we calculate the z-score using the equation, \(z = \frac{x - \mu}{\sigma}\):
@@ -5675,7 +5675,7 @@ To show that this is the same z-score you would get with the formula above, we c
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9982424
+## [1] 1.000967
 \end{verbatim}
 
 When you round this number, you can see it is ``1''.
@@ -5699,10 +5699,10 @@ Where the z-score becomes practical is illustrated in the following example: say
 \includegraphics{06-hypotheses_files/figure-latex/unnamed-chunk-24-1.pdf}
 
 \begin{verbatim}
-## [1] 0.9449357
+## [1] 0.9453249
 \end{verbatim}
 
-The output shows the shaded area at 0.9449357, meaning that the prisoner has a higher IQ than over 94.594\% of the prison population.
+The output shows the shaded area at 0.9453249, meaning that the prisoner has a higher IQ than over 94.594\% of the prison population.
 
 Recall from the previous lesson, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68\% of cases in the distribution fall within one standard deviation above and below the mean; 95\% within two SD; and 99.7\% within 3 SD. We demonstrate this rule by using the \texttt{pnormGC()} function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:
 
@@ -5738,7 +5738,7 @@ Let us say that we have a prison with a random selection of 233 prisoners. We th
 \end{Highlighting}
 \end{Shaded}
 
-The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 100.1759657 (SD = 16.7362637).
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 98.2188841 (SD = 15.5734961).
 
 As the parameter (mean IQ for all prisoners in the population) is known, a \textbf{single sample z-test} is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer's hypotheses:
 
@@ -5752,8 +5752,6 @@ Note: we `know' the population mean because we made a hypothetical population. W
 
 To test, we need to calculate a z-test statistic. To calculate this statistic, we need the following statistics:
 
-From the sample:
-
 \begin{itemize}
 \tightlist
 \item
@@ -5762,12 +5760,6 @@ From the sample:
   Standard deviation (\(\sigma\))
 \item
   Size (\(n\))
-\end{itemize}
-
-From the population:
-
-\begin{itemize}
-\tightlist
 \item
   Known (or hypothesised) population mean (\(\mu\));
 \end{itemize}
@@ -5801,10 +5793,10 @@ We can now compute our test statistic using the values calculated above:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1604898
+## [1] -1.745758
 \end{verbatim}
 
-We obtained this test statistic of 0.1604898, but how can we interpret this? We can use z-test statistic to find \emph{the associated p-value}.
+We obtained this test statistic of -1.7457579, but how can we interpret this? We can use z-test statistic to find \emph{the associated p-value}.
 
 Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a \href{https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf}{z-table}
 
@@ -5827,10 +5819,10 @@ Another way to find the p-value is to know that the z-statistic is, in fact, a z
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.5637524
+## [1] 0.04042651
 \end{verbatim}
 
-The value is 0.5637524. This is a more precise approximation than our lookup table (where we had to round 0.1604898), and so we are getting a more precise p-value.
+The value is 0.0404265. This is a more precise approximation than our lookup table (where we had to round -1.7457579), and so we are getting a more precise p-value.
 
 We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability:
 
@@ -5849,10 +5841,10 @@ We did not, however, specify a direction. In actuality, we should be looking at 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.8724953
+## [1] 0.08085303
 \end{verbatim}
 
-You will see our value has increased to 0.8724953. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the \emph{two tails} of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
+You will see our value has increased to 0.080853. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the \emph{two tails} of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
 
 When we were looking at a directional hypothesis, it only took into consideration \emph{one-tail} of the distribution, hence it being called a one-tailed test.
 
@@ -5865,7 +5857,7 @@ Now you do not usually need the visualisation for this, but we just included it 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.5637524
+## [1] 0.04042651
 \end{verbatim}
 
 And, since, we actually have a non-directional hypothesis, we can multiply this by two, as it is a two-tailed hypothesis:
@@ -5877,7 +5869,7 @@ And, since, we actually have a non-directional hypothesis, we can multiply this 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.127505
+## [1] 0.08085303
 \end{verbatim}
 
 And one more thing: remember that the officer wanted to be 99\% confident, and this means that the significance level would be set at \(\alpha\) = 0.01 and not \(\alpha\) = 0.05 (this is if we are 95\% confident; 1 - 0.95 = 0.05). In our example, though, our p-value is greater than the alpha level, so we fail to reject the null hypothesis.

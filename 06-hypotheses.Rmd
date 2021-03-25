@@ -833,17 +833,10 @@ $H_A$:  The mean IQ of the population from which our sample of prisoners was dra
 
 To test, we need to calculate a z-test statistic. To calculate this statistic, we need the following statistics: 
 
-<br>
-
-From the sample:
 
 - Mean ($\bar{x}$); 
 - Standard deviation ($\sigma$)
 - Size ($n$)
-
-<br>
-From the population:
-
 - Known (or hypothesised) population mean ($\mu$);
 
 
