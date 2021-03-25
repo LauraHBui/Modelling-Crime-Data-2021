@@ -691,7 +691,7 @@ In some cases, however, we may know the parameter from the population and these 
 
 The normal distribution has some predictable characteristics about it. One is that half of the distribution will always be below the mean, and the other half will be above the mean. We demonstrate this by creating a synthetic data of 1.5 million US prisoner IQ scores, drawn from a population that is normally distributed ($\mu$ = 100; SD = 15). 
 
-We then test whether half of our population have an IQ above the mean. We introduce a new function: `nrow()`, which divides the number of prisoners with an IQ of 100+ by the total number of prisoners: 
+We then test whether half of our population have an IQ above the mean. We introduce a new function: `nrow()`, which counts the numnber of rows. Here, using this function will help us divide the number of prisoners with an IQ of 100+ by the total number of prisoners: 
 <br>
 
 ```{r}
