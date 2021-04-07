@@ -4228,7 +4228,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.99402
+## [1] 99.98839
 \end{verbatim}
 
 \begin{Shaded}
@@ -4238,7 +4238,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.98828
+## [1] 99.98186
 \end{verbatim}
 
 \begin{Shaded}
@@ -4248,7 +4248,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 15.00677
+## [1] 15.00891
 \end{verbatim}
 
 By obtaining some descriptive statistics, we are verifying that the mean and SD are indeed 100 and 15, but you may notice a few discrepancies:
@@ -5618,7 +5618,7 @@ We then test whether half of our population have an IQ above the mean. We introd
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.4864093
+## [1] 0.4868087
 \end{verbatim}
 
 The result should be close to .50, indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the \textbf{z-score} is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.
@@ -5641,11 +5641,11 @@ With \texttt{R}, we can make it simpler to create z-scores with the function \te
 
 \begin{verbatim}
 ##   prisoner_id  IQ
-## 1           1  91
-## 2           2  81
-## 3           3 109
-## 4           4 101
-## 5           5 104
+## 1           1 103
+## 2           2  69
+## 3           3 110
+## 4           4  99
+## 5           5 100
 \end{verbatim}
 
 \begin{Shaded}
@@ -5663,7 +5663,7 @@ With \texttt{R}, we can make it simpler to create z-scores with the function \te
 
 \begin{verbatim}
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  1.000922
+## 1           1 115  1.000161
 \end{verbatim}
 
 To show that this is the same z-score you would get with the formula above, we calculate the z-score using the equation, \(z = \frac{x - \mu}{\sigma}\):
@@ -5675,7 +5675,7 @@ To show that this is the same z-score you would get with the formula above, we c
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.000922
+## [1] 1.000161
 \end{verbatim}
 
 When you round this number, you can see it is ``1''.
@@ -5699,10 +5699,10 @@ Where the z-score becomes practical is illustrated in the following example: say
 \includegraphics{06-hypotheses_files/figure-latex/unnamed-chunk-24-1.pdf}
 
 \begin{verbatim}
-## [1] 0.9453207
+## [1] 0.945219
 \end{verbatim}
 
-The output shows the shaded area at 0.9453207, meaning that the prisoner has a higher IQ than over 94.594\% of the prison population.
+The output shows the shaded area at 0.945219, meaning that the prisoner has a higher IQ than over 94.594\% of the prison population.
 
 Recall from the previous lesson, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68\% of cases in the distribution fall within one standard deviation above and below the mean; 95\% within two SD; and 99.7\% within 3 SD. We demonstrate this rule by using the \texttt{pnormGC()} function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:
 
@@ -5738,7 +5738,7 @@ Let us say that we have a prison with a random selection of 233 prisoners. We th
 \end{Highlighting}
 \end{Shaded}
 
-The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 101.3733906 (SD = 15.1621288).
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 99.472103 (SD = 14.8747745).
 
 As the parameter (mean IQ for all prisoners in the population) is known, a \textbf{single sample z-test} is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer's hypotheses:
 
@@ -5793,10 +5793,10 @@ We can now compute our test statistic using the values calculated above:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.382649
+## [1] -0.5417224
 \end{verbatim}
 
-We obtained this test statistic of 1.3826487, but how can we interpret this? We can use z-test statistic to find \emph{the associated p-value}.
+We obtained this test statistic of -0.5417224, but how can we interpret this? We can use z-test statistic to find \emph{the associated p-value}.
 
 Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a \href{https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf}{z-table}
 
@@ -5819,10 +5819,10 @@ Another way to find the p-value is to know that the z-statistic is, in fact, a z
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9166137
+## [1] 0.2940049
 \end{verbatim}
 
-The value is 0.9166137. This is a more precise approximation than our lookup table (where we had to round 1.3826487), and so we are getting a more precise p-value.
+The value is 0.2940049. This is a more precise approximation than our lookup table (where we had to round -0.5417224), and so we are getting a more precise p-value.
 
 We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability:
 
@@ -5841,10 +5841,10 @@ We did not, however, specify a direction. In actuality, we should be looking at 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1667726
+## [1] 0.5880098
 \end{verbatim}
 
-You will see our value has increased to 0.1667726. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the \emph{two tails} of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
+You will see our value has increased to 0.5880098. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the \emph{two tails} of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
 
 When we were looking at a directional hypothesis, it only took into consideration \emph{one-tail} of the distribution, hence it being called a one-tailed test.
 
@@ -5857,7 +5857,7 @@ Now you do not usually need the visualisation for this, but we just included it 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9166137
+## [1] 0.2940049
 \end{verbatim}
 
 And, since, we actually have a non-directional hypothesis, we can multiply this by two, as it is a two-tailed hypothesis:
@@ -5869,7 +5869,7 @@ And, since, we actually have a non-directional hypothesis, we can multiply this 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.833227
+## [1] 0.5880098
 \end{verbatim}
 
 And one more thing: remember that the officer wanted to be 99\% confident, and this means that the significance level would be set at \(\alpha\) = 0.01 and not \(\alpha\) = 0.05 (this is if we are 95\% confident; 1 - 0.95 = 0.05). In our example, though, our p-value is greater than the alpha level, so we fail to reject the null hypothesis.
@@ -5918,8 +5918,6 @@ Homework time\ldots{}
 
 \begin{itemize}
 \tightlist
-\item
-  National Youth Survey (NYS)
 \item
   British Crime Survey (BCS)
 \end{itemize}
@@ -6423,13 +6421,13 @@ As responses from both Waves 1 and 2 are required, cases without this pair of re
 ##  F test to compare two variances
 ## 
 ## data:  df$compliance_score by df$prepost
-## F = 1.9022, num df = 99, denom df = 99, p-value = 0.001556
+## F = 1.6216, num df = 99, denom df = 99, p-value = 0.01697
 ## alternative hypothesis: true ratio of variances is not equal to 1
 ## 95 percent confidence interval:
-##  1.279891 2.827139
+##  1.091056 2.410023
 ## sample estimates:
 ## ratio of variances 
-##           1.902217
+##           1.621564
 \end{verbatim}
 
 Seems that we have unequal variance again, so we must specify this.
@@ -6449,13 +6447,13 @@ Now, for the dependent sample t-test whereby we use the variables \texttt{prepos
 ##  Paired t-test
 ## 
 ## data:  compliance_score by prepost
-## t = 17.408, df = 99, p-value < 2.2e-16
+## t = 17.734, df = 99, p-value < 2.2e-16
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  28.39663 35.70290
+##  26.05064 32.61475
 ## sample estimates:
 ## mean of the differences 
-##                32.04977
+##                29.33269
 \end{verbatim}
 
 The results indicate that we can reject the null hypothesis as the p-value is above \(\alpha = 0.05\). We conclude that there is a significant difference in compliance score before and after our intervention between the paired Waves 1 and 2 responses. Looking good for our intervention. It seems that we can expect the compliance score to improve between 28.2 to 34.6 points! Is this a big number? Let's use the Cohen's d measure to find out. You might notice two things different from the unpaired test. First, we specify the parameter \texttt{paired=\ TRUE}. And second, we tell the formula what ID it can use to match our participants in the pre group and in the post group. This is done with the \texttt{Subject()} function appended with the \texttt{\textbar{}} operator, and inside we put our subject\_id variable (each young person's unique identifier so we can find them in wave 1 and wave 2).
@@ -6470,10 +6468,10 @@ The results indicate that we can reject the null hypothesis as the p-value is ab
 ## 
 ## Cohen's d
 ## 
-## d estimate: 2.612114 (large)
+## d estimate: 2.415277 (large)
 ## 95 percent confidence interval:
 ##    lower    upper 
-## 1.990600 3.233627
+## 1.883724 2.946831
 \end{verbatim}
 
 Happy times, this is a statistically significant (so we can generalise) large effect (Cohen's d estimate: 2.520966 (large)). Our intervention seems to be associated with an increased score in compliance in our follow-up questionnaire. But still, beware about inferring causation. There may have been other factors at play (for example, what if they all just aged out of crime, growing older and more compliant). A randomised control trial might help with alleviating these competing explanations\ldots!

@@ -19,7 +19,6 @@
 
 
 ##### *Data:* {-}
--	National Youth Survey (NYS)
 -	British Crime Survey (BCS)
 
 

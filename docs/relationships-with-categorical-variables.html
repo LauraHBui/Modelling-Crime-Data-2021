@@ -313,7 +313,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-6" class="section level5 unnumbered">
 <h5><em>Data:</em></h5>
 <ul>
-<li>National Youth Survey (NYS)</li>
 <li>British Crime Survey (BCS)</li>
 </ul>
 </div>
@@ -689,13 +688,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  F test to compare two variances
 ## 
 ## data:  df$compliance_score by df$prepost
-## F = 2.215, num df = 99, denom df = 99, p-value = 9.771e-05
+## F = 1.7872, num df = 99, denom df = 99, p-value = 0.004215
 ## alternative hypothesis: true ratio of variances is not equal to 1
 ## 95 percent confidence interval:
-##  1.490329 3.291975
+##  1.202513 2.656221
 ## sample estimates:
 ## ratio of variances 
-##           2.214978</code></pre>
+##           1.787216</code></pre>
 <p>Seems that we have unequal variance again, so we must specify this.</p>
 <p>Now, for the dependent sample t-test whereby we use the variables <code>prepost</code> indicating whether the answer is from wave 1 (pre-intervention) or wave 2 (post-intervention) and <code>compliance_score</code>, the score the young person achieved on the compliance questionnaire.</p>
 <div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="relationships-with-categorical-variables.html#cb389-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let us run the dependent samples t-test </span></span>
@@ -705,22 +704,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Paired t-test
 ## 
 ## data:  compliance_score by prepost
-## t = 17.756, df = 99, p-value &lt; 2.2e-16
+## t = 19.891, df = 99, p-value &lt; 2.2e-16
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  29.50827 36.93290
+##  28.75702 35.12995
 ## sample estimates:
 ## mean of the differences 
-##                33.22059</code></pre>
+##                31.94348</code></pre>
 <p>The results indicate that we can reject the null hypothesis as the p-value is above <span class="math inline">\(\alpha = 0.05\)</span>. We conclude that there is a significant difference in compliance score before and after our intervention between the paired Waves 1 and 2 responses. Looking good for our intervention. It seems that we can expect the compliance score to improve between 28.2 to 34.6 points! Is this a big number? Let’s use the Cohen’s d measure to find out. You might notice two things different from the unpaired test. First, we specify the parameter <code>paired= TRUE</code>. And second, we tell the formula what ID it can use to match our participants in the pre group and in the post group. This is done with the <code>Subject()</code> function appended with the <code>|</code> operator, and inside we put our subject_id variable (each young person’s unique identifier so we can find them in wave 1 and wave 2).</p>
 <div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="relationships-with-categorical-variables.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohen.d</span>(compliance_score <span class="sc">~</span> prepost <span class="sc">|</span> <span class="fu">Subject</span>(subject_id), <span class="at">data =</span> df, <span class="at">paired=</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ## Cohen&#39;s d
 ## 
-## d estimate: 2.484869 (large)
+## d estimate: 2.6301 (large)
 ## 95 percent confidence interval:
 ##    lower    upper 
-## 1.926939 3.042799</code></pre>
+## 2.079514 3.180686</code></pre>
 <p>Happy times, this is a statistically significant (so we can generalise) large effect (Cohen’s d estimate: 2.520966 (large)). Our intervention seems to be associated with an increased score in compliance in our follow-up questionnaire. But still, beware about inferring causation. There may have been other factors at play (for example, what if they all just aged out of crime, growing older and more compliant). A randomised control trial might help with alleviating these competing explanations…!</p>
 <hr />
 </div>

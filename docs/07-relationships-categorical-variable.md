@@ -19,7 +19,6 @@
 
 
 ##### *Data:* {-}
--	National Youth Survey (NYS)
 -	British Crime Survey (BCS)
 
 
@@ -540,13 +539,13 @@ var.test(df$compliance_score ~ df$prepost)
 ## 	F test to compare two variances
 ## 
 ## data:  df$compliance_score by df$prepost
-## F = 2.0314, num df = 99, denom df = 99, p-value = 0.000499
+## F = 1.9369, num df = 99, denom df = 99, p-value = 0.001148
 ## alternative hypothesis: true ratio of variances is not equal to 1
 ## 95 percent confidence interval:
-##  1.366823 3.019162
+##  1.303228 2.878688
 ## sample estimates:
 ## ratio of variances 
-##           2.031418
+##           1.936901
 ```
 Seems that we have unequal variance again, so we must specify this. 
 
@@ -567,13 +566,13 @@ t.test(compliance_score ~ prepost, data = df, var.equal = FALSE, paired= TRUE)
 ## 	Paired t-test
 ## 
 ## data:  compliance_score by prepost
-## t = 17.528, df = 99, p-value < 2.2e-16
+## t = 16.301, df = 99, p-value < 2.2e-16
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  26.79930 33.64148
+##  23.92260 30.55359
 ## sample estimates:
 ## mean of the differences 
-##                30.22039
+##                27.23809
 ```
 
 
@@ -590,10 +589,10 @@ cohen.d(compliance_score ~ prepost | Subject(subject_id), data = df, paired= TRU
 ## 
 ## Cohen's d
 ## 
-## d estimate: 2.444242 (large)
+## d estimate: 2.198851 (large)
 ## 95 percent confidence interval:
 ##    lower    upper 
-## 1.895129 2.993355
+## 1.707104 2.690597
 ```
 
 Happy times, this is a statistically significant (so we can generalise) large effect (Cohen's d estimate: 2.520966 (large)). Our intervention seems to be associated with an increased score in compliance in our follow-up questionnaire. But still, beware about inferring causation. There may have been other factors at play (for example, what if they all just aged out of crime, growing older and more compliant). A randomised control trial might help with alleviating these competing explanations...!
