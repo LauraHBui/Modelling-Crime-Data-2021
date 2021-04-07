@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-03-25" />
+<meta name="date" content="2021-04-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -246,7 +246,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a>
 <ul>
 <li class="chapter" data-level="7.2.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#independent-and-dependent-variables"><i class="fa fa-check"></i><b>7.2.1</b> Independent and Dependent Variables</a></li>
-<li class="chapter" data-level="7.2.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#the-t-test"><i class="fa fa-check"></i><b>7.2.2</b> The T-Test</a></li>
+<li class="chapter" data-level="7.2.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#comparing-means-the-t-test"><i class="fa fa-check"></i><b>7.2.2</b> Comparing means: the t-test</a></li>
 <li class="chapter" data-level="7.2.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#chi-square"><i class="fa fa-check"></i><b>7.2.3</b> Chi-square</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#summary-6"><i class="fa fa-check"></i><b>7.3</b> SUMMARY</a></li>
@@ -737,7 +737,7 @@ Now, what do you think the accompanying null hypothesis might be? Think about th
 <span id="cb335-8"><a href="hypotheses.html#cb335-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb335-9"><a href="hypotheses.html#cb335-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide ‘iq_over_100’ by total number of prisoner IQ scores</span></span>
 <span id="cb335-10"><a href="hypotheses.html#cb335-10" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(iq_over_100)<span class="sc">/</span><span class="fu">nrow</span>(prisoner_iq)</span></code></pre></div>
-<pre><code>## [1] 0.4869407</code></pre>
+<pre><code>## [1] 0.4869627</code></pre>
 <p><br></p>
 <p>The result should be close to .50, indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the <strong>z-score</strong> is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.</p>
 <p><br></p>
@@ -751,12 +751,12 @@ Now, what do you think the accompanying null hypothesis might be? Think about th
 <br></p>
 <div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="hypotheses.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first 5 prisoner IQs</span></span>
 <span id="cb337-2"><a href="hypotheses.html#cb337-2" aria-hidden="true" tabindex="-1"></a>prisoner_iq[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,] </span></code></pre></div>
-<pre><code>##   prisoner_id  IQ
-## 1           1  70
-## 2           2  90
-## 3           3  93
-## 4           4  84
-## 5           5 101</code></pre>
+<pre><code>##   prisoner_id IQ
+## 1           1 96
+## 2           2 88
+## 3           3 87
+## 4           4 74
+## 5           5 79</code></pre>
 <div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="hypotheses.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the IQ of prisoner #1 </span></span>
 <span id="cb339-2"><a href="hypotheses.html#cb339-2" aria-hidden="true" tabindex="-1"></a>prisoner_iq<span class="sc">$</span>IQ[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">115</span></span>
 <span id="cb339-3"><a href="hypotheses.html#cb339-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -766,12 +766,12 @@ Now, what do you think the accompanying null hypothesis might be? Think about th
 <span id="cb339-7"><a href="hypotheses.html#cb339-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check to make sure prisoner #1 has a z-score around 1 </span></span>
 <span id="cb339-8"><a href="hypotheses.html#cb339-8" aria-hidden="true" tabindex="-1"></a>prisoner_iq[<span class="dv">1</span>,]</span></code></pre></div>
 <pre><code>##   prisoner_id  IQ z_scoreIQ
-## 1           1 115 0.9984261</code></pre>
+## 1           1 115 0.9995474</code></pre>
 <p><br></p>
 <p>To show that this is the same z-score you would get with the formula above, we calculate the z-score using the equation, <span class="math inline">\(z = \frac{x - \mu}{\sigma}\)</span>:
 <br></p>
 <div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="hypotheses.html#cb341-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">115</span> <span class="sc">-</span> <span class="fu">mean</span>(prisoner_iq<span class="sc">$</span>IQ))<span class="sc">/</span><span class="fu">sd</span>(prisoner_iq<span class="sc">$</span>IQ)</span></code></pre></div>
-<pre><code>## [1] 0.9984261</code></pre>
+<pre><code>## [1] 0.9995474</code></pre>
 <p><br></p>
 <p>When you round this number, you can see it is “1”.</p>
 <p>Where the z-score becomes practical is illustrated in the following example: say if a probation officer is writing a report for a prisoner who is about to be up for parole. The prisoner has an IQ of 124. The officer wants to give a good idea of how this score compares to all other prisoners. An apt way of doing this is to state the proportion of prisoners who have lower IQs. This can be done using the <code>pnormGC()</code> function from the <code>tigerstats</code> package:
@@ -786,9 +786,9 @@ Now, what do you think the accompanying null hypothesis might be? Think about th
 <span id="cb343-8"><a href="hypotheses.html#cb343-8" aria-hidden="true" tabindex="-1"></a><span class="co"># interested in IQ scores below 124</span></span>
 <span id="cb343-9"><a href="hypotheses.html#cb343-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pnormGC</span>(<span class="dv">124</span>, <span class="at">region=</span><span class="st">&quot;below&quot;</span>, <span class="at">mean=</span>iq_m, <span class="at">sd=</span>iq_sd,<span class="at">graph=</span><span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
-<pre><code>## [1] 0.9449917</code></pre>
+<pre><code>## [1] 0.9451208</code></pre>
 <p><br></p>
-<p>The output shows the shaded area at 0.9449917, meaning that the prisoner has a higher IQ than over 94.594% of the prison population.</p>
+<p>The output shows the shaded area at 0.9451208, meaning that the prisoner has a higher IQ than over 94.594% of the prison population.</p>
 <p>Recall from the previous lesson, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68% of cases in the distribution fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within 3 SD. We demonstrate this rule by using the <code>pnormGC()</code> function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:
 <br></p>
 <div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="hypotheses.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify ‘between’ for ‘region’ because we are interested in proportion of prisoners between the two given values</span></span>
@@ -810,7 +810,7 @@ Now, what do you think the accompanying null hypothesis might be? Think about th
 <span id="cb347-2"><a href="hypotheses.html#cb347-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb347-3"><a href="hypotheses.html#cb347-3" aria-hidden="true" tabindex="-1"></a>prison_1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(prisoner_iq, <span class="dv">233</span>) <span class="co"># Is the &#39;mosaic&#39; package loaded?</span></span></code></pre></div>
 <p><br></p>
-<p>The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 99.4420601 (SD = 14.9408991).</p>
+<p>The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 99.7167382 (SD = 14.883065).</p>
 <p>As the parameter (mean IQ for all prisoners in the population) is known, a <strong>single sample z-test</strong> is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:</p>
 <p><br></p>
 <p><span class="math inline">\(H_0\)</span>: The mean IQ of the population from which our sample of prisoners was drawn is the same as the mean IQ of the UK prison population (mean = 100).</p>
@@ -846,7 +846,7 @@ Now, what do you think the accompanying null hypothesis might be? Think about th
 <span id="cb349-2"><a href="hypotheses.html#cb349-2" aria-hidden="true" tabindex="-1"></a>z_stat <span class="ot">&lt;-</span> (xbar<span class="sc">-</span>mu) <span class="sc">/</span> (iq_sd <span class="sc">/</span> <span class="fu">sqrt</span>(sample_size)) </span>
 <span id="cb349-3"><a href="hypotheses.html#cb349-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb349-4"><a href="hypotheses.html#cb349-4" aria-hidden="true" tabindex="-1"></a>z_stat</span></code></pre></div>
-<pre><code>## [1] -0.5700181</code></pre>
+<pre><code>## [1] -0.2905184</code></pre>
 <p><br></p>
 <!-- We create our own function called ' z_test ' so that other prisons can easily compare their IQ scores to that of all prisoners. In addition, we use `cat()`, which combines our string text to label our z-score in the output and the computed z-score together. -->
 <!-- The function we create `z_test()` will take as parameters the sample mean (xbar), the sample standard deviation (sd), the sample size (n), and the known (or hypothesised) population mean (mu):  -->
@@ -873,7 +873,7 @@ Now, what do you think the accompanying null hypothesis might be? Think about th
 <!-- # Test it with our example again  -->
 <!-- z_test(103, 18, 233, 100) -->
 <!-- ``` -->
-<p>We obtained this test statistic of -0.5700181, but how can we interpret this? We can use z-test statistic to find <em>the associated p-value</em>.</p>
+<p>We obtained this test statistic of -0.2905184, but how can we interpret this? We can use z-test statistic to find <em>the associated p-value</em>.</p>
 <p>Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a <a href="https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf">z-table</a></p>
 <p>If you click on the link above, you will see that, for example, a z-score of -0.75, at <span class="math inline">\(\alpha\)</span> = 0.05 , is associated with the value 0.22663 in the table. You find this by starting on the left side and identifying ‘-0.7’; then go to the top of the table and locate ‘.05’ (as -0.7 - 0.05 = -0.75). The value 0.22663 is greater than the alpha of 0.05, and so we would fail to reject the null hypothesis.</p>
 <p>Another way to find the p-value is to know that the z-statistic is, in fact, a z-score on a normal distribution. The p-value is the probability of seeing these outcomes if the null hypothesis were true. We can refer back to our <code>pnormGC()</code> function to see what this value may be:
@@ -881,27 +881,27 @@ Now, what do you think the accompanying null hypothesis might be? Think about th
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="hypotheses.html#cb351-1" aria-hidden="true" tabindex="-1"></a>z_stat_1 <span class="ot">&lt;-</span> <span class="fu">pnormGC</span>(z_stat, <span class="at">region=</span><span class="st">&quot;below&quot;</span>, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>, <span class="at">graph=</span><span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="hypotheses.html#cb352-1" aria-hidden="true" tabindex="-1"></a>z_stat_1</span></code></pre></div>
-<pre><code>## [1] 0.2843327</code></pre>
+<pre><code>## [1] 0.3857099</code></pre>
 <p><br></p>
-<p>The value is 0.2843327. This is a more precise approximation than our lookup table (where we had to round -0.5700181), and so we are getting a more precise p-value.</p>
+<p>The value is 0.3857099. This is a more precise approximation than our lookup table (where we had to round -0.2905184), and so we are getting a more precise p-value.</p>
 <p>We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability:
 <br></p>
 <div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="hypotheses.html#cb354-1" aria-hidden="true" tabindex="-1"></a>z_stat_2 <span class="ot">&lt;-</span> <span class="fu">pnormGC</span>(<span class="at">bound=</span><span class="fu">c</span>(z_stat, <span class="sc">-</span>z_stat), <span class="at">region=</span><span class="st">&quot;outside&quot;</span>, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>, <span class="at">graph=</span><span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="06-hypotheses_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="hypotheses.html#cb355-1" aria-hidden="true" tabindex="-1"></a>z_stat_2 </span></code></pre></div>
-<pre><code>## [1] 0.5686654</code></pre>
+<pre><code>## [1] 0.7714197</code></pre>
 <p><br></p>
-<p>You will see our value has increased to 0.5686654. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the <em>two tails</em> of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.</p>
+<p>You will see our value has increased to 0.7714197. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the <em>two tails</em> of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.</p>
 <p>When we were looking at a directional hypothesis, it only took into consideration <em>one-tail</em> of the distribution, hence it being called a one-tailed test.</p>
 <p>Now you do not usually need the visualisation for this, but we just included it to help you learn the concepts. We can get our associated p-value for <code>z_stat</code> using the <code>pnorm()</code> function:
 <br></p>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="hypotheses.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(z_stat)</span></code></pre></div>
-<pre><code>## [1] 0.2843327</code></pre>
+<pre><code>## [1] 0.3857099</code></pre>
 <p><br></p>
 <p>And, since, we actually have a non-directional hypothesis, we can multiply this by two, as it is a two-tailed hypothesis:
 <br></p>
 <div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="hypotheses.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(z_stat)<span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
-<pre><code>## [1] 0.5686654</code></pre>
+<pre><code>## [1] 0.7714197</code></pre>
 <p>And one more thing: remember that the officer wanted to be 99% confident, and this means that the significance level would be set at <span class="math inline">\(\alpha\)</span> = 0.01 and not <span class="math inline">\(\alpha\)</span> = 0.05 (this is if we are 95% confident; 1 - 0.95 = 0.05). In our example, though, our p-value is greater than the alpha level, so we fail to reject the null hypothesis.</p>
 <p><br>
 <br></p>

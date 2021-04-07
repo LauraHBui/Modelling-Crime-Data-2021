@@ -1,3 +1,8 @@
+---
+output:
+  word_document: default
+  html_document: default
+---
 
 # Inferential Statistics
 #### *Samples, Standard Errors, and Confidence Intervals* {-}
@@ -140,7 +145,7 @@ mean(prob_iq)
 ```
 
 ```
-## [1] 100.0102
+## [1] 100.0112
 ```
 
 ```r
@@ -148,7 +153,7 @@ median(prob_iq)
 ```
 
 ```
-## [1] 99.9977
+## [1] 100.0208
 ```
 
 ```r
@@ -156,7 +161,7 @@ sd(prob_iq)
 ```
 
 ```
-## [1] 14.99879
+## [1] 14.99076
 ```
 <br>
 
