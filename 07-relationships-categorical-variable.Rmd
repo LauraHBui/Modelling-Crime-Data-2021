@@ -220,25 +220,38 @@ Hence, our hypothesis is that, in the population, there is a difference in the m
 
 Our non-directional hypothesis has to do with our research question of whether females are more worried about being a victim of crime than males. We test our hypothesis using the **t-test**, which relies on the t-Student distribution. 
 
-In previous weeks, we used the standard deviation (SD) of our sample to estimate the standard error (SE). (See Lesson 5, section 5.2.2 .) This approach works reasonably well when applied to large samples in a normal distribution. With small samples, however, using the SD as an estimate of the SE is problematic. 
 
-The sample standard deviation also varies from sample to sample and this extra variation in smaller samples will mess up the computation of the margin of errors. William Gosset's suggested we needed to use a different probability distribution for this cases, the **t Student distribution**. 
+#### Student's *t* distribution
 
-You can learn more about this distribution and the work of Gosset in the suggested reading (he's got a fun history, I promise, for one, he was head brewer at Guinness!!). The t Student distribution and the normal distribution are almost indistinguishable for large samples. In essence that means you will still multiply by 1.96. But with smaller sample sizes that value will be different if you use a normal distribution (z-distribution) or a t student distribution. Refer to the recommended textbook reading for further clarification.
+In previous weeks, we used the standard deviation (SD) of our sample to estimate the standard error (SE). (See Lesson 5, section 5.2.2 .) This approach works reasonably well when applied to large samples. With small samples, however, using the SD as an estimate of the SE is problematic. 
 
-> *In order to use the t Student distribution we need to assume the data were randomly sampled and that the population distribution is unimodal and symmetric.* 
+The reason is that the SD varies from sample to sample, so this variation in smaller samples makes for more uncertainty. In addition, we are likely to not know the true population values, our parameters. For such a case, William Gosset, [Statistician and Head Brewer for Guinness,](https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/) (see also recommended reading) suggested that we needed to use a different probability distribution, **Student's *t* distribution**. Gosset had developed this distribution (under his pen name 'Student') so that he could make meaningful predictions using small samples of barley instead of large ones -- a cost-effective method.
 
-In fact, this is probably a good time to engage with our assumptions made by the t-test. 
+<!--The *t* distribution and the normal distribution are nearly indistinguishable for large samples. This has implications for, say, the calculation of the margin of error. For large samples, you would still multiply the value (from dividing the SD by the square root of the sample size) by 1.96:
 
-This t test makes a number of assumptions:
+<br>
+1.96*{sd}/{\sqrt{n}}$
 
-1. *We are comparing means or proportions* (that is our original variable is either a quantitative variable OR we have a binary variable with a large sample) across two groups. We are indeed doing so.
+<br>
 
-2. Population distribution: *normal distribution is assumed in both populations* (but this assumption can be relaxed if both samples are large). We will check this shortly. Because the tests make assumptions about the shape of the distribution we say that the t test is a **parametric test**. Tests that do not make this sort of assumptions are called non-parametric. 
+With smaller sample sizes, though, that value will differ for different distributions (e.g., z-distribution or a t-distribution).
 
-3. Independence assumptions: To use the method *the two groups must be independent of each other*.This assumption would be violated if, for example, one group would consist of husbands and the other group their wives. The values for couples might be related. But this is not the case with the BCS data. Similarly if we compare an individual before and after a treatment, his/her observations would be related. For these situations we would need a different test (the dependent t test, which we won't cover).
+<br>
 
-4. Sampling method: the data were obtained through *independent random sampling*. The BCS uses a complex survey design which would require the use of special procedures for hypothesis testing. However, those special procedures are well beyond the scope of this course and would typically be covered in more advanced courses. Therefore, for convenience we will proceed as if this assumption is met.
+> *In order to use the t-distribution, however, we need to assume the data were randomly sampled and that the population distribution is unimodal and symmetric.* 
+<br>
+
+In fact, this is probably a good time to engage with our assumptions made by the t-test. -->
+
+The t-test makes a number of assumptions:
+
+1. Two means or proportions will be compared: our independent variable is binary, signifying two groups, and the dependent variable is either a numeric variable OR a binary variable. 
+
+2. Normal distribution is assumed for both populations (from which the two groups come from): this assumption, however, can be relaxed if the sample size for both groups are large. Because the t-test makes assumptions about the shape of the distribution, it is considered a **parametric test**. Tests that do not make this assumption about shape are called non-parametric. 
+
+3. The two groups must be independent of each other: This assumption of independence would be violated if, for example, one group comprised women and the other group, their partners. If this were the case, the resulting values for both groups would be deceptively related. Similarly, if we compare an individual before and after a treatment, the obtained values would be related. (For these situations, however, we would need the dependent t-test, which we will not cover in this class.)
+
+4. The sampling method was *independent random sampling*. The BCS uses a complex survey design which would require the use of special procedures for hypothesis testing. However, those special procedures are well beyond the scope of this course and would typically be covered in more advanced courses. Therefore, for convenience we will proceed as if this assumption is met.
 
 You may also want to check for outliers by plotting the data, for in some cases this may distort your results, particularly with smaller samples. So we are ok with 1 and 2, and are going to proceed as if 4 is met. What about normality? With large samples you can relax this assumption. However, you may want to also check if your sample data are normally distributed.
 

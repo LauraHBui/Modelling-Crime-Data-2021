@@ -595,11 +595,11 @@ new_1000_sample <- sample(prob_off, 1000)
 ```
 <br>
 
-We get the SE by dividing the standard deviation (SD) of the variable `IQ` from the data frame `new_1000_sample` by the square root of our sample size (n = 1,000):
+We get the SE by dividing the standard deviation (SD or *s*) of the variable `IQ` from the data frame `new_1000_sample` by the square root of our sample size (n = 1,000):
 
 <br>
 
-$SE = \sigma/\sqrt(n)$
+$SE = s/\sqrt(n)$
 
 <br>
 <br>
