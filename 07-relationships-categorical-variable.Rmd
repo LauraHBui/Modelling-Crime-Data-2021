@@ -4,11 +4,11 @@
 
 
 #### Learning Outcomes: {-}
--	Learn to arrange variables as independent and dependent variables
--	Learn to test for statistical significance in relationships between two variables variables when: 
-   + they are both categorical
+*	Learn to arrange variables as independent and dependent variables
+*	Learn to test for statistical significance in relationships between two variables when: 
+   + both are categorical
    + one is binary categorical and one is numeric
--	Understand how to interpret outputs from t-tests and the chi-square test
+*	Understand how to interpret outputs from t-tests and the chi-square test
 
 
 
@@ -50,7 +50,8 @@
 -	`var.test()` : Performs an F-test to compare the variances of two samples from normal populations (`base R`)
 -	`with()` : Evaluates an expression, often to specify data you want to use (`base R`)
 
-
+<br>
+<br>
 
 
 ---
@@ -60,28 +61,23 @@
 
 
 
+We are familiar with categorical variables. They have a nominal or ordinal level of measurement, and can be binary -- have only two possible values. In `R`, these variables are encoded as a factor class, and for shorthand, are referred to as *factors*. (See Lesson 2, section 2.4.1.1 .) 
 
-We are familiar with categorical variables, which take the forms of nominal and ordinal level characteristics, can be binary (have only two possible values). In `R`, these variables are encoded as a factor class, and for shorthand, are referred to as **factors**. 
+In inferential statistics, sometimes we want to make predictions about relationships with factors. For example, we want to understand the relationship between sex and fear of crime. Perhaps we think males will have lower levels of fear of crime than females would have. The variable, sex, in this case, is a binary factor with the two categories, male and female, whereas fear of crime is a numeric variable. 
 
-In inferential statistics, sometimes we want to make predictions about relationships with factors. For example, we want to understand the relationship between sex and alcohol consumption. Perhaps we think males will have higher alcohol consumption than females. The variable, sex, in this example, is a binary factor with the two categories, male and female, whereas alcohol consumption is a numeric variable. 
+Today, we learn how to conduct more inferential statistical analyses, but specifically with categorical variables. 
 
-Today, we learn how to conduct more inferential statistical analyses, with categorical variables. 
+<br>
 
-
-##### Activity 1: Our R prep routine
+### Activity 1: Our `R` prep routine
 
 Before we start, we do the following:
 
+1. Open up our existing `R` project
 
-
-
-1.	Open up our existing `R` project
-
-
-
-
-2.	Install and load the required packages listed above
-
+<br>
+2. Install and load the required packages listed above
+<br>
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(forcats)
 library(gmodels)
@@ -95,31 +91,27 @@ library(dplyr)
 ```
 
 
+3. Download from Blackboard and load into `R` the British Crime Survey (BCS) dataset (*bcs_2007_8_teaching_data_unrestricted.dta* ). Be mindful of its data format because it will require certain codes and packages. Name this data frame `BCS0708`. 
 
-3.	Download from Blackboard and load into R the British Crime Survey (BCS) dataset (*bcs_2007_8_teaching_data_unrestricted.dta* ) using the function `read_dta()`, specifying the working directory with `here()`. Here I name it `BCS0708``. 
-
-
-
-
+<br>
 ```{r, message=FALSE, warning=FALSE}
 BCS0708 <- read_dta(here("Datasets", "bcs_2007_8_teaching_data_unrestricted.dta"))
 
 ```
 
 
-4.	Get to know the datasets with the `View()` function.
+4.	Get to know the data with the `View()` function.
 
 ```{r, eval=FALSE, message=FALSE, warning=FALSE}
 View(BCS0708)
 ```
 
 
- 
+<br>
+<br>
 
 ---
 
-
- 
 
 ## Today’s 3
 
@@ -131,54 +123,66 @@ We further our understanding of inferential statistics by learning more about va
 
 ### Independent and Dependent Variables
 
+When setting hypotheses, we primarily wanted to know whether there was a relationship between certain variables. Inadvertently, we also were arranging our variables in a way that indicated one was the explanation and the other was the outcome. 
 
- 
+Using our previous example on sex and fear of crime, we can arrange them so that sex is the **independent variable** (IV or $X$), indicating that it is presumed to have an impact on the level of fear of crime, the **dependent variable** (DV or $Y$), considered to be influenced by $X$. 
 
-In learning to set hypotheses last week, we primarily wanted to know whether there was a relationship between certain variables. Inadvertently, we also were arranging our variables in a way that indicated one was the explanation and the other was the outcome. 
-
-Using our previous example on gender and fear of crime we can arrange them so that sex is the **independent variable** ($X$), which means that it is assumed to have an impact on the amount of fear of crime, the **dependent variable** ($Y$), which is considered to be influenced by $X$. We believe that gender ($X$) has an influence on level of fear of crime ($Y$), and hypothesise, based on previous research, that males will have lower levels of fear of crime than females. We then select a sample, collect our data from that sample, and finally conduct an appropriate statistical test to find out. 
+We believe that sex ($X$) has an influence on level of fear of crime ($Y$), and hypothesise, based on previous research, that males will have lower levels of fear of crime than females. We then select a sample, collect our data from that sample, and conduct an appropriate statistical test to find out whether our hypothesis holds. 
 
 <!-- Although independent and dependent variables are not terms usually used for today’s analyses, we will use them to indicate which variable plays the role of explanation and which plays the part of outcome. In addition, it is good to get into the mindset of arranging your variables as such. This helps to clarify how your variables will relate to each other.  -->
 
-An important point to remember is that although the independent variable (IV) is considered to impact on the dependent variable (DV), it *does not mean the IV causes the DV*. We can only arrange these variables in the direction we think is suitable and make statements about whether they are related to each other. Causal inference is a whole area of research, as establishing causal relationships is not an easy task. One approach we have covered/ made references to throughout your methodological educations is to use experimental research designs, such as randomised control trials. If you are interested in Causal Inference, I can strongly recommend Scott Cunningham's [Causal Inference Mixtape](https://www.scunning.com/mixtape.html). But for the kinds of analysis we'll be doing here, best keep in mind that correlation *does not mean* causation. 
+An important point to remember is that, although the independent variable (IV) is considered to influence the dependent variable (DV), it *does not mean the IV causes the DV*. We can only arrange these variables in the direction we think is suitable and make statements about whether they are related to or *correlated* with each other. 
 
+This idea of 'cause' is referred to as *causal inference* and is, in itself, a whole area of research, as establishing causal relationships is not an easy task. One approach we have covered and made reference to throughout your data analysis and research methods classes is to use experimental research designs, such as randomised control trials. If you are interested in causal inference, Scott Cunningham's [Causal Inference Mixtape](https://www.scunning.com/mixtape.html) is highly recommended. Nevertheless, for the kinds of analysis we will be doing in this class, it is best to keep in mind that correlation *does not mean* causation. 
 
+<br>
+<br>
  
 ---
 
 
 ### Comparing means: the t-test
 
-When assessing the relationship between a categorical variable with two possible values, and a numeric variable, we usually try to summarise the numeric variabble for each group, and compare these summaries. For example we may want to compare between the 5-number summary of one group and the other. 
-
-
-In our example, we are looking at drinking in young people, and how that varies between different genders. For this, we have two relevant variables in our data `bcs`. Let's have a look: 
-
+When assessing the relationship between a binary, categorical variable and a numeric variable, we usually summarise the numeric variable for each category of the categorical variable in order to compare. For example, we are interested in worry about being a victim of crime and how levels of it vary between sexes. For this, we have two relevant variables in our data frame `BCS0708`: `sex` and `tcviolent`. Let us have a look: 
+<br>
 
 ```{r}
 
 attributes(BCS0708$sex)
 
+# Any missing values?
+table(is.na(BCS0708$sex))
+
 ```
+<br>
 
-
-We can see that the first variable, `sex` takes the values of 1 or 2, 1 for Male and 2 for Female.  Let's recode like we learned in previous weeks: 
+We can see that the first variable, `sex`, takes the values of '1' for 'male' and '2' for 'female'. This variable should be classed as a factor, in `R` speak, so let us recode `sex` so that it is classed as so: 
+<br>
 
 ```{r}
+
+# As is, 'sex' is classed as 'haven-labelled', which is incorrect, so we change it to its correct class, factor:
 
 BCS0708$sex <- as_factor(BCS0708$sex)
 
 ```
+<br>
+
+Now we check out our other variable of interest, `tcviolent`:
+<br>
 
 ```{r}
 
 attributes(BCS0708$tcviolent)
 
+# Any missing values?
+table(is.na(BCS0708$tcviolent)) # Yes, there is!
+
 ```
+<br>
 
-The `tcviolent` variable representing "respondent level of worry about being a victim of personal crime (high score = high worry)". This is a numeric score and therefore a numeric variable. So how may this differ between the two groups? 
-
-One way to display a 5-number summary is to use box plots. Let's do this now: 
+The variable, `tcviolent`, represents 'respondent level of worry about being a victim of personal crime (high score = high worry)'. This is a numeric variable. Now we observe how scores from `tcviolent` might differ between sexes in the variable `sex`. We can visualise a five-number summary with boxplots (see Lesson 3, section 3.3.3.3):
+<br>
 
 ```{r}
 
@@ -189,11 +193,16 @@ ggplot(BCS0708, aes (x = tcviolent, group = sex, fill = sex)) +
 
 
 ```
+<br>
 
-We can immediately see that men seem to report lower worry scores. Let's look at the mean, standard deviation, and variance: 
-
+We observe that males seem to report lower scores of worry. Let us now look at the mean, standard deviation, and variance: 
+<br>
 
 ```{r}
+
+# We tell R to obtain the three descriptive statistics and 'round' the values to one decimal place
+
+# Remember, we must add 'na.rm = TRUE' as we have missing values or else this will display 'NA'
 
 BCS0708 %>% group_by(sex) %>% 
   summarise(mean_worry = round(mean(tcviolent, na.rm = TRUE),1), 
@@ -201,14 +210,19 @@ BCS0708 %>% group_by(sex) %>%
             var_worry = round(var(tcviolent, na.rm = TRUE),1))
 
 ```
+<br>
 
-You can see here the mean for females is higher than that of male respondents, and we have quite high measures of dispersion as well. But this is all about our sample, and it is about our population which we want to draw inferences. Our hypothesis is that, in the population, there is a difference in the mean number of times males experience being drunk versus the number of times females experience being drunk. 
+The mean for females is higher than that of males, and we have quite high dispersion too, as indicated by the variance. Note that these descriptive statistics are only about our sample; we actually want to make inferences about our population of interest -- all males and females in Britain. So, we use inferential statistics. 
+
+Hence, our hypothesis is that, in the population, there is a difference in the mean level of worry about victimisation for males compared to that for females. 
 
 <!-- What we want then is a **difference-in-means** estimator. That is, we want to estimate the difference in means between the two groups in our population, from our sample. For this, we can use two-sample tests, based on a difference in means estimator to investigate our null hypothesis that the means are equal between the two populations.  -->
 
-Let's elaborate with our example. Our research question is whether women are more afraid of crime. We are going to test a non-directional hypothesis and use an alpha level of .05. The test we use in this case is the t-test, which relies in the t-Student distribution. 
+Our non-directional hypothesis has to do with our research question of whether females are more worried about being a victim of crime than males. We test our hypothesis using the **t-test**, which relies on the t-Student distribution. 
 
-In our previous weeks we had been using *the standard deviation of our sample* to estimate the standard error. (Remember: you divide the sample standard deviation by the square root of the sample mean). We learned that this approach works reasonably well when applying the Normal probability model to large samples. But with small samples using the sample standard deviation as an estimate of the standard error (so that we can compute the confidence interval) is problematic. The sample standard deviation also varies from sample to sample and this extra variation in smaller samples will mess up the computation of the margin of errors. William Gosset's suggested we needed to use a different probability distribution for this cases, the **t Student distribution**. 
+In previous weeks, we used the standard deviation (SD) of our sample to estimate the standard error (SE). (See Lesson 5, section 5.2.2 .) This approach works reasonably well when applied to large samples in a normal distribution. With small samples, however, using the SD as an estimate of the SE is problematic. 
+
+The sample standard deviation also varies from sample to sample and this extra variation in smaller samples will mess up the computation of the margin of errors. William Gosset's suggested we needed to use a different probability distribution for this cases, the **t Student distribution**. 
 
 You can learn more about this distribution and the work of Gosset in the suggested reading (he's got a fun history, I promise, for one, he was head brewer at Guinness!!). The t Student distribution and the normal distribution are almost indistinguishable for large samples. In essence that means you will still multiply by 1.96. But with smaller sample sizes that value will be different if you use a normal distribution (z-distribution) or a t student distribution. Refer to the recommended textbook reading for further clarification.
 
