@@ -507,7 +507,7 @@ We, again, use Cohen's *d* to find out. As this is a paired t-test, we must cond
 
 ```{r}
 
-cohen.d(compliance_score ~ prepost| Subject(subject_id), data = df)
+cohen.d(compliance_score ~ prepost | Subject(subject_id), data = df, paired= TRUE)
 
 ```
 
@@ -525,9 +525,9 @@ Happy times, this is a statistically significant (so we can generalise) large ef
 
 The **chi-square statistic** is a test of statistical significance for two categorical variables. It tells us how much the observed distribution differs from the one expected under the null hypothesis. It is based on the cross-tabulation or **contingency table**. These appear as a table that shows the frequency distributions of more than one variable simultaneously. 
 
-Frequency distributions are a useful way of exploring categorical variables that do not have too many categories. By extension, **cross-tabulations** are a useful way of exploring relationships between two categorical variables that do not have too many levels or categories. This semester we are only going to explore **two-way cross-tabulations**, that is contingency tables where we plot the frequency distribution of two variables at the same time. 
+Frequency distributions are a useful way of exploring categorical variables that do not have too many categories. **Cross-tabulations** are a type of contingency table that specifically  explores relationships between two categorical variables that do not have too many levels or categories. 
 
-As we learned during the first week we can get results from R in a variety of ways. You can produce basic tables with some of the core functions in R. However, in order to produce the sort of cross-tabs  we will use, I suggest you install and load the package `gmodels`. This package allows you to produce cross tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. Since some of you may have some previous experience with SPSS we will use the SPSS format. Cross-tabs with this package are more useful for our purposes than the default you may get with the core R `table()` function.
+<!--For this lesson, we are only going to explore **two-way cross-tabulations**, that is, contingency tables where we plot the frequency distribution of two variables at the same time. As we learned during the first week we can get results from R in a variety of ways. You can produce basic tables with some of the core functions in R. However, in order to produce the sort of cross-tabs  we will use, I suggest you install and load the package `gmodels`. This package allows you to produce cross tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. Since some of you may have some previous experience with SPSS we will use the SPSS format. Cross-tabs with this package are more useful for our purposes than the default you may get with the core R `table()` function.-->
 
 ##### Activity 7: Crosstabs 
 
