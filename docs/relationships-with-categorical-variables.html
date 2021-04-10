@@ -273,9 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4>Learning Outcomes:</h4>
 <ul>
 <li>Learn to arrange variables as independent and dependent variables</li>
-<li>Learn to test for statistical significance in relationships between two variables when:</li>
-<li>both are categorical</li>
-<li>one is binary categorical and one is numeric</li>
+<li>Learn to test for statistical significance in relationships between a categorical variable and one other variable</li>
 <li>Understand how to interpret outputs from t-tests and the chi-square test</li>
 </ul>
 </div>
@@ -299,7 +297,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>gmodels</code></li>
 <li><code>haven</code></li>
 <li><code>here</code></li>
-<li><code>labelled</code></li>
 <li><code>skimr</code></li>
 <li><code>vcdExtra</code></li>
 </ul>
@@ -338,14 +335,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 2. Install and load the required packages listed above with exception to <code>vcdExtra</code>; the reason is <code>vcdExtra</code> will interfere with the package <code>dplyr</code> (see Lesson 1, section 1.3.3 on masking):
 <br></p>
 <ol start="3" style="list-style-type: decimal">
-<li>Download from Blackboard and load into <code>R</code> the British Crime Survey (BCS) dataset (<em>bcs_2007_8_teaching_data_unrestricted.dta</em> ). Be mindful of its data format because it will require certain codes and packages. Name this data frame <code>BCS0708</code>.</li>
+<li><p>Download from Blackboard and load into <code>R</code> the British Crime Survey (BCS) dataset (<em>bcs_2007_8_teaching_data_unrestricted.dta</em> ). Be mindful of its data format because it will require certain codes and packages. Name this data frame <code>BCS0708</code>.</p></li>
+<li><p>Get to know the data with the <code>View()</code> function.</p></li>
 </ol>
-<p><br></p>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb375-1" title="1">BCS0708 &lt;-<span class="st"> </span><span class="kw">read_dta</span>(<span class="kw">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;bcs_2007_8_teaching_data_unrestricted.dta&quot;</span>))</a></code></pre></div>
-<ol start="4" style="list-style-type: decimal">
-<li>Get to know the data with the <code>View()</code> function.</li>
-</ol>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" title="1"><span class="kw">View</span>(BCS0708)</a></code></pre></div>
 <p><br>
 <br></p>
 <hr />
@@ -371,7 +363,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">7.2.2</span> Comparing means: the t-test</h3>
 <p>When assessing the relationship between a binary, categorical variable and a numeric variable, we usually summarise the numeric variable for each category of the categorical variable in order to compare. For example, we are interested in fear of crime and how levels of it vary between sexes. For this, we have two relevant variables in our data frame <code>BCS0708</code>: <code>sex</code> and <code>tcviolent</code>. Let us have a look:
 <br></p>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" title="1"><span class="kw">attributes</span>(BCS0708<span class="op">$</span>sex)</a></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb375-1" title="1"><span class="kw">attributes</span>(BCS0708<span class="op">$</span>sex)</a></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;respondent sex&quot;
 ## 
@@ -384,20 +376,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $labels
 ##   male female 
 ##      1      2</code></pre>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" title="1"><span class="co"># Any missing values?</span></a>
-<a class="sourceLine" id="cb379-2" title="2"><span class="kw">table</span>(<span class="kw">is.na</span>(BCS0708<span class="op">$</span>sex))</a></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" title="1"><span class="co"># Any missing values?</span></a>
+<a class="sourceLine" id="cb377-2" title="2"><span class="kw">table</span>(<span class="kw">is.na</span>(BCS0708<span class="op">$</span>sex))</a></code></pre></div>
 <pre><code>## 
 ## FALSE 
 ## 11676</code></pre>
 <p><br></p>
 <p>We can see that the first variable, <code>sex</code>, takes the values of ‘1’ for ‘male’ and ‘2’ for ‘female’. This variable should be classed as a factor, in <code>R</code> speak, so let us recode <code>sex</code> so that it is classed as so:
 <br></p>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" title="1"><span class="co"># As is, &#39;sex&#39; is classed as &#39;haven-labelled&#39;, which is incorrect, so we change it to its correct class, factor:</span></a>
-<a class="sourceLine" id="cb381-2" title="2"></a>
-<a class="sourceLine" id="cb381-3" title="3">BCS0708<span class="op">$</span>sex &lt;-<span class="st"> </span><span class="kw">as_factor</span>(BCS0708<span class="op">$</span>sex)</a>
-<a class="sourceLine" id="cb381-4" title="4"></a>
-<a class="sourceLine" id="cb381-5" title="5"><span class="co"># Double check that it is now a factor:</span></a>
-<a class="sourceLine" id="cb381-6" title="6"><span class="kw">attributes</span>(BCS0708<span class="op">$</span>sex) <span class="co"># indeed</span></a></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" title="1"><span class="co"># As is, &#39;sex&#39; is classed as &#39;haven-labelled&#39;, which is incorrect, so we change it to its correct class, factor:</span></a>
+<a class="sourceLine" id="cb379-2" title="2">BCS0708<span class="op">$</span>sex &lt;-<span class="st"> </span><span class="kw">as_factor</span>(BCS0708<span class="op">$</span>sex)</a>
+<a class="sourceLine" id="cb379-3" title="3"></a>
+<a class="sourceLine" id="cb379-4" title="4"><span class="co"># Double check that it is now a factor:</span></a>
+<a class="sourceLine" id="cb379-5" title="5"><span class="kw">attributes</span>(BCS0708<span class="op">$</span>sex) <span class="co"># indeed</span></a></code></pre></div>
 <pre><code>## $levels
 ## [1] &quot;male&quot;   &quot;female&quot;
 ## 
@@ -409,12 +400,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 <p>Now we check out our other variable of interest, <code>tcviolent</code>:
 <br></p>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" title="1"><span class="kw">attributes</span>(BCS0708<span class="op">$</span>tcviolent)</a></code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" title="1"><span class="kw">attributes</span>(BCS0708<span class="op">$</span>tcviolent)</a></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;respondent level of worry about being a victim of personal crime (high score = h&quot;
 ## 
 ## $format.stata
 ## [1] &quot;%9.0g&quot;</code></pre>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" title="1"><span class="kw">class</span>(BCS0708<span class="op">$</span>tcviolent)</a></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
 <div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" title="1"><span class="co"># Any missing values?</span></a>
 <a class="sourceLine" id="cb385-2" title="2"><span class="kw">table</span>(<span class="kw">is.na</span>(BCS0708<span class="op">$</span>tcviolent)) <span class="co"># Yes, there is!</span></a></code></pre></div>
 <pre><code>## 
@@ -439,7 +432,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The output displays 5307 males and 6369 females.</p>
 <p>Now for our dependent variable <code>tcviolent</code>: we use the <code>skim()</code> function from the <code>skimr</code> package introduced in Lesson 4:
 <br></p>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb390-1" title="1"><span class="kw">skim</span>(BCS0708, tcviolent)</a></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb390-1" title="1"><span class="co"># We do not use &#39;summarise()&#39; because this is a numeric variable</span></a>
+<a class="sourceLine" id="cb390-2" title="2"><span class="kw">skim</span>(BCS0708, tcviolent)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -472,32 +466,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="right">3.805476</td>
 <td align="left">▁▇▅▂▁</td>
 </tr>
-<tr class="even">
-<td align="left"><br></td>
-<td align="left"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="left"></td>
-</tr>
 </tbody>
 </table>
+<p><br>
+<br></p>
 <p>Then we get to know the data further by checking out the dependent variable, <code>tcviolent</code>, by the independent variable <code>sex</code>. Let us now look at the mean, standard deviation, and variance:
 <br></p>
 <div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb391-1" title="1"><span class="co"># We tell R to obtain the three descriptive statistics and &#39;round&#39; the values to two decimal places</span></a>
 <a class="sourceLine" id="cb391-2" title="2"></a>
 <a class="sourceLine" id="cb391-3" title="3"><span class="co"># Remember, we must add &#39;na.rm = TRUE&#39; as we have missing values or else this will display &#39;NA&#39;</span></a>
-<a class="sourceLine" id="cb391-4" title="4"></a>
-<a class="sourceLine" id="cb391-5" title="5">BCS0708 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb391-6" title="6"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_worry =</span> <span class="kw">round</span>(<span class="kw">mean</span>(tcviolent, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),<span class="dv">2</span>), </a>
-<a class="sourceLine" id="cb391-7" title="7">            <span class="dt">sd_worry =</span> <span class="kw">round</span>(<span class="kw">sd</span>(tcviolent, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),<span class="dv">2</span>), </a>
-<a class="sourceLine" id="cb391-8" title="8">            <span class="dt">var_worry =</span> <span class="kw">round</span>(<span class="kw">var</span>(tcviolent, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),<span class="dv">2</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb391-4" title="4">BCS0708 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb391-5" title="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_worry =</span> <span class="kw">round</span>(<span class="kw">mean</span>(tcviolent, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),<span class="dv">2</span>), </a>
+<a class="sourceLine" id="cb391-6" title="6">            <span class="dt">sd_worry =</span> <span class="kw">round</span>(<span class="kw">sd</span>(tcviolent, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),<span class="dv">2</span>), </a>
+<a class="sourceLine" id="cb391-7" title="7">            <span class="dt">var_worry =</span> <span class="kw">round</span>(<span class="kw">var</span>(tcviolent, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),<span class="dv">2</span>))</a></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 2 x 4
 ##   sex    mean_worry sd_worry var_worry
@@ -526,16 +507,17 @@ From the output, it seems that males have a lower average fear of crime than fem
 <p><img src="07-relationships-categorical-variable_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 <br></p>
 <p>Note that these descriptive statistics are only about our sample; we actually want to make inferences about our population of interest – all males and females in England and Wales. So, we use inferential statistics; our observation of a difference between means prompts us to test whether this difference is an actual difference, or if it is attributed to chance.</p>
-<p>Hence, our hypothesis is that, in the population, there is a difference in the mean level for fear of crime for males compared to said levels for females.</p>
+<p>Hence, our hypothesis is that, in the population, there is a difference in the mean level of fear of crime for males compared to said levels for females.</p>
 <!-- What we want then is a **difference-in-means** estimator. That is, we want to estimate the difference in means between the two groups in our population, from our sample. For this, we can use two-sample tests, based on a difference in means estimator to investigate our null hypothesis that the means are equal between the two populations.  -->
-<p>Our non-directional hypothesis has to do with our research question of whether there is a difference in the amount of fear of crime between males and females. We test our hypothesis using the <strong>t-test</strong>, which relies on Student’s <em>t</em> distribution.</p>
+<p>Our non-directional hypothesis has to do with our research question of whether there is a difference in the amount of fear of crime between males and females. As one of our variables of interest is binary, categorical and the other, numeric, we test our hypothesis using the <strong>t-test</strong>, which relies on Student’s <em>t</em> distribution.</p>
 <p><br></p>
 <hr />
 </div>
 <div id="students-t-distribution" class="section level4">
 <h4><span class="header-section-number">7.2.2.2</span> Student’s <em>t</em> distribution</h4>
 <p>In previous weeks, we used the standard deviation (SD or <span class="math inline">\(s\)</span>) of our sample to estimate the standard error (SE or <span class="math inline">\(\sigma\)</span>). (See Lesson 5, section 5.2.2 .) This approach works reasonably well when applied to large samples. With small samples, however, using the SD as an estimate of the SE is problematic.</p>
-<p>The reason is that the SD varies from sample to sample, so this variation in smaller samples makes for more uncertainty. In addition, we are likely not to know the true population values, our parameters. For such a case, William Gosset, <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/">Statistician and Head Brewer for Guinness,</a> (see also recommended reading) suggested that we needed to use a different probability distribution, <strong>Student’s <em>t</em> distribution</strong>. Gosset had developed this distribution (under his pen name ‘Student’) so that he could make meaningful predictions using small samples of barley instead of large ones – a cost-effective method. A small sample is considered to be less than 60 observations, and definitely when it is 30 or less. (The ambiguity of this is because various textbooks have different ideas on what constitutes a ‘small sample’ but the rule of thumb is n= 30.)</p>
+<p>The reason is that the SD varies from sample to sample, so this variation in smaller samples makes for more uncertainty. In addition, we are likely not to know the true population values, our parameters. For such a case, William Gosset, <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/">Statistician and Head Brewer for Guinness,</a> (see also recommended reading) suggested that we needed to use a different probability distribution, <strong>Student’s <em>t</em> distribution</strong>.</p>
+<p>Gosset had developed this distribution (under his pen name ‘Student’) so that he could make meaningful predictions using small samples of barley instead of large ones – a cost-effective method. A small sample is considered to be less than 60 observations, and definitely 30 or less. (The ambiguity of this is because various textbooks have different ideas on what constitutes a ‘small sample’ but the rule of thumb is n= 30.)</p>
 <!--The *t* distribution and the normal distribution are nearly indistinguishable for large samples. This has implications for, say, the calculation of the margin of error. For large samples, you would still multiply the value (from dividing the SD by the square root of the sample size) by 1.96:
 
 <br>
@@ -557,11 +539,11 @@ In fact, this is probably a good time to engage with our assumptions made by the
 <h4><span class="header-section-number">7.2.2.3</span> Assumptions of the t-test</h4>
 <p>The t-test makes a number of assumptions, and to use this test, all assumptions should be met:</p>
 <ol style="list-style-type: decimal">
-<li><p><em>Two means or proportions will be compared</em>: our independent variable is binary, signifying two groups, and the dependent variable is a numeric variable (OR a binary variable for comparision of proportions, but this requires a large sample size).</p></li>
+<li><p><em>Two means or proportions will be compared</em>: our independent variable is binary, signifying two groups, and the dependent variable is a numeric variable (or a binary variable for comparision of proportions, but this requires a large sample size).</p></li>
 <li><p><em>The sampling method was independent random sampling</em>. We will proceed as if this assumption is met.</p></li>
 <li><p><em>Normal distribution is assumed for both populations</em> (from which the two groups come from): because the t-test makes assumptions about the shape of the distribution, it is considered a <strong>parametric test</strong>. Tests that do not make this assumption about shape are called non-parametric. This assumption, however, can be relaxed if the sample size for both groups are large (and why proportions can be compared).</p></li>
 </ol>
-<p>You may also want to check for outliers by plotting the data. Outliers may distort your results, particularly with smaller samples. All assumptions with the exception of the second one are met. To meet the second assumption, you can check if your data are normally distributed if the sample size is not large using density plots:
+<p>You may also want to check for outliers by plotting the data. Outliers may distort your results, particularly with smaller samples. All assumptions with the exception of the second one are met. To meet the second assumption, you can check if your data are normally distributed, especially if the sample size(s) is not large, using density plots:
 <br></p>
 <div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb396-1" title="1"><span class="kw">ggplot</span>(BCS0708, <span class="kw">aes</span>(<span class="dt">x =</span> tcviolent, <span class="dt">fill =</span> sex)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb396-2" title="2"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
@@ -569,21 +551,22 @@ In fact, this is probably a good time to engage with our assumptions made by the
 <pre><code>## Warning: Removed 3242 rows containing non-finite values (stat_density).</code></pre>
 <p><img src="07-relationships-categorical-variable_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 <br></p>
-<p>The density plots provide a visual tool for assessing the <em>unimodality</em> – a single, clear peak indicating a most frequent value – and the symmetry of the distribution. Later, we will discuss a more elaborate graphical tool for assessing the normality, the normal probability plot. For now, let us assume that this is adequate to compute the t-test.</p>
+<p>The density plots provide a visual tool for assessing the <em>unimodality</em> – a single, clear peak indicating a most frequent value – and the symmetry of the distribution. For now, let us assume that this is adequate to compute the t-test.</p>
 <ol start="4" style="list-style-type: decimal">
 <li><em>The variances of both samples are equal to each other</em>. We test for this in the next section.
-<!--The BCS uses a complex survey design which would require the use of special procedures for hypothesis testing. However, those special procedures are well beyond the scope of this course and would typically be covered in more advanced courses. Therefore, for convenience --></li>
+<!--Later, we will discuss a more elaborate graphical tool for assessing the normality, the normal probability plot.The BCS uses a complex survey design which would require the use of special procedures for hypothesis testing. However, those special procedures are well beyond the scope of this course and would typically be covered in more advanced courses. Therefore, for convenience -->
+<br></li>
 </ol>
 <p>For an independent sample t-test, however, an additional assumption must be met:</p>
 <ol start="5" style="list-style-type: decimal">
-<li><em>The two groups must be independent of each other</em>: This assumption of independence would be violated if, for example, one group comprised women and the other group, their partners. If this were the case, the resulting values for both groups would be related. If this assumption is violated, we would need the dependent t-test, which will be covered later.</li>
+<li><em>The two groups must be independent of each other</em>: This assumption of independence would be violated if, for example, one group comprised women and the other group, their partners. If this were the case, the resulting values for both groups would be connected and misleading. If this assumption is violated, we would need the dependent t-test, which will be covered later.</li>
 </ol>
 <p><br></p>
 </div>
 <div id="independent-sample-t-test" class="section level4">
 <h4><span class="header-section-number">7.2.2.4</span> Independent Sample t-test</h4>
 <!--In one of this lesson's lecture videos, different types of t-tests were mentioned. One-sample t-tests are not covered in this class, but two other types are: independent (or unpaired) and dependent (or paired) sample t-tests. -->
-<p>In our example, we would like to know whether there is a difference between the mean score for fear of crime, as embodied in the variable <code>tcviolent</code>, between males and females. We fulfilled three assumptions for the <strong>independent sample t-test</strong> or <em>unpaired t-test</em>. This t-test compares two groups that are independent of one another. It suggests that the values for the dependent variable in one sample are not reliant on the values for the dependent variable in the other sample. In our case, levels of fear of crime for females and males are not related to one another, so the fifth assumption is met.</p>
+<p>In our example, we would like to know whether there is a difference between the mean score of fear of crime, as embodied in the variable <code>tcviolent</code>, between males and females. Previously, we fulfilled three assumptions for the <strong>independent sample t-test</strong> or <em>unpaired t-test</em>. This t-test compares two groups that are independent of one another. It suggests that the values for the dependent variable in one group are not reliant on the values for the dependent variable in the other group. In our case, levels of fear of crime for females and males are not related to one another, so the fifth assumption is met.</p>
 <p>In addition to our research question which asks whether there is a difference in the amount of fear of crime between males and females, our null and alternative hypotheses are:</p>
 <p><br>
 <span class="math inline">\(H_0\)</span>: There is no significant difference in fear of crime between males and females.</p>
@@ -592,7 +575,7 @@ In fact, this is probably a good time to engage with our assumptions made by the
 <p><br></p>
 <div id="activity-3-testing-for-equality-of-variance" class="section level5">
 <h5><span class="header-section-number">7.2.2.4.1</span> Activity 3: Testing for equality of variance</h5>
-<p>We must meet the fouth assumption by conducting the <strong>test for equality of variance</strong>, also known as <strong>Levene’s test</strong>. Conducting this specific test is an important step before the t-test. This is an F-test that evaluates the null hypothesis that the variances of the two groups are equal. When we want to compare variances, we conduct this test as the variances may affect how we specify our t-test. If we fail to reject the null hypothesis, then we have met this assumption.
+<p>We must meet the fouth assumption by conducting the <strong>test for equality of variance</strong>, also known as <strong>Levene’s test</strong>. Conducting this specific test is an important step before the t-test. This is an F-test that evaluates the null hypothesis that the variances of the two groups are equal. When we want to compare variances, we conduct this test as the variances may affect how we specify our t-test. If we <em>fail</em> to reject the null hypothesis, then we have met this assumption.
 <br></p>
 <div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb398-1" title="1"><span class="co"># DV comes first in code, then the IV</span></a>
 <a class="sourceLine" id="cb398-2" title="2"><span class="kw">var.test</span>(BCS0708<span class="op">$</span>tcviolent <span class="op">~</span><span class="st"> </span>BCS0708<span class="op">$</span>sex)</a></code></pre></div>
@@ -608,7 +591,7 @@ In fact, this is probably a good time to engage with our assumptions made by the
 ## ratio of variances 
 ##          0.6888643</code></pre>
 <p><br></p>
-<p>The information to focus on in the output are the alternative hypothesis, the F-statistic, and associated p-value. The alternative hypothesis states that the variances are not equal to 1, meaning they are not equal to each other. The p-value is very small, so we reject the null hypothesis that the variances are equal to each other. Thus, we have violated this assumption of equal variances, so we must address this.</p>
+<p>The information to focus on in the output are the alternative hypothesis, the F-statistic, and associated p-value. The alternative hypothesis states that the variances are not equal to 1, meaning they are not equal to each other. Likewise, the p-value is very small, so we reject the null hypothesis that the variances are equal to each other. Thus, we have violated this assumption of equal variances, so we must address this.</p>
 <p>One way to do so, and is familiar to one of the lesson’s lecture videos, is to use the <code>t.test()</code> function. There, you can specify whether the equality of variance assumption is met. In our case, we must set <code>var.equal</code> to <code>FALSE</code> in the following independent sample t-test as the assumption is violated.</p>
 <p><br>
 <br></p>
@@ -616,7 +599,7 @@ In fact, this is probably a good time to engage with our assumptions made by the
 </div>
 <div id="activity-4-conducting-an-independent-sample-t-test" class="section level5">
 <h5><span class="header-section-number">7.2.2.4.2</span> Activity 4: Conducting an independent sample t-test</h5>
-<p>It is now time to carry out our t-test. We use the <code>t.test()</code> function, which performs both the one and two sample t-tests on vectors of data. It can also perform paired and independent samples t-tests by modifying the <code>paired=</code> argument. We include our dependent and our independent variables, separated by a tilda (<code>~</code>), and set the <code>var.equal</code> argument to <code>FALSE</code>:
+<p>It is now time to carry out our t-test. We use the <code>t.test()</code> function, which performs both the one and two sample t-tests on vectors of data. It can also perform paired and independent samples t-tests by modifying the <code>paired=</code> argument. We include our independent and dependent variables, separated by a tilda (<code>~</code>), and set the <code>var.equal</code> argument to <code>FALSE</code>:
 <br></p>
 <div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb400-1" title="1"><span class="co"># Run the t-test with var.equal option set to false as assumption was violated:</span></a>
 <a class="sourceLine" id="cb400-2" title="2"><span class="kw">t.test</span>(BCS0708<span class="op">$</span>tcviolent <span class="op">~</span><span class="st"> </span>BCS0708<span class="op">$</span>sex, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
@@ -648,20 +631,20 @@ In fact, this is probably a good time to engage with our assumptions made by the
 ##   mean in group male mean in group female 
 ##           -0.2738322            0.3281656</code></pre>
 <p><br></p>
-<p>From the output, focus on: the means, alternative hypothesis (<span class="math inline">\(H_A\)</span>), the t-statistics, the p-value, and the 95% confidence interval (CI).</p>
+<p>From the output, focus on: the means, alternative hypothesis (<span class="math inline">\(H_A\)</span>), the t-statistic, the p-value, and the 95% confidence interval (CI).</p>
 <p>First, the means show that males score an average score of -0.2738322 on this fear of crime measure, while females score an average of 0.3281656 - this is the same output we got from exploring our data previously.</p>
 <p>Second, the alternative hypothesis is not equal to 0, which is what we expect if there is no difference between the two groups.</p>
-<p>Third, the t-statistic reports -29.1142624 with an associated p-value which much smaller than our <span class="math inline">\(\alpha\)</span> = 0.05, so we reject the null hypothesis that the difference in the population is 0. We can say that there is a <em>statistically significant</em> difference between fear of crime for males and females in England and Wales. We can also state that, given the null hypothesis, there is a &lt; .001 chance of observing the difference that we have actually observed (or one more unlikely).</p>
-<p>Fourth, the 95% CI allows us to make an estimate that tells us the value of the difference in means in the population. From our sample, we estimate that the difference in fear of crime scores between sexes is somewhere between 0.56 and 0.64 points.</p>
-<p>Is this considered a large or small difference? In many cases, interpreting this is challenging because it can be subjective or the scale that was used to measure the variable is the original, raw version. To help us answer our question of size difference, we will need to include a measure of effect size.
+<p>Third, the t-statistic reports -29.1142624 with an associated p-value that is much smaller than our <span class="math inline">\(\alpha\)</span> = 0.05, so we reject the null hypothesis that the difference in the population is 0. We can say that there is a <em>statistically significant</em> difference between fear of crime for males and females in England and Wales. We can also state that, given the null hypothesis, there is a &lt; .001 chance of observing the difference that we have actually observed (or one more unlikely).</p>
+<p>Fourth, the 95% CI allows us to make an estimate of the difference in means in the population. From our sample, we estimate that the difference in fear of crime scores between sexes is somewhere between 0.56 and 0.64 points.</p>
+<p>Is this considered a large or small difference? In many cases, interpreting this is challenging because it can be subjective or the scale that was used to measure the variable is not the original, raw version. To help us answer our question of size difference, we will need to include a measure of effect size.
 <br>
 <br></p>
 <hr />
 </div>
 <div id="activity-5-considering-the-effect-size--cohens-d" class="section level5">
-<h5><span class="header-section-number">7.2.2.4.3</span> Activity 5: Considering the effect size- Cohen’s d</h5>
+<h5><span class="header-section-number">7.2.2.4.3</span> Activity 5: Considering the effect size- Cohen’s <em>d</em></h5>
 <p>We can always look at <strong>standardised measures of the effect size</strong>. There are a number of them. They aim to give you a sense of how large the difference is by using a standardised metric. The value indicating the strength of relationship is known as the <strong>effect size</strong>, and simply quantifies the magnitude of difference between two variables.</p>
-<p>We will use one of the measures, <strong>Cohen’s d</strong>, for this example. We can obtain it with the <code>cohen.d()</code> function from the <code>effsize</code> package:
+<p>We will use one of the measures, <strong>Cohen’s <em>d</em></strong>, for this example. We can obtain it with the <code>cohen.d()</code> function from the <code>effsize</code> package:
 <br></p>
 <div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" title="1"><span class="kw">cohen.d</span>(BCS0708<span class="op">$</span>tcviolent <span class="op">~</span><span class="st"> </span>BCS0708<span class="op">$</span>sex)</a></code></pre></div>
 <pre><code>## 
@@ -672,12 +655,12 @@ In fact, this is probably a good time to engage with our assumptions made by the
 ##      lower      upper 
 ## -0.6719205 -0.5843047</code></pre>
 <p><br></p>
-<p>Cohen suggested a general guideline to interpret this effect size as an absolute value: 0.2 to 0.3 is considered a ‘small’ effect; around 0.5, a ‘medium’ effect; and 0.8 and larger, a ‘large’ effect. The output suggests that the observed difference is a medium effect size.</p>
+<p>Jacob Cohen (inventor of Cohen’s <em>d</em>) suggested a general guideline to interpret this effect size as an absolute value: 0.2 to 0.3 is considered a ‘small’ effect; around 0.5, a ‘medium’ effect; and 0.8 and larger, a ‘large’ effect. The output suggests that the observed difference is a medium effect size.</p>
 <!--However, keep in mind these rules are not absolute. In some fields of research and in relation to some problems the rules of thumb may be slightly different. You need, in professional practice, to be alert to those nuances by being familiar to the rules that other researchers use in your particular area of work.-->
 <p>To communicate the results obtained from our descriptive statistics, the t-test, and Cohen’s <em>d</em>, we could write something like the following:</p>
 <p><br></p>
 <blockquote>
-<p>‘On average, males have a lower score of fear of crime (M=-.27, SD=.86) than females (M=.33, SD= 1.04). Using an alpha level of 0.05, this difference was significant (t=-29.11, p&lt;.001) and corresponds to a medium-sized effect (d=-0.63).’</p>
+<p>‘On average, males have a lower score of fear of crime (M=-.27, SD=.86) than females (M= 0.33, SD= 1.04). Using an alpha level of 0.05, this difference was significant (t= -29.11, p &lt;.001) and corresponds to a medium-sized effect (d= -0.63).’</p>
 </blockquote>
 <p><br></p>
 <p>Communicating this way is similar to the way findings are communicated in the ‘Results’ section of academic papers.</p>
@@ -691,7 +674,7 @@ One important thing to remember is that when doing hypothesis testing there is a
 </div>
 <div id="dependent-sample-t-test" class="section level4">
 <h4><span class="header-section-number">7.2.2.5</span> Dependent Sample t-test</h4>
-<p>Previously, we went through the assumptions of an independent sample t-test. If we had violated the fifth assumption, we would need to use the dependent sample t-test instead. When we are interested in comparing means of two groups that are related to each other, the <strong>dependent sample t-test</strong> or <em>paired sample t-test</em> is appropriate. What this means is that the responses are paired together because there is a prior connection between them. For example, we have two groups where the first one comprises test scores before an intervention and the second one comprises test scores after that intervention of the same people from the first group. The scores are connected to each other because they belong to the same people.</p>
+<p>Previously, we went through the assumptions of an independent sample t-test. If we had violated the fifth assumption, we would need to use the dependent sample t-test instead. But, also, we use this t-test when we are actually interested in comparing means of two groups that are related to each other, the <strong>dependent sample t-test</strong> or <em>paired sample t-test</em> is appropriate. What this means is that the responses are paired together because there is a prior connection between them. For example, the same people form both of our groups, where the first group comprises their test scores before an intervention and the second one comprises their test scores after that intervention. The scores are connected to each other because they belong to the same people.</p>
 <div id="activity-6-conducting-a-dependent-sample-t-test" class="section level5">
 <h5><span class="header-section-number">7.2.2.5.1</span> Activity 6: Conducting a dependent sample t-test</h5>
 <p>Let us create a familiar synthetic data of a hypothetical intervention for at-risk youth in Manchester. We have identified 100 at-risk young people and exposed them to an intervention designed to stop them from reoffending. Both before and after the intervention, though, we ask them to take a test that measures their compliance with the law.
@@ -699,17 +682,17 @@ One important thing to remember is that when doing hypothesis testing there is a
 <div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" title="1"><span class="kw">set.seed</span>(<span class="dv">1999</span>) <span class="co"># Ensuring results are the same for you and me</span></a>
 <a class="sourceLine" id="cb406-2" title="2"></a>
 <a class="sourceLine" id="cb406-3" title="3"><span class="co"># Making this sythentic data of at-risk youth</span></a>
-<a class="sourceLine" id="cb406-4" title="4">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">subject_id =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>), </a>
-<a class="sourceLine" id="cb406-5" title="5">                 <span class="dt">prepost =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;pre&quot;</span>, <span class="dv">100</span>), <span class="kw">rep</span>(<span class="st">&quot;post&quot;</span>, <span class="dv">100</span>)),</a>
-<a class="sourceLine" id="cb406-6" title="6">                 <span class="dt">compliance_score =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">30</span>, <span class="dv">10</span>), <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">60</span>, <span class="dv">14</span>)))</a></code></pre></div>
+<a class="sourceLine" id="cb406-4" title="4">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">subject_id =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>), <span class="co"># ID for each young person</span></a>
+<a class="sourceLine" id="cb406-5" title="5">                 <span class="dt">prepost =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;pre&quot;</span>, <span class="dv">100</span>), <span class="kw">rep</span>(<span class="st">&quot;post&quot;</span>, <span class="dv">100</span>)), <span class="co"># Whether assessed before or after intervention</span></a>
+<a class="sourceLine" id="cb406-6" title="6">                 <span class="dt">compliance_score =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">30</span>, <span class="dv">10</span>), <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">60</span>, <span class="dv">14</span>))) <span class="co"># Test scores</span></a></code></pre></div>
 <p><br></p>
-<p>We now have our data frame called <code>df</code>, which contains 200 observations (our young people) and their scores on the compliance test taken before and after the intervention. This can be seen as <em>two waves</em> of a survey; we compare the behaviours of the young people from Wave 1 to Wave 2 to address the research question: ‘Do the compliance scores of the young people change after our intervention?’ Our non-directional null and alternative hypotheses are as follows:</p>
+<p>We now have our data frame called <code>df</code>, which contains a total of 200 observations (our young people) of their scores on the compliance test taken before and after the intervention. This can be seen as <em>two waves</em> of a survey; we compare the behaviours of the young people from Wave 1 to Wave 2 to address the research question: ‘Do the compliance scores of the young people change after our intervention?’ Our non-directional null and alternative hypotheses are as follows:</p>
 <p><br></p>
 <p><span class="math inline">\(H_0\)</span>: There is no significant difference in the compliance scores between Wave 1 (pre-intervention) and Wave 2 (post-intervention).</p>
 <p><br></p>
 <p><span class="math inline">\(H_A\)</span>: There is a significant difference in the compliance scores between Wave 1 (pre-intervention) and Wave 2 (post-intervention).</p>
 <p><br></p>
-<p>As responses from both Waves 1 and 2 are required, cases with missing responses from either will be dropped automatically when our analysis is conducted. This t-test also requires the DV to be stored as two separate variables. Assumptions one to three are met, but how about equality of variance?
+<p>As responses from both Waves 1 and 2 are required, cases with missing responses from either will be dropped automatically when our analysis is conducted. Assumptions one to three are met, but how about equality of variance?
 <br></p>
 <div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" title="1"><span class="co"># DV comes first in code, then the IV</span></a>
 <a class="sourceLine" id="cb407-2" title="2"><span class="kw">var.test</span>(df<span class="op">$</span>compliance_score <span class="op">~</span><span class="st"> </span>df<span class="op">$</span>prepost)</a></code></pre></div>
@@ -725,7 +708,7 @@ One important thing to remember is that when doing hypothesis testing there is a
 ## ratio of variances 
 ##           1.647864</code></pre>
 <p><br></p>
-<p>The p-value is less than the alpha level of 0.05. This means that we, again, have unequal variances, so we must specify this in the <code>var.equal=</code> argument of the <code>t.test()</code> function. We conduct the dependent sample t-test:
+<p>The p-value is less than <span class="math inline">\(\alpha\)</span> = 0.05. This means that we, again, have unequal variances, so we must specify this in the <code>var.equal=</code> argument of the <code>t.test()</code> function. We conduct the dependent sample t-test:
 <br></p>
 <div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" title="1"><span class="co"># Use the variables `prepost` indicating whether the answer is from wave 1 (pre-intervention) or wave 2 (post-intervention) and `compliance_score`, the score the young person achieved on the compliance questionnaire. </span></a>
 <a class="sourceLine" id="cb409-2" title="2"></a>
@@ -743,8 +726,8 @@ One important thing to remember is that when doing hypothesis testing there is a
 ## mean of the differences 
 ##                30.76287</code></pre>
 <p><br></p>
-<p>The results indicate that we can reject the null hypothesis as the p-value is less than <span class="math inline">\(\alpha = 0.05\)</span>. We conclude that there is a significant difference in compliance scores before and after our intervention between Wave 1 and Wave 2. The mean difference, 95% of time when repeated samples are taken from the population, will be between 27.39 and 34.14 points. On average, compliance scores were 30.76 points higher than before the intervention. What is the magnitude of this difference?</p>
-<p>We, again, use Cohen’s <em>d</em> to find out. As this is a paired t-test, we must conduct it slightly differently than when we did for the independent t-test. We specify the argument <code>paired= TRUE</code> and specify what ID it can use to match our participants in the pre- and post- groups; this is done with the <code>Subject()</code> array appended with the <code>|</code> operator:
+<p>The results indicate that we can reject the null hypothesis as the p-value is less than <span class="math inline">\(\alpha\)</span> = 0.05. We conclude that there is a significant difference in compliance scores before and after our intervention, between Wave 1 and Wave 2. The mean difference, 95% of time when repeated samples are taken from the population, will be between 27.39 and 34.14 points. On average, compliance scores were 30.76 points higher than before the intervention. What is the magnitude of this difference?</p>
+<p>We, again, use Cohen’s <em>d</em> to find out. As this is a paired t-test, we must conduct it slightly differently than when we did for the independent t-test. We specify the argument <code>paired= TRUE</code> and specify what ID it can use to match our participants in the pre- and post- groups (the variable <code>subject_id</code>); this is done with the <code>Subject()</code> array appended with the <code>|</code> operator:
 <br></p>
 <div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" title="1"><span class="kw">cohen.d</span>(compliance_score <span class="op">~</span><span class="st"> </span>prepost <span class="op">|</span><span class="st"> </span><span class="kw">Subject</span>(subject_id), <span class="dt">data =</span> df, <span class="dt">paired=</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## 
@@ -754,7 +737,7 @@ One important thing to remember is that when doing hypothesis testing there is a
 ## 95 percent confidence interval:
 ##    lower    upper 
 ## 2.121816 3.476126</code></pre>
-<p>The magnitude of the difference between pre and post test compliance scores is considered a large effect (d= 2.799). In addition, 95% of the time, when we draw samples from the population, we would expect the effect size to be between 2.12 and 3.48. Our intervention seems to be associated with an increased score in compliance in our follow-up test. But remember: correlation is not causation!</p>
+<p>The magnitude of the difference between pre and post test compliance scores is considered a large effect (<em>d</em> = 2.799). In addition, 95% of the time, when we draw samples from this population, we would expect the effect size to be between 2.12 and 3.48. Our intervention seems to be associated with increased test scores. But remember: correlation is not causation!</p>
 <p><br>
 <br></p>
 <hr />
@@ -763,11 +746,11 @@ One important thing to remember is that when doing hypothesis testing there is a
 </div>
 <div id="chi-square" class="section level3">
 <h3><span class="header-section-number">7.2.3</span> Chi-square</h3>
-<p>The <strong>chi-square statistic</strong> is a test of statistical significance for two categorical variables. It tells us how much the observed distribution differs from the one expected under the null hypothesis. It is based on the <strong>cross-tabulation</strong> (A.K.A crosstabs) or <strong>contingency table</strong>. These appear as a table that simultaneously shows the frequency distributions of two categorical variables that do not have too many levels or categories.</p>
+<p>The <strong>chi-square statistic</strong> is a test of statistical significance for two categorical variables. It tells us how much the observed distribution differs from the one expected under the null hypothesis. It is based on the <strong>cross-tabulation</strong> (aka crosstabs) or <strong>contingency table</strong>. These appear as a table that simultaneously shows the frequency distributions of two categorical variables that do not have too many levels or categories.</p>
 <!--For this lesson, we are only going to explore **two-way cross-tabulations**, that is, contingency tables where we plot the frequency distribution of two variables at the same time. As we learned during the first week we can get results from R in a variety of ways. You can produce basic tables with some of the core functions in R. However, in order to produce the sort of cross-tabs  we will use, I suggest you install and load the package `gmodels`. This package allows you to produce cross tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. Since some of you may have some previous experience with SPSS we will use the SPSS format. Cross-tabs with this package are more useful for our purposes than the default you may get with the core R `table()` function.-->
 <div id="activity-7-cross-tabulations" class="section level4">
 <h4><span class="header-section-number">7.2.3.1</span> Activity 7: Cross-tabulations</h4>
-<p>To explore some relationships related to the fear of crime, we produce a cross-tabulation of victimisation (<code>bcsvictim</code>) and whether rubbish is a problem in the area where the respondent lives (<code>rubbcomm</code>). According to <a href="https://www.theatlantic.com/magazine/archive/1982/03/broken-windows/304465/"><em>Broken Windows Theory</em></a>, proposed by James Q. Wilson and George Kelling, we should see a relationship between these two variables.</p>
+<p>To explore some relationships related to the fear of crime, we return to the BCS data to produce a cross-tabulation of victimisation (<code>bcsvictim</code>) and whether the presence of rubbish is common in the area where the respondent lives (<code>rubbcomm</code>). According to <a href="https://www.theatlantic.com/magazine/archive/1982/03/broken-windows/304465/"><em>Broken Windows Theory</em></a>, proposed by James Q. Wilson and George Kelling, we should see a relationship between these two variables.</p>
 <p>First, we get to know our variables:
 <br></p>
 <div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" title="1"><span class="co"># Seeing what class these variables are</span></a>
@@ -809,7 +792,7 @@ One important thing to remember is that when doing hypothesis testing there is a
 <a class="sourceLine" id="cb421-2" title="2">BCS0708<span class="op">$</span>bcsvictim &lt;-<span class="st"> </span><span class="kw">as_factor</span>(BCS0708<span class="op">$</span>bcsvictim)</a>
 <a class="sourceLine" id="cb421-3" title="3">BCS0708<span class="op">$</span>rubbcomm &lt;-<span class="st"> </span><span class="kw">as_factor</span>(BCS0708<span class="op">$</span>rubbcomm)</a></code></pre></div>
 <p><br></p>
-<p>Notice that <code>rubbcomm</code> ranges from ‘1’ to ‘4’, from ‘very common’ to ‘not at all common’. It would make sense if the numbers reflected the order of levels from ‘not at all common’ (‘1’) to ‘very common’ (‘4’) – from less to more. To re-order the categories/ levels, we use the familiar function <code>factor()</code> from Lesson 2:
+<p>Notice that <code>rubbcomm</code> ranges from ‘1’ to ‘4’, from ‘very common’ to ‘not at all common’. It would make sense if the numbers reflected, instead, the order of levels from ‘not at all common’ (‘1’) to ‘very common’ (‘4’) – from less to more. To re-order the categories/ levels, we use the familiar function <code>factor()</code> from Lesson 2:
 <br></p>
 <div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb422-1" title="1"><span class="co"># We request for R to change the levels so that it goes from &#39;not at all common&#39; to &#39;very common&#39; in the &#39;levels = c()&#39; argument</span></a>
 <a class="sourceLine" id="cb422-2" title="2"></a>
@@ -825,26 +808,22 @@ One important thing to remember is that when doing hypothesis testing there is a
 ## $class
 ## [1] &quot;factor&quot;</code></pre>
 <p><br></p>
-<p>Now we check for any missing values as this will indicate whether we must include arguments like <code>na.rm= TRUE</code> for later codes.
+<p>Now we observe any missing values:
 <br></p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb424-1" title="1"><span class="kw">table</span>(BCS0708<span class="op">$</span>bcsvictim)</a></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb424-1" title="1"><span class="co"># If you want the frequency distribution with labels, use ‘as_factor ()’</span></a>
+<a class="sourceLine" id="cb424-2" title="2"><span class="kw">table</span>(<span class="kw">as_factor</span>(BCS0708<span class="op">$</span>bcsvictim))</a></code></pre></div>
 <pre><code>## 
 ## not a victim of crime       victim of crime 
 ##                  9318                  2358</code></pre>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb426-1" title="1"><span class="co"># If you want the frequency distribution with labels, use ‘as_factor ()’</span></a>
-<a class="sourceLine" id="cb426-2" title="2"><span class="kw">table</span>(<span class="kw">as_factor</span>(BCS0708<span class="op">$</span>bcsvictim))</a></code></pre></div>
-<pre><code>## 
-## not a victim of crime       victim of crime 
-##                  9318                  2358</code></pre>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb428-1" title="1"><span class="kw">table</span>(<span class="kw">as_factor</span>(BCS0708<span class="op">$</span>rubbcomm))</a></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb426-1" title="1"><span class="kw">table</span>(<span class="kw">as_factor</span>(BCS0708<span class="op">$</span>rubbcomm))</a></code></pre></div>
 <pre><code>## 
 ## not at all common   not very common     fairly common       very common 
 ##              5463              4154              1244               204</code></pre>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb430-1" title="1"><span class="co"># Checking for any missing values using ‘sum ()’ to count number of NA data</span></a>
-<a class="sourceLine" id="cb430-2" title="2"><span class="kw">sum</span>(<span class="kw">is.na</span>(BCS0708<span class="op">$</span>bcsvictim))</a></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb428-1" title="1"><span class="co"># Checking for any missing values using ‘sum ()’ to count number of NA data</span></a>
+<a class="sourceLine" id="cb428-2" title="2"><span class="kw">sum</span>(<span class="kw">is.na</span>(BCS0708<span class="op">$</span>bcsvictim))</a></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" title="1"><span class="co"># 5 are indicated as missing</span></a>
-<a class="sourceLine" id="cb432-2" title="2"><span class="kw">sum</span>(<span class="kw">is.na</span>(BCS0708<span class="op">$</span>rubbcomm))</a></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb430-1" title="1"><span class="co"># 611 are indicated as missing</span></a>
+<a class="sourceLine" id="cb430-2" title="2"><span class="kw">sum</span>(<span class="kw">is.na</span>(BCS0708<span class="op">$</span>rubbcomm))</a></code></pre></div>
 <pre><code>## [1] 611</code></pre>
 <p><br></p>
 <p>For the DV, <code>rubbcomm</code>, we are missing 611 observations. For our class, keep in mind that all the statistical tests you will learn rely on <strong>full cases analysis</strong> whereby the tests will exclude observations that have missing values. There are appropriate ways in dealing with missing data but this is beyond the scope of this class.</p>
@@ -871,13 +850,13 @@ results
  
 
 The `dplyr` coding seems more complicated than that of `basic R` but its output is clearer to read than the one produced by `R`, and it is more detailed. The proportion of victimised individuals are within each of the levels of the categorical, ordered measure of rubbish in the area. Victimisation appears higher (31%) in the areas where rubbish in the streets is a very common problem. -->
-<p>Although, previously, we learned how to obtain contingency tables with the <code>table()</code> function from <code>base R</code> and with the <code>dplyr</code> package, the best package is <code>gmodels</code>. It allows you to produce cross-tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. We use the function <code>CrossTable ()</code>, then the <code>with()</code> function to identify the data frame at the outset instead of having to include it with each variable (using <code>$</code>).
+<p>Although, previously, we learned how to obtain contingency tables with the <code>table()</code> function from <code>base R</code> and with the <code>dplyr</code> package, the best package for crosstabs is <code>gmodels</code>. It allows you to produce cross-tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. We use the function <code>CrossTable ()</code>, then the <code>with()</code> function to identify the data frame at the outset instead of having to include it with each variable (using <code>$</code>).
 <br></p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb434-1" title="1"><span class="co"># Is the package `gmodels` loaded?</span></a>
-<a class="sourceLine" id="cb434-2" title="2"></a>
-<a class="sourceLine" id="cb434-3" title="3"><span class="co"># Define the rows in your table (rubbcomm) and then the variable that will define the columns (bcsvictim)</span></a>
-<a class="sourceLine" id="cb434-4" title="4"><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), </a>
-<a class="sourceLine" id="cb434-5" title="5">                         <span class="kw">as_factor</span>(bcsvictim), <span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span> <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" title="1"><span class="co"># Is the package `gmodels` loaded?</span></a>
+<a class="sourceLine" id="cb432-2" title="2"></a>
+<a class="sourceLine" id="cb432-3" title="3"><span class="co"># Define the rows in your table (rubbcomm) and then the variable that will define the columns (bcsvictim)</span></a>
+<a class="sourceLine" id="cb432-4" title="4"><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), </a>
+<a class="sourceLine" id="cb432-5" title="5">                         <span class="kw">as_factor</span>(bcsvictim), <span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span> <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</a></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|
@@ -930,13 +909,13 @@ The cross-tabulation shows that 63 people in the category ‘rubbish is very com
 <li><p>If your dependent variable is defining the columns, then you ask for the <em>row percentages</em></p></li>
 </ol>
 <p><br></p>
-<p>Also, <em>you make the comparisons across the right percentages in the direction where they do not add up to a hundred percent</em>. For example, 30.88% of people who live in areas where rubbish is very common have been victimised, whereas only 15.54% of people who live in areas where rubbish is not at all common have been victimised in the previous year. To make it easier, we can ask <code>R</code> to only give us the percentages in that we are interested:
+<p>Also, <em>you make comparisons across percentages in the direction where they do not add up to a hundred percent</em>. For example, 30.88% of people who live in areas where rubbish is very common have been victimised, whereas only 15.54% of people who live in areas where rubbish is not at all common have been victimised in the previous year. To make it easier, we can ask <code>R</code> to only give us the percentages in that we are interested:
 <br></p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb436-1" title="1"><span class="co"># prop.c is column and prop.t is total</span></a>
-<a class="sourceLine" id="cb436-2" title="2"><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), </a>
-<a class="sourceLine" id="cb436-3" title="3">                         <span class="kw">as_factor</span>(bcsvictim), </a>
-<a class="sourceLine" id="cb436-4" title="4">                         <span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span></a>
-<a class="sourceLine" id="cb436-5" title="5">                           <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb434-1" title="1"><span class="co"># prop.c is column and prop.t is total</span></a>
+<a class="sourceLine" id="cb434-2" title="2"><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), </a>
+<a class="sourceLine" id="cb434-3" title="3">                         <span class="kw">as_factor</span>(bcsvictim), </a>
+<a class="sourceLine" id="cb434-4" title="4">                         <span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span></a>
+<a class="sourceLine" id="cb434-5" title="5">                           <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</a></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|
@@ -967,7 +946,7 @@ The cross-tabulation shows that 63 people in the category ‘rubbish is very com
 ## </code></pre>
 <p><br></p>
 <p>Now with this output, we only see the row percentages. <strong>Marginal frequencies</strong> appear as the right column and bottom row. <em>Row marginals</em> show the total number of cases in each row. For example, 204 people perceive rubbish as very common in the area where they are living and 1,244 perceive rubbish as fairly common in their area. <em>Column marginals</em> show the total number of cases in each column: 8,804 non-victims and 2,261 victims.</p>
-<p>In the central cells, these are the total number for each combination of categories. For example, for row percentages, 63 people who perceive rubbish as very common in their area and who are a victim of a crime represent 30.88% of all people who have reported that rubbish is common (63 out of 204). For column percentages (shown previously), 63 people who live in areas where rubbish is very common and are victims represent 2.79% of all people who were victims of crime (63 out of 2,261).</p>
+<p>In the central cells, these are the total number for each combination of categories. For example, for row percentages, 63 people who perceive rubbish as very common in their area and who are a victim of a crime represent 30.88% of all people who have reported that rubbish is common (63 out of 204). For column percentages (from first crosstab output), 63 people who live in areas where rubbish is very common and are victims represent 2.79% of all people who were victims of crime (63 out of 2,261).</p>
 <p><br>
 <br></p>
 <hr />
@@ -982,12 +961,12 @@ The cross-tabulation shows that 63 people in the category ‘rubbish is very com
 <p><br></p>
 <p>We use the chi-square test because it compares these expected frequencies with the ones we actually observe in each of the cells; then averages the differences across the cells; and produces a standardised value, <em>χ</em><span class="math inline">\(^2\)</span> (the chi-square statistic).</p>
 <p>We then would observe the chi-square distribution to see how probable or improbable this value is. But, in practice, the p-value helps us ascertain this more quickly.</p>
-<p><strong>Expected frequencies</strong> are the number of cases you would expect to see in each cell within a contingency table if there was no relationship between the two variables – if the null hypothesis were true. <strong>Observed frequencies</strong> are the cases that we actually see in our sample. We use the <code>CrossTable ()</code> function again:
+<p>Crosstabs also can show the different frequencies: <strong>expected frequencies</strong> are the number of cases you would expect to see in each cell within a contingency table if there was no relationship between the two variables – if the null hypothesis were true. <strong>Observed frequencies</strong> are the cases that we actually see in our sample. We use the <code>CrossTable ()</code> function again, specifying that we would like to see expected frequencies by setting <code>expected = TRUE</code>:
 <br></p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb438-1" title="1"><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), </a>
-<a class="sourceLine" id="cb438-2" title="2">                         <span class="kw">as_factor</span>(bcsvictim), </a>
-<a class="sourceLine" id="cb438-3" title="3">                         <span class="dt">expected =</span> <span class="ot">TRUE</span>, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span></a>
-<a class="sourceLine" id="cb438-4" title="4">                           <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>) ))</a></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb436-1" title="1"><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), </a>
+<a class="sourceLine" id="cb436-2" title="2">                         <span class="kw">as_factor</span>(bcsvictim), </a>
+<a class="sourceLine" id="cb436-3" title="3">                         <span class="dt">expected =</span> <span class="ot">TRUE</span>, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span></a>
+<a class="sourceLine" id="cb436-4" title="4">                           <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>) ))</a></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|
@@ -1037,12 +1016,12 @@ The cross-tabulation shows that 63 people in the category ‘rubbish is very com
 ##  
 ##        Minimum expected frequency: 41.68495</code></pre>
 <p><br></p>
-<p>The output shows that, for example, 63 people lived in areas where rubbish was very common and experienced victimisation in the past year. Under the null hypothesis of no relationship, however, we should expect this value to be 41.69 (the expected value). Thus, more people are in this cell than we would expect under the null hypothesis.</p>
+<p>The output shows that, for example, 63 people lived in areas where rubbish was very common and experienced victimisation in the past year. Under the null hypothesis of no relationship, however, we should have expected 41.69 people (the expected value). Thus, more people are in this cell than we would expect under the null hypothesis.</p>
 <p>The chi-square value is 184.04, with 3 degrees of freedom (df). The df is obtained by the number of rows minus one, then multiplied by the number of columns minus one: (4 − 1)*(2 − 1).</p>
-<p>The p-value associated with this particular value is nearly zero (p= 1.180e-39). This value is considerably lower than the standard alpha level of 0.05. We conclude that there is a significant relationship between victimisation and the presence of rubbish. We reject the null hypothesis.</p>
+<p>The p-value associated with this particular value is nearly zero (p = 1.180e-39). This value is considerably lower than <span class="math inline">\(\alpha\)</span> = 0.05. We conclude that there is a significant relationship between victimisation and the presence of rubbish. We reject the null hypothesis.</p>
 <p>If you do not want to use <code>CrossTable()</code>, you can use <code>chisq.test()</code> to give you only the chi-square value:
 <br></p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb440-1" title="1"><span class="kw">chisq.test</span>(BCS0708<span class="op">$</span>rubbcomm, BCS0708<span class="op">$</span>bcsvictim)</a></code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb438-1" title="1"><span class="kw">chisq.test</span>(BCS0708<span class="op">$</span>rubbcomm, BCS0708<span class="op">$</span>bcsvictim)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -1056,9 +1035,9 @@ The cross-tabulation shows that 63 people in the category ‘rubbish is very com
 <h4><span class="header-section-number">7.2.3.3</span> Fisher’s exact test</h4>
 <p>For the chi-square to work though, it needs to have a sufficient number of cases in each cell. Notice that <code>R</code> was telling us that the minimum expected frequency is 41.68. One rule of thumb is that all expected cell counts should be above 5. If we do have a small number in the cells, one alternative is to use <strong>Fisher’s exact test</strong>:
 <br></p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb442-1" title="1"><span class="kw">fisher.test</span>(BCS0708<span class="op">$</span>rubbcomm, BCS0708<span class="op">$</span>bcsvictim)</a></code></pre></div>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb443-1" title="1"><span class="co"># If you get an error message about increasing the size of your workspace, do so with this code:</span></a>
-<a class="sourceLine" id="cb443-2" title="2"><span class="kw">fisher.test</span>(BCS0708<span class="op">$</span>rubbcomm, BCS0708<span class="op">$</span>bcsvictim, <span class="dt">workspace =</span> <span class="fl">2e+07</span>, <span class="dt">hybrid =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb440-1" title="1"><span class="kw">fisher.test</span>(BCS0708<span class="op">$</span>rubbcomm, BCS0708<span class="op">$</span>bcsvictim)</a></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb441-1" title="1"><span class="co"># If you get an error message about increasing the size of your workspace, do so with this code:</span></a>
+<a class="sourceLine" id="cb441-2" title="2"><span class="kw">fisher.test</span>(BCS0708<span class="op">$</span>rubbcomm, BCS0708<span class="op">$</span>bcsvictim, <span class="dt">workspace =</span> <span class="fl">2e+07</span>, <span class="dt">hybrid =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Fisher&#39;s Exact Test for Count Data hybrid using asym.chisq. iff
 ##  (exp=5, perc=80, Emin=1)
@@ -1067,22 +1046,22 @@ The cross-tabulation shows that 63 people in the category ‘rubbish is very com
 ## p-value &lt; 2.2e-16
 ## alternative hypothesis: two.sided</code></pre>
 <p><br></p>
-<p>We did not need this test for our example, but we use it to illustrate how to use Fisher’s Exact Test when counts in a cell are low (less than five). The p-value from Fisher’s exact test is still smaller than <span class="math inline">\(\alpha = 0.05\)</span>, so we reach the same conclusion that the relationship observed can be generalised to the population.</p>
+<p>We did not need this test for our example, but we use it to illustrate how to use Fisher’s Exact Test when counts in a cell are low (less than five). The p-value from Fisher’s exact test is still smaller than <span class="math inline">\(\alpha\)</span> = 0.05, so we reach the same conclusion that the relationship observed can be generalised to the population.</p>
 <p>In addition, the chi-square statistic only tells us whether there is a relationship between two variables; it says nothing about the strength of relationship or exactly what differences between observed and expected frequencies are driving the results. We will need to conduct further analyses to address these.</p>
 </div>
 <div id="effect-size-measures-related-to-chi-square" class="section level4">
 <h4><span class="header-section-number">7.2.3.4</span> Effect size measures related to chi-square</h4>
-<p>Now that we can generalise to the population, we want to know the magnitude of the difference or the strength of the relationship. We will look at a few ways to talk about this: one, for differences between the observed and expected observations; second, for relationships between an ordinal variable and a binary variable; and third, between two binary variables.</p>
+<p>Now that we can generalise to the population, we want to know the magnitude of the difference or the strength of the relationship. We will look at a few ways to talk about this: one, for differences between the observed and expected frequencies; second, for relationships between an ordinal variable and a binary variable; and third, between two binary variables.</p>
 <div id="activity-9-residuals" class="section level5">
 <h5><span class="header-section-number">7.2.3.4.1</span> Activity 9: Residuals</h5>
-<p>We had observed that there were differences between the observed and expected frequencies. This is called a <strong>residual</strong>. Some differences seem larger than others. For example, there were about 21 more people that lived in areas where rubbish was very common and they more experienced victimisation than what was expected under the null hypothesis. When you see large differences, it is unsurprising to also expect that the cell in question may be playing a particularly strong role in driving the relationship between rubbish and victimisation.</p>
-<p>We are not sure, however, of what is considered a large residual. A statistic that helps address this is the <strong>adjusted standardised residuals</strong>, which behaves like a z-score. Residuals indicate the difference between the expected and observed counts on a standardised scale. When the null hypothesis is true, there is only about a 5% chance that any particular standardised residual exceeds 2 in absolute value.</p>
-<p>Whenever you see differences that are greater than the absolute value of 2, the difference between expected and observed frequencies in that particular cell is significant and is driving the results of your chi-square test. Values above +3 or below −3 are considered convincing evidence of a true effect in that cell:
+<p>We had observed that there were differences between the observed and expected frequencies. This is called a <strong>residual</strong>. Some differences seem larger than others. For example, there were about 21 more people that lived in areas where rubbish was very common and they experienced more victimisation than what was expected under the null hypothesis. When you see large differences, it is unsurprising to also expect that the cell in question may be playing a particularly strong role in driving the relationship between rubbish and victimisation.</p>
+<p>We are not sure, though, of what is considered a large residual. A statistic that helps address this is the <strong>adjusted standardised residuals</strong>, which behaves like a z-score. Residuals indicate the difference between the expected and observed frequencies on a standardised scale. When the null hypothesis is true, there is only about a 5% chance that any particular standardised residual exceeds 2 in absolute value.</p>
+<p>Whenever you see differences that are greater than the absolute value of 2, the difference between expected and observed frequencies in that particular cell is significant and is driving the results of your chi-square test. Absolute values above 3 are considered convincing evidence of a true effect in that cell:
 <br></p>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb445-1" title="1"><span class="co"># Include argument ‘asresid= TRUE’ to include adjusted standardised residuals</span></a>
-<a class="sourceLine" id="cb445-2" title="2"><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), <span class="kw">as_factor</span>(bcsvictim), <span class="dt">expected =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb445-3" title="3">                         <span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">asresid =</span></a>
-<a class="sourceLine" id="cb445-4" title="4">                           <span class="ot">TRUE</span>, <span class="dt">format =</span> <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>) ))</a></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb443-1" title="1"><span class="co"># Include argument ‘asresid= TRUE’ to include adjusted standardised residuals</span></a>
+<a class="sourceLine" id="cb443-2" title="2"><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(<span class="kw">as_factor</span>(rubbcomm), <span class="kw">as_factor</span>(bcsvictim), <span class="dt">expected =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb443-3" title="3">                         <span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">asresid =</span></a>
+<a class="sourceLine" id="cb443-4" title="4">                           <span class="ot">TRUE</span>, <span class="dt">format =</span> <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>) ))</a></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|
@@ -1132,34 +1111,32 @@ The cross-tabulation shows that 63 people in the category ‘rubbish is very com
 ##  
 ##        Minimum expected frequency: 41.68495</code></pre>
 <p><br></p>
-<p>The column representing the outcome of interest (victimisation present), shows the adjusted standardised residual is −12.61 for the ‘not at all common’ category. That is the largest residual for the DV. The expected count under the null hypothesis in this cell is much higher than the observed count.</p>
+<p>The column representing the outcome of interest (victimisation present), shows the adjusted standardised residual is -12.61 for the ‘not at all common’ category. That is the largest residual for the DV. The expected frequency under the null hypothesis in this cell is much higher than that of the observed.</p>
 <p><br>
 <br></p>
 <hr />
 </div>
 <div id="activity-10-goodman-kruskals-gamma" class="section level5">
 <h5><span class="header-section-number">7.2.3.4.2</span> Activity 10: Goodman-Kruskal’s Gamma</h5>
-<p>The residuals suggest that the difference is not trivial. One of the tests discussed in the required reading as a test for the strength of a relationship is Goodman-Kruskal’s Gamma. <strong>Gamma</strong> is a measure of the strength of the relationship between either two ordinal variables or, as is in this case, between an ordinal variable and a binary variable.</p>
-<p>&lt;!–&gt; Gamma is appropriate for testing the relationship between two categorical ordered variables (ordinal-level variables) or between a categorical ordered variable and a categorical unordered variables with only two levels (a dichotomous variable, such as “victimisation”: that only has two levels, you have or you haven’t experienced a victimisation). –&gt;</p>
-<p>We install and load the package <code>vcdExtra</code> to compute gamma:
+<p>The residuals suggest that the difference is not trivial. One of the tests discussed in the required reading as a test for effect size is Goodman-Kruskal’s Gamma. <strong>Gamma</strong> is a measure of the strength of the relationship between either two ordinal variables or, in this case, between an ordinal variable and a binary variable.</p>
+<!-- Gamma is appropriate for testing the relationship between two categorical ordered variables (ordinal-level variables) or between a categorical ordered variable and a categorical unordered variables with only two levels (a dichotomous variable, such as "victimisation": that only has two levels, you have or you haven't experienced a victimisation). -->
+<p>We first install and load the package <code>vcdExtra</code> and create an object, <code>mytable.2</code>:
 <br></p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb447-1" title="1"><span class="co"># Install &#39;vcdExtra&#39; then load it</span></a>
-<a class="sourceLine" id="cb447-2" title="2"><span class="kw">library</span>(vcdExtra)</a></code></pre></div>
-<pre><code>## Warning: package &#39;vcdExtra&#39; was built under R version 3.6.3</code></pre>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb445-1" title="1"><span class="co"># Install &#39;vcdExtra&#39; then load it</span></a>
+<a class="sourceLine" id="cb445-2" title="2"><span class="kw">library</span>(vcdExtra)</a></code></pre></div>
 <pre><code>## Loading required package: vcd</code></pre>
 <pre><code>## Loading required package: grid</code></pre>
 <pre><code>## Loading required package: gnm</code></pre>
-<pre><code>## Warning: package &#39;gnm&#39; was built under R version 3.6.3</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;vcdExtra&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:dplyr&#39;:
 ## 
 ##     summarise</code></pre>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" title="1"><span class="co"># We create a new object in tabular form because the function we use to compute Gamma is table()</span></a>
-<a class="sourceLine" id="cb455-2" title="2">mytable<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">table</span>(BCS0708<span class="op">$</span>bcsvictim, BCS0708<span class="op">$</span>rubbcomm) </a>
-<a class="sourceLine" id="cb455-3" title="3"></a>
-<a class="sourceLine" id="cb455-4" title="4"><span class="co"># Print the content of this object to see that it is simply the crosstab</span></a>
-<a class="sourceLine" id="cb455-5" title="5"><span class="kw">print</span>(mytable<span class="fl">.2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb451-1" title="1"><span class="co"># We create a new object in tabular form because the function we use to compute Gamma is table()</span></a>
+<a class="sourceLine" id="cb451-2" title="2">mytable<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">table</span>(BCS0708<span class="op">$</span>bcsvictim, BCS0708<span class="op">$</span>rubbcomm) </a>
+<a class="sourceLine" id="cb451-3" title="3"></a>
+<a class="sourceLine" id="cb451-4" title="4"><span class="co"># Print the content of this object to see that it is simply the crosstab</span></a>
+<a class="sourceLine" id="cb451-5" title="5"><span class="kw">print</span>(mytable<span class="fl">.2</span>)</a></code></pre></div>
 <pre><code>##                        
 ##                         not at all common not very common fairly common
 ##   not a victim of crime              4614            3173           876
@@ -1169,15 +1146,15 @@ The cross-tabulation shows that 63 people in the category ‘rubbish is very com
 ##   not a victim of crime         141
 ##   victim of crime                63</code></pre>
 <p><br></p>
-<p>We then use the <code>GKgamma()</code> function from the <code>vcdExtra</code> package to compute the Gamma measure of association:
+<p>We then use the <code>GKgamma()</code> function from the <code>vcdExtra</code> package to compute Gamma:
 <br></p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" title="1"><span class="co"># Between the parenthesis, you need to include the object that contains the data</span></a>
-<a class="sourceLine" id="cb457-2" title="2"><span class="kw">GKgamma</span>(mytable<span class="fl">.2</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" title="1"><span class="co"># Between the parenthesis, you need to include the object that contains the data</span></a>
+<a class="sourceLine" id="cb453-2" title="2"><span class="kw">GKgamma</span>(mytable<span class="fl">.2</span>) </a></code></pre></div>
 <pre><code>## gamma        : 0.266 
 ## std. error   : 0.019 
 ## CI           : 0.229 0.302</code></pre>
 <p><br></p>
-<p>Gamma can take on values ranging from −1 to +1, where: 0 indicates no relationship at all; a negative value indicates a negative relationship; and a positive value a positive relationship. The closer the value is to either −1 or +1, the stronger the relationship is between variables.</p>
+<p>Gamma can take on values ranging from −1 to +1, where: 0 indicates no relationship at all; a negative value indicates a negative relationship; and a positive value, a positive relationship. The closer the value is to either −1 or +1, the stronger the relationship is between variables.</p>
 <p><a href="https://www.taylorfrancis.com/books/mono/10.4324/9780203501054/surveys-social-research-david-de-vaus">De Vaus (2002)</a> provides the following rules of thumb for interpreting effect size strength for Gamma: up to 0.10 (trivial), 0.10 to 0.29 (low to moderate), 0.30 to 0.49 (moderate to substantial), 0.50 to 0.69 (substantial to very strong), 0.70 to 0.89 (very strong), 0.9 and above (near perfect).</p>
 <p>Our output shows that the effect size is positive and low to moderate (Gamma = 0.266): this suggests that the higher levels of <code>rubbcomm</code> are associated with the higher values of <code>bcsvictim</code>. We see, however, that the percentage of people that experience victimisation is almost the same for those who live in areas where rubbish is fairly common and for those who live in areas where it is very common. That is, once we reach a certain level of rubbish, the risk of victimisation does not go much higher. In situations like this, Gamma is likely underestimating the strength of the relationship.</p>
 <!--The larger the absolute value of gamma, the stronger the association. There are not clear rules of thumb in how to interpret Gamma. This value is larger than 0, although closer to 0 than to 1. On those bases, I would say this particular Gamma estimated at .226 indicates an association of modest size. Notice that the confidence interval is provided. So the estimated gamma with an alpha level of 0.05 is estimated to be anywhere between 0.302 and 0.229. If this confidence interval overlapped with 0 we could not reject the null hypothesis.Gamma, however, assumes a "linear" relationship, more in one of the variables, more in the other (for positive relationships), less in one, more in the other (for negative relationships). -->
@@ -1187,11 +1164,10 @@ The cross-tabulation shows that 63 people in the category ‘rubbish is very com
 </div>
 <div id="activity-11-odd-ratios" class="section level5">
 <h5><span class="header-section-number">7.2.3.4.3</span> Activity 11: Odd ratios</h5>
-<p>To estimate the effect size between two binary variables are <strong>odd ratios</strong> (ORs). Odd ratios and relative risk are very commonly used in public health and in criminological research. If you have knowledge of betting, you may already know a thing or two about odds.</p>
-<p>They are the statistical equivalent of a tongue twister, so you may find yourself referring repeatedly to this section whenever you want to interpret ORs. For this example, we are interested in the relationship between victimisation (<code>bcsvictim</code>) and living in a rural or urban setting (<code>rural2</code>):
+<p>To estimate the effect size between two binary variables are <strong>odd ratios</strong> (ORs). If you have knowledge of betting, you may already know a bit about odds. For this example, we are interested in the relationship between victimisation (<code>bcsvictim</code>) and living in a rural or urban area (<code>rural2</code>):
 <br></p>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" title="1"><span class="co"># Getting to know our data</span></a>
-<a class="sourceLine" id="cb459-2" title="2"><span class="kw">attributes</span>(BCS0708<span class="op">$</span>rural2)</a></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" title="1"><span class="co"># Getting to know our data</span></a>
+<a class="sourceLine" id="cb455-2" title="2"><span class="kw">attributes</span>(BCS0708<span class="op">$</span>rural2)</a></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;type of area 2004: urban/rural&quot;
 ## 
@@ -1204,11 +1180,11 @@ The cross-tabulation shows that 63 people in the category ‘rubbish is very com
 ## $labels
 ## urban rural 
 ##     1     2</code></pre>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" title="1"><span class="co"># Change into a factor</span></a>
-<a class="sourceLine" id="cb461-2" title="2">BCS0708<span class="op">$</span>rural2 &lt;-<span class="st"> </span><span class="kw">as_factor</span>(BCS0708<span class="op">$</span>rural2)</a>
-<a class="sourceLine" id="cb461-3" title="3"></a>
-<a class="sourceLine" id="cb461-4" title="4"><span class="co"># We generate crosstabs and conduct the chi-square analysis</span></a>
-<a class="sourceLine" id="cb461-5" title="5"><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(rural2, bcsvictim, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">expected =</span> <span class="ot">TRUE</span>, <span class="dt">format =</span> <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" title="1"><span class="co"># Change into a factor</span></a>
+<a class="sourceLine" id="cb457-2" title="2">BCS0708<span class="op">$</span>rural2 &lt;-<span class="st"> </span><span class="kw">as_factor</span>(BCS0708<span class="op">$</span>rural2)</a>
+<a class="sourceLine" id="cb457-3" title="3"></a>
+<a class="sourceLine" id="cb457-4" title="4"><span class="co"># We generate crosstabs and conduct the chi-square analysis</span></a>
+<a class="sourceLine" id="cb457-5" title="5"><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(rural2, bcsvictim, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">expected =</span> <span class="ot">TRUE</span>, <span class="dt">format =</span> <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</a></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|
@@ -1251,49 +1227,46 @@ The cross-tabulation shows that 63 people in the category ‘rubbish is very com
 ##  
 ##        Minimum expected frequency: 600.6074</code></pre>
 <p><br></p>
-<p>Of those living in urban areas (n= 8,702), 22% reported being a victim of crime in the previous year compared to 14% of those living in rural areas (n = 2,974). The chi-square has a p-value of &lt; 0.001, suggesting a statistically significant relationship living in urban areas and crime victimisation. But, of course, how large is this relationship? We use the OR to find out.</p>
+<p>Of those living in urban areas (n= 8,702), 22% reported being a victim of crime in the previous year compared to 14% of those living in rural areas (n = 2,974). The chi-square has a p-value of &lt; 0.001, suggesting a statistically significant relationship between living in urban areas and crime victimisation. But, of course, how large is this relationship? We use the OR to find out.</p>
 <p>Before we do so, we need to match the levels of our variables to this type of cross-tabulation:</p>
 <p><br>
-<br>
-+——————-+———————+—————–+
-| | Outcome: Yes | Outcome: No |
-+——————-+———————+—————–+
-| Risk factor: Yes | | |
-+——————-+———————+—————–+
-| Risk factor: No | | |
-+——————-+———————+—————–+</p>
+<br></p>
+<div class="figure">
+<img src="Images/OR.png" alt="Figure 7.1 2x2 table to emulate" />
+<p class="caption"><strong>Figure 7.1</strong> 2x2 table to emulate</p>
+</div>
 <p><br>
 <br></p>
-<p>ORs are commonly used in the Public Health, and were introduced in criminology in 1992 by David Hawkins and Richard Catalano. Subsequently, they are used frequently in studies involving the risk factor prevention paradigm, a major component of Developmental and Life Course Criminology.</p>
+<p>ORs are commonly used in Public Health, and were introduced in criminology in 1992 by David Hawkins and Richard Catalano. Now, they are used frequently in studies involving the risk factor prevention paradigm, a major component of Developmental and Life Course Criminology.</p>
 <p>To compute ORs, they require the variables to correspond to a 2x2 table whereby the independent variable is considered the ‘risk factor’ and the dependent variable is the ‘outcome’. Presence of outcome and risk factor intersect (‘Yes’) at the left hand corner. To ensure our variables correspond to this 2x2 table, we first have a look at their level ordering:
 <br></p>
 <!--In this tradition researchers place the disease/condition defining the columns and the treatment or risk factor defining the rows and they do so in such a way that the first cell correspond to the intersection of the outcome and the risk factor. And the software that computes odd ratios tends to assume this is how your table is set up. So, whenever you are after the relative risks or odd ratios (that is, whenever you work with a 2X2 table) you should laid the table like this as well. It will help interpretation:
 Our table was set up in such a way that the rows are defined by our "risk factor" and the columns by our outcome. But the first cell represents the intersection of the presence of the risk factor and the absence of the outcome. The easiest way to sort this out is to change the order of the levels in our factor variable identifying the outcome ("bcsvictim"). If we ask R to print the levels of the bcsvictim variable we will see that they are as follow:-->
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" title="1"><span class="kw">print</span>(<span class="kw">levels</span>(BCS0708<span class="op">$</span>bcsvictim))</a></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" title="1"><span class="kw">print</span>(<span class="kw">levels</span>(BCS0708<span class="op">$</span>bcsvictim))</a></code></pre></div>
 <pre><code>## [1] &quot;not a victim of crime&quot; &quot;victim of crime&quot;</code></pre>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" title="1"><span class="kw">print</span>(<span class="kw">levels</span>(BCS0708<span class="op">$</span>rural2))</a></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" title="1"><span class="kw">print</span>(<span class="kw">levels</span>(BCS0708<span class="op">$</span>rural2))</a></code></pre></div>
 <pre><code>## [1] &quot;urban&quot; &quot;rural&quot;</code></pre>
 <p><br></p>
-<p>We will need to reverse the ordering of the levels in the variable <code>bcsvictim</code> so that ‘victim of crime’ appears as the first level like <code>urban</code> in the variable in <code>rural2</code>:
+<p>We will need to reverse the ordering of the levels in the variable <code>bcsvictim</code> so that ‘victim of crime’ appears as the first level like <code>urban</code> in the variable <code>rural2</code>:
 <br></p>
-<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" title="1"><span class="co"># We recommend that you make a duplicate variable with a different name and the changes, so the original remains (sometimes we do not follow our own advice)</span></a>
-<a class="sourceLine" id="cb467-2" title="2">BCS0708<span class="op">$</span>bcsvictimR &lt;-<span class="st"> </span><span class="kw">factor</span>(BCS0708<span class="op">$</span>bcsvictim, <span class="dt">levels=</span> <span class="kw">c</span>(<span class="st">&quot;victim of crime&quot;</span>, <span class="st">&quot;not a victim of crime&quot;</span>))</a>
-<a class="sourceLine" id="cb467-3" title="3"></a>
-<a class="sourceLine" id="cb467-4" title="4"><span class="kw">print</span>(<span class="kw">levels</span>(BCS0708<span class="op">$</span>bcsvictimR))</a></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" title="1"><span class="co"># We recommend that you make a duplicate variable with a different name and the changes, so the original remains (sometimes we do not follow our own advice)</span></a>
+<a class="sourceLine" id="cb463-2" title="2">BCS0708<span class="op">$</span>bcsvictimR &lt;-<span class="st"> </span><span class="kw">factor</span>(BCS0708<span class="op">$</span>bcsvictim, <span class="dt">levels=</span> <span class="kw">c</span>(<span class="st">&quot;victim of crime&quot;</span>, <span class="st">&quot;not a victim of crime&quot;</span>))</a>
+<a class="sourceLine" id="cb463-3" title="3"></a>
+<a class="sourceLine" id="cb463-4" title="4"><span class="kw">print</span>(<span class="kw">levels</span>(BCS0708<span class="op">$</span>bcsvictimR))</a></code></pre></div>
 <pre><code>## [1] &quot;victim of crime&quot;       &quot;not a victim of crime&quot;</code></pre>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" title="1"><span class="co"># Just double-checking:</span></a>
-<a class="sourceLine" id="cb469-2" title="2"><span class="kw">table</span>(BCS0708<span class="op">$</span>bcsvictimR)</a></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" title="1"><span class="co"># Just double-checking:</span></a>
+<a class="sourceLine" id="cb465-2" title="2"><span class="kw">table</span>(BCS0708<span class="op">$</span>bcsvictimR)</a></code></pre></div>
 <pre><code>## 
 ##       victim of crime not a victim of crime 
 ##                  2358                  9318</code></pre>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" title="1"><span class="kw">table</span>(BCS0708<span class="op">$</span>bcsvictim)</a></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" title="1"><span class="kw">table</span>(BCS0708<span class="op">$</span>bcsvictim)</a></code></pre></div>
 <pre><code>## 
 ## not a victim of crime       victim of crime 
 ##                  9318                  2358</code></pre>
 <p><br></p>
 <p>We can now rerun the previous cross tabulation but with the victim variable <code>bcsvictimR</code> to verify that it resembles that 2x2 table:
 <br></p>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" title="1"><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(rural2, bcsvictimR, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">expected =</span> <span class="ot">TRUE</span>, <span class="dt">format =</span> <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" title="1"><span class="kw">with</span>(BCS0708, <span class="kw">CrossTable</span>(rural2, bcsvictimR, <span class="dt">prop.c =</span> <span class="ot">FALSE</span>, <span class="dt">prop.t =</span> <span class="ot">FALSE</span>, <span class="dt">expected =</span> <span class="ot">TRUE</span>, <span class="dt">format =</span> <span class="kw">c</span>(<span class="st">&quot;SPSS&quot;</span>)))</a></code></pre></div>
 <pre><code>## 
 ##    Cell Contents
 ## |-------------------------|
@@ -1336,19 +1309,19 @@ Our table was set up in such a way that the rows are defined by our "risk factor
 ##  
 ##        Minimum expected frequency: 600.6074</code></pre>
 <p><br></p>
-<p>ORs are about odds: it is the ratio of two odds; the odds of having the outcome and the odds of not having the outcome. For example, the odds of victimisation for urban dwellers is calculated as the number of victimised urban dwellers (1,945) divided by the number of non-victimised urban dwellers (6,757). Therefore, there are 0.2878496 victimised urban dwellers for every non-victimised urban dweller. The odds of victimisation for residents of rural areas is calculated as the number of victimised rural dwellers (413) divided by the number of non-victimised rural dwellers (2,561). Thus, there are 0.1612651 victimised rural dwellers for every non-victimised rural dweller.</p>
+<p>ORs are about odds: it is the ratio of two odds – the odds of having the outcome for when the ‘risk factor’ is present and when it is not. For example, the odds of victimisation for urban dwellers is calculated as the number of victimised urban dwellers (1,945) divided by the number of non-victimised urban dwellers (6,757). Therefore, there are 0.2878496 victimised urban dwellers for every non-victimised urban dweller. The odds of victimisation for rural dwellers is calculated as the number of victimised rural dwellers (413) divided by the number of non-victimised rural dwellers (2,561). Thus, there are 0.1612651 victimised rural dwellers for every non-victimised rural dweller.</p>
 <!--the *risk* is the probability of the 'outcome' occurring. From our example, the risk of victimisation for urban dwellers is simply the number of victimised urban dwellers (1945) divided by the total number of urban dwellers (8702). This is .2235. Similarly we can look at the risk of victimisation for people living in rural areas: the number of victimised countryside residents (413) divided by the total number of residents in rural areas (2974).  This is .1388. The **relative risk** is simply the ratio of these two risks. In this case this yields 1.60. This suggests that urban dwellers are 1.60 times more likely to be victimised than people who live in rural areas.-->
 <p>The OR of victimisation for urban dwellers to rural residents is 1.78 (0.2878496/ 0.1612651). This means that the odds of victimisation are 1.78 times higher for urban dwellers than it is for those in rural areas.</p>
-<p>We use <code>R</code> to obtain the OR directly with <code>vcd</code> package (it may already be loaded because sometimes it accompanies the package <code>vcdExtra</code>:
+<p>We use <code>R</code> to obtain the OR directly with the <code>vcd</code> package (it may already be loaded because sometimes it accompanies the package <code>vcdExtra</code>:
 <br></p>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" title="1"><span class="kw">library</span>(vcd)</a>
-<a class="sourceLine" id="cb475-2" title="2"></a>
-<a class="sourceLine" id="cb475-3" title="3">mytable<span class="fl">.3</span>&lt;-<span class="kw">table</span>(BCS0708<span class="op">$</span>rural2, BCS0708<span class="op">$</span>bcsvictimR)</a>
-<a class="sourceLine" id="cb475-4" title="4"></a>
-<a class="sourceLine" id="cb475-5" title="5"><span class="co"># This produces the OR for the table data in the object called &#39;mytable.3&#39;</span></a>
-<a class="sourceLine" id="cb475-6" title="6"><span class="co"># `stratum` option clarifies your data are not stratified</span></a>
-<a class="sourceLine" id="cb475-7" title="7"><span class="co">#`log=FALSE` requests an ordinary OR</span></a>
-<a class="sourceLine" id="cb475-8" title="8"><span class="kw">oddsratio</span>(mytable<span class="fl">.3</span>, <span class="dt">stratum =</span> <span class="ot">NULL</span>, <span class="dt">log =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" title="1"><span class="kw">library</span>(vcd)</a>
+<a class="sourceLine" id="cb471-2" title="2"></a>
+<a class="sourceLine" id="cb471-3" title="3">mytable<span class="fl">.3</span>&lt;-<span class="kw">table</span>(BCS0708<span class="op">$</span>rural2, BCS0708<span class="op">$</span>bcsvictimR)</a>
+<a class="sourceLine" id="cb471-4" title="4"></a>
+<a class="sourceLine" id="cb471-5" title="5"><span class="co"># This produces the OR for the table data in the object called &#39;mytable.3&#39;</span></a>
+<a class="sourceLine" id="cb471-6" title="6"><span class="co"># `stratum` option clarifies your data are not stratified</span></a>
+<a class="sourceLine" id="cb471-7" title="7"><span class="co">#`log=FALSE` requests an ordinary OR</span></a>
+<a class="sourceLine" id="cb471-8" title="8"><span class="kw">oddsratio</span>(mytable<span class="fl">.3</span>, <span class="dt">stratum =</span> <span class="ot">NULL</span>, <span class="dt">log =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
 <pre><code>##  odds ratios for  and  
 ## 
 ## [1] 1.784947</code></pre>
@@ -1365,21 +1338,21 @@ oddsratio(mytable.4, stratum = NULL, log = FALSE)
 ```
 
 What's going on? Why do we have a different value here? If you look at the cross tab you should be able to understand. R is now computing the odd ratio for "not being a victim of a crime" (since this is what defines the first column). When an odds ratio is below 1 is indicating that the odds in the first row ("urban") are lower than in the second row ("rural"). Living in urban areas (as contrasted with living in rural areas) reduces the likelihood of non-victimisation.-->
-<p>Do keep in mind that ORs are cannot take negative values. If the OR is greater than 1 that means that the presence of the risk factor increases the chances of the outcome relative to the absence of that risk factor.</p>
+<p>Do keep in mind that ORs cannot take negative values. If the OR is greater than 1, that means that the presence of the risk factor increases the chances of the outcome relative to the absence of that risk factor.</p>
 <p>If the OR were between ‘0’and ’1’, that would mean the opposite: the presence of the ‘risk factor’ reduces the chances of the outome relative to the absence of said factor.
-A value of ‘1’ means that there is no relationship between the two variables – the odds are the same for the two groups.</p>
+A value of ‘1’ means that there is no relationship between the two variables – the odds are the same for both groups.</p>
 <p>As the OR is about odds, you cannot state that urban dwellers are 1.78 <em>more likely</em> to be victimised. All you can state with an OR is that the <em>odds</em> of being victimised are 1.78 times higher for urban dwellers than for residents in rural areas. Odds and probabilities are different things.</p>
-<p>If you are still uncertain about these concepts, and it is normal, have a look at <a href="https://www.youtube.com/watch?v=nFHL54yOniI">this video</a>,</p>
+<p>If you are still uncertain about these concepts, and it is normal to feel that way, have a look at <a href="https://www.youtube.com/watch?v=nFHL54yOniI">this video</a>.</p>
 <!--it may help to see an oral presentation of these ideas with a different example.  Repeated practice will make it easier to understand. The fact that the interpretation of these quantities is contingent in the way we have laid out our table makes it particularly advisable to hand calculate them as explained above in relation to the outcome you are interested until you are comfortable with them. This may help you to see more clearly what you are getting and how to interpret it. When looking at the R results for odd ratios just always keep in mind that you are aware of what are the reference categories (what defines the first column and the first row) when reading and interpreting odd ratios. The R function we introduced will always give you the odds ratio for the event defined in the first column and will contrast the odds for the group defined by the first row with the odds defined by the second row. If the odds ratio is between 0 and 1 that would mean the odds are lower for the first row, if the odds is greater than 1 that would mean the odds are higher for the second row.
 
 It is also very important you do not confuse the relative risk (a ratio of probabilities) with the odds ratio (a ratio of odds). Be very careful with the language you use when interpreting these quantities.
 
 Odd ratios are ratios of odds, not probability ratios. -->
-<p>These values must be interpreted carefully. You will often see media reports announcing things like ‘chocolate consumption will double your risk of some <em>insert terrible disease</em>’. What that means is that the percentage of cases of individuals that take chocolate (the ‘risk factor’) and present the outcome is twice as large as those that do not take chocolate but present the outcome. Yet the probabilities could be very low to start with, so such proclaimations can be very misleading (see Figure 7.1).</p>
+<p>Last, these values must be interpreted carefully. You will often see media reports announcing things like ‘chocolate consumption will double your risk of some <span class="math inline">\(*insert~ terrible~ disease*\)</span>’. What that means is that the percentage of cases of individuals that take chocolate (the ‘risk factor’) and present the outcome is twice as large as those that do not take chocolate but present the outcome. Yet the probabilities could be very low to start with, so such proclaimations can be very misleading (see Figure 7.2).</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/increased_risk.png" alt="Figure 7.1 Increased risk" />
-<p class="caption"><strong>Figure 7.1</strong> Increased risk</p>
+<img src="Images/increased_risk.png" alt="Figure 7.2 Increased risk" />
+<p class="caption"><strong>Figure 7.2</strong> Increased risk</p>
 </div>
 <p><br>
 <br></p>
@@ -1391,8 +1364,8 @@ Odd ratios are ratios of odds, not probability ratios. -->
 <div id="summary-6" class="section level2">
 <h2><span class="header-section-number">7.3</span> SUMMARY</h2>
 <p>We learned a few inferential statistical analyses to examine relationships with categorical variables, known as <strong>factors</strong> in <code>R</code>. These variables, in today’s analyses, were arranged as <strong>independent variables</strong> or <strong>dependent variables</strong>. When analysing a relationship between a categorical and a numeric variable, the t-test was used. We learned to conduct <strong>independent sample</strong> and <strong>dependent sample</strong> t-tests.</p>
-<p>Before we performed the former t-test, we conducted the <strong>test for equality of variance</strong>. We also learned about effect size with <strong>Cohen’s d</strong>. In the latter section, we learned to conduct a chi-square test, a test of statistical significance between two categorical variables. This involved <strong>contingency tables</strong> or <strong>cross tabulations</strong> (crosstabs).</p>
-<p>The chi-square statistic contrasts expected and observed frequencies in the crosstab. When counts in any one cell is lower than five, <strong>Fisher’s Exact Test</strong> is used instead. To obtain effect sizes related to the chi-square, we learned to use the <strong>adjusted standardised residuals</strong> to identify which contrast of frequencies are driving the observed results. We, too, learned about effect size with <strong>Gamma</strong> and <strong>Odds Ratios</strong>.</p>
+<p>Before we performed the former t-test, a <strong>parametric test</strong>, we conducted the <strong>test for equality of variance</strong>. We also learned about effect size with <strong>Cohen’s d</strong>. In the latter section, we learned to conduct a chi-square test, a test of statistical significance between two categorical variables. This involved <strong>contingency tables</strong> or <strong>cross tabulations</strong> (crosstabs).</p>
+<p>The chi-square statistic contrasts <strong>expected</strong> and <strong>observed frequencies</strong> in the crosstab. When counts in any one cell is lower than five, <strong>Fisher’s Exact Test</strong> is used instead. To obtain effect sizes related to the chi-square, we learned to use the <strong>adjusted standardised residuals</strong> to identify which contrast of frequencies are driving the observed results. We, too, learned about effect size with <strong>Gamma</strong> and <strong>Odds Ratios</strong>.</p>
 <p><br>
 <br></p>
 <p>Homework time!</p>

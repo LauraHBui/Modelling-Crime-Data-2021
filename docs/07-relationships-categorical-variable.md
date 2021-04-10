@@ -4,11 +4,9 @@
 
 
 #### Learning Outcomes: {-}
-*	Learn to arrange variables as independent and dependent variables
-*	Learn to test for statistical significance in relationships between two variables when: 
-   + both are categorical
-   + one is binary categorical and one is numeric
-*	Understand how to interpret outputs from t-tests and the chi-square test
+-	Learn to arrange variables as independent and dependent variables
+-	Learn to test for statistical significance in relationships between a categorical variable and one other variable
+- Understand how to interpret outputs from t-tests and the chi-square test
 
 
 #### Today’s Learning Tools: {-}
@@ -25,7 +23,6 @@
 -	`gmodels`
 -	`haven`
 -	`here`
--	`labelled`
 -	`skimr`
 -	`vcdExtra`
 
@@ -74,19 +71,11 @@ Before we start, we do the following:
 
 3. Download from Blackboard and load into `R` the British Crime Survey (BCS) dataset (*bcs_2007_8_teaching_data_unrestricted.dta* ). Be mindful of its data format because it will require certain codes and packages. Name this data frame `BCS0708`. 
 
-<br>
 
-```r
-BCS0708 <- read_dta(here("Datasets", "bcs_2007_8_teaching_data_unrestricted.dta"))
-```
 
 
 4.	Get to know the data with the `View()` function.
 
-
-```r
-View(BCS0708)
-```
 
 
 <br>
@@ -166,7 +155,6 @@ We can see that the first variable, `sex`, takes the values of '1' for 'male' an
 
 ```r
 # As is, 'sex' is classed as 'haven-labelled', which is incorrect, so we change it to its correct class, factor:
-
 BCS0708$sex <- as_factor(BCS0708$sex)
 
 # Double check that it is now a factor:
@@ -199,6 +187,14 @@ attributes(BCS0708$tcviolent)
 ## 
 ## $format.stata
 ## [1] "%9.0g"
+```
+
+```r
+class(BCS0708$tcviolent)
+```
+
+```
+## [1] "numeric"
 ```
 
 ```r
@@ -249,6 +245,7 @@ Now for our dependent variable `tcviolent`: we use the `skim()` function from th
 
 
 ```r
+# We do not use 'summarise()' because this is a numeric variable
 skim(BCS0708, tcviolent)
 ```
 
@@ -256,6 +253,8 @@ skim(BCS0708, tcviolent)
 skim_type   skim_variable    n_missing   complete_rate   numeric.mean   numeric.sd   numeric.p0   numeric.p25   numeric.p50   numeric.p75   numeric.p100  numeric.hist 
 ----------  --------------  ----------  --------------  -------------  -----------  -----------  ------------  ------------  ------------  -------------  -------------
 numeric     tcviolent             3242       0.7223364      0.0455821      1.00436     -2.35029    -0.6718318     -0.116783       0.53989       3.805476  ▁▇▅▂▁        
+
+<br>
 <br>
 
 Then we get to know the data further by checking out the dependent variable, `tcviolent`, by the independent variable `sex`. Let us now look at the mean, standard deviation, and variance: 
@@ -266,7 +265,6 @@ Then we get to know the data further by checking out the dependent variable, `tc
 # We tell R to obtain the three descriptive statistics and 'round' the values to two decimal places
 
 # Remember, we must add 'na.rm = TRUE' as we have missing values or else this will display 'NA'
-
 BCS0708 %>% group_by(sex) %>% 
   summarise(mean_worry = round(mean(tcviolent, na.rm = TRUE),2), 
             sd_worry = round(sd(tcviolent, na.rm = TRUE),2), 
@@ -320,11 +318,11 @@ ggplot(BCS0708, aes (x = tcviolent, group = sex, fill = sex)) +
 
 Note that these descriptive statistics are only about our sample; we actually want to make inferences about our population of interest -- all males and females in England and Wales. So, we use inferential statistics; our observation of a difference between means prompts us to test whether this difference is an actual difference, or if it is attributed to chance.
 
-Hence, our hypothesis is that, in the population, there is a difference in the mean level for fear of crime for males compared to said levels for females. 
+Hence, our hypothesis is that, in the population, there is a difference in the mean level of fear of crime for males compared to said levels for females. 
 
 <!-- What we want then is a **difference-in-means** estimator. That is, we want to estimate the difference in means between the two groups in our population, from our sample. For this, we can use two-sample tests, based on a difference in means estimator to investigate our null hypothesis that the means are equal between the two populations.  -->
 
-Our non-directional hypothesis has to do with our research question of whether there is a difference in the amount of fear of crime between males and females. We test our hypothesis using the **t-test**, which relies on Student's *t* distribution.
+Our non-directional hypothesis has to do with our research question of whether there is a difference in the amount of fear of crime between males and females. As one of our variables of interest is binary, categorical and the other, numeric, we test our hypothesis using the **t-test**, which relies on Student's *t* distribution.
 
 <br>
 
@@ -334,7 +332,9 @@ Our non-directional hypothesis has to do with our research question of whether t
 
 In previous weeks, we used the standard deviation (SD or $s$) of our sample to estimate the standard error (SE or $\sigma$). (See Lesson 5, section 5.2.2 .) This approach works reasonably well when applied to large samples. With small samples, however, using the SD as an estimate of the SE is problematic. 
 
-The reason is that the SD varies from sample to sample, so this variation in smaller samples makes for more uncertainty. In addition, we are likely not to know the true population values, our parameters. For such a case, William Gosset, [Statistician and Head Brewer for Guinness,](https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/) (see also recommended reading) suggested that we needed to use a different probability distribution, **Student's *t* distribution**. Gosset had developed this distribution (under his pen name 'Student') so that he could make meaningful predictions using small samples of barley instead of large ones -- a cost-effective method. A small sample is considered to be less than 60 observations, and definitely when it is 30 or less. (The ambiguity of this is because various textbooks have different ideas on what constitutes a 'small sample' but the rule of thumb is n= 30.) 
+The reason is that the SD varies from sample to sample, so this variation in smaller samples makes for more uncertainty. In addition, we are likely not to know the true population values, our parameters. For such a case, William Gosset, [Statistician and Head Brewer for Guinness,](https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/) (see also recommended reading) suggested that we needed to use a different probability distribution, **Student's *t* distribution**. 
+
+Gosset had developed this distribution (under his pen name 'Student') so that he could make meaningful predictions using small samples of barley instead of large ones -- a cost-effective method. A small sample is considered to be less than 60 observations, and definitely 30 or less. (The ambiguity of this is because various textbooks have different ideas on what constitutes a 'small sample' but the rule of thumb is n= 30.) 
 
 
 
@@ -359,13 +359,13 @@ In fact, this is probably a good time to engage with our assumptions made by the
 
 The t-test makes a number of assumptions, and to use this test, all assumptions should be met:
 
-1. *Two means or proportions will be compared*: our independent variable is binary, signifying two groups, and the dependent variable is a numeric variable (OR a binary variable for comparision of proportions, but this requires a large sample size). 
+1. *Two means or proportions will be compared*: our independent variable is binary, signifying two groups, and the dependent variable is a numeric variable (or a binary variable for comparision of proportions, but this requires a large sample size). 
 
 2. *The sampling method was independent random sampling*. We will proceed as if this assumption is met.
 
 3. *Normal distribution is assumed for both populations* (from which the two groups come from): because the t-test makes assumptions about the shape of the distribution, it is considered a **parametric test**. Tests that do not make this assumption about shape are called non-parametric. This assumption, however, can be relaxed if the sample size for both groups are large (and why proportions can be compared).
 
-You may also want to check for outliers by plotting the data. Outliers may distort your results, particularly with smaller samples. All assumptions with the exception of the second one are met. To meet the second assumption, you can check if your data are normally distributed if the sample size is not large using density plots:
+You may also want to check for outliers by plotting the data. Outliers may distort your results, particularly with smaller samples. All assumptions with the exception of the second one are met. To meet the second assumption, you can check if your data are normally distributed, especially if the sample size(s) is not large, using density plots:
 <br>
 
 
@@ -382,15 +382,15 @@ ggplot(BCS0708, aes(x = tcviolent, fill = sex)) +
 <img src="07-relationships-categorical-variable_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 <br>
 
-The density plots provide a visual tool for assessing the *unimodality* -- a single, clear peak indicating a most frequent value -- and the symmetry of the distribution. Later, we will discuss a more elaborate graphical tool for assessing the normality, the normal probability plot. For now, let us assume that this is adequate to compute the t-test.
+The density plots provide a visual tool for assessing the *unimodality* -- a single, clear peak indicating a most frequent value -- and the symmetry of the distribution.  For now, let us assume that this is adequate to compute the t-test.
 
 4. *The variances of both samples are equal to each other*. We test for this in the next section.
-<!--The BCS uses a complex survey design which would require the use of special procedures for hypothesis testing. However, those special procedures are well beyond the scope of this course and would typically be covered in more advanced courses. Therefore, for convenience -->
-
+<!--Later, we will discuss a more elaborate graphical tool for assessing the normality, the normal probability plot.The BCS uses a complex survey design which would require the use of special procedures for hypothesis testing. However, those special procedures are well beyond the scope of this course and would typically be covered in more advanced courses. Therefore, for convenience -->
+<br>
 
 For an independent sample t-test, however, an additional assumption must be met: 
 
-5. *The two groups must be independent of each other*: This assumption of independence would be violated if, for example, one group comprised women and the other group, their partners. If this were the case, the resulting values for both groups would be related. If this assumption is violated, we would need the dependent t-test, which will be covered later.
+5. *The two groups must be independent of each other*: This assumption of independence would be violated if, for example, one group comprised women and the other group, their partners. If this were the case, the resulting values for both groups would be connected and misleading. If this assumption is violated, we would need the dependent t-test, which will be covered later.
 
 <br>
 
@@ -398,7 +398,7 @@ For an independent sample t-test, however, an additional assumption must be met:
 
 <!--In one of this lesson's lecture videos, different types of t-tests were mentioned. One-sample t-tests are not covered in this class, but two other types are: independent (or unpaired) and dependent (or paired) sample t-tests. -->
 
-In our example, we would like to know whether there is a difference between the mean score for fear of crime, as embodied in the variable `tcviolent`, between males and females. We fulfilled three assumptions for the **independent sample t-test** or *unpaired t-test*. This t-test compares two groups that are independent of one another. It suggests that the values for the dependent variable in one sample are not reliant on the values for the dependent variable in the other sample. In our case, levels of fear of crime for females and males are not related to one another, so the fifth assumption is met. 
+In our example, we would like to know whether there is a difference between the mean score of fear of crime, as embodied in the variable `tcviolent`, between males and females. Previously, we fulfilled three assumptions for the **independent sample t-test** or *unpaired t-test*. This t-test compares two groups that are independent of one another. It suggests that the values for the dependent variable in one group are not reliant on the values for the dependent variable in the other group. In our case, levels of fear of crime for females and males are not related to one another, so the fifth assumption is met. 
 
 In addition to our research question which asks whether there is a difference in the amount of fear of crime between males and females, our null and alternative hypotheses are:
 
@@ -412,7 +412,7 @@ $H_A$: There is a significant difference in fear of crime between males and fema
  
 ##### Activity 3: Testing for equality of variance
 
-We must meet the fouth assumption by conducting the **test for equality of variance**, also known as **Levene's test**. Conducting this specific test is an important step before the t-test. This is an F-test that evaluates the null hypothesis that the variances of the two groups are equal. When we want to compare variances, we conduct this test as the variances may affect how we specify our t-test. If we fail to reject the null hypothesis, then we have met this assumption. 
+We must meet the fouth assumption by conducting the **test for equality of variance**, also known as **Levene's test**. Conducting this specific test is an important step before the t-test. This is an F-test that evaluates the null hypothesis that the variances of the two groups are equal. When we want to compare variances, we conduct this test as the variances may affect how we specify our t-test. If we *fail* to reject the null hypothesis, then we have met this assumption. 
 <br>
 
 
@@ -436,7 +436,7 @@ var.test(BCS0708$tcviolent ~ BCS0708$sex)
 ```
 <br>
 
-The information to focus on in the output are the alternative hypothesis, the F-statistic, and associated p-value. The alternative hypothesis states that the variances are not equal to 1, meaning they are not equal to each other. The p-value is very small, so we reject the null hypothesis that the variances are equal to each other. Thus, we have violated this assumption of equal variances, so we must address this. 
+The information to focus on in the output are the alternative hypothesis, the F-statistic, and associated p-value. The alternative hypothesis states that the variances are not equal to 1, meaning they are not equal to each other. Likewise, the p-value is very small, so we reject the null hypothesis that the variances are equal to each other. Thus, we have violated this assumption of equal variances, so we must address this. 
 
 One way to do so, and is familiar to one of the lesson's lecture videos, is to use the `t.test()` function. There, you can specify whether the equality of variance assumption is met. In our case, we must set `var.equal` to `FALSE` in the following independent sample t-test as the assumption is violated. 
 
@@ -447,7 +447,7 @@ One way to do so, and is familiar to one of the lesson's lecture videos, is to u
 
 ##### Activity 4: Conducting an independent sample t-test
 
-It is now time to carry out our t-test. We use the `t.test()` function, which performs both the one and two sample t-tests on vectors of data. It can also perform paired and independent samples t-tests by modifying the `paired=` argument. We include our dependent and our independent variables, separated by a tilda (`~`), and set the `var.equal` argument to `FALSE`:
+It is now time to carry out our t-test. We use the `t.test()` function, which performs both the one and two sample t-tests on vectors of data. It can also perform paired and independent samples t-tests by modifying the `paired=` argument. We include our independent and dependent variables, separated by a tilda (`~`), and set the `var.equal` argument to `FALSE`:
 <br>
 
 
@@ -493,28 +493,28 @@ t_test_results
 ```
 <br>
 
-From the output, focus on: the means, alternative hypothesis ($H_A$), the t-statistics, the p-value, and the 95% confidence interval (CI). 
+From the output, focus on: the means, alternative hypothesis ($H_A$), the t-statistic, the p-value, and the 95% confidence interval (CI). 
 
 First, the means show that males score an average score of -0.2738322 on this fear of crime measure, while females score an average of 0.3281656 - this is the same output we got from exploring our data previously. 
 
 Second, the alternative hypothesis is not equal to 0, which is what we expect if there is no difference between the two groups. 
 
-Third, the t-statistic reports -29.1142624 with an associated p-value which much smaller than our $\alpha$ = 0.05, so we reject the null hypothesis that the difference in the population is 0. We can say that there is a *statistically significant* difference between fear of crime for males and females in England and Wales. We can also state that, given the null hypothesis, there is a < .001 chance of observing the difference that we have actually observed (or one more unlikely).
+Third, the t-statistic reports -29.1142624 with an associated p-value that is much smaller than our $\alpha$ = 0.05, so we reject the null hypothesis that the difference in the population is 0. We can say that there is a *statistically significant* difference between fear of crime for males and females in England and Wales. We can also state that, given the null hypothesis, there is a < .001 chance of observing the difference that we have actually observed (or one more unlikely).
 
-Fourth, the 95% CI allows us to make an estimate that tells us the value of the difference in means in the population. From our sample, we estimate that the difference in fear of crime scores between sexes is somewhere between 0.56 and 0.64 points. 
+Fourth, the 95% CI allows us to make an estimate of the difference in means in the population. From our sample, we estimate that the difference in fear of crime scores between sexes is somewhere between 0.56 and 0.64 points. 
 
-Is this considered a large or small difference? In many cases, interpreting this is challenging because it can be subjective or the scale that was used to measure the variable is the original, raw version. To help us answer our question of size difference, we will need to include a measure of effect size.
+Is this considered a large or small difference? In many cases, interpreting this is challenging because it can be subjective or the scale that was used to measure the variable is not the original, raw version. To help us answer our question of size difference, we will need to include a measure of effect size.
 <br>
 <br>
 
 ---
 
-##### Activity 5: Considering the effect size- Cohen's d
+##### Activity 5: Considering the effect size- Cohen's *d*
 
 
 We can always look at **standardised measures of the effect size**. There are a number of them. They aim to give you a sense of how large the difference is by using a standardised metric. The value indicating the strength of relationship is known as the **effect size**, and simply quantifies the magnitude of difference between two variables. 
 
-We will use one of the measures, **Cohen's d**, for this example. We can obtain it with the `cohen.d()` function from the `effsize` package:
+We will use one of the measures, **Cohen's *d***, for this example. We can obtain it with the `cohen.d()` function from the `effsize` package:
 <br>
 
 
@@ -533,7 +533,7 @@ cohen.d(BCS0708$tcviolent ~ BCS0708$sex)
 ```
 <br>
 
-Cohen suggested a general guideline to interpret this effect size as an absolute value: 0.2 to 0.3 is considered a 'small' effect; around 0.5, a 'medium' effect; and 0.8 and larger, a 'large' effect. The output suggests that the observed difference is a medium effect size. 
+Jacob Cohen (inventor of Cohen's *d*) suggested a general guideline to interpret this effect size as an absolute value: 0.2 to 0.3 is considered a 'small' effect; around 0.5, a 'medium' effect; and 0.8 and larger, a 'large' effect. The output suggests that the observed difference is a medium effect size. 
 
 <!--However, keep in mind these rules are not absolute. In some fields of research and in relation to some problems the rules of thumb may be slightly different. You need, in professional practice, to be alert to those nuances by being familiar to the rules that other researchers use in your particular area of work.-->
 
@@ -541,7 +541,7 @@ To communicate the results obtained from our descriptive statistics, the t-test,
 
 <br>
 
->'On average, males have a lower score of fear of crime (M=-.27, SD=.86) than females (M=.33, SD= 1.04). Using an alpha level of 0.05, this difference was significant (t=-29.11, p<.001) and corresponds to a medium-sized effect  (d=-0.63).'
+>'On average, males have a lower score of fear of crime (M=-.27, SD=.86) than females (M= 0.33, SD= 1.04). Using an alpha level of 0.05, this difference was significant (t= -29.11, p <.001) and corresponds to a medium-sized effect (d= -0.63).'
 
 <br>
 
@@ -559,7 +559,7 @@ One important thing to remember is that when doing hypothesis testing there is a
 #### Dependent Sample t-test
 
 
-Previously, we went through the assumptions of an independent sample t-test. If we had violated the fifth assumption, we would need to use the dependent sample t-test instead. When we are interested in comparing means of two groups that are related to each other, the **dependent sample t-test** or *paired sample t-test* is appropriate. What this means is that the responses are paired together because there is a prior connection between them. For example, we have two groups where the first one comprises test scores before an intervention and the second one comprises test scores after that intervention of the same people from the first group. The scores are connected to each other because they belong to the same people.
+Previously, we went through the assumptions of an independent sample t-test. If we had violated the fifth assumption, we would need to use the dependent sample t-test instead. But, also, we use this t-test when we are actually interested in comparing means of two groups that are related to each other, the **dependent sample t-test** or *paired sample t-test* is appropriate. What this means is that the responses are paired together because there is a prior connection between them. For example, the same people form both of our groups, where the first group comprises their test scores before an intervention and the second one comprises their test scores after that intervention. The scores are connected to each other because they belong to the same people.
 
 
 ##### Activity 6: Conducting a dependent sample t-test
@@ -572,13 +572,13 @@ Let us create a familiar synthetic data of a hypothetical intervention for at-ri
 set.seed(1999) # Ensuring results are the same for you and me
 
 # Making this sythentic data of at-risk youth
-df <- data.frame(subject_id = c(1:100, 1:100), 
-                 prepost = c(rep("pre", 100), rep("post", 100)),
-                 compliance_score = c(rnorm(100, 30, 10), rnorm(100, 60, 14)))
+df <- data.frame(subject_id = c(1:100, 1:100), # ID for each young person
+                 prepost = c(rep("pre", 100), rep("post", 100)), # Whether assessed before or after intervention
+                 compliance_score = c(rnorm(100, 30, 10), rnorm(100, 60, 14))) # Test scores
 ```
 <br>
 
-We now have our data frame called `df`, which contains 200 observations (our young people) and their scores on the compliance test taken before and after the intervention. This can be seen as *two waves* of a survey; we compare the behaviours of the young people from Wave 1 to Wave 2 to address the research question: ‘Do the compliance scores of the young people change after our intervention?’ Our non-directional null and alternative hypotheses are as follows:
+We now have our data frame called `df`, which contains a total of 200 observations (our young people) of their scores on the compliance test taken before and after the intervention. This can be seen as *two waves* of a survey; we compare the behaviours of the young people from Wave 1 to Wave 2 to address the research question: ‘Do the compliance scores of the young people change after our intervention?’ Our non-directional null and alternative hypotheses are as follows:
 
 <br>
  
@@ -591,7 +591,7 @@ $H_A$: There is a significant difference in the compliance scores between Wave 1
 
 <br>
  
-As responses from both Waves 1 and 2 are required, cases with missing responses from either will be dropped automatically when our analysis is conducted. This t-test also requires the DV to be stored as two separate variables. Assumptions one to three are met, but how about equality of variance?
+As responses from both Waves 1 and 2 are required, cases with missing responses from either will be dropped automatically when our analysis is conducted. Assumptions one to three are met, but how about equality of variance?
 <br>
 
 
@@ -615,7 +615,7 @@ var.test(df$compliance_score ~ df$prepost)
 ```
 <br>
 
-The p-value is less than the alpha level of 0.05. This means that we, again, have unequal variances, so we must specify this in the `var.equal=` argument of the `t.test()` function. We conduct the dependent sample t-test: 
+The p-value is less than $\alpha$ = 0.05. This means that we, again, have unequal variances, so we must specify this in the `var.equal=` argument of the `t.test()` function. We conduct the dependent sample t-test: 
 <br>
 
 
@@ -641,9 +641,9 @@ t.test(compliance_score ~ prepost, data = df, var.equal= FALSE, paired= TRUE)
 ```
 <br>
 
-The results indicate that we can reject the null hypothesis as the p-value is less than $\alpha = 0.05$. We conclude that there is a significant difference in compliance scores before and after our intervention between Wave 1 and Wave 2. The mean difference, 95% of time when repeated samples are taken from the population, will be between 27.39 and 34.14 points. On average, compliance scores were 30.76 points higher than before the intervention. What is the magnitude of this difference?
+The results indicate that we can reject the null hypothesis as the p-value is less than $\alpha$ = 0.05. We conclude that there is a significant difference in compliance scores before and after our intervention, between Wave 1 and Wave 2. The mean difference, 95% of time when repeated samples are taken from the population, will be between 27.39 and 34.14 points. On average, compliance scores were 30.76 points higher than before the intervention. What is the magnitude of this difference?
 
-We, again, use Cohen's *d* to find out. As this is a paired t-test, we must conduct it slightly differently than when we did for the independent t-test. We specify the argument `paired= TRUE` and specify what ID it can use to match our participants in the pre- and post- groups; this is done with the `Subject()` array appended with the `|` operator:
+We, again, use Cohen's *d* to find out. As this is a paired t-test, we must conduct it slightly differently than when we did for the independent t-test. We specify the argument `paired= TRUE` and specify what ID it can use to match our participants in the pre- and post- groups (the variable `subject_id`); this is done with the `Subject()` array appended with the `|` operator:
 <br>
 
 
@@ -661,7 +661,7 @@ cohen.d(compliance_score ~ prepost | Subject(subject_id), data = df, paired= TRU
 ## 2.121816 3.476126
 ```
 
-The magnitude of the difference between pre and post test compliance scores is considered a large effect (d= 2.799). In addition, 95% of the time, when we draw samples from the population, we would expect the effect size to be between 2.12 and 3.48. Our intervention seems to be associated with an increased score in compliance in our follow-up test. But remember: correlation is not causation!
+The magnitude of the difference between pre and post test compliance scores is considered a large effect (*d* = 2.799). In addition, 95% of the time, when we draw samples from this population, we would expect the effect size to be between 2.12 and 3.48. Our intervention seems to be associated with increased test scores. But remember: correlation is not causation!
 
 <br>
 <br>
@@ -672,13 +672,13 @@ The magnitude of the difference between pre and post test compliance scores is c
 ### Chi-square
 
 
-The **chi-square statistic** is a test of statistical significance for two categorical variables. It tells us how much the observed distribution differs from the one expected under the null hypothesis. It is based on the **cross-tabulation** (A.K.A crosstabs) or **contingency table**. These appear as a table that simultaneously shows the frequency distributions of two categorical variables that do not have too many levels or categories. 
+The **chi-square statistic** is a test of statistical significance for two categorical variables. It tells us how much the observed distribution differs from the one expected under the null hypothesis. It is based on the **cross-tabulation** (aka crosstabs) or **contingency table**. These appear as a table that simultaneously shows the frequency distributions of two categorical variables that do not have too many levels or categories. 
 
 <!--For this lesson, we are only going to explore **two-way cross-tabulations**, that is, contingency tables where we plot the frequency distribution of two variables at the same time. As we learned during the first week we can get results from R in a variety of ways. You can produce basic tables with some of the core functions in R. However, in order to produce the sort of cross-tabs  we will use, I suggest you install and load the package `gmodels`. This package allows you to produce cross tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. Since some of you may have some previous experience with SPSS we will use the SPSS format. Cross-tabs with this package are more useful for our purposes than the default you may get with the core R `table()` function.-->
 
 #### Activity 7: Cross-tabulations
 
-To explore some relationships related to the fear of crime, we produce a cross-tabulation of victimisation (`bcsvictim`) and whether rubbish is a problem in the area where the respondent lives (`rubbcomm`). According to [*Broken Windows Theory*](https://www.theatlantic.com/magazine/archive/1982/03/broken-windows/304465/), proposed by James Q. Wilson and George Kelling, we should see a relationship between these two variables. 
+To explore some relationships related to the fear of crime, we return to the BCS data to produce a cross-tabulation of victimisation (`bcsvictim`) and whether the presence of rubbish is common in the area where the respondent lives (`rubbcomm`). According to [*Broken Windows Theory*](https://www.theatlantic.com/magazine/archive/1982/03/broken-windows/304465/), proposed by James Q. Wilson and George Kelling, we should see a relationship between these two variables. 
 
 First, we get to know our variables:
 <br>
@@ -750,7 +750,7 @@ BCS0708$rubbcomm <- as_factor(BCS0708$rubbcomm)
 ```
 <br>
 
-Notice that `rubbcomm` ranges from '1' to '4', from 'very common' to 'not at all common'. It would make sense if the numbers reflected the order of levels from 'not at all common' ('1') to 'very common' ('4') -- from less to more. To re-order the categories/ levels, we use the familiar function `factor()` from Lesson 2:
+Notice that `rubbcomm` ranges from '1' to '4', from 'very common' to 'not at all common'. It would make sense if the numbers reflected, instead, the order of levels from 'not at all common' ('1') to 'very common' ('4') -- from less to more. To re-order the categories/ levels, we use the familiar function `factor()` from Lesson 2:
 <br>
 
 
@@ -774,19 +774,9 @@ attributes(BCS0708$rubbcomm) # Indeed
 ```
 <br>
 
-Now we check for any missing values as this will indicate whether we must include arguments like `na.rm= TRUE` for later codes. 
+Now we observe any missing values: 
 <br>
 
-
-```r
-table(BCS0708$bcsvictim)
-```
-
-```
-## 
-## not a victim of crime       victim of crime 
-##                  9318                  2358
-```
 
 ```r
 # If you want the frequency distribution with labels, use ‘as_factor ()’
@@ -819,7 +809,7 @@ sum(is.na(BCS0708$bcsvictim))
 ```
 
 ```r
-# 5 are indicated as missing
+# 611 are indicated as missing
 sum(is.na(BCS0708$rubbcomm))
 ```
 
@@ -855,7 +845,7 @@ results
 
 The `dplyr` coding seems more complicated than that of `basic R` but its output is clearer to read than the one produced by `R`, and it is more detailed. The proportion of victimised individuals are within each of the levels of the categorical, ordered measure of rubbish in the area. Victimisation appears higher (31%) in the areas where rubbish in the streets is a very common problem. -->
 
-Although, previously, we learned how to obtain contingency tables with the `table()` function from `base R` and with the `dplyr` package, the best package is `gmodels`. It allows you to produce cross-tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. We use the function `CrossTable ()`, then the `with()` function to identify the data frame at the outset instead of having to include it with each variable (using `$`). 
+Although, previously, we learned how to obtain contingency tables with the `table()` function from `base R` and with the `dplyr` package, the best package for crosstabs is `gmodels`. It allows you to produce cross-tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. We use the function `CrossTable ()`, then the `with()` function to identify the data frame at the outset instead of having to include it with each variable (using `$`). 
 <br>
 
 
@@ -931,7 +921,7 @@ This is a very **important** point: often, cross tabulations are interpreted the
 <br>
  
 
-Also, *you make the comparisons across the right percentages in the direction where they do not add up to a hundred percent*. For example, 30.88% of people who live in areas where rubbish is very common have been victimised, whereas only 15.54% of people who live in areas where rubbish is not at all common have been victimised in the previous year. To make it easier, we can ask `R` to only give us the percentages in that we are interested:
+Also, *you make comparisons across percentages in the direction where they do not add up to a hundred percent*. For example, 30.88% of people who live in areas where rubbish is very common have been victimised, whereas only 15.54% of people who live in areas where rubbish is not at all common have been victimised in the previous year. To make it easier, we can ask `R` to only give us the percentages in that we are interested:
 <br>
 
 
@@ -977,7 +967,7 @@ with(BCS0708, CrossTable(as_factor(rubbcomm),
 
 Now with this output, we only see the row percentages. **Marginal frequencies** appear as the right column and bottom row. *Row marginals* show the total number of cases in each row. For example, 204 people perceive rubbish as very common in the area where they are living and 1,244 perceive rubbish as fairly common in their area. *Column marginals* show the total number of cases in each column: 8,804 non-victims and 2,261 victims.
 
-In the central cells, these are the total number for each combination of categories. For example, for row percentages, 63 people who perceive rubbish as very common in their area and who are a victim of a crime represent 30.88% of all people who have reported that rubbish is common (63 out of 204). For column percentages (shown previously), 63 people who live in areas where rubbish is very common and are victims represent 2.79% of all people who were victims of crime (63 out of 2,261). 
+In the central cells, these are the total number for each combination of categories. For example, for row percentages, 63 people who perceive rubbish as very common in their area and who are a victim of a crime represent 30.88% of all people who have reported that rubbish is common (63 out of 204). For column percentages (from first crosstab output), 63 people who live in areas where rubbish is very common and are victims represent 2.79% of all people who were victims of crime (63 out of 2,261). 
 
 <br>
 <br>
@@ -1002,7 +992,7 @@ We use the chi-square test because it compares these expected frequencies with t
 
 We then would observe the chi-square distribution to see how probable or improbable this value is. But, in practice, the p-value helps us ascertain this more quickly. 
 
-**Expected frequencies** are the number of cases you would expect to see in each cell within a contingency table if there was no relationship between the two variables -- if the null hypothesis were true. **Observed frequencies** are the cases that we actually see in our sample. We use the `CrossTable ()` function again: 
+Crosstabs also can show the different frequencies: **expected frequencies** are the number of cases you would expect to see in each cell within a contingency table if there was no relationship between the two variables -- if the null hypothesis were true. **Observed frequencies** are the cases that we actually see in our sample. We use the `CrossTable ()` function again, specifying that we would like to see expected frequencies by setting `expected = TRUE`: 
 <br>
 
 
@@ -1066,11 +1056,11 @@ with(BCS0708, CrossTable(as_factor(rubbcomm),
 <br>
  
 
-The output shows that, for example, 63 people lived in areas where rubbish was very common and experienced victimisation in the past year. Under the null hypothesis of no relationship, however, we should expect this value to be 41.69 (the expected value). Thus, more people are in this cell than we would expect under the null hypothesis. 
+The output shows that, for example, 63 people lived in areas where rubbish was very common and experienced victimisation in the past year. Under the null hypothesis of no relationship, however, we should have expected 41.69 people (the expected value). Thus, more people are in this cell than we would expect under the null hypothesis. 
 
 The chi-square value is 184.04, with 3 degrees of freedom (df). The df is obtained by the number of rows minus one, then multiplied by the number of columns minus one: (4 − 1)*(2 − 1). 
 
-The p-value associated with this particular value is nearly zero (p= 1.180e-39). This value is considerably lower than the standard alpha level of 0.05. We conclude that there is a significant relationship between victimisation and the presence of rubbish. We reject the null hypothesis.
+The p-value associated with this particular value is nearly zero (p = 1.180e-39). This value is considerably lower than $\alpha$ = 0.05. We conclude that there is a significant relationship between victimisation and the presence of rubbish. We reject the null hypothesis.
 
 If you do not want to use `CrossTable()`, you can use `chisq.test()`  to give you only the chi-square value:
 <br>
@@ -1123,23 +1113,23 @@ fisher.test(BCS0708$rubbcomm, BCS0708$bcsvictim, workspace = 2e+07, hybrid = TRU
 
  
 
-We did not need this test for our example, but we use it to illustrate how to use Fisher’s Exact Test when counts in a cell are low (less than five). The p-value from Fisher’s exact test is still smaller than $\alpha = 0.05$, so we reach the same conclusion that the relationship observed can be generalised to the population. 
+We did not need this test for our example, but we use it to illustrate how to use Fisher’s Exact Test when counts in a cell are low (less than five). The p-value from Fisher’s exact test is still smaller than $\alpha$ = 0.05, so we reach the same conclusion that the relationship observed can be generalised to the population. 
 
 In addition, the chi-square statistic only tells us whether there is a relationship between two variables; it says nothing about the strength of relationship or exactly what differences between observed and expected frequencies are driving the results. We will need to conduct further analyses to address these.
 
 
 #### Effect size measures related to chi-square 
 
-Now that we can generalise to the population, we want to know the magnitude of the difference or the strength of the relationship. We will look at a few ways to talk about this: one, for differences between the observed and expected observations; second, for relationships between an ordinal variable and a binary variable; and third, between two binary variables.  
+Now that we can generalise to the population, we want to know the magnitude of the difference or the strength of the relationship. We will look at a few ways to talk about this: one, for differences between the observed and expected frequencies; second, for relationships between an ordinal variable and a binary variable; and third, between two binary variables.  
 
 
 ##### Activity 9: Residuals
 
-We had observed that there were differences between the observed and expected frequencies. This is called a **residual**. Some differences seem larger than others. For example, there were about 21 more people that lived in areas where rubbish was very common and they more experienced victimisation than what was expected under the null hypothesis. When you see large differences, it is unsurprising to also expect that the cell in question may be playing a particularly strong role in driving the relationship between rubbish and victimisation. 
+We had observed that there were differences between the observed and expected frequencies. This is called a **residual**. Some differences seem larger than others. For example, there were about 21 more people that lived in areas where rubbish was very common and they experienced more victimisation than what was expected under the null hypothesis. When you see large differences, it is unsurprising to also expect that the cell in question may be playing a particularly strong role in driving the relationship between rubbish and victimisation. 
 
-We are not sure, however, of what is considered a large residual. A statistic that helps address this is the **adjusted standardised residuals**, which behaves like a z-score. Residuals indicate the difference between the expected and observed counts on a standardised scale. When the null hypothesis is true, there is only about a 5% chance that any particular standardised residual exceeds 2 in absolute value. 
+We are not sure, though, of what is considered a large residual. A statistic that helps address this is the **adjusted standardised residuals**, which behaves like a z-score. Residuals indicate the difference between the expected and observed frequencies on a standardised scale. When the null hypothesis is true, there is only about a 5% chance that any particular standardised residual exceeds 2 in absolute value. 
 
-Whenever you see differences that are greater than the absolute value of 2, the difference between expected and observed frequencies in that particular cell is significant and is driving the results of your chi-square test. Values above +3 or below −3 are considered convincing evidence of a true effect in that cell:
+Whenever you see differences that are greater than the absolute value of 2, the difference between expected and observed frequencies in that particular cell is significant and is driving the results of your chi-square test. Absolute values above 3 are considered convincing evidence of a true effect in that cell:
 <br>
 
 
@@ -1203,7 +1193,7 @@ with(BCS0708, CrossTable(as_factor(rubbcomm), as_factor(bcsvictim), expected = T
 <br>
 
 
-The column representing the outcome of interest (victimisation present), shows the adjusted standardised residual is −12.61 for the ‘not at all common’ category. That is the largest residual for the DV. The expected count under the null hypothesis in this cell is much higher than the observed count.
+The column representing the outcome of interest (victimisation present), shows the adjusted standardised residual is -12.61 for the ‘not at all common’ category. That is the largest residual for the DV. The expected frequency under the null hypothesis in this cell is much higher than that of the observed.
 
 <br>
 <br>
@@ -1212,21 +1202,17 @@ The column representing the outcome of interest (victimisation present), shows t
 
 ##### Activity 10: Goodman-Kruskal's Gamma
 
-The residuals suggest that the difference is not trivial. One of the tests discussed in the required reading as a test for the strength of a relationship is Goodman-Kruskal's Gamma. **Gamma** is a measure of the strength of the relationship between either two ordinal variables or, as is in this case, between an ordinal variable and a binary variable. 
+The residuals suggest that the difference is not trivial. One of the tests discussed in the required reading as a test for effect size is Goodman-Kruskal's Gamma. **Gamma** is a measure of the strength of the relationship between either two ordinal variables or, in this case, between an ordinal variable and a binary variable. 
 
-<!--> Gamma is appropriate for testing the relationship between two categorical ordered variables (ordinal-level variables) or between a categorical ordered variable and a categorical unordered variables with only two levels (a dichotomous variable, such as "victimisation": that only has two levels, you have or you haven't experienced a victimisation). -->
+<!-- Gamma is appropriate for testing the relationship between two categorical ordered variables (ordinal-level variables) or between a categorical ordered variable and a categorical unordered variables with only two levels (a dichotomous variable, such as "victimisation": that only has two levels, you have or you haven't experienced a victimisation). -->
 
-We install and load the package `vcdExtra` to compute gamma: 
+We first install and load the package `vcdExtra` and create an object, `mytable.2`: 
 <br>
 
 
 ```r
 # Install 'vcdExtra' then load it
 library(vcdExtra)
-```
-
-```
-## Warning: package 'vcdExtra' was built under R version 3.6.3
 ```
 
 ```
@@ -1239,10 +1225,6 @@ library(vcdExtra)
 
 ```
 ## Loading required package: gnm
-```
-
-```
-## Warning: package 'gnm' was built under R version 3.6.3
 ```
 
 ```
@@ -1276,7 +1258,7 @@ print(mytable.2)
 ```
 <br>
 
-We then use the `GKgamma()` function from the `vcdExtra` package to compute the Gamma measure of association:
+We then use the `GKgamma()` function from the `vcdExtra` package to compute Gamma:
 <br>
  
 
@@ -1292,7 +1274,7 @@ GKgamma(mytable.2)
 ```
 <br> 
 
-Gamma can take on values ranging from −1 to +1, where: 0 indicates no relationship at all; a negative value indicates a negative relationship; and a positive value a positive relationship. The closer the value is to either −1 or +1, the stronger the relationship is between variables. 
+Gamma can take on values ranging from −1 to +1, where: 0 indicates no relationship at all; a negative value indicates a negative relationship; and a positive value, a positive relationship. The closer the value is to either −1 or +1, the stronger the relationship is between variables. 
 
 [De Vaus (2002)](https://www.taylorfrancis.com/books/mono/10.4324/9780203501054/surveys-social-research-david-de-vaus) provides the following rules of thumb for interpreting effect size strength for Gamma:  up to 0.10 (trivial), 0.10 to 0.29 (low to moderate), 0.30 to 0.49 (moderate to substantial), 0.50 to 0.69 (substantial to very strong), 0.70 to 0.89 (very strong), 0.9 and above (near perfect). 
 
@@ -1307,9 +1289,7 @@ Our output shows that the effect size is positive and low to moderate (Gamma = 0
 
 ##### Activity 11: Odd ratios
 
-To estimate the effect size between two binary variables are **odd ratios** (ORs). Odd ratios and relative risk are very commonly used in public health and in criminological research. If you have knowledge of betting, you may already know a thing or two about odds.
-
-They are the statistical equivalent of a tongue twister, so you may find yourself referring repeatedly to this section whenever you want to interpret ORs. For this example, we are interested in the relationship between victimisation (`bcsvictim`) and living in a rural or urban setting (`rural2`): 
+To estimate the effect size between two binary variables are **odd ratios** (ORs). If you have knowledge of betting, you may already know a bit about odds. For this example, we are interested in the relationship between victimisation (`bcsvictim`) and living in a rural or urban area (`rural2`): 
 <br>
 
 
@@ -1386,24 +1366,20 @@ with(BCS0708, CrossTable(rural2, bcsvictim, prop.c = FALSE, prop.t = FALSE, expe
 ```
 <br>
 
-Of those living in urban areas (n= 8,702), 22% reported being a victim of crime in the previous year compared to 14% of those living in rural areas (n = 2,974). The chi-square has a p-value of < 0.001, suggesting a statistically significant relationship living in urban areas and crime victimisation. But, of course, how large is this relationship? We use the OR to find out.
+Of those living in urban areas (n= 8,702), 22% reported being a victim of crime in the previous year compared to 14% of those living in rural areas (n = 2,974). The chi-square has a p-value of < 0.001, suggesting a statistically significant relationship between living in urban areas and crime victimisation. But, of course, how large is this relationship? We use the OR to find out.
 
 Before we do so, we need to match the levels of our variables to this type of cross-tabulation:
 
 <br>
 <br>
-+-------------------+---------------------+-----------------+
-|                   | Outcome: Yes        | Outcome: No     |
-+-------------------+---------------------+-----------------+
-| Risk factor: Yes  |                     |                 |
-+-------------------+---------------------+-----------------+
-| Risk factor: No   |                     |                 |
-+-------------------+---------------------+-----------------+
+
+![**Figure 7.1** 2x2 table to emulate](Images/OR.png)
+
 
 <br>
 <br>
 
-ORs are commonly used in the Public Health, and were introduced in criminology in 1992 by David Hawkins and Richard Catalano. Subsequently, they are used frequently in studies involving the risk factor prevention paradigm, a major component of Developmental and Life Course Criminology.
+ORs are commonly used in Public Health, and were introduced in criminology in 1992 by David Hawkins and Richard Catalano. Now, they are used frequently in studies involving the risk factor prevention paradigm, a major component of Developmental and Life Course Criminology.
 
 To compute ORs, they require the variables to correspond to a 2x2 table whereby the independent variable is considered the 'risk factor' and the dependent variable is the 'outcome'. Presence of outcome and risk factor intersect ('Yes') at the left hand corner. To ensure our variables correspond to this 2x2 table, we first have a look at their level ordering:
 <br>
@@ -1429,7 +1405,7 @@ print(levels(BCS0708$rural2))
 ```
 <br>
 
-We will need to reverse the ordering of the levels in the variable `bcsvictim` so that 'victim of crime' appears as the first level like `urban` in the variable in `rural2`:
+We will need to reverse the ordering of the levels in the variable `bcsvictim` so that 'victim of crime' appears as the first level like `urban` in the variable `rural2`:
 <br>
 
 
@@ -1519,13 +1495,13 @@ with(BCS0708, CrossTable(rural2, bcsvictimR, prop.c = FALSE, prop.t = FALSE, exp
 ```
 <br>
 
-ORs are about odds: it is the ratio of two odds; the odds of having the outcome and the odds of not having the outcome. For example, the odds of victimisation for urban dwellers is calculated as the number of victimised urban dwellers (1,945) divided by the number of non-victimised urban dwellers (6,757). Therefore, there are 0.2878496 victimised urban dwellers for every non-victimised urban dweller. The odds of victimisation for residents of rural areas is calculated as the number of victimised rural dwellers (413) divided by the number of non-victimised rural dwellers (2,561). Thus, there are 0.1612651 victimised rural dwellers for every non-victimised rural dweller.
+ORs are about odds: it is the ratio of two odds -- the odds of having the outcome for when the 'risk factor' is present and when it is not. For example, the odds of victimisation for urban dwellers is calculated as the number of victimised urban dwellers (1,945) divided by the number of non-victimised urban dwellers (6,757). Therefore, there are 0.2878496 victimised urban dwellers for every non-victimised urban dweller. The odds of victimisation for rural dwellers is calculated as the number of victimised rural dwellers (413) divided by the number of non-victimised rural dwellers (2,561). Thus, there are 0.1612651 victimised rural dwellers for every non-victimised rural dweller.
 
 <!--the *risk* is the probability of the 'outcome' occurring. From our example, the risk of victimisation for urban dwellers is simply the number of victimised urban dwellers (1945) divided by the total number of urban dwellers (8702). This is .2235. Similarly we can look at the risk of victimisation for people living in rural areas: the number of victimised countryside residents (413) divided by the total number of residents in rural areas (2974).  This is .1388. The **relative risk** is simply the ratio of these two risks. In this case this yields 1.60. This suggests that urban dwellers are 1.60 times more likely to be victimised than people who live in rural areas.-->
 
 The OR of victimisation for urban dwellers to rural residents is 1.78 (0.2878496/ 0.1612651). This means that the odds of victimisation are 1.78 times higher for urban dwellers than it is for those in rural areas. 
 
-We use `R` to obtain the OR directly with `vcd` package (it may already be loaded because sometimes it accompanies the package `vcdExtra`: 
+We use `R` to obtain the OR directly with the `vcd` package (it may already be loaded because sometimes it accompanies the package `vcdExtra`: 
 <br>
 
 
@@ -1560,14 +1536,14 @@ oddsratio(mytable.4, stratum = NULL, log = FALSE)
 
 What's going on? Why do we have a different value here? If you look at the cross tab you should be able to understand. R is now computing the odd ratio for "not being a victim of a crime" (since this is what defines the first column). When an odds ratio is below 1 is indicating that the odds in the first row ("urban") are lower than in the second row ("rural"). Living in urban areas (as contrasted with living in rural areas) reduces the likelihood of non-victimisation.-->
 
-Do keep in mind that ORs are cannot take negative values. If the OR is greater than 1 that means that the presence of the risk factor increases the chances of the outcome relative to the absence of that risk factor. 
+Do keep in mind that ORs cannot take negative values. If the OR is greater than 1, that means that the presence of the risk factor increases the chances of the outcome relative to the absence of that risk factor. 
 
 If the OR were between '0'and '1', that would mean the opposite: the presence of the 'risk factor' reduces the chances of the outome relative to the absence of said factor. 
-A value of '1' means that there is no relationship between the two variables -- the odds are the same for the two groups.
+A value of '1' means that there is no relationship between the two variables -- the odds are the same for both groups.
 
 As the OR is about odds, you cannot state that urban dwellers are 1.78 *more likely* to be victimised. All you can state with an OR is that the *odds* of being victimised are 1.78 times higher for urban dwellers than for residents in rural areas. Odds and probabilities are different things. 
 
-If you are still uncertain about these concepts, and it is normal, have a look at [this video](https://www.youtube.com/watch?v=nFHL54yOniI), 
+If you are still uncertain about these concepts, and it is normal to feel that way, have a look at [this video](https://www.youtube.com/watch?v=nFHL54yOniI).
 
 <!--it may help to see an oral presentation of these ideas with a different example.  Repeated practice will make it easier to understand. The fact that the interpretation of these quantities is contingent in the way we have laid out our table makes it particularly advisable to hand calculate them as explained above in relation to the outcome you are interested until you are comfortable with them. This may help you to see more clearly what you are getting and how to interpret it. When looking at the R results for odd ratios just always keep in mind that you are aware of what are the reference categories (what defines the first column and the first row) when reading and interpreting odd ratios. The R function we introduced will always give you the odds ratio for the event defined in the first column and will contrast the odds for the group defined by the first row with the odds defined by the second row. If the odds ratio is between 0 and 1 that would mean the odds are lower for the first row, if the odds is greater than 1 that would mean the odds are higher for the second row.
 
@@ -1575,11 +1551,11 @@ It is also very important you do not confuse the relative risk (a ratio of proba
 
 Odd ratios are ratios of odds, not probability ratios. -->
 
-These values must be interpreted carefully. You will often see media reports announcing things like 'chocolate consumption will double your risk of some *insert terrible disease*'. What that means is that the percentage of cases of individuals that take chocolate (the 'risk factor') and present the outcome is twice as large as those that do not take chocolate but present the outcome. Yet the probabilities could be very low to start with, so such proclaimations can be very misleading (see Figure 7.1).
+Last, these values must be interpreted carefully. You will often see media reports announcing things like 'chocolate consumption will double your risk of some $*insert~ terrible~ disease*$'. What that means is that the percentage of cases of individuals that take chocolate (the 'risk factor') and present the outcome is twice as large as those that do not take chocolate but present the outcome. Yet the probabilities could be very low to start with, so such proclaimations can be very misleading (see Figure 7.2).
 
 <br>
 
-![**Figure 7.1** Increased risk](Images/increased_risk.png)
+![**Figure 7.2** Increased risk](Images/increased_risk.png)
 
 <br>
 <br>
@@ -1594,9 +1570,9 @@ These values must be interpreted carefully. You will often see media reports ann
 
 We learned a few inferential statistical analyses to examine relationships with categorical variables, known as **factors** in `R`. These variables, in today’s analyses, were arranged as **independent variables** or **dependent variables**. When analysing a relationship between a categorical and a numeric variable, the t-test was used. We learned to conduct **independent sample** and **dependent sample** t-tests. 
 
-Before we performed the former t-test, we conducted the **test for equality of variance**. We also learned about effect size with **Cohen's d**. In the latter section, we learned to conduct a chi-square test, a test of statistical significance between two categorical variables. This involved **contingency tables** or **cross tabulations** (crosstabs). 
+Before we performed the former t-test, a **parametric test**, we conducted the **test for equality of variance**. We also learned about effect size with **Cohen's d**. In the latter section, we learned to conduct a chi-square test, a test of statistical significance between two categorical variables. This involved **contingency tables** or **cross tabulations** (crosstabs). 
 
-The chi-square statistic contrasts expected and observed frequencies in the crosstab. When counts in any one cell is lower than five, **Fisher’s Exact Test** is used instead. To obtain effect sizes related to the chi-square, we learned to use the **adjusted standardised residuals** to identify which contrast of frequencies are driving the observed results. We, too, learned about effect size with **Gamma** and **Odds Ratios**.
+The chi-square statistic contrasts **expected** and **observed frequencies** in the crosstab. When counts in any one cell is lower than five, **Fisher’s Exact Test** is used instead. To obtain effect sizes related to the chi-square, we learned to use the **adjusted standardised residuals** to identify which contrast of frequencies are driving the observed results. We, too, learned about effect size with **Gamma** and **Odds Ratios**.
 
 <br>
 <br>
