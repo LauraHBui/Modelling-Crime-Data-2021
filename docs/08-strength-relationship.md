@@ -529,7 +529,7 @@ ggplot(df, aes(x = unemployed, y = log_viol_r)) +
   geom_point(alpha=.2, position="jitter")
 ```
 
-![](08-strength-relationship_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+<img src="08-strength-relationship_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 
 

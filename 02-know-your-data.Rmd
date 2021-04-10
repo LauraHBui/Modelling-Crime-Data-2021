@@ -986,7 +986,7 @@ P.S. Well done today, to get through all this. What you are learning now will se
 ### Answers to activities (if applicable)
 - 1. N/A
 - 2. 23,969 entries and 47 columns 
-- 3. numeric and class(ncvs$weaponpresent)
+- 3. numeric (but is this correct?)- class(ncvs$weaponpresent)
 - 4. N/A
 - 5. N/A 
 - 6. N/A 

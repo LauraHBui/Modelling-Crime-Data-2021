@@ -109,7 +109,7 @@ Last time, we learned about distributions too. Specifically, we focused on the n
 <br>
 <br>
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
+<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 <br>
 <br>
@@ -145,7 +145,7 @@ mean(prob_iq)
 ```
 
 ```
-## [1] 100.0023
+## [1] 100.0061
 ```
 
 ```r
@@ -153,7 +153,7 @@ median(prob_iq)
 ```
 
 ```
-## [1] 100.0031
+## [1] 100.006
 ```
 
 ```r
@@ -161,7 +161,7 @@ sd(prob_iq)
 ```
 
 ```
-## [1] 14.98984
+## [1] 14.99472
 ```
 <br>
 
@@ -254,7 +254,7 @@ ggplot(prob_off) +
   geom_vline(xintercept = mean(prob_off$IQ), col = "red", linetype = "dashed") # We add a red line in the code to show the mean of the population IQ
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 <br>
 
@@ -466,6 +466,10 @@ sample_means1000 <- sample1000 %>%
   group_by(.index) %>% # Group by .index  (the sample id)
   summarize(meanIQ = mean(IQ)) # Creating new variable of mean IQ
 ```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
 <br>
 
 The resulting data frame,`sample_means1000`, has two columns: one for sample id and one for the mean score of IQ for that specific sample. It has 1,000 observations - one for each sample.
@@ -484,7 +488,7 @@ ggplot(data = sample_means1000) +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
+<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
 <br>
 
@@ -549,14 +553,30 @@ After, let us create some data frame objects for each set of the 1,000 samples i
 sample_means30 <- sample30 %>% 
   group_by(.index) %>% 
   summarize(meanIQ = mean(IQ))
+```
 
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
 sample_means100 <- sample100 %>% 
   group_by(.index) %>% 
   summarize(meanIQ = mean(IQ)) 
+```
 
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
 sample_means1000 <- sample1000 %>% 
   group_by(.index) %>% 
   summarize(meanIQ = mean(IQ)) 
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 <br>
 
@@ -594,7 +614,7 @@ ggplot(data = sample.means.total) +
   geom_density(mapping = aes(x = meanIQ, fill = sample_size), alpha = 0.5) 
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-24-1.png)<!-- -->
+<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 <br>
 
@@ -672,11 +692,11 @@ new_1000_sample <- sample(prob_off, 1000)
 ```
 <br>
 
-We get the SE by dividing the standard deviation (SD) of the variable `IQ` from the data frame `new_1000_sample` by the square root of our sample size (n = 1,000):
+We get the SE by dividing the standard deviation (SD or *s*) of the variable `IQ` from the data frame `new_1000_sample` by the square root of our sample size (n = 1,000):
 
 <br>
 
-$SE = \sigma/\sqrt(n)$
+$SE = s/\sqrt(n)$
 
 <br>
 <br>
@@ -838,6 +858,10 @@ new.sample.ci100 <- new_sample_100 %>%
          upper_ci = sample_mean+1.96*sample_sd/sqrt(100)) 
 ```
 
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
 
 
 ```r
@@ -897,7 +921,7 @@ ggplot(data = new.sample.ci100) +
   geom_point(mapping = aes(y = .index, x = sample_mean, colour = capture.mean))
 ```
 
-![](05-inferential-statistics_files/figure-epub3/unnamed-chunk-37-1.png)<!-- -->
+<img src="05-inferential-statistics_files/figure-html/unnamed-chunk-37-1.png" width="672" />
 <br>
 
 

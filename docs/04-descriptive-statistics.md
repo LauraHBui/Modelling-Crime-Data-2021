@@ -38,6 +38,7 @@
 -	`group_by()` : Group observations by variable(s) for performing operations (`dplyr`)
 -	`IQR()` : Compute interquartile range (`base R`)
 -	`is.na()` : Returns `TRUE` when values are missing, `FALSE` if not (`base R`)
+- `load()` : Reads data that are stored in an `R` data file formet (`base R`)
 -	`mean()` : Compute arithmetic mean (`base R`)
 -	`max()` : Returns the maximum value (`base R`)
 -	`min()` : Returns the minimum value (`base R`)
@@ -339,9 +340,13 @@ bwcs %>%
 ```
 
 ```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
 ## # A tibble: 2 x 2
 ##   Q_10A                                                   mean_deployed
-## * <fct>                                                           <dbl>
+##   <fct>                                                           <dbl>
 ## 1 (1) Agency has acquired in any form (including testing)          31.8
 ## 2 (2) Agency has not acquired                                     NaN
 ```
@@ -383,9 +388,13 @@ bwcs %>% group_by(Q_10A) %>% summarise(med_deployed = median(Q_12, na.rm = TRUE)
 ```
 
 ```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
 ## # A tibble: 2 x 2
 ##   Q_10A                                                   med_deployed
-## * <fct>                                                          <dbl>
+##   <fct>                                                          <dbl>
 ## 1 (1) Agency has acquired in any form (including testing)            8
 ## 2 (2) Agency has not acquired                                       NA
 ```
@@ -431,10 +440,14 @@ bwcs %>%
 ```
 
 ```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
 ## # A tibble: 2 x 5
 ##   Q_10A                        mean_deployed median_deployed mode_deployed total
-## * <fct>                                <dbl>           <dbl>         <dbl> <dbl>
-## 1 (1) Agency has acquired in …          31.8               8             1 60363
+##   <fct>                                <dbl>           <dbl>         <dbl> <dbl>
+## 1 (1) Agency has acquired in ~          31.8               8             1 60363
 ## 2 (2) Agency has not acquired          NaN                NA           NaN     0
 ```
 <br>
@@ -454,10 +467,10 @@ bwcs %>%
 ```
 
 
-|skim_type |skim_variable |Q_10A                                                   | n_missing| complete_rate| numeric.mean| numeric.sd| numeric.p0| numeric.p25| numeric.p50| numeric.p75| numeric.p100|numeric.hist |
-|:---------|:-------------|:-------------------------------------------------------|---------:|-------------:|------------:|----------:|----------:|-----------:|-----------:|-----------:|------------:|:------------|
-|numeric   |Q_12          |(1) Agency has acquired in any form (including testing) |        18|     0.9906005|     31.82024|   92.26974|          0|           3|           8|          20|         1200|▇▁▁▁▁        |
-|numeric   |Q_12          |(2) Agency has not acquired                             |      2013|     0.0000000|          NaN|         NA|         NA|          NA|          NA|          NA|           NA|             |
+skim_type   skim_variable   Q_10A                                                      n_missing   complete_rate   numeric.mean   numeric.sd   numeric.p0   numeric.p25   numeric.p50   numeric.p75   numeric.p100  numeric.hist 
+----------  --------------  --------------------------------------------------------  ----------  --------------  -------------  -----------  -----------  ------------  ------------  ------------  -------------  -------------
+numeric     Q_12            (1) Agency has acquired in any form (including testing)           18       0.9906005       31.82024     92.26974            0             3             8            20           1200  ▇▁▁▁▁        
+numeric     Q_12            (2) Agency has not acquired                                     2013       0.0000000            NaN           NA           NA            NA            NA            NA             NA               
 
 <br>
 <br>
@@ -606,19 +619,19 @@ A nice way to visualise this is with a boxplot. Remember, a boxplot visually rep
 ## Warning: Removed 97 rows containing non-finite values (stat_boxplot).
 ```
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-28-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-28-1.png" width="672" />
 
 
 
 Now you can also see where the outliers, and extreme outliers are. Outliers are anything above the orange line, extreme outliers are anything above the purple line: 
 
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-29-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-29-1.png" width="672" />
 
 
 We could also show this in a histogram, where everything to the right of the orange line is an outlier, and everything to the right of the purple is an extreme outlier: 
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-30-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-30-1.png" width="672" />
 
 -->
 
@@ -817,7 +830,7 @@ Related to outliers is **skewness**. This has to do with the shape of the distri
 Here is a normal distribution (Figure 4.4): 
 <br>
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-42-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-42-1.png" width="672" />
 <br>
 
 A skewed distribution would pull the observations more so to the left or to the right, and you would have a long tail on either side. This would also cause your mean and median to be further apart. 
@@ -825,14 +838,14 @@ A skewed distribution would pull the observations more so to the left or to the 
 Here is a right skewed distribution (Figure 4.5): 
 <br>
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-43-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-43-1.png" width="672" />
 <br>
 
 
 And here is a left skewed distribution (Figure 4.6): 
 <br>
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-44-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-44-1.png" width="672" />
 <br>
 
 So, how can we tell if our data are skewed? We can tell by visualising it! 
@@ -865,7 +878,7 @@ ggplot(data = bwcs, mapping = aes(x = Q_12)) +
 ## Warning: Removed 2031 rows containing non-finite values (stat_bin).
 ```
 
-![](04-descriptive-statistics_files/figure-epub3/unnamed-chunk-45-1.png)<!-- -->
+<img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-45-1.png" width="672" />
 <br>
 
 What do you observe from the histogram? Discuss in your groups, or reflect if you are in the quiet room. What do you think the number of BWCs may depend on? Size of the agency? Willingness to adopt BWCs? Are you surprised by this data? 
@@ -1008,9 +1021,9 @@ Or we can use `skim`:
 <br>
 
 
-|skim_type |skim_variable | n_missing| complete_rate|factor.ordered | factor.n_unique|factor.top_counts                    |
-|:---------|:-------------|---------:|-------------:|:--------------|---------------:|:------------------------------------|
-|factor    |data          |      1156|     0.6863809|FALSE          |               4|(1): 2180, (2): 284, (3): 65, (8): 1 |
+skim_type   skim_variable    n_missing   complete_rate  factor.ordered    factor.n_unique  factor.top_counts                    
+----------  --------------  ----------  --------------  ---------------  ----------------  -------------------------------------
+factor      data                  1156       0.6863809  FALSE                           4  (1): 2180, (2): 284, (3): 65, (8): 1 
 
 
 ```r

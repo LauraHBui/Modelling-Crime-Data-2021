@@ -101,6 +101,10 @@ library(dplyr)
 ```
 
 ```
+## Warning: package 'dplyr' was built under R version 3.6.3
+```
+
+```
 ## 
 ## Attaching package: 'dplyr'
 ```
@@ -224,7 +228,11 @@ library(here)
 ```
 
 ```
-## here() starts at /Users/reka/Dropbox (The University of Manchester)/modelling2021/Modelling-Crime-Data-2021
+## Warning: package 'here' was built under R version 3.6.3
+```
+
+```
+## here() starts at C:/Users/buihl/Desktop/Modelling-Crime-Data-2021
 ```
 <br>
 
@@ -248,6 +256,10 @@ install.packages("haven")
 
 ```r
 library(haven)
+```
+
+```
+## Warning: package 'haven' was built under R version 3.6.3
 ```
 <br>
 
@@ -689,7 +701,7 @@ count(ncvs, injured)
 ```
 ## # A tibble: 2 x 2
 ##         injured     n
-## *     <dbl+lbl> <int>
+##       <dbl+lbl> <int>
 ## 1 0 [uninjured] 16160
 ## 2 1 [injured]    7809
 ```
@@ -701,7 +713,7 @@ count(ncvs, weaponpresent)
 ```
 ## # A tibble: 3 x 2
 ##   weaponpresent     n
-## *         <dbl> <int>
+##           <dbl> <int>
 ## 1             0 15814
 ## 2             1  6652
 ## 3            NA  1503
@@ -1167,7 +1179,7 @@ P.S. Well done today, to get through all this. What you are learning now will se
 ### Answers to activities (if applicable)
 - 1. N/A
 - 2. 23,969 entries and 47 columns 
-- 3. numeric and class(ncvs$weaponpresent)
+- 3. numeric (but is this correct?)- class(ncvs$weaponpresent)
 - 4. N/A
 - 5. N/A 
 - 6. N/A 
