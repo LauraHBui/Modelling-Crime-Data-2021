@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-04-10" />
+<meta name="date" content="2021-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -329,14 +329,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">7.1.1</span> Activity 1: Our <code>R</code> prep routine</h3>
 <p>Before we start, we do the following:</p>
 <ol style="list-style-type: decimal">
-<li>Open up our existing <code>R</code> project</li>
-</ol>
-<p><br>
-2. Install and load the required packages listed above with exception to <code>vcdExtra</code>; the reason is <code>vcdExtra</code> will interfere with the package <code>dplyr</code> (see Lesson 1, section 1.3.3 on masking):
-<br></p>
-<ol start="3" style="list-style-type: decimal">
-<li><p>Download from Blackboard and load into <code>R</code> the British Crime Survey (BCS) dataset (<em>bcs_2007_8_teaching_data_unrestricted.dta</em> ). Be mindful of its data format because it will require certain codes and packages. Name this data frame <code>BCS0708</code>.</p></li>
-<li><p>Get to know the data with the <code>View()</code> function.</p></li>
+<li><p>Open up our existing <code>R</code> project
+<br></p></li>
+<li><p>Install and load the required packages listed above with exception to <code>vcdExtra</code>; the reason is <code>vcdExtra</code> will interfere with the package <code>dplyr</code> (see Lesson 1, section 1.3.3 on masking):
+<br></p></li>
+<li><p>Download from Blackboard and load into <code>R</code> the British Crime Survey (BCS) dataset (<em>bcs_2007_8_teaching_data_unrestricted.dta</em> ). Be mindful of its data format because it will require certain codes and packages. Name this data frame <code>BCS0708</code>.
+<br></p></li>
+<li><p>Get to know the data with the <code>View()</code> function.
+<br></p></li>
 </ol>
 <p><br>
 <br></p>
@@ -636,8 +636,8 @@ In fact, this is probably a good time to engage with our assumptions made by the
 <p>Second, the alternative hypothesis is not equal to 0, which is what we expect if there is no difference between the two groups.</p>
 <p>Third, the t-statistic reports -29.1142624 with an associated p-value that is much smaller than our <span class="math inline">\(\alpha\)</span> = 0.05, so we reject the null hypothesis that the difference in the population is 0. We can say that there is a <em>statistically significant</em> difference between fear of crime for males and females in England and Wales. We can also state that, given the null hypothesis, there is a &lt; .001 chance of observing the difference that we have actually observed (or one more unlikely).</p>
 <p>Fourth, the 95% CI allows us to make an estimate of the difference in means in the population. From our sample, we estimate that the difference in fear of crime scores between sexes is somewhere between 0.56 and 0.64 points.</p>
-<p>Is this considered a large or small difference? In many cases, interpreting this is challenging because it can be subjective or the scale that was used to measure the variable is not the original, raw version. To help us answer our question of size difference, we will need to include a measure of effect size.
-<br>
+<p>Is this considered a large or small difference? In many cases, interpreting this is challenging because it can be subjective or the scale that was used to measure the variable is not the original, raw version. To help us answer our question of size difference, we will need to include a measure of effect size.</p>
+<p><br>
 <br></p>
 <hr />
 </div>
@@ -675,6 +675,7 @@ One important thing to remember is that when doing hypothesis testing there is a
 <div id="dependent-sample-t-test" class="section level4">
 <h4><span class="header-section-number">7.2.2.5</span> Dependent Sample t-test</h4>
 <p>Previously, we went through the assumptions of an independent sample t-test. If we had violated the fifth assumption, we would need to use the dependent sample t-test instead. But, also, we use this t-test when we are actually interested in comparing means of two groups that are related to each other, the <strong>dependent sample t-test</strong> or <em>paired sample t-test</em> is appropriate. What this means is that the responses are paired together because there is a prior connection between them. For example, the same people form both of our groups, where the first group comprises their test scores before an intervention and the second one comprises their test scores after that intervention. The scores are connected to each other because they belong to the same people.</p>
+<p><br></p>
 <div id="activity-6-conducting-a-dependent-sample-t-test" class="section level5">
 <h5><span class="header-section-number">7.2.2.5.1</span> Activity 6: Conducting a dependent sample t-test</h5>
 <p>Let us create a familiar synthetic data of a hypothetical intervention for at-risk youth in Manchester. We have identified 100 at-risk young people and exposed them to an intervention designed to stop them from reoffending. Both before and after the intervention, though, we ask them to take a test that measures their compliance with the law.
@@ -689,8 +690,8 @@ One important thing to remember is that when doing hypothesis testing there is a
 <p>We now have our data frame called <code>df</code>, which contains a total of 200 observations (our young people) of their scores on the compliance test taken before and after the intervention. This can be seen as <em>two waves</em> of a survey; we compare the behaviours of the young people from Wave 1 to Wave 2 to address the research question: ‘Do the compliance scores of the young people change after our intervention?’ Our non-directional null and alternative hypotheses are as follows:</p>
 <p><br></p>
 <p><span class="math inline">\(H_0\)</span>: There is no significant difference in the compliance scores between Wave 1 (pre-intervention) and Wave 2 (post-intervention).</p>
-<p><br></p>
-<p><span class="math inline">\(H_A\)</span>: There is a significant difference in the compliance scores between Wave 1 (pre-intervention) and Wave 2 (post-intervention).</p>
+<p><br>
+<span class="math inline">\(H_A\)</span>: There is a significant difference in the compliance scores between Wave 1 (pre-intervention) and Wave 2 (post-intervention).</p>
 <p><br></p>
 <p>As responses from both Waves 1 and 2 are required, cases with missing responses from either will be dropped automatically when our analysis is conducted. Assumptions one to three are met, but how about equality of variance?
 <br></p>
@@ -748,6 +749,7 @@ One important thing to remember is that when doing hypothesis testing there is a
 <h3><span class="header-section-number">7.2.3</span> Chi-square</h3>
 <p>The <strong>chi-square statistic</strong> is a test of statistical significance for two categorical variables. It tells us how much the observed distribution differs from the one expected under the null hypothesis. It is based on the <strong>cross-tabulation</strong> (aka crosstabs) or <strong>contingency table</strong>. These appear as a table that simultaneously shows the frequency distributions of two categorical variables that do not have too many levels or categories.</p>
 <!--For this lesson, we are only going to explore **two-way cross-tabulations**, that is, contingency tables where we plot the frequency distribution of two variables at the same time. As we learned during the first week we can get results from R in a variety of ways. You can produce basic tables with some of the core functions in R. However, in order to produce the sort of cross-tabs  we will use, I suggest you install and load the package `gmodels`. This package allows you to produce cross tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. Since some of you may have some previous experience with SPSS we will use the SPSS format. Cross-tabs with this package are more useful for our purposes than the default you may get with the core R `table()` function.-->
+<p><br></p>
 <div id="activity-7-cross-tabulations" class="section level4">
 <h4><span class="header-section-number">7.2.3.1</span> Activity 7: Cross-tabulations</h4>
 <p>To explore some relationships related to the fear of crime, we return to the BCS data to produce a cross-tabulation of victimisation (<code>bcsvictim</code>) and whether the presence of rubbish is common in the area where the respondent lives (<code>rubbcomm</code>). According to <a href="https://www.theatlantic.com/magazine/archive/1982/03/broken-windows/304465/"><em>Broken Windows Theory</em></a>, proposed by James Q. Wilson and George Kelling, we should see a relationship between these two variables.</p>
@@ -1048,10 +1050,12 @@ The cross-tabulation shows that 63 people in the category ‘rubbish is very com
 <p><br></p>
 <p>We did not need this test for our example, but we use it to illustrate how to use Fisher’s Exact Test when counts in a cell are low (less than five). The p-value from Fisher’s exact test is still smaller than <span class="math inline">\(\alpha\)</span> = 0.05, so we reach the same conclusion that the relationship observed can be generalised to the population.</p>
 <p>In addition, the chi-square statistic only tells us whether there is a relationship between two variables; it says nothing about the strength of relationship or exactly what differences between observed and expected frequencies are driving the results. We will need to conduct further analyses to address these.</p>
+<p><br></p>
 </div>
 <div id="effect-size-measures-related-to-chi-square" class="section level4">
 <h4><span class="header-section-number">7.2.3.4</span> Effect size measures related to chi-square</h4>
 <p>Now that we can generalise to the population, we want to know the magnitude of the difference or the strength of the relationship. We will look at a few ways to talk about this: one, for differences between the observed and expected frequencies; second, for relationships between an ordinal variable and a binary variable; and third, between two binary variables.</p>
+<p><br></p>
 <div id="activity-9-residuals" class="section level5">
 <h5><span class="header-section-number">7.2.3.4.1</span> Activity 9: Residuals</h5>
 <p>We had observed that there were differences between the observed and expected frequencies. This is called a <strong>residual</strong>. Some differences seem larger than others. For example, there were about 21 more people that lived in areas where rubbish was very common and they experienced more victimisation than what was expected under the null hypothesis. When you see large differences, it is unsurprising to also expect that the cell in question may be playing a particularly strong role in driving the relationship between rubbish and victimisation.</p>
@@ -1338,7 +1342,7 @@ oddsratio(mytable.4, stratum = NULL, log = FALSE)
 ```
 
 What's going on? Why do we have a different value here? If you look at the cross tab you should be able to understand. R is now computing the odd ratio for "not being a victim of a crime" (since this is what defines the first column). When an odds ratio is below 1 is indicating that the odds in the first row ("urban") are lower than in the second row ("rural"). Living in urban areas (as contrasted with living in rural areas) reduces the likelihood of non-victimisation.-->
-<p>Do keep in mind that ORs cannot take negative values. If the OR is greater than 1, that means that the presence of the risk factor increases the chances of the outcome relative to the absence of that risk factor.</p>
+<p>Do keep in mind that ORs cannot take on negative values. If the OR is greater than 1, that means that the presence of the risk factor increases the chances of the outcome relative to the absence of that risk factor.</p>
 <p>If the OR were between ‘0’and ’1’, that would mean the opposite: the presence of the ‘risk factor’ reduces the chances of the outome relative to the absence of said factor.
 A value of ‘1’ means that there is no relationship between the two variables – the odds are the same for both groups.</p>
 <p>As the OR is about odds, you cannot state that urban dwellers are 1.78 <em>more likely</em> to be victimised. All you can state with an OR is that the <em>odds</em> of being victimised are 1.78 times higher for urban dwellers than for residents in rural areas. Odds and probabilities are different things.</p>
