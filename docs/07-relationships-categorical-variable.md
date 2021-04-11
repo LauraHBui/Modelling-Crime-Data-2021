@@ -62,21 +62,17 @@ Today, we learn how to conduct more inferential statistical analyses, but specif
 Before we start, we do the following:
 
 1. Open up our existing `R` project
-<br>
 
 2. Install and load the required packages listed above with exception to `vcdExtra`; the reason is `vcdExtra` will interfere with the package `dplyr` (see Lesson 1, section 1.3.3 on masking):
-<br>
 
 
 
 
 3. Download from Blackboard and load into `R` the British Crime Survey (BCS) dataset (*bcs_2007_8_teaching_data_unrestricted.dta* ). Be mindful of its data format because it will require certain codes and packages. Name this data frame `BCS0708`. 
-<br>
 
 
 
 4.	Get to know the data with the `View()` function.
-<br>
 
 
 
@@ -389,6 +385,7 @@ The density plots provide a visual tool for assessing the *unimodality* -- a sin
 
 4. *The variances of both samples are equal to each other*. We test for this in the next section.
 <!--Later, we will discuss a more elaborate graphical tool for assessing the normality, the normal probability plot.The BCS uses a complex survey design which would require the use of special procedures for hypothesis testing. However, those special procedures are well beyond the scope of this course and would typically be covered in more advanced courses. Therefore, for convenience -->
+
 <br>
 
 For an independent sample t-test, however, an additional assumption must be met: 
