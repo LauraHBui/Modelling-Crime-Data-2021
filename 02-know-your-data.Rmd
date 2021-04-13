@@ -40,7 +40,7 @@
 -	`mutate()` : Creates new vectors or transforms existing ones (`dplyr`)
 - `names()` : Returns the names of the variables in the data frame (`base R`)
 -	`read_spss()` : Imports SPSS .sav files (`haven`)
-- `recode()` : Substitutes old values of a factor or a numeric vector by new ones (`dplyr`)
+- `recode()` : Substitutes old values of a factor or a numeric vector with new ones (`dplyr`)
 -	`remove_labels()` : Removes value labels from a variable (`sjlabelled`)
 -	`remove_var_label()` : Removes a variable’s label (`labelled`)
 -	`select()` : Select columns to retain or drop (`dplyr`)
