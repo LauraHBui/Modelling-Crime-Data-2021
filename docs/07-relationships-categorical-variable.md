@@ -1505,7 +1505,7 @@ ORs are about odds: it is the ratio of two odds -- the odds of having the outcom
 
 The OR of victimisation for urban dwellers to rural residents is 1.78 (0.2878496/ 0.1612651). This means that the odds of victimisation are 1.78 times higher for urban dwellers than it is for those in rural areas. 
 
-We use `R` to obtain the OR directly with the `vcd` package (it may already be loaded because sometimes it accompanies the package `vcdExtra`: 
+We use `R` to obtain the OR directly with the `vcd` package (it may already be loaded because sometimes it accompanies the package `vcdExtra`): 
 <br>
 
 
@@ -1555,7 +1555,7 @@ It is also very important you do not confuse the relative risk (a ratio of proba
 
 Odd ratios are ratios of odds, not probability ratios. -->
 
-Last, these values must be interpreted carefully. You will often see media reports announcing things like 'chocolate consumption will double your risk of some $*insert~ terrible~ disease*$'. What that means is that the percentage of cases of individuals that take chocolate (the 'risk factor') and present the outcome is twice as large as those that do not take chocolate but present the outcome. Yet the probabilities could be very low to start with, so such proclaimations can be very misleading (see Figure 7.2).
+Last, these values must be interpreted carefully. You will often see media reports announcing things like 'chocolate consumption will double your risk of some $*insert~ terrible~ disease*$'. What that means is that the percentage of cases of individuals that take chocolate (the 'risk factor') and present the outcome is twice as large as those that do not take chocolate but present the outcome. Yet the probabilities could be very low to start with, so such proclamations can be very misleading (see Figure 7.2).
 
 <br>
 
