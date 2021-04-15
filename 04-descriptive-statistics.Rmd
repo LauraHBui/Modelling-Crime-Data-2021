@@ -38,6 +38,7 @@
 -	`group_by()` : Group observations by variable(s) for performing operations (`dplyr`)
 -	`IQR()` : Compute interquartile range (`base R`)
 -	`is.na()` : Returns `TRUE` when values are missing, `FALSE` if not (`base R`)
+- `load()` : Reads data that are stored in an `R` data file formet (`base R`)
 -	`mean()` : Compute arithmetic mean (`base R`)
 -	`max()` : Returns the maximum value (`base R`)
 -	`min()` : Returns the minimum value (`base R`)
