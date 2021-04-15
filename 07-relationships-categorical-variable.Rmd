@@ -837,9 +837,9 @@ Our output shows that the effect size is positive and low to moderate (Gamma = 0
 
 ---
 
-##### Activity 11: Odd ratios
+##### Activity 11: Odds ratios
 
-To estimate the effect size between two binary variables are **odd ratios** (ORs). If you have knowledge of betting, you may already know a bit about odds. For this example, we are interested in the relationship between victimisation (`bcsvictim`) and living in a rural or urban area (`rural2`): 
+To estimate the effect size between two binary variables are **odds ratios** (ORs). If you have knowledge of betting, you may already know a bit about odds. For this example, we are interested in the relationship between victimisation (`bcsvictim`) and living in a rural or urban area (`rural2`): 
 <br>
 
 ```{r}

@@ -143,7 +143,7 @@ ggplot(data = many_samples) +
   geom_vline(mapping = aes(xintercept = mean(samples_means) - 1.96*sd(samples_means)), col = "blue", linetype = "dashed")
 ```
 
-<img src="alesse_changes_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](alesse_changes_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
 
 
 
@@ -185,5 +185,5 @@ ggplot(data = new.sample.ci100) +
   geom_point(mapping = aes(y = .index, x = meanIQ, colour = capture.mean))
 ```
 
-<img src="alesse_changes_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](alesse_changes_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
 
