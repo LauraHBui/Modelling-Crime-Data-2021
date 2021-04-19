@@ -91,7 +91,7 @@ Our main topic of the day is **regression** and we learn two forms: ordinary lea
 
 
 
-**Ordinary least squares (OLS)** regression is a popular technique used to explore whether one or multiple independent variables (X) can predict or explain the variation in the dependent variable (Y).  When multiple independent variables are included simultaneously, they are called **covariates**; when only one independent variable is used, the OLS regression is called **bivariate regression**. OLS regression has been the mainstay analysis in the social sciences. 
+**Ordinary least squares (OLS)** regression is a popular technique used to explore whether one or multiple independent variables (X) can predict or explain the variation in the dependent variable (Y).  When multiple independent variables are included simultaneously, they are called **covariates**; when only one independent variable is used, the OLS regression is called **bivariate regression** or **simple regression**. OLS regression has been the mainstay analysis in the social sciences. 
 
 
 

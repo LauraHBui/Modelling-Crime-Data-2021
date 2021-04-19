@@ -1,7 +1,7 @@
 --- 
 title: "CRIM20452 Modelling Criminological Data"
 author: "Laura Bui & Reka Solymosi"
-date: "2021-04-15"
+date: "2021-04-19"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -21,7 +21,7 @@ description: "This is a companion workbook for the 2nd year undergraduate module
 
 ##### Course Director: Dr Reka Solymosi {-}
 
-##### Teaching team: Dr Laura Bui, Carlos Iglesias, Ioana Macoveciuc, and Denny Vlaeva {-}
+##### Teaching team: Dr Laura Bui, Carlos Iglesias, Dr Ioana Macoveciuc, and Denny Vlaeva {-}
 
 <br>
 <br>
