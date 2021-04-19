@@ -19,9 +19,9 @@ description: "This is a companion workbook for the 2nd year undergraduate module
 <br>
 <br>
 
-##### Course Director: Dr Reka Solymosi {-}
+##### Course Director: Reka Solymosi {-}
 
-##### Teaching team: Dr Laura Bui, Carlos Iglesias, Dr Ioana Macoveciuc, and Denny Vlaeva {-}
+##### Teaching team: Laura Bui, Carlos Iglesias, Ioana Macoveciuc, and Denny Vlaeva {-}
 
 <br>
 <br>

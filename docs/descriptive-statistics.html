@@ -33,7 +33,6 @@
   
 <link rel="prev" href="data-visualization.html"/>
 <link rel="next" href="inferential-statistics.html"/>
-<script src="libs/header-attrs-2.7.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,26 +53,25 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,142 +132,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a>
-<ul>
+<li class="chapter" data-level="1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html"><i class="fa fa-check"></i><b>1</b> A First Lesson About R</a><ul>
+<li class="chapter" data-level="1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#install-r-r-studio"><i class="fa fa-check"></i><b>1.1</b> Install R &amp; R Studio</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-1-identifying-your-operating-system"><i class="fa fa-check"></i><b>1.1.1</b> Activity 1: Identifying your operating system</a></li>
 <li class="chapter" data-level="1.1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#activity-2-install-r-r-studio"><i class="fa fa-check"></i><b>1.1.2</b> Activity 2: Install R &amp; R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-rstudio"><i class="fa fa-check"></i><b>1.2</b> Getting to know <code>RStudio</code></a>
-<ul>
+<li class="chapter" data-level="1.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#getting-to-know-rstudio"><i class="fa fa-check"></i><b>1.2</b> Getting to know <code>RStudio</code></a><ul>
 <li class="chapter" data-level="1.2.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#the-four-panes-of-r-studio"><i class="fa fa-check"></i><b>1.2.1</b> The four panes of R Studio</a></li>
 <li class="chapter" data-level="1.2.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#customising-r-studio"><i class="fa fa-check"></i><b>1.2.2</b> Customising R Studio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a>
-<ul>
+<li class="chapter" data-level="1.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#todays-3-topics"><i class="fa fa-check"></i><b>1.3</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#operators-and-functions"><i class="fa fa-check"></i><b>1.3.1</b> Operators and Functions</a></li>
 <li class="chapter" data-level="1.3.2" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#objects"><i class="fa fa-check"></i><b>1.3.2</b> Objects</a></li>
 <li class="chapter" data-level="1.3.3" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#packages-1"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="a-first-lesson-about-r.html"><a href="a-first-lesson-about-r.html#summary"><i class="fa fa-check"></i><b>1.4</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a>
-<ul>
+<li class="chapter" data-level="2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html"><i class="fa fa-check"></i><b>2</b> Getting to know your data</a><ul>
 <li class="chapter" data-level="2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#the-tidyverse"><i class="fa fa-check"></i><b>2.1</b> The Tidyverse</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#r-projects-getting-your-work-files-organised"><i class="fa fa-check"></i><b>2.2</b> R Projects – Getting Your Work Files Organised</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-1-making-yourself-a-project"><i class="fa fa-check"></i><b>2.2.1</b> Activity 1: Making yourself a project</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing Data</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#activity-2-importing-and-viewing-data"><i class="fa fa-check"></i><b>2.3.1</b> Activity 2: Importing and Viewing Data</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a>
-<ul>
+<li class="chapter" data-level="2.4" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#todays-3-topics-1"><i class="fa fa-check"></i><b>2.4</b> Today’s 3 (TOPICS)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#variables"><i class="fa fa-check"></i><b>2.4.1</b> Variables</a></li>
 <li class="chapter" data-level="2.4.2" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#labels"><i class="fa fa-check"></i><b>2.4.2</b> Labels</a></li>
 <li class="chapter" data-level="2.4.3" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#subsetting"><i class="fa fa-check"></i><b>2.4.3</b> Subsetting</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a>
-<ul>
+<li class="chapter" data-level="2.5" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#summary-1"><i class="fa fa-check"></i><b>2.5</b> SUMMARY</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="getting-to-know-your-data.html"><a href="getting-to-know-your-data.html#answers-to-activities-if-applicable"><i class="fa fa-check"></i><b>2.5.1</b> Answers to activities (if applicable)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a>
-<ul>
+<li class="chapter" data-level="3" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>3</b> Data Visualization</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>3.1</b> Grammar of Graphics</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="data-visualization.html"><a href="data-visualization.html#activity-1-getting-ready"><i class="fa fa-check"></i><b>3.1.1</b> Activity 1: Getting Ready</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>3.2</b> ggplot2</a></li>
-<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="3.3" data-path="data-visualization.html"><a href="data-visualization.html#todays-3"><i class="fa fa-check"></i><b>3.3</b> Today’s 3</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="data-visualization.html"><a href="data-visualization.html#layers"><i class="fa fa-check"></i><b>3.3.1</b> Layers</a></li>
 <li class="chapter" data-level="3.3.2" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-categorical-data"><i class="fa fa-check"></i><b>3.3.2</b> Graphs for Categorical Data</a></li>
 <li class="chapter" data-level="3.3.3" data-path="data-visualization.html"><a href="data-visualization.html#graphs-for-numeric-data"><i class="fa fa-check"></i><b>3.3.3</b> Graphs for Numeric Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a>
-<ul>
+<li class="chapter" data-level="3.4" data-path="data-visualization.html"><a href="data-visualization.html#summary-2"><i class="fa fa-check"></i><b>3.4</b> SUMMARY</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="data-visualization.html"><a href="data-visualization.html#answers-to-activities"><i class="fa fa-check"></i><b>3.4.1</b> ANSWERS TO ACTIVITIES:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a>
-<ul>
+<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#revisiting-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Revisiting Descriptive Statistics</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#activity-1-our-preparation-routine"><i class="fa fa-check"></i><b>4.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#todays-3-1"><i class="fa fa-check"></i><b>4.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#central-tendency"><i class="fa fa-check"></i><b>4.2.1</b> Central Tendency</a></li>
 <li class="chapter" data-level="4.2.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#outliers"><i class="fa fa-check"></i><b>4.2.2</b> Outliers</a></li>
 <li class="chapter" data-level="4.2.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#measures-of-dispersion"><i class="fa fa-check"></i><b>4.2.3</b> Measures of Dispersion</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a>
-<ul>
+<li class="chapter" data-level="4.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#summary-3"><i class="fa fa-check"></i><b>4.3</b> SUMMARY</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#answers-to-activities-where-applicable"><i class="fa fa-check"></i><b>4.3.1</b> Answers to Activities (where applicable)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a>
-<ul>
+<li class="chapter" data-level="5" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>5</b> Inferential Statistics</a><ul>
+<li class="chapter" data-level="5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generalising-about-the-world-from-data"><i class="fa fa-check"></i><b>5.1</b> Generalising About the World from Data</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#activity-1-our-preparation-routine-1"><i class="fa fa-check"></i><b>5.1.1</b> Activity 1: Our preparation routine</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#todays-3-2"><i class="fa fa-check"></i><b>5.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#samples"><i class="fa fa-check"></i><b>5.2.1</b> Samples</a></li>
 <li class="chapter" data-level="5.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#the-standard-error"><i class="fa fa-check"></i><b>5.2.2</b> The Standard Error</a></li>
 <li class="chapter" data-level="5.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#confidence-intervals"><i class="fa fa-check"></i><b>5.2.3</b> Confidence Intervals</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#summary-4"><i class="fa fa-check"></i><b>5.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-testing"><i class="fa fa-check"></i><b>6.1</b> Hypothesis Testing</a>
-<ul>
+<li class="chapter" data-level="6" data-path="hypotheses.html"><a href="hypotheses.html"><i class="fa fa-check"></i><b>6</b> Hypotheses</a><ul>
+<li class="chapter" data-level="6.1" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-testing"><i class="fa fa-check"></i><b>6.1</b> Hypothesis Testing</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="hypotheses.html"><a href="hypotheses.html#the-null-hypothesis"><i class="fa fa-check"></i><b>6.1.1</b> The null hypothesis</a></li>
 <li class="chapter" data-level="6.1.2" data-path="hypotheses.html"><a href="hypotheses.html#directional-hypotheses"><i class="fa fa-check"></i><b>6.1.2</b> Directional hypotheses</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="hypotheses.html"><a href="hypotheses.html#todays-3-3"><i class="fa fa-check"></i><b>6.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="hypotheses.html"><a href="hypotheses.html#statistical-significance"><i class="fa fa-check"></i><b>6.2.1</b> Statistical Significance</a></li>
 <li class="chapter" data-level="6.2.2" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-tests-for-the-binomial-distribution"><i class="fa fa-check"></i><b>6.2.2</b> Hypothesis Tests for the Binomial Distribution</a></li>
 <li class="chapter" data-level="6.2.3" data-path="hypotheses.html"><a href="hypotheses.html#hypothesis-tests-for-the-normal-distribution"><i class="fa fa-check"></i><b>6.2.3</b> Hypothesis Tests for the Normal Distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="hypotheses.html"><a href="hypotheses.html#summary-5"><i class="fa fa-check"></i><b>6.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#associating-with-categorical-variables"><i class="fa fa-check"></i><b>7.1</b> Associating with Categorical Variables</a>
-<ul>
+<li class="chapter" data-level="7" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html"><i class="fa fa-check"></i><b>7</b> Relationships with Categorical Variables</a><ul>
+<li class="chapter" data-level="7.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#associating-with-categorical-variables"><i class="fa fa-check"></i><b>7.1</b> Associating with Categorical Variables</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#activity-1-our-r-prep-routine"><i class="fa fa-check"></i><b>7.1.1</b> Activity 1: Our <code>R</code> prep routine</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#todays-3-4"><i class="fa fa-check"></i><b>7.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#independent-and-dependent-variables"><i class="fa fa-check"></i><b>7.2.1</b> Independent and Dependent Variables</a></li>
 <li class="chapter" data-level="7.2.2" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#comparing-means-the-t-test"><i class="fa fa-check"></i><b>7.2.2</b> Comparing means: the t-test</a></li>
 <li class="chapter" data-level="7.2.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#chi-square"><i class="fa fa-check"></i><b>7.2.3</b> Chi-square</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="relationships-with-categorical-variables.html"><a href="relationships-with-categorical-variables.html#summary-6"><i class="fa fa-check"></i><b>7.3</b> SUMMARY</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="testing-relationships-ii-.html"><a href="testing-relationships-ii-.html"><i class="fa fa-check"></i><b>8</b> Testing relationships II.</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="testing-relationships-ii-.html"><a href="testing-relationships-ii-.html#measures-of-association"><i class="fa fa-check"></i><b>8.1</b> Measures of Association</a></li>
-<li class="chapter" data-level="8.2" data-path="testing-relationships-ii-.html"><a href="testing-relationships-ii-.html#todays-3-5"><i class="fa fa-check"></i><b>8.2</b> Today’s 3</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="testing-relationships-ii-.html"><a href="testing-relationships-ii-.html#effect-sizes-for-relationships-between-with-categorical-variables"><i class="fa fa-check"></i><b>8.2.1</b> Effect sizes for relationships between with categorical variables</a></li>
-<li class="chapter" data-level="8.2.2" data-path="testing-relationships-ii-.html"><a href="testing-relationships-ii-.html#relationships-between-numeric-variables"><i class="fa fa-check"></i><b>8.2.2</b> Relationships Between Numeric Variables</a></li>
-<li class="chapter" data-level="8.2.3" data-path="testing-relationships-ii-.html"><a href="testing-relationships-ii-.html#power-analysis"><i class="fa fa-check"></i><b>8.2.3</b> Power analysis</a></li>
+<li class="chapter" data-level="8" data-path="more-on-effect-sizes.html"><a href="more-on-effect-sizes.html"><i class="fa fa-check"></i><b>8</b> (More) On Effect Sizes</a><ul>
+<li class="chapter" data-level="8.1" data-path="more-on-effect-sizes.html"><a href="more-on-effect-sizes.html#measures-of-association-a-continuation"><i class="fa fa-check"></i><b>8.1</b> Measures of Association: A Continuation</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="more-on-effect-sizes.html"><a href="more-on-effect-sizes.html#activity-1-the-r-prep-routine"><i class="fa fa-check"></i><b>8.1.1</b> Activity 1: The <code>R</code> prep routine</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="testing-relationships-ii-.html"><a href="testing-relationships-ii-.html#summary-7"><i class="fa fa-check"></i><b>8.3</b> SUMMARY</a></li>
+<li class="chapter" data-level="8.2" data-path="more-on-effect-sizes.html"><a href="more-on-effect-sizes.html#todays-2"><i class="fa fa-check"></i><b>8.2</b> Today’s 2 (!)</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="more-on-effect-sizes.html"><a href="more-on-effect-sizes.html#correlations"><i class="fa fa-check"></i><b>8.2.1</b> Correlations</a></li>
+<li class="chapter" data-level="8.2.2" data-path="more-on-effect-sizes.html"><a href="more-on-effect-sizes.html#power-analysis"><i class="fa fa-check"></i><b>8.2.2</b> Power analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a>
-<ul>
+<li class="chapter" data-level="8.3" data-path="more-on-effect-sizes.html"><a href="more-on-effect-sizes.html#summary-7"><i class="fa fa-check"></i><b>8.3</b> SUMMARY</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a><ul>
 <li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#multiple-and-simultaneous-relationships"><i class="fa fa-check"></i><b>9.1</b> Multiple and Simultaneous Relationships</a></li>
-<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-6"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a>
-<ul>
+<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#todays-3-5"><i class="fa fa-check"></i><b>9.2</b> Today’s 3</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="regression.html"><a href="regression.html#assumptions-of-ols-regression"><i class="fa fa-check"></i><b>9.2.1</b> Assumptions of OLS Regression</a></li>
 <li class="chapter" data-level="9.2.2" data-path="regression.html"><a href="regression.html#interpreting-ols-regression"><i class="fa fa-check"></i><b>9.2.2</b> Interpreting OLS Regression</a></li>
 <li class="chapter" data-level="9.2.3" data-path="regression.html"><a href="regression.html#logistic-regression"><i class="fa fa-check"></i><b>9.2.3</b> Logistic Regression</a></li>
@@ -296,7 +265,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="descriptive-statistics" class="section level1" number="4">
+<div id="descriptive-statistics" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Descriptive Statistics</h1>
 <div id="central-tendency-outliers-and-dispersion" class="section level4 unnumbered">
 <h4><em>Central Tendency, Outliers, and Dispersion</em></h4>
@@ -361,13 +330,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 </div>
 </div>
-<div id="revisiting-descriptive-statistics" class="section level2" number="4.1">
+<div id="revisiting-descriptive-statistics" class="section level2">
 <h2><span class="header-section-number">4.1</span> Revisiting Descriptive Statistics</h2>
 <p>The field of statistics is divided into two main branches: descriptive and inferential. Much of what you will cover today on descriptive statistics will be a review from last semester, but learning to conduct them in <code>R</code> will be a new learning experience.</p>
 <p>So, what are descriptive statistics? If general statistics is concerned with the study of how best to collect, analyse, and make conclusions about data, then this specific branch – descriptive statistics – is concerned with the sample distribution and the population distribution from which the sample is drawn. Basically, descriptive statistics are ways of describing your data.</p>
 <p>Similar to last week’s lesson on data visualization, describing your data is important because it helps you identify patterns and anomalies. In addition, it gives others a succinct understanding of your data, so it facilitates good communication. We revisit and learn another three substantive topics today: the <strong>central tendency</strong>, <strong>outliers</strong>, and <strong>dispersion</strong>.
 <br></p>
-<div id="activity-1-our-preparation-routine" class="section level3" number="4.1.1">
+<div id="activity-1-our-preparation-routine" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Activity 1: Our preparation routine</h3>
 <p>We start by doing the usual routine, but with new data on police body-worn cameras:</p>
 <ol style="list-style-type: decimal">
@@ -375,21 +344,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Load the required packages (listed at the top of this lesson). Some of these are familiar from previous weeks, so you only need to use the function <code>library()</code>to load them. For packages that we have not used before and are not installed in our <code>R</code>, you will need to use the function <code>install.packages()</code> first before loading it with <code>library()</code>:
 <br></p></li>
 </ol>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="descriptive-statistics.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remember, we only need to do this once whenever we meet a new package and would like to keep it handy in our own R library of packages:</span></span>
-<span id="cb139-2"><a href="descriptive-statistics.html#cb139-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb139-3"><a href="descriptive-statistics.html#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;modeest&quot;</span>)</span>
-<span id="cb139-4"><a href="descriptive-statistics.html#cb139-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;moments&quot;</span>)</span>
-<span id="cb139-5"><a href="descriptive-statistics.html#cb139-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;qualvar&quot;</span>)</span>
-<span id="cb139-6"><a href="descriptive-statistics.html#cb139-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;skimr&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="descriptive-statistics.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All of these are now in our R library of packages, but we need to load them, or &#39;bring them to life&#39;, to use their functions:</span></span>
-<span id="cb140-2"><a href="descriptive-statistics.html#cb140-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb140-3"><a href="descriptive-statistics.html#cb140-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb140-4"><a href="descriptive-statistics.html#cb140-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb140-5"><a href="descriptive-statistics.html#cb140-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb140-6"><a href="descriptive-statistics.html#cb140-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modeest)</span>
-<span id="cb140-7"><a href="descriptive-statistics.html#cb140-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(moments)</span>
-<span id="cb140-8"><a href="descriptive-statistics.html#cb140-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qualvar)</span>
-<span id="cb140-9"><a href="descriptive-statistics.html#cb140-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" title="1"><span class="co"># Remember, we only need to do this once whenever we meet a new package and would like to keep it handy in our own R library of packages:</span></a>
+<a class="sourceLine" id="cb143-2" title="2"></a>
+<a class="sourceLine" id="cb143-3" title="3"><span class="kw">install.packages</span>(<span class="st">&quot;modeest&quot;</span>)</a>
+<a class="sourceLine" id="cb143-4" title="4"><span class="kw">install.packages</span>(<span class="st">&quot;moments&quot;</span>)</a>
+<a class="sourceLine" id="cb143-5" title="5"><span class="kw">install.packages</span>(<span class="st">&quot;qualvar&quot;</span>)</a>
+<a class="sourceLine" id="cb143-6" title="6"><span class="kw">install.packages</span>(<span class="st">&quot;skimr&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1"><span class="co"># All of these are now in our R library of packages, but we need to load them, or &#39;bring them to life&#39;, to use their functions:</span></a>
+<a class="sourceLine" id="cb144-2" title="2"></a>
+<a class="sourceLine" id="cb144-3" title="3"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb144-4" title="4"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb144-5" title="5"><span class="kw">library</span>(here)</a>
+<a class="sourceLine" id="cb144-6" title="6"><span class="kw">library</span>(modeest)</a>
+<a class="sourceLine" id="cb144-7" title="7"><span class="kw">library</span>(moments)</a>
+<a class="sourceLine" id="cb144-8" title="8"><span class="kw">library</span>(qualvar)</a>
+<a class="sourceLine" id="cb144-9" title="9"><span class="kw">library</span>(skimr)</a></code></pre></div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
 <li><p>You will have downloaded the datasets from Blackboard as usual, ensuring the datasets have been moved into the subfolder you had created from Lesson 2 called ‘Datasets’.</p></li>
@@ -397,13 +366,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>For this type of dataset, as it is in an ‘.rda’ data file format, we will need to use the <code>load()</code> function to import the data frame into our environment, specifying your working directory using <code>here()</code> like we have in Lesson 2, section 2.1.
 <br></p></li>
 </ol>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="descriptive-statistics.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;37302-0001-Data.rda&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" title="1"><span class="kw">load</span>(<span class="kw">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;37302-0001-Data.rda&quot;</span>))</a></code></pre></div>
 <p><br></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Name the data frame <code>bwcs</code> by using the <code>&lt;-</code> assignment operator. Another way of looking at it is you are putting the dataset into a ‘box’ that you will call ‘bwcs’. It will appear in the Environment pane like all objects you create in <code>R</code>.
 <br></li>
 </ol>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="descriptive-statistics.html#cb142-1" aria-hidden="true" tabindex="-1"></a>bwcs <span class="ot">&lt;-</span> da37302<span class="fl">.0001</span></span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1">bwcs &lt;-<span class="st"> </span>da37302<span class="fl">.0001</span></a></code></pre></div>
 <p><br></p>
 <ol start="7" style="list-style-type: decimal">
 <li>Use the function <code>View(bwcs)</code> to ensure the file is loaded and to get to know your data. You can also use the function <code>dim(bwcs)</code> to see the number of observations and variables.
@@ -413,24 +382,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 </div>
 </div>
-<div id="todays-3-1" class="section level2" number="4.2">
+<div id="todays-3-1" class="section level2">
 <h2><span class="header-section-number">4.2</span> Today’s 3</h2>
 <p>Two primary ways of describing your data have to do with the central tendency and their dispersion. We also learn about outliers.
 <br>
 <br></p>
 <hr />
-<div id="central-tendency" class="section level3" number="4.2.1">
+<div id="central-tendency" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Central Tendency</h3>
 <p>Central tendency refers to a descriptive summary of the centre of the data’s distribution; it takes the form of a single number that is meant to represent the middle or average of the data. The <strong>mean</strong>, <strong>median</strong>, and <strong>mode</strong> are common statistics of the central tendency.</p>
 <p>The <em>mean</em> is the average and it is useful when we want to summarise a variable quickly. Its disadvantage is that it is sensitive to extreme values, so the mean can be distorted easily.</p>
 <p>To address this sensitivity, the <em>median</em> is a better measure because it is a robust estimate, which means that it is not easily swayed by extreme values. It is the middle value of the distribution.</p>
 <p>The <em>mode</em> helps give an idea of what is the most typical value in the distribution, which is the most frequently occurring case in the data. While mean and median apply to numeric variables, the mode is most useful when describing categorical variables. For example, you may want to know the most frequently occurring category.</p>
 <p><br></p>
-<div id="activity-2-recap-of-how-to-obtain-the-mean-and-median" class="section level4" number="4.2.1.1">
+<div id="activity-2-recap-of-how-to-obtain-the-mean-and-median" class="section level4">
 <h4><span class="header-section-number">4.2.1.1</span> Activity 2: Recap of how to obtain the mean and median</h4>
 <p>In Lesson 1, you were introduced to the functions <code>mean()</code> and <code>median()</code>. There is no direct function in <code>base R</code> to calculate the mode, but we will learn one way to do so soon. First, find only the mean and median for the following six numbers:
 <br></p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="descriptive-statistics.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 345, 100, 250, 100, 101, 300 </span></span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" title="1"><span class="co"># 345, 100, 250, 100, 101, 300 </span></a></code></pre></div>
 <p><br></p>
 <p>Type your answers in the group google doc.</p>
 <!--mean(c(345, 100, 250, 100, 101, 300)) = 199.33-->
@@ -439,7 +408,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <br></p>
 <hr />
 </div>
-<div id="activity-3-levels-of-measurement" class="section level4" number="4.2.1.2">
+<div id="activity-3-levels-of-measurement" class="section level4">
 <h4><span class="header-section-number">4.2.1.2</span> Activity 3: Levels of measurement</h4>
 <p>From today’s data, we are interested in exploring the adoption of body-worn cameras (BWCs) and their usage in a sample of agencies. The variables that will help us explore this is <code>Q_10A</code> because it measures whether the agency adopted BWCs as of 2016 and <code>Q_12</code> because it measures the number of cameras that agencies reported using.</p>
 <p>Let us say we want to learn about these variables. The first step to choosing the appropriate analysis for our variables, <code>Q_10A</code> and <code>Q_12</code>, is establishing: <em>what are their levels of measurement</em>?</p>
@@ -450,14 +419,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <br></p>
 <p>Now that we have established the level of measurement for our variables, what type of object does <code>R</code> think these variables are? In other words, what are these variables classed as? Recall that we can use the <code>class()</code> function to answer this:
 <br></p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="descriptive-statistics.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We start with variable Q_10A:</span></span>
-<span id="cb144-2"><a href="descriptive-statistics.html#cb144-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb144-3"><a href="descriptive-statistics.html#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(bwcs<span class="sc">$</span>Q_10A) </span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1"><span class="co"># We start with variable Q_10A:</span></a>
+<a class="sourceLine" id="cb148-2" title="2"></a>
+<a class="sourceLine" id="cb148-3" title="3"><span class="kw">class</span>(bwcs<span class="op">$</span>Q_10A) </a></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
 <p><br></p>
 <p><code>Q_10A</code> is classed as a factor. Another function that will return what the variable is classed as but also the specific levels is the <code>attributes()</code> function:
 <br></p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="descriptive-statistics.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(bwcs<span class="sc">$</span>Q_10A)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" title="1"><span class="kw">attributes</span>(bwcs<span class="op">$</span>Q_10A)</a></code></pre></div>
 <pre><code>## $levels
 ## [1] &quot;(1) Agency has acquired in any form (including testing)&quot;
 ## [2] &quot;(2) Agency has not acquired&quot;                            
@@ -468,16 +437,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This factor variable has two levels: ‘(1) Agency has acquired in any form (including testing)’ and ‘(2) Agency has not acquired’.</p>
 <p>Now, we want to know the <strong>mode</strong> – which level or category appears most frequently in our data set. We use the function <code>mlv()</code> (acronym for <strong>m</strong>ost <strong>l</strong>ikely <strong>v</strong>alues) from the <code>modeest</code> package to answer this question:
 <br></p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="descriptive-statistics.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Double check that the package modeest is loaded for this code to work</span></span>
-<span id="cb148-2"><a href="descriptive-statistics.html#cb148-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb148-3"><a href="descriptive-statistics.html#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mlv</span>(bwcs<span class="sc">$</span>Q_10A)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" title="1"><span class="co"># Double check that the package modeest is loaded for this code to work</span></a>
+<a class="sourceLine" id="cb152-2" title="2"></a>
+<a class="sourceLine" id="cb152-3" title="3"><span class="kw">mlv</span>(bwcs<span class="op">$</span>Q_10A)</a></code></pre></div>
 <pre><code>## [1] (2) Agency has not acquired
 ## 2 Levels: (1) Agency has acquired in any form (including testing) ...</code></pre>
 <p><br></p>
 <p>The output returns the answer as: ‘(2) Agency has not acquired’. It also, conveniently, prints all the levels so we can see what are the other categories.</p>
 <p>If you want to cross check your answer obtained from the <code>mlv()</code> function, create a frequency table using the <code>table()</code> function:
 <br></p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="descriptive-statistics.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bwcs<span class="sc">$</span>Q_10A)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1"><span class="kw">table</span>(bwcs<span class="op">$</span>Q_10A)</a></code></pre></div>
 <pre><code>## 
 ## (1) Agency has acquired in any form (including testing) 
 ##                                                    1915 
@@ -487,28 +456,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Indeed, there are 2,013 observations where the agency had not acquired any body worn cameras, which is more than the 1,915 observations where the agency had acquired body worn cameras in any format.</p>
 <p>We could also run the <code>mlv()</code> function and save the output in an object rather than print the answers into the console. Here, we save to the object called <code>mode_adopted</code>:
 <br></p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="descriptive-statistics.html#cb152-1" aria-hidden="true" tabindex="-1"></a>mode_adopted <span class="ot">&lt;-</span> <span class="fu">mlv</span>(bwcs<span class="sc">$</span>Q_10A) </span>
-<span id="cb152-2"><a href="descriptive-statistics.html#cb152-2" aria-hidden="true" tabindex="-1"></a>mode_adopted</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1">mode_adopted &lt;-<span class="st"> </span><span class="kw">mlv</span>(bwcs<span class="op">$</span>Q_10A) </a>
+<a class="sourceLine" id="cb156-2" title="2">mode_adopted</a></code></pre></div>
 <pre><code>## [1] (2) Agency has not acquired
 ## 2 Levels: (1) Agency has acquired in any form (including testing) ...</code></pre>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="descriptive-statistics.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This new object will appear in your Environment pane</span></span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" title="1"><span class="co"># This new object will appear in your Environment pane</span></a></code></pre></div>
 <p><br>
 <br></p>
 <hr />
 <p>Our exploration into the adoption of BWCs has so far yielded the knowledge that the majority of agencies had not acquired BWCs as of 2016. But how about those that have done so? To what extent do they use BWCs? This is where variable <code>Q_12</code> comes in handy:
 <br></p>
 </div>
-<div id="activity-4-the-extent-of-body-worn-camera-use" class="section level4" number="4.2.1.3">
+<div id="activity-4-the-extent-of-body-worn-camera-use" class="section level4">
 <h4><span class="header-section-number">4.2.1.3</span> Activity 4: The extent of body worn camera use</h4>
 <p>Similar to the previous activity, obtain the class of the variable <code>Q_12</code>. Type the code you used and what class the variable is in your group google doc.</p>
 <p>After you do so, we get to know more about <code>Q_12</code>. First, let us get the minimum value:
 <br></p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="descriptive-statistics.html#cb155-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">min</span>(bwcs<span class="sc">$</span>Q_12,  <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1"> <span class="kw">min</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>,  <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p><br></p>
 <p>And then the maximum:
 <br></p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="descriptive-statistics.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(bwcs<span class="sc">$</span>Q_12, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="kw">max</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 1200</code></pre>
 <p><br></p>
 <p>Above we used the functions <code>min()</code> and <code>max()</code>, and inside we put the name of the specific variable we want the minimum and maximum of and the name of the data frame to which it belongs (hence, <code>bwcs$Q_12</code>). We also added the code <code>na.rm=TRUE</code> after the comma.</p>
@@ -521,45 +490,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We start with <code>dplyr</code>. Now, we will do two things: first, we use the <code>group_by()</code> function in order to group our observations by the values of the <code>Q_10A</code> variable. The values are ‘1’ and ‘2’, and are essentially the categories ‘(1) Agency has acquired in any form (including testing)’ and ‘(2) Agency has not acquired’. Then, we use the <code>summarise()</code> function, to tell us some summary statistics (in this case the mean, using the <code>mean()</code> function) <em>for each group</em>.</p>
 <p>We did a similar thing last semester whereby we obtained these descriptive statistics for <em>each</em> value of a particular variable when we examined the relationship between age and the reason someone was arrested. Here, we are looking for the values of how many body worn cameras are used (<code>Q_12</code>) <em>between</em> whether they are were acquired or not (<code>Q_10A</code>):
 <br></p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="descriptive-statistics.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If you do not remember what &#39;%&gt;%&#39; means, refer to Lesson 2, section 2.4.2.2</span></span>
-<span id="cb159-2"><a href="descriptive-statistics.html#cb159-2" aria-hidden="true" tabindex="-1"></a>bwcs <span class="sc">%&gt;%</span> </span>
-<span id="cb159-3"><a href="descriptive-statistics.html#cb159-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Q_10A) <span class="sc">%&gt;%</span> </span>
-<span id="cb159-4"><a href="descriptive-statistics.html#cb159-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_deployed =</span> <span class="fu">mean</span>(Q_12, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1"><span class="co"># If you do not remember what &#39;%&gt;%&#39; means, refer to Lesson 2, section 2.4.2.2</span></a>
+<a class="sourceLine" id="cb163-2" title="2">bwcs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb163-3" title="3"><span class="st">  </span><span class="kw">group_by</span>(Q_10A) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb163-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_deployed =</span> <span class="kw">mean</span>(Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 2 x 2
 ##   Q_10A                                                   mean_deployed
-## * &lt;fct&gt;                                                           &lt;dbl&gt;
+##   &lt;fct&gt;                                                           &lt;dbl&gt;
 ## 1 (1) Agency has acquired in any form (including testing)          31.8
 ## 2 (2) Agency has not acquired                                     NaN</code></pre>
 <p><br></p>
 <p>We see that in agencies where BWCs were acquired, the average number of cameras is about 32. But in agencies where BWCs were not acquired, the average is <code>NaN</code>. What is this?</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/nan.png" alt="" />
+<img src="Images/nan.png" alt="Figure 4.2 NaN??" />
 <p class="caption"><strong>Figure 4.2</strong> NaN??</p>
 </div>
 <p><br></p>
 <p><code>NaN</code> in <code>R</code> stands for <strong>N</strong>ot <strong>a</strong> <strong>N</strong>umber. The reason is <em>all</em> the values for the number of cameras used (in reference to <code>Q_12</code>) among agencies that had not acquired cameras (in reference <code>Q_10A</code>) is missing (<code>NA</code>). It makes sense that this should be so, because if agencies responded in <code>Q_10A</code> that they had not acquired any BWCs, then why would we expect them to give a number in <code>Q_12</code> on how many cameras they used? <code>Q_12</code> does not apply to them.</p>
 <p>Now, the above was the <code>dplyr</code> way. But you could use the <code>base R</code> way with the <code>mean()</code> function:
 <br></p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="descriptive-statistics.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bwcs<span class="sc">$</span>Q_12, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1"><span class="kw">mean</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 31.82024</code></pre>
 <p><br></p>
 <p>The answers from both ways are the same: 31.8 . This is because we know that one group (agencies that have not acquired BWCs) do not contribute to the average. We learn both methods because there may be situations where one is more appropriate than the other (e.g., maybe you want to see means for the individual categories when they are not <code>NaN</code>).</p>
 <p>Next, we identify the median, as, remember, the mean is susceptible to outliers. To get the median for each group, we use <code>summarise()</code> but, this time, we include the <code>median()</code> rather than the <code>mean()</code> function:
 <br></p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="descriptive-statistics.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the same format as above, but this time use the median() function </span></span>
-<span id="cb163-2"><a href="descriptive-statistics.html#cb163-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dplyr way </span></span>
-<span id="cb163-3"><a href="descriptive-statistics.html#cb163-3" aria-hidden="true" tabindex="-1"></a>bwcs <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Q_10A) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">med_deployed =</span> <span class="fu">median</span>(Q_12, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="co"># Use the same format as above, but this time use the median() function </span></a>
+<a class="sourceLine" id="cb168-2" title="2"><span class="co"># dplyr way </span></a>
+<a class="sourceLine" id="cb168-3" title="3">bwcs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Q_10A) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">med_deployed =</span> <span class="kw">median</span>(Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 2 x 2
 ##   Q_10A                                                   med_deployed
-## * &lt;fct&gt;                                                          &lt;dbl&gt;
+##   &lt;fct&gt;                                                          &lt;dbl&gt;
 ## 1 (1) Agency has acquired in any form (including testing)            8
 ## 2 (2) Agency has not acquired                                       NA</code></pre>
 <p><br></p>
 <p>What about the <code>base R</code> way?
 <br></p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="descriptive-statistics.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R way </span></span>
-<span id="cb165-2"><a href="descriptive-statistics.html#cb165-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(bwcs<span class="sc">$</span>Q_12, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1"><span class="co"># Base R way </span></a>
+<a class="sourceLine" id="cb171-2" title="2"><span class="kw">median</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p><br></p>
 <p>Again, both methods to obtain the median are the same, but the median differs a lot from the mean: it is 8.</p>
@@ -581,43 +552,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol></li>
 </ul>
 <p><br></p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="descriptive-statistics.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Table containing the mean, median, mode, and total number of BWCs used </span></span>
-<span id="cb167-2"><a href="descriptive-statistics.html#cb167-2" aria-hidden="true" tabindex="-1"></a>bwcs <span class="sc">%&gt;%</span></span>
-<span id="cb167-3"><a href="descriptive-statistics.html#cb167-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Q_10A) <span class="sc">%&gt;%</span> </span>
-<span id="cb167-4"><a href="descriptive-statistics.html#cb167-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_deployed =</span> <span class="fu">mean</span>(Q_12, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb167-5"><a href="descriptive-statistics.html#cb167-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_deployed =</span> <span class="fu">median</span>(Q_12, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb167-6"><a href="descriptive-statistics.html#cb167-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mode_deployed =</span> <span class="fu">mlv</span>(Q_12, <span class="at">method=</span><span class="st">&#39;mfv&#39;</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb167-7"><a href="descriptive-statistics.html#cb167-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">total =</span> <span class="fu">sum</span>(Q_12, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1"><span class="co"># Table containing the mean, median, mode, and total number of BWCs used </span></a>
+<a class="sourceLine" id="cb173-2" title="2">bwcs <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb173-3" title="3"><span class="st">  </span><span class="kw">group_by</span>(Q_10A) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb173-4" title="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_deployed =</span> <span class="kw">mean</span>(Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb173-5" title="5">            <span class="dt">median_deployed =</span> <span class="kw">median</span>(Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), </a>
+<a class="sourceLine" id="cb173-6" title="6">            <span class="dt">mode_deployed =</span> <span class="kw">mlv</span>(Q_<span class="dv">12</span>, <span class="dt">method=</span><span class="st">&#39;mfv&#39;</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), </a>
+<a class="sourceLine" id="cb173-7" title="7">            <span class="dt">total =</span> <span class="kw">sum</span>(Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 2 x 5
 ##   Q_10A                        mean_deployed median_deployed mode_deployed total
-## * &lt;fct&gt;                                &lt;dbl&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;
-## 1 (1) Agency has acquired in …          31.8               8             1 60363
+##   &lt;fct&gt;                                &lt;dbl&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;
+## 1 (1) Agency has acquired in ~          31.8               8             1 60363
 ## 2 (2) Agency has not acquired          NaN                NA           NaN     0</code></pre>
 <p><br></p>
 <p>Another handy package for descriptive statistics is <code>skimr</code>. The function <code>skim ()</code> produces measures of central tendency and measures of dispersion (we will learn more on these in the later section), and number of missing values.</p>
 <p>A great feature is that it also includes a histogram of the numeric variables specified. If you do not want to specify any variables, <code>skim()</code> will summarise your entire data frame, and this may be good, but it depends on the size of your dataset:
 <br></p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="descriptive-statistics.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the package &#39;skimr&#39; is loaded or this will not work</span></span>
-<span id="cb169-2"><a href="descriptive-statistics.html#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Produce a summary of your Q_12 variable, grouped by Q_10 using skim() </span></span>
-<span id="cb169-3"><a href="descriptive-statistics.html#cb169-3" aria-hidden="true" tabindex="-1"></a>bwcs <span class="sc">%&gt;%</span> </span>
-<span id="cb169-4"><a href="descriptive-statistics.html#cb169-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Q_10A) <span class="sc">%&gt;%</span> </span>
-<span id="cb169-5"><a href="descriptive-statistics.html#cb169-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim</span>(Q_12)</span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="4%" />
-<col width="6%" />
-<col width="27%" />
-<col width="4%" />
-<col width="6%" />
-<col width="6%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="6%" />
-<col width="6%" />
-</colgroup>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" title="1"><span class="co"># Ensure the package &#39;skimr&#39; is loaded or this will not work</span></a>
+<a class="sourceLine" id="cb176-2" title="2"><span class="co"># Produce a summary of your Q_12 variable, grouped by Q_10 using skim() </span></a>
+<a class="sourceLine" id="cb176-3" title="3">bwcs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb176-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(Q_10A) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb176-5" title="5"><span class="st">  </span><span class="kw">skim</span>(Q_<span class="dv">12</span>)</a></code></pre></div>
+<table>
 <thead>
 <tr class="header">
 <th align="left">skim_type</th>
@@ -672,7 +629,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <br></p>
 </div>
 </div>
-<div id="outliers" class="section level3" number="4.2.2">
+<div id="outliers" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Outliers</h3>
 <p>Recall the main disadvantage of the mean: it is not robust to extreme values, otherwise known as <strong>outliers</strong>.</p>
 <p>What exactly constitutes an <em>outlier</em>? Generally, an outlier is any observation that shows an extreme value on one of our variables. There are different ways to define what an outlier is, but, in this class, we use the <strong>interquartile range</strong> (IQR) to do so.</p>
@@ -841,76 +798,76 @@ We could also show this in a histogram, where everything to the right of the ora
 <p>To visualise this, see Figure 4.3:</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/tukey.png" style="width:70.0%" alt="" />
+<img src="Images/tukey.png" alt="Figure 4.3 Tukey fences" style="width:70.0%" />
 <p class="caption"><strong>Figure 4.3</strong> Tukey fences</p>
 </div>
 <p><br>
 <br></p>
-<div id="activity-5-determining-outliers-using-tukey-fences" class="section level4" number="4.2.2.1">
+<div id="activity-5-determining-outliers-using-tukey-fences" class="section level4">
 <h4><span class="header-section-number">4.2.2.1</span> Activity 5: Determining outliers using Tukey fences</h4>
 <p>We obtain the IQR of our <code>Q_12</code> variable using the <code>IQR</code> function, and save this into an object called <code>bwc_deployed_iqr</code>:
 <br></p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="descriptive-statistics.html#cb170-1" aria-hidden="true" tabindex="-1"></a>bwc_deployed_iqr <span class="ot">&lt;-</span> <span class="fu">IQR</span>(bwcs<span class="sc">$</span>Q_12, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1">bwc_deployed_iqr &lt;-<span class="st"> </span><span class="kw">IQR</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) </a></code></pre></div>
 <p><br></p>
 <p>It is now saved as an object and holds the value for the IQR:
 <br></p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="descriptive-statistics.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our &#39;box&#39; called &#39;bwc_deployed_iqr&#39; that holds the IQR of the variable Q_12</span></span>
-<span id="cb171-2"><a href="descriptive-statistics.html#cb171-2" aria-hidden="true" tabindex="-1"></a>bwc_deployed_iqr</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" title="1"><span class="co"># Our &#39;box&#39; called &#39;bwc_deployed_iqr&#39; that holds the IQR of the variable Q_12</span></a>
+<a class="sourceLine" id="cb178-2" title="2">bwc_deployed_iqr</a></code></pre></div>
 <pre><code>## [1] 17</code></pre>
 <p><br></p>
 <p>Next, we obtain the 1st and 3rd quartiles of the <code>Q_12</code> variable using the <code>quantile()</code> function and place them in objects too:
 <br></p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="descriptive-statistics.html#cb173-1" aria-hidden="true" tabindex="-1"></a>bwc_deployed_1st <span class="ot">&lt;-</span> <span class="fu">quantile</span>(bwcs<span class="sc">$</span>Q_12, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb173-2"><a href="descriptive-statistics.html#cb173-2" aria-hidden="true" tabindex="-1"></a>bwc_deployed_3rd <span class="ot">&lt;-</span> <span class="fu">quantile</span>(bwcs<span class="sc">$</span>Q_12, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" title="1">bwc_deployed_1st &lt;-<span class="st"> </span><span class="kw">quantile</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="fl">0.25</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) </a>
+<a class="sourceLine" id="cb180-2" title="2">bwc_deployed_3rd &lt;-<span class="st"> </span><span class="kw">quantile</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="fl">0.75</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><br></p>
 <p>Now, we calculate the Tukey fences and put them each in separate objects.</p>
 <p>The lower inner fence:
 <br></p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="descriptive-statistics.html#cb174-1" aria-hidden="true" tabindex="-1"></a>lower_inner_fence <span class="ot">&lt;-</span> bwc_deployed_1st <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> bwc_deployed_iqr </span>
-<span id="cb174-2"><a href="descriptive-statistics.html#cb174-2" aria-hidden="true" tabindex="-1"></a>lower_inner_fence</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" title="1">lower_inner_fence &lt;-<span class="st"> </span>bwc_deployed_1st <span class="op">-</span><span class="st"> </span><span class="fl">1.5</span> <span class="op">*</span><span class="st"> </span>bwc_deployed_iqr </a>
+<a class="sourceLine" id="cb181-2" title="2">lower_inner_fence</a></code></pre></div>
 <pre><code>##   25% 
 ## -22.5</code></pre>
 <p><br></p>
 <p>The upper inner fence:
 <br></p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="descriptive-statistics.html#cb176-1" aria-hidden="true" tabindex="-1"></a>upper_inner_fence <span class="ot">&lt;-</span> bwc_deployed_3rd <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> bwc_deployed_iqr </span>
-<span id="cb176-2"><a href="descriptive-statistics.html#cb176-2" aria-hidden="true" tabindex="-1"></a>upper_inner_fence</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1">upper_inner_fence &lt;-<span class="st"> </span>bwc_deployed_3rd <span class="op">+</span><span class="st"> </span><span class="fl">1.5</span> <span class="op">*</span><span class="st"> </span>bwc_deployed_iqr </a>
+<a class="sourceLine" id="cb183-2" title="2">upper_inner_fence</a></code></pre></div>
 <pre><code>##  75% 
 ## 45.5</code></pre>
 <p><br></p>
 <p>You can also calculate the ‘outer fences’ which are considered extreme outliers:
 <br></p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="descriptive-statistics.html#cb178-1" aria-hidden="true" tabindex="-1"></a>lower_outer_fence <span class="ot">&lt;-</span> bwc_deployed_1st <span class="sc">-</span> <span class="dv">3</span> <span class="sc">*</span> bwc_deployed_iqr </span>
-<span id="cb178-2"><a href="descriptive-statistics.html#cb178-2" aria-hidden="true" tabindex="-1"></a>lower_outer_fence</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" title="1">lower_outer_fence &lt;-<span class="st"> </span>bwc_deployed_1st <span class="op">-</span><span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span>bwc_deployed_iqr </a>
+<a class="sourceLine" id="cb185-2" title="2">lower_outer_fence</a></code></pre></div>
 <pre><code>## 25% 
 ## -48</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="descriptive-statistics.html#cb180-1" aria-hidden="true" tabindex="-1"></a>upper_outer_fence <span class="ot">&lt;-</span> bwc_deployed_3rd <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> bwc_deployed_iqr </span>
-<span id="cb180-2"><a href="descriptive-statistics.html#cb180-2" aria-hidden="true" tabindex="-1"></a>upper_outer_fence</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" title="1">upper_outer_fence &lt;-<span class="st"> </span>bwc_deployed_3rd <span class="op">+</span><span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span>bwc_deployed_iqr </a>
+<a class="sourceLine" id="cb187-2" title="2">upper_outer_fence</a></code></pre></div>
 <pre><code>## 75% 
 ##  71</code></pre>
 <p><br></p>
 <!--Are these numbers familiar? You can see, the Tukey fences are just the names given to what we calculated above!-->
 <p>Let us see how many agencies are considered outliers and extreme outliers on how many BWCs they use. We revisit the <code>filter()</code> function for this. (See Lesson 2, section 2.4.3.1 .) Remember that we filter to keep all rows that meet a specific condition. In this case, we want all observations whose value for the variable <code>Q_12</code> is an outlier (outside the inner fences but within the outer fences) and an extreme outlier (outside the outer fences). We will save them in separate objects called <code>outliers</code> and <code>outliers_extreme</code>:
 <br></p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="descriptive-statistics.html#cb182-1" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> bwcs <span class="sc">%&gt;%</span> </span>
-<span id="cb182-2"><a href="descriptive-statistics.html#cb182-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Q_12 <span class="sc">&gt;</span> upper_inner_fence<span class="sc">|</span> Q_12 <span class="sc">&lt;</span> lower_inner_fence) </span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" title="1">outliers &lt;-<span class="st"> </span>bwcs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb189-2" title="2"><span class="st">  </span><span class="kw">filter</span>(Q_<span class="dv">12</span> <span class="op">&gt;</span><span class="st"> </span>upper_inner_fence<span class="op">|</span><span class="st"> </span>Q_<span class="dv">12</span> <span class="op">&lt;</span><span class="st"> </span>lower_inner_fence) </a></code></pre></div>
 <p><br></p>
 <p>and</p>
 <p><br></p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="descriptive-statistics.html#cb183-1" aria-hidden="true" tabindex="-1"></a>outliers_extreme <span class="ot">&lt;-</span> bwcs <span class="sc">%&gt;%</span> </span>
-<span id="cb183-2"><a href="descriptive-statistics.html#cb183-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Q_12 <span class="sc">&gt;</span> upper_outer_fence<span class="sc">|</span> Q_12 <span class="sc">&lt;</span> lower_outer_fence)</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" title="1">outliers_extreme &lt;-<span class="st"> </span>bwcs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb190-2" title="2"><span class="st">  </span><span class="kw">filter</span>(Q_<span class="dv">12</span> <span class="op">&gt;</span><span class="st"> </span>upper_outer_fence<span class="op">|</span><span class="st"> </span>Q_<span class="dv">12</span> <span class="op">&lt;</span><span class="st"> </span>lower_outer_fence)</a></code></pre></div>
 <p><br></p>
 <!-- (do not understand this)... and see that the outliers has 282 rows (so 282 agencies that are outliers) while extreme_outliers has 188 rows (so 282 agencies that are extreme outliers)!  -->
 <p>These new objects are now in our environment (that Environment pane in the top right of your <code>RStudio</code>). We can look at their characteristics on the number of BWCs used with the <code>summary()</code> function:
 <br></p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="descriptive-statistics.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(outliers<span class="sc">$</span>Q_12)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1"><span class="kw">summary</span>(outliers<span class="op">$</span>Q_<span class="dv">12</span>)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    46.0    60.0   100.0   162.1   167.2  1200.0</code></pre>
 <p><br></p>
 <p>and</p>
 <p><br></p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="descriptive-statistics.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(outliers_extreme<span class="sc">$</span>Q_12)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" title="1"><span class="kw">summary</span>(outliers_extreme<span class="op">$</span>Q_<span class="dv">12</span>)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    72.0   100.0   130.0   215.4   241.2  1200.0</code></pre>
 <p><br></p>
@@ -919,7 +876,7 @@ We could also show this in a histogram, where everything to the right of the ora
 <br></p>
 <hr />
 </div>
-<div id="on-skewness" class="section level4" number="4.2.2.2">
+<div id="on-skewness" class="section level4">
 <h4><span class="header-section-number">4.2.2.2</span> <strong>On Skewness</strong></h4>
 <p>Related to outliers is <strong>skewness</strong>. This has to do with the shape of the distribution. You might remember from last semester we discussed something called the bell curve, or normal distribution. This is how you expect your data to look if the mean and the median are the same exact value, and your data are distributed equally on either side of this value.</p>
 <p>Here is a normal distribution (Figure 4.4):
@@ -940,25 +897,25 @@ We could also show this in a histogram, where everything to the right of the ora
 <br></p>
 <hr />
 </div>
-<div id="activity-6-visualizing-skewness-using-a-histogram" class="section level4" number="4.2.2.3">
+<div id="activity-6-visualizing-skewness-using-a-histogram" class="section level4">
 <h4><span class="header-section-number">4.2.2.3</span> Activity 6: Visualizing skewness using a histogram</h4>
 <p>When your distribution is skewed, the majority of cases veer more to the left or right of the distribution, with a tail of outliers. An initial way of checking for skewness is to use a histogram, like from last week.
 <br></p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="descriptive-statistics.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To create a histogram of number of BWCs used, we will use the `ggplot()` function and the geometry for histogram which is `geom_histogram()`</span></span>
-<span id="cb188-2"><a href="descriptive-statistics.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the package ggplot2 is loaded</span></span>
-<span id="cb188-3"><a href="descriptive-statistics.html#cb188-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-4"><a href="descriptive-statistics.html#cb188-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bwcs, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Q_12)) <span class="sc">+</span> </span>
-<span id="cb188-5"><a href="descriptive-statistics.html#cb188-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb188-6"><a href="descriptive-statistics.html#cb188-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Number of BWCs Deployed&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Agencies&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb188-7"><a href="descriptive-statistics.html#cb188-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Histogram of Number of BWCs Deployed&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb188-8"><a href="descriptive-statistics.html#cb188-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1"><span class="co"># To create a histogram of number of BWCs used, we will use the `ggplot()` function and the geometry for histogram which is `geom_histogram()`</span></a>
+<a class="sourceLine" id="cb195-2" title="2"><span class="co"># Ensure the package ggplot2 is loaded</span></a>
+<a class="sourceLine" id="cb195-3" title="3"></a>
+<a class="sourceLine" id="cb195-4" title="4"><span class="kw">ggplot</span>(<span class="dt">data =</span> bwcs, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Q_<span class="dv">12</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb195-5" title="5"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>, <span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb195-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Number of BWCs Deployed&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Agencies&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb195-7" title="7"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram of Number of BWCs Deployed&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb195-8" title="8"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>)) </a></code></pre></div>
 <pre><code>## Warning: Removed 2031 rows containing non-finite values (stat_bin).</code></pre>
 <p><img src="04-descriptive-statistics_files/figure-html/unnamed-chunk-45-1.png" width="672" />
 <br></p>
 <p>What do you observe from the histogram? Discuss in your groups, or reflect if you are in the quiet room. What do you think the number of BWCs may depend on? Size of the agency? Willingness to adopt BWCs? Are you surprised by this data?</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/bwcs.jpg" style="width:70.0%" alt="" />
+<img src="Images/bwcs.jpg" alt="Figure 4.7 Police Body Worn Cameras" style="width:70.0%" />
 <p class="caption"><strong>Figure 4.7</strong> Police Body Worn Cameras</p>
 </div>
 <p><br></p>
@@ -973,11 +930,11 @@ We could also show this in a histogram, where everything to the right of the ora
 <p><br></p>
 <p>We calculate skewness for our variable <code>Q_12</code>and put it into an object called <code>bwc_skew</code>:
 <br></p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="descriptive-statistics.html#cb190-1" aria-hidden="true" tabindex="-1"></a>bwc_skew <span class="ot">&lt;-</span> <span class="fu">skewness</span>(bwcs<span class="sc">$</span>Q_12, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" title="1">bwc_skew &lt;-<span class="st"> </span><span class="kw">skewness</span>(bwcs<span class="op">$</span>Q_<span class="dv">12</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) </a></code></pre></div>
 <p><br></p>
 <p>Now print the result. Will the skewness coefficient indicate negative, positive, or no skewness?
 <br></p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="descriptive-statistics.html#cb191-1" aria-hidden="true" tabindex="-1"></a>bwc_skew</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1">bwc_skew</a></code></pre></div>
 <pre><code>## [1] 7.640767</code></pre>
 <p><br></p>
 <p>We see a positive skew!</p>
@@ -987,28 +944,28 @@ We could also show this in a histogram, where everything to the right of the ora
 <hr />
 </div>
 </div>
-<div id="measures-of-dispersion" class="section level3" number="4.2.3">
+<div id="measures-of-dispersion" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> Measures of Dispersion</h3>
 <p>What is meant by dispersion is the spread of values from the one value chosen to represent them all. That one value is usually the mean, or in the case of categorical variables, the mode. This is important because the single number to summarise our data might often mask variation. Last semester, we read <em>The Tiger That Isn’t</em> and you might remember the section about the ‘white rainbow’. We know the vibrancy of each of the colours of the rainbow, but if we combined these colours, they would form a bland white band in the sky - the average of all the colours is white. If we just represented the rainbow by the average, we would miss quite a lot!</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/rainbow.jpg" alt="" />
+<img src="Images/rainbow.jpg" alt="Figure 4.8 Double rainbow?!" />
 <p class="caption"><strong>Figure 4.8</strong> Double rainbow?!</p>
 </div>
 <p><br></p>
 <p>Let us explore how we measure dispersion, and how we can interpret this to draw conclusions about the data.</p>
 <p><br></p>
-<div id="activity-7-loading-the-other-dataset" class="section level4" number="4.2.3.1">
+<div id="activity-7-loading-the-other-dataset" class="section level4">
 <h4><span class="header-section-number">4.2.3.1</span> Activity 7: Loading the other dataset</h4>
 <p>We learn about measures of dispersion using another dataset from the ICPSR website. The Survey of Inmates in State and Federal Correctional Facilities (SISFCF) survey has been conducted periodically since 1976, and the current survey (2004) data (04572-0001-Data.rda) can, too, be accessed at the ICPSR website and downloaded as an .rda file. Follow the same steps with loading the data as with the previous data on BWCs. Now, for this dataset, we do the following as well:
 <br></p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="descriptive-statistics.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;04572-0001-Data.rda&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1"><span class="kw">load</span>(<span class="kw">here</span>(<span class="st">&quot;Datasets&quot;</span>, <span class="st">&quot;04572-0001-Data.rda&quot;</span>))</a></code></pre></div>
 <p><br></p>
 <ol style="list-style-type: decimal">
 <li>After the data loads into <code>RStudio</code>, it is now called ‘da04572.0001’. Put this into an object called <code>inmatesurvey04</code> by using the <code>&lt;-</code> assignment operator.
 <br></li>
 </ol>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="descriptive-statistics.html#cb194-1" aria-hidden="true" tabindex="-1"></a>inmatesurvey04 <span class="ot">&lt;-</span> da04572<span class="fl">.0001</span></span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" title="1">inmatesurvey04 &lt;-<span class="st"> </span>da04572<span class="fl">.0001</span></a></code></pre></div>
 <p><br></p>
 <!-- 2. We only deal with one dataset from this, so use the function `attach(inmatesurvey04)`. Remember to use `detach("inmatesurvey04")` once you are done with today’s lesson. -->
 <!-- ```{r, echo=FALSE, message=FALSE, warning=FALSE} -->
@@ -1019,7 +976,7 @@ We could also show this in a histogram, where everything to the right of the ora
 <br></p>
 <hr />
 </div>
-<div id="dispersion-in-nominal-and-ordinal-variables" class="section level4" number="4.2.3.2">
+<div id="dispersion-in-nominal-and-ordinal-variables" class="section level4">
 <h4><span class="header-section-number">4.2.3.2</span> <strong>Dispersion in Nominal and Ordinal Variables</strong></h4>
 <p>We learn how to conduct two measures of dispersion in <code>R</code> for categorical variables: the variation ratio and the index of qualitative variation:</p>
 <p>The <strong>variation ratio</strong> (VR) tells us the proportion of cases that are not in the modal category – basically cases not in the most frequent or ‘popular’ category. The formula for the variation ratio (VR) is:</p>
@@ -1029,12 +986,12 @@ We could also show this in a histogram, where everything to the right of the ora
 <p><span class="math inline">\(N~modalcat\)</span> refers to the frequency of observations in the modal category, and <span class="math inline">\(N~total~\)</span> refers to the total number of observations. This formula states that VR is equal to 1 minus the proportion of observations that are in the modal category, which is the same as saying the proportion of observations that are not in the modal category.</p>
 <p><br></p>
 </div>
-<div id="activity-8-calculating-the-variation-ratio" class="section level4" number="4.2.3.3">
+<div id="activity-8-calculating-the-variation-ratio" class="section level4">
 <h4><span class="header-section-number">4.2.3.3</span> Activity 8: Calculating the variation ratio</h4>
 <p>Now, for example, we are interested in knowing whether the modal category describes the overall work histories prior to arrest of federal inmates pretty accurately, or if there is a lot of variation in responses from inmates. To do so, we use the variable <code>V1748</code> which tells us about their work histories prior to arrest.</p>
 <p>We can look at a frequency table:
 <br></p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="descriptive-statistics.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(inmatesurvey04<span class="sc">$</span>V1748)  </span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1"><span class="kw">table</span>(inmatesurvey04<span class="op">$</span>V1748)  </a></code></pre></div>
 <pre><code>## 
 ##  (1) Full-time  (2) Part-time (3) Occasional (7) Don&#39;t know    (8) Refused 
 ##           2180            284             65              0              1</code></pre>
@@ -1042,15 +999,6 @@ We could also show this in a histogram, where everything to the right of the ora
 <p>Or we can use <code>skim</code>:
 <br></p>
 <table>
-<colgroup>
-<col width="8%" />
-<col width="12%" />
-<col width="8%" />
-<col width="12%" />
-<col width="12%" />
-<col width="13%" />
-<col width="31%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">skim_type</th>
@@ -1074,11 +1022,11 @@ We could also show this in a histogram, where everything to the right of the ora
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="descriptive-statistics.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(inmatesurvey04<span class="sc">$</span>V1748)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1"><span class="kw">skim</span>(inmatesurvey04<span class="op">$</span>V1748)</a></code></pre></div>
 <p><br></p>
 <p>Then, we check if we have any observations defined as missing using <code>is.na</code> to get a summary of missing cases:
 <br></p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="descriptive-statistics.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">is.na</span>(inmatesurvey04<span class="sc">$</span>V1748))</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" title="1"><span class="kw">table</span>(<span class="kw">is.na</span>(inmatesurvey04<span class="op">$</span>V1748))</a></code></pre></div>
 <pre><code>## 
 ## FALSE  TRUE 
 ##  2530  1156</code></pre>
@@ -1086,8 +1034,8 @@ We could also show this in a histogram, where everything to the right of the ora
 <p>This tells us that there are 2,530 complete observations and 1,156 missing ones.</p>
 <p>We could tell from the tables above that ‘Full-time’ is the mode, but we can also get <code>R</code> to provide the mode and save it in an object:
 <br></p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="descriptive-statistics.html#cb200-1" aria-hidden="true" tabindex="-1"></a>mode_employment <span class="ot">&lt;-</span> <span class="fu">mlv</span>(inmatesurvey04<span class="sc">$</span>V1748, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb200-2"><a href="descriptive-statistics.html#cb200-2" aria-hidden="true" tabindex="-1"></a>mode_employment</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" title="1">mode_employment &lt;-<span class="st"> </span><span class="kw">mlv</span>(inmatesurvey04<span class="op">$</span>V1748, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) </a>
+<a class="sourceLine" id="cb207-2" title="2">mode_employment</a></code></pre></div>
 <pre><code>## [1] (1) Full-time
 ## 5 Levels: (1) Full-time (2) Part-time (3) Occasional ... (8) Refused</code></pre>
 <p><br></p>
@@ -1096,24 +1044,24 @@ We could also show this in a histogram, where everything to the right of the ora
 <p>What about the variation ratio? To get this, we create two objects: one for total number of observations and, in the other object, only the numbers who reported the modal category, which is Full-time (1).</p>
 <p>To create the first object, get the number of total observations. Store this value in the object <code>n_employed</code>:
 <br></p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="descriptive-statistics.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The &#39;!&#39; next to &#39;is.na&#39; is telling R to only keep observations that are not missing</span></span>
-<span id="cb202-2"><a href="descriptive-statistics.html#cb202-2" aria-hidden="true" tabindex="-1"></a>n_employed <span class="ot">&lt;-</span> inmatesurvey04 <span class="sc">%&gt;%</span> </span>
-<span id="cb202-3"><a href="descriptive-statistics.html#cb202-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(V1748)) <span class="sc">%&gt;%</span> </span>
-<span id="cb202-4"><a href="descriptive-statistics.html#cb202-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1"><span class="co"># The &#39;!&#39; next to &#39;is.na&#39; is telling R to only keep observations that are not missing</span></a>
+<a class="sourceLine" id="cb209-2" title="2">n_employed &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb209-3" title="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(V1748)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb209-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</a></code></pre></div>
 <p><br></p>
 <p>To create the second object, store the value ‘full-time’ in the object <code>n_mode</code>: <br></p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="descriptive-statistics.html#cb203-1" aria-hidden="true" tabindex="-1"></a>n_mode <span class="ot">&lt;-</span> inmatesurvey04 <span class="sc">%&gt;%</span> </span>
-<span id="cb203-2"><a href="descriptive-statistics.html#cb203-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(V1748 <span class="sc">==</span> <span class="st">&quot;(1) Full-time&quot;</span> ) <span class="sc">%&gt;%</span> </span>
-<span id="cb203-3"><a href="descriptive-statistics.html#cb203-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>()) </span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1">n_mode &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb210-2" title="2"><span class="st">  </span><span class="kw">filter</span>(V1748 <span class="op">==</span><span class="st"> &quot;(1) Full-time&quot;</span> ) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb210-3" title="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>()) </a></code></pre></div>
 <p><br></p>
 <p>Finally, we can calculate the proportion. Store this value in the object <code>proportion_mode</code>:
 <br></p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="descriptive-statistics.html#cb204-1" aria-hidden="true" tabindex="-1"></a>proportion_mode <span class="ot">&lt;-</span> n_mode<span class="sc">/</span>n_employed </span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" title="1">proportion_mode &lt;-<span class="st"> </span>n_mode<span class="op">/</span>n_employed </a></code></pre></div>
 <p><br></p>
 <p>We can use this to get the variation ratio. To do this, subtract the proportion of cases in the modal category from 1 .
 <br></p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="descriptive-statistics.html#cb205-1" aria-hidden="true" tabindex="-1"></a>vratio <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> proportion_mode</span>
-<span id="cb205-2"><a href="descriptive-statistics.html#cb205-2" aria-hidden="true" tabindex="-1"></a>vratio</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1">vratio &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span>proportion_mode</a>
+<a class="sourceLine" id="cb212-2" title="2">vratio</a></code></pre></div>
 <pre><code>##           n
 ## 1 0.1383399</code></pre>
 <p><br></p>
@@ -1122,15 +1070,15 @@ We could also show this in a histogram, where everything to the right of the ora
 <br></p>
 <hr />
 </div>
-<div id="activity-9-onto-the-index-of-qualitative-variation-iqv" class="section level4" number="4.2.3.4">
+<div id="activity-9-onto-the-index-of-qualitative-variation-iqv" class="section level4">
 <h4><span class="header-section-number">4.2.3.4</span> Activity 9: Onto the Index of Qualitative Variation (IQV)</h4>
 <p>The IQV is different from the VR because it considers dispersion across all categories, whereas the VR only views dispersion in terms of modal versus non-modal.</p>
 <p>The IQV lies between 0 and 1 and tells you the variability of the distribution. The smaller the value of the IQV, the smaller the amount of variability of the distribution. We use the <code>DM()</code> function from the <code>qualvar</code> package, which stores frequencies of a categorical variable in a vector:
 <br></p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="descriptive-statistics.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the index of qualitative variation for the same variable, V1748 </span></span>
-<span id="cb207-2"><a href="descriptive-statistics.html#cb207-2" aria-hidden="true" tabindex="-1"></a>IQV<span class="ot">&lt;-</span><span class="fu">as.vector</span>(<span class="fu">table</span>(inmatesurvey04<span class="sc">$</span>V1748)) </span>
-<span id="cb207-3"><a href="descriptive-statistics.html#cb207-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-4"><a href="descriptive-statistics.html#cb207-4" aria-hidden="true" tabindex="-1"></a><span class="fu">DM</span>(IQV, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" title="1"><span class="co"># Get the index of qualitative variation for the same variable, V1748 </span></a>
+<a class="sourceLine" id="cb214-2" title="2">IQV&lt;-<span class="kw">as.vector</span>(<span class="kw">table</span>(inmatesurvey04<span class="op">$</span>V1748)) </a>
+<a class="sourceLine" id="cb214-3" title="3"></a>
+<a class="sourceLine" id="cb214-4" title="4"><span class="kw">DM</span>(IQV, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 0.1729249</code></pre>
 <p><br></p>
 <p>What is the value that you get in the output? Type the value in your google doc and what you think this value means.</p>
@@ -1138,17 +1086,17 @@ We could also show this in a histogram, where everything to the right of the ora
 <br></p>
 <hr />
 </div>
-<div id="dispersion-in-interval-and-ratio-variables" class="section level4" number="4.2.3.5">
+<div id="dispersion-in-interval-and-ratio-variables" class="section level4">
 <h4><span class="header-section-number">4.2.3.5</span> <strong>Dispersion in Interval and Ratio Variables</strong></h4>
 <p>These measures of dispersion are the most familiar because they are defined as the spread of values around a <em>mean</em>. We revisit three of these: the range, variance, and standard deviation.
 <br></p>
 </div>
-<div id="activity-10-the-range" class="section level4" number="4.2.3.6">
+<div id="activity-10-the-range" class="section level4">
 <h4><span class="header-section-number">4.2.3.6</span> Activity 10: The range</h4>
 <p>The <strong>range</strong> is the difference between the maximum and minimum value in a given distribution. We use the ratio-level variable <code>V2254</code>, a measure of the age at which inmates stated they first started smoking cigarettes regularly as an example:
 <br></p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="descriptive-statistics.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get to know the variable </span></span>
-<span id="cb209-2"><a href="descriptive-statistics.html#cb209-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(inmatesurvey04<span class="sc">$</span>V2254)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1"><span class="co"># Get to know the variable </span></a>
+<a class="sourceLine" id="cb216-2" title="2"><span class="kw">attributes</span>(inmatesurvey04<span class="op">$</span>V2254)</a></code></pre></div>
 <pre><code>## $value.labels
 ##                Refused             Don&#39;t know Never smoked regularly 
 ##                     98                     97                      0</code></pre>
@@ -1156,21 +1104,21 @@ We could also show this in a histogram, where everything to the right of the ora
 <p>Note that this variable has codes that do not indicate the number of times smoked. These are 0 (never smoked); 97 (Don’t know); and 98 (Refused). We notice that these categories are not about smoking and including these will give us an incorrect result. To resolve this, we must convert irrelevant categories into missing data.</p>
 <p>First, we create a new variable so we do not write over the original, calling it <code>age_smoker_range</code> using the <code>mutate()</code> function. This is a duplicate of the <code>V2254</code> variable, but we will recode each of the irrelevant values (0, 97, 98) as <code>NA</code> by using the <code>na_if()</code> function from the <code>dplyr</code> package.
 <br></p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="descriptive-statistics.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We make this new variable using the values from the variable &#39;V2254&#39;</span></span>
-<span id="cb211-2"><a href="descriptive-statistics.html#cb211-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Then we include it into our data frame &#39;inmatesurvey04&#39; by specifying the assignment operator</span></span>
-<span id="cb211-3"><a href="descriptive-statistics.html#cb211-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb211-4"><a href="descriptive-statistics.html#cb211-4" aria-hidden="true" tabindex="-1"></a>inmatesurvey04 <span class="ot">&lt;-</span> inmatesurvey04 <span class="sc">%&gt;%</span> </span>
-<span id="cb211-5"><a href="descriptive-statistics.html#cb211-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_smoker_range =</span> V2254,</span>
-<span id="cb211-6"><a href="descriptive-statistics.html#cb211-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">age_smoker_range =</span> <span class="fu">na_if</span>(age_smoker_range, <span class="dv">0</span>),</span>
-<span id="cb211-7"><a href="descriptive-statistics.html#cb211-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">age_smoker_range =</span> <span class="fu">na_if</span>(age_smoker_range, <span class="dv">97</span>),</span>
-<span id="cb211-8"><a href="descriptive-statistics.html#cb211-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">age_smoker_range =</span> <span class="fu">na_if</span>(age_smoker_range, <span class="dv">98</span>),</span>
-<span id="cb211-9"><a href="descriptive-statistics.html#cb211-9" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1"><span class="co"># We make this new variable using the values from the variable &#39;V2254&#39;</span></a>
+<a class="sourceLine" id="cb218-2" title="2"><span class="co"># Then we include it into our data frame &#39;inmatesurvey04&#39; by specifying the assignment operator</span></a>
+<a class="sourceLine" id="cb218-3" title="3"></a>
+<a class="sourceLine" id="cb218-4" title="4">inmatesurvey04 &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb218-5" title="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">age_smoker_range =</span> V2254,</a>
+<a class="sourceLine" id="cb218-6" title="6">           <span class="dt">age_smoker_range =</span> <span class="kw">na_if</span>(age_smoker_range, <span class="dv">0</span>),</a>
+<a class="sourceLine" id="cb218-7" title="7">          <span class="dt">age_smoker_range =</span> <span class="kw">na_if</span>(age_smoker_range, <span class="dv">97</span>),</a>
+<a class="sourceLine" id="cb218-8" title="8">          <span class="dt">age_smoker_range =</span> <span class="kw">na_if</span>(age_smoker_range, <span class="dv">98</span>),</a>
+<a class="sourceLine" id="cb218-9" title="9">         )</a></code></pre></div>
 <p><br></p>
 <p>The <code>range ()</code> function prints the minimum and maximum values.
 <br></p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="descriptive-statistics.html#cb212-1" aria-hidden="true" tabindex="-1"></a>smoker_range <span class="ot">&lt;-</span> <span class="fu">range</span>(inmatesurvey04<span class="sc">$</span>age_smoker_range, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb212-2"><a href="descriptive-statistics.html#cb212-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-3"><a href="descriptive-statistics.html#cb212-3" aria-hidden="true" tabindex="-1"></a>smoker_range </span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" title="1">smoker_range &lt;-<span class="st"> </span><span class="kw">range</span>(inmatesurvey04<span class="op">$</span>age_smoker_range, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb219-2" title="2"></a>
+<a class="sourceLine" id="cb219-3" title="3">smoker_range </a></code></pre></div>
 <pre><code>## [1]  1 57</code></pre>
 <p><br></p>
 <!--We can then use these to calculate the range by subtracting the minimum value from the maximum. 
@@ -1188,8 +1136,8 @@ smoker_range[2] - smoker_range[1]
 
 Or ... using the `diff()`function. -->
 <p><br></p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="descriptive-statistics.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We calculate the difference of that object to obtain the value</span></span>
-<span id="cb214-2"><a href="descriptive-statistics.html#cb214-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(smoker_range)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1"><span class="co"># We calculate the difference of that object to obtain the value</span></a>
+<a class="sourceLine" id="cb221-2" title="2"><span class="kw">diff</span>(smoker_range)</a></code></pre></div>
 <pre><code>## [1] 56</code></pre>
 <p><br></p>
 <p>What is the range? Input the answer in your google doc.</p>
@@ -1198,7 +1146,7 @@ Or ... using the `diff()`function. -->
 <br></p>
 <hr />
 </div>
-<div id="activity-11-variance" class="section level4" number="4.2.3.7">
+<div id="activity-11-variance" class="section level4">
 <h4><span class="header-section-number">4.2.3.7</span> Activity 11: Variance</h4>
 <p>Now, the <strong>variance</strong> ( <span class="math inline">\(s^2\)</span> ) is about spread, specifically the sum of the squared deviations from the mean, then divided by the total number of observations. The equation looks like this:</p>
 <p><br></p>
@@ -1207,27 +1155,27 @@ Or ... using the `diff()`function. -->
 <p>We use the function <code>var()</code> from the <code>stats</code> package that comes already preinstalled in <code>base R</code>.</p>
 <p>We use the variable <code>V2529</code>, which records the number of times inmates reported being written up for verbally assaulting a prison staff member as an example:
 <br></p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="descriptive-statistics.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, let us get to know the variable</span></span>
-<span id="cb216-2"><a href="descriptive-statistics.html#cb216-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(inmatesurvey04<span class="sc">$</span>V2529)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" title="1"><span class="co"># First, let us get to know the variable</span></a>
+<a class="sourceLine" id="cb223-2" title="2"><span class="kw">summary</span>(inmatesurvey04<span class="op">$</span>V2529)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##    1.00    1.00    1.00   31.45    3.00  998.00    3545</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="descriptive-statistics.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(inmatesurvey04<span class="sc">$</span>V2529)</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" title="1"><span class="kw">attributes</span>(inmatesurvey04<span class="op">$</span>V2529)</a></code></pre></div>
 <pre><code>## $value.labels
 ##    Refused Don&#39;t know 
 ##        998        997</code></pre>
 <p><br></p>
 <p>Now let us create a new variable so we do not write over the original one. We do this so we can recode ‘997’ and ‘998’ values as missing - you can see these stand for ‘Refused’ and ‘Don’t know’ respectively.
 <br></p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="descriptive-statistics.html#cb220-1" aria-hidden="true" tabindex="-1"></a>inmatesurvey04 <span class="ot">&lt;-</span> inmatesurvey04 <span class="sc">%&gt;%</span> </span>
-<span id="cb220-2"><a href="descriptive-statistics.html#cb220-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">verb_assault_var =</span> V2529,</span>
-<span id="cb220-3"><a href="descriptive-statistics.html#cb220-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">verb_assault_var =</span> <span class="fu">na_if</span>(verb_assault_var, <span class="dv">997</span>),</span>
-<span id="cb220-4"><a href="descriptive-statistics.html#cb220-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">verb_assault_var =</span> <span class="fu">na_if</span>(verb_assault_var, <span class="dv">998</span>),</span>
-<span id="cb220-5"><a href="descriptive-statistics.html#cb220-5" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" title="1">inmatesurvey04 &lt;-<span class="st"> </span>inmatesurvey04 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb227-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">verb_assault_var =</span> V2529,</a>
+<a class="sourceLine" id="cb227-3" title="3">          <span class="dt">verb_assault_var =</span> <span class="kw">na_if</span>(verb_assault_var, <span class="dv">997</span>),</a>
+<a class="sourceLine" id="cb227-4" title="4">          <span class="dt">verb_assault_var =</span> <span class="kw">na_if</span>(verb_assault_var, <span class="dv">998</span>),</a>
+<a class="sourceLine" id="cb227-5" title="5">         )</a></code></pre></div>
 <p><br></p>
 <p>Now let us calculate the variance:
 <br></p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="descriptive-statistics.html#cb221-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">&lt;-</span> <span class="fu">var</span>(inmatesurvey04<span class="sc">$</span>verb_assault_var, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb221-2"><a href="descriptive-statistics.html#cb221-2" aria-hidden="true" tabindex="-1"></a>var1</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" title="1">var1 &lt;-<span class="st"> </span><span class="kw">var</span>(inmatesurvey04<span class="op">$</span>verb_assault_var, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) </a>
+<a class="sourceLine" id="cb228-2" title="2">var1</a></code></pre></div>
 <pre><code>## [1] 82.64384</code></pre>
 <p><br></p>
 <p>The variance is 82.6, which is fairly dispersed, but if you got to know the data and this variable, you will notice that one inmate self-reported 99 verbal assaults, so this will have had an influence on the variance.</p>
@@ -1235,20 +1183,20 @@ Or ... using the `diff()`function. -->
 <br></p>
 <hr />
 </div>
-<div id="activity-12-standard-deviation" class="section level4" number="4.2.3.8">
+<div id="activity-12-standard-deviation" class="section level4">
 <h4><span class="header-section-number">4.2.3.8</span> Activity 12: Standard deviation</h4>
 <p>Last, we learn about the <strong>standard deviation</strong> (SD), which is the square root of the variance. The smaller it is, the more concentrated the observations are around the mean, while larger values reflect a wider distance from the mean. In other words, the SD tells us how well the mean represents our data. Too large, then the mean is a poor representation, because there is too much variability. We use the variable <code>verb_assault_var</code> as an example:
 <br></p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="descriptive-statistics.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the standard deviation of the &#39;verb_assault_var&#39; variable and save it to an object </span></span>
-<span id="cb223-2"><a href="descriptive-statistics.html#cb223-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb223-3"><a href="descriptive-statistics.html#cb223-3" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(inmatesurvey04<span class="sc">$</span>verb_assault_var, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb223-4"><a href="descriptive-statistics.html#cb223-4" aria-hidden="true" tabindex="-1"></a>sd</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="co"># Calculate the standard deviation of the &#39;verb_assault_var&#39; variable and save it to an object </span></a>
+<a class="sourceLine" id="cb230-2" title="2"></a>
+<a class="sourceLine" id="cb230-3" title="3">sd &lt;-<span class="st"> </span><span class="kw">sd</span>(inmatesurvey04<span class="op">$</span>verb_assault_var, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb230-4" title="4">sd</a></code></pre></div>
 <pre><code>## [1] 9.090866</code></pre>
 <p><br></p>
 <p>Recall that the SD is the square root of the variance. You can double check to see if the SD, squared, matches the variance. Create a new object, <code>var2</code>, by taking the square of the standard deviation:
 <br></p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="descriptive-statistics.html#cb225-1" aria-hidden="true" tabindex="-1"></a>var2 <span class="ot">&lt;-</span> sd<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb225-2"><a href="descriptive-statistics.html#cb225-2" aria-hidden="true" tabindex="-1"></a>var2 </span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1">var2 &lt;-<span class="st"> </span>sd<span class="op">^</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb232-2" title="2">var2 </a></code></pre></div>
 <pre><code>## [1] 82.64384</code></pre>
 <p><br></p>
 <p>Yes, it does match!</p>
@@ -1259,11 +1207,11 @@ Or ... using the `diff()`function. -->
 </div>
 </div>
 </div>
-<div id="summary-3" class="section level2" number="4.3">
+<div id="summary-3" class="section level2">
 <h2><span class="header-section-number">4.3</span> SUMMARY</h2>
 <p>Descriptive statistics was the name of the game today. These are measures we use to describe our data. First, we learned about measures of central tendency: the <strong>mean</strong>, <strong>median</strong>, and <strong>mode</strong>. Second, pesky <strong>outliers</strong> were examined along with their cousin <strong>skewness</strong>. A way of addressing outliers was through the robust estimate, the <strong>interquartile range</strong>. With skewness, visualizations were used to ascertain whether the distribution could be <strong>positively skewed</strong>. Third, we learned all about measures of dispersions: two for nominal and ordinal variables – the <strong>variation ratio</strong> and the <strong>index of qualitative variation</strong> – and three for interval and ratio variables – the <strong>range</strong>, <strong>variance</strong>, and <strong>standard deviation</strong>. In some situations we found ourselves, missing values appeared. This is actually very common in data, so we addressed these with the <code>R</code> argument <strong>na.rm</strong>.</p>
 <p>Homework time!</p>
-<div id="answers-to-activities-where-applicable" class="section level3" number="4.3.1">
+<div id="answers-to-activities-where-applicable" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Answers to Activities (where applicable)</h3>
 <pre><code>1. -
 2. 199.33= mean(c(345, 100, 250, 100, 101, 300));  175.5= median(c(345, 100, 250, 100, 101, 300))
