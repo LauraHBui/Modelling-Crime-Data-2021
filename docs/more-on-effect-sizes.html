@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-04-19" />
+<meta name="date" content="2021-04-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -310,7 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>cor.test()</code> : Obtains correlation coefficient (<code>base R</code>)</li>
 <li><code>rm()</code> : Removes an object from the <code>R</code> environment (<code>base R</code>)</li>
 <li><code>ES.w2()</code>: Computes effect size w for a two-way probability table (<code>pwr</code>)</li>
-<li><code>pwr.chisq.test()</code> : Computes power of a test or determines values to obtain target power (<code>pwr</code>)</li>
+<li><code>pwr.chisq.test()</code> : Computes power of a test or determines estimates to obtain target power (<code>pwr</code>)</li>
 </ul>
 <!-- -  `CramerV()` : Conducts the Cramer’s V measure of association (`DescTools`)
 -   `Phi()` : Conducts the phi measure of association (`DescTools`)
@@ -335,10 +335,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Opening our usual <code>R</code> project</p></li>
 <li><p>Install and load the required packages</p></li>
 <li><p>Load Professor Patrick Sharkey’s dataset ( ‘sharkey.csv’ ), which is a study on the effect of nonprofit organisations on the levels of crime, using the <code>read_csv()</code> function. Alternatively, you can load the dataset from the <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/46WIH0">Dataverse website</a>.</p></li>
-</ol>
-<p>Name the data frame <code>sharkey</code>, and if you dislike scientific notation, you can turn it off in <code>R</code> by typing and running <code>options(scipen=999)</code>.</p>
-<ol start="4" style="list-style-type: decimal">
-<li>Get to know the data by using the functions <code>View()</code> and <code>dim()</code> and to see if it has been loaded successfully</li>
+<li><p>Name the data frame <code>sharkey</code>, and if you dislike scientific notation, you can turn it off in <code>R</code> by typing and running <code>options(scipen=999)</code>.</p></li>
+<li><p>Get to know the data by using the functions <code>View()</code> and <code>dim()</code> and to see if it has been loaded successfully</p></li>
 </ol>
 <p><br>
 <br></p>
@@ -581,12 +579,13 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 <p><br></p>
 <div id="activity-2-identifying-a-linear-relationship" class="section level4">
 <h4><span class="header-section-number">8.2.1.1</span> Activity 2: Identifying a linear relationship</h4>
-<p>We are interested to know in whether there is a relationship between unemployment and violence. First, we must examine our bivariate relationship through a scatterplot. We do this to ascertain if our variables of interest have a <em>linear relationship</em>, which determines what statistical test we will need to use.</p>
+<p>We are interested in whether there is a relationship between unemployment and violence. First, we must examine our bivariate relationship through a scatterplot. We do this to ascertain if our variables of interest have a <em>linear relationship</em>, which determines what statistical test we will need to use.</p>
 <p>The extent to which two variables move together is called <strong>covariation</strong>: if one variable moves up and so does the other, this is referred to as a <em>positive linear relationship</em>; if one variable moves down while the other moves up, this is known as a <em>negative linear relationship</em>.</p>
 <p>We create a scatterplot between our independent variable, unemployment (<code>unemployed</code>), and our dependent variable, the log of the violence rate (<code>log_viol_r</code>), using the <code>ggplot()</code> function in the <code>ggplot2</code> package:
 <br></p>
 <div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb474-1" title="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> unemployed, <span class="dt">y =</span> log_viol_r)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb474-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">2</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>) <span class="co"># Jitter adds a little random noise; this makes points less likely to overlap one another in the plot</span></a></code></pre></div>
+<a class="sourceLine" id="cb474-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">3</span>, <span class="dt">colour=</span> <span class="st">&quot;dark green&quot;</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Jitter adds a little random noise; this makes points less likely to overlap one another in the plot</span></a>
+<a class="sourceLine" id="cb474-3" title="3"><span class="st">  </span><span class="kw">theme_light</span>()</a></code></pre></div>
 <p><img src="08-strength-relationship_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 <br></p>
 <p>Does it look as if US cities that have a high score on unemployment on the x-axis also have a high score on violent crime on the y-axis? Type out your observations on the google doc and then look below to compare your answer:</p>
@@ -648,7 +647,7 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 </div>
 <div id="activity-4-nonparametric-correlation-tests" class="section level4">
 <h4><span class="header-section-number">8.2.1.4</span> Activity 4: Nonparametric correlation tests</h4>
-<p>What about bivariate relationships where linearity is not met? This would call for either <strong>Kendall’s tau</strong> or <strong>Spearman’s rho</strong>, nonparametric versions of Pearson’s correlation. Kendall’s tau is more accurate when you have a small sample size compared to Spearman’s rho.</p>
+<p>What about bivariate relationships where linearity is not met? This would call for either <strong>Kendall’s tau</strong> or <strong>Spearman’s rho</strong> (or correlation), nonparametric versions of Pearson’s correlation. Kendall’s tau is more accurate when you have a small sample size compared to Spearman’s rho.</p>
 <p>We add some (purposive) excitement in our next example by adding an outlier so the relationship is no longer linear. We use the function <code>add_row()</code> from the <code>tibble</code> package. This will produce a fictitious city with a very high level of unemployment and the lowest level of violence. First, we create another data frame, <code>df_1</code>, that only contains our two variables of interest.
 <br></p>
 <div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" title="1"><span class="co"># For convenience, we further reduce the number of variables and place in a new data frame</span></a>
@@ -695,7 +694,7 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 <p>In the lecture videos, we introduced the notion of power analysis. Now, in this section, we introduce the <code>pwr</code> package to conduct this analysis. For a statistical test to be effective - to be able to detect an effect - you need to have sufficient power.</p>
 <p><strong>Power</strong> is related to the magnitude of the effect (i.e., it will be easier to detect stronger rather than weaker effects) and sample size (i.e., it will be easier to detect effects with large samples than with small samples).</p>
 <p>A problem with many scientific studies is that they are <em>underpowered</em>. Consequently, they fail to reject the null hypothesis, often because the sample size is not large enough.</p>
-<p>Power analysis is generally done during the planning of an analysis and before you collect data. It helps you to you know what kind of sample you are going to need to be able to run meaningful hypothesis tests.</p>
+<p>Power analysis is generally done during the planning of an analysis and before you collect data. It helps you to identify what kind of sample you are going to need to be able to run meaningful hypothesis tests.</p>
 <p>We still can, however, check how much power we have after collecting data. Doing so ensures we are not failing to reject the null hypothesis as a consequence of insufficient power.</p>
 <p>There are a number of functions from the <code>pwr</code> package to compute power, and you must select the most appropriate one for the kind of test you plan to conduct. For example, if comparing means between two groups – the t-test! – we would use the <code>pwr.t2n.test()</code> function; for a chi-square test, the <code>pwr.chisq.test()</code> function is appropriate.</p>
 <p>Below is a list of <code>pwr</code> functions for specific power analyses that correspond to their respective inferential statistical tests:</p>
@@ -718,8 +717,8 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 <div id="activity-5-the-post-hoc-power-analysis" class="section level4">
 <h4><span class="header-section-number">8.2.2.1</span> Activity 5: The Post-hoc Power Analysis</h4>
 <p>Checking for our statistical power in this after-the-fact manner is referred to as <strong>post-hoc power analysis</strong>. Post-hoc power is the retrospective magnitude of an observed effect based on the sample size and parameter estimates derived from a certain data set. Post-hoc power can be considered as a follow-up analysis.</p>
-<p>For this example, we load the Seattle Neighborhoods and Crime Survey dataset and naming it <code>seattle_df</code>. Take care to load it using the correct package and codes - check its data format.</p>
-<p>We are interested in the relationship between gender (<code>QDEM3</code>) and reporting to the police (<code>Q58E</code>). Let us get to know these variables and change them using the <code>factor()</code> function. (See Lesson 2, section 2.4.1.2):
+<p>For this example, we load the Seattle Neighborhoods and Crime Survey dataset and name it <code>seattle_df</code>. Take care to load it using the correct package and codes - check its data format.</p>
+<p>We are interested in the relationship between gender (<code>QDEM3</code>) and reporting to the police (<code>Q58E</code>). Let us get to know these variables and create new ones using the <code>factor()</code> function. (See Lesson 2, section 2.4.1.2):
 <br></p>
 <div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb485-1" title="1"><span class="co"># Gender is variable ‘QDEM3’</span></a>
 <a class="sourceLine" id="cb485-2" title="2"><span class="kw">table</span>(seattle_df<span class="op">$</span>QDEM3)</a></code></pre></div>
@@ -753,7 +752,7 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 ## $class
 ## [1] &quot;factor&quot;</code></pre>
 <p><br></p>
-<p>Now that we have our new and refined variables, let us get to know them further using the <code>count()</code> function:</p>
+<p>Now that we have our new variables, we get to know <code>gender</code> using the <code>count()</code> function:</p>
 <p><br></p>
 <div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb493-1" title="1"><span class="kw">count</span>(seattle_df, gender)</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
@@ -905,7 +904,7 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 ## 
 ## NOTE: N is the number of observations</code></pre>
 <p><br></p>
-<p>In order to detect a medium effect size, with 90% power, we need 117 respondents (N = 116.75). And to detect a large effect size?</p>
+<p>In order to detect a medium effect size, with 90% power, we need 117 respondents (N = 116.75). What if we wanted to detect a large effect size?</p>
 <p>In your google doc, type your answer to:
 <strong>To detect a large size effect, will we need more observations in our sample, or fewer? Why?</strong></p>
 <p>Now let us find out:
@@ -922,7 +921,7 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 ## 
 ## NOTE: N is the number of observations</code></pre>
 <p><br></p>
-<p>To detect a large sized effect, we would need fewer people. The reason is the bigger the difference between the two groups, the easier this is to detect – it is obvious. If there are large differences between males and females in reporting to the police in the population, for example, we will see these emerge even in smaller samples. If the differences, however, are smaller, then we may not observe this in small samples.</p>
+<p>To detect a large sized effect, we would need fewer people. The reason is the bigger the difference between the two groups, the easier this is to detect – it is a more obvious observation compared to small and medium sized effects. If there are large differences between males and females in reporting to the police in the population, for example, we will see these emerge even in smaller samples. If the differences, however, are smaller, then we may not observe this in small samples.</p>
 <p>Let us see what sample size we would need to find small effect sizes:
 <br></p>
 <div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb509-1" title="1"><span class="kw">pwr.chisq.test</span>(<span class="dt">w =</span> <span class="fl">0.10</span>, <span class="dt">power =</span> <span class="fl">0.90</span>, <span class="dt">df =</span> <span class="dv">1</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>)</a></code></pre></div>
@@ -937,7 +936,7 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 ## 
 ## NOTE: N is the number of observations</code></pre>
 <p><br></p>
-<p>The output shows we would now need 1,050 observations. Our sample size in our Seattle data, however, is of similar size, and accordingly, we did detect this small but statistically significant (i.e. generalisable) difference!</p>
+<p>The output shows we would now need 1,050 observations! Our sample size in our Seattle data, however, is of similar size, and accordingly, we did detect this small but statistically significant (i.e. generalisable) difference!</p>
 <p>The power calculation processes are similar for other types of test. You can always explore the help functions (type <code>?</code> in front of the function, like <code>? pwr.t.test()</code> in the console, for example) to find out the slight variations. And now you can confidently answer questions like how many people will you need to survey in order to detect different effect sizes.</p>
 <p>Do note that, although we are capable of detecting a bigger effect, it does not mean that there will actually be one. Returning to our interest in gender differences in reporting vicimisation to the police, it may be that the effect is not that big in the difference in reporting between males and females.</p>
 <p><br>

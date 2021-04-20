@@ -37,7 +37,7 @@
 -	`cor.test()` : Obtains correlation coefficient (`base R`)
 -	`rm()` : Removes an object from the `R` environment (`base R`)
 - `ES.w2()`: Computes effect size w for a two-way probability table (`pwr`)
-- `pwr.chisq.test()` : Computes power of a test or determines values to obtain target power (`pwr`)
+- `pwr.chisq.test()` : Computes power of a test or determines estimates to obtain target power (`pwr`)
 
 <!-- -	`CramerV()` : Conducts the Cramer’s V measure of association (`DescTools`)
 -	`Phi()` : Conducts the phi measure of association (`DescTools`)
@@ -76,10 +76,10 @@ We begin by:
 
 3. Load Professor Patrick Sharkey’s dataset ( 'sharkey.csv' ), which is a study on the effect of nonprofit organisations on the levels of crime, using the `read_csv()` function. Alternatively, you can load the dataset from the [Dataverse website](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/46WIH0).
 
-Name the data frame `sharkey`, and if you dislike scientific notation, you can turn it off in `R` by typing and running `options(scipen=999)`.
+4. Name the data frame `sharkey`, and if you dislike scientific notation, you can turn it off in `R` by typing and running `options(scipen=999)`.
 
 
-4.	Get to know the data by using the functions `View()` and `dim()` and to see if it has been loaded successfully
+5. Get to know the data by using the functions `View()` and `dim()` and to see if it has been loaded successfully
 
 
 <br>
@@ -341,7 +341,7 @@ The variables we now have contain information of cities in 44 US states on:
 
 #### Activity 2: Identifying a linear relationship 
 
-We are interested to know in whether there is a relationship between unemployment and violence. First, we must examine our bivariate relationship through a scatterplot. We do this to ascertain if our variables of interest have a *linear relationship*, which determines what statistical test we will need to use. 
+We are interested in whether there is a relationship between unemployment and violence. First, we must examine our bivariate relationship through a scatterplot. We do this to ascertain if our variables of interest have a *linear relationship*, which determines what statistical test we will need to use. 
 
 The extent to which two variables move together is called **covariation**: if one variable moves up and so does the other, this is referred to as a *positive linear relationship*; if one variable moves down while the other moves up, this is known as a *negative linear relationship*.
 
@@ -351,7 +351,8 @@ We create a scatterplot between our independent variable, unemployment (`unemplo
 
 ```r
 ggplot(df, aes(x = unemployed, y = log_viol_r)) + 
-  geom_point(alpha=.2, position="jitter") # Jitter adds a little random noise; this makes points less likely to overlap one another in the plot
+  geom_point(alpha=.3, colour= "dark green", position="jitter") + # Jitter adds a little random noise; this makes points less likely to overlap one another in the plot
+  theme_light()
 ```
 
 <img src="08-strength-relationship_files/figure-html/unnamed-chunk-8-1.png" width="672" />
@@ -463,7 +464,7 @@ As our relationship was linear and our results are statistically significant, we
 #### Activity 4: Nonparametric correlation tests
 
 
-What about bivariate relationships where linearity is not met? This would call for either **Kendall’s tau** or **Spearman’s rho**, nonparametric versions of Pearson’s correlation. Kendall’s tau is more accurate when you have a small sample size compared to Spearman’s rho. 
+What about bivariate relationships where linearity is not met? This would call for either **Kendall’s tau** or **Spearman’s rho** (or correlation), nonparametric versions of Pearson’s correlation. Kendall’s tau is more accurate when you have a small sample size compared to Spearman’s rho. 
 
 We add some (purposive) excitement in our next example by adding an outlier so the relationship is no longer linear. We use the function `add_row()` from the `tibble` package. This will produce a fictitious city with a very high level of unemployment and the lowest level of violence. First, we create another data frame, `df_1`, that only contains our two variables of interest.
 <br>
@@ -539,7 +540,7 @@ In the lecture videos, we introduced the notion of power analysis. Now, in this 
 
 A problem with many scientific studies is that they are *underpowered*. Consequently, they fail to reject the null hypothesis, often because the sample size is not large enough. 
 
-Power analysis is generally done during the planning of an analysis and before you collect data. It helps you to  you know what kind of sample you are going to need to be able to run meaningful hypothesis tests. 
+Power analysis is generally done during the planning of an analysis and before you collect data. It helps you to identify what kind of sample you are going to need to be able to run meaningful hypothesis tests. 
 
 We still can, however, check how much power we have after collecting data. Doing so  ensures we are not failing to reject the null hypothesis as a consequence of insufficient power.  
 
@@ -573,12 +574,12 @@ Once you know what test you are calculating your power for, this `pwr` function 
 Checking for our statistical power in this after-the-fact manner is referred to as **post-hoc power analysis**. Post-hoc power is the retrospective magnitude of an observed effect based on the sample size and parameter estimates derived from a certain data set. Post-hoc power can be considered as a follow-up analysis. 
 
 
-For this example, we load the Seattle Neighborhoods and Crime Survey dataset and naming it `seattle_df`. Take care to load it using the correct package and codes - check its data format.
+For this example, we load the Seattle Neighborhoods and Crime Survey dataset and name it `seattle_df`. Take care to load it using the correct package and codes - check its data format.
 
 
 
 
-We are interested in the relationship between gender (`QDEM3`) and reporting to the police (`Q58E`). Let us get to know these variables and change them using the `factor()` function. (See Lesson 2, section 2.4.1.2):
+We are interested in the relationship between gender (`QDEM3`) and reporting to the police (`Q58E`). Let us get to know these variables and create new ones using the `factor()` function. (See Lesson 2, section 2.4.1.2):
 <br>
 
 
@@ -638,7 +639,7 @@ attributes(seattle_df$reported_to_police) # excludes values that were not includ
 ```
 <br>
 
-Now that we have our new and refined variables, let us get to know them further using the `count()` function: 
+Now that we have our new variables, we get to know `gender` using the `count()` function: 
 
 <br>
 
@@ -815,7 +816,7 @@ pwr.chisq.test(w = 0.30, power = 0.90, df = 1, sig.level = 0.05)
 ```
 <br>
 
-In order to detect a medium effect size, with 90% power, we need 117 respondents (N = 116.75). And to detect a large effect size? 
+In order to detect a medium effect size, with 90% power, we need 117 respondents (N = 116.75). What if we wanted to detect a large effect size? 
 
 In your google doc, type your answer to:
 **To detect a large size effect, will we need more observations in our sample, or fewer? Why?**
@@ -843,7 +844,7 @@ pwr.chisq.test(w = 0.50, power = 0.90, df = 1, sig.level = 0.05)
 ```
 <br>
 
-To detect a large sized effect, we would need fewer people. The reason is the bigger the difference between the two groups, the easier this is to detect -- it is obvious. If there are large differences between males and females in reporting to the police in the population, for example, we will see these emerge even in smaller samples. If the differences, however, are smaller, then we may not observe this in small samples. 
+To detect a large sized effect, we would need fewer people. The reason is the bigger the difference between the two groups, the easier this is to detect -- it is a more obvious observation compared to small and medium sized effects. If there are large differences between males and females in reporting to the police in the population, for example, we will see these emerge even in smaller samples. If the differences, however, are smaller, then we may not observe this in small samples. 
 
 
 Let us see what sample size we would need to find small effect sizes: 
@@ -868,7 +869,7 @@ pwr.chisq.test(w = 0.10, power = 0.90, df = 1, sig.level = 0.05)
 ```
 <br>
 
-The output shows we would now need 1,050 observations. Our sample size in our Seattle data, however, is of similar size, and accordingly, we did detect this small but statistically significant (i.e. generalisable) difference! 
+The output shows we would now need 1,050 observations! Our sample size in our Seattle data, however, is of similar size, and accordingly, we did detect this small but statistically significant (i.e. generalisable) difference! 
 
 The power calculation processes are similar for other types of test. You can always explore the help functions (type `?` in front of the function, like `? pwr.t.test()` in the console, for example) to find out the slight variations. And now you can confidently answer questions like how many people will you need to survey in order to detect different effect sizes. 
 
