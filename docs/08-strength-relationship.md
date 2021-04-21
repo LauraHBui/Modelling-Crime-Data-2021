@@ -346,6 +346,7 @@ We are interested in whether there is a relationship between unemployment and vi
 The extent to which two variables move together is called **covariation**: if one variable moves up and so does the other, this is referred to as a *positive linear relationship*; if one variable moves down while the other moves up, this is known as a *negative linear relationship*.
 
 We create a scatterplot between our independent variable, unemployment (`unemployed`), and our dependent variable, the log of the violence rate (`log_viol_r`), using the `ggplot()` function in the `ggplot2` package:
+
 <br>
 
 
@@ -356,6 +357,7 @@ ggplot(df, aes(x = unemployed, y = log_viol_r)) +
 ```
 
 <img src="08-strength-relationship_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+
 <br>
 
 Does it look as if US cities that have a high score on unemployment on the x-axis also have a high score on violent crime on the y-axis? Type out your observations on the google doc and then look below to compare your answer:
@@ -416,6 +418,7 @@ $H_A$: There is a correlation between unemployment and the violence rate.
 #### Activity 3: Pearson's correlation in `R`
 
 We use the `cor()` function and `cor.test` from `base R` to conduct a Pearson’s correlation:
+
 <br>
 
 
@@ -467,8 +470,8 @@ As our relationship was linear and our results are statistically significant, we
 What about bivariate relationships where linearity is not met? This would call for either **Kendall’s tau** or **Spearman’s rho** (or correlation), nonparametric versions of Pearson’s correlation. Kendall’s tau is more accurate when you have a small sample size compared to Spearman’s rho. 
 
 We add some (purposive) excitement in our next example by adding an outlier so the relationship is no longer linear. We use the function `add_row()` from the `tibble` package. This will produce a fictitious city with a very high level of unemployment and the lowest level of violence. First, we create another data frame, `df_1`, that only contains our two variables of interest.
-<br>
 
+<br>
 
 
 ```r
@@ -663,6 +666,8 @@ To conduct a power analysis in order to gauge whether our sample size of 1,145 f
 - (c) degrees of freedom; and 
 - (d) our alpha level (usually $\alpha$ = 0.05). 
 
+<br>
+
 Judging from the type of variables we have (two binary, categorical variables), we would conduct a chi-square test.
 
 We start with obtaining the (minimum) effect size. We use the `ES.w2()` function, which requires a proportions table. We first, however, create a object containing a crosstab with the `table()` function, and then create another object containing a proportions table created from the `prop.table()` function: 
@@ -735,7 +740,7 @@ $df = (n-1)(n-1)$
 
 <br>
 
-In this case: df = (2-1)*(2-1), which is 1.
+In this case: *df* = (2-1)*(2-1), which is 1.
 
 Finally, we specify our significance level (the default is 0.05, but we specify it for this example):
 <br>
@@ -789,6 +794,8 @@ t-test for means         d          0.20     0.50    0.80
 t-test for correlation   r          0.10     0.30    0.50
 F-test for regression    f^2        0.02     0.15    0.35
 chi-square               w          0.10     0.30    0.50
+
+<br>
 <br>
 
 For example, a medium effect size for our chi-square results would be .30 . In our actual sample, however, we saw an effect size of 0.099. The table indicates that this is about a small sized effect. 

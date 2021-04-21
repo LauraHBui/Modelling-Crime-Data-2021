@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-04-20" />
+<meta name="date" content="2021-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -581,13 +581,13 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 <h4><span class="header-section-number">8.2.1.1</span> Activity 2: Identifying a linear relationship</h4>
 <p>We are interested in whether there is a relationship between unemployment and violence. First, we must examine our bivariate relationship through a scatterplot. We do this to ascertain if our variables of interest have a <em>linear relationship</em>, which determines what statistical test we will need to use.</p>
 <p>The extent to which two variables move together is called <strong>covariation</strong>: if one variable moves up and so does the other, this is referred to as a <em>positive linear relationship</em>; if one variable moves down while the other moves up, this is known as a <em>negative linear relationship</em>.</p>
-<p>We create a scatterplot between our independent variable, unemployment (<code>unemployed</code>), and our dependent variable, the log of the violence rate (<code>log_viol_r</code>), using the <code>ggplot()</code> function in the <code>ggplot2</code> package:
-<br></p>
+<p>We create a scatterplot between our independent variable, unemployment (<code>unemployed</code>), and our dependent variable, the log of the violence rate (<code>log_viol_r</code>), using the <code>ggplot()</code> function in the <code>ggplot2</code> package:</p>
+<p><br></p>
 <div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb474-1" title="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> unemployed, <span class="dt">y =</span> log_viol_r)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb474-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">3</span>, <span class="dt">colour=</span> <span class="st">&quot;dark green&quot;</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Jitter adds a little random noise; this makes points less likely to overlap one another in the plot</span></a>
 <a class="sourceLine" id="cb474-3" title="3"><span class="st">  </span><span class="kw">theme_light</span>()</a></code></pre></div>
-<p><img src="08-strength-relationship_files/figure-html/unnamed-chunk-8-1.png" width="672" />
-<br></p>
+<p><img src="08-strength-relationship_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><br></p>
 <p>Does it look as if US cities that have a high score on unemployment on the x-axis also have a high score on violent crime on the y-axis? Type out your observations on the google doc and then look below to compare your answer:</p>
 <p><br></p>
 <p><br></p>
@@ -620,8 +620,8 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 </div>
 <div id="activity-3-pearsons-correlation-in-r" class="section level4">
 <h4><span class="header-section-number">8.2.1.3</span> Activity 3: Pearson’s correlation in <code>R</code></h4>
-<p>We use the <code>cor()</code> function and <code>cor.test</code> from <code>base R</code> to conduct a Pearson’s correlation:
-<br></p>
+<p>We use the <code>cor()</code> function and <code>cor.test</code> from <code>base R</code> to conduct a Pearson’s correlation:</p>
+<p><br></p>
 <div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" title="1"><span class="co"># This gives us the value of Pearson&#39;s r </span></a>
 <a class="sourceLine" id="cb475-2" title="2"><span class="kw">cor</span>(df<span class="op">$</span>log_viol_r, df<span class="op">$</span>unemployed)</a></code></pre></div>
 <pre><code>## [1] 0.5368416</code></pre>
@@ -648,8 +648,8 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 <div id="activity-4-nonparametric-correlation-tests" class="section level4">
 <h4><span class="header-section-number">8.2.1.4</span> Activity 4: Nonparametric correlation tests</h4>
 <p>What about bivariate relationships where linearity is not met? This would call for either <strong>Kendall’s tau</strong> or <strong>Spearman’s rho</strong> (or correlation), nonparametric versions of Pearson’s correlation. Kendall’s tau is more accurate when you have a small sample size compared to Spearman’s rho.</p>
-<p>We add some (purposive) excitement in our next example by adding an outlier so the relationship is no longer linear. We use the function <code>add_row()</code> from the <code>tibble</code> package. This will produce a fictitious city with a very high level of unemployment and the lowest level of violence. First, we create another data frame, <code>df_1</code>, that only contains our two variables of interest.
-<br></p>
+<p>We add some (purposive) excitement in our next example by adding an outlier so the relationship is no longer linear. We use the function <code>add_row()</code> from the <code>tibble</code> package. This will produce a fictitious city with a very high level of unemployment and the lowest level of violence. First, we create another data frame, <code>df_1</code>, that only contains our two variables of interest.</p>
+<p><br></p>
 <div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" title="1"><span class="co"># For convenience, we further reduce the number of variables and place in a new data frame</span></a>
 <a class="sourceLine" id="cb479-2" title="2">df_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">select</span>(df, unemployed, log_viol_r) </a>
 <a class="sourceLine" id="cb479-3" title="3"></a>
@@ -776,6 +776,7 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 <li>our alpha level (usually <span class="math inline">\(\alpha\)</span> = 0.05).</li>
 </ol></li>
 </ul>
+<p><br></p>
 <p>Judging from the type of variables we have (two binary, categorical variables), we would conduct a chi-square test.</p>
 <p>We start with obtaining the (minimum) effect size. We use the <code>ES.w2()</code> function, which requires a proportions table. We first, however, create a object containing a crosstab with the <code>table()</code> function, and then create another object containing a proportions table created from the <code>prop.table()</code> function:
 <br></p>
@@ -811,7 +812,7 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 <p><br>
 <span class="math inline">\(df = (n-1)(n-1)\)</span></p>
 <p><br></p>
-<p>In this case: df = (2-1)*(2-1), which is 1.</p>
+<p>In this case: <em>df</em> = (2-1)*(2-1), which is 1.</p>
 <p>Finally, we specify our significance level (the default is 0.05, but we specify it for this example):
 <br></p>
 <div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb503-1" title="1"><span class="co"># We use this `pwr` function for chi-square</span></a>
@@ -879,15 +880,10 @@ df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
 <td align="right">0.30</td>
 <td align="right">0.50</td>
 </tr>
-<tr class="odd">
-<td align="left"><br></td>
-<td align="left"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
 </tbody>
 </table>
+<p><br>
+<br></p>
 <p>For example, a medium effect size for our chi-square results would be .30 . In our actual sample, however, we saw an effect size of 0.099. The table indicates that this is about a small sized effect.</p>
 <p>Let us say that we want to detect a medium sized effect, and wish to achieve 90% power with our study. In that case, these are the values we would specify within our <code>pwr.chisq.test()</code> function:
 <br></p>
