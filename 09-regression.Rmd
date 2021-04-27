@@ -59,7 +59,7 @@
 
 Our learning on inferential statistics, so far, has been on single relationships between two variables. One of the major drawbacks of previous analyses of single relationships is that, even though you are able to test for statistical significance, you cannot ascertain prediction very well. In other words, you were unable to say for certain that one variable predicted another variable; we merely could say ‘there was a relationship’ or ‘there was no relationship.’ 
 
-Although we got into the habit of arranging our variables as independent and dependent variables, these terms are more relevant to regression. The reason is, not only can we establish significant relationships, we also can say with relatively more clarity, how that relationship looks like – which variable is impacting on what other variable.
+Although we got into the habit of arranging our variables as independent and dependent variables, these terms are more relevant to regression. The reason is, not only can we establish significant relationships, we also can say with relatively more clarity, how that relationship looks like how change in one variable may be impacting change in the other variable.
 
 Another major drawback of previous analyses on bivariate relationships is that you are less certain about whether the relationship and its effect size would still hold in the face of other variables. For example, would a significant relationship between peer group and violence still exist when the relationship between unemployment and violence is considered? This last lesson is on analyses that establish predictive relationships and test multiple relationships between two variables at the same time.
 
@@ -76,7 +76,7 @@ Another major drawback of previous analyses on bivariate relationships is that y
 
 
 
-Our main topic of the day is **regression** and we learn two forms: ordinary least squares (OLS) and logistic. The former is applied to dependent variables that are measured at interval or numeric level, while the latter is applied to dependent variables that are binary and measured at the nominal level. The three topics are: assumptions of OLS regression; interpreting OLS regression; and logistic regression.
+Our main topic of the day is **regression** and we learn two forms: ordinary least squares (OLS) and logistic. The former is applied to dependent variables that are measured at interval or numeric level, while the latter is applied to dependent variables that are binary and measured at the nominal level. The three topics are: motivating regression; interpreting OLS regression; and logistic regression.
 
 
 
@@ -86,7 +86,19 @@ Our main topic of the day is **regression** and we learn two forms: ordinary lea
 
 
 
-### Assumptions of OLS Regression 
+### Motivating Regression 
+
+In science one of our main concerns is to develop models of the world, models that help us to understand the world a bit better or to predict how things will develop better. You can read more about modelling in scientific research [here](https://www.visionlearning.com/en/library/Process-of-Science/49/Modeling-in-Scientific-Research/153). Statistics provides a set of tools that help researchers build and test scientific models.
+
+Our models can be simple. We can think that unemployment is a factor that may help us to understand why cities differ in their level of violent crime. We could express such a model like this:
+
+![](Images/model1.png) 
+
+Surely we know the world is complex and likely there are other things that may help us to understand why some cities have more crime than others. So, we may want to have tools that allow us to examine such models. Like, for example, the one below:
+
+![](Images/model2.png) 
+
+In this session we are going to cover regression analysis or, rather, we are beginning to talk about regression modelling.
 
 
 
@@ -94,6 +106,10 @@ Our main topic of the day is **regression** and we learn two forms: ordinary lea
 **Ordinary least squares (OLS)** regression is a popular technique used to explore whether one or multiple independent variables (X) can predict or explain the variation in the dependent variable (Y).  When multiple independent variables are included simultaneously, they are called **covariates**; when only one independent variable is used, the OLS regression is called **bivariate regression** or **simple regression**. OLS regression has been the mainstay analysis in the social sciences. 
 
 
+
+
+
+#### Activity 1: Setting up!
 
 
 To begin, we do the following:
@@ -135,6 +151,26 @@ df <- read.csv(here("Datasets", "csew1314_teaching.csv"))
 4.	Name the data frame `df`
 
 
+#### Activity 2: Getting to know your data
+
+The first step in any analysis is to develop some familiarity with the data you are going to be working with. We have been here before. Read the codebook. Run summary statistics for your quantitative variables, frequency distributions for your categorical variables, and visualise your variables. This will help you to detect any anomalies and give you a sense for what you have.
+
+Some variables of interest that we could explore are perception of antisocial behaviour (`antisocx`), and whether it is associated with other variables such as age (`age`), gender (`gender`), victimisation experience (`bcsvictim`), and confidence in the criminal justice system (`confx`). You might explore these data, using the appropriate methods based on their levels of measurement. So you might look at measures of central tendency and dispersion for the numeric variables, and frequency tables for your categorical variables. You can play around with this now, to get an understanding for these variables in your data.  
+
+
+For example, if we start with perception of antisocial behaviour (`antisocx`) and age (`age`), we might visualise our variable distributions:
+
+
+```{r}
+
+qplot(x = age, data = df)
+qplot(x = antisocx, data = df)
+# antisocx is negatively skewed
+
+```
+
+
+#### Activity 3: What questions can regression answer? 
 
 
 For our example, we are interested in the bivariate relationship between age (X) and perception of antisocial behaviour (Y). Our research question is: ‘Does age predict perceived level of antisocial behaviour in one’s neighbourhood?’ Our null and alternative hypotheses are as follows:
@@ -150,133 +186,16 @@ $H_A$: Age predicts perceived level of antisocial behaviour in one’s neighbour
 
 
 
-
-Our initial step is to get to know our data:
-
+Why is this something useful? Well based on our models, we can make generalisations from our sample to the population, and we can use the parameters we will estimate for our regression to make specific predictions/ generalisations. 
 
 
-```{r}
-
-# Age variable
-summary(df$age)
-
-# Antisocial variable
-summary(df$antisocx)
-
-```
+I have mentioned before that anything can be a model, as long as it lets you draw inferences about a population from a sample. So earlier in the semester, we used the mean. We can do this to draw inferences. Say, for example, we are interested in perception of antisocial behaviour. We want a model, so that if you randomly picked a person, you would be able to guess to what extent they perceive antisocial behaviour to be a problem. If I picked a person at random, what would be your best guess on the value of that case’s perceived antisocial behaviour in the neighbourhood (`antisocx`)? Likely, you say a value near the mean (M = 0.001823) of the sample. 
 
 
-
-
-Both variables have missing data. You could ignore the 'NAs', but when we run regression, it will conduct a *listwise deletion*, which is when cases are dropped from your analysis if they have missing data on either the independent variable (IV) or the dependent variable (DV). As we now want descriptive statistics of cases we will be using, we will delete the cases that will be dropped anyway. We use the `complete.cases ()` function to keep cases that have valid responses in both the IV and DV:
-
+But once we model the relationship between this dependent variable and an independent variable, we can use that to help improve our guesses. Let's start by looking at a scatterplot. 
 
 
 ```{r}
-
-# Start with 35,371 cases
-nrow(df) 
-
-# Retain only complete cases
-df <- df[(complete.cases(df$age) & complete.cases(df$antisocx)), ]
-
-# Left with 8,650 cases after dropping NAs
-nrow(df) 
-
-# Summaries of just the 8,650 cases 
-summary(df$age)
-summary(df$antisocx)
-
-```
-
-
-
-To conduct OLS regression, or linear regression for short, a number of assumptions must be met, so you will need to test for them. Failure to do so will result in a possibly incorrect model and drawing conclusions from it would be silly. We only, however, briefly go through the first four assumptions because going into detail is beyond the scope of this class. 
-
-The purpose of today is more to introduce you to regression and learn how to use it and interpret the output. For this class, we find that the assumption of linearity is important to go into detail. Going through this assumption in detail will give you a better understanding of OLS regression itself and how it operates. We now go through each of the five assumptions of OLS regression before using the technique.
-
-
-
-
----
-
-
-
-
-#### Independence of errors
-
-
-
-
-Errors of the prediction, which make up the regression line, are assumed to be independent of each other. The term *heteroscedasticity* is used to describe this violation of independence of errors. When we violate this assumption, our points in the scatterplot resemble the shape of a funnel. If there is dependency between the observations, you would need to use other models that are not covered in this course.
-
-
-
-
-#### Equal Variances of errors
-
-
-
-
-If the variance of our residuals is unequal, we will need different estimation methods, but this issue is minor. The reason it is a minor issue is that regression is considered a *robust* estimation, meaning that it is not too sensitive to changes in the variance.
-
-
-
-
-#### Normality of errors
-
-
-
-
-Residuals are assumed to be normally distributed. Gelman and Hill (2007) believe this to be the least important of the assumptions because regression inferences tend to be robust regarding non-normality of the errors. Your results, however, may be sensitive to large outliers so you will need to drop them if appropriate.
-
-
-
-
-#### Multicollinearity
-
-
-
-
-When you are including more than one IV, **multicollinearity** may be a concern. Independent variables that are highly correlated with each other mean that they are tapping into the same construct. For example, if you include two IVs, parental attachment and parental discipline, you may find that they are highly related to each other because both measure a similar idea.
-
-One indication is that if you run a Pearson’s correlation for the two IVs and get a value of 0.6 or 0.7, you should start investigating further. Another way to check for multicollinearity is through the *variance inflation factor* (VIF). How high the VIF should be before multicollinearity is a concern is debatable: here, anything above 5 should be a matter of concern. With this analysis, IVs should be numeric. We include an additional covariate, confidence in the police (`confx`), to illustrate. The VIF for our variables is conducted with the `vif ()` function in the `car` package:
-
-
-
-```{r}
-
-cal_vif <- lm(antisocx ~ age + confx, data = df) 
-
-vif(cal_vif)
-
-```
-
-
-
-
-The VIF values are below 5 and indicate that including both variables, `age` and `confx`, in the same model does not pose any multicollinearity concerns.
-
-
-
-
-#### Linearity
-
-
-
-
-Similar to Pearson’s correlation, a linear relationship must be established before conducting the analysis. If the relationship is non-linear, your predicted values will be wrong, and it will systematically miss the true pattern of the mean of Y. 
-
-Say, for example, you randomly drew a case from the dataset. What would be your best guess on the value of that case’s perceived antisocial behaviour in the neighbourhood (`antisocx`)? Likely, you say a value near the mean (M = 0.001823) of the sample. Next, we visualise our variable distributions:
-
-
-
-
-```{r}
-
-qplot(x = age, data = df)
-qplot(x = antisocx, data = df)
-# antisocx is negatively skewed
 
 # Checking out how the variables covary together
 ggplot(df, aes(x = age, y = antisocx)) + 
@@ -286,9 +205,9 @@ ggplot(df, aes(x = age, y = antisocx)) +
 
 
 
-If you were to guess that case’s perceived level of antisocial behaviour in the neighbourhood, but now based it on the scatterplot, and learned they were aged 30, what would your answer now be? Before, we based our guess on descriptive measures of central tendency and dispersion, which included all ages. Now, we are asked to guess knowing that the person is aged 30. If we were to now guess the level of perceived antisocial behaviour, we would try and guess the mean of those who are also aged 30. This is what is known as the *conditional mean* -- the mean of Y for each value of X.
+We can now see how the two variables vary together (covary). Now let's say I ask you to guess again about that person’s perceived level of antisocial behaviour in the neighbourhood, but now I told you also their age. Based on the scatterplot, if I told you thy were aged 30, what would your answer now be? Before, we based our guess on descriptive measures of central tendency and dispersion, which included all ages. Now, we are asked to guess knowing that the person is aged 30. If we were to now guess the level of perceived antisocial behaviour, we would try and guess the mean of those who are also aged 30. This is what is known as the *conditional mean* -- the mean of Y for each value of X.
 
-We create a trend line through the scatterplot, which represents the mean of the variable on the y-axis, `antisocx`, and we want the means computed for each age:
+We can draw a trend line through the scatterplot, which represents the mean of the variable on the y-axis, `antisocx`, and we want the means computed for each age:
 
 
 
@@ -345,6 +264,130 @@ A map is never a perfect representation of the world; the same happens with stat
 
 
 
+
+#### Activity 4: Exploring your data further: missing data
+
+
+We also want to look for any missing data in our data sets. 
+
+
+```{r}
+
+# Age variable
+summary(df$age)
+
+# Antisocial variable
+summary(df$antisocx)
+
+```
+
+
+
+
+Both variables have missing data. You could ignore the 'NAs', but when we run regression, it will conduct a *listwise deletion*, which is when cases are dropped from your analysis if they have missing data on either the independent variable (IV) or the dependent variable (DV). As we now want descriptive statistics of cases we will be using, we will delete the cases that will be dropped anyway. We use the `complete.cases()` function to keep cases that have valid responses in both the IV and DV:
+
+
+
+```{r}
+
+# Start with 35,371 cases
+nrow(df) 
+
+# Retain only complete cases
+
+df <- df %>% filter(complete.cases(df$age) & complete.cases(df$antisocx))
+
+# Left with 8,650 cases after dropping NAs
+nrow(df) 
+
+# Summaries of just the 8,650 cases 
+summary(df$age)
+summary(df$antisocx)
+
+```
+
+
+#### Activity 5: Regression assumptions 
+
+To conduct OLS regression, or linear regression for short, a number of assumptions must be met, so you will need to test for them. Failure to do so will result in a possibly incorrect model and drawing conclusions from it would be silly. We only, however, briefly go through the first four assumptions because going into detail is beyond the scope of this class. 
+
+The purpose of today is more to introduce you to regression and learn how to use it and interpret the output. For this class, we find that the assumption of linearity is important to go into detail. Going through this assumption in detail will give you a better understanding of OLS regression itself and how it operates. We now go through each of the five assumptions of OLS regression before using the technique.
+
+
+
+
+---
+
+
+
+
+##### Independence of errors
+
+
+
+
+Errors of the prediction, which make up the regression line, are assumed to be independent of each other. The term *heteroscedasticity* is used to describe this violation of independence of errors. When we violate this assumption, our points in the scatterplot resemble the shape of a funnel. If there is dependency between the observations, you would need to use other models that are not covered in this course.
+
+
+
+
+##### Equal Variances of errors
+
+
+
+
+If the variance of our residuals is unequal, we will need different estimation methods, but this issue is minor. The reason it is a minor issue is that regression is considered a *robust* estimation, meaning that it is not too sensitive to changes in the variance.
+
+
+
+
+##### Normality of errors
+
+
+
+
+Residuals are assumed to be normally distributed. Gelman and Hill (2007) believe this to be the least important of the assumptions because regression inferences tend to be robust regarding non-normality of the errors. Your results, however, may be sensitive to large outliers so you will need to drop them if appropriate.
+
+
+
+
+##### Multicollinearity
+
+
+
+
+When you are including more than one IV, **multicollinearity** may be a concern. Independent variables that are highly correlated with each other mean that they are tapping into the same construct. For example, if you include two IVs, parental attachment and parental discipline, you may find that they are highly related to each other because both measure a similar idea.
+
+One indication is that if you run a Pearson’s correlation for the two IVs and get a value of 0.6 or 0.7, you should start investigating further. Another way to check for multicollinearity is through the *variance inflation factor* (VIF). How high the VIF should be before multicollinearity is a concern is debatable: here, anything above 5 should be a matter of concern. With this analysis, IVs should be numeric. We include an additional covariate, confidence in the police (`confx`), to illustrate. The VIF for our variables is conducted with the `vif ()` function in the `car` package:
+
+
+
+```{r}
+
+cal_vif <- lm(antisocx ~ age + confx, data = df) 
+
+vif(cal_vif)
+
+```
+
+
+
+
+The VIF values are below 5 and indicate that including both variables, `age` and `confx`, in the same model does not pose any multicollinearity concerns.
+
+
+
+
+##### Linearity
+
+
+
+
+Similar to Pearson’s correlation, a linear relationship must be established before conducting the analysis. If the relationship is non-linear, your predicted values will be wrong, and it will systematically miss the true pattern of the mean of Y. We will learn how to check for this when looking at the residuals from the regression. 
+
+
+
+
 ---
 
 
@@ -388,7 +431,7 @@ To resolve this issue, the error values are squared before they are summed. This
 
 
 
-#### Bivariate Regression
+#### Activity 6: Bivariate Regression
 
 
 
@@ -401,12 +444,12 @@ To fit the model, we use the `lm()` function using the formula specification `(Y
 
 fit_1 <- lm(antisocx ~ age, data = df)
 
-# Get to know the data
+# Get to know the model object
 class(fit_1)
 attributes(fit_1)
 summary(fit_1)
 
-# A more concise display of results is using ‘display ()’ from arm package:
+# A more concise display of results is using ‘display()’ from arm package:
 display(fit_1)
 
 ```
@@ -436,19 +479,32 @@ Now let us interpret the regression output. There are several points to focus on
 
 4.	$R^2$: This is known as the percent of variance explained, and it is a measure of the strength of our model. This value ranges from 0 to 1. Towards 1, the better we are able to account for variation in our outcome Y with our IV(s).  In other words, the stronger the relationship is between Y and X. Weisburd and Britt (2009: 437) suggest that, in criminal justice research, values greater than .40 are rare, but if we obtain such a value, it is considered a powerful model. If the value is lower than .20, the model is considered relatively weak. The output shows that $R^2$ for our model was about .06 (the multiple r-squared value). We interpret this as our model explains 6% of the variance in the level of perceived antisocial behaviour. 
 
+#### Activity 7: Residuals
+
+In the output above we saw there was something called the residuals. The residuals are the differences between the observed values of Y for each case minus the predicted or expected value of Y, in other words the distances between each point in the dataset and the regression line (see the visual example below). 
+
+![drawing](Images/residual.jpg)
 
 
 
-![**Figure 9.1** Residuals visualized](Images/residual.jpg)
+You see that we have our line, which is our predicted values, and then we have the black dots which are our actually observed values. The distance between them is essentially the amount by which we were wrong, and all these distances between observed and predicted values are our residuals. Least square estimation essentially aims to reduce the average of the squares of all these distances: that's how it draws the line.
 
+Why do we have residuals? Well, think about it. The fact that the line is not a perfect representation of the cloud of points makes sense, doesn't it? You cannot predict perfectly what the value of Y is for every observation just by looking ONLY at their level of resource deprivation! This line only uses information regarding resource deprivation. This means that there's bound to be some difference between our predicted level of homicide given our knowledge of deprivation (the regression line) and the actual level of homicide (the actual location of the points in the scatterplot). There are other things that matter not being taken into account by our model to predict the values of Y. There are other things that surely matter in terms of understanding homicide. And then, of course, we have measurement error and other forms of noise.
 
+We can re-write our equation like this if we want to represent each value of Y (rather than the predicted value of Y) then: 
+$y = b_0 + b_1x + \text{residuals}$
 
-To understand $R^2$, we refer to **residuals** (*e*). These are the distance between each point in the dataset and the regression line. The distance represents the amount of error. Previously, this was mentioned in the context of least squares estimation. Residuals matter because it tells us how much variation is still unexplained and considers the fact that we cannot perfectly predict perceived antisocial behaviour each time by using the information on age. In actuality, our regression equation should be:
+The residuals capture how much variation is unexplained, how much we still have to learn if we want to understand variation in Y. A good model tries to maximise explained variation and reduce the magnitude of the residuals. 
 
+We can use information from the residuals to produce a measure of effect size, of how good our model is in predicting variation in our dependent variables. Remember our game where we try to guess homicide (Y)? If we did not have any information about X our best bet for Y would be the mean of Y. The regression line aims to improve that prediction. By knowing the values of X we can build a regression line that aims to get us closer to the actual values of Y (look at the Figure below). 
 
+![r squared](Images/weight2.png)
 
+The distance between the mean (our best guess without any other piece of information) and the observed value of Y is what we call the **total variation**. The residual is the difference between our predicted value of Y  and the observed value of Y. This is what we cannot explain (i.e, variation in Y that is *unexplained*). The difference between the mean value of Y and the expected value of Y (the value given by our regression line) is how much better we are doing with our prediction by using information about X (i.e., in our previous example it would be variation in Y that can be *explained* by knowing about resource deprivation). How much closer the regression line gets us to the observed values. We can then contrast these two different sources of variation (explained and unexplained) to produce a single measure of how good our model is. The formula is as follows:
 
-$$y = b_0 + b_1x_i + e$$
+$R^2 = \dfrac{SSR}{SST} = \dfrac{\Sigma(\hat y_i - \bar y )^2}{\Sigma(y_i - \bar y )^2}$
+
+All this formula is doing is taking a ratio of the explained variation (the squared differences between the regression line and the mean of Y for each observation) by the total variation (the squared differences of the observed values of Y for each observation from the mean of Y). This gives us a measure of the **percentage of variation in Y that is "explained" by X**.
 
 
 
@@ -458,7 +514,7 @@ $$y = b_0 + b_1x_i + e$$
 
 
 
-#### Multiple Regression
+#### Activity 8: Multiple Regression
 
 
 
@@ -477,7 +533,7 @@ For this example, we include additional variables to our model: sex (`sex`), pre
 
 ```{r}
 
-# Checking out what type of class
+# Checking out class of variables
 
 class(df$confx) 
 class(df$bcsvictim)
@@ -485,17 +541,29 @@ class(df$bcsvictim)
 df$bcsvictim <- factor(df$bcsvictim, labels = c("not victim", "Yes victim"), ordered = FALSE) 
 
 # Sex
-class (df$sex)
+class(df$sex)
 table(df$sex)
 
 # Recode sex as dummy variable (0 and 1) where female is 0 and ordered is false
-df$gender <- df$sex
-df$gender[df$gender=="2"] <- "0"
+df$gender <- recode(df$sex, `1` = 1, `2` = 0)
+
 df$gender <- factor(df$gender, labels = c("female", "male"), ordered = FALSE) 
 # Double check values match original variable
 table(df$gender)
 
 
+```
+
+
+
+
+
+Multiple regression is one way of checking the relevance of competing explanations. You could set up a model where you try to predict crime levels with an indicator of broken windows and an indicator of structural disadvantage. If after controlling for structural disadvantage you see that the regression coefficient for broken windows is still significant you may be into something, particularly if the estimated effect is still large. If, on the other hand, the t test for the regression coefficient of your broken windows variable is no longer significant, then you may be tempted to think that perhaps Sampson and Raudenbush were into something. 
+
+
+It could not be any easier to fit a multiple regression model. You simply modify the formula in the `lm()` function by adding terms for the additional inputs separated with a `+`. Let us run this to predict antisocial behaviour with all our independent variables. 
+
+```{r}
 # Now let us run the multiple regression
 
 fit_2 <- lm(antisocx ~ age + gender + bcsvictim + confx, data = df)
@@ -528,10 +596,10 @@ We return to those four points to focus on when confronted with a regression out
 
 4.	$R^2$: The $R^2$ is higher than that of our previous bivariate regression model. It will, however, inevitably increase whenever new variables are added to the model, regardless if they are only weakly related to the DV. Having said this, the new $R^2$ value suggests that the addition of the three new variables improves our previous model. 
 
+#### Activity 9: Presenting the results
 
 
-
-If you would like to professionally present your results, you can use the function `tab_model ()` from the `sjplot` package:
+If you would like to professionally present your results, you can use the function `tab_model()` from the `sjplot` package:
 
 
 
@@ -548,6 +616,15 @@ tab_model(fit_2, pred.labels = c("(Intercept)", "Age", "Sex", "Victimisation", "
 
 ```
 
+You may also like to present your results visually with a plot. For this you can use instead the `plot_model()` function of the `sjPlot` package, that makes it easier to produce this sort of plots. You can find a more detailed tutorial about this function [here](https://strengejacke.wordpress.com/2017/10/23/one-function-to-rule-them-all-visualization-of-regression-models-in-rstats-w-sjplot/). 
+
+
+```{r}
+
+plot_model(fit_2)
+```
+
+What you see plotted here is the point estimates (the circles), the confidence intervals around those estimates (the longer the line the less precise the estimate), and the colours represent whether the effect is negative (red) or positive (blue). There are other packages that also provide similar functionality, like the `dotwhisker` package that you may want to explore, see more details [here](https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html).
 
 
 
@@ -582,7 +659,7 @@ attributes(Arrests$released)
 
 ```
 
-
+#### Activity 10: Preparing your dependent variable
 
 Logistic regression will predict probabilities associated with the level whose first letter is further in the alphabet — this would be ‘yes’, the respondent was released with a summons. But this is not our level of interest. We will need to reorder the levels in the DV using the `relevel` function:
 
@@ -611,6 +688,7 @@ table(Arrests$race)
 ```
 
 
+#### Activity 11: Fitting and interpreting a logistic regression model 
 
 Now that we have arranged the codes of our variables of interest, we fit the logistic regression model using the `glm ()` function and specify a logit model (`family=”binomial”`). We include three other variables in the model to see to what extent race seems to matter in harsher police treatment even when we adjust or consider sex, employment, and previous police contacts:
 
@@ -658,7 +736,7 @@ For both types of regression, it is inappropriate to make comparisons between IV
 
 
 
-#### **Model Fit**
+#### Activity 12: **Model Fit**
 
 
 
@@ -668,7 +746,7 @@ Now, how well is the fit of our logistic regression model? In order words, how w
 
 
 
-#### *Quantitative Prediction*
+#### Activity 13: *Quantitative Prediction*
 
 
 
@@ -724,7 +802,7 @@ with(fit_3, pchisq(null.deviance - deviance, df.null - df.residual, lower.tail =
 
 
 
-The p-value is smaller than α = 0.05, so we conclude that our model is a better fit than a model with no IVs (or predictors). 
+The p-value is smaller than $\alpha = 0.05$, so we conclude that our model is a better fit than a model with no IVs (or predictors). 
 
 In addition, [Professor Scott Menard (2010)](https://methods.sagepub.com/book/logistic-regression-from-introductory-to-advanced-concepts-and-applications) suggests calculating the *likelihood ratio $R^2$*, also known as the Hosmer/Lemeshow $R^2$, by taking the difference of the previous deviances and dividing it by the null deviance. The likelihood ratio $R^2$ tells you the extent to which including your IVs in your model reduces the variation, or error, as measured by the null deviance. The value can range from 0 to 1, where higher values mean better predictive accuracy:
 
