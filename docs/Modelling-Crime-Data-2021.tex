@@ -125,7 +125,7 @@
 
 \title{CRIM20452 Modelling Criminological Data}
 \author{Laura Bui \& Reka Solymosi}
-\date{2021-04-19}
+\date{2021-04-27}
 
 \begin{document}
 \maketitle
@@ -140,13 +140,13 @@
 
 \includegraphics[width=0.6\textwidth,height=\textheight]{Images/UOM.jpg}
 
-\hypertarget{course-director-dr-reka-solymosi}{%
-\paragraph*{Course Director: Dr Reka Solymosi}\label{course-director-dr-reka-solymosi}}
-\addcontentsline{toc}{paragraph}{Course Director: Dr Reka Solymosi}
+\hypertarget{course-director-reka-solymosi}{%
+\paragraph*{Course Director: Reka Solymosi}\label{course-director-reka-solymosi}}
+\addcontentsline{toc}{paragraph}{Course Director: Reka Solymosi}
 
-\hypertarget{teaching-team-dr-laura-bui-carlos-iglesias-dr-ioana-macoveciuc-and-denny-vlaeva}{%
-\paragraph*{Teaching team: Dr Laura Bui, Carlos Iglesias, Dr Ioana Macoveciuc, and Denny Vlaeva}\label{teaching-team-dr-laura-bui-carlos-iglesias-dr-ioana-macoveciuc-and-denny-vlaeva}}
-\addcontentsline{toc}{paragraph}{Teaching team: Dr Laura Bui, Carlos Iglesias, Dr Ioana Macoveciuc, and Denny Vlaeva}
+\hypertarget{teaching-team-laura-bui-carlos-iglesias-ioana-macoveciuc-and-denny-vlaeva}{%
+\paragraph*{Teaching team: Laura Bui, Carlos Iglesias, Ioana Macoveciuc, and Denny Vlaeva}\label{teaching-team-laura-bui-carlos-iglesias-ioana-macoveciuc-and-denny-vlaeva}}
+\addcontentsline{toc}{paragraph}{Teaching team: Laura Bui, Carlos Iglesias, Ioana Macoveciuc, and Denny Vlaeva}
 
 Welcome to Modelling Criminological Data. This is the online tutorial, also known as the lab notes, for the class's weekly lab sessions.
 
@@ -4230,7 +4230,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.98727
+## [1] 99.99919
 \end{verbatim}
 
 \begin{Shaded}
@@ -4240,7 +4240,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 99.97105
+## [1] 99.99399
 \end{verbatim}
 
 \begin{Shaded}
@@ -4250,7 +4250,7 @@ We now have a vector of numbers, all randomly created. Let us get some descripti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 14.99623
+## [1] 15.00031
 \end{verbatim}
 
 By obtaining some descriptive statistics, we are verifying that the mean and SD are indeed 100 and 15, but you may notice a few discrepancies:
@@ -5620,7 +5620,7 @@ We then test whether half of our population have an IQ above the mean. We introd
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.486564
+## [1] 0.48642
 \end{verbatim}
 
 The result should be close to .50, indicating that half of the population will have an IQ higher than the mean. This illustrates a useful feature of the normal distribution: the percentage of cases between its mean and points at a measured distance are fixed. This is referred to as the standard deviation (SD) unit, and the \textbf{z-score} is used to represent it. Z-scores range from -4 standard deviations below the mean and +4 standard deviations above the mean.
@@ -5643,11 +5643,11 @@ With \texttt{R}, we can make it simpler to create z-scores with the function \te
 
 \begin{verbatim}
 ##   prisoner_id  IQ
-## 1           1 104
-## 2           2  96
-## 3           3  79
-## 4           4 108
-## 5           5  83
+## 1           1  84
+## 2           2 117
+## 3           3  84
+## 4           4  90
+## 5           5 113
 \end{verbatim}
 
 \begin{Shaded}
@@ -5665,7 +5665,7 @@ With \texttt{R}, we can make it simpler to create z-scores with the function \te
 
 \begin{verbatim}
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  1.000226
+## 1           1 115 0.9996713
 \end{verbatim}
 
 To show that this is the same z-score you would get with the formula above, we calculate the z-score using the equation, \(z = \frac{x - \mu}{\sigma}\):
@@ -5677,7 +5677,7 @@ To show that this is the same z-score you would get with the formula above, we c
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.000226
+## [1] 0.9996713
 \end{verbatim}
 
 When you round this number, you can see it is ``1''.
@@ -5701,10 +5701,10 @@ Where the z-score becomes practical is illustrated in the following example: say
 \includegraphics{06-hypotheses_files/figure-latex/unnamed-chunk-24-1.pdf}
 
 \begin{verbatim}
-## [1] 0.9452019
+## [1] 0.9451574
 \end{verbatim}
 
-The output shows the shaded area at 0.9452019, meaning that the prisoner has a higher IQ than over 94.594\% of the prison population.
+The output shows the shaded area at 0.9451574, meaning that the prisoner has a higher IQ than over 94.594\% of the prison population.
 
 Recall from the previous lesson, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68\% of cases in the distribution fall within one standard deviation above and below the mean; 95\% within two SD; and 99.7\% within 3 SD. We demonstrate this rule by using the \texttt{pnormGC()} function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:
 
@@ -5740,7 +5740,7 @@ Let us say that we have a prison with a random selection of 233 prisoners. We th
 \end{Highlighting}
 \end{Shaded}
 
-The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 99.6094421 (SD = 15.68019).
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 101.8025751 (SD = 15.8281338).
 
 As the parameter (mean IQ for all prisoners in the population) is known, a \textbf{single sample z-test} is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer's hypotheses:
 
@@ -5795,10 +5795,10 @@ We can now compute our test statistic using the values calculated above:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -0.3802
+## [1] 1.738368
 \end{verbatim}
 
-We obtained this test statistic of -0.3802, but how can we interpret this? We can use z-test statistic to find \emph{the associated p-value}.
+We obtained this test statistic of 1.7383676, but how can we interpret this? We can use z-test statistic to find \emph{the associated p-value}.
 
 Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a \href{https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf}{z-table}
 
@@ -5821,10 +5821,10 @@ Another way to find the p-value is to know that the z-statistic is, in fact, a z
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3518985
+## [1] 0.958927
 \end{verbatim}
 
-The value is 0.3518985. This is a more precise approximation than our lookup table (where we had to round -0.3802), and so we are getting a more precise p-value.
+The value is 0.958927. This is a more precise approximation than our lookup table (where we had to round 1.7383676), and so we are getting a more precise p-value.
 
 We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability:
 
@@ -5843,10 +5843,10 @@ We did not, however, specify a direction. In actuality, we should be looking at 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.703797
+## [1] 0.08214606
 \end{verbatim}
 
-You will see our value has increased to 0.703797. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the \emph{two tails} of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
+You will see our value has increased to 0.0821461. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the \emph{two tails} of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
 
 When we were looking at a directional hypothesis, it only took into consideration \emph{one-tail} of the distribution, hence it being called a one-tailed test.
 
@@ -5859,7 +5859,7 @@ Now you do not usually need the visualisation for this, but we just included it 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3518985
+## [1] 0.958927
 \end{verbatim}
 
 And, since, we actually have a non-directional hypothesis, we can multiply this by two, as it is a two-tailed hypothesis:
@@ -5871,7 +5871,7 @@ And, since, we actually have a non-directional hypothesis, we can multiply this 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.703797
+## [1] 1.917854
 \end{verbatim}
 
 And one more thing: remember that the officer wanted to be 99\% confident, and this means that the significance level would be set at \(\alpha\) = 0.01 and not \(\alpha\) = 0.05 (this is if we are 95\% confident; 1 - 0.95 = 0.05). In our example, though, our p-value is greater than the alpha level, so we fail to reject the null hypothesis.
@@ -6241,7 +6241,7 @@ The t-test makes a number of assumptions, and to use this test, all assumptions 
   \emph{Normal distribution is assumed for both populations} (from which the two groups come from): because the t-test makes assumptions about the shape of the distribution, it is considered a \textbf{parametric test}. Tests that do not make this assumption about shape are called non-parametric. This assumption, however, can be relaxed if the sample size for both groups are large (and why proportions can be compared).
 \end{enumerate}
 
-You may also want to check for outliers by plotting the data. Outliers may distort your results, particularly with smaller samples. All assumptions with the exception of the second one are met. To meet the second assumption, you can check if your data are normally distributed, especially if the sample size(s) is not large, using density plots:
+You may also want to check for outliers by plotting the data. Outliers may distort your results, particularly with smaller samples. All assumptions with the exception of the second one are met. To meet the third assumption, you can check if your data are normally distributed, especially if the sample size(s) is not large, using density plots:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7351,8 +7351,12 @@ The chi-square statistic contrasts \textbf{expected} and \textbf{observed freque
 
 Homework time!
 
-\hypertarget{testing-relationships-ii.}{%
-\chapter{Testing relationships II.}\label{testing-relationships-ii.}}
+\hypertarget{more-on-effect-sizes}{%
+\chapter{(More) On Effect Sizes}\label{more-on-effect-sizes}}
+
+\hypertarget{correlations-power-analysis}{%
+\subsubsection*{\texorpdfstring{\emph{Correlations \& Power Analysis}}{Correlations \& Power Analysis}}\label{correlations-power-analysis}}
+\addcontentsline{toc}{subsubsection}{\emph{Correlations \& Power Analysis}}
 
 \hypertarget{learning-outcomes-7}{%
 \subsubsection*{Learning Outcomes:}\label{learning-outcomes-7}}
@@ -7361,16 +7365,22 @@ Homework time!
 \begin{itemize}
 \tightlist
 \item
-  Explore more measures of effect sizes for relationships with categorical variables
+  Explore relationships between two numeric variables
 \item
-  Explore relationship between two numeric variables
+  Learn to calculate effect sizes for correlations
 \item
   Understand statistical power
+\item
+  Conduct post and pre - hoc power analyses
 \end{itemize}
 
 \hypertarget{todays-learning-tools-7}{%
 \subsubsection*{Today's Learning Tools:}\label{todays-learning-tools-7}}
 \addcontentsline{toc}{subsubsection}{Today's Learning Tools:}
+
+\hypertarget{total-number-of-activities-6}{%
+\paragraph*{\texorpdfstring{\emph{Total number of activities}: 6}{Total number of activities: 6}}\label{total-number-of-activities-6}}
+\addcontentsline{toc}{paragraph}{\emph{Total number of activities}: 6}
 
 \hypertarget{data-7}{%
 \paragraph*{\texorpdfstring{\emph{Data:}}{Data:}}\label{data-7}}
@@ -7379,9 +7389,9 @@ Homework time!
 \begin{itemize}
 \tightlist
 \item
-  Seattle Neighborhoods and Crime Survey
-\item
   Patrick Sharkey's data
+\item
+  Seattle Neighborhoods and Crime Survey
 \end{itemize}
 
 \hypertarget{packages-8}{%
@@ -7391,13 +7401,9 @@ Homework time!
 \begin{itemize}
 \tightlist
 \item
-  \texttt{DescTools}
-\item
   \texttt{dplyr}
 \item
   \texttt{ggplot2}
-\item
-  \texttt{GoodmanKruskal}
 \item
   \texttt{haven}
 \item
@@ -7415,474 +7421,146 @@ Homework time!
 \begin{itemize}
 \tightlist
 \item
-  \texttt{add\_row()} : Add rows to a data frame (\texttt{tibble})
+  \texttt{add\_row()} : Adds rows to a data frame (\texttt{tibble})
 \item
   \texttt{cor()} : Produces the correlation of two variables (\texttt{base\ R})
 \item
   \texttt{cor.test()} : Obtains correlation coefficient (\texttt{base\ R})
 \item
-  \texttt{CramerV()} : Conducts the Cramer's V measure of association (\texttt{DescTools})
+  \texttt{rm()} : Removes an object from the \texttt{R} environment (\texttt{base\ R})
 \item
-  \texttt{GoodmanKruskalGamma()} : Conducts Goodman-Kruskal gamma measure of association (\texttt{DescTools})
+  \texttt{ES.w2()}: Computes effect size w for a two-way probability table (\texttt{pwr})
 \item
-  \texttt{Phi()} : Conducts the phi measure of association (\texttt{DescTools})
-\item
-  \texttt{rm()} : Remove object from R environment (\texttt{base\ R})
-\item
-  \texttt{SomersDelta()} : Conducts the Somers' D measure of association (\texttt{DescTools})
-\item
-  \texttt{ES.w2()}: Compute effect size w for a two-way probability table (\texttt{pwr})
-\item
-  \texttt{pwr.chisq.test()} : Compute power of test or determine parameters to obtain target power (\texttt{pwr})
+  \texttt{pwr.chisq.test()} : Computes power of a test or determines estimates to obtain target power (\texttt{pwr})
 \end{itemize}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{measures-of-association}{%
-\section{Measures of Association}\label{measures-of-association}}
+\hypertarget{measures-of-association-a-continuation}{%
+\section{Measures of Association: A Continuation}\label{measures-of-association-a-continuation}}
 
-So far in the course, we have learned ways of measuring whether there is a relationship between variables. If there is a relationship between variables, it means that the value of IV can be used to predict the value of the DV. Although we are able to test for statistical significance, we are unable to say anything about how \emph{strong} these associations between variables are.
+To date, we have learned ways of measuring whether there is a relationship between variables. These are known as \emph{bivariate analyses}, which involve two variables. If a relationship exists, as indicated by tests of statistical significance, it means that the value of the independent variable (IV) can be used to predict the value of the dependent variable (DV).
 
-We also leaned that in crime and criminal justice research, not only are we interested in whether there is a relationship between variables, but we are also interested in the size of that relationship. Knowing the strength of the relationship is useful because it indicates the size of the difference. It addresses the question of `To what extent is this relationship generalisable?' instead of merely `Is there a relationship or not?'
+We also learned to test how \emph{strong} these associations between variables were. This is known as the \emph{effect size}, and simply quantifies the magnitude of difference between two variables. Instead of merely addressing the question `Is there a relationship or not?', the effect size addresses the question `To what extent is this relationship generalisable?' We were recently introduced to some measures of effect sizes such as Cohen's \emph{d} and the odds ratio (OR).
 
-The strength of relationship is known more as the \textbf{effect size}, and simply quantifies the magnitude of difference between two variables. We began to explore this in last week's session and learned about rediduals, odds ratios, and more. This lesson we will consider a few more measures.
+Today, we learn more measures of effect size, specifically that of relationships between two numeric variables. These are known as measures of \textbf{correlation}.
 
-We will also consider evaluating relationships between two numeric variables specifically we will explore measures of \textbf{correlation}.
+In addition, throughout our class, there was repeated mention of a `large sample size' - that a number of assumptions for certain statistical tests could be relaxed if the sample size was `large enough', but it was not clear what was meant by `large'. For this lesson, we learn to assess whether our sample size is (large) enough using \textbf{power analysis}.
 
-Finally, we keep saying that with large enough sample sizes we can relax some of our assumptions, and generally we talk about sample sizes that are ``large enough'' but what is large enough? We will introduce \textbf{power analysis} and how we can use that to estimate our minimum sample sizes needed for our analyses.
+\hypertarget{activity-1-the-r-prep-routine}{%
+\subsection{\texorpdfstring{Activity 1: The \texttt{R} prep routine}{Activity 1: The R prep routine}}\label{activity-1-the-r-prep-routine}}
 
-We begin by :
+We begin by:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Opening our project
+  Opening our usual \texttt{R} project
 \item
-  Loading the required packages
+  Install and load the required packages
 \item
-  Opening the Seattle Neighborhoods and Crime Survey dataset using the function \texttt{read.dta()} and naming the data frame object as \texttt{seattle\_\ df}
+  Load Professor Patrick Sharkey's dataset ( `sharkey.csv' ), which is a study on the effect of nonprofit organisations on the levels of crime, using the \texttt{read\_csv()} function. Alternatively, you can load the dataset from the \href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/46WIH0}{Dataverse website}.
 \item
-  Get to know the data by using the functions \texttt{View()} and \texttt{dim()}, and to see if it has been loaded successfully
+  Name the data frame \texttt{sharkey}, and if you dislike scientific notation, you can turn it off in \texttt{R} by typing and running \texttt{options(scipen=999)}.
+\item
+  Get to know the data by using the functions \texttt{View()} and \texttt{dim()} and to see if it has been loaded successfully
 \end{enumerate}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{todays-3-5}{%
-\section{Today's 3}\label{todays-3-5}}
+\hypertarget{todays-2}{%
+\section{Today's 2 (!)}\label{todays-2}}
 
-We will learn some more measures of effect sizes for categorical variables, then we will explroe relationship bbetween numeric variables, and how to interpret them. Finally, we will learn about power analyses for estimating sample sizes.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{effect-sizes-for-relationships-between-with-categorical-variables}{%
-\subsection{Effect sizes for relationships between with categorical variables}\label{effect-sizes-for-relationships-between-with-categorical-variables}}
-
-Following last week's lesson on the chi-square analysis, the effect size for the relationship between two categorical variables can be conducted after obtaining the \emph{χ}2 statistic. A number of measures are available to test \emph{how related} the two variables are to each other. We learn three of them: \emph{phi}, \emph{Cramer's V}, and \emph{Goodman and Kruskal's lambda and tau}.
-
-\hypertarget{activity-1-phi}{%
-\subsubsection{Activity 1: Phi}\label{activity-1-phi}}
-
-This measure builds directly off of the chi-square statistic, but it is for the strength of association between two \emph{binary} variables. It is used for 2×2 tables to obtain a measure of association ranging from 0 to 1, whereby higher values indicate a stronger relationship.
-What this measure does is account for the sample size under observation, as the chi-square statistic is influenced by it. We obtain the \textbf{phi} coefficient by dividing the chi-square value by the sample size and taking the square root of that result, but we can do this in \texttt{R}. For example, we would like to know whether there is a relationship between sex and reporting victimisation to the police, and what is the strength of that relationship. We obtain the relevant variables, then conduct a chi-square analysis and obtain the phi coefficient:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Create copies of the variables, rename them so it is easier to remember }
-\CommentTok{\# sex is variable ‘QDEM3’}
-\FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{QDEM3)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##    1    2 
-## 1145 1075
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Use factor () function to create factor variable ‘sex’}
-\NormalTok{seattle\_df}\SpecialCharTok{$}\NormalTok{sex }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{QDEM3, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"female"}\NormalTok{ ,}
-                                                                        \StringTok{"male"}\NormalTok{))}
-
-\CommentTok{\# Reported victimisation to police is ‘Q58E’}
-\FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{Q58E)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##   -1    0    1    8    9 
-## 1582  379  255    2    2
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Use factor () function to create factor variable ‘reported\_to\_police’}
-\NormalTok{seattle\_df}\SpecialCharTok{$}\NormalTok{reported\_to\_police }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{Q58E, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{labels =}
-                                          \FunctionTok{c}\NormalTok{(}\StringTok{"no"}\NormalTok{ , }\StringTok{"yes"}\NormalTok{))}
-
-\CommentTok{\# Chi{-}square analysis }
-\CommentTok{\# Place variable objects into new object ‘chi’}
-\NormalTok{chi}\OtherTok{\textless{}{-}}\FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{sex, seattle\_df}\SpecialCharTok{$}\NormalTok{reported\_to\_police) }
-\CommentTok{\# Make sure the relationship is significant first}
-\FunctionTok{chisq.test}\NormalTok{(chi)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##  Pearson's Chi-squared test with Yates' continuity correction
-## 
-## data:  chi
-## X-squared = 5.8156, df = 1, p-value = 0.01588
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Chi{-}square is significant ( p= 0.01588)}
-
-\CommentTok{\# Calculate the phi coefficient }
-\FunctionTok{Phi}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{sex, seattle\_df}\SpecialCharTok{$}\NormalTok{reported\_to\_police)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.09903062
-\end{verbatim}
-
-The phi value is about 0.1, and as the range is 0 to 1, it seems that this value is closer to 0 than it is to 1. We conclude that this is a weak association between a respondent's sex and whether they reported their victimisation to the police.
+Our two topics are \textbf{correlations} where we explore the relationship between numeric variables and how to interpret them; and \textbf{power} where we learn about power analyses for estimating sample sizes.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{activity-2-cramers-v}{%
-\subsubsection{Activity 2: Cramer's V}\label{activity-2-cramers-v}}
+\hypertarget{correlations}{%
+\subsection{Correlations}\label{correlations}}
 
-For tables that are larger than 2x2, meaning these categorical variables are not binary, \textbf{Cramer's V} is appropriate (although using Cramer's V on a 2x2 table will produce the same value as that of the phi coefficient). Interpreting this value is similar to phi: a range from 0 to 1 with higher values indicating a stronger relationship. An advantage of Cramer's V is that it is not swayed by sample size, so if you had suspected that the chi-square statistic was the result of a large sample size, this value can help determine that:
+This section is about measuring the strength of relationship between two ratio/ interval variables.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Cramer\textquotesingle{}s V test for the same relationship detailed above to show that it is exactly like phi: }
-\FunctionTok{CramerV}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{sex, seattle\_df}\SpecialCharTok{$}\NormalTok{reported\_to\_police)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.09903062
-\end{verbatim}
+With our data frame, \texttt{sharkey}, we focus on the year 2012, the most recent year, and on only a couple of select variables. We will place them in a new data frame named \texttt{df}. To do this, we will use the \texttt{filter()} and \texttt{select()} functions from the \texttt{dplyr} package. (See Lesson 2, section 2.4.3 on subsetting.) Then, we will remove the \texttt{sharkey} data frame from \texttt{R} using the \texttt{rm()} function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Now for non{-}binary variable, Q52, ‘How often do you worry about being attacked in your neighbourhood’}
-
-\CommentTok{\# Checking it out}
-\FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{Q52)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##    1    2    3    4    8    9 
-## 1584  354  167   98   12    5
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Make a copy of the Q52 variable }
-\NormalTok{seattle\_df}\SpecialCharTok{$}\NormalTok{worry\_attacked }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{Q52, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{), }\AttributeTok{labels =}
-                                      \FunctionTok{c}\NormalTok{(}\StringTok{"Less than once a month"}\NormalTok{ , }\StringTok{"once a month"}\NormalTok{,}
-                                        \StringTok{"about o nce a week"}\NormalTok{, }\StringTok{"everyday"}\NormalTok{))}
-
-\CommentTok{\# Run a chi{-}square test to make sure there is a significant relationship }
-\CommentTok{\# Save the result in the object "chi2" }
-\NormalTok{chi2 }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{worry\_attacked, seattle\_df}\SpecialCharTok{$}\NormalTok{sex) }
-\FunctionTok{chisq.test}\NormalTok{(chi2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##  Pearson's Chi-squared test
-## 
-## data:  chi2
-## X-squared = 38.092, df = 3, p-value = 2.702e-08
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Conduct the Cramer\textquotesingle{}s V test of association on the contingency table }
-\CommentTok{\# You can use the object ‘chi2’ for convenience }
-\FunctionTok{CramerV}\NormalTok{(chi2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.1314953
-\end{verbatim}
-
-Like the phi, the value shows a relatively small relationship between residents' sex and how often they worry about being attacked in their neighbourhood.
-
-In some common situations in crime and criminal justice research, we work with survey data that have ordered response categories. For example, a likert scale of how strongly someone feels about abolishing the death penalty.
-
-We learn two measures that deal with relationships between categorical, ordinal variables: Goodman-Kruskal's Gamma and Somers' D. Both use concordant and discordant pairs of observations to estimate the effect size. \textbf{Concordant pairs} are observations where the rankings are consistent for both variables, and \textbf{discordant pairs} are observations whose rankings are inconsistent for both variables. If a pair of observations has the same rank on the variables of interest, they are considered a \textbf{tied pair}.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{activity-3-goodman-kruskal-gamma}{%
-\subsubsection{Activity 3: Goodman-Kruskal Gamma}\label{activity-3-goodman-kruskal-gamma}}
-
-\textbf{Gamma} can take on values ranging from −1 to +1, where: 0 indicates no relationship at all; a negative value indicates a negative relationship; and a positive value a positive relationship. The closer the value is to either −1 or +1, the stronger the relationship is between variables.
-
-For this example, we test the association between two measures commonly used to gauge community informal social control. The first variable, \texttt{Q20A}, is based on a survey question asking respondents how likely it is that their neighbours would do something about a group of neighbourhood children skipping school. The second variable, \texttt{Q20B}, asks respondents how likely it is that neighbours would do something if children were spray painting graffiti on a neighbourhood building.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# First, check and recode your variables if necessary }
-\FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{Q20A)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##   1   2   3   4   8   9 
-## 432 701 784 207  87   9
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Recode Q20A{-} check the codebook on the variable\textquotesingle{}s ranking}
-\NormalTok{seattle\_df}\SpecialCharTok{$}\NormalTok{intv.truancy }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{Q20A, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{), }\AttributeTok{labels =}
-                                    \FunctionTok{c}\NormalTok{(}\StringTok{"very likely"}\NormalTok{ , }\StringTok{"likely"}\NormalTok{, }\StringTok{"unlikely"}\NormalTok{, }\StringTok{"very unlikely"}\NormalTok{))}
-
-\CommentTok{\# Review everything was coded correctly }
-\FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{intv.truancy)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##   very likely        likely      unlikely very unlikely 
-##           432           701           784           207
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{class}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{intv.truancy)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "factor"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Now do the same for the graffiti variable }
-\FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{Q20B)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##    1    2    3    4    8    9 
-## 1198  761  177   43   35    6
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{seattle\_df}\SpecialCharTok{$}\NormalTok{intv.graff}\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{Q20B, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{), }\AttributeTok{labels =}
-                                 \FunctionTok{c}\NormalTok{(}\StringTok{"very likely"}\NormalTok{ , }\StringTok{"likely"}\NormalTok{, }\StringTok{"unlikely"}\NormalTok{, }\StringTok{"very unlikely"}\NormalTok{)) }
-
-\FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{intv.graff)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##   very likely        likely      unlikely very unlikely 
-##          1198           761           177            43
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{class}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{intv.graff)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "factor"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Assess the relationship between these two variables }
-\FunctionTok{GoodmanKruskalGamma}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{intv.truancy, seattle\_df}\SpecialCharTok{$}\NormalTok{intv.graff, }\AttributeTok{conf.level =}\NormalTok{ .}\DecValTok{95}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##     gamma    lwr.ci    upr.ci 
-## 0.6315274 0.5898587 0.6731960
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# We can also run it using a table saved as an R object }
-\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{intv.truancy, seattle\_df}\SpecialCharTok{$}\NormalTok{intv.graff) }
-\NormalTok{gamma\_neighbor\_intervene }\OtherTok{\textless{}{-}} \FunctionTok{GoodmanKruskalGamma}\NormalTok{(x, }\AttributeTok{conf.level =}\NormalTok{ .}\DecValTok{95}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-We specified the \texttt{conf.level} option and get a 95\% confidence interval around the gamma coefficient. The value we receive is 0.63, which, in addition to the confidence interval that does not overlap with 0, indicates a fairly strong statistically significant and positive association between the two variables.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{activity-4-somers-d}{%
-\subsubsection{Activity 4: Somers' D}\label{activity-4-somers-d}}
-
-\textbf{Somer's D} provides a value between −1 and +1, whereby values closer to −1 and +1 indicate better prediction ability. This commonly used measure for ordinal variables indicates how much improvement in the prediction of the dependent variable is attributed to information we know from the independent variable.
-
-We use the \texttt{SomersDelta} function from the \texttt{DescTools} package to conduct Somers' D. We examine the relationship between the respondents' perception of their neighbour's willingness to exert informal social control and how likely the respondent would miss their neighbourhood if they moved away (\texttt{Q7}):
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Recode the variable Q7 }
-\NormalTok{seattle\_df}\SpecialCharTok{$}\NormalTok{miss\_neigh }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{Q7, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{), }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"very likely"}\NormalTok{ , }\StringTok{"likely"}\NormalTok{, }\StringTok{"unlikely"}\NormalTok{, }\StringTok{"very unlikely"}\NormalTok{)) }
-
-\CommentTok{\# Check our newly coded variable }
-\FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{miss\_neigh)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##   very likely        likely      unlikely very unlikely 
-##          1094           760           244           102
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# To run Somers\textquotesingle{} D, first save the contingency table in the R object "z" }
-\NormalTok{z }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{intv.graff, seattle\_df}\SpecialCharTok{$}\NormalTok{miss\_neigh) }
-
-\CommentTok{\# Now run the Somers\textquotesingle{} D measure }
-\CommentTok{\# ‘direction’ tells R which variable should be considered the IV}
-\CommentTok{\# It defaults to row, so if you excluded this option, the function would still provide you with a value}
-\FunctionTok{SomersDelta}\NormalTok{(z, }\AttributeTok{direction =} \StringTok{"row"}\NormalTok{, }\AttributeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    somers    lwr.ci    upr.ci 
-## 0.1867064 0.1502957 0.2231171
-\end{verbatim}
-
-Somers' D is positive, but close to 0, meaning that perception of neighbours' willingness to intervene is a poor predictor of how much respondents would miss their neighbourhood if they moved. The confidence interval around the estimate does not overlap with 0 meaning that the association is statistically significant, even though the association is weak.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{relationships-between-numeric-variables}{%
-\subsection{Relationships Between Numeric Variables}\label{relationships-between-numeric-variables}}
-
-This section is about measuring the strength of relationships between two ratio/ interval variables. Load Professor Patrick Sharkey's dataset (sharkey.csv), which is a study on the effect of nonprofit organisations on the levels of crime, using the \texttt{read\_csv()} function. Alternatively, you can load the dataset from the \href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/46WIH0}{Dataverse website}.
-
-Name the data frame \texttt{sharkey}, and if you dislike scientific notation, you can turn it off in \texttt{R} by using \texttt{options(scipen=999)}.
-
-First, we examine our bivariate relationship between variables of interest through a scatterplot. The reason for this is we need to figure out if the variables have a \textbf{linear relationship}, and this determines what test we need to use. The extent to which two variables move together is called \textbf{covariation}: one variable can increase and so will the other (positive linear relationship); one variable can decrease while the other increases (negative linear relationship).
-
-We focus on the year 2012, which is the most recent year in the dataset, and on only a few select variables. We will place them in a data frame named, \texttt{df}. To do this, we will use the \texttt{filter()} and \texttt{select()} functions from the \texttt{dplyr} package. Then, we will remove the dataset from \texttt{R} using the \texttt{rm()} function.
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\CommentTok{\# We only want data from the year 2012 in our new data frame  \textasciigrave{}df\textasciigrave{}}
 \NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(sharkey, year }\SpecialCharTok{==} \StringTok{"2012"}\NormalTok{) }
-\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(df, place\_name, state\_name, black, lesshs, unemployed, fborn,}
-\NormalTok{             incarceration, log\_viol\_r, largest50) }
+
+\CommentTok{\# For our new data frame, we want only the following two variables}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(df, unemployed, log\_viol\_r) }
 
 \CommentTok{\# Goodbye sharkey}
 \FunctionTok{rm}\NormalTok{(sharkey)}
-
-\CommentTok{\# View the number of cities located in each of the 44 states}
-\FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{state\_name)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## 
-##              Alabama               Alaska              Arizona 
-##                    4                    1                    9 
-##             Arkansas           California             Colorado 
-##                    1                   65                   10 
-##          Connecticut District of Columbia              Florida 
-##                    5                    1                   18 
-##              Georgia                Idaho             Illinois 
-##                    2                    1                    8 
-##              Indiana                 Iowa               Kansas 
-##                    3                    3                    5 
-##            Louisiana             Maryland        Massachusetts 
-##                    4                    1                    3 
-##             Michigan            Minnesota          Mississippi 
-##                    6                    3                    1 
-##             Missouri              Montana             Nebraska 
-##                    5                    1                    2 
-##               Nevada        New Hampshire           New Jersey 
-##                    3                    1                    4 
-##           New Mexico             New York       North Carolina 
-##                    1                    5                    9 
-##         North Dakota                 Ohio             Oklahoma 
-##                    1                    5                    4 
-##               Oregon         Pennsylvania         Rhode Island 
-##                    4                    4                    1 
-##       South Carolina         South Dakota            Tennessee 
-##                    3                    1                    6 
-##                Texas                 Utah             Virginia 
-##                   30                    4                    7 
-##           Washington            Wisconsin 
-##                    6                    3
-\end{verbatim}
+The variables we now have contain information of cities in 44 US states on:
 
-The variables we now have contain information on the demographic composition of those cities (percent black population, percent without high school degree, percent unemployed, percent foreign born) and criminal justice characteristics (incarceration rate and the rate of sworn full-time police officers). In addition, we have measures of the violence rate and a binary variable that tells us if the city is one of the 50 largest in the country (value `1' means one of the 50 largest).
+\begin{itemize}
+\tightlist
+\item
+  \texttt{unemployed}: percentage of those who are unemployed
+\item
+  \texttt{log\_viol\_r}: violence rate
+\end{itemize}
 
-\hypertarget{ativity-5-scatterplot}{%
-\subsubsection{Ativity 5: Scatterplot}\label{ativity-5-scatterplot}}
+\hypertarget{activity-2-identifying-a-linear-relationship}{%
+\subsubsection{Activity 2: Identifying a linear relationship}\label{activity-2-identifying-a-linear-relationship}}
 
-As the first step in exploring relationships is to visualise them, we create a scatterplot between the log of the violence rate (\texttt{log\_viol\_r}) and unemployment (\texttt{unemployed}) using the \texttt{ggplot()} function in the \texttt{ggplot2} package:
+We are interested in whether there is a relationship between unemployment and violence. First, we must examine our bivariate relationship through a scatterplot. We do this to ascertain if our variables of interest have a \emph{linear relationship}, which determines what statistical test we will need to use.
+
+The extent to which two variables move together is called \textbf{covariation}: if one variable moves up and so does the other, this is referred to as a \emph{positive linear relationship}; if one variable moves down while the other moves up, this is known as a \emph{negative linear relationship}.
+
+We create a scatterplot between our independent variable, unemployment (\texttt{unemployed}), and our dependent variable, the log of the violence rate (\texttt{log\_viol\_r}), using the \texttt{ggplot()} function in the \texttt{ggplot2} package:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ unemployed, }\AttributeTok{y =}\NormalTok{ log\_viol\_r)) }\SpecialCharTok{+} 
-\CommentTok{\# Jitter adds a little random noise }
-\CommentTok{\# This makes points less likely to overlap one another in the plot }
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha=}\NormalTok{.}\DecValTok{2}\NormalTok{, }\AttributeTok{position=}\StringTok{"jitter"}\NormalTok{)}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha=}\NormalTok{.}\DecValTok{3}\NormalTok{, }\AttributeTok{colour=} \StringTok{"dark green"}\NormalTok{, }\AttributeTok{position=}\StringTok{"jitter"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\# Jitter adds a little random noise; this makes points less likely to overlap one another in the plot}
+  \FunctionTok{theme\_light}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{08-strength-relationship_files/figure-latex/unnamed-chunk-9-1.pdf}
+\includegraphics{08-strength-relationship_files/figure-latex/unnamed-chunk-8-1.pdf}
 
-Is there a linear relationship between violence and unemployment? Does it look as if cities that have a high score on the x-axis (unemployment) also have a high score on the y-axis (violent crime)? It is hard to see but there is a trend: cities with more unemployment seem to have more violence. Notice, for example, how at high levels of unemployment, there are places with high levels of violence.
+Does it look as if US cities that have a high score on unemployment on the x-axis also have a high score on violent crime on the y-axis? Type out your observations on the google doc and then look below to compare your answer:
 
-As there is a linear relationship, we conduct a \textbf{Pearson's correlation} test. This test tells you whether the two variables are significantly related to one another -- whether they covary. A p-value is provided to determine this. Also provided is a Pearson's r value, which indicates the strength of the relationship between the two variables. The value ranges from −1 (a negative linear relationship) to 1 (a positive linear relationship). Values that are closer to 1 or −1 suggest a stronger relationship.
+It is hard to see whether there is a linear relationship, but there is a trend: American cities with more unemployment seem to have more violence. Notice, for example, how at high levels of unemployment, there are places with high levels of violence.
 
-The test calculates this value, the Pearson's r, by, first, examining the extent to which each case deviates from the mean of each of the two variables, and then multiplies these deviations:
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\[covariation~ of ~scores = \sum_{i=1}^{n} (x_{1i} - \bar{x_1})(x_{2i} - \bar{x_2})\]
+\hypertarget{pearsonss-correlation}{%
+\subsubsection{Pearsons's Correlation}\label{pearsonss-correlation}}
 
-Second, it standardises the covariation by taking the square root of the value obtained from the sums of squared deviations from the mean of both variables. This is because, sometimes, the variables may use different units of measurement from each other. For example, one variable measures in inches and the other variable measures in decades. Thus, Pearson's r is the ratio between the covariation of scores and this standardisation of covariation:
+As there is a linear relationship, we conduct a \textbf{Pearson's correlation} test. This test tells you whether the two variables are significantly related to one another -- whether they covary. A p-value is provided to determine this. Also provided is a Pearson's \emph{r} value, which indicates the strength of the relationship between the two variables. The value of \emph{r} ranges from −1 (a negative linear relationship) to 1 (a positive linear relationship). Values that are closer to 1 or −1 suggest a stronger relationship.
 
-\[ Pearson's~ r = \frac{\sum_{i=1}^{n} (x_{1i} - \bar{x_1})(x_{2i} - \bar{x_2})}{\sqrt{[\sum_{i=1}^{n} (x_{1i}- \bar{x_1})^2][\sum_{i=1}^{n} (x_{2i}- \bar{x_2})^2]}} \]
+The test calculates the Pearson's \emph{r} by, first, examining the extent to which each observation deviates from the mean of each of the two variables, and then multiplies these deviations with each other to obtain the covariation of scores:
+
+\(covariation~ of ~scores = \sum_{i=1}^{n} (x_{1i} - \bar{x_1})(x_{2i} - \bar{x_2})\)
+
+Second, it standardises the covariation by taking the square root of the value obtained from the sums of squared deviations from the mean of both variables. Standardising is necessary because, sometimes, the variables may use different units of measurement from each other. For example, one variable measures in inches and the other variable measures in decades.
+
+Thus, Pearson's \emph{r} is the ratio between the covariation of scores and this standardisation of covariation:
+
+\(Pearson's~ r = \frac{\sum_{i=1}^{n} (x_{1i} - \bar{x_1})(x_{2i} - \bar{x_2})}{\sqrt{[\sum_{i=1}^{n} (x_{1i}- \bar{x_1})^2][\sum_{i=1}^{n} (x_{2i}- \bar{x_2})^2]}}\)
 
 Our null and alternative hypotheses are as follows:
 
-\(H_0\): There is no correlation between the violence rate and unemployment.
+\(H_0\): There is no correlation between unemployment and the violence rate.
 
-\(H_A\): There is a correlation between the violence rate and unemployment.
+\(H_A\): There is a correlation between unemployment and the violence rate.
 
-\hypertarget{activity-6-pearsons-correlation-in-r}{%
-\subsubsection{Activity 6: Pearson's correlation in R}\label{activity-6-pearsons-correlation-in-r}}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{activity-3-pearsons-correlation-in-r}{%
+\subsubsection{\texorpdfstring{Activity 3: Pearson's correlation in \texttt{R}}{Activity 3: Pearson's correlation in R}}\label{activity-3-pearsons-correlation-in-r}}
 
 We use the \texttt{cor()} function and \texttt{cor.test} from \texttt{base\ R} to conduct a Pearson's correlation:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# This gives us the value of Pearson\textquotesingle{}s r }
 \FunctionTok{cor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{log\_viol\_r, df}\SpecialCharTok{$}\NormalTok{unemployed)}
 \end{Highlighting}
 \end{Shaded}
@@ -7893,6 +7571,7 @@ We use the \texttt{cor()} function and \texttt{cor.test} from \texttt{base\ R} t
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# This supplies the p{-}value and 95\% confidence interval}
 \FunctionTok{cor.test}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ log\_viol\_r }\SpecialCharTok{+}\NormalTok{ unemployed, }\AttributeTok{data=}\NormalTok{df, }\AttributeTok{method =} \StringTok{"pearson"}\NormalTok{, }\AttributeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -7911,27 +7590,33 @@ We use the \texttt{cor()} function and \texttt{cor.test} from \texttt{base\ R} t
 ## 0.5368416
 \end{verbatim}
 
-The \texttt{cor()} function gives the correlation but \texttt{cor.test()} gives more detail. Both give a positive correlation of 0.54. The coefficient is also an indication of the strength of the relationship. Jacob Cohen (1988) suggests that within the social sciences, a correlation of 0.10 may be defined as a small relationship; a correlation of 0.30, a moderate relationship; and a correlation of 0.50, a large relationship.
+The \texttt{cor()} function gives the correlation but \texttt{cor.test()} gives more detail. Both give a positive correlation of 0.54. The coefficient is also an indication of the strength of the relationship. Returning to Jacob Cohen (1988), he suggested that within the social sciences, a correlation of 0.10 may be defined as a small relationship; a correlation of 0.30, a moderate relationship; and a correlation of 0.50, a large relationship.
 
-As our relationship was linear and our results are statistically significant, we reject the null hypothesis. We conclude that there is a statistically significant relationship between the violence rate and unemployment.
+As our relationship was linear and our results are statistically significant, we reject the null hypothesis. We conclude that the higher the level of unemployment, the higher the rate of violence - this relationship can be generalisable to the population of US cities.
 
-\hypertarget{activity-7-nonparametric-correlation-tests}{%
-\subsubsection{Activity 7: Nonparametric correlation tests}\label{activity-7-nonparametric-correlation-tests}}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-Now what about bivariate relationships where linearity is not met? This would call for either \textbf{Kendall's tau} and \textbf{Spearman's correlation}, nonparametric versions of Pearson's correlation. Kendall's tau is more accurate when you have a small sample size compared to Spearman's rho.
+\hypertarget{activity-4-nonparametric-correlation-tests}{%
+\subsubsection{Activity 4: Nonparametric correlation tests}\label{activity-4-nonparametric-correlation-tests}}
 
-We again use the function \texttt{cor.test()} to conduct these:
+What about bivariate relationships where linearity is not met? This would call for either \textbf{Kendall's tau} or \textbf{Spearman's rho} (or correlation), nonparametric versions of Pearson's correlation. Kendall's tau is more accurate when you have a small sample size compared to Spearman's rho.
+
+We add some (purposive) excitement in our next example by adding an outlier so the relationship is no longer linear. We use the function \texttt{add\_row()} from the \texttt{tibble} package. This will produce a fictitious city with a very high level of unemployment and the lowest level of violence. First, we create another data frame, \texttt{df\_1}, that only contains our two variables of interest.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# We purposely add an outlier so that the relationship is no longer linear}
-\CommentTok{\# This will produce a fictitious city with a very high level of unemployment and the lowest level of violence}
-\CommentTok{\# For convenience, we will first further reduce the number of variables }
+\CommentTok{\# For convenience, we further reduce the number of variables and place in a new data frame}
 \NormalTok{df\_1 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(df, unemployed, log\_viol\_r) }
 
-\CommentTok{\# To add cases to data frame, use the add\_row() function from the tibble package}
+\CommentTok{\# Adding that fake outlier to make the relationship non{-}linear}
 \NormalTok{df\_1 }\OtherTok{\textless{}{-}} \FunctionTok{add\_row}\NormalTok{(df\_1, }\AttributeTok{unemployed =} \DecValTok{20}\NormalTok{, }\AttributeTok{log\_viol\_r =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+We again use the function \texttt{cor.test()} to conduct the nonparametric correlations:
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# Conducting a Kendall}
 \FunctionTok{cor.test}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ log\_viol\_r }\SpecialCharTok{+}\NormalTok{ unemployed, }\AttributeTok{data=}\NormalTok{df\_1, }\AttributeTok{method =} \StringTok{"kendall"}\NormalTok{, }\AttributeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
@@ -7973,18 +7658,26 @@ We again use the function \texttt{cor.test()} to conduct these:
 ## 0.4923882
 \end{verbatim}
 
-The correlation coefficient is represented by tau for Kendall's rank (ranges from 0 to 1) and by Spearman's r (or rho) value (ranges −1 to 1) for Spearman's rank.
+The correlation coefficient is represented by tau for Kendall's rank (ranges from 0 to 1) and by Spearman's \emph{r} (or rho) value (ranges −1 to 1) for Spearman's rank. According to Cohen (1988), what is the strength of relationship?
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{power-analysis}{%
 \subsection{Power analysis}\label{power-analysis}}
 
-In this section we introduce the \texttt{pwr} package for power analysis. In the video lectures you had to watch as preparation for today we introduced the notion of power analysis. In order for a statistical test to be able to be effective, to be able to detect an effect, you need to have sufficient power.
+In the lecture videos, we introduced the notion of power analysis. Now, in this section, we introduce the \texttt{pwr} package to conduct this analysis. For a statistical test to be effective - to be able to detect an effect - you need to have sufficient power.
 
-Power is related to the magnitude of the effect (it will be easier to detect stronger rather than weaker effects) and sample size (it will be easier to detect effects with large samples than with small samples). A problem with many scientific studies is that they are \emph{underpowered}, the fail to reject the null hypothesis simply because they do not have sufficient power (often because the sample size is not large enough). Power analysis is generally done during the planning of an analysis so that you know what kind of sample you are going to need if you want to be able to run meaningful hypothesis tests. That is you do your power analysis before you collect your data.
+\textbf{Power} is related to the magnitude of the effect (i.e., it will be easier to detect stronger rather than weaker effects) and sample size (i.e., it will be easier to detect effects with large samples than with small samples).
 
-But we can also check how much power we have after the fact, just to ensure we are not failing to reject the null hypothesis as a consequence of insufficient power. For this purposes we can use the \texttt{pwr} package. For computing the power when comparing two sample means we use the function which is most appropriate for the kind of test we want to carry out. For example, if we were comparins means between two groups (remember t-test!) we would use the \texttt{pwr.t2n.test()} function. For calculating power for a chi-square test you would use the \texttt{pwr.chisq.test()} function. Here is a list for functions for more tests:
+A problem with many scientific studies is that they are \emph{underpowered}. Consequently, they fail to reject the null hypothesis, often because the sample size is not large enough.
+
+Power analysis is generally done during the planning of an analysis and before you collect data. It helps you to identify what kind of sample you are going to need to be able to run meaningful hypothesis tests.
+
+We still can, however, check how much power we have after collecting data. Doing so ensures we are not failing to reject the null hypothesis as a consequence of insufficient power.
+
+There are a number of functions from the \texttt{pwr} package to compute power, and you must select the most appropriate one for the kind of test you plan to conduct. For example, if comparing means between two groups -- the t-test! -- we would use the \texttt{pwr.t2n.test()} function; for a chi-square test, the \texttt{pwr.chisq.test()} function is appropriate.
+
+Below is a list of \texttt{pwr} functions for specific power analyses that correspond to their respective inferential statistical tests:
 
 \begin{itemize}
 \tightlist
@@ -7999,8 +7692,6 @@ But we can also check how much power we have after the fact, just to ensure we a
 \item
   \texttt{pwr.t2n.test()}: two-sample t-tests (unequal sample sizes)
 \item
-  \texttt{pwr.anova.test()}: one-way balanced ANOVA
-\item
   \texttt{pwr.r.test()}: correlation test
 \item
   \texttt{pwr.chisq.test()}: chi-squared test (goodness of fit and association)
@@ -8008,41 +7699,143 @@ But we can also check how much power we have after the fact, just to ensure we a
   \texttt{pwr.f2.test()}: test for the general linear model
 \end{itemize}
 
-Once you knwo what test you are calculating your power for, this function expects we provide the sample size of each group (if we are doing the power calculation after we have collated our data) and the effect size we may want to be able to detect.
+Once you know what test you are calculating your power for, this \texttt{pwr} function requires us to provide the sample size of each group and the effect size we may want to be able to detect. This approach of computing power is only done after the data collection.
 
-\hypertarget{activity-8-post-hoc-power-analysis}{%
-\subsubsection{Activity 8: post-hoc power analysis}\label{activity-8-post-hoc-power-analysis}}
+\hypertarget{activity-5-the-post-hoc-power-analysis}{%
+\subsubsection{Activity 5: The Post-hoc Power Analysis}\label{activity-5-the-post-hoc-power-analysis}}
 
-Checking for our statistical power in this after-the-fact manner is referred to as post-hoc power analysis. Post-hoc power is the retrospective power of an observed effect based on the sample size and parameter estimates derived from a given data set. Post-hoc power can be considered as a follow-up analysis.
+Checking for our statistical power in this after-the-fact manner is referred to as \textbf{post-hoc power analysis}. Post-hoc power is the retrospective magnitude of an observed effect based on the sample size and parameter estimates derived from a certain data set. Post-hoc power can be considered as a follow-up analysis.
 
-Going back go our Seattle data set, we can have a look at our test of relationship between gender and reporting th the police .First let's see how many men and women we have in our data:
+For this example, we load the Seattle Neighborhoods and Crime Survey dataset and name it \texttt{seattle\_df}. Take care to load it using the correct package and codes - check its data format.
+
+We are interested in the relationship between gender (\texttt{QDEM3}) and reporting to the police (\texttt{Q58E}). Let us get to know these variables and create new ones using the \texttt{factor()} function. (See Lesson 2, section 2.4.1.2):
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{seattle\_df }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{group\_by}\NormalTok{(sex) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{count}\NormalTok{()}
+\CommentTok{\# Gender is variable ‘QDEM3’}
+\FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{QDEM3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    1    2 
+## 1145 1075
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Reported victimisation to police is ‘Q58E’}
+\FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{Q58E)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##   -1    0    1    8    9 
+## 1582  379  255    2    2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create copies of the variables, rename them so it is easier to remember }
+\CommentTok{\# Use factor () function to create factor variable ‘gender’}
+\NormalTok{seattle\_df}\SpecialCharTok{$}\NormalTok{gender }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{QDEM3, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"female"}\NormalTok{ ,}
+                                                                        \StringTok{"male"}\NormalTok{))}
+
+
+\CommentTok{\# Use factor () function to create factor variable ‘reported\_to\_police’}
+\NormalTok{seattle\_df}\SpecialCharTok{$}\NormalTok{reported\_to\_police }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{Q58E, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{labels =}                                     \FunctionTok{c}\NormalTok{(}\StringTok{"no"}\NormalTok{ , }\StringTok{"yes"}\NormalTok{))}
+
+\FunctionTok{attributes}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{gender)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $levels
+## [1] "female" "male"  
+## 
+## $class
+## [1] "factor"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{attributes}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{reported\_to\_police) }\CommentTok{\# excludes values that were not included in levels=c()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $levels
+## [1] "no"  "yes"
+## 
+## $class
+## [1] "factor"
+\end{verbatim}
+
+Now that we have our new variables, we get to know \texttt{gender} using the \texttt{count()} function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{count}\NormalTok{(seattle\_df, gender)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 2 x 2
-## # Groups:   sex [2]
-##   sex        n
-##   <fct>  <int>
+##   gender     n
+## * <fct>  <int>
 ## 1 female  1145
 ## 2 male    1075
 \end{verbatim}
 
-Ok, so that is 1145 women and 1075 men. Good to know. Now if we were pre-data collection, and could influence the number of people we include in our sample, we would want to specify two things. We would want to specify our alpha level (usually our \(\alpha = 0.05\)), and also the minimum effect size we want to detect.
+To conduct a power analysis in order to gauge whether our sample size of 1,145 females and 1,075 males is `large enough', we need to specify:
 
-For example, to calculate power for our chisquare table, we need first the effect size. We can get this with the \texttt{ES.w2()} function, which requires a proportions table. We can first create a cross tab with the table function, and then use the \texttt{prop.table()} function to turn this into a proportions table:
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    the minimum effect size we want to detect;
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    number of observations;
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    degrees of freedom; and
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    our alpha level (usually \(\alpha\) = 0.05).
+  \end{enumerate}
+\end{itemize}
+
+Judging from the type of variables we have (two binary, categorical variables), we would conduct a chi-square test.
+
+We start with obtaining the (minimum) effect size. We use the \texttt{ES.w2()} function, which requires a proportions table. We first, however, create a object containing a crosstab with the \texttt{table()} function, and then create another object containing a proportions table created from the \texttt{prop.table()} function:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{cross\_tab }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{sex, seattle\_df}\SpecialCharTok{$}\NormalTok{reported\_to\_police)}
+\NormalTok{cross\_tab }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(seattle\_df}\SpecialCharTok{$}\NormalTok{gender, seattle\_df}\SpecialCharTok{$}\NormalTok{reported\_to\_police)}
+
 \NormalTok{prop\_tab }\OtherTok{\textless{}{-}} \FunctionTok{prop.table}\NormalTok{(cross\_tab)}
 
+\CommentTok{\# Contains the proportions of those who did or did not report to the police by gender}
 \NormalTok{prop\_tab}
 \end{Highlighting}
 \end{Shaded}
@@ -8054,14 +7847,13 @@ For example, to calculate power for our chisquare table, we need first the effec
 ##   male   0.3690852 0.2082019
 \end{verbatim}
 
-You can see now the proportions of our observations of each cell - which represents all the combinations - females who repored and did not report, and males who reported and did not report. All the proportions together should add up to 1.
+The 2x2 table shows the proportions of our observations of each cell, which represents all combinations of levels between the variables - females who reported and did not report, and males who reported and did not report. All the proportions together should add up to 1.
 
-So to calculate power for our chi-square test, we will need the effect size, which we can acquire with the \texttt{ES.w2()} function. This function computes effect size \(w\) for a two-way probability table corresponding to the alternative hypothesis in the chi-squared test of association in two-way contingency tables.
+We now use the \texttt{ES.w2()} function to obtain the effect size. This function computes effect size ( \(w\) ) for a two-way (i.e., two variable) contingency table that corresponds to the alternative hypothesis (in the chi-squared test of association in two-way contingency tables):
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(pwr)}
-
+\CommentTok{\# Taking the object \textquotesingle{}prop\_tab\textquotesingle{} containing the 2x2 table of proportions to obtain effect size}
 \FunctionTok{ES.w2}\NormalTok{(prop\_tab)}
 \end{Highlighting}
 \end{Shaded}
@@ -8070,22 +7862,23 @@ So to calculate power for our chi-square test, we will need the effect size, whi
 ## [1] 0.09903062
 \end{verbatim}
 
-In this case, effect size \(w\) is the square root of the standardized chi-square statistic.
+In this case, effect size ( \(w\) = 0.09903062) is the square root of the standardised chi-square statistic.
 
-We also need the total number of observations. We can get this with the \texttt{dim()} function, or by counting the number of rows with the \texttt{nrow()} function:
+We now need the total number of observations. We can get this with the \texttt{dim()} function, or by counting the number of rows with the \texttt{nrow()} function:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{dim}\NormalTok{(seattle\_df)}
+\FunctionTok{dim}\NormalTok{(seattle\_df) }
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2220  234
+## [1] 2220  230
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# or}
 \FunctionTok{nrow}\NormalTok{(seattle\_df)}
 \end{Highlighting}
 \end{Shaded}
@@ -8096,12 +7889,17 @@ We also need the total number of observations. We can get this with the \texttt{
 
 We can see there are 2220 observations.
 
-We also need degrees of freedom, which is the product of the number of values in each column minus 1. \(df = (n-1)(n-1)\) in this case df = (2-1)*(2-1), which is 1.
+We also need degrees of freedom, which is the product of the number of values in each column minus 1:
 
-Finally, we specify our significance level (the default is 0.05, so we don't \emph{have} to do this, but it's good to be explicit\ldots)
+\(df = (n-1)(n-1)\)
+
+In this case: \emph{df} = (2-1)*(2-1), which is 1.
+
+Finally, we specify our significance level (the default is 0.05, but we specify it for this example):
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# We use this \textasciigrave{}pwr\textasciigrave{} function for chi{-}square}
 \FunctionTok{pwr.chisq.test}\NormalTok{(}\AttributeTok{w =} \FunctionTok{ES.w2}\NormalTok{(prop\_tab), }\AttributeTok{N =} \DecValTok{2220}\NormalTok{, }\AttributeTok{df =} \DecValTok{1}\NormalTok{, }\AttributeTok{sig.level =}  \FloatTok{0.05}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -8119,28 +7917,22 @@ Finally, we specify our significance level (the default is 0.05, so we don't \em
 ## NOTE: N is the number of observations
 \end{verbatim}
 
-The function is telling us that we have a power of 0.9965956. The statistical power ranges from 0 to 1, and as statistical power increases, the probability of making a type II error (wrongly failing to reject the null) decreases. So with a power so close to 1 we are very unlikely indeed to failing to reject the null hypothesis when we should.
+The output shows a power of 0.9965956. The statistical power ranges from 0 to 1, and as it increases, the probability of making a type II error (wrongly failing to reject the null hypothesis) decreases. (See Lesson 6, section 6.2.1.1 .) With our power value so close to 1, we are very unlikely to fail to reject the null hypothesis when we should.
 
-With sample sizes this large, you are unlikely to run into problems with power. But these things do matter in particular applications. Think for example of cases when you are trying to evaluate if a particular criminal justice intervention works. If you work with small samples you may wrongly conclude that your intervention didn't make a difference (you fail to reject the null hypothesis) because you did not have sufficient statistical power. This was a common problem in older studies (see \href{https://www.sciencedirect.com/science/article/pii/0047235289900044}{here} for a review) and it is a problem that still persist to some extent (read \href{https://www.tandfonline.com/doi/abs/10.1080/07418825.2018.1495252}{this} more recent review).
+With sample sizes this large, you are unlikely to run into problems with power. If you did have a small sample, however, accuracy of results may be affected. For example, if we were evaluating the effectiveness of a particular criminal justice intervention, and used a small sample, we may wrongly conclude that the intervention did not make a difference (i.e., you fail to reject the null hypothesis) because we did not have sufficient statistical power. This was a common problem in older studies (see \href{https://www.sciencedirect.com/science/article/pii/0047235289900044}{here} for a review) and it is a problem that still persists to some extent (read \href{https://www.tandfonline.com/doi/abs/10.1080/07418825.2018.1495252}{this} more recent review).
 
-So how would you use power analysis to tell you what sample side you need to achieve? Well, for this you would use a pre-hoc power analysis - you want to carry out your power analysis before you collect your data.
+That is why conducting a power analysis before collecting data is important as it gives an indication of what sample size is needed. Thus, a \textbf{pre-hoc power analysis} is best.
 
-\hypertarget{activity-9-power-analysis-for-sample-sizes}{%
-\subsubsection{Activity 9: Power analysis for sample sizes}\label{activity-9-power-analysis-for-sample-sizes}}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-So what do you do if you don't have your data yet, but you want to calculate your ideal sample size, so that you can find the effect size which you think you're after in your experiment or reserach study? Well we can, instead of taking the effect size from our sample, we can give our \emph{desired} effect size - what size of effect we'd like to detect? And instead of giving our sample size, we can specify the level of statistical power we want to have in our results.
+\hypertarget{activity-6-pre-hoc-power-analysis}{%
+\subsubsection{Activity 6: Pre-hoc Power Analysis}\label{activity-6-pre-hoc-power-analysis}}
 
-How do we arrive at these numbers? Well it can be helpful to refer to common practice. For example, \href{https://stats.idre.ucla.edu/other/mult-pkg/faq/general/effect-size-power/faqhow-is-effect-size-used-in-power-analysis/}{this article from UCLA on effect size in power analysis} have compiled together from \href{http://www.utstat.toronto.edu/~brunner/oldclass/378f16/readings/CohenPower.pdf}{Cohen, 1988} a table of reference numbers:
+Here is the hypothetical scenario: you are planning your dream criminology research project and have not collected your data yet, but want to calculate your ideal sample size. That sample size will give you the effect size that will help you lower the likelihood of making inaccurate conclusions about your research.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{analysis =} \FunctionTok{c}\NormalTok{(}\StringTok{"t{-}test for means"}\NormalTok{, }\StringTok{"t{-}test for correlation"}\NormalTok{, }\StringTok{"F{-}test for regression"}\NormalTok{, }\StringTok{"chi{-}square"}\NormalTok{), }
-                        \StringTok{"effect"} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"d"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"f\^{}2"}\NormalTok{, }\StringTok{"w"}\NormalTok{), }
-                        \StringTok{"small"} \OtherTok{=} \FunctionTok{c}\NormalTok{(.}\DecValTok{20}\NormalTok{, .}\DecValTok{10}\NormalTok{, .}\DecValTok{02}\NormalTok{, .}\DecValTok{10}\NormalTok{), }
-                        \StringTok{"medium"} \OtherTok{=} \FunctionTok{c}\NormalTok{(.}\DecValTok{50}\NormalTok{, .}\DecValTok{30}\NormalTok{, .}\DecValTok{15}\NormalTok{, .}\DecValTok{30}\NormalTok{), }
-                        \StringTok{"large"} \OtherTok{=} \FunctionTok{c}\NormalTok{(.}\DecValTok{80}\NormalTok{, .}\DecValTok{50}\NormalTok{, .}\DecValTok{35}\NormalTok{, .}\DecValTok{50}\NormalTok{)))}
-\end{Highlighting}
-\end{Shaded}
+In this hypothetical scenario, instead of taking the effect size from our sample, we can give our \emph{desired} effect size - the size of effect we would like to detect. And instead of giving our sample size, we can specify the level of statistical power we want to have in our results.
+
+Below is a table of effect sizes. These numbers are derived from common practice. For example, \href{https://stats.idre.ucla.edu/other/mult-pkg/faq/general/effect-size-power/faqhow-is-effect-size-used-in-power-analysis/}{this article from UCLA on effect size in power analysis} have compiled a table of reference numbers from \href{http://www.utstat.toronto.edu/~brunner/oldclass/378f16/readings/CohenPower.pdf}{Cohen, 1988}:
 
 \begin{tabular}{l|l|r|r|r}
 \hline
@@ -8156,12 +7948,13 @@ chi-square & w & 0.10 & 0.30 & 0.50\\
 \hline
 \end{tabular}
 
-So for example, a medium effect size for our chi-square results would be .30 You can see above, in our actual sample, we saw an effect size of 0.099. This just about counts as a small effect size there. Now remember, just because we \emph{can} detect a bigger effect doesn't mean there is one!!! It may be there just is not that big of an effect size in the difference in reporting to police between men and women!
+For example, a medium effect size for our chi-square results would be .30 . In our actual sample, however, we saw an effect size of 0.099. The table indicates that this is about a small sized effect.
 
-So anyway, back to estimating our ideal sample sizes. Let's say we want to detect a medium sample size, and we wish to achieve 90\% power with our study. In that case, these are the parameters we would specify in our \texttt{pwr.chisq.test()} function:
+Let us say that we want to detect a medium sized effect, and wish to achieve 90\% power with our study. In that case, these are the values we would specify within our \texttt{pwr.chisq.test()} function:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# medium sized effect according to table{-} .30}
 \FunctionTok{pwr.chisq.test}\NormalTok{(}\AttributeTok{w =} \FloatTok{0.30}\NormalTok{, }\AttributeTok{power =} \FloatTok{0.90}\NormalTok{, }\AttributeTok{df =} \DecValTok{1}\NormalTok{, }\AttributeTok{sig.level =} \FloatTok{0.05}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -8179,11 +7972,12 @@ So anyway, back to estimating our ideal sample sizes. Let's say we want to detec
 ## NOTE: N is the number of observations
 \end{verbatim}
 
-So in order to detect a medium effect size, with 90\% power, we need 117 respondents. Not too bad. What about to detect a large effect size?
+In order to detect a medium effect size, with 90\% power, we need 117 respondents (N = 116.75). What if we wanted to detect a large effect size?
 
-\textbf{Do you think this will need more people, or fewer people? Why??}
+In your google doc, type your answer to:
+\textbf{To detect a large size effect, will we need more observations in our sample, or fewer? Why?}
 
-Let's try:
+Now let us find out:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8204,9 +7998,9 @@ Let's try:
 ## NOTE: N is the number of observations
 \end{verbatim}
 
-You can see we need much fewer people to detect a larger effect size? Why? Think about it - the bigger the difference between the two groups, the easier this is to detect - right? So if there are large differences between men and women in reporting to the police in the population, we will see these emerge even in smaller samples. However, if the differences are smaller, then in small samples we may not observe this.
+To detect a large sized effect, we would need fewer people. The reason is the bigger the difference between the two groups, the easier this is to detect -- it is a more obvious observation compared to small and medium sized effects. If there are large differences between males and females in reporting to the police in the population, for example, we will see these emerge even in smaller samples. If the differences, however, are smaller, then we may not observe this in small samples.
 
-Let's see what sample sizes we'd need to find small effect sizes:
+Let us see what sample size we would need to find small effect sizes:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8227,16 +8021,18 @@ Let's see what sample sizes we'd need to find small effect sizes:
 ## NOTE: N is the number of observations
 \end{verbatim}
 
-1050 people! That escalated quickly! However, we do have this sample size in our Seattle data, and accordingly, we did detect this small but statistically significant (i.e.~gerenalisable) difference!
+The output shows we would now need 1,050 observations! Our sample size in our Seattle data, however, is of similar size, and accordingly, we did detect this small but statistically significant (i.e.~generalisable) difference!
 
-The power calculation processes are similar for other types of test. You can always explore the help functions (type \texttt{?} in front of the function, like \texttt{?\ pwr.t.test()} for example) to find out the little variations, but the ideas are the same. And now you can confidently answer questions like how many people will you need to survey in order to detect different effect sizes.
+The power calculation processes are similar for other types of test. You can always explore the help functions (type \texttt{?} in front of the function, like \texttt{?\ pwr.t.test()} in the console, for example) to find out the slight variations. And now you can confidently answer questions like how many people will you need to survey in order to detect different effect sizes.
+
+Do note that, although we are capable of detecting a bigger effect, it does not mean that there will actually be one. Returning to our interest in gender differences in reporting vicimisation to the police, it may be that the effect is not that big in the difference in reporting between males and females.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{summary-7}{%
 \section{SUMMARY}\label{summary-7}}
 
-Today was all about \textbf{effect sizes} where we learned how to produce them. For relationships between nominal variables, we have the following options: \textbf{phi} and \textbf{Cramer's V}. Then, for relationships between ordinal variables, we used \textbf{concordant and discordant pairs} to find effect sizes through \textbf{Gamma} and \textbf{Somers' D}. We then learned to produce effect sizes for relationships between numeric relationships, and an important assumption had to do with \textbf{covariation}: \textbf{Pearson's correlation} when the relationship is \textbf{linear} and nonparametric tests, \textbf{Kendall's tau} and \textbf{Spearman's correlation}, when the relationship is not. We then also learned about \textbf{power analysis} which helps determine the size of the effect which we can expect to find (or not find) in our research. Remember: \emph{power analyses save effect sizes}!!!
+Today was a continuation of last time where we learned more about \textbf{effect sizes} and how to produce them. Here, we learned to produce effect sizes for relationships between numeric variables, and an important assumption had to do with \textbf{covariation}: \textbf{Pearson's correlation} when the relationship is \textbf{linear} and nonparametric tests, \textbf{Kendall's tau} and \textbf{Spearman's correlation}, when the relationship is not. We then also learned about \textbf{power analysis} which helps determine the size of the effect which we can expect to find (or not find) in our research. Remember: \emph{power analyses save effect sizes}!
 
 Homework time!
 
@@ -8330,23 +8126,38 @@ Homework time!
 
 Our learning on inferential statistics, so far, has been on single relationships between two variables. One of the major drawbacks of previous analyses of single relationships is that, even though you are able to test for statistical significance, you cannot ascertain prediction very well. In other words, you were unable to say for certain that one variable predicted another variable; we merely could say `there was a relationship' or `there was no relationship.'
 
-Although we got into the habit of arranging our variables as independent and dependent variables, these terms are more relevant to regression. The reason is, not only can we establish significant relationships, we also can say with relatively more clarity, how that relationship looks like -- which variable is impacting on what other variable.
+Although we got into the habit of arranging our variables as independent and dependent variables, these terms are more relevant to regression. The reason is, not only can we establish significant relationships, we also can say with relatively more clarity, how that relationship looks like how change in one variable may be impacting change in the other variable.
 
 Another major drawback of previous analyses on bivariate relationships is that you are less certain about whether the relationship and its effect size would still hold in the face of other variables. For example, would a significant relationship between peer group and violence still exist when the relationship between unemployment and violence is considered? This last lesson is on analyses that establish predictive relationships and test multiple relationships between two variables at the same time.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{todays-3-6}{%
-\section{Today's 3}\label{todays-3-6}}
+\hypertarget{todays-3-5}{%
+\section{Today's 3}\label{todays-3-5}}
 
-Our main topic of the day is \textbf{regression} and we learn two forms: ordinary least squares (OLS) and logistic. The former is applied to dependent variables that are measured at interval or numeric level, while the latter is applied to dependent variables that are binary and measured at the nominal level. The three topics are: assumptions of OLS regression; interpreting OLS regression; and logistic regression.
+Our main topic of the day is \textbf{regression} and we learn two forms: ordinary least squares (OLS) and logistic. The former is applied to dependent variables that are measured at interval or numeric level, while the latter is applied to dependent variables that are binary and measured at the nominal level. The three topics are: motivating regression; interpreting OLS regression; and logistic regression.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{assumptions-of-ols-regression}{%
-\subsection{Assumptions of OLS Regression}\label{assumptions-of-ols-regression}}
+\hypertarget{motivating-regression}{%
+\subsection{Motivating Regression}\label{motivating-regression}}
+
+In science one of our main concerns is to develop models of the world, models that help us to understand the world a bit better or to predict how things will develop better. You can read more about modelling in scientific research \href{https://www.visionlearning.com/en/library/Process-of-Science/49/Modeling-in-Scientific-Research/153}{here}. Statistics provides a set of tools that help researchers build and test scientific models.
+
+Our models can be simple. We can think that unemployment is a factor that may help us to understand why cities differ in their level of violent crime. We could express such a model like this:
+
+\includegraphics{Images/model1.png}
+
+Surely we know the world is complex and likely there are other things that may help us to understand why some cities have more crime than others. So, we may want to have tools that allow us to examine such models. Like, for example, the one below:
+
+\includegraphics{Images/model2.png}
+
+In this session we are going to cover regression analysis or, rather, we are beginning to talk about regression modelling.
 
 \textbf{Ordinary least squares (OLS)} regression is a popular technique used to explore whether one or multiple independent variables (X) can predict or explain the variation in the dependent variable (Y). When multiple independent variables are included simultaneously, they are called \textbf{covariates}; when only one independent variable is used, the OLS regression is called \textbf{bivariate regression} or \textbf{simple regression}. OLS regression has been the mainstay analysis in the social sciences.
+
+\hypertarget{activity-1-setting-up}{%
+\subsubsection{Activity 1: Setting up!}\label{activity-1-setting-up}}
 
 To begin, we do the following:
 
@@ -8362,13 +8173,139 @@ To begin, we do the following:
   Name the data frame \texttt{df}
 \end{enumerate}
 
+\hypertarget{activity-2-getting-to-know-your-data}{%
+\subsubsection{Activity 2: Getting to know your data}\label{activity-2-getting-to-know-your-data}}
+
+The first step in any analysis is to develop some familiarity with the data you are going to be working with. We have been here before. Read the codebook. Run summary statistics for your quantitative variables, frequency distributions for your categorical variables, and visualise your variables. This will help you to detect any anomalies and give you a sense for what you have.
+
+Some variables of interest that we could explore are perception of antisocial behaviour (\texttt{antisocx}), and whether it is associated with other variables such as age (\texttt{age}), gender (\texttt{gender}), victimisation experience (\texttt{bcsvictim}), and confidence in the criminal justice system (\texttt{confx}). You might explore these data, using the appropriate methods based on their levels of measurement. So you might look at measures of central tendency and dispersion for the numeric variables, and frequency tables for your categorical variables. You can play around with this now, to get an understanding for these variables in your data.
+
+For example, if we start with perception of antisocial behaviour (\texttt{antisocx}) and age (\texttt{age}), we might visualise our variable distributions:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{qplot}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{data =}\NormalTok{ df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{09-regression_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{qplot}\NormalTok{(}\AttributeTok{x =}\NormalTok{ antisocx, }\AttributeTok{data =}\NormalTok{ df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{09-regression_files/figure-latex/unnamed-chunk-3-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# antisocx is negatively skewed}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{activity-3-what-questions-can-regression-answer}{%
+\subsubsection{Activity 3: What questions can regression answer?}\label{activity-3-what-questions-can-regression-answer}}
+
 For our example, we are interested in the bivariate relationship between age (X) and perception of antisocial behaviour (Y). Our research question is: `Does age predict perceived level of antisocial behaviour in one's neighbourhood?' Our null and alternative hypotheses are as follows:
 
 \(H_0\): Age does not predict perceived level of antisocial behaviour in one's neighbourhood.
 
 \(H_A\): Age predicts perceived level of antisocial behaviour in one's neighbourhood.
 
-Our initial step is to get to know our data:
+Why is this something useful? Well based on our models, we can make generalisations from our sample to the population, and we can use the parameters we will estimate for our regression to make specific predictions/ generalisations.
+
+I have mentioned before that anything can be a model, as long as it lets you draw inferences about a population from a sample. So earlier in the semester, we used the mean. We can do this to draw inferences. Say, for example, we are interested in perception of antisocial behaviour. We want a model, so that if you randomly picked a person, you would be able to guess to what extent they perceive antisocial behaviour to be a problem. If I picked a person at random, what would be your best guess on the value of that case's perceived antisocial behaviour in the neighbourhood (\texttt{antisocx})? Likely, you say a value near the mean (M = 0.001823) of the sample.
+
+But once we model the relationship between this dependent variable and an independent variable, we can use that to help improve our guesses. Let's start by looking at a scatterplot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Checking out how the variables covary together}
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ antisocx)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha=}\NormalTok{.}\DecValTok{2}\NormalTok{, }\AttributeTok{position=}\StringTok{"jitter"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{09-regression_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+We can now see how the two variables vary together (covary). Now let's say I ask you to guess again about that person's perceived level of antisocial behaviour in the neighbourhood, but now I told you also their age. Based on the scatterplot, if I told you thy were aged 30, what would your answer now be? Before, we based our guess on descriptive measures of central tendency and dispersion, which included all ages. Now, we are asked to guess knowing that the person is aged 30. If we were to now guess the level of perceived antisocial behaviour, we would try and guess the mean of those who are also aged 30. This is what is known as the \emph{conditional mean} -- the mean of Y for each value of X.
+
+We can draw a trend line through the scatterplot, which represents the mean of the variable on the y-axis, \texttt{antisocx}, and we want the means computed for each age:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data=}\NormalTok{df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ antisocx), }\AttributeTok{alpha=}\NormalTok{.}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{data=}\NormalTok{df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ antisocx), }\AttributeTok{stat=}\StringTok{\textquotesingle{}summary\textquotesingle{}}\NormalTok{, }\AttributeTok{fun.y=}\NormalTok{mean,}
+            \AttributeTok{color=}\StringTok{"blue"}\NormalTok{, }\AttributeTok{size=}\DecValTok{1}\NormalTok{)  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## No summary function supplied, defaulting to `mean_se()`
+\end{verbatim}
+
+\includegraphics{09-regression_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+Plotting the conditional means shows us that the mean of perceived antisocial behaviour for those respondents around the age of 30 is around −0.3. This would be a better guess than the mean for all ages, 0.0018. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years}
+\FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data=}\NormalTok{df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ antisocx), }\AttributeTok{alpha=}\NormalTok{.}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{data=}\NormalTok{df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{round}\NormalTok{(age}\SpecialCharTok{/}\DecValTok{5}\NormalTok{)}\SpecialCharTok{*}\DecValTok{5}\NormalTok{, }\AttributeTok{y =}\NormalTok{ antisocx), }\AttributeTok{stat=}\StringTok{\textquotesingle{}summary\textquotesingle{}}\NormalTok{, }\AttributeTok{fun.y=}\NormalTok{mean,}
+            \AttributeTok{color=}\StringTok{"blue"}\NormalTok{, }\AttributeTok{size=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## No summary function supplied, defaulting to `mean_se()`
+\end{verbatim}
+
+\includegraphics{09-regression_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+The blue trend line shows us that there is an upward trend, meaning that as age increases, so do perceptions of antisocial behaviour in the neighbourhood. Like what we did above, OLS regression tries to capture the trend or pattern of the data by drawing a straight line of predicted values as the model of the data:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# method=lm asks for the linear regression line }
+\CommentTok{\# se=FALSE asks not to print confidence interval }
+\CommentTok{\# Other arguments specify the colour, thickness of the line }
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ antisocx)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{2}\NormalTok{, }\AttributeTok{position =} \StringTok{"jitter"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{color =} \StringTok{"red"}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{09-regression_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+The red \textbf{regression line} gives you guesses or predictions for the value of perceived level of antisocial behaviour based on information that we have about age. The line can also be seen as one that tries to summarise the pattern of what is going on among points. The line is, of course, linear. It does not go through all the points, however.
+As Bock et al.~(2012) highlight:
+
+\begin{quote}
+`Like all models of the real world, the line will be wrong -- wrong in the sense that it can't match reality exactly. But it can help us understand how the variables are associated' (p.~179).
+\end{quote}
+
+A map is never a perfect representation of the world; the same happens with statistical models. Yet, as with maps, models can be helpful.
+
+\hypertarget{activity-4-exploring-your-data-further-missing-data}{%
+\subsubsection{Activity 4: Exploring your data further: missing data}\label{activity-4-exploring-your-data-further-missing-data}}
+
+We also want to look for any missing data in our data sets.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8394,7 +8331,7 @@ Our initial step is to get to know our data:
 ##  -4.015  -0.559   0.177   0.000   0.788   1.215   26695
 \end{verbatim}
 
-Both variables have missing data. You could ignore the `NAs', but when we run regression, it will conduct a \emph{listwise deletion}, which is when cases are dropped from your analysis if they have missing data on either the independent variable (IV) or the dependent variable (DV). As we now want descriptive statistics of cases we will be using, we will delete the cases that will be dropped anyway. We use the \texttt{complete.cases\ ()} function to keep cases that have valid responses in both the IV and DV:
+Both variables have missing data. You could ignore the `NAs', but when we run regression, it will conduct a \emph{listwise deletion}, which is when cases are dropped from your analysis if they have missing data on either the independent variable (IV) or the dependent variable (DV). As we now want descriptive statistics of cases we will be using, we will delete the cases that will be dropped anyway. We use the \texttt{complete.cases()} function to keep cases that have valid responses in both the IV and DV:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8410,7 +8347,8 @@ Both variables have missing data. You could ignore the `NAs', but when we run re
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Retain only complete cases}
-\NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ df[(}\FunctionTok{complete.cases}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{age) }\SpecialCharTok{\&} \FunctionTok{complete.cases}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{antisocx)), ]}
+
+\NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\FunctionTok{complete.cases}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{age) }\SpecialCharTok{\&} \FunctionTok{complete.cases}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{antisocx))}
 
 \CommentTok{\# Left with 8,650 cases after dropping NAs}
 \FunctionTok{nrow}\NormalTok{(df) }
@@ -8444,6 +8382,9 @@ Both variables have missing data. You could ignore the `NAs', but when we run re
 ## -4.014557 -0.552077  0.178767  0.001823  0.788219  1.215267
 \end{verbatim}
 
+\hypertarget{activity-5-regression-assumptions}{%
+\subsubsection{Activity 5: Regression assumptions}\label{activity-5-regression-assumptions}}
+
 To conduct OLS regression, or linear regression for short, a number of assumptions must be met, so you will need to test for them. Failure to do so will result in a possibly incorrect model and drawing conclusions from it would be silly. We only, however, briefly go through the first four assumptions because going into detail is beyond the scope of this class.
 
 The purpose of today is more to introduce you to regression and learn how to use it and interpret the output. For this class, we find that the assumption of linearity is important to go into detail. Going through this assumption in detail will give you a better understanding of OLS regression itself and how it operates. We now go through each of the five assumptions of OLS regression before using the technique.
@@ -8451,22 +8392,22 @@ The purpose of today is more to introduce you to regression and learn how to use
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{independence-of-errors}{%
-\subsubsection{Independence of errors}\label{independence-of-errors}}
+\paragraph{Independence of errors}\label{independence-of-errors}}
 
 Errors of the prediction, which make up the regression line, are assumed to be independent of each other. The term \emph{heteroscedasticity} is used to describe this violation of independence of errors. When we violate this assumption, our points in the scatterplot resemble the shape of a funnel. If there is dependency between the observations, you would need to use other models that are not covered in this course.
 
 \hypertarget{equal-variances-of-errors}{%
-\subsubsection{Equal Variances of errors}\label{equal-variances-of-errors}}
+\paragraph{Equal Variances of errors}\label{equal-variances-of-errors}}
 
 If the variance of our residuals is unequal, we will need different estimation methods, but this issue is minor. The reason it is a minor issue is that regression is considered a \emph{robust} estimation, meaning that it is not too sensitive to changes in the variance.
 
 \hypertarget{normality-of-errors}{%
-\subsubsection{Normality of errors}\label{normality-of-errors}}
+\paragraph{Normality of errors}\label{normality-of-errors}}
 
 Residuals are assumed to be normally distributed. Gelman and Hill (2007) believe this to be the least important of the assumptions because regression inferences tend to be robust regarding non-normality of the errors. Your results, however, may be sensitive to large outliers so you will need to drop them if appropriate.
 
 \hypertarget{multicollinearity}{%
-\subsubsection{Multicollinearity}\label{multicollinearity}}
+\paragraph{Multicollinearity}\label{multicollinearity}}
 
 When you are including more than one IV, \textbf{multicollinearity} may be a concern. Independent variables that are highly correlated with each other mean that they are tapping into the same construct. For example, if you include two IVs, parental attachment and parental discipline, you may find that they are highly related to each other because both measure a similar idea.
 
@@ -8488,112 +8429,9 @@ One indication is that if you run a Pearson's correlation for the two IVs and ge
 The VIF values are below 5 and indicate that including both variables, \texttt{age} and \texttt{confx}, in the same model does not pose any multicollinearity concerns.
 
 \hypertarget{linearity}{%
-\subsubsection{Linearity}\label{linearity}}
+\paragraph{Linearity}\label{linearity}}
 
-Similar to Pearson's correlation, a linear relationship must be established before conducting the analysis. If the relationship is non-linear, your predicted values will be wrong, and it will systematically miss the true pattern of the mean of Y.
-
-Say, for example, you randomly drew a case from the dataset. What would be your best guess on the value of that case's perceived antisocial behaviour in the neighbourhood (\texttt{antisocx})? Likely, you say a value near the mean (M = 0.001823) of the sample. Next, we visualise our variable distributions:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{qplot}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{data =}\NormalTok{ df)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-\end{verbatim}
-
-\includegraphics{09-regression_files/figure-latex/unnamed-chunk-6-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{qplot}\NormalTok{(}\AttributeTok{x =}\NormalTok{ antisocx, }\AttributeTok{data =}\NormalTok{ df)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-\end{verbatim}
-
-\includegraphics{09-regression_files/figure-latex/unnamed-chunk-6-2.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# antisocx is negatively skewed}
-
-\CommentTok{\# Checking out how the variables covary together}
-\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ antisocx)) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha=}\NormalTok{.}\DecValTok{2}\NormalTok{, }\AttributeTok{position=}\StringTok{"jitter"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{09-regression_files/figure-latex/unnamed-chunk-6-3.pdf}
-
-If you were to guess that case's perceived level of antisocial behaviour in the neighbourhood, but now based it on the scatterplot, and learned they were aged 30, what would your answer now be? Before, we based our guess on descriptive measures of central tendency and dispersion, which included all ages. Now, we are asked to guess knowing that the person is aged 30. If we were to now guess the level of perceived antisocial behaviour, we would try and guess the mean of those who are also aged 30. This is what is known as the \emph{conditional mean} -- the mean of Y for each value of X.
-
-We create a trend line through the scatterplot, which represents the mean of the variable on the y-axis, \texttt{antisocx}, and we want the means computed for each age:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+} 
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data=}\NormalTok{df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ antisocx), }\AttributeTok{alpha=}\NormalTok{.}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{data=}\NormalTok{df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ antisocx), }\AttributeTok{stat=}\StringTok{\textquotesingle{}summary\textquotesingle{}}\NormalTok{, }\AttributeTok{fun.y=}\NormalTok{mean,}
-            \AttributeTok{color=}\StringTok{"blue"}\NormalTok{, }\AttributeTok{size=}\DecValTok{1}\NormalTok{)  }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## No summary function supplied, defaulting to `mean_se()`
-\end{verbatim}
-
-\includegraphics{09-regression_files/figure-latex/unnamed-chunk-7-1.pdf}
-
-Plotting the conditional means shows us that the mean of perceived antisocial behaviour for those respondents around the age of 30 is around −0.3. This would be a better guess than the mean for all ages, 0.0018. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years}
-\FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+} 
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data=}\NormalTok{df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ antisocx), }\AttributeTok{alpha=}\NormalTok{.}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{data=}\NormalTok{df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{round}\NormalTok{(age}\SpecialCharTok{/}\DecValTok{5}\NormalTok{)}\SpecialCharTok{*}\DecValTok{5}\NormalTok{, }\AttributeTok{y =}\NormalTok{ antisocx), }\AttributeTok{stat=}\StringTok{\textquotesingle{}summary\textquotesingle{}}\NormalTok{, }\AttributeTok{fun.y=}\NormalTok{mean,}
-            \AttributeTok{color=}\StringTok{"blue"}\NormalTok{, }\AttributeTok{size=}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## No summary function supplied, defaulting to `mean_se()`
-\end{verbatim}
-
-\includegraphics{09-regression_files/figure-latex/unnamed-chunk-8-1.pdf}
-
-The blue trend line shows us that there is an upward trend, meaning that as age increases, so do perceptions of antisocial behaviour in the neighbourhood. Like what we did above, OLS regression tries to capture the trend or pattern of the data by drawing a straight line of predicted values as the model of the data:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# method=lm asks for the linear regression line }
-\CommentTok{\# se=FALSE asks not to print confidence interval }
-\CommentTok{\# Other arguments specify the colour, thickness of the line }
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ antisocx)) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{2}\NormalTok{, }\AttributeTok{position =} \StringTok{"jitter"}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{color =} \StringTok{"red"}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## `geom_smooth()` using formula 'y ~ x'
-\end{verbatim}
-
-\includegraphics{09-regression_files/figure-latex/unnamed-chunk-9-1.pdf}
-
-The red \textbf{regression line} gives you guesses or predictions for the value of perceived level of antisocial behaviour based on information that we have about age. The line can also be seen as one that tries to summarise the pattern of what is going on among points. The line is, of course, linear. It does not go through all the points, however.
-As Bock et al.~(2012) highlight:
-
-\begin{quote}
-`Like all models of the real world, the line will be wrong -- wrong in the sense that it can't match reality exactly. But it can help us understand how the variables are associated' (p.~179).
-\end{quote}
-
-A map is never a perfect representation of the world; the same happens with statistical models. Yet, as with maps, models can be helpful.
+Similar to Pearson's correlation, a linear relationship must be established before conducting the analysis. If the relationship is non-linear, your predicted values will be wrong, and it will systematically miss the true pattern of the mean of Y. We will learn how to check for this when looking at the residuals from the regression.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -8622,8 +8460,8 @@ To resolve this issue, the error values are squared before they are summed. This
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{bivariate-regression}{%
-\subsubsection{Bivariate Regression}\label{bivariate-regression}}
+\hypertarget{activity-6-bivariate-regression}{%
+\subsubsection{Activity 6: Bivariate Regression}\label{activity-6-bivariate-regression}}
 
 To fit the model, we use the \texttt{lm()} function using the formula specification \texttt{(Y\ \textasciitilde{}\ X)}:
 
@@ -8631,7 +8469,7 @@ To fit the model, we use the \texttt{lm()} function using the formula specificat
 \begin{Highlighting}[]
 \NormalTok{fit\_1 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(antisocx }\SpecialCharTok{\textasciitilde{}}\NormalTok{ age, }\AttributeTok{data =}\NormalTok{ df)}
 
-\CommentTok{\# Get to know the data}
+\CommentTok{\# Get to know the model object}
 \FunctionTok{class}\NormalTok{(fit\_1)}
 \end{Highlighting}
 \end{Shaded}
@@ -8683,7 +8521,7 @@ To fit the model, we use the \texttt{lm()} function using the formula specificat
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# A more concise display of results is using ‘display ()’ from arm package:}
+\CommentTok{\# A more concise display of results is using ‘display()’ from arm package:}
 \FunctionTok{display}\NormalTok{(fit\_1)}
 \end{Highlighting}
 \end{Shaded}
@@ -8712,20 +8550,44 @@ Now let us interpret the regression output. There are several points to focus on
   \(R^2\): This is known as the percent of variance explained, and it is a measure of the strength of our model. This value ranges from 0 to 1. Towards 1, the better we are able to account for variation in our outcome Y with our IV(s). In other words, the stronger the relationship is between Y and X. Weisburd and Britt (2009: 437) suggest that, in criminal justice research, values greater than .40 are rare, but if we obtain such a value, it is considered a powerful model. If the value is lower than .20, the model is considered relatively weak. The output shows that \(R^2\) for our model was about .06 (the multiple r-squared value). We interpret this as our model explains 6\% of the variance in the level of perceived antisocial behaviour.
 \end{enumerate}
 
+\hypertarget{activity-7-residuals}{%
+\subsubsection{Activity 7: Residuals}\label{activity-7-residuals}}
+
+In the output above we saw there was something called the residuals. The residuals are the differences between the observed values of Y for each case minus the predicted or expected value of Y, in other words the distances between each point in the dataset and the regression line (see the visual example below).
+
 \begin{figure}
 \centering
 \includegraphics{Images/residual.jpg}
-\caption{\textbf{Figure 9.1} Residuals visualized}
+\caption{drawing}
 \end{figure}
 
-To understand \(R^2\), we refer to \textbf{residuals} (\emph{e}). These are the distance between each point in the dataset and the regression line. The distance represents the amount of error. Previously, this was mentioned in the context of least squares estimation. Residuals matter because it tells us how much variation is still unexplained and considers the fact that we cannot perfectly predict perceived antisocial behaviour each time by using the information on age. In actuality, our regression equation should be:
+You see that we have our line, which is our predicted values, and then we have the black dots which are our actually observed values. The distance between them is essentially the amount by which we were wrong, and all these distances between observed and predicted values are our residuals. Least square estimation essentially aims to reduce the average of the squares of all these distances: that's how it draws the line.
 
-\[y = b_0 + b_1x_i + e\]
+Why do we have residuals? Well, think about it. The fact that the line is not a perfect representation of the cloud of points makes sense, doesn't it? You cannot predict perfectly what the value of Y is for every observation just by looking ONLY at their level of resource deprivation! This line only uses information regarding resource deprivation. This means that there's bound to be some difference between our predicted level of homicide given our knowledge of deprivation (the regression line) and the actual level of homicide (the actual location of the points in the scatterplot). There are other things that matter not being taken into account by our model to predict the values of Y. There are other things that surely matter in terms of understanding homicide. And then, of course, we have measurement error and other forms of noise.
+
+We can re-write our equation like this if we want to represent each value of Y (rather than the predicted value of Y) then:
+\(y = b_0 + b_1x + \text{residuals}\)
+
+The residuals capture how much variation is unexplained, how much we still have to learn if we want to understand variation in Y. A good model tries to maximise explained variation and reduce the magnitude of the residuals.
+
+We can use information from the residuals to produce a measure of effect size, of how good our model is in predicting variation in our dependent variables. Remember our game where we try to guess homicide (Y)? If we did not have any information about X our best bet for Y would be the mean of Y. The regression line aims to improve that prediction. By knowing the values of X we can build a regression line that aims to get us closer to the actual values of Y (look at the Figure below).
+
+\begin{figure}
+\centering
+\includegraphics{Images/weight2.png}
+\caption{r squared}
+\end{figure}
+
+The distance between the mean (our best guess without any other piece of information) and the observed value of Y is what we call the \textbf{total variation}. The residual is the difference between our predicted value of Y and the observed value of Y. This is what we cannot explain (i.e, variation in Y that is \emph{unexplained}). The difference between the mean value of Y and the expected value of Y (the value given by our regression line) is how much better we are doing with our prediction by using information about X (i.e., in our previous example it would be variation in Y that can be \emph{explained} by knowing about resource deprivation). How much closer the regression line gets us to the observed values. We can then contrast these two different sources of variation (explained and unexplained) to produce a single measure of how good our model is. The formula is as follows:
+
+\(R^2 = \dfrac{SSR}{SST} = \dfrac{\Sigma(\hat y_i - \bar y )^2}{\Sigma(y_i - \bar y )^2}\)
+
+All this formula is doing is taking a ratio of the explained variation (the squared differences between the regression line and the mean of Y for each observation) by the total variation (the squared differences of the observed values of Y for each observation from the mean of Y). This gives us a measure of the \textbf{percentage of variation in Y that is ``explained'' by X}.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{multiple-regression}{%
-\subsubsection{Multiple Regression}\label{multiple-regression}}
+\hypertarget{activity-8-multiple-regression}{%
+\subsubsection{Activity 8: Multiple Regression}\label{activity-8-multiple-regression}}
 
 At the start of the session, there was mention of one of the major drawbacks of looking at only bivariate relationships. One was that these analyses did not consider other possible explanations. It could be that you have a statistically significant relationship, but without considering other variables that may explain this relationship, your significant result could, in fact, be \emph{spurious} -- an association that should not be taken very seriously. For some ridiculous examples, click \href{http://tylervigen.com/spurious-correlations}{here}.
 
@@ -8739,7 +8601,7 @@ For this example, we include additional variables to our model: sex (\texttt{sex
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Checking out what type of class}
+\CommentTok{\# Checking out class of variables}
 
 \FunctionTok{class}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{confx) }
 \end{Highlighting}
@@ -8765,7 +8627,7 @@ For this example, we include additional variables to our model: sex (\texttt{sex
 \NormalTok{df}\SpecialCharTok{$}\NormalTok{bcsvictim }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{bcsvictim, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"not victim"}\NormalTok{, }\StringTok{"Yes victim"}\NormalTok{), }\AttributeTok{ordered =} \ConstantTok{FALSE}\NormalTok{) }
 
 \CommentTok{\# Sex}
-\FunctionTok{class}\NormalTok{ (df}\SpecialCharTok{$}\NormalTok{sex)}
+\FunctionTok{class}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{sex)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8788,8 +8650,8 @@ For this example, we include additional variables to our model: sex (\texttt{sex
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Recode sex as dummy variable (0 and 1) where female is 0 and ordered is false}
-\NormalTok{df}\SpecialCharTok{$}\NormalTok{gender }\OtherTok{\textless{}{-}}\NormalTok{ df}\SpecialCharTok{$}\NormalTok{sex}
-\NormalTok{df}\SpecialCharTok{$}\NormalTok{gender[df}\SpecialCharTok{$}\NormalTok{gender}\SpecialCharTok{==}\StringTok{"2"}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"0"}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{gender }\OtherTok{\textless{}{-}} \FunctionTok{recode}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{sex, }\StringTok{\textasciigrave{}}\AttributeTok{1}\StringTok{\textasciigrave{}} \OtherTok{=} \DecValTok{1}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{2}\StringTok{\textasciigrave{}} \OtherTok{=} \DecValTok{0}\NormalTok{)}
+
 \NormalTok{df}\SpecialCharTok{$}\NormalTok{gender }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{gender, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"female"}\NormalTok{, }\StringTok{"male"}\NormalTok{), }\AttributeTok{ordered =} \ConstantTok{FALSE}\NormalTok{) }
 \CommentTok{\# Double check values match original variable}
 \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{gender)}
@@ -8801,6 +8663,10 @@ For this example, we include additional variables to our model: sex (\texttt{sex
 ## female   male 
 ##   4586   4064
 \end{verbatim}
+
+Multiple regression is one way of checking the relevance of competing explanations. You could set up a model where you try to predict crime levels with an indicator of broken windows and an indicator of structural disadvantage. If after controlling for structural disadvantage you see that the regression coefficient for broken windows is still significant you may be into something, particularly if the estimated effect is still large. If, on the other hand, the t test for the regression coefficient of your broken windows variable is no longer significant, then you may be tempted to think that perhaps Sampson and Raudenbush were into something.
+
+It could not be any easier to fit a multiple regression model. You simply modify the formula in the \texttt{lm()} function by adding terms for the additional inputs separated with a \texttt{+}. Let us run this to predict antisocial behaviour with all our independent variables.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8848,7 +8714,10 @@ We return to those four points to focus on when confronted with a regression out
   \(R^2\): The \(R^2\) is higher than that of our previous bivariate regression model. It will, however, inevitably increase whenever new variables are added to the model, regardless if they are only weakly related to the DV. Having said this, the new \(R^2\) value suggests that the addition of the three new variables improves our previous model.
 \end{enumerate}
 
-If you would like to professionally present your results, you can use the function \texttt{tab\_model\ ()} from the \texttt{sjplot} package:
+\hypertarget{activity-9-presenting-the-results}{%
+\subsubsection{Activity 9: Presenting the results}\label{activity-9-presenting-the-results}}
+
+If you would like to professionally present your results, you can use the function \texttt{tab\_model()} from the \texttt{sjplot} package:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9050,6 +8919,18 @@ R2 / R2 adjusted
 
 0.125 / 0.124
 
+You may also like to present your results visually with a plot. For this you can use instead the \texttt{plot\_model()} function of the \texttt{sjPlot} package, that makes it easier to produce this sort of plots. You can find a more detailed tutorial about this function \href{https://strengejacke.wordpress.com/2017/10/23/one-function-to-rule-them-all-visualization-of-regression-models-in-rstats-w-sjplot/}{here}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot\_model}\NormalTok{(fit\_2)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{09-regression_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+What you see plotted here is the point estimates (the circles), the confidence intervals around those estimates (the longer the line the less precise the estimate), and the colours represent whether the effect is negative (red) or positive (blue). There are other packages that also provide similar functionality, like the \texttt{dotwhisker} package that you may want to explore, see more details \href{https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html}{here}.
+
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{logistic-regression}{%
@@ -9091,6 +8972,9 @@ For this example, we are interested in the relationship between race and receivi
 ## $class
 ## [1] "factor"
 \end{verbatim}
+
+\hypertarget{activity-10-preparing-your-dependent-variable}{%
+\subsubsection{Activity 10: Preparing your dependent variable}\label{activity-10-preparing-your-dependent-variable}}
 
 Logistic regression will predict probabilities associated with the level whose first letter is further in the alphabet --- this would be `yes', the respondent was released with a summons. But this is not our level of interest. We will need to reorder the levels in the DV using the \texttt{relevel} function:
 
@@ -9152,6 +9036,9 @@ Logistic regression will predict probabilities associated with the level whose f
 ## White Black 
 ##  3938  1288
 \end{verbatim}
+
+\hypertarget{activity-11-fitting-and-interpreting-a-logistic-regression-model}{%
+\subsubsection{Activity 11: Fitting and interpreting a logistic regression model}\label{activity-11-fitting-and-interpreting-a-logistic-regression-model}}
 
 Now that we have arranged the codes of our variables of interest, we fit the logistic regression model using the \texttt{glm\ ()} function and specify a logit model (\texttt{family=”binomial”}). We include three other variables in the model to see to what extent race seems to matter in harsher police treatment even when we adjust or consider sex, employment, and previous police contacts:
 
@@ -9299,17 +9186,17 @@ This is good, but most people find interpreting log odds, well, odd -- it is not
 ## >>> No collinearity analysis because not all variables are numeric.
 \end{verbatim}
 
-If the odds ratio is greater than 1, it indicates that the odds of receiving harsh treatment increases when the independent variable, too, increases. Previous police contacts increase the odds of harsher treatment by 43\% and being black increases the odds of harsher treatment by 64\% (all the while adjusting for the other variables in the model). Employment, however, has an odds ratio of 0.45. If the OR is between 0 and 1, it is considered a negative relationship. Referring to the confidence intervals is also helpful: if 0 is within the interval, the result is statistically non-significant. Take the 95\% CI of sex, for example.
+If the odds ratio is greater than 1, it indicates that the odds of receiving harsh treatment increases when the independent variable, too, increases. Previous police contacts increase the odds of harsher treatment by 43\% and being black increases the odds of harsher treatment by 64\% (all the while adjusting for the other variables in the model). Employment, however, has an odds ratio of 0.45. If the OR is between 0 and 1, it is considered a negative relationship. Referring to the confidence intervals is also helpful: if 1 is within the interval, the result is statistically non-significant. Take the 95\% CI of sex, for example.
 
 For both types of regression, it is inappropriate to make comparisons between IVs. You cannot directly compare the coefficients of one IV to the other, unless they use the same metric. For more ways to interpret ORs in logistic regression, refer to the \href{https://stats.idre.ucla.edu/other/mult-pkg/faq/general/faq-how-do-i-interpret-odds-ratios-in-logistic-regression/}{UCLA Institute for Digital Research and Education}
 
-\hypertarget{model-fit}{%
-\subsubsection{\texorpdfstring{\textbf{Model Fit}}{Model Fit}}\label{model-fit}}
+\hypertarget{activity-12-model-fit}{%
+\subsubsection{\texorpdfstring{Activity 12: \textbf{Model Fit}}{Activity 12: Model Fit}}\label{activity-12-model-fit}}
 
 Now, how well is the fit of our logistic regression model? In order words, how well does our IVs collectively predict the DV? Recall from OLS regression, we assessed how well our overall model predicts the DV by observing the \emph{F-statistic} and \emph{\(R^2\)}. This is not the case for logistic regression. The reason is, in our familiar linear regression, we understand residual variation (related to that regression line) through the error sum of squares. In logistic regression, there is not one way to understand residual variation, but several, because of its binary outcome. This results in different ways of understanding model fit: (1) quantitative prediction, focused on how close the prediction is to being correct; (2) qualitative prediction, focused on whether the prediction is correct or incorrect; or (3) both. We go through the first one.
 
-\hypertarget{quantitative-prediction}{%
-\subsubsection{\texorpdfstring{\emph{Quantitative Prediction}}{Quantitative Prediction}}\label{quantitative-prediction}}
+\hypertarget{activity-13-quantitative-prediction}{%
+\subsubsection{\texorpdfstring{Activity 13: \emph{Quantitative Prediction}}{Activity 13: Quantitative Prediction}}\label{activity-13-quantitative-prediction}}
 
 A common measure for evaluating model fit is the \textbf{deviance}, also known as -2LL. It measures how accurate the prediction is by multiplying the log likelihood statistic by -2. This \emph{log-likelihood statistic} measures how much unexplained variance remains after the model is fitted, whereby larger values reflect poorer fit. Larger values of -2LL, similarly, indicate worse prediction.
 
@@ -9439,7 +9326,7 @@ Our obtained value is: 445.56. We do not know, though, how big or small this val
 \end{Highlighting}
 \end{Shaded}
 
-The p-value is smaller than α = 0.05, so we conclude that our model is a better fit than a model with no IVs (or predictors).
+The p-value is smaller than \(\alpha = 0.05\), so we conclude that our model is a better fit than a model with no IVs (or predictors).
 
 In addition, \href{https://methods.sagepub.com/book/logistic-regression-from-introductory-to-advanced-concepts-and-applications}{Professor Scott Menard (2010)} suggests calculating the \emph{likelihood ratio \(R^2\)}, also known as the Hosmer/Lemeshow \(R^2\), by taking the difference of the previous deviances and dividing it by the null deviance. The likelihood ratio \(R^2\) tells you the extent to which including your IVs in your model reduces the variation, or error, as measured by the null deviance. The value can range from 0 to 1, where higher values mean better predictive accuracy:
 
