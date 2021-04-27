@@ -306,7 +306,7 @@ qplot(x = age, data = df)
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](09-regression_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
+<img src="09-regression_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 ```r
 qplot(x = antisocx, data = df)
@@ -316,7 +316,7 @@ qplot(x = antisocx, data = df)
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](09-regression_files/figure-epub3/unnamed-chunk-6-2.png)<!-- -->
+<img src="09-regression_files/figure-html/unnamed-chunk-6-2.png" width="672" />
 
 ```r
 # antisocx is negatively skewed
@@ -326,7 +326,7 @@ ggplot(df, aes(x = age, y = antisocx)) +
   geom_point(alpha=.2, position="jitter")
 ```
 
-![](09-regression_files/figure-epub3/unnamed-chunk-6-3.png)<!-- -->
+<img src="09-regression_files/figure-html/unnamed-chunk-6-3.png" width="672" />
 
 
 
@@ -348,7 +348,7 @@ ggplot() +
 ## No summary function supplied, defaulting to `mean_se()`
 ```
 
-![](09-regression_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
+<img src="09-regression_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 
 
@@ -369,7 +369,7 @@ ggplot() +
 ## No summary function supplied, defaulting to `mean_se()`
 ```
 
-![](09-regression_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+<img src="09-regression_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 
 
@@ -391,7 +391,7 @@ ggplot(data = df, aes(x = age, y = antisocx)) +
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](09-regression_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+<img src="09-regression_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 
 
@@ -719,8 +719,8 @@ tab_model(fit_2)
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.51</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.58&nbsp;&ndash;&nbsp;-0.45</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.51</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.58&nbsp;&ndash;&nbsp;-0.45</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
 </tr>
 <tr>
@@ -737,8 +737,8 @@ tab_model(fit_2)
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">bcsvictim [Yes victim]</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.43</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.49&nbsp;&ndash;&nbsp;-0.37</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.43</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.49&nbsp;&ndash;&nbsp;-0.37</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
 </tr>
 <tr>
@@ -776,8 +776,8 @@ tab_model(fit_2, dv.labels = "Perceived Antisocial Behaviour")
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.51</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.58&nbsp;&ndash;&nbsp;-0.45</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.51</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.58&nbsp;&ndash;&nbsp;-0.45</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
 </tr>
 <tr>
@@ -794,8 +794,8 @@ tab_model(fit_2, dv.labels = "Perceived Antisocial Behaviour")
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">bcsvictim [Yes victim]</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.43</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.49&nbsp;&ndash;&nbsp;-0.37</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.43</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.49&nbsp;&ndash;&nbsp;-0.37</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
 </tr>
 <tr>
@@ -833,8 +833,8 @@ tab_model(fit_2, pred.labels = c("(Intercept)", "Age", "Sex", "Victimisation", "
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.51</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.58&nbsp;&ndash;&nbsp;-0.45</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.51</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.58&nbsp;&ndash;&nbsp;-0.45</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
 </tr>
 <tr>
@@ -851,8 +851,8 @@ tab_model(fit_2, pred.labels = c("(Intercept)", "Age", "Sex", "Victimisation", "
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Victimisation</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.43</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.49&nbsp;&ndash;&nbsp;-0.37</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.43</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.49&nbsp;&ndash;&nbsp;-0.37</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
 </tr>
 <tr>

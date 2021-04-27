@@ -305,7 +305,7 @@ ggplot(young_people, aes(x = reoffended)) +
   labs(title = "Reoffending at 1-year follow up")
 ```
 
-![](06-hypotheses_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 <br>
 
@@ -371,7 +371,7 @@ Together, the probability that we get exactly 38 young people reoffending in our
 To visualise our binomial distribution, we could create a simulation of 1,000 replications for this reoffending example, with n = 100 young people in each, and it would look like this:
 <br>
 
-![](06-hypotheses_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 <br>
 
 From the distribution, we would presume that it is about a 50% chance whether a young person reoffends without having received any intervention in the population. These are the sort of reoffending outcomes we can expect to observe. We can see our sample, overall, is on the left tail of this distribution (although this left skew is not so obvious). Let us move on now to how we can use this for hypothesis testing. 
@@ -437,7 +437,7 @@ ggplot(young_people, aes(x = reoffended)) +
   facet_wrap(~group)
 ```
 
-![](06-hypotheses_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 <br>
 
@@ -457,7 +457,7 @@ young_people %>% group_by(group, reoffended) %>% count()
 ## # A tibble: 4 x 3
 ## # Groups:   group, reoffended [4]
 ##   group     reoffended     n
-##   <chr>          <dbl> <int>
+##   <fct>          <dbl> <int>
 ## 1 control            0    22
 ## 2 control            1    28
 ## 3 treatment          0    40
@@ -683,7 +683,7 @@ ggplot() +
   theme_minimal()
 ```
 
-![](06-hypotheses_files/figure-epub3/unnamed-chunk-20-1.png)<!-- -->
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 <br>
 
 Visualising our results, we observe further support that the intervention reduces reoffending: the confidence intervals for each group do not overlap and the proportion for the treatment group is lower than for the control group.
@@ -738,7 +738,7 @@ nrow(iq_over_100)/nrow(prisoner_iq)
 ```
 
 ```
-## [1] 0.486308
+## [1] 0.4870847
 ```
 <br>
 
@@ -768,11 +768,11 @@ prisoner_iq[1:5,]
 
 ```
 ##   prisoner_id  IQ
-## 1           1 111
-## 2           2  89
-## 3           3 113
-## 4           4  96
-## 5           5 103
+## 1           1  83
+## 2           2 123
+## 3           3 104
+## 4           4 104
+## 5           5 122
 ```
 
 ```r
@@ -788,7 +788,7 @@ prisoner_iq[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  1.000914
+## 1           1 115 0.9986382
 ```
 <br>
 
@@ -801,7 +801,7 @@ To show that this is the same z-score you would get with the formula above, we  
 ```
 
 ```
-## [1] 1.000914
+## [1] 0.9986382
 ```
 <br>
 
@@ -824,15 +824,15 @@ iq_sd<-sd(prisoner_iq$IQ)
 pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=TRUE) 
 ```
 
-![](06-hypotheses_files/figure-epub3/unnamed-chunk-24-1.png)<!-- -->
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 ```
-## [1] 0.9453078
+## [1] 0.9450123
 ```
 <br>
 
 
-The output shows the shaded area at 0.9453078, meaning that the prisoner has a higher IQ than over 94.594% of the prison population. 
+The output shows the shaded area at 0.9450123, meaning that the prisoner has a higher IQ than over 94.594% of the prison population. 
 
 Recall from the previous lesson, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68% of cases in the distribution fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within 3 SD. We demonstrate this rule by using the `pnormGC()` function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:
 <br>
@@ -843,7 +843,7 @@ Recall from the previous lesson, the 68-95-99.7 rule. This is helpful to keep in
 pnormGC(bound=c(85, 115),region="between", mean=100,sd=15,graph=TRUE)
 ```
 
-![](06-hypotheses_files/figure-epub3/unnamed-chunk-25-1.png)<!-- -->
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 ```
 ## [1] 0.6826895
@@ -874,7 +874,7 @@ prison_1 <- sample(prisoner_iq, 233) # Is the 'mosaic' package loaded?
 <br>
 
 
-The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 100.6824034 (SD = 14.2720637). 
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 99.4978541 (SD = 14.6934552). 
 
 As the parameter (mean IQ for all prisoners in the population) is known, a **single sample z-test** is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:
 
@@ -936,7 +936,7 @@ z_stat
 ```
 
 ```
-## [1] 0.7298479
+## [1] -0.5216557
 ```
 <br>
 
@@ -988,7 +988,7 @@ z_stat
 
 <!-- ``` -->
 
-We obtained this test statistic of 0.7298479, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
+We obtained this test statistic of -0.5216557, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
 
 Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf)
 
@@ -1002,19 +1002,19 @@ Another way to find the p-value is to know that the z-statistic is, in fact, a z
 z_stat_1 <- pnormGC(z_stat, region="below", mean=0, sd=1, graph=TRUE) 
 ```
 
-![](06-hypotheses_files/figure-epub3/unnamed-chunk-29-1.png)<!-- -->
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-29-1.png" width="672" />
 
 ```r
 z_stat_1
 ```
 
 ```
-## [1] 0.7672584
+## [1] 0.300955
 ```
 
 <br>
 
-The value is 0.7672584. This is a more precise approximation than our lookup table (where we had to round 0.7298479), and so we are getting a more precise p-value. 
+The value is 0.300955. This is a more precise approximation than our lookup table (where we had to round -0.5216557), and so we are getting a more precise p-value. 
 
 We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability: 
 <br>
@@ -1024,18 +1024,18 @@ We did not, however, specify a direction. In actuality, we should be looking at 
 z_stat_2 <- pnormGC(bound=c(z_stat, -z_stat), region="outside", mean=0, sd=1, graph=TRUE) 
 ```
 
-![](06-hypotheses_files/figure-epub3/unnamed-chunk-30-1.png)<!-- -->
+<img src="06-hypotheses_files/figure-html/unnamed-chunk-30-1.png" width="672" />
 
 ```r
 z_stat_2 
 ```
 
 ```
-## [1] 0.4654831
+## [1] 0.6019101
 ```
 <br>
 
-You will see our value has increased to 0.4654831. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
+You will see our value has increased to 0.6019101. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
 
 When we were looking at a directional hypothesis, it only took into consideration *one-tail* of the distribution, hence it being called a one-tailed test. 
 
@@ -1049,7 +1049,7 @@ pnorm(z_stat)
 ```
 
 ```
-## [1] 0.7672584
+## [1] 0.300955
 ```
 <br>
 
@@ -1062,7 +1062,7 @@ pnorm(z_stat)*2
 ```
 
 ```
-## [1] 1.534517
+## [1] 0.6019101
 ```
 
 

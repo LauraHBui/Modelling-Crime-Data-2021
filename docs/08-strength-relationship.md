@@ -1,31 +1,29 @@
 
-# Testing relationships II.  
+# (More) On Effect Sizes 
+#### *Correlations & Power Analysis* {-}
+
 
 #### Learning Outcomes: {-}
--	Explore more measures of effect sizes for relationships with categorical variables
-- Explore relationship between two numeric variables
+- Explore relationships between two numeric variables 
+- Learn to calculate effect sizes for correlations
 - Understand statistical power
-
+- Conduct post and pre - hoc power analyses
 
 
 
 #### Today’s Learning Tools: {-}
 
-
+##### *Total number of activities*: 6 {-}
 
 
 ##### *Data:*{-}
--	Seattle Neighborhoods and Crime Survey
--	Patrick Sharkey’s data
-
-
+- Patrick Sharkey’s data
+- Seattle Neighborhoods and Crime Survey
 
 
 ##### *Packages:*{-}
--	`DescTools`
 -	`dplyr`
 -	`ggplot2`
--	`GoodmanKruskal`
 - `haven`
 - `here`
 -	`tibble`
@@ -33,82 +31,72 @@
 
 
 
-
 ##### *Functions introduced (and packages to which they belong)*{-}
--	`add_row()` : Add rows to a data frame (`tibble`)
+-	`add_row()` : Adds rows to a data frame (`tibble`)
 -	`cor()` : Produces the correlation of two variables (`base R`)
 -	`cor.test()` : Obtains correlation coefficient (`base R`)
--	`CramerV()` : Conducts the Cramer’s V measure of association (`DescTools`)
--	`GoodmanKruskalGamma()` : Conducts Goodman-Kruskal gamma measure of association (`DescTools`)
+-	`rm()` : Removes an object from the `R` environment (`base R`)
+- `ES.w2()`: Computes effect size w for a two-way probability table (`pwr`)
+- `pwr.chisq.test()` : Computes power of a test or determines estimates to obtain target power (`pwr`)
+
+<!-- -	`CramerV()` : Conducts the Cramer’s V measure of association (`DescTools`)
 -	`Phi()` : Conducts the phi measure of association (`DescTools`)
--	`rm()` : Remove object from R environment (`base R`)
--	`SomersDelta()` : Conducts the Somers’ D measure of association (`DescTools`)
-- `ES.w2()`: Compute effect size w for a two-way probability table (`pwr`)
-- `pwr.chisq.test()` : Compute power of test or determine parameters to obtain target power (`pwr`)
-
-
+-	`SomersDelta()` : Conducts the Somers’ D measure of association (`DescTools`)-->
+<br>
+<br>
 
 
 ---
 
 
-## Measures of Association
+## Measures of Association: A Continuation
+
+To date, we have learned ways of measuring whether there is a relationship between variables. These are known as *bivariate analyses*, which involve two variables. If a relationship exists, as indicated by tests of statistical significance, it means that the value of the independent variable (IV) can be used to predict the value of the dependent variable (DV). 
+
+We also learned to test how *strong* these associations between variables were. This is known as the *effect size*, and simply quantifies the magnitude of difference between two variables. Instead of merely addressing the question ‘Is there a relationship or not?’, the effect size addresses the question ‘To what extent is this relationship generalisable?’ We were recently introduced to some measures of effect sizes such as Cohen's *d* and the odds ratio (OR). 
+
+<!--In crime and criminal justice research, not only are we interested in whether there is a relationship between variables, but also we are interested in the size of that relationship. Knowing the strength of the relationship is useful because it indicates the size of the difference.This lesson we will consider a few more measures. -->
+
+Today, we learn more measures of effect size, specifically that of relationships between two numeric variables. These are known as measures of **correlation**. 
+
+In addition, throughout our class, there was repeated mention of a 'large sample size' - that a number of assumptions for certain statistical tests could be relaxed if the sample size was 'large enough', but it was not clear what was meant by 'large'. For this lesson, we learn to assess whether our sample size is (large) enough using **power analysis**. 
+
+<br>
+
+### Activity 1: The `R` prep routine
+
+We begin by:
+
+1. Opening our usual `R` project
+
+2. Install and load the required packages
 
 
 
 
-So far in the course, we have learned ways of measuring whether there is a relationship between variables. If there is a relationship between variables, it means that the value of IV can be used to predict the value of the DV. Although we are able to test for statistical significance, we are unable to say anything about how *strong* these associations between variables are. 
+3. Load Professor Patrick Sharkey’s dataset ( 'sharkey.csv' ), which is a study on the effect of nonprofit organisations on the levels of crime, using the `read_csv()` function. Alternatively, you can load the dataset from the [Dataverse website](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/46WIH0).
 
-We also leaned that in crime and criminal justice research, not only are we interested in whether there is a relationship between variables, but we are also interested in the size of that relationship. Knowing the strength of the relationship is useful because it indicates the size of the difference. It addresses the question of ‘To what extent is this relationship generalisable?’ instead of merely ‘Is there a relationship or not?’ 
-
-The strength of relationship is known more as the **effect size**, and simply quantifies the magnitude of difference between two variables. We began to explore this in last week's session and learned about rediduals, odds ratios, and more. This lesson we will consider a few more measures. 
-
-We will also consider evaluating relationships between two numeric variables specifically we will explore measures of **correlation**. 
-
-Finally, we keep saying that with large enough sample sizes we can relax some of our assumptions, and generally we talk about sample sizes that are "large enough" but what is large enough? We will introduce **power analysis** and how we can use that to estimate our minimum sample sizes needed for our analyses. 
+4. Name the data frame `sharkey`, and if you dislike scientific notation, you can turn it off in `R` by typing and running `options(scipen=999)`.
 
 
-
-We begin by :
-
+5. Get to know the data by using the functions `View()` and `dim()` and to see if it has been loaded successfully
 
 
-
-1.	Opening our project
-
-
-
-
-2.	Loading the required packages
-
-
-
-
-3.	Opening the Seattle Neighborhoods and Crime Survey dataset using the function `read.dta()` and naming the data frame object as `seattle_ df`
-
-
-
-
-4.	Get to know the data by using the functions `View()` and `dim()`, and to see if it has been loaded successfully
-
-
+<br>
+<br>
 
 
 ---
 
 
-## Today’s 3
+## Today’s 2 (!)
+
+
+Our two topics are **correlations** where we explore the relationship between numeric variables and how to interpret them; and **power** where we learn about power analyses for estimating sample sizes. 
 
 
 
-
-We will learn some more measures of effect sizes for categorical variables, then we will explroe relationship bbetween numeric variables, and how to interpret them. Finally, we will learn about power analyses for estimating sample sizes. 
-
-
-
----
-
-
+<!--
 ### Effect sizes for relationships between with categorical variables 
 
 Following last week’s lesson on the chi-square analysis, the effect size for the relationship between two categorical variables can be conducted after obtaining the *χ*2 statistic. A number of measures are available to test *how related* the two variables are to each other. We learn three of them: *phi*, *Cramer’s V*, and *Goodman and Kruskal’s lambda and tau*.
@@ -132,30 +120,12 @@ What this measure does is account for the sample size under observation, as the 
 # Create copies of the variables, rename them so it is easier to remember 
 # sex is variable ‘QDEM3’
 table(seattle_df$QDEM3)
-```
-
-```
-## 
-##    1    2 
-## 1145 1075
-```
-
-```r
 # Use factor () function to create factor variable ‘sex’
 seattle_df$sex <- factor(seattle_df$QDEM3, levels = c(1, 2), labels = c("female" ,
                                                                         "male"))
 
 # Reported victimisation to police is ‘Q58E’
 table(seattle_df$Q58E)
-```
-
-```
-## 
-##   -1    0    1    8    9 
-## 1582  379  255    2    2
-```
-
-```r
 # Use factor () function to create factor variable ‘reported_to_police’
 seattle_df$reported_to_police <- factor(seattle_df$Q58E, levels = c(0, 1), labels =
                                           c("no" , "yes"))
@@ -165,25 +135,10 @@ seattle_df$reported_to_police <- factor(seattle_df$Q58E, levels = c(0, 1), label
 chi<-table(seattle_df$sex, seattle_df$reported_to_police) 
 # Make sure the relationship is significant first
 chisq.test(chi)
-```
-
-```
-## 
-## 	Pearson's Chi-squared test with Yates' continuity correction
-## 
-## data:  chi
-## X-squared = 5.8156, df = 1, p-value = 0.01588
-```
-
-```r
 # Chi-square is significant ( p= 0.01588)
 
 # Calculate the phi coefficient 
 Phi(seattle_df$sex, seattle_df$reported_to_police)
-```
-
-```
-## [1] 0.09903062
 ```
 
 
@@ -212,26 +167,12 @@ For tables that are larger than 2x2, meaning these categorical variables are not
 ```r
 # Cramer's V test for the same relationship detailed above to show that it is exactly like phi: 
 CramerV(seattle_df$sex, seattle_df$reported_to_police)
-```
 
-```
-## [1] 0.09903062
-```
-
-```r
 # Now for non-binary variable, Q52, ‘How often do you worry about being attacked in your neighbourhood’
 
 # Checking it out
 table(seattle_df$Q52)
-```
 
-```
-## 
-##    1    2    3    4    8    9 
-## 1584  354  167   98   12    5
-```
-
-```r
 # Make a copy of the Q52 variable 
 seattle_df$worry_attacked <- factor(seattle_df$Q52, levels = c(1, 2, 3, 4), labels =
                                       c("Less than once a month" , "once a month",
@@ -241,24 +182,10 @@ seattle_df$worry_attacked <- factor(seattle_df$Q52, levels = c(1, 2, 3, 4), labe
 # Save the result in the object "chi2" 
 chi2 <- table(seattle_df$worry_attacked, seattle_df$sex) 
 chisq.test(chi2)
-```
 
-```
-## 
-## 	Pearson's Chi-squared test
-## 
-## data:  chi2
-## X-squared = 38.092, df = 3, p-value = 2.702e-08
-```
-
-```r
 # Conduct the Cramer's V test of association on the contingency table 
 # You can use the object ‘chi2’ for convenience 
 CramerV(chi2)
-```
-
-```
-## [1] 0.1314953
 ```
 
 
@@ -299,80 +226,26 @@ For this example, we test the association between two measures commonly used to 
 ```r
 # First, check and recode your variables if necessary 
 table(seattle_df$Q20A)
-```
 
-```
-## 
-##   1   2   3   4   8   9 
-## 432 701 784 207  87   9
-```
-
-```r
 # Recode Q20A- check the codebook on the variable's ranking
 seattle_df$intv.truancy <- factor(seattle_df$Q20A, levels = c(1, 2, 3, 4), labels =
                                     c("very likely" , "likely", "unlikely", "very unlikely"))
 
 # Review everything was coded correctly 
 table(seattle_df$intv.truancy)
-```
-
-```
-## 
-##   very likely        likely      unlikely very unlikely 
-##           432           701           784           207
-```
-
-```r
 class(seattle_df$intv.truancy)
-```
 
-```
-## [1] "factor"
-```
-
-```r
 # Now do the same for the graffiti variable 
 table(seattle_df$Q20B)
-```
-
-```
-## 
-##    1    2    3    4    8    9 
-## 1198  761  177   43   35    6
-```
-
-```r
 seattle_df$intv.graff<- factor(seattle_df$Q20B, levels = c(1, 2, 3, 4), labels =
                                  c("very likely" , "likely", "unlikely", "very unlikely")) 
 
 table(seattle_df$intv.graff)
-```
-
-```
-## 
-##   very likely        likely      unlikely very unlikely 
-##          1198           761           177            43
-```
-
-```r
 class(seattle_df$intv.graff)
-```
 
-```
-## [1] "factor"
-```
-
-```r
 # Assess the relationship between these two variables 
 GoodmanKruskalGamma(seattle_df$intv.truancy, seattle_df$intv.graff, conf.level = .95)
-```
 
-```
-##     gamma    lwr.ci    upr.ci 
-## 0.6315274 0.5898587 0.6731960
-```
-
-```r
 # We can also run it using a table saved as an R object 
 x <- table(seattle_df$intv.truancy, seattle_df$intv.graff) 
 gamma_neighbor_intervene <- GoodmanKruskalGamma(x, conf.level = .95)
@@ -409,15 +282,7 @@ seattle_df$miss_neigh <- factor(seattle_df$Q7, levels = c(1, 2, 3, 4), labels = 
 
 # Check our newly coded variable 
 table(seattle_df$miss_neigh)
-```
 
-```
-## 
-##   very likely        likely      unlikely very unlikely 
-##          1094           760           244           102
-```
-
-```r
 # To run Somers' D, first save the contingency table in the R object "z" 
 z <- table(seattle_df$intv.graff, seattle_df$miss_neigh) 
 
@@ -427,149 +292,138 @@ z <- table(seattle_df$intv.graff, seattle_df$miss_neigh)
 SomersDelta(z, direction = "row", conf.level = 0.95)
 ```
 
-```
-##    somers    lwr.ci    upr.ci 
-## 0.1867064 0.1502957 0.2231171
-```
-
 
 
 
 Somers’ D is positive, but close to 0, meaning that perception of neighbours’ willingness to intervene is a poor predictor of how much respondents would miss their neighbourhood if they moved. The confidence interval around the estimate does not overlap with 0 meaning that the association is statistically significant, even though the association is weak. 
 
 
-
+-->
 
 ---
 
 
-### Relationships Between Numeric Variables
+### Correlations
 
 
+This section is about measuring the strength of relationship between two ratio/ interval variables. 
 
-
-This section is about measuring the strength of relationships between two ratio/ interval variables. Load Professor Patrick Sharkey’s dataset (sharkey.csv), which is a study on the effect of nonprofit organisations on the levels of crime, using the `read_csv()` function. Alternatively, you can load the dataset from the [Dataverse website](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/46WIH0). 
-
-
-
-Name the data frame `sharkey`, and if you dislike scientific notation, you can turn it off in `R` by using `options(scipen=999)`.
-
-First, we examine our bivariate relationship between variables of interest through a scatterplot. The reason for this is we need to figure out if the variables have a **linear relationship**, and this determines what test we need to use. The extent to which two variables move together is called **covariation**: one variable can increase and so will the other (positive linear relationship); one variable can decrease while the other increases (negative linear relationship).
-
-We focus on the year 2012, which is the most recent year in the dataset, and on only a few select variables. We will place them in a data frame named, `df`. To do this, we will use the `filter()` and `select()` functions from the `dplyr` package. Then, we will remove the dataset from `R` using the `rm()` function.
-
-
-
+With our data frame, `sharkey`, we focus on the year 2012, the most recent year, and on only a couple of select variables. We will place them in a new data frame named `df`. To do this, we will use the `filter()` and `select()` functions from the `dplyr` package. (See Lesson 2, section 2.4.3 on subsetting.) Then, we will remove the `sharkey` data frame from `R` using the `rm()` function.
+<br>
 
 
 ```r
+# We only want data from the year 2012 in our new data frame  `df`
 df <- filter(sharkey, year == "2012") 
-df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
-             incarceration, log_viol_r, largest50) 
+
+# For our new data frame, we want only the following two variables
+df <- select(df, unemployed, log_viol_r) 
 
 # Goodbye sharkey
 rm(sharkey)
-
-# View the number of cities located in each of the 44 states
-table(df$state_name)
 ```
+<br>
 
-```
-## 
-##              Alabama               Alaska              Arizona 
-##                    4                    1                    9 
-##             Arkansas           California             Colorado 
-##                    1                   65                   10 
-##          Connecticut District of Columbia              Florida 
-##                    5                    1                   18 
-##              Georgia                Idaho             Illinois 
-##                    2                    1                    8 
-##              Indiana                 Iowa               Kansas 
-##                    3                    3                    5 
-##            Louisiana             Maryland        Massachusetts 
-##                    4                    1                    3 
-##             Michigan            Minnesota          Mississippi 
-##                    6                    3                    1 
-##             Missouri              Montana             Nebraska 
-##                    5                    1                    2 
-##               Nevada        New Hampshire           New Jersey 
-##                    3                    1                    4 
-##           New Mexico             New York       North Carolina 
-##                    1                    5                    9 
-##         North Dakota                 Ohio             Oklahoma 
-##                    1                    5                    4 
-##               Oregon         Pennsylvania         Rhode Island 
-##                    4                    4                    1 
-##       South Carolina         South Dakota            Tennessee 
-##                    3                    1                    6 
-##                Texas                 Utah             Virginia 
-##                   30                    4                    7 
-##           Washington            Wisconsin 
-##                    6                    3
-```
+<!--# For our new data frame, we want only the following nine variables
+df <- select(df, place_name, state_name, black, lesshs, unemployed, fborn,
+             incarceration, log_viol_r, largest50)- `place_name`: US city located in each of the 44 US states
+- `state_name`: name of US state
+- `black`: percentage of the black population 
+- `lesshs`: percentage without a high school degree
+- `fborn`: percentage of those who are foreign born - `incarceration`: incarceration rate - `largest50`: whether the city is one of the 50 largest cities in the USA (‘1’)--> 
+The variables we now have contain information of cities in 44 US states on:
+
+- `unemployed`: percentage of those who are unemployed 
+- `log_viol_r`: violence rate 
+
+<br>
 
 
+#### Activity 2: Identifying a linear relationship 
 
-The variables we now have contain information on the demographic composition of those cities (percent black population, percent without high school degree, percent unemployed, percent foreign born) and criminal justice characteristics (incarceration rate and the rate of sworn full-time police officers). In addition, we have measures of the violence rate and a binary variable that tells us if the city is one of the 50 largest in the country (value ‘1’ means one of the 50 largest).
+We are interested in whether there is a relationship between unemployment and violence. First, we must examine our bivariate relationship through a scatterplot. We do this to ascertain if our variables of interest have a *linear relationship*, which determines what statistical test we will need to use. 
 
-#### Ativity 5: Scatterplot
+The extent to which two variables move together is called **covariation**: if one variable moves up and so does the other, this is referred to as a *positive linear relationship*; if one variable moves down while the other moves up, this is known as a *negative linear relationship*.
 
-As the first step in exploring relationships is to visualise them, we create a scatterplot between the log of the violence rate (`log_viol_r`) and unemployment (`unemployed`) using the `ggplot()` function in the `ggplot2` package:
+We create a scatterplot between our independent variable, unemployment (`unemployed`), and our dependent variable, the log of the violence rate (`log_viol_r`), using the `ggplot()` function in the `ggplot2` package:
 
-
-
+<br>
 
 
 ```r
 ggplot(df, aes(x = unemployed, y = log_viol_r)) + 
-# Jitter adds a little random noise 
-# This makes points less likely to overlap one another in the plot 
-  geom_point(alpha=.2, position="jitter")
+  geom_point(alpha=.3, colour= "dark green", position="jitter") + # Jitter adds a little random noise; this makes points less likely to overlap one another in the plot
+  theme_light()
 ```
 
-![](08-strength-relationship_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+<img src="08-strength-relationship_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
+<br>
 
+Does it look as if US cities that have a high score on unemployment on the x-axis also have a high score on violent crime on the y-axis? Type out your observations on the google doc and then look below to compare your answer:
 
+<br>
 
-Is there a linear relationship between violence and unemployment? Does it look as if cities that have a high score on the x-axis (unemployment) also have a high score on the y-axis (violent crime)? It is hard to see but there is a trend: cities with more unemployment seem to have more violence. Notice, for example, how at high levels of unemployment, there are places with high levels of violence.
+<br>
 
-As there is a linear relationship, we conduct a **Pearson’s correlation** test. This test tells you whether the two variables are significantly related to one another – whether they covary. A p-value is provided to determine this. Also provided is a Pearson’s r value, which indicates the strength of the relationship between the two variables. The value ranges from −1 (a negative linear relationship) to 1 (a positive linear relationship). Values that are closer to 1 or −1 suggest a stronger relationship. 
+<br>
 
-The test calculates this value, the Pearson's r, by, first, examining the extent to which each case deviates from the mean of each of the two variables, and then multiplies these deviations:
+It is hard to see whether there is a linear relationship, but there is a trend: American cities with more unemployment seem to have more violence. Notice, for example, how at high levels of unemployment, there are places with high levels of violence.
 
-$$covariation~ of ~scores =	\sum_{i=1}^{n} (x_{1i} - \bar{x_1})(x_{2i} - \bar{x_2})$$
+<br>
+<br>
 
-Second, it standardises the covariation by taking the square root of the value obtained from the sums of squared deviations from the mean of both variables. This is because, sometimes, the variables may use different units of measurement from each other. For example, one variable measures in inches and the other variable measures in decades. Thus, Pearson's r is the ratio between the covariation of scores and this standardisation of covariation:
+---
 
-$$ Pearson's~ r = \frac{\sum_{i=1}^{n} (x_{1i} - \bar{x_1})(x_{2i} - \bar{x_2})}{\sqrt{[\sum_{i=1}^{n} (x_{1i}- \bar{x_1})^2][\sum_{i=1}^{n} (x_{2i}- \bar{x_2})^2]}} $$
+#### Pearsons's Correlation
 
+As there is a linear relationship, we conduct a **Pearson’s correlation** test. This test tells you whether the two variables are significantly related to one another – whether they covary. A p-value is provided to determine this. Also provided is a Pearson’s *r* value, which indicates the strength of the relationship between the two variables. The value of *r* ranges from −1 (a negative linear relationship) to 1 (a positive linear relationship). Values that are closer to 1 or −1 suggest a stronger relationship. 
 
+The test calculates the Pearson's *r* by, first, examining the extent to which each observation deviates from the mean of each of the two variables, and then multiplies these deviations with each other to obtain the covariation of scores:
+
+<br>
+
+$covariation~ of ~scores =	\sum_{i=1}^{n} (x_{1i} - \bar{x_1})(x_{2i} - \bar{x_2})$
+
+<br>
+
+Second, it standardises the covariation by taking the square root of the value obtained from the sums of squared deviations from the mean of both variables. Standardising is necessary because, sometimes, the variables may use different units of measurement from each other. For example, one variable measures in inches and the other variable measures in decades. 
+
+Thus, Pearson's *r* is the ratio between the covariation of scores and this standardisation of covariation:
+
+<br>
+
+$Pearson's~ r = \frac{\sum_{i=1}^{n} (x_{1i} - \bar{x_1})(x_{2i} - \bar{x_2})}{\sqrt{[\sum_{i=1}^{n} (x_{1i}- \bar{x_1})^2][\sum_{i=1}^{n} (x_{2i}- \bar{x_2})^2]}}$
+
+<br>
 
 
 Our null and alternative hypotheses are as follows:
 
+<br>
+
+$H_0$: There is no correlation between unemployment and the violence rate. 
+
+$H_A$: There is a correlation between unemployment and the violence rate.
+
+<br>
+
+<br>
+<br>
 
 
 
-$H_0$: There is no correlation between the violence rate and unemployment. 
+---
 
-
-
-
-$H_A$: There is a correlation between the violence rate and unemployment.
-
-
-#### Activity 6: Pearson's correlation in R
+#### Activity 3: Pearson's correlation in `R`
 
 We use the `cor()` function and `cor.test` from `base R` to conduct a Pearson’s correlation:
 
-
-
-
+<br>
 
 
 ```r
+# This gives us the value of Pearson's r 
 cor(df$log_viol_r, df$unemployed)
 ```
 
@@ -578,6 +432,7 @@ cor(df$log_viol_r, df$unemployed)
 ```
 
 ```r
+# This supplies the p-value and 95% confidence interval
 cor.test(~ log_viol_r + unemployed, data=df, method = "pearson", conf.level = 0.95)
 ```
 
@@ -594,36 +449,44 @@ cor.test(~ log_viol_r + unemployed, data=df, method = "pearson", conf.level = 0.
 ##       cor 
 ## 0.5368416
 ```
+<br>
 
 
 
 
+The `cor()` function gives the correlation but `cor.test()` gives more detail. Both give a positive correlation of 0.54. The coefficient is also an indication of the strength of the relationship. Returning to Jacob Cohen (1988), he suggested that within the social sciences, a correlation of 0.10 may be defined as a small relationship; a correlation of 0.30, a moderate relationship; and a correlation of 0.50, a large relationship.
 
-The `cor()` function gives the correlation but `cor.test()` gives more detail. Both give a positive correlation of 0.54. The coefficient is also an indication of the strength of the relationship. Jacob Cohen (1988) suggests that within the social sciences, a correlation of 0.10 may be defined as a small relationship; a correlation of 0.30, a moderate relationship; and a correlation of 0.50, a large relationship.
+As our relationship was linear and our results are statistically significant, we reject the null hypothesis. We conclude that the higher the level of unemployment, the higher the rate of violence - this relationship can be generalisable to the population of US cities.
 
-As our relationship was linear and our results are statistically significant, we reject the null hypothesis. We conclude that there is a statistically significant relationship between the violence rate and unemployment.
+<br>
+<br>
 
-
-#### Activity 7: Nonparametric correlation tests
-
-
-Now what about bivariate relationships where linearity is not met? This would call for either **Kendall’s tau** and **Spearman’s correlation**, nonparametric versions of Pearson’s correlation. Kendall’s tau is more accurate when you have a small sample size compared to Spearman’s rho. 
-
-We again use the function `cor.test()` to conduct these:
+----
 
 
+#### Activity 4: Nonparametric correlation tests
 
+
+What about bivariate relationships where linearity is not met? This would call for either **Kendall’s tau** or **Spearman’s rho** (or correlation), nonparametric versions of Pearson’s correlation. Kendall’s tau is more accurate when you have a small sample size compared to Spearman’s rho. 
+
+We add some (purposive) excitement in our next example by adding an outlier so the relationship is no longer linear. We use the function `add_row()` from the `tibble` package. This will produce a fictitious city with a very high level of unemployment and the lowest level of violence. First, we create another data frame, `df_1`, that only contains our two variables of interest.
+
+<br>
 
 
 ```r
-# We purposely add an outlier so that the relationship is no longer linear
-# This will produce a fictitious city with a very high level of unemployment and the lowest level of violence
-# For convenience, we will first further reduce the number of variables 
+# For convenience, we further reduce the number of variables and place in a new data frame
 df_1 <- select(df, unemployed, log_viol_r) 
 
-# To add cases to data frame, use the add_row() function from the tibble package
+# Adding that fake outlier to make the relationship non-linear
 df_1 <- add_row(df_1, unemployed = 20, log_viol_r = 1)
+```
+<br>
 
+We again use the function `cor.test()` to conduct the nonparametric correlations:
+<br>
+
+```r
 # Conducting a Kendall
 cor.test(~ log_viol_r + unemployed, data=df_1, method = "kendall", conf.level = 0.95)
 ```
@@ -661,76 +524,162 @@ cor.test(~ log_viol_r + unemployed, data=df_1, method = "spearman", conf.level =
 ##       rho 
 ## 0.4923882
 ```
+<br>
 
 
+The correlation coefficient is represented by tau for Kendall’s rank (ranges from 0 to 1) and by Spearman’s *r* (or rho) value (ranges −1 to 1) for Spearman’s rank. According to Cohen (1988), what is the strength of relationship?
 
-
-The correlation coefficient is represented by tau for Kendall’s rank (ranges from 0 to 1) and by Spearman’s r (or rho) value (ranges −1 to 1) for Spearman’s rank. 
-
-
-
-
+<br>
+<br>
 
 ---
 
+
 ### Power analysis
 
-In this section we introduce the `pwr` package for power analysis. In the video lectures you had to watch as preparation for today we introduced the notion of power analysis. In order for a statistical test to be able to be effective, to be able to detect an effect, you need to have sufficient power.
+In the lecture videos, we introduced the notion of power analysis. Now, in this section, we introduce the `pwr` package to conduct this analysis. For a statistical test to be effective - to be able to detect an effect - you need to have sufficient power.
 
+**Power** is related to the magnitude of the effect (i.e., it will be easier to detect stronger rather than weaker effects) and sample size (i.e., it will be easier to detect effects with large samples than with small samples). 
 
-Power is related to the magnitude of the effect (it will be easier to detect stronger rather than weaker effects) and sample size (it will be easier to detect effects with large samples than with small samples). A problem with many scientific studies is that they are *underpowered*, the fail to reject the null hypothesis simply because they do not have sufficient power (often because the sample size is not large enough). Power analysis is generally done during the planning of an analysis so that you know what kind of sample you are going to need if you want to be able to run meaningful hypothesis tests. That is you do your power analysis before you collect your data. 
+A problem with many scientific studies is that they are *underpowered*. Consequently, they fail to reject the null hypothesis, often because the sample size is not large enough. 
 
+Power analysis is generally done during the planning of an analysis and before you collect data. It helps you to identify what kind of sample you are going to need to be able to run meaningful hypothesis tests. 
 
-But we can also check how much power we have after the fact, just to ensure we are not failing to reject the null hypothesis as a consequence of insufficient power. For this purposes we can use the `pwr` package. For computing the power when comparing two sample means we use the function which is most appropriate for the kind of test we want to carry out. For example, if we were comparins means between two groups (remember t-test!) we would use the `pwr.t2n.test()` function. For calculating power for a chi-square test you would use the `pwr.chisq.test()` function. Here is a list for functions for more tests: 
+We still can, however, check how much power we have after collecting data. Doing so  ensures we are not failing to reject the null hypothesis as a consequence of insufficient power.  
 
+There are a number of functions from the `pwr` package to compute power, and you must select the most appropriate one for the kind of test you plan to conduct. For example, if comparing means between two groups -- the t-test! -- we would use the `pwr.t2n.test()` function; for a chi-square test, the `pwr.chisq.test()` function is appropriate. 
+
+Below is a list of `pwr` functions for specific power analyses that correspond to their respective inferential statistical tests: 
+
+<br>
 
 - `pwr.p.test()`: one-sample proportion test
 - `pwr.2p.test()`: two-sample proportion test
 - `pwr.2p2n.test()`: two-sample proportion test (unequal sample sizes)
 - `pwr.t.test()`: two-sample, one-sample and paired t-tests
 - `pwr.t2n.test()`: two-sample t-tests (unequal sample sizes)
-- `pwr.anova.test()`: one-way balanced ANOVA
 - `pwr.r.test()`: correlation test
 - `pwr.chisq.test()`: chi-squared test (goodness of fit and association)
 - `pwr.f2.test()`: test for the general linear model
+<!--#- `pwr.anova.test()`: one-way balanced ANOVA-->
+
+<br>
+
+Once you know what test you are calculating your power for, this `pwr` function requires us to provide the sample size of each group and the effect size we may want to be able to detect. This approach of computing power is only done after the data collection.
+
+<br>
+<br>
 
 
-Once you knwo what test you are calculating your power for, this function expects we provide the sample size of each group (if we are doing the power calculation after we have collated our data) and the effect size we may want to be able to detect. 
-
-#### Activity 8: post-hoc power analysis
+#### Activity 5: The Post-hoc Power Analysis
 
 
-Checking for our statistical power in this after-the-fact manner is referred to as post-hoc power analysis. Post-hoc power is the retrospective power of an observed effect based on the sample size and parameter estimates derived from a given data set. Post-hoc power can be considered as a follow-up analysis. 
+Checking for our statistical power in this after-the-fact manner is referred to as **post-hoc power analysis**. Post-hoc power is the retrospective magnitude of an observed effect based on the sample size and parameter estimates derived from a certain data set. Post-hoc power can be considered as a follow-up analysis. 
 
-Going back go our Seattle data set, we can have a look at our test of relationship between gender and reporting th the police .First let's see how many men and women we have in our data: 
 
+For this example, we load the Seattle Neighborhoods and Crime Survey dataset and name it `seattle_df`. Take care to load it using the correct package and codes - check its data format.
+
+
+
+
+We are interested in the relationship between gender (`QDEM3`) and reporting to the police (`Q58E`). Let us get to know these variables and create new ones using the `factor()` function. (See Lesson 2, section 2.4.1.2):
+<br>
 
 
 ```r
-seattle_df %>% 
-  group_by(sex) %>% 
-  count()
+# Gender is variable ‘QDEM3’
+table(seattle_df$QDEM3)
+```
+
+```
+## 
+##    1    2 
+## 1145 1075
+```
+
+```r
+# Reported victimisation to police is ‘Q58E’
+table(seattle_df$Q58E)
+```
+
+```
+## 
+##   -1    0    1    8    9 
+## 1582  379  255    2    2
+```
+
+```r
+# Create copies of the variables, rename them so it is easier to remember 
+# Use factor () function to create factor variable ‘gender’
+seattle_df$gender <- factor(seattle_df$QDEM3, levels = c(1, 2), labels = c("female" ,
+                                                                        "male"))
+
+
+# Use factor () function to create factor variable ‘reported_to_police’
+seattle_df$reported_to_police <- factor(seattle_df$Q58E, levels = c(0, 1), labels =                                     c("no" , "yes"))
+
+attributes(seattle_df$gender)
+```
+
+```
+## $levels
+## [1] "female" "male"  
+## 
+## $class
+## [1] "factor"
+```
+
+```r
+attributes(seattle_df$reported_to_police) # excludes values that were not included in levels=c()
+```
+
+```
+## $levels
+## [1] "no"  "yes"
+## 
+## $class
+## [1] "factor"
+```
+<br>
+
+Now that we have our new variables, we get to know `gender` using the `count()` function: 
+
+<br>
+
+```r
+count(seattle_df, gender)
 ```
 
 ```
 ## # A tibble: 2 x 2
-## # Groups:   sex [2]
-##   sex        n
+##   gender     n
 ##   <fct>  <int>
 ## 1 female  1145
 ## 2 male    1075
 ```
+<br>
 
-Ok, so that is 1145 women  and 1075 men. Good to know. Now if we were pre-data collection, and could influence the number of people we include in our sample, we would want to specify two things. We would want to specify our alpha level (usually our $\alpha = 0.05$), and also the minimum effect size we want to detect. 
+To conduct a power analysis in order to gauge whether our sample size of 1,145 females  and 1,075 males is 'large enough', we need to specify:
 
+- (a) the minimum effect size we want to detect; 
+- (b) number of observations; 
+- (c) degrees of freedom; and 
+- (d) our alpha level (usually $\alpha$ = 0.05). 
 
-For example, to calculate power for our chisquare table, we need first the effect size. We can get this with the `ES.w2()` function, which requires a proportions table. We can first create a cross tab with the table function, and then use the `prop.table()` function to turn this into a proportions table: 
+<br>
+
+Judging from the type of variables we have (two binary, categorical variables), we would conduct a chi-square test.
+
+We start with obtaining the (minimum) effect size. We use the `ES.w2()` function, which requires a proportions table. We first, however, create a object containing a crosstab with the `table()` function, and then create another object containing a proportions table created from the `prop.table()` function: 
+<br>
 
 
 ```r
-cross_tab <- table(seattle_df$sex, seattle_df$reported_to_police)
+cross_tab <- table(seattle_df$gender, seattle_df$reported_to_police)
+
 prop_tab <- prop.table(cross_tab)
 
+# Contains the proportions of those who did or did not report to the police by gender
 prop_tab
 ```
 
@@ -740,54 +689,65 @@ prop_tab
 ##   female 0.2287066 0.1940063
 ##   male   0.3690852 0.2082019
 ```
+<br>
 
-You can see now the proportions of our observations of each cell - which represents all the combinations -  females who repored and did not report, and males who reported and did not report. All the proportions together should add up to 1. 
+The 2x2 table shows the proportions of our observations of each cell, which represents all combinations of levels between the variables -  females who reported and did not report, and males who reported and did not report. All the proportions together should add up to 1. 
 
-
-So to calculate power for our chi-square test, we will need the effect size, which we can acquire with the `ES.w2()` function. This function computes effect size $w$ for a two-way probability table corresponding to the alternative hypothesis in the chi-squared test of association in two-way contingency tables.
+We now use the `ES.w2()` function to obtain the effect size. This function computes effect size ( $w$ ) for a two-way (i.e., two variable) contingency table that corresponds to the alternative hypothesis (in the chi-squared test of association in two-way contingency tables):
+<br>
 
 
 ```r
-library(pwr)
-
+# Taking the object 'prop_tab' containing the 2x2 table of proportions to obtain effect size
 ES.w2(prop_tab)
 ```
 
 ```
 ## [1] 0.09903062
 ```
+<br>
 
-In this case, effect size $w$ is the square root of the standardized chi-square statistic.
+In this case, effect size ( $w$ = 0.09903062) is the square root of the standardised chi-square statistic.
 
+We now need the total number of observations. We can get this with the `dim()` function, or by counting the number of rows with the `nrow()` function: 
+<br>
 
-We also need the total number of observations. We can get this with the `dim()` function, or by counting the number of rows with the `nrow()` function: 
-
-
-```r
-dim(seattle_df)
-```
-
-```
-## [1] 2220  234
-```
 
 ```r
+dim(seattle_df) 
+```
+
+```
+## [1] 2220  230
+```
+
+```r
+# or
 nrow(seattle_df)
 ```
 
 ```
 ## [1] 2220
 ```
+<br>
 
 We can see there are 2220 observations. 
 
-We also need degrees of freedom, which is the product of the number of values in each column minus 1. $df = (n-1)(n-1)$ in this case df = (2-1)*(2-1), which is 1.
+We also need degrees of freedom, which is the product of the number of values in each column minus 1:
 
-Finally, we specify our significance level (the default is 0.05, so we don't *have* to do this, but it's good to be explicit...)
+<br>
+$df = (n-1)(n-1)$ 
 
+<br>
+
+In this case: *df* = (2-1)*(2-1), which is 1.
+
+Finally, we specify our significance level (the default is 0.05, but we specify it for this example):
+<br>
 
 
 ```r
+# We use this `pwr` function for chi-square
 pwr.chisq.test(w = ES.w2(prop_tab), N = 2220, df = 1, sig.level =  0.05)
 ```
 
@@ -803,48 +763,49 @@ pwr.chisq.test(w = ES.w2(prop_tab), N = 2220, df = 1, sig.level =  0.05)
 ## 
 ## NOTE: N is the number of observations
 ```
+<br>
 
-The function is telling us that we have a power of 0.9965956. The statistical power ranges from 0 to 1, and as statistical power increases, the probability of making a type II error (wrongly failing to reject the null) decreases. So with a power so close to 1 we are very unlikely indeed to failing to reject the null hypothesis when we should.
+The output shows a power of 0.9965956. The statistical power ranges from 0 to 1, and as it increases, the probability of making a type II error (wrongly failing to reject the null hypothesis) decreases. (See Lesson 6, section 6.2.1.1 .) With our power value so close to 1, we are very unlikely to fail to reject the null hypothesis when we should.
 
-With sample sizes this large, you are unlikely to run into problems with power. But these things do matter in particular applications. Think for example of cases when you are trying to evaluate if a particular criminal justice intervention works. If you work with small samples you may wrongly conclude that your intervention didn't make a difference (you fail to reject the null hypothesis) because you did not have sufficient statistical power. This was a common problem in older studies (see [here](https://www.sciencedirect.com/science/article/pii/0047235289900044) for a review) and it is a problem that still persist to some extent (read [this](https://www.tandfonline.com/doi/abs/10.1080/07418825.2018.1495252) more recent review).
-
-
-So how would you use power analysis to tell you what sample side you need to achieve? Well, for this you would use a pre-hoc power analysis - you want to carry out your power analysis before you collect your data. 
+With sample sizes this large, you are unlikely to run into problems with power. If you did have a small sample, however, accuracy of results may be affected. For example, if we were evaluating the effectiveness of a particular criminal justice intervention, and used a small sample, we may wrongly conclude that the intervention did not make a difference (i.e., you fail to reject the null hypothesis) because we did not have sufficient statistical power. This was a common problem in older studies (see [here](https://www.sciencedirect.com/science/article/pii/0047235289900044) for a review) and it is a problem that still persists to some extent (read [this](https://www.tandfonline.com/doi/abs/10.1080/07418825.2018.1495252) more recent review).
 
 
-#### Activity 9: Power analysis for sample sizes
+That is why conducting a power analysis before collecting data is important as it gives an indication of what sample size is needed. Thus, a **pre-hoc power analysis** is best.
 
-So what do you do if you don't have your data yet, but you want to calculate your ideal sample size, so that you can find the effect size which you think you're after in your experiment or reserach study? Well we can, instead of taking the effect size from our sample, we can give our *desired* effect size - what size of effect we'd like to detect? And instead of giving our sample size, we can specify the level of statistical power we want to have in our results. 
+<br>
+<br>
+
+---
 
 
-How do we arrive at these numbers? Well it can be helpful to refer to common practice. For example, [this article from UCLA on effect size in power analysis](https://stats.idre.ucla.edu/other/mult-pkg/faq/general/effect-size-power/faqhow-is-effect-size-used-in-power-analysis/) have compiled together from [Cohen, 1988](http://www.utstat.toronto.edu/~brunner/oldclass/378f16/readings/CohenPower.pdf) a table of reference numbers:
+#### Activity 6: Pre-hoc Power Analysis
+
+Here is the hypothetical scenario: you are planning your dream criminology research project and have not collected your data yet, but want to calculate your ideal sample size. That sample size will give you the effect size that will help you lower the likelihood of making inaccurate conclusions about your research.  
+
+In this hypothetical scenario, instead of taking the effect size from our sample, we can give our *desired* effect size - the size of effect we would like to detect. And instead of giving our sample size, we can specify the level of statistical power we want to have in our results. 
+
+Below is a table of effect sizes. These numbers are derived from common practice. For example, [this article from UCLA on effect size in power analysis](https://stats.idre.ucla.edu/other/mult-pkg/faq/general/effect-size-power/faqhow-is-effect-size-used-in-power-analysis/) have compiled a table of reference numbers from [Cohen, 1988](http://www.utstat.toronto.edu/~brunner/oldclass/378f16/readings/CohenPower.pdf):
+
+<br>
+
+analysis                 effect    small   medium   large
+-----------------------  -------  ------  -------  ------
+t-test for means         d          0.20     0.50    0.80
+t-test for correlation   r          0.10     0.30    0.50
+F-test for regression    f^2        0.02     0.15    0.35
+chi-square               w          0.10     0.30    0.50
+
+<br>
+<br>
+
+For example, a medium effect size for our chi-square results would be .30 . In our actual sample, however, we saw an effect size of 0.099. The table indicates that this is about a small sized effect. 
+
+Let us say that we want to detect a medium sized effect, and wish to achieve 90% power with our study. In that case, these are the values we would specify within our `pwr.chisq.test()` function: 
+<br>
 
 
 ```r
-knitr::kable(data.frame(analysis = c("t-test for means", "t-test for correlation", "F-test for regression", "chi-square"), 
-                        "effect" = c("d", "r", "f^2", "w"), 
-                        "small" = c(.20, .10, .02, .10), 
-                        "medium" = c(.50, .30, .15, .30), 
-                        "large" = c(.80, .50, .35, .50)))
-```
-
-
-
-|analysis               |effect | small| medium| large|
-|:----------------------|:------|-----:|------:|-----:|
-|t-test for means       |d      |  0.20|   0.50|  0.80|
-|t-test for correlation |r      |  0.10|   0.30|  0.50|
-|F-test for regression  |f^2    |  0.02|   0.15|  0.35|
-|chi-square             |w      |  0.10|   0.30|  0.50|
-
-So for example, a medium effect size for our chi-square results would be .30 You can see above, in our actual sample, we saw an effect size of 0.099. This just about counts as a small effect size there. Now remember, just because we *can* detect a bigger effect doesn't mean there is one!!! It may be there just is not that big of an effect size in the difference in reporting to police between men and women!
-
-
-So anyway, back to estimating our ideal sample sizes. Let's say we want to detect a medium sample size, and we wish to achieve 90% power with our study. In that case, these are the parameters we would specify in our `pwr.chisq.test()` function: 
-
-
-
-```r
+# medium sized effect according to table- .30
 pwr.chisq.test(w = 0.30, power = 0.90, df = 1, sig.level = 0.05)
 ```
 
@@ -860,12 +821,16 @@ pwr.chisq.test(w = 0.30, power = 0.90, df = 1, sig.level = 0.05)
 ## 
 ## NOTE: N is the number of observations
 ```
-So in order to detect a medium effect size, with 90% power, we need 117 respondents. Not too bad. What about to detect a large effect size? 
+<br>
 
-**Do you think this will need more people, or fewer people? Why??**
+In order to detect a medium effect size, with 90% power, we need 117 respondents (N = 116.75). What if we wanted to detect a large effect size? 
+
+In your google doc, type your answer to:
+**To detect a large size effect, will we need more observations in our sample, or fewer? Why?**
 
 
-Let's try: 
+Now let us find out: 
+<br>
 
 
 ```r
@@ -884,11 +849,13 @@ pwr.chisq.test(w = 0.50, power = 0.90, df = 1, sig.level = 0.05)
 ## 
 ## NOTE: N is the number of observations
 ```
-You can see we need much fewer people to detect a larger effect size? Why? Think about it - the bigger the difference between the two groups, the easier this is to detect - right? So if there are large differences between men and women in reporting to the police in the population, we will see these emerge even in smaller samples. However, if the differences are smaller, then in small samples we may not observe this. 
+<br>
+
+To detect a large sized effect, we would need fewer people. The reason is the bigger the difference between the two groups, the easier this is to detect -- it is a more obvious observation compared to small and medium sized effects. If there are large differences between males and females in reporting to the police in the population, for example, we will see these emerge even in smaller samples. If the differences, however, are smaller, then we may not observe this in small samples. 
 
 
-Let's see what sample sizes we'd need to find small effect sizes: 
-
+Let us see what sample size we would need to find small effect sizes: 
+<br>
 
 
 ```r
@@ -907,10 +874,18 @@ pwr.chisq.test(w = 0.10, power = 0.90, df = 1, sig.level = 0.05)
 ## 
 ## NOTE: N is the number of observations
 ```
-1050 people! That escalated quickly! However, we do have this sample size in our Seattle data, and accordingly, we did detect this small but statistically significant (i.e. gerenalisable) difference! 
+<br>
+
+The output shows we would now need 1,050 observations! Our sample size in our Seattle data, however, is of similar size, and accordingly, we did detect this small but statistically significant (i.e. generalisable) difference! 
+
+The power calculation processes are similar for other types of test. You can always explore the help functions (type `?` in front of the function, like `? pwr.t.test()` in the console, for example) to find out the slight variations. And now you can confidently answer questions like how many people will you need to survey in order to detect different effect sizes. 
+
+Do note that, although we are capable of detecting a bigger effect, it does not mean that there will actually be one. Returning to our interest in gender differences in reporting vicimisation to the police, it may be that the effect is not that big in the difference in reporting between males and females.
 
 
-The power calculation processes are similar for other types of test. You can always explore the help functions (type `?` in front of the function, like `? pwr.t.test()` for example) to find out the little variations, but the ideas are the same. And now you can confidently answer questions like how many people will you need to survey in order to detect different effect sizes. 
+<br>
+<br>
+
 
 ---
 
@@ -919,20 +894,20 @@ The power calculation processes are similar for other types of test. You can alw
 ## SUMMARY
 
 
+Today was a continuation of last time where we learned more about **effect sizes** and how to produce them. Here, we learned to produce effect sizes for relationships between numeric variables, and an important assumption had to do with **covariation**: **Pearson’s correlation** when the relationship is **linear** and nonparametric tests, **Kendall’s tau** and **Spearman’s correlation**, when the relationship is not. We then also learned about **power analysis** which helps determine the size of the effect which we can expect to find (or not find) in our research. Remember: *power analyses save effect sizes*!
 
+<!--For relationships between nominal variables, we have the following options: **phi** and **Cramer’s V**. Then, for relationships between ordinal variables, we used **concordant and discordant pairs** to find effect sizes through **Gamma** and **Somers’ D**.-->
 
-Today was all about **effect sizes** where we learned how to produce them. For relationships between nominal variables, we have the following options: **phi** and **Cramer’s V**. Then, for relationships between ordinal variables, we used **concordant and discordant pairs** to find effect sizes through **Gamma** and **Somers’ D**. We then learned to produce effect sizes for relationships between numeric relationships, and an important assumption had to do with **covariation**: **Pearson’s correlation** when the relationship is **linear** and nonparametric tests, **Kendall’s tau** and **Spearman’s correlation**, when the relationship is not. We then also learned about **power analysis** which helps determine the size of the effect which we can expect to find (or not find) in our research. Remember: *power analyses save effect sizes*!!!
+<br>
 
-
-
-
+<br>
 
 Homework time!
 
+<br>
+
+<br>
 
 
-
-
-
-
+<br>
 

@@ -304,7 +304,7 @@ The t-test makes a number of assumptions, and to use this test, all assumptions 
 
 3. *Normal distribution is assumed for both populations* (from which the two groups come from): because the t-test makes assumptions about the shape of the distribution, it is considered a **parametric test**. Tests that do not make this assumption about shape are called non-parametric. This assumption, however, can be relaxed if the sample size for both groups are large (and why proportions can be compared).
 
-You may also want to check for outliers by plotting the data. Outliers may distort your results, particularly with smaller samples. All assumptions with the exception of the second one are met. To meet the second assumption, you can check if your data are normally distributed, especially if the sample size(s) is not large, using density plots:
+You may also want to check for outliers by plotting the data. Outliers may distort your results, particularly with smaller samples. All assumptions with the exception of the second one are met. To meet the third assumption, you can check if your data are normally distributed, especially if the sample size(s) is not large, using density plots:
 <br>
 
 ```{r}

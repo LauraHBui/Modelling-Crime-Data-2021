@@ -224,9 +224,13 @@ BCS0708 %>% group_by(sex) %>% summarise(n = n())
 ```
 
 ```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
 ## # A tibble: 2 x 2
 ##   sex        n
-## * <fct>  <int>
+##   <fct>  <int>
 ## 1 male    5307
 ## 2 female  6369
 ```
@@ -245,9 +249,9 @@ skim(BCS0708, tcviolent)
 ```
 
 
-|skim_type |skim_variable | n_missing| complete_rate| numeric.mean| numeric.sd| numeric.p0| numeric.p25| numeric.p50| numeric.p75| numeric.p100|numeric.hist |
-|:---------|:-------------|---------:|-------------:|------------:|----------:|----------:|-----------:|-----------:|-----------:|------------:|:------------|
-|numeric   |tcviolent     |      3242|     0.7223364|    0.0455821|    1.00436|   -2.35029|  -0.6718318|   -0.116783|     0.53989|     3.805476|▁▇▅▂▁        |
+skim_type   skim_variable    n_missing   complete_rate   numeric.mean   numeric.sd   numeric.p0   numeric.p25   numeric.p50   numeric.p75   numeric.p100  numeric.hist 
+----------  --------------  ----------  --------------  -------------  -----------  -----------  ------------  ------------  ------------  -------------  -------------
+numeric     tcviolent             3242       0.7223364      0.0455821      1.00436     -2.35029    -0.6718318     -0.116783       0.53989       3.805476  ▁▇▅▂▁        
 
 <br>
 <br>
@@ -267,9 +271,13 @@ BCS0708 %>% group_by(sex) %>%
 ```
 
 ```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
 ## # A tibble: 2 x 4
 ##   sex    mean_worry sd_worry var_worry
-## * <fct>       <dbl>    <dbl>     <dbl>
+##   <fct>       <dbl>    <dbl>     <dbl>
 ## 1 male        -0.27     0.86      0.74
 ## 2 female       0.33     1.04      1.08
 ```
@@ -304,7 +312,7 @@ ggplot(BCS0708, aes (x = tcviolent, group = sex, fill = sex)) +
 ## Warning: Removed 3242 rows containing non-finite values (stat_boxplot).
 ```
 
-![](07-relationships-categorical-variable_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
+<img src="07-relationships-categorical-variable_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 <br>
 
 Note that these descriptive statistics are only about our sample; we actually want to make inferences about our population of interest -- all males and females in England and Wales. So, we use inferential statistics; our observation of a difference between means prompts us to test whether this difference is an actual difference, or if it is attributed to chance.
@@ -356,7 +364,7 @@ The t-test makes a number of assumptions, and to use this test, all assumptions 
 
 3. *Normal distribution is assumed for both populations* (from which the two groups come from): because the t-test makes assumptions about the shape of the distribution, it is considered a **parametric test**. Tests that do not make this assumption about shape are called non-parametric. This assumption, however, can be relaxed if the sample size for both groups are large (and why proportions can be compared).
 
-You may also want to check for outliers by plotting the data. Outliers may distort your results, particularly with smaller samples. All assumptions with the exception of the second one are met. To meet the second assumption, you can check if your data are normally distributed, especially if the sample size(s) is not large, using density plots:
+You may also want to check for outliers by plotting the data. Outliers may distort your results, particularly with smaller samples. All assumptions with the exception of the second one are met. To meet the third assumption, you can check if your data are normally distributed, especially if the sample size(s) is not large, using density plots:
 <br>
 
 
@@ -370,7 +378,7 @@ ggplot(BCS0708, aes(x = tcviolent, fill = sex)) +
 ## Warning: Removed 3242 rows containing non-finite values (stat_density).
 ```
 
-![](07-relationships-categorical-variable_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
+<img src="07-relationships-categorical-variable_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 <br>
 
 The density plots provide a visual tool for assessing the *unimodality* -- a single, clear peak indicating a most frequent value -- and the symmetry of the distribution.  For now, let us assume that this is adequate to compute the t-test.
