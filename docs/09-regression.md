@@ -389,25 +389,25 @@ For this class, though, we find that the fifth assumption, the assumption of lin
 We now go through each of the five assumptions of OLS regression before conducting it.
 
 
-##### Assumption 1: Independence of errors
+##### Assumption 1: Independence of errors {-}
 
 Errors of the prediction, which make up the regression line, are assumed to be independent of each other. The term *heteroscedasticity* is used to describe this violation of independence of errors. When we violate this assumption, our points in the scatterplot resemble the shape of a funnel. If there is dependency between the observations, you would need to use other models that are not covered in this class.
 
 <br>
 
-##### Assumption 2: Equal Variances of errors
+##### Assumption 2: Equal Variances of errors {-}
 
 If the variance of our residuals (and what they are is explained later) is unequal, we will need different estimation methods, but this issue is minor. The reason it is a minor issue is that regression is considered a *robust* estimation, meaning that it is not too sensitive to changes in the variance.
 
 <br>
 
-##### Assumption 3: Normality of errors
+##### Assumption 3: Normality of errors {-}
 
 Residuals are assumed to be normally distributed. Gelman and Hill (2007) believe this to be the least important of the assumptions because regression inferences tend to be robust regarding non-normality of the errors. Your results, however, may be sensitive to large outliers, so you will need to drop them if appropriate.
 
 <br>
 
-##### Assumption 4: Multicollinearity
+##### Assumption 4: Multicollinearity {-}
 
 When you are including more than one IV, **multicollinearity** may be a concern. Independent variables that are highly correlated with each other mean that they are tapping into the same construct. For example, if you include two IVs, parental attachment and parental discipline, you may find that they are highly related to each other because both measure a similar idea - parenting practices perhaps.
 
@@ -437,7 +437,7 @@ The VIF values are below 5 and indicate that including both variables, `age` and
 <br>
 
 
-##### Assumption 5: Linearity
+##### Assumption 5: Linearity {-}
 
 Similar to Pearson’s correlation, a linear relationship must be established before conducting the analysis. If the relationship is non-linear, your predicted values will be wrong, and it will systematically miss the true pattern of the mean of $Y$. We will learn how to check for this when looking at the residuals from the regression. 
 
@@ -567,7 +567,7 @@ We then interpret the regression output. There are several points to focus on wh
 3.	**F-statistic**: There is another p-value at the bottom of your regression output and belongs to the F-statistic. This assesses whether our overall model can predict $Y$ with high confidence, especially if we have multiple predictors. This, too, is statistically significant, meaning that at least one of our IVs must be related to our DV.
 
 
-4.	(Multiple) **$R^2$**: This is known as the percent of variance explained, and it is a measure of the strength of our model. This value ranges from 0 to 1. Towards 1, the better we are able to account for variation in our outcome $Y$ with our IV(s).  In other words, the stronger the relationship is between $Y$ and $X$. Weisburd and Britt (2009: 437) suggest that, in criminal justice research, values greater than .40 are rare, but if we obtain such a value, it is considered a powerful model. If the value is lower than .20, the model is considered relatively weak. The output shows that $R^2$ for our model is about .06 (the multiple r-squared value). We interpret this as our model explains 6% of the variance in the level of perceived antisocial behaviour. 
+4.	**(Multiple) $R^2$**: This is known as the percent of variance explained, and it is a measure of the strength of our model. This value ranges from 0 to 1. Towards 1, the better we are able to account for variation in our outcome $Y$ with our IV(s).  In other words, the stronger the relationship is between $Y$ and $X$. Weisburd and Britt (2009: 437) suggest that, in criminal justice research, values greater than .40 are rare, but if we obtain such a value, it is considered a powerful model. If the value is lower than .20, the model is considered relatively weak. The output shows that $R^2$ for our model is about .06 (the multiple r-squared value). We interpret this as our model explains 6% of the variance in the level of perceived antisocial behaviour. 
 
 <br>
 <br>
@@ -592,7 +592,7 @@ The regression line aims to improve that prediction. By knowing the values of $X
 
 <!--The regression line is only able to use information regarding $X$, so, consequently, there is bound to be some difference between our predicted level of $Y$, given our knowledge of $X$ (the regression line) and the actual level of $Y$ (the actual location of the points in the scatterplot).-->
 
-We revise our regression equation to represent each value of $Y$ (rather than the predicted value of $Y$) and take into account error:
+We revise our regression equation to represent each value of $Y$ (rather than the predicted value of $Y$) that takes into account residuals:
 
 <br>
 
@@ -769,7 +769,7 @@ We return to those four points to focus on when confronted with a regression out
 3.	**F-statistic**: Now that we have more than one IV in our model, we evaluate whether all of the regression coefficients are zero. The F-statistic is below the conventional significance level of $\alpha$ = 0.05, so at least one of our IVs is related to our DV. You will also notice t-values for each IV. These are testing whether each of the IVs is associated with the DV when controlling for covariates in the model. 
 
 
-4.	(Multiple) $R^2$: The $R^2$ is higher than that of our previous bivariate regression model. It will, however, inevitably increase whenever new variables are added to the model, regardless if they are only weakly related to the DV. Having said this, the new $R^2$ value suggests that the addition of the three new variables improves our previous model. 
+4.	**(Multiple) $R^2$**: The $R^2$ is higher than that of our previous bivariate regression model. It will, however, inevitably increase whenever new variables are added to the model, regardless if they are only weakly related to the DV. Having said this, the new $R^2$ value suggests that the addition of the three new variables improves our previous model. 
 
 <br>
 <br>

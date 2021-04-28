@@ -738,7 +738,7 @@ nrow(iq_over_100)/nrow(prisoner_iq)
 ```
 
 ```
-## [1] 0.486384
+## [1] 0.4870227
 ```
 <br>
 
@@ -768,11 +768,11 @@ prisoner_iq[1:5,]
 
 ```
 ##   prisoner_id  IQ
-## 1           1 129
-## 2           2  86
-## 3           3 106
-## 4           4  87
-## 5           5  72
+## 1           1  78
+## 2           2  87
+## 3           3 108
+## 4           4  91
+## 5           5 121
 ```
 
 ```r
@@ -788,7 +788,7 @@ prisoner_iq[1,]
 
 ```
 ##   prisoner_id  IQ z_scoreIQ
-## 1           1 115  1.001079
+## 1           1 115  1.000531
 ```
 <br>
 
@@ -801,7 +801,7 @@ To show that this is the same z-score you would get with the formula above, we  
 ```
 
 ```
-## [1] 1.001079
+## [1] 1.000531
 ```
 <br>
 
@@ -827,12 +827,12 @@ pnormGC(124, region="below", mean=iq_m, sd=iq_sd,graph=TRUE)
 <img src="06-hypotheses_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 ```
-## [1] 0.9453446
+## [1] 0.9453077
 ```
 <br>
 
 
-The output shows the shaded area at 0.9453446, meaning that the prisoner has a higher IQ than over 94.594% of the prison population. 
+The output shows the shaded area at 0.9453077, meaning that the prisoner has a higher IQ than over 94.594% of the prison population. 
 
 Recall from the previous lesson, the 68-95-99.7 rule. This is helpful to keep in mind with z-scores, as a z-score indicates how far away a score is from the mean based on the standard normal distribution. The rule posits that 68% of cases in the distribution fall within one standard deviation above and below the mean; 95% within two SD; and 99.7% within 3 SD. We demonstrate this rule by using the `pnormGC()` function to get the proportion of prisoners that have an IQ between 85 to 115, which is one SD above and below the mean:
 <br>
@@ -874,7 +874,7 @@ prison_1 <- sample(prisoner_iq, 233) # Is the 'mosaic' package loaded?
 <br>
 
 
-The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 99.8841202 (SD = 15.1113498). 
+The officer conducts an IQ assessment of all 233 prisoners at their prison and finds average IQ is 102.7639485 (SD = 14.6778653). 
 
 As the parameter (mean IQ for all prisoners in the population) is known, a **single sample z-test** is appropriate. This test examines whether a sample is drawn from a specific population with a known or hypothesized mean. Here are the officer’s hypotheses:
 
@@ -936,7 +936,7 @@ z_stat
 ```
 
 ```
-## [1] -0.117053
+## [1] 2.874385
 ```
 <br>
 
@@ -988,7 +988,7 @@ z_stat
 
 <!-- ``` -->
 
-We obtained this test statistic of -0.117053, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
+We obtained this test statistic of 2.8743855, but how can we interpret this? We can use z-test statistic to find *the associated p-value*.  
 
 Traditionally, you had to look up the associated p-value with each z-score in the back of a textbook, which usually would contain a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf)
 
@@ -1009,12 +1009,12 @@ z_stat_1
 ```
 
 ```
-## [1] 0.453409
+## [1] 0.9979759
 ```
 
 <br>
 
-The value is 0.453409. This is a more precise approximation than our lookup table (where we had to round -0.117053), and so we are getting a more precise p-value. 
+The value is 0.9979759. This is a more precise approximation than our lookup table (where we had to round 2.8743855), and so we are getting a more precise p-value. 
 
 We did not, however, specify a direction. In actuality, we should be looking at a two-tailed probability: 
 <br>
@@ -1031,11 +1031,11 @@ z_stat_2
 ```
 
 ```
-## [1] 0.9068181
+## [1] 0.004048146
 ```
 <br>
 
-You will see our value has increased to 0.9068181. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
+You will see our value has increased to 0.0040481. In fact, this is simply two times the original p-value we originally obtained with the one-tail probability. You will also notice that the *two tails* of the distribution are shaded because our hypothesis is non-directional - the difference can go either way.
 
 When we were looking at a directional hypothesis, it only took into consideration *one-tail* of the distribution, hence it being called a one-tailed test. 
 
@@ -1049,7 +1049,7 @@ pnorm(z_stat)
 ```
 
 ```
-## [1] 0.453409
+## [1] 0.9979759
 ```
 <br>
 
@@ -1062,7 +1062,7 @@ pnorm(z_stat)*2
 ```
 
 ```
-## [1] 0.9068181
+## [1] 1.995952
 ```
 
 

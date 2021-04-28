@@ -173,11 +173,6 @@ activity-2-getting-to-know-your-data
 activity-3-what-questions-can-regression-answer
 activity-4-exploring-your-data-further-deleting-missing-data
 activity-5-regression-assumptions
-assumption-1-independence-of-errors
-assumption-2-equal-variances-of-errors
-assumption-3-normality-of-errors
-assumption-4-multicollinearity
-assumption-5-linearity
 interpreting-ols-regression
 activity-6-bivariate-regression
 activity-7-residuals
