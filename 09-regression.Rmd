@@ -31,7 +31,7 @@
 -	`ggplot2`
 -	`here`
 - `lessR`
--	`sjplot`
+-	`sjPlot`
 -	`tidyverse`
 
 
@@ -41,7 +41,7 @@
 - `lm()` : Fit linear models (`base R`)
 - `Logit()` : Fit logistic regression models with less typing (`lessR`)
 -	`relevel()` : Reorders the levels of a factor (`base R`) 
--	`tab_model()` : Creates HTML tables summarising regression models (`sjplot`)
+-	`tab_model()` : Creates HTML tables summarising regression models (`sjPlot`)
 -	`vif()` : Calculate the variance inflation for OLS or other linear models (`car`)
 
 
@@ -324,9 +324,9 @@ ggplot(data = df, aes(x = age, y = antisocx)) +
 
 The red **regression line** produces guesses or predictions for the value of perceived level of antisocial behaviour based on information that we have about age.
 
-The line can also be seen as one that tries to summarise the pattern of what is going on among the data points. The line is, of course, linear. It does not go through all the points, however. 
+The linear line can also be seen as one that tries to summarise the pattern of what is going on among the data points. It does not go through all the points, however, and that means it is not of perfect prediction. 
 
-As Bock et al. (2012) highlight:
+But as Bock et al. (2012) highlight:
 
 <br>
 
@@ -348,7 +348,7 @@ Thus, regression can answer questions relating to predictions and does so by dra
 
 To conduct OLS regression, or linear regression for short, a number of assumptions must be met, so you will need to test for them. Failure to do so will likely result in an incorrect model and drawing conclusions from it would be silly. We only, however, briefly go through the first four assumptions because going into detail is beyond the scope of this class. 
 
-For this class, though, we find that the fifth assumption, the assumption of linearity, is important to go into detail. Doing so will give you a better understanding of OLS regression itself and how it operates. 
+The fifth assumption, the assumption of linearity, is an exception. Going into detail about it will give you a better understanding of OLS regression and how it operates. 
 
 We now go through each of the five assumptions of OLS regression before conducting it.
 
@@ -378,6 +378,7 @@ When you are including more than one IV, **multicollinearity** may be a concern.
 One indication of multicollinearity is that if you run a Pearson’s correlation (see Lesson 8, section 8.2.1.2) for the two IVs and get a value of 0.6 or 0.7, you should start investigating further.
 
 Another way to check for multicollinearity is through the *variance inflation factor* (VIF). How high the VIF should be before multicollinearity is a concern is debatable: here, anything above 5 should be a matter of concern. With this analysis, IVs should be numeric. We include an additional covariate, confidence in the police (`confx`), to illustrate. The VIF for our variables is conducted with the `vif ()` function in the `car` package:
+
 <br>
 
 
@@ -429,11 +430,11 @@ $$y = b_0 + b_1x_i$$
 
 <br>
 
-Where $b_0$ is the y-intercept and $b_1x_i$ is the slope of the line. Linear regression models try to minimise the distance from every point in the scatterplot to the regression line. This is called *least squares estimation*. The farther these points are from the regression line, the more error your regression model will have. 
+Where $b_0$ is the y-intercept and $b_1x_i$ is the slope of the line. Linear regression models try to find a line that best fits the data that has the least error. It does so by minimising the distance from every point in the scatterplot to the regression line. This is called *least squares estimation* and is its hallmark. The farther these points are from the regression line, the more error your regression model will have. 
 
 It is not unusual to observe that some points will fall above the line (a positive error value), while other points will fall below it (a negative error value). If we wanted to sum these error values, the problem is that the positive values would cancel out the negative values, underreporting our overall error. This would then incorrectly suggest that our regression line was perfect. 
 
-To resolve this issue, the error values are squared before they are summed. This is called the *error sum of squares*. Our regression model is trying to find a line fit that has the least (squared) error. Hence, least squared estimation. 
+To resolve this issue, the error values are squared before they are summed. This is called the *error sum of squares*. Our regression model is actually trying to find a line fit that has the least (squared) error. Hence, least squared estimation. 
 
 
 
