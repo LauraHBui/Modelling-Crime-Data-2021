@@ -356,7 +356,7 @@ ggplot(df, aes(x = unemployed, y = log_viol_r)) +
   theme_light()
 ```
 
-![](08-strength-relationship_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+<img src="08-strength-relationship_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 <br>
 
@@ -653,7 +653,7 @@ count(seattle_df, gender)
 ```
 ## # A tibble: 2 x 2
 ##   gender     n
-## * <fct>  <int>
+##   <fct>  <int>
 ## 1 female  1145
 ## 2 male    1075
 ```
@@ -788,12 +788,12 @@ Below is a table of effect sizes. These numbers are derived from common practice
 
 <br>
 
-|analysis               |effect | small| medium| large|
-|:----------------------|:------|-----:|------:|-----:|
-|t-test for means       |d      |  0.20|   0.50|  0.80|
-|t-test for correlation |r      |  0.10|   0.30|  0.50|
-|F-test for regression  |f^2    |  0.02|   0.15|  0.35|
-|chi-square             |w      |  0.10|   0.30|  0.50|
+analysis                 effect    small   medium   large
+-----------------------  -------  ------  -------  ------
+t-test for means         d          0.20     0.50    0.80
+t-test for correlation   r          0.10     0.30    0.50
+F-test for regression    f^2        0.02     0.15    0.35
+chi-square               w          0.10     0.30    0.50
 
 <br>
 <br>
