@@ -310,6 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>display()</code> : Gives a clean printout of lm, glm, and other such objects (<code>arm</code>)</li>
 <li><code>lm()</code> : Fit linear models (<code>base R</code>)</li>
 <li><code>Logit()</code> : Fit logistic regression models with less typing (<code>lessR</code>)</li>
+<li><code>plot_model()</code> : Plots odds ratios and their confidence intervals (<code>sjPlot</code>)</li>
 <li><code>relevel()</code> : Reorders the levels of a factor (<code>base R</code>)</li>
 <li><code>tab_model()</code> : Creates HTML tables summarising regression models (<code>sjPlot</code>)</li>
 <li><code>vif()</code> : Calculate the variance inflation for OLS or other linear models (<code>car</code>)</li>
@@ -548,9 +549,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 <p><span class="math display">\[y = b_0 + b_1x_i\]</span></p>
 <p><br></p>
-<p>Where <span class="math inline">\(b_0\)</span> is the y-intercept and <span class="math inline">\(b_1x_i\)</span> is the slope of the line. Linear regression models try to find a line that best fits the data that has the least error. It does so by minimising the distance from every point in the scatterplot to the regression line. This is called <em>least squares estimation</em> and is its hallmark. The farther these points are from the regression line, the more error your regression model will have.</p>
+<p>Where <span class="math inline">\(b_0\)</span> is the y-intercept and <span class="math inline">\(b_1x_i\)</span> is the slope of the line. Linear regression models try to find a line that best fits the data points and has the least error. It does so by minimising the distance from every point in the scatterplot to the regression line. This is called <em>least squares estimation</em> and is its hallmark. The farther these points are from the regression line, the more error your regression model will have.</p>
 <p>It is not unusual to observe that some points will fall above the line (a positive error value), while other points will fall below it (a negative error value). If we wanted to sum these error values, the problem is that the positive values would cancel out the negative values, underreporting our overall error. This would then incorrectly suggest that our regression line was perfect.</p>
-<p>To resolve this issue, the error values are squared before they are summed. This is called the <em>error sum of squares</em>. Our regression model is actually trying to find a line fit that has the least (squared) error. Hence, least squared estimation.</p>
+<p>To resolve this issue, the error values are squared before they are summed. This is called the <em>error sum of squares</em>. Our regression model is actually trying to find a line of best fit that has the least (squared) error. Hence, least squared estimation.</p>
 <hr />
 <div id="activity-6-bivariate-regression" class="section level4">
 <h4><span class="header-section-number">9.2.2.1</span> Activity 6: Bivariate Regression</h4>
@@ -611,37 +612,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="activity-7-residuals" class="section level4">
 <h4><span class="header-section-number">9.2.2.2</span> Activity 7: Residuals</h4>
-<p>In the output above we saw something called <strong>residuals</strong>. The residuals are the differences between the observed values of <span class="math inline">\(Y\)</span> for each observation minus the predicted or expected value of <span class="math inline">\(Y\)</span>. In other words the distances between each point in the dataset and the regression line (see Figure 9.3).</p>
+<p>In the output above we saw something called <strong>residuals</strong>. The residuals are the differences between the observed values of <span class="math inline">\(Y\)</span> for each observation minus the predicted or expected values of <span class="math inline">\(Y\)</span>. In other words the distances between each point in the dataset and the regression line (see Figure 9.3).</p>
 <p><br></p>
 <div class="figure">
 <img src="Images/residual.jpg" alt="Figure 9.3 Residuals" />
 <p class="caption"><strong>Figure 9.3</strong> Residuals</p>
 </div>
 <p><br></p>
-<p>Figure 9.3 shows the regression line, which is our predicted values, and then the black dots are the actual observed values. The distance between them is essentially the amount by which we were wrong, and all these distances between observed and predicted values are our residuals. Earlier, we were introduced to least square estimation, and it essentially aims to reduce the average of the squares of all these distances: that is how it draws the line.</p>
+<p>Figure 9.3 shows the regression line, which is our predicted values, and then the black dots are the actual observed values. The distance between them is essentially the amount by which we were wrong, and all these distances between observed and predicted values are our residuals. Earlier, we were introduced to least squared estimation, and it essentially aims to reduce the average of the squares of all these distances: that is how it draws the line.</p>
 <p>Why do we have residuals? The fact that the line is not a perfect representation of the many points makes sense. You cannot predict perfectly what the value of <span class="math inline">\(Y\)</span> is for every observation only by looking at its level of <span class="math inline">\(X\)</span>. Other relevant factors may not be taken into account by our model to predict the values of <span class="math inline">\(Y\)</span>. And then, of course, we have measurement error and other forms of noise. For example, if we use relative deprivation (<span class="math inline">\(X\)</span>) to predict homicide (<span class="math inline">\(Y\)</span>), residuals are inevitable because relative deprivation is not the only factor that can predict homicide – the distance reflects the predictive limitations of that independent variable. In other words, how much variation is unexplained.</p>
-<p>The regression line aims to improve that prediction. By knowing the values of <span class="math inline">\(X\)</span> we can build a regression line that aims to get us closer to the actual values of <span class="math inline">\(Y\)</span> (Figure 9.4). A good model tries to maximise explained variation and minimise the magnitude of the residuals.</p>
+<p>The regression line aims to improve that prediction. By knowing the values of <span class="math inline">\(X\)</span>, we can build a regression line that aims to get us closer to the actual values of <span class="math inline">\(Y\)</span> (Figure 9.4). A good model tries to maximise explained variation and minimise the magnitude of the residuals.</p>
 <!--The regression line is only able to use information regarding $X$, so, consequently, there is bound to be some difference between our predicted level of $Y$, given our knowledge of $X$ (the regression line) and the actual level of $Y$ (the actual location of the points in the scatterplot).-->
 <p>We revise our regression equation to represent each value of <span class="math inline">\(Y\)</span> (rather than the predicted value of <span class="math inline">\(Y\)</span>) that takes into account residuals:</p>
 <p><br></p>
-<p><span class="math inline">\(y = b_0 + b_1x + \text{residuals}\)</span></p>
+<p><span class="math inline">\(y = b_0 + b_1x + e\)</span></p>
 <p><br></p>
 <p><br></p>
 <div class="figure">
-<img src="Images/weight2.png" alt="Figure 9.4 r squared" />
-<p class="caption"><strong>Figure 9.4</strong> r squared</p>
+<img src="Images/weight2.png" alt="Figure 9.4 R-squared" />
+<p class="caption"><strong>Figure 9.4</strong> R-squared</p>
 </div>
 <p><br></p>
 <p>We can use information from the residuals to produce a measure of <em>effect size</em>, of how good our model is in predicting variation in our dependent variable. This is <em><span class="math inline">\(R^2\)</span></em>.</p>
-<p>Recall Activity 3 where we tried to guess levels of perceived antisocial behaviour. If we did not have any information about <span class="math inline">\(X\)</span>, which was age, our best bet for <span class="math inline">\(Y\)</span> would be the mean of <span class="math inline">\(Y\)</span>.</p>
-<p>The distance (squared differences) between that mean of <span class="math inline">\(Y\)</span> and the observed value of <span class="math inline">\(Y\)</span> for each observation is what we call the <strong>total variation</strong> (total deviation in Figure 9.4). Total variation comprises two parts: explained and unexplained variation.</p>
-<p>Explained variation is the the distance (again, squared differences) between the regression line and the mean of <span class="math inline">\(Y\)</span> for each observation; this part is predictable from <span class="math inline">\(X\)</span>. In contrast, unexplained variation is the residual, which is the distance between the regression line and the observed value of <span class="math inline">\(Y\)</span>.</p>
+<p>Recall Activity 3 where we tried to guess levels of perceived antisocial behaviour. If we did not have any information about <span class="math inline">\(X\)</span>, which was age, our best bet for <span class="math inline">\(Y\)</span> would be the mean value of <span class="math inline">\(Y\)</span>.</p>
+<p>The distance (squared differences) between that mean value of <span class="math inline">\(Y\)</span> and the observed values of <span class="math inline">\(Y\)</span> is what we call the <strong>total variation</strong> (total deviation in Figure 9.4). Total variation comprises two parts: explained and unexplained variation.</p>
+<p>Explained variation is the the distance (again, squared differences) between the regression line and the mean value of <span class="math inline">\(Y\)</span>; this part is predictable from <span class="math inline">\(X\)</span>. In contrast, unexplained variation are the residuals, which is the distance between the regression line and the observed values of <span class="math inline">\(Y\)</span>.</p>
 <!--The difference between the mean value of $Y$ and the predicted value of $Y$ (derived from the regression line) is how much better we are doing with our prediction by using information about $X$ (i.e., in our previous example it would be variation in Y that can be *explained* by knowing about resource deprivation). How much closer the regression line gets us to the observed values. -->
 <p>To produce <em><span class="math inline">\(R^2\)</span></em>, we would contrast total variation and explained variation. The formula is as follows:</p>
 <p><br></p>
 <p><span class="math inline">\(R^2 = \dfrac{SSR}{SST} = \dfrac{\Sigma(\hat y_i - \bar y )^2}{\Sigma(y_i - \bar y )^2}\)</span></p>
 <p><br></p>
-<p>Whereby SSR is sum of squares regression and SST is sum of squares total. All this formula is doing is taking a ratio of the explained variation (SSR) by the total variation (SST). This gives us a measure of the <em>percentage of variation in Y that is ‘explained’ by X</em>.</p>
+<p>Whereby SSR is sum of squares regression and SST is sum of squares total. All this formula is doing is taking a ratio of the explained variation (SSR) by the total variation (SST). This gives us a measure of the <em>percentage of variation in <span class="math inline">\(Y\)</span> that is ‘explained’ by <span class="math inline">\(X\)</span></em>.</p>
 <p><br>
 <br></p>
 <hr />
@@ -716,7 +717,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 <p>We return to those four points to focus on when confronted with a regression output:</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>Beta coefficients</strong>: The usual interpretation is to state that <span class="math inline">\(Y\)</span> changes for every one-unit increase in <span class="math inline">\(X\)</span> <em>when the other variables in the model are held constant</em> (or are ‘controlled for’). Therefore, a 0.01 increase in level of perceived antisocial behaviour in the neighbourhood is associated with a one-year increase in age, for example. This is similar to the bivariate regression. For categorical variables, however, the interpretation is different. Notice how these variables have an additional label attached to them in the output. For example, <code>gender</code> includes ‘male’ and <code>bcsvictim</code> includes ‘yes victim’. Labels that do not appear next to the name of the categorical variable in the model are called the <em>reference category</em>. This category is the lowest value. You can select your reference category based on the modal category or if it is a category in which you are least interested. We interpret them as the following: males have a perceived antisocial behaviour level that averages 0.10 units higher than that of females; victims have a perceived antisocial behaviour level that averages .43 units lower than that of non-victims. A one-point score increase for confidence in neighbourhood police is related to a .20 increase in level of perceived antisocial behaviour. For each interpretation, covariates in the model are controlled for.</p></li>
+<li><p><strong>Beta coefficients</strong>: The usual interpretation is to state that <span class="math inline">\(Y\)</span> changes for every one-unit increase in <span class="math inline">\(X\)</span> <em>when the other variables in the model are held constant</em> (or are ‘controlled for’). Therefore, a 0.01 increase in level of perceived antisocial behaviour in the neighbourhood is associated with a one-year increase in age, for example. This is similar to the bivariate regression. For categorical variables, however, the interpretation is different. Notice how these variables have an additional label attached to them in the output. For example, <code>gender</code> includes ‘male’ and <code>bcsvictim</code> includes ‘yes victim’. Labels that do not appear next to the name of the categorical variable in the model are called the <em>reference category</em>. This category is the lowest value. You can select your reference category based on the modal category or if it is a category in which you are least interested by recoding the variable. We interpret them as the following: males have a perceived antisocial behaviour level that averages 0.10 units higher than that of females; victims have a perceived antisocial behaviour level that averages .43 units lower than that of non-victims. A one-point score increase for confidence in neighbourhood police is related to a .20 increase in level of perceived antisocial behaviour. For each interpretation, covariates in the model are controlled for.</p></li>
 <li><p><strong>P-value</strong>: All coefficients are statistically significant, meaning that we can reject the null hypothesis that no differences exist on perceived antisocial behaviour.</p></li>
 <li><p><strong>F-statistic</strong>: Now that we have more than one IV in our model, we evaluate whether all of the regression coefficients are zero. The F-statistic is below the conventional significance level of <span class="math inline">\(\alpha\)</span> = 0.05, so at least one of our IVs is related to our DV. You will also notice t-values for each IV. These are testing whether each of the IVs is associated with the DV when controlling for covariates in the model.</p></li>
 <li><p><strong>(Multiple) <span class="math inline">\(R^2\)</span></strong>: The <span class="math inline">\(R^2\)</span> is higher than that of our previous bivariate regression model. It will, however, inevitably increase whenever new variables are added to the model, regardless if they are only weakly related to the DV. Having said this, the new <span class="math inline">\(R^2\)</span> value suggests that the addition of the three new variables improves our previous model.</p></li>
@@ -727,7 +728,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="activity-9-presenting-the-results" class="section level4">
 <h4><span class="header-section-number">9.2.2.4</span> Activity 9: Presenting the results</h4>
-<p>If you would like to professionally present your results, you can use the function <code>tab_model()</code> from the <code>sjplot</code> package:
+<p>If you would like to professionally present your results, you can use the function <code>tab_model()</code> from the <code>sjPlot</code> package:
 <br></p>
 <div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb554-1" title="1"><span class="kw">tab_model</span>(fit_<span class="dv">2</span>)</a></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
@@ -1070,7 +1071,7 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb557-1" title="1"><span class="kw">plot_model</span>(fit_<span class="dv">2</span>)</a></code></pre></div>
 <p><img src="09-regression_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p><br></p>
-<p>What you see plotted is the point estimates (the circles), the confidence intervals around those estimates (the lines- the longer the line, the less precise the estimate), and the colours represent whether the effect is negative (red) or positive (blue).</p>
+<p>What you see plotted is the point estimates (the circles), the confidence intervals around those estimates (the tiny ‘whiskers’- the longer the line, the less precise the estimate), and the colours represent whether the effect is negative (red) or positive (blue).</p>
 <p>There are other packages that also provide similar functionality, like the <code>dotwhisker</code> package that you may want to explore. (More details <a href="https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html">here</a>.)</p>
 <p><br>
 <br></p>
@@ -1169,7 +1170,7 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <p><br></p>
 <p>The output is similar to the one produced for linear regression, although there are some differences such as the Akaike information criterion (AIC) and the z-statistic, which is a similar idea to the t-test in linear regression. The z-statistic is a test of statistical significance and assesses whether each variable in the model is associated with the DV.</p>
 <p>All IVs are significantly associated with harsher police treatment except for sex. We see that for every one unit increase in the number of previous police contacts, the log odds of receiving harsher treatment (versus being released on summons) increases by 0.36, adjusting for the other variables in the model.</p>
-<p>Observe that categorical variables have a label next to them in the output. For example, sex has ‘male’ next to it; race has ‘black’ next to it; employed has ‘yes’ next to it. These are the categories you are comparing to the reference category (whichever category is coded ‘0’). So, being black increases the log odds of receiving harsh treatment by 0.49 compared to being white, while being employed decreases the log odds of harsh treatment by 0.77 compared to being unemployed.</p>
+<p>Observe that categorical variables have a label next to them, too, in the output. For example, sex has ‘male’ next to it; race has ‘black’ next to it; employed has ‘yes’ next to it. These are the categories you are comparing to the reference category (whichever level is coded ‘0’). So, being black increases the log odds of receiving harsh treatment by 0.49 compared to being white, while being employed decreases the log odds of harsh treatment by 0.77 compared to being unemployed.</p>
 <p>This is good, but most people find interpreting log odds, well, odd – it is not very intuitive. It is common to use the <strong>odds ratio</strong> (OR) to interpret logistic regression. We convert these values into ORs:
 <br></p>
 <div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb572-1" title="1"><span class="kw">exp</span>(<span class="kw">coef</span>(fit_<span class="dv">3</span>))</a></code></pre></div>
@@ -1258,7 +1259,7 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div id="model-fit" class="section level4">
 <h4><span class="header-section-number">9.2.3.3</span> Model Fit</h4>
 <p>How well is the fit of our logistic regression model? In order words, how well does our IVs collectively predict the DV?</p>
-<p>Recall from OLS regression that we assessed how well our overall model predicts the DV by observing the <em>F-statistic</em> and <em><span class="math inline">\(R^2\)</span></em>. This is not the case for logistic regression. The reason is, in our familiar linear regression, we understand residual variation (related to that regression line) through the error sum of squares.</p>
+<p>Recall from OLS regression that we assessed how well our overall model predicts the DV by observing the <em>F-statistic</em> and, especially, the <em><span class="math inline">\(R^2\)</span></em>. This is not the case for logistic regression. The reason is, in our familiar linear regression, we understand residual variation (related to that regression line) through the error sum of squares.</p>
 <p>In logistic regression, there is not one way to understand residual variation, but several, because of its binary outcome. This results in different ways of understanding model fit: (1) quantitative prediction, focused on how close the prediction is to being correct; (2) qualitative prediction, focused on whether the prediction is correct or incorrect; or (3) both. We only go through the first one.</p>
 </div>
 <div id="activity-12-quantitative-prediction" class="section level4">
@@ -1355,7 +1356,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb587-1" title="1"><span class="co"># Incorporating previous calculation of difference between deviances</span></a>
 <a class="sourceLine" id="cb587-2" title="2"><span class="co"># df.null - df.residual: calculating the degrees of freedom (should equal the number of IVs in the model)</span></a></code></pre></div>
 <p>The p-value is smaller than <span class="math inline">\(\alpha\)</span> = 0.05, so we conclude that our model is a better fit than a model with no IVs (or predictors).</p>
-<p>In addition, <a href="https://methods.sagepub.com/book/logistic-regression-from-introductory-to-advanced-concepts-and-applications">Professor Scott Menard (2010)</a> suggests calculating the <em>likelihood ratio <span class="math inline">\(R^2\)</span></em>, also known as the Hosmer/Lemeshow <span class="math inline">\(R^2\)</span>, by taking the difference of the previous deviances and dividing it by the null deviance. The likelihood ratio <span class="math inline">\(R^2\)</span> tells you the extent to which including your IVs in your model reduces the variation, or error, as measured by the null deviance. The value can range from 0 to 1, where higher values mean better predictive accuracy:
+<p>In addition, <a href="https://methods.sagepub.com/book/logistic-regression-from-introductory-to-advanced-concepts-and-applications">Professor Scott Menard (2010)</a> suggests calculating the <em>likelihood ratio <span class="math inline">\(R^2\)</span></em>, also known as the Hosmer/Lemeshow <span class="math inline">\(R^2\)</span>, by taking the difference of the previous deviances and dividing it by the null deviance.</p>
+<p>The likelihood ratio <span class="math inline">\(R^2\)</span> tells you the extent to which including your IVs in your model reduces the variation, or error, as measured by the null deviance. The value can range from 0 to 1, where higher values mean better predictive accuracy:
 <br></p>
 <div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb588-1" title="1"><span class="co">#Likelihood ratio R2</span></a>
 <a class="sourceLine" id="cb588-2" title="2"><span class="kw">with</span>(fit_<span class="dv">3</span>, (null.deviance <span class="op">-</span><span class="st"> </span>deviance)<span class="op">/</span>null.deviance)</a></code></pre></div>

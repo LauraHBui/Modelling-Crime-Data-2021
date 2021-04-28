@@ -40,6 +40,7 @@
 -	`display()` : Gives a clean printout of lm, glm, and other such objects (`arm`)
 - `lm()` : Fit linear models (`base R`)
 - `Logit()` : Fit logistic regression models with less typing (`lessR`)
+- `plot_model()` : Plots odds ratios and their confidence intervals (`sjPlot`)
 -	`relevel()` : Reorders the levels of a factor (`base R`) 
 -	`tab_model()` : Creates HTML tables summarising regression models (`sjPlot`)
 -	`vif()` : Calculate the variance inflation for OLS or other linear models (`car`)
@@ -469,11 +470,11 @@ $$y = b_0 + b_1x_i$$
 
 <br>
 
-Where $b_0$ is the y-intercept and $b_1x_i$ is the slope of the line. Linear regression models try to find a line that best fits the data that has the least error. It does so by minimising the distance from every point in the scatterplot to the regression line. This is called *least squares estimation* and is its hallmark. The farther these points are from the regression line, the more error your regression model will have. 
+Where $b_0$ is the y-intercept and $b_1x_i$ is the slope of the line. Linear regression models try to find a line that best fits the data points and has the least error. It does so by minimising the distance from every point in the scatterplot to the regression line. This is called *least squares estimation* and is its hallmark. The farther these points are from the regression line, the more error your regression model will have. 
 
 It is not unusual to observe that some points will fall above the line (a positive error value), while other points will fall below it (a negative error value). If we wanted to sum these error values, the problem is that the positive values would cancel out the negative values, underreporting our overall error. This would then incorrectly suggest that our regression line was perfect. 
 
-To resolve this issue, the error values are squared before they are summed. This is called the *error sum of squares*. Our regression model is actually trying to find a line fit that has the least (squared) error. Hence, least squared estimation. 
+To resolve this issue, the error values are squared before they are summed. This is called the *error sum of squares*. Our regression model is actually trying to find a line of best fit that has the least (squared) error. Hence, least squared estimation. 
 
 
 
@@ -576,7 +577,7 @@ We then interpret the regression output. There are several points to focus on wh
 
 #### Activity 7: Residuals
 
-In the output above we saw something called **residuals**. The residuals are the differences between the observed values of $Y$ for each observation minus the predicted or expected value of $Y$. In other words the distances between each point in the dataset and the regression line (see Figure 9.3). 
+In the output above we saw something called **residuals**. The residuals are the differences between the observed values of $Y$ for each observation minus the predicted or expected values of $Y$. In other words the distances between each point in the dataset and the regression line (see Figure 9.3). 
 
 <br>
 
@@ -584,11 +585,11 @@ In the output above we saw something called **residuals**. The residuals are the
 
 <br>
 
-Figure 9.3 shows the regression line, which is our predicted values, and then the black dots are the actual observed values. The distance between them is essentially the amount by which we were wrong, and all these distances between observed and predicted values are our residuals. Earlier, we were introduced to least square estimation, and it essentially aims to reduce the average of the squares of all these distances: that is how it draws the line.
+Figure 9.3 shows the regression line, which is our predicted values, and then the black dots are the actual observed values. The distance between them is essentially the amount by which we were wrong, and all these distances between observed and predicted values are our residuals. Earlier, we were introduced to least squared estimation, and it essentially aims to reduce the average of the squares of all these distances: that is how it draws the line.
 
 Why do we have residuals? The fact that the line is not a perfect representation of the many points makes sense. You cannot predict perfectly what the value of $Y$ is for every observation only by looking at its level of $X$. Other relevant factors may not be taken into account by our model to predict the values of $Y$. And then, of course, we have measurement error and other forms of noise. For example, if we use relative deprivation ($X$) to predict homicide ($Y$), residuals are inevitable because relative deprivation is not the only factor that can predict homicide -- the distance reflects the predictive limitations of that independent variable. In other words, how much variation is unexplained. 
 
-The regression line aims to improve that prediction. By knowing the values of $X$ we can build a regression line that aims to get us closer to the actual values of $Y$ (Figure 9.4). A good model tries to maximise explained variation and minimise the magnitude of the residuals. 
+The regression line aims to improve that prediction. By knowing the values of $X$, we can build a regression line that aims to get us closer to the actual values of $Y$ (Figure 9.4). A good model tries to maximise explained variation and minimise the magnitude of the residuals. 
 
 <!--The regression line is only able to use information regarding $X$, so, consequently, there is bound to be some difference between our predicted level of $Y$, given our knowledge of $X$ (the regression line) and the actual level of $Y$ (the actual location of the points in the scatterplot).-->
 
@@ -596,24 +597,24 @@ We revise our regression equation to represent each value of $Y$ (rather than th
 
 <br>
 
-$y = b_0 + b_1x + \text{residuals}$
+$y = b_0 + b_1x + e$
 
 <br>
 
 <br>
 
-![**Figure 9.4** r squared](Images/weight2.png)
+![**Figure 9.4** R-squared](Images/weight2.png)
 
 <br>
 
 We can use information from the residuals to produce a measure of *effect size*, of how good our model is in predicting variation in our dependent variable. This is *$R^2$*. 
 
-Recall Activity 3 where we tried to guess levels of perceived antisocial behaviour. If we did not have any information about $X$, which was age, our best bet for $Y$ would be the mean of $Y$. 
+Recall Activity 3 where we tried to guess levels of perceived antisocial behaviour. If we did not have any information about $X$, which was age, our best bet for $Y$ would be the mean value of $Y$. 
 
-The distance (squared differences) between that mean of $Y$ and the observed value of $Y$ for each observation is what we call the **total variation** (total deviation in Figure 9.4). Total variation comprises two parts: explained and unexplained variation.
+The distance (squared differences) between that mean value of $Y$ and the observed values of $Y$ is what we call the **total variation** (total deviation in Figure 9.4). Total variation comprises two parts: explained and unexplained variation.
 
 
-Explained variation is the the distance (again, squared differences) between the regression line and the mean of $Y$ for each observation; this part is predictable from $X$. In contrast, unexplained variation is the residual, which is the distance between the regression line and the observed value of $Y$. 
+Explained variation is the the distance (again, squared differences) between the regression line and the mean value of $Y$; this part is predictable from $X$. In contrast, unexplained variation are the residuals, which is the distance between the regression line and the observed values of $Y$. 
 
   
 
@@ -627,7 +628,7 @@ $R^2 = \dfrac{SSR}{SST} = \dfrac{\Sigma(\hat y_i - \bar y )^2}{\Sigma(y_i - \bar
 
 <br>
 
-Whereby SSR is sum of squares regression and SST is sum of squares total. All this formula is doing is taking a ratio of the explained variation (SSR) by the total variation (SST). This gives us a measure of the *percentage of variation in Y that is 'explained' by X*.
+Whereby SSR is sum of squares regression and SST is sum of squares total. All this formula is doing is taking a ratio of the explained variation (SSR) by the total variation (SST). This gives us a measure of the *percentage of variation in $Y$ that is 'explained' by $X$*.
 
 <br>
 <br>
@@ -760,7 +761,7 @@ summary(fit_2)
 
 We return to those four points to focus on when confronted with a regression output:
 
-1.	**Beta coefficients**: The usual interpretation is to state that $Y$ changes for every one-unit increase in $X$ *when the other variables in the model are held constant* (or are 'controlled for'). Therefore, a 0.01 increase in level of perceived antisocial behaviour in the neighbourhood is associated with a one-year increase in age, for example. This is similar to the bivariate regression. For categorical variables, however, the interpretation is different. Notice how these variables have an additional label attached to them in the output. For example, `gender` includes 'male' and `bcsvictim` includes 'yes victim'. Labels that do not appear next to the name of the categorical variable in the model are called the *reference category*. This category is the lowest value. You can select your reference category based on the modal category or if it is a category in which you are least interested. We interpret them as the following: males have a perceived antisocial behaviour level that averages 0.10 units higher than that of females; victims have a perceived antisocial behaviour level that averages .43 units lower than that of non-victims. A one-point score increase for confidence in neighbourhood police is related to a .20 increase in level of perceived antisocial behaviour. For each interpretation, covariates in the model are controlled for.  
+1.	**Beta coefficients**: The usual interpretation is to state that $Y$ changes for every one-unit increase in $X$ *when the other variables in the model are held constant* (or are 'controlled for'). Therefore, a 0.01 increase in level of perceived antisocial behaviour in the neighbourhood is associated with a one-year increase in age, for example. This is similar to the bivariate regression. For categorical variables, however, the interpretation is different. Notice how these variables have an additional label attached to them in the output. For example, `gender` includes 'male' and `bcsvictim` includes 'yes victim'. Labels that do not appear next to the name of the categorical variable in the model are called the *reference category*. This category is the lowest value. You can select your reference category based on the modal category or if it is a category in which you are least interested by recoding the variable. We interpret them as the following: males have a perceived antisocial behaviour level that averages 0.10 units higher than that of females; victims have a perceived antisocial behaviour level that averages .43 units lower than that of non-victims. A one-point score increase for confidence in neighbourhood police is related to a .20 increase in level of perceived antisocial behaviour. For each interpretation, covariates in the model are controlled for.  
 
 
 2.	**P-value**: All coefficients are statistically significant, meaning that we can reject the null hypothesis that no differences exist on perceived antisocial behaviour. 
@@ -779,7 +780,7 @@ We return to those four points to focus on when confronted with a regression out
 #### Activity 9: Presenting the results
 
 
-If you would like to professionally present your results, you can use the function `tab_model()` from the `sjplot` package:
+If you would like to professionally present your results, you can use the function `tab_model()` from the `sjPlot` package:
 <br>
 
 
@@ -966,7 +967,7 @@ plot_model(fit_2)
 
 <br>
 
-What you see plotted is the point estimates (the circles), the confidence intervals around those estimates (the lines- the longer the line, the less precise the estimate), and the colours represent whether the effect is negative (red) or positive (blue). 
+What you see plotted is the point estimates (the circles), the confidence intervals around those estimates (the tiny 'whiskers'- the longer the line, the less precise the estimate), and the colours represent whether the effect is negative (red) or positive (blue). 
 
 There are other packages that also provide similar functionality, like the `dotwhisker` package that you may want to explore. (More details [here](https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html).)
 
@@ -1130,7 +1131,7 @@ The output is similar to the one produced for linear regression, although there 
 
 All IVs are significantly associated with harsher police treatment except for sex. We see that for every one unit increase in the number of previous police contacts, the log odds of receiving harsher treatment (versus being released on summons) increases by 0.36, adjusting for the other variables in the model. 
 
-Observe that categorical variables have a label next to them in the output. For example, sex has ‘male’ next to it; race has ‘black’ next to it; employed has ‘yes’ next to it. These are the categories you are comparing to the reference category (whichever category is coded ‘0’). So, being black increases the log odds of receiving harsh treatment by 0.49 compared to being white, while being employed decreases the log odds of harsh treatment by 0.77 compared to being unemployed. 
+Observe that categorical variables have a label next to them, too, in the output. For example, sex has ‘male’ next to it; race has ‘black’ next to it; employed has ‘yes’ next to it. These are the categories you are comparing to the reference category (whichever level is coded ‘0’). So, being black increases the log odds of receiving harsh treatment by 0.49 compared to being white, while being employed decreases the log odds of harsh treatment by 0.77 compared to being unemployed. 
 
 This is good, but most people find interpreting log odds, well, odd – it is not very intuitive. It is common to use the **odds ratio** (OR) to interpret logistic regression. We convert these values into ORs:
 <br>
@@ -1252,7 +1253,7 @@ For both types of regression, it is inappropriate to make comparisons between IV
 
 How well is the fit of our logistic regression model? In order words, how well does our IVs collectively predict the DV? 
 
-Recall from OLS regression that we assessed how well our overall model predicts the DV by observing the *F-statistic* and *$R^2$*. This is not the case for logistic regression. The reason is, in our familiar linear regression, we understand residual variation (related to that regression line) through the error sum of squares. 
+Recall from OLS regression that we assessed how well our overall model predicts the DV by observing the *F-statistic* and, especially, the *$R^2$*. This is not the case for logistic regression. The reason is, in our familiar linear regression, we understand residual variation (related to that regression line) through the error sum of squares. 
 
 In logistic regression, there is not one way to understand residual variation, but several, because of its binary outcome. This results in different ways of understanding model fit: (1) quantitative prediction, focused on how close the prediction is to being correct; (2) qualitative prediction, focused on whether the prediction is correct or incorrect; or (3) both. We only go through the first one.
 
@@ -1394,7 +1395,9 @@ with(fit_3, pchisq(null.deviance - deviance, df.null - df.residual, lower.tail =
 
 The p-value is smaller than $\alpha$ = 0.05, so we conclude that our model is a better fit than a model with no IVs (or predictors). 
 
-In addition, [Professor Scott Menard (2010)](https://methods.sagepub.com/book/logistic-regression-from-introductory-to-advanced-concepts-and-applications) suggests calculating the *likelihood ratio $R^2$*, also known as the Hosmer/Lemeshow $R^2$, by taking the difference of the previous deviances and dividing it by the null deviance. The likelihood ratio $R^2$ tells you the extent to which including your IVs in your model reduces the variation, or error, as measured by the null deviance. The value can range from 0 to 1, where higher values mean better predictive accuracy:
+In addition, [Professor Scott Menard (2010)](https://methods.sagepub.com/book/logistic-regression-from-introductory-to-advanced-concepts-and-applications) suggests calculating the *likelihood ratio $R^2$*, also known as the Hosmer/Lemeshow $R^2$, by taking the difference of the previous deviances and dividing it by the null deviance. 
+
+The likelihood ratio $R^2$ tells you the extent to which including your IVs in your model reduces the variation, or error, as measured by the null deviance. The value can range from 0 to 1, where higher values mean better predictive accuracy:
 <br>
 
 
