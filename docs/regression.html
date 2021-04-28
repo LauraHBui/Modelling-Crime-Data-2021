@@ -402,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb513-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">2</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>)</a></code></pre></div>
 <p><img src="09-regression_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 <br></p>
-<p>The scatterplot shows how the two variables vary together (covary). Again, you are to guess that random person’s perceived level of antisocial behaviour in the neighbourhood, but, this time, you learn random-person-from-the-sample is 30 years old. what would your answer be now?</p>
+<p>The scatterplot shows how the two variables vary together (covary). Again, you are to guess that random person’s perceived level of antisocial behaviour in the neighbourhood, but, this time, you learn random-person-from-the-sample is 30 years old. What would your answer be now?</p>
 <p>Before, we based our guess on descriptive measures of central tendency and dispersion, which included all ages in the sample. Now, we are asked to guess knowing that Random Person is aged 30. This time, we would try and guess the mean of all those who also are aged 30. This is what is known as the <em>conditional mean</em> – the mean of <span class="math inline">\(Y\)</span> for each value of <span class="math inline">\(X\)</span>.</p>
 <p>We can draw a trend line through the scatterplot, which represents the mean of the variable <code>antisocx</code> (on the y-axis) for each age:
 <br></p>
@@ -413,7 +413,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## No summary function supplied, defaulting to `mean_se()`</code></pre>
 <p><img src="09-regression_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p><br></p>
-<p>Plotting the conditional means as represnted by the blue trend line shows us that the mean of perceived antisocial behaviour for those persons aged 30 is around −0.3. This would be a better guess than the mean for all ages, 0.0018. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:
+<p>Plotting the conditional means as represented by the blue trend line shows us that the mean of perceived antisocial behaviour for those persons aged 30 is around −0.3. This would be a better guess than the mean for all ages, 0.0018. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:
 <br></p>
 <div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb516-1" title="1"><span class="co"># Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years</span></a>
 <a class="sourceLine" id="cb516-2" title="2"></a>
@@ -610,7 +610,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="activity-7-residuals" class="section level4">
 <h4><span class="header-section-number">9.2.2.2</span> Activity 7: Residuals</h4>
-<p>In the output above we saw called <strong>residuals</strong>. The residuals are the differences between the observed values of <span class="math inline">\(Y\)</span> for each observation minus the predicted or expected value of <span class="math inline">\(Y\)</span>. In other words the distances between each point in the dataset and the regression line (see Figure 9.3).</p>
+<p>In the output above we saw something called <strong>residuals</strong>. The residuals are the differences between the observed values of <span class="math inline">\(Y\)</span> for each observation minus the predicted or expected value of <span class="math inline">\(Y\)</span>. In other words the distances between each point in the dataset and the regression line (see Figure 9.3).</p>
 <p><br></p>
 <div class="figure">
 <img src="Images/residual.jpg" alt="Figure 9.3 Residuals" />

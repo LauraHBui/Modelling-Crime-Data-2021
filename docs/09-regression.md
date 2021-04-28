@@ -201,7 +201,7 @@ ggplot(df, aes(x = age, y = antisocx)) +
 <br>
 
 
-The scatterplot shows how the two variables vary together (covary). Again, you are to guess that random person’s perceived level of antisocial behaviour in the neighbourhood, but, this time, you learn random-person-from-the-sample is 30 years old. what would your answer be now? 
+The scatterplot shows how the two variables vary together (covary). Again, you are to guess that random person’s perceived level of antisocial behaviour in the neighbourhood, but, this time, you learn random-person-from-the-sample is 30 years old. What would your answer be now? 
 
 Before, we based our guess on descriptive measures of central tendency and dispersion, which included all ages in the sample. Now, we are asked to guess knowing that Random Person is aged 30. This time, we would try and guess the mean of all those who also are aged 30. This is what is known as the *conditional mean* -- the mean of $Y$ for each value of $X$.
 
@@ -226,7 +226,7 @@ ggplot() +
 <br>
 
 
-Plotting the conditional means as represnted by the blue trend line shows us that the mean of perceived antisocial behaviour for those persons aged 30 is around −0.3. This would be a better guess than the mean for all ages, 0.0018. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:
+Plotting the conditional means as represented by the blue trend line shows us that the mean of perceived antisocial behaviour for those persons aged 30 is around −0.3. This would be a better guess than the mean for all ages, 0.0018. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:
 <br>
 
 
@@ -576,7 +576,7 @@ We then interpret the regression output. There are several points to focus on wh
 
 #### Activity 7: Residuals
 
-In the output above we saw called **residuals**. The residuals are the differences between the observed values of $Y$ for each observation minus the predicted or expected value of $Y$. In other words the distances between each point in the dataset and the regression line (see Figure 9.3). 
+In the output above we saw something called **residuals**. The residuals are the differences between the observed values of $Y$ for each observation minus the predicted or expected value of $Y$. In other words the distances between each point in the dataset and the regression line (see Figure 9.3). 
 
 <br>
 
