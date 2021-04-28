@@ -411,7 +411,7 @@ Residuals are assumed to be normally distributed. Gelman and Hill (2007) believe
 
 When you are including more than one IV, **multicollinearity** may be a concern. Independent variables that are highly correlated with each other mean that they are tapping into the same construct. For example, if you include two IVs, parental attachment and parental discipline, you may find that they are highly related to each other because both measure a similar idea - parenting practices perhaps.
 
-One indication of multicollinearity is that if you run a Pearson’s correlation (see Lesson 8, section 8.2.1.2) for the two IVs and get a value of 0.6 or 0.7, you should start investigating further.
+One indication of multicollinearity is that if you run a Pearson’s correlation (see Lesson 8, section 8.2.1.2) for the two IVs and get a value above 0.6, you should start investigating further.
 
 Another way to check for multicollinearity is through the *variance inflation factor* (VIF). How high the VIF should be before multicollinearity is a concern is debatable: here, anything above 5 should be a matter of concern. With this analysis, IVs should be numeric. We include an additional covariate, confidence in the police (`confx`), to illustrate. The VIF for our variables is conducted with the `vif ()` function in the `car` package:
 
