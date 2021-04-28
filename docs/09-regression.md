@@ -40,7 +40,6 @@
 -	`display()` : Gives a clean printout of lm, glm, and other such objects (`arm`)
 - `lm()` : Fit linear models (`base R`)
 - `Logit()` : Fit logistic regression models with less typing (`lessR`)
-<!--	`qplot()` : Creates a variety of plots/graphs (`base R`)-->
 -	`relevel()` : Reorders the levels of a factor (`base R`) 
 -	`tab_model()` : Creates HTML tables summarising regression models (`sjplot`)
 -	`vif()` : Calculate the variance inflation for OLS or other linear models (`car`)
@@ -88,18 +87,20 @@ Our models can be simple. We may think that unemployment is a variable that can 
 
 <br>
 
-Surely we know the world is complex, and that likely, there are other things that may help us to understand why some cities have more violent crime than others. So, we want to have tools that allow us to examine such models. For example, the one below, Figure 9.2:
+But we know the world is complex, and that likely, there are other things that may help us to understand why some cities have more violent crime than others. So, we want to have tools that allow us to examine such models that include other variables. For example, the one below, Figure 9.2:
 
 <br>
 
-![**Figure 9.2** A complex model](Images/model2.png) 
+![**Figure 9.2** A relatively complex model](Images/model2.png) 
 
 <br>
 
-In this lesson, we are going to cover regression analysis or, rather, we are will begin to talk about regression modelling.
+In this lesson, we are going to cover regression analysis or, rather, we are will begin to talk about it.
 
 
-Specifically, we start with a popular technique called **ordinary least squares (OLS)** regression. It is used to explore whether one or multiple independent variables (IV or $X$) can predict or explain the variation in the dependent variable (DV or $Y$). When multiple IVs are included simultaneously, they are called **covariates**; when only one IV is used, the OLS regression is called **bivariate regression** or *simple regression*. OLS regression has been the mainstay analysis in the social sciences. 
+Specifically, we start with a popular technique called **ordinary least squares (OLS)** regression. It is used to explore whether one or multiple independent variables (IV or $X$) can predict or explain the variation in the dependent variable (DV or $Y$). 
+
+When multiple IVs are included simultaneously, they are called **covariates**; when only one IV is used, the OLS regression is called **bivariate regression** or *simple regression*. OLS regression has been the mainstay analysis in the social sciences. 
 
 
 <br>
@@ -139,7 +140,7 @@ Some variables of interest that we could explore are perception of antisocial be
 
 <!--You should explore these data, using appropriate methods informed by their levels of measurement. Thus, you might look at measures of central tendency and dispersion for the numeric variables or frequency tables for your categorical variables (see Lesson 4).-->  
 
-For example, if we start with perception of antisocial behaviour (`antisocx`) and age (`age`), we might visualise our variable distributions:
+For example, if we start with perception of antisocial behaviour (`antisocx`) and age (`age`), we would visualise our variable distributions:
 <br>
 
 
@@ -165,135 +166,7 @@ ggplot(data = df, mapping = aes(x = antisocx)) +
 
 ---
 
-#### Activity 3: What questions can regression answer? 
-
-
-For this example, we are interested in the bivariate relationship between age ($X$) and perception of antisocial behaviour ($Y$). 
-
-Our research question is: ‘Does age *predict* perceived level of antisocial behaviour in one’s neighbourhood?’ Our null and alternative hypotheses are as follows:
-
-<br>
-
-$H_0$: Age does not predict perceived level of antisocial behaviour in one’s neighbourhood. 
-
-$H_A$: Age does predict perceived level of antisocial behaviour in one’s neighbourhood.
-
-<br>
-
-
-Returning to the concept of models as to answer 'what questions can regression answer?', a model can be anything that allows for inferences about a population (from a sample) to be drawn. For example, earlier in the semester, we used the mean, which could be used to draw inferences. Here, we are interested in perception of antisocial behaviour (`antisocx`).  
-
-If Reka picked a person at random from the sample, what would be your best guess on the level of that random person’s perceived antisocial behaviour in the neighbourhood? Likely, you would say a value near the mean (M = 0.001823) of the sample. This is a good guess, but we do not know how accurate this is.
-
-A model helps our guesses become more accurate. Once we model the relationship between `antisocx`, this dependent variable, and an independent variable, we can use the model to help improve our guesses. Let us start by looking at a scatterplot: 
-<br>
-
-
-```r
-# Checking out how the variables covary together 
-# (See Lesson 8, section 8.2.1.1 on covariation)
-
-ggplot(df, aes(x = age, y = antisocx)) + 
-  geom_point(alpha=.2, position="jitter")
-```
-
-<img src="09-regression_files/figure-html/unnamed-chunk-4-1.png" width="672" />
-<br>
-
-
-The scatterplot shows how the two variables vary together (covary). Again, you are to guess that random person’s perceived level of antisocial behaviour in the neighbourhood, but, this time, you learn random-person-from-the-sample is 30 years old. What would your answer be now? 
-
-Before, we based our guess on descriptive measures of central tendency and dispersion, which included all ages in the sample. Now, we are asked to guess knowing that Random Person is aged 30. This time, we would try and guess the mean of all those who also are aged 30. This is what is known as the *conditional mean* -- the mean of $Y$ for each value of $X$.
-
-We can draw a trend line through the scatterplot, which represents the mean of the variable `antisocx` (on the y-axis) for each age:
-<br>
-
-
-
-```r
-ggplot() + 
-  geom_point(data=df, aes(x = age, y = antisocx), alpha=.2) + 
-  geom_line(data=df, aes(x = age, y = antisocx), stat='summary', fun.y=mean,
-            color="blue", size=1)  
-```
-
-```
-## No summary function supplied, defaulting to `mean_se()`
-```
-
-<img src="09-regression_files/figure-html/unnamed-chunk-5-1.png" width="672" />
-
-<br>
-
-
-Plotting the conditional means as represented by the blue trend line shows us that the mean of perceived antisocial behaviour for those persons aged 30 is around −0.3. This would be a better guess than the mean for all ages, 0.0018. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:
-<br>
-
-
-
-```r
-# Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years
-
-ggplot() + 
-  geom_point(data=df, aes(x = age, y = antisocx), alpha=.2) + 
-  geom_line(data=df, aes(x = round(age/5)*5, y = antisocx), stat='summary', fun.y=mean,color="blue", size=1)
-```
-
-```
-## No summary function supplied, defaulting to `mean_se()`
-```
-
-<img src="09-regression_files/figure-html/unnamed-chunk-6-1.png" width="672" />
-
-<br>
-
-
-The blue trend line shows us that there is an upward trend, meaning that as age increases, so do level of perceptions of antisocial behaviour in the neighbourhood. Likewise, OLS regression tries to capture the trend or pattern of the data by drawing a straight line of predicted values; this is considered the model of the data:
-<br>
-
-
-```r
-# method=lm asks for the linear regression line 
-# se=FALSE asks not to print confidence interval 
-# Other arguments specify the colour and thickness of the line 
-
-ggplot(data = df, aes(x = age, y = antisocx)) + 
-  geom_point(alpha = .2, position = "jitter") + 
-  geom_smooth(method = "lm", se = FALSE, color = "red", size = 1)
-```
-
-```
-## `geom_smooth()` using formula 'y ~ x'
-```
-
-<img src="09-regression_files/figure-html/unnamed-chunk-7-1.png" width="672" />
-<br>
-
-
-The red **regression line** produces guesses or predictions for the value of perceived level of antisocial behaviour based on information that we have about age.
-
-The line can also be seen as one that tries to summarise the pattern of what is going on among the data points. The line is, of course, linear. It does not go through all the points, however. 
-
-As Bock et al. (2012) highlight:
-
-<br>
-
->'Like all models of the real world, the line will be wrong – wrong in the sense that it can’t match reality exactly. But it can help us understand how the variables are associated' (p.  179). 
-
-<br>
-
-A map is never a perfect representation of the world; the same happens with statistical models. Yet, as with maps, models can be helpful, guiding us to our destination.
-
-Thus, regression can answer questions relating to predictions and it can be pretty specific about it as seen with conditional means. 
-
-<br>
-<br>
-
----
-
-
-
-#### Activity 4: Exploring your data further: deleting missing data
+#### Activity 3: Exploring your data further: deleting missing data
 
 
 We need to look for any missing data as it may affect getting to know our data: 
@@ -349,6 +222,11 @@ nrow(df)
 ```
 ## [1] 8650
 ```
+<br>
+
+Now we can get to know the data!
+<br>
+
 
 ```r
 # Summaries of just the 8,650 cases 
@@ -368,9 +246,6 @@ summary(df$antisocx)
 ##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 ## -4.014557 -0.552077  0.178767  0.001823  0.788219  1.215267
 ```
-<br>
-
-Now we can get to know the data!
 
 <br>
 <br>
@@ -378,6 +253,130 @@ Now we can get to know the data!
 
 ---
 
+#### Activity 4: What questions can regression answer? 
+
+For this example, we are interested in the bivariate relationship between age ($X$) and perception of antisocial behaviour ($Y$). 
+
+Our research question is: ‘Does age *predict* perceived level of antisocial behaviour in one’s neighbourhood?’ Our null and alternative hypotheses are as follows:
+
+<br>
+
+$H_0$: Age does not predict perceived level of antisocial behaviour in one’s neighbourhood. 
+
+$H_A$: Age does predict perceived level of antisocial behaviour in one’s neighbourhood.
+
+<br>
+
+
+Returning to the concept of models as to answer 'what questions can regression answer?', a model can be anything that allows for inferences about a population (from a sample) to be drawn. For example, earlier in the semester, we used the mean, which could be used to draw inferences. Here, we are interested developing a model to predict perception of antisocial behaviour (`antisocx`).  
+
+If Reka picked a person at random from the sample, what would be your best guess on that random person’s perceived level of neighbourhood antisocial behaviour? Likely, you would say a value near the mean (M = 0.001823) of the sample. This is a good guess, but we do not know how accurate this is.
+
+A model helps our guesses become more accurate. Once we model the relationship between `antisocx`, this dependent variable, and an independent variable, we can use the model to help improve our guesses. Let us start by looking at a scatterplot: 
+<br>
+
+
+```r
+# Checking out how the variables covary together 
+# (See Lesson 8, section 8.2.1.1 on covariation)
+
+ggplot(df, aes(x = age, y = antisocx)) + 
+  geom_point(alpha=.2, position="jitter")
+```
+
+<img src="09-regression_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<br>
+
+
+The scatterplot shows how the two variables vary together (covary). Again, you are to guess that random person’s perceived level of antisocial behaviour in the neighbourhood, but, this time, you learn random-person-from-the-sample is 30 years old. What would your answer be now? 
+
+Before, we based our guess on descriptive measures of central tendency and dispersion, which included all ages in the sample. Now, we are asked to guess knowing that Random Person is aged 30. This time, we would try and guess the mean of all those who also are aged 30. This is what is known as the *conditional mean* -- the mean of $Y$ for each value of $X$.
+
+We now draw a trend line through the scatterplot, which represents the mean of the variable `antisocx` (on the y-axis) for each age:
+<br>
+
+
+
+```r
+ggplot() + 
+  geom_point(data=df, aes(x = age, y = antisocx), alpha=.2) + 
+  geom_line(data=df, aes(x = age, y = antisocx), stat='summary', fun.y=mean,
+            color="blue", size=1)  
+```
+
+```
+## No summary function supplied, defaulting to `mean_se()`
+```
+
+<img src="09-regression_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+
+<br>
+
+
+Plotting the conditional means as represented by the blue trend line shows us that the mean of perceived antisocial behaviour for those persons aged 30 is around −0.3. This would be a better guess than the mean for all ages, 0.001823. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:
+<br>
+
+
+
+```r
+# Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years
+
+ggplot() + 
+  geom_point(data=df, aes(x = age, y = antisocx), alpha=.2) + 
+  geom_line(data=df, aes(x = round(age/5)*5, y = antisocx), stat='summary', fun.y=mean,color="blue", size=1)
+```
+
+```
+## No summary function supplied, defaulting to `mean_se()`
+```
+
+<img src="09-regression_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+
+<br>
+
+
+The blue trend line shows us that there is an upward trend, meaning that as age increases, so do levels of perceived neighbourhood antisocial behaviour. Likewise, OLS regression tries to capture the trend or pattern of the data by drawing a straight line of predicted values; this is considered the *model* of the data:
+<br>
+
+
+```r
+# method=lm asks for the linear regression line 
+# se=FALSE asks not to print confidence interval 
+# Other arguments specify the colour and thickness of the line 
+
+ggplot(data = df, aes(x = age, y = antisocx)) + 
+  geom_point(alpha = .2, position = "jitter") + 
+  geom_smooth(method = "lm", se = FALSE, color = "red", size = 1)
+```
+
+```
+## `geom_smooth()` using formula 'y ~ x'
+```
+
+<img src="09-regression_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<br>
+
+
+The red **regression line** produces guesses or predictions for the value of perceived level of antisocial behaviour based on information that we have about age.
+
+The line can also be seen as one that tries to summarise the pattern of what is going on among the data points. The line is, of course, linear. It does not go through all the points, however. 
+
+As Bock et al. (2012) highlight:
+
+<br>
+
+>'Like all models of the real world, the line will be wrong – wrong in the sense that it can’t match reality exactly. But it can help us understand how the variables are associated' (p.  179). 
+
+<br>
+
+A map is never a perfect representation of the world; the same happens with statistical models. Yet, as with maps, models can be helpful, guiding us to our destination.
+
+Thus, regression can answer questions relating to predictions and does so by drawing a line that tries and capture the overall trend. 
+
+<br>
+<br>
+
+---
 
 
 #### Activity 5: Regression assumptions 
@@ -962,7 +961,7 @@ You may also like to present your results visually with a plot. For this, you ca
 plot_model(fit_2)
 ```
 
-<img src="09-regression_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<img src="09-regression_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 <br>
 

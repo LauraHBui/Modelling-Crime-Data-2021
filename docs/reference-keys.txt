@@ -170,8 +170,8 @@ todays-3-5
 motivating-regression
 activity-1-setting-up-the-r-prep-routine
 activity-2-getting-to-know-your-data
-activity-3-what-questions-can-regression-answer
-activity-4-exploring-your-data-further-deleting-missing-data
+activity-3-exploring-your-data-further-deleting-missing-data
+activity-4-what-questions-can-regression-answer
 activity-5-regression-assumptions
 interpreting-ols-regression
 activity-6-bivariate-regression

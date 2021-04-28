@@ -309,8 +309,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>complete.cases()</code> : Returns only complete cases that do not have NAs (<code>base R</code>)</li>
 <li><code>display()</code> : Gives a clean printout of lm, glm, and other such objects (<code>arm</code>)</li>
 <li><code>lm()</code> : Fit linear models (<code>base R</code>)</li>
-<li><code>Logit()</code> : Fit logistic regression models with less typing (<code>lessR</code>)
-<!--    `qplot()` : Creates a variety of plots/graphs (`base R`)--></li>
+<li><code>Logit()</code> : Fit logistic regression models with less typing (<code>lessR</code>)</li>
 <li><code>relevel()</code> : Reorders the levels of a factor (<code>base R</code>)</li>
 <li><code>tab_model()</code> : Creates HTML tables summarising regression models (<code>sjplot</code>)</li>
 <li><code>vif()</code> : Calculate the variance inflation for OLS or other linear models (<code>car</code>)</li>
@@ -341,15 +340,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption"><strong>Figure 9.1</strong> Simple Model</p>
 </div>
 <p><br></p>
-<p>Surely we know the world is complex, and that likely, there are other things that may help us to understand why some cities have more violent crime than others. So, we want to have tools that allow us to examine such models. For example, the one below, Figure 9.2:</p>
+<p>But we know the world is complex, and that likely, there are other things that may help us to understand why some cities have more violent crime than others. So, we want to have tools that allow us to examine such models that include other variables. For example, the one below, Figure 9.2:</p>
 <p><br></p>
 <div class="figure">
-<img src="Images/model2.png" alt="Figure 9.2 A complex model" />
-<p class="caption"><strong>Figure 9.2</strong> A complex model</p>
+<img src="Images/model2.png" alt="Figure 9.2 A relatively complex model" />
+<p class="caption"><strong>Figure 9.2</strong> A relatively complex model</p>
 </div>
 <p><br></p>
-<p>In this lesson, we are going to cover regression analysis or, rather, we are will begin to talk about regression modelling.</p>
-<p>Specifically, we start with a popular technique called <strong>ordinary least squares (OLS)</strong> regression. It is used to explore whether one or multiple independent variables (IV or <span class="math inline">\(X\)</span>) can predict or explain the variation in the dependent variable (DV or <span class="math inline">\(Y\)</span>). When multiple IVs are included simultaneously, they are called <strong>covariates</strong>; when only one IV is used, the OLS regression is called <strong>bivariate regression</strong> or <em>simple regression</em>. OLS regression has been the mainstay analysis in the social sciences.</p>
+<p>In this lesson, we are going to cover regression analysis or, rather, we are will begin to talk about it.</p>
+<p>Specifically, we start with a popular technique called <strong>ordinary least squares (OLS)</strong> regression. It is used to explore whether one or multiple independent variables (IV or <span class="math inline">\(X\)</span>) can predict or explain the variation in the dependent variable (DV or <span class="math inline">\(Y\)</span>).</p>
+<p>When multiple IVs are included simultaneously, they are called <strong>covariates</strong>; when only one IV is used, the OLS regression is called <strong>bivariate regression</strong> or <em>simple regression</em>. OLS regression has been the mainstay analysis in the social sciences.</p>
 <p><br></p>
 <div id="activity-1-setting-up-the-r-prep-routine" class="section level4">
 <h4><span class="header-section-number">9.2.1.1</span> Activity 1: Setting up! The <code>R</code> prep routine</h4>
@@ -369,7 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The first step in any analysis is to get to know your data. We have been here before: read the codebook/ data dictionary; run summary statistics for your numeric variables, frequency distributions for your categorical variables (see Lesson 4); and visualise your variables (see Lesson 3). This will help you detect any anomalies and give you a sense for what you have.</p>
 <p>Some variables of interest that we could explore are perception of antisocial behaviour (<code>antisocx</code>) and whether it is associated with other variables such as age (<code>age</code>), gender (<code>gender</code>), victimisation experience (<code>bcsvictim</code>), and confidence in the criminal justice system (<code>confx</code>).</p>
 <!--You should explore these data, using appropriate methods informed by their levels of measurement. Thus, you might look at measures of central tendency and dispersion for the numeric variables or frequency tables for your categorical variables (see Lesson 4).-->
-<p>For example, if we start with perception of antisocial behaviour (<code>antisocx</code>) and age (<code>age</code>), we might visualise our variable distributions:
+<p>For example, if we start with perception of antisocial behaviour (<code>antisocx</code>) and age (<code>age</code>), we would visualise our variable distributions:
 <br></p>
 <div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb511-1" title="1"><span class="co"># Histogram for age</span></a>
 <a class="sourceLine" id="cb511-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> df, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> age)) <span class="op">+</span><span class="st"> </span></a>
@@ -383,57 +383,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 <hr />
 </div>
-<div id="activity-3-what-questions-can-regression-answer" class="section level4">
-<h4><span class="header-section-number">9.2.1.3</span> Activity 3: What questions can regression answer?</h4>
+<div id="activity-3-exploring-your-data-further-deleting-missing-data" class="section level4">
+<h4><span class="header-section-number">9.2.1.3</span> Activity 3: Exploring your data further: deleting missing data</h4>
+<p>We need to look for any missing data as it may affect getting to know our data:
+<br></p>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" title="1"><span class="co"># Age variable</span></a>
+<a class="sourceLine" id="cb513-2" title="2"><span class="kw">summary</span>(df<span class="op">$</span>age) <span class="co"># NA = 188</span></a></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##   16.00   36.00   51.00   51.19   66.00   99.00     118</code></pre>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb515-1" title="1"><span class="co"># Antisocial variable</span></a>
+<a class="sourceLine" id="cb515-2" title="2"><span class="kw">summary</span>(df<span class="op">$</span>antisocx) <span class="co"># NA = 26695</span></a></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##  -4.015  -0.559   0.177   0.000   0.788   1.215   26695</code></pre>
+<p><br></p>
+<p>Both variables have missing data. You could ignore the ‘NAs’, as when we run regression, it will conduct a <em>listwise deletion</em>, where observations are dropped from your analysis if they have missing data on either the IV (<span class="math inline">\(X\)</span>) or the DV (<span class="math inline">\(Y\)</span>). But as we want descriptive statistics of only observations we will be using, we will delete those that will be dropped anyway.</p>
+<p>We use the <code>complete.cases()</code> function to keep cases that have valid responses in both the IV and DV:
+<br></p>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb517-1" title="1"><span class="co"># Start with 35,371 cases</span></a>
+<a class="sourceLine" id="cb517-2" title="2"><span class="kw">nrow</span>(df) </a></code></pre></div>
+<pre><code>## [1] 35371</code></pre>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb519-1" title="1"><span class="co"># Retain only complete cases</span></a>
+<a class="sourceLine" id="cb519-2" title="2"></a>
+<a class="sourceLine" id="cb519-3" title="3">df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(df<span class="op">$</span>age) <span class="op">&amp;</span><span class="st"> </span><span class="kw">complete.cases</span>(df<span class="op">$</span>antisocx))</a>
+<a class="sourceLine" id="cb519-4" title="4"></a>
+<a class="sourceLine" id="cb519-5" title="5"><span class="co"># Left with 8,650 cases after dropping NAs</span></a>
+<a class="sourceLine" id="cb519-6" title="6"><span class="kw">nrow</span>(df) </a></code></pre></div>
+<pre><code>## [1] 8650</code></pre>
+<p><br></p>
+<p>Now we can get to know the data!
+<br></p>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb521-1" title="1"><span class="co"># Summaries of just the 8,650 cases </span></a>
+<a class="sourceLine" id="cb521-2" title="2"><span class="kw">summary</span>(df<span class="op">$</span>age)</a></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   16.00   36.00   50.00   50.82   66.00   98.00</code></pre>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb523-1" title="1"><span class="kw">summary</span>(df<span class="op">$</span>antisocx)</a></code></pre></div>
+<pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+## -4.014557 -0.552077  0.178767  0.001823  0.788219  1.215267</code></pre>
+<p><br>
+<br></p>
+<hr />
+</div>
+<div id="activity-4-what-questions-can-regression-answer" class="section level4">
+<h4><span class="header-section-number">9.2.1.4</span> Activity 4: What questions can regression answer?</h4>
 <p>For this example, we are interested in the bivariate relationship between age (<span class="math inline">\(X\)</span>) and perception of antisocial behaviour (<span class="math inline">\(Y\)</span>).</p>
 <p>Our research question is: ‘Does age <em>predict</em> perceived level of antisocial behaviour in one’s neighbourhood?’ Our null and alternative hypotheses are as follows:</p>
 <p><br></p>
 <p><span class="math inline">\(H_0\)</span>: Age does not predict perceived level of antisocial behaviour in one’s neighbourhood.</p>
 <p><span class="math inline">\(H_A\)</span>: Age does predict perceived level of antisocial behaviour in one’s neighbourhood.</p>
 <p><br></p>
-<p>Returning to the concept of models as to answer ‘what questions can regression answer?’, a model can be anything that allows for inferences about a population (from a sample) to be drawn. For example, earlier in the semester, we used the mean, which could be used to draw inferences. Here, we are interested in perception of antisocial behaviour (<code>antisocx</code>).</p>
-<p>If Reka picked a person at random from the sample, what would be your best guess on the level of that random person’s perceived antisocial behaviour in the neighbourhood? Likely, you would say a value near the mean (M = 0.001823) of the sample. This is a good guess, but we do not know how accurate this is.</p>
+<p>Returning to the concept of models as to answer ‘what questions can regression answer?’, a model can be anything that allows for inferences about a population (from a sample) to be drawn. For example, earlier in the semester, we used the mean, which could be used to draw inferences. Here, we are interested developing a model to predict perception of antisocial behaviour (<code>antisocx</code>).</p>
+<p>If Reka picked a person at random from the sample, what would be your best guess on that random person’s perceived level of neighbourhood antisocial behaviour? Likely, you would say a value near the mean (M = 0.001823) of the sample. This is a good guess, but we do not know how accurate this is.</p>
 <p>A model helps our guesses become more accurate. Once we model the relationship between <code>antisocx</code>, this dependent variable, and an independent variable, we can use the model to help improve our guesses. Let us start by looking at a scatterplot:
 <br></p>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" title="1"><span class="co"># Checking out how the variables covary together </span></a>
-<a class="sourceLine" id="cb513-2" title="2"><span class="co"># (See Lesson 8, section 8.2.1.1 on covariation)</span></a>
-<a class="sourceLine" id="cb513-3" title="3"></a>
-<a class="sourceLine" id="cb513-4" title="4"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb513-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">2</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>)</a></code></pre></div>
-<p><img src="09-regression_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb525-1" title="1"><span class="co"># Checking out how the variables covary together </span></a>
+<a class="sourceLine" id="cb525-2" title="2"><span class="co"># (See Lesson 8, section 8.2.1.1 on covariation)</span></a>
+<a class="sourceLine" id="cb525-3" title="3"></a>
+<a class="sourceLine" id="cb525-4" title="4"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb525-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">2</span>, <span class="dt">position=</span><span class="st">&quot;jitter&quot;</span>)</a></code></pre></div>
+<p><img src="09-regression_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 <br></p>
 <p>The scatterplot shows how the two variables vary together (covary). Again, you are to guess that random person’s perceived level of antisocial behaviour in the neighbourhood, but, this time, you learn random-person-from-the-sample is 30 years old. What would your answer be now?</p>
 <p>Before, we based our guess on descriptive measures of central tendency and dispersion, which included all ages in the sample. Now, we are asked to guess knowing that Random Person is aged 30. This time, we would try and guess the mean of all those who also are aged 30. This is what is known as the <em>conditional mean</em> – the mean of <span class="math inline">\(Y\)</span> for each value of <span class="math inline">\(X\)</span>.</p>
-<p>We can draw a trend line through the scatterplot, which represents the mean of the variable <code>antisocx</code> (on the y-axis) for each age:
+<p>We now draw a trend line through the scatterplot, which represents the mean of the variable <code>antisocx</code> (on the y-axis) for each age:
 <br></p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb514-1" title="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb514-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb514-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="dt">fun.y=</span>mean,</a>
-<a class="sourceLine" id="cb514-4" title="4">            <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">size=</span><span class="dv">1</span>)  </a></code></pre></div>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb526-1" title="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb526-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb526-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="dt">fun.y=</span>mean,</a>
+<a class="sourceLine" id="cb526-4" title="4">            <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">size=</span><span class="dv">1</span>)  </a></code></pre></div>
 <pre><code>## No summary function supplied, defaulting to `mean_se()`</code></pre>
-<p><img src="09-regression_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="09-regression_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p><br></p>
-<p>Plotting the conditional means as represented by the blue trend line shows us that the mean of perceived antisocial behaviour for those persons aged 30 is around −0.3. This would be a better guess than the mean for all ages, 0.0018. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:
+<p>Plotting the conditional means as represented by the blue trend line shows us that the mean of perceived antisocial behaviour for those persons aged 30 is around −0.3. This would be a better guess than the mean for all ages, 0.001823. The trend line gives us a better idea of what is going on in our scatterplot, but the line looks a bit rough. We can make it smoother:
 <br></p>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb516-1" title="1"><span class="co"># Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years</span></a>
-<a class="sourceLine" id="cb516-2" title="2"></a>
-<a class="sourceLine" id="cb516-3" title="3"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb516-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb516-5" title="5"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">round</span>(age<span class="op">/</span><span class="dv">5</span>)<span class="op">*</span><span class="dv">5</span>, <span class="dt">y =</span> antisocx), <span class="dt">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="dt">fun.y=</span>mean,<span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">size=</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb528-1" title="1"><span class="co"># Make smoother by calculating average perceived antisocial behaviour for age in increments of 5 years</span></a>
+<a class="sourceLine" id="cb528-2" title="2"></a>
+<a class="sourceLine" id="cb528-3" title="3"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb528-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb528-5" title="5"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data=</span>df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">round</span>(age<span class="op">/</span><span class="dv">5</span>)<span class="op">*</span><span class="dv">5</span>, <span class="dt">y =</span> antisocx), <span class="dt">stat=</span><span class="st">&#39;summary&#39;</span>, <span class="dt">fun.y=</span>mean,<span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">size=</span><span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## No summary function supplied, defaulting to `mean_se()`</code></pre>
-<p><img src="09-regression_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="09-regression_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p><br></p>
-<p>The blue trend line shows us that there is an upward trend, meaning that as age increases, so do level of perceptions of antisocial behaviour in the neighbourhood. Likewise, OLS regression tries to capture the trend or pattern of the data by drawing a straight line of predicted values; this is considered the model of the data:
+<p>The blue trend line shows us that there is an upward trend, meaning that as age increases, so do levels of perceived neighbourhood antisocial behaviour. Likewise, OLS regression tries to capture the trend or pattern of the data by drawing a straight line of predicted values; this is considered the <em>model</em> of the data:
 <br></p>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb518-1" title="1"><span class="co"># method=lm asks for the linear regression line </span></a>
-<a class="sourceLine" id="cb518-2" title="2"><span class="co"># se=FALSE asks not to print confidence interval </span></a>
-<a class="sourceLine" id="cb518-3" title="3"><span class="co"># Other arguments specify the colour and thickness of the line </span></a>
-<a class="sourceLine" id="cb518-4" title="4"></a>
-<a class="sourceLine" id="cb518-5" title="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb518-6" title="6"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">.2</span>, <span class="dt">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb518-7" title="7"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb530-1" title="1"><span class="co"># method=lm asks for the linear regression line </span></a>
+<a class="sourceLine" id="cb530-2" title="2"><span class="co"># se=FALSE asks not to print confidence interval </span></a>
+<a class="sourceLine" id="cb530-3" title="3"><span class="co"># Other arguments specify the colour and thickness of the line </span></a>
+<a class="sourceLine" id="cb530-4" title="4"></a>
+<a class="sourceLine" id="cb530-5" title="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> df, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> antisocx)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb530-6" title="6"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">.2</span>, <span class="dt">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb530-7" title="7"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="09-regression_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<p><img src="09-regression_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 <br></p>
 <p>The red <strong>regression line</strong> produces guesses or predictions for the value of perceived level of antisocial behaviour based on information that we have about age.</p>
 <p>The line can also be seen as one that tries to summarise the pattern of what is going on among the data points. The line is, of course, linear. It does not go through all the points, however.</p>
@@ -444,46 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p><br></p>
 <p>A map is never a perfect representation of the world; the same happens with statistical models. Yet, as with maps, models can be helpful, guiding us to our destination.</p>
-<p>Thus, regression can answer questions relating to predictions and it can be pretty specific about it as seen with conditional means.</p>
-<p><br>
-<br></p>
-<hr />
-</div>
-<div id="activity-4-exploring-your-data-further-deleting-missing-data" class="section level4">
-<h4><span class="header-section-number">9.2.1.4</span> Activity 4: Exploring your data further: deleting missing data</h4>
-<p>We need to look for any missing data as it may affect getting to know our data:
-<br></p>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb520-1" title="1"><span class="co"># Age variable</span></a>
-<a class="sourceLine" id="cb520-2" title="2"><span class="kw">summary</span>(df<span class="op">$</span>age) <span class="co"># NA = 188</span></a></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
-##   16.00   36.00   51.00   51.19   66.00   99.00     118</code></pre>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb522-1" title="1"><span class="co"># Antisocial variable</span></a>
-<a class="sourceLine" id="cb522-2" title="2"><span class="kw">summary</span>(df<span class="op">$</span>antisocx) <span class="co"># NA = 26695</span></a></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
-##  -4.015  -0.559   0.177   0.000   0.788   1.215   26695</code></pre>
-<p><br></p>
-<p>Both variables have missing data. You could ignore the ‘NAs’, as when we run regression, it will conduct a <em>listwise deletion</em>, where observations are dropped from your analysis if they have missing data on either the IV (<span class="math inline">\(X\)</span>) or the DV (<span class="math inline">\(Y\)</span>). But as we want descriptive statistics of only observations we will be using, we will delete those that will be dropped anyway.</p>
-<p>We use the <code>complete.cases()</code> function to keep cases that have valid responses in both the IV and DV:
-<br></p>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb524-1" title="1"><span class="co"># Start with 35,371 cases</span></a>
-<a class="sourceLine" id="cb524-2" title="2"><span class="kw">nrow</span>(df) </a></code></pre></div>
-<pre><code>## [1] 35371</code></pre>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb526-1" title="1"><span class="co"># Retain only complete cases</span></a>
-<a class="sourceLine" id="cb526-2" title="2"></a>
-<a class="sourceLine" id="cb526-3" title="3">df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(df<span class="op">$</span>age) <span class="op">&amp;</span><span class="st"> </span><span class="kw">complete.cases</span>(df<span class="op">$</span>antisocx))</a>
-<a class="sourceLine" id="cb526-4" title="4"></a>
-<a class="sourceLine" id="cb526-5" title="5"><span class="co"># Left with 8,650 cases after dropping NAs</span></a>
-<a class="sourceLine" id="cb526-6" title="6"><span class="kw">nrow</span>(df) </a></code></pre></div>
-<pre><code>## [1] 8650</code></pre>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb528-1" title="1"><span class="co"># Summaries of just the 8,650 cases </span></a>
-<a class="sourceLine" id="cb528-2" title="2"><span class="kw">summary</span>(df<span class="op">$</span>age)</a></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   16.00   36.00   50.00   50.82   66.00   98.00</code></pre>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb530-1" title="1"><span class="kw">summary</span>(df<span class="op">$</span>antisocx)</a></code></pre></div>
-<pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-## -4.014557 -0.552077  0.178767  0.001823  0.788219  1.215267</code></pre>
-<p><br></p>
-<p>Now we can get to know the data!</p>
+<p>Thus, regression can answer questions relating to predictions and does so by drawing a line that tries and capture the overall trend.</p>
 <p><br>
 <br></p>
 <hr />
@@ -1067,7 +1068,7 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <p>You may also like to present your results visually with a plot. For this, you can use the <code>plot_model()</code> function of the <code>sjPlot</code> package, which makes it easier to produce these sorts of plots. You can find a more detailed tutorial about this function <a href="https://strengejacke.wordpress.com/2017/10/23/one-function-to-rule-them-all-visualization-of-regression-models-in-rstats-w-sjplot/">here</a>.
 <br></p>
 <div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb557-1" title="1"><span class="kw">plot_model</span>(fit_<span class="dv">2</span>)</a></code></pre></div>
-<p><img src="09-regression_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="09-regression_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p><br></p>
 <p>What you see plotted is the point estimates (the circles), the confidence intervals around those estimates (the lines- the longer the line, the less precise the estimate), and the colours represent whether the effect is negative (red) or positive (blue).</p>
 <p>There are other packages that also provide similar functionality, like the <code>dotwhisker</code> package that you may want to explore. (More details <a href="https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html">here</a>.)</p>
