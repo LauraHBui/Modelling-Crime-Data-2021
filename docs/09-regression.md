@@ -655,7 +655,7 @@ class(df$bcsvictim)
 ```
 
 ```
-## [1] "integer"
+## [1] "numeric"
 ```
 
 ```r
@@ -667,7 +667,7 @@ class(df$sex)
 ```
 
 ```
-## [1] "integer"
+## [1] "numeric"
 ```
 
 ```r
@@ -683,7 +683,23 @@ table(df$sex)
 ```r
 # Recode sex as dummy variable (0 and 1) where female is 0 and ordered is false
 df$gender <- recode(df$sex, `1` = 1, `2` = 0)
+```
 
+
+**NOTE:** you may see an error with the `recode()` function here. This is because, although we are hoping to call the `recode()` function which lives inside the `dplyr` package (which we loaded in the `tidyverse` bundle), if the most recent package you loaded was `car`, well there is also a `recode()` function in the `car` package. 
+
+If you come across this error, you can specify exactly which packge you want to draw the function from, by specifying the pacakge name with `::` appended before the function name. So `dplyr::recode()` instead of `recode()`. Like so: 
+
+
+```r
+df$gender <- dplyr::recode(df$sex, `1` = 1, `2` = 0)
+```
+
+Now you can create also a gender variable where we recode to "female" and "male": 
+
+
+
+```r
 df$gender <- factor(df$gender, labels = c("female", "male"), ordered = FALSE) 
 # Double check values match original variable
 table(df$gender)
@@ -945,7 +961,7 @@ You may also like to present your results visually with a plot. For this you can
 plot_model(fit_2)
 ```
 
-![](09-regression_files/figure-epub3/unnamed-chunk-15-1.png)<!-- -->
+![](09-regression_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
 
 What you see plotted here is the point estimates (the circles), the confidence intervals around those estimates (the longer the line the less precise the estimate), and the colours represent whether the effect is negative (red) or positive (blue). There are other packages that also provide similar functionality, like the `dotwhisker` package that you may want to explore, see more details [here](https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html).
 
@@ -1217,7 +1233,6 @@ For both types of regression, it is inappropriate to make comparisons between IV
 
 
 
-
 Now, how well is the fit of our logistic regression model? In order words, how well does our IVs collectively predict the DV? Recall from OLS regression, we assessed how well our overall model predicts the DV by observing the *F-statistic* and *$R^2$*. This is not the case for logistic regression. The reason is, in our familiar linear regression, we understand residual variation (related to that regression line) through the error sum of squares. In logistic regression, there is not one way to understand residual variation, but several, because of its binary outcome. This results in different ways of understanding model fit: (1) quantitative prediction, focused on how close the prediction is to being correct; (2) qualitative prediction, focused on whether the prediction is correct or incorrect; or (3) both. We go through the first one.
 
 
@@ -1400,8 +1415,107 @@ This particular $R^2$ is considered a 'pseudo- $R^2$' as it is not the same as t
 Regression allows us to look at relationships between variables while including other variables, called **covariates**, in the model. For OLS regression, assumptions must be met before embarking on fitting this model, and has to do with building the **regression line** whereby the line starts at the **intercept** and its angle is determined by the **slope**. **Residuals** form the equation to determine the $R^2$ and is the error of the model. When the DV is binary, logistic regression is appropriate. The **odds ratio** is an easier way to interpret logistic regression. We assess model fit through quantitative prediction measures of deviance, and it is recommended to use the likelihood ratio $R^2$ instead of other pseudo $R^2s$
 
 
-
 Homework time!
+
+----
+
+#### Additional info: diagnosing violation of assumptions
+
+
+Although so far we have discussed the practicalities of fitting and interpreting regression models, in practical applications you want to first check your model and proceed from there. There is not much point spending time interpreting your model until you know that the model reasonably fits your data.
+
+In previous data analysis modules we covered assumptions made by various statistical tests. The regression model also makes assumptions of its own. In fact, there are so many that we could spend an entire class discussing them. Gelman and Hill (2007) point out that the most important regression assumptions by decreasing order of importance are:
+
++ **Validity**. The data should be appropriate for the question that you are trying to answer:
+
+> "Optimally, this means that the outcome measure should accurately reflect the phenomenon of interest, the model should include all relevant predictors, and the model should generalize to all cases to which it will be applied... Data used in empirical research rarely meet all (if any) of these criteria precisely. However, keeping these goals in mind can help you be precise about the types of questions you can and cannot answer reliably"
+
+
++ **Additiviy and linearity**. These are the most important mathematical assumptions of the model. We already talked about additivity in the previous section and discussed how you can include interaction effects in your models if the additivity assumption is violated. We will discuss problems with non-linearities today as well as ways to diagnose and solve this problem. If the relationship is non linear (e.g, it is curvilinear) predicted values will be wrong in a biased manner, meaning that predicted values will systematically miss the true pattern of the mean of y (as related to the x-variables).
+
+
++ **Independence of errors**. Regression assumes that the errors from the prediction line (or hyperplane) are independent. If there is dependency between the observations (you are assessing change across the same units, working with spatial units, or with units that are somehow grouped such as students from the same class), you may have to use models that are more appropriate (e.g., multilevel models, spatial regression, etc.).
+
++ **Equal variances of errors**. When the variance of the residuals is unequal, you may need different estimation methods. This is, nonetheless, considered a minor issue. There is a small effect on the validity of t-test and F-test results, but generally regression inferences are robust with regard to the variance issue.
+
++ **Normality of errors**. The residuals should be normally distributed. Gelman and Hill (2007: 46) discuss this as the least important of the assumptions and in fact "do *not* recommend diagnostics of the normality of the regression residuals". If the errors do not have a normal distribution, it usually is not particularly serious. Regression inferences tend to be robust with respect to normality (or nonnormality of the errors). In practice, the residuals may appear to be nonnormal when the wrong regression equation has been used. So, I will show you how to inspect normality of the residuals not because this is a problem on itself, but because it may be give you further evidence that there is some other problem with the model you are applying to your data.
+
+Apart from this, it is convenient to diagnose multicollinearity (this affects interpretation) and influential observations.
+
+
+So these are the assumptions of linear regression. 
+
+
+In this section we can go through very quickly how to test for some of them using visuals. While finding that some of the assumptions are violated do not necessarily mean that you have to scrap your model, it is important to use these diagnostics to illustrate that you have considered what the possible issues with your model is, and if you find any serious issues that you address them. 
+
+In r, we can use the `plot()` function on our output lm object to look through some diagnostics. This gives us 4 plots, so to show them all, we'll use the code `par(mfrow = c(2, 2))` to split our plot window into 4 panes (remember to set back, run `par(mfrow = c(1, 1))`). For example, let's return to `fit_1`, our very first model. 
+
+
+```r
+par(mfrow = c(2, 2))
+plot(fit_1)
+```
+
+![](09-regression_files/figure-epub3/unnamed-chunk-26-1.png)<!-- -->
+
+
+The 4 plots we get are 
+
+- **Residuals vs Fitted**. Used to check the linear relationship assumptions. A horizontal line, without distinct patterns is an indication for a linear relationship, what is good.
+- **Normal Q-Q**. Used to examine whether the residuals are normally distributed. It’s good if residuals points follow the straight dashed line.
+- **Scale-Location (or Spread-Location)**. Used to check the homogeneity of variance of the residuals (homoscedasticity). Horizontal line with equally spread points is a good indication of homoscedasticity. This is not the case in our example, where we have a bit of a heteroscedasticity problem (remember funnel-shape from the video!).
+- **Residuals vs Leverage**. Used to identify influential cases, that is extreme values that might influence the regression results when included or excluded from the analysis. 
+
+
+
+We can also run some tests to confirm what we see in the plots. 
+
+For example, to test for heteroskedasticity (unequal variance in our residuals) we can run a Breusch-Pagan test from the `lmtest` package or a NCV test from the `car` package. 
+
+
+```r
+lmtest::bptest(fit_1)  # Breusch-Pagan test
+```
+
+```
+## 
+## 	studentized Breusch-Pagan test
+## 
+## data:  fit_1
+## BP = 114.41, df = 1, p-value < 0.00000000000000022
+```
+
+```r
+car::ncvTest(fit_1) # NCV test
+```
+
+```
+## Non-constant Variance Score Test 
+## Variance formula: ~ fitted.values 
+## Chisquare = 131.0805, Df = 1, p = < 0.000000000000000222
+```
+
+
+Both these test have a p-value less that a significance level of 0.05, therefore we can reject the null hypothesis that the variance of the residuals is constant and infer that heteroscedasticity is indeed present, thereby confirming our graphical inference.
+
+
+For testing whether the residuals violate the normality assumption, we can use the  Anderson-Darling test for the composite hypothesis of normality with the `ad.test()` function in the `nortest` package.
+
+
+```r
+nortest::ad.test(fit_1$residuals)
+```
+
+```
+## 
+## 	Anderson-Darling normality test
+## 
+## data:  fit_1$residuals
+## A = 89.77, p-value < 0.00000000000000022
+```
+
+
+
 
 
 

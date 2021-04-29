@@ -189,3 +189,4 @@ activity-11-fitting-and-interpreting-a-logistic-regression-model
 activity-12-model-fit
 activity-13-quantitative-prediction
 summary-8
+additional-info-diagnosing-violation-of-assumptions

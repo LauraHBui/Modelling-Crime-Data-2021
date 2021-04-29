@@ -24,7 +24,7 @@
 <meta name="author" content="Laura Bui &amp; Reka Solymosi" />
 
 
-<meta name="date" content="2021-04-27" />
+<meta name="date" content="2021-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -596,32 +596,35 @@ As Bock et al. (2012) highlight:</p>
 <span id="cb529-3"><a href="regression.html#cb529-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df<span class="sc">$</span>confx) </span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="regression.html#cb531-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df<span class="sc">$</span>bcsvictim)</span></code></pre></div>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
 <div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="regression.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attach labels to bcsvictim and make ordering false </span></span>
 <span id="cb533-2"><a href="regression.html#cb533-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>bcsvictim <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>bcsvictim, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;not victim&quot;</span>, <span class="st">&quot;Yes victim&quot;</span>), <span class="at">ordered =</span> <span class="cn">FALSE</span>) </span>
 <span id="cb533-3"><a href="regression.html#cb533-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb533-4"><a href="regression.html#cb533-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sex</span></span>
 <span id="cb533-5"><a href="regression.html#cb533-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df<span class="sc">$</span>sex)</span></code></pre></div>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
 <div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="regression.html#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>sex)</span></code></pre></div>
 <pre><code>## 
 ##    1    2 
 ## 4064 4586</code></pre>
 <div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="regression.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode sex as dummy variable (0 and 1) where female is 0 and ordered is false</span></span>
-<span id="cb537-2"><a href="regression.html#cb537-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">recode</span>(df<span class="sc">$</span>sex, <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">0</span>)</span>
-<span id="cb537-3"><a href="regression.html#cb537-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb537-4"><a href="regression.html#cb537-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>gender, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>), <span class="at">ordered =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb537-5"><a href="regression.html#cb537-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Double check values match original variable</span></span>
-<span id="cb537-6"><a href="regression.html#cb537-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>gender)</span></code></pre></div>
+<span id="cb537-2"><a href="regression.html#cb537-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">recode</span>(df<span class="sc">$</span>sex, <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">0</span>)</span></code></pre></div>
+<p><strong>NOTE:</strong> you may see an error with the <code>recode()</code> function here. This is because, although we are hoping to call the <code>recode()</code> function which lives inside the <code>dplyr</code> package (which we loaded in the <code>tidyverse</code> bundle), if the most recent package you loaded was <code>car</code>, well there is also a <code>recode()</code> function in the <code>car</code> package.</p>
+<p>If you come across this error, you can specify exactly which packge you want to draw the function from, by specifying the pacakge name with <code>::</code> appended before the function name. So <code>dplyr::recode()</code> instead of <code>recode()</code>. Like so:</p>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="regression.html#cb538-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">recode</span>(df<span class="sc">$</span>sex, <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">0</span>)</span></code></pre></div>
+<p>Now you can create also a gender variable where we recode to “female” and “male”:</p>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="regression.html#cb539-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>gender, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>), <span class="at">ordered =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb539-2"><a href="regression.html#cb539-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Double check values match original variable</span></span>
+<span id="cb539-3"><a href="regression.html#cb539-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>gender)</span></code></pre></div>
 <pre><code>## 
 ## female   male 
 ##   4586   4064</code></pre>
 <p>Multiple regression is one way of checking the relevance of competing explanations. You could set up a model where you try to predict crime levels with an indicator of broken windows and an indicator of structural disadvantage. If after controlling for structural disadvantage you see that the regression coefficient for broken windows is still significant you may be into something, particularly if the estimated effect is still large. If, on the other hand, the t test for the regression coefficient of your broken windows variable is no longer significant, then you may be tempted to think that perhaps Sampson and Raudenbush were into something.</p>
 <p>It could not be any easier to fit a multiple regression model. You simply modify the formula in the <code>lm()</code> function by adding terms for the additional inputs separated with a <code>+</code>. Let us run this to predict antisocial behaviour with all our independent variables.</p>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="regression.html#cb539-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now let us run the multiple regression</span></span>
-<span id="cb539-2"><a href="regression.html#cb539-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb539-3"><a href="regression.html#cb539-3" aria-hidden="true" tabindex="-1"></a>fit_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(antisocx <span class="sc">~</span> age <span class="sc">+</span> gender <span class="sc">+</span> bcsvictim <span class="sc">+</span> confx, <span class="at">data =</span> df)</span>
-<span id="cb539-4"><a href="regression.html#cb539-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_2)</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="regression.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now let us run the multiple regression</span></span>
+<span id="cb541-2"><a href="regression.html#cb541-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb541-3"><a href="regression.html#cb541-3" aria-hidden="true" tabindex="-1"></a>fit_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(antisocx <span class="sc">~</span> age <span class="sc">+</span> gender <span class="sc">+</span> bcsvictim <span class="sc">+</span> confx, <span class="at">data =</span> df)</span>
+<span id="cb541-4"><a href="regression.html#cb541-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = antisocx ~ age + gender + bcsvictim + confx, data = df)
@@ -653,7 +656,7 @@ As Bock et al. (2012) highlight:</p>
 <div id="activity-9-presenting-the-results" class="section level4" number="9.2.2.4">
 <h4><span class="header-section-number">9.2.2.4</span> Activity 9: Presenting the results</h4>
 <p>If you would like to professionally present your results, you can use the function <code>tab_model()</code> from the <code>sjplot</code> package:</p>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="regression.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2)</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="regression.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -764,8 +767,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="regression.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change name of DV</span></span>
-<span id="cb542-2"><a href="regression.html#cb542-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2, <span class="at">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="regression.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change name of DV</span></span>
+<span id="cb544-2"><a href="regression.html#cb544-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2, <span class="at">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -876,8 +879,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="regression.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change name of IVs</span></span>
-<span id="cb543-2"><a href="regression.html#cb543-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2, <span class="at">pred.labels =</span> <span class="fu">c</span>(<span class="st">&quot;(Intercept)&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Victimisation&quot;</span>, <span class="st">&quot;Confidence in Police&quot;</span>), <span class="at">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="regression.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change name of IVs</span></span>
+<span id="cb545-2"><a href="regression.html#cb545-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(fit_2, <span class="at">pred.labels =</span> <span class="fu">c</span>(<span class="st">&quot;(Intercept)&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Victimisation&quot;</span>, <span class="st">&quot;Confidence in Police&quot;</span>), <span class="at">dv.labels =</span> <span class="st">&quot;Perceived Antisocial Behaviour&quot;</span>)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -989,8 +992,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 </tr>
 </table>
 <p>You may also like to present your results visually with a plot. For this you can use instead the <code>plot_model()</code> function of the <code>sjPlot</code> package, that makes it easier to produce this sort of plots. You can find a more detailed tutorial about this function <a href="https://strengejacke.wordpress.com/2017/10/23/one-function-to-rule-them-all-visualization-of-regression-models-in-rstats-w-sjplot/">here</a>.</p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="regression.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_model</span>(fit_2)</span></code></pre></div>
-<p><img src="09-regression_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="regression.html#cb546-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_model</span>(fit_2)</span></code></pre></div>
+<p><img src="09-regression_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>What you see plotted here is the point estimates (the circles), the confidence intervals around those estimates (the longer the line the less precise the estimate), and the colours represent whether the effect is negative (red) or positive (blue). There are other packages that also provide similar functionality, like the <code>dotwhisker</code> package that you may want to explore, see more details <a href="https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html">here</a>.</p>
 <hr />
 </div>
@@ -1000,16 +1003,16 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <p>Now, what if our dependent variable is categorical and binary? This is where <strong>logistic regression</strong>, a technique belonging to a family of techniques called <strong>generalized linear models</strong>, is appropriate. Those assumptions of linearity and normality are not issues because this technique, itself, is not based on the normal distribution.</p>
 <p>In criminology, it is often the case that our DV has only two categories. For example, victim or not a victim; arrested or not arrested. This form of regression models the probability of belonging to one of the levels of the binary outcome.</p>
 <p>For this example, we are interested in the relationship between race and receiving harsher treatment for possession of marijuana. We use the dataset <code>Arrests</code> from the <code>effects</code> package. This data includes information on police treatment of individuals arrested for possession of marijuana in Toronto, Canada. Our DV is whether the arrestee was released with summons; if they were not, they received harsh treatment such as being brought to the police station or held for bail:</p>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="regression.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effects)</span>
-<span id="cb545-2"><a href="regression.html#cb545-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Arrests, <span class="at">package=</span><span class="st">&quot;effects&quot;</span>) <span class="co"># It will tell you that the dataset are not found, but it is there</span></span>
-<span id="cb545-3"><a href="regression.html#cb545-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb545-4"><a href="regression.html#cb545-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out our DV</span></span>
-<span id="cb545-5"><a href="regression.html#cb545-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="regression.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effects)</span>
+<span id="cb547-2"><a href="regression.html#cb547-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Arrests, <span class="at">package=</span><span class="st">&quot;effects&quot;</span>) <span class="co"># It will tell you that the dataset are not found, but it is there</span></span>
+<span id="cb547-3"><a href="regression.html#cb547-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb547-4"><a href="regression.html#cb547-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out our DV</span></span>
+<span id="cb547-5"><a href="regression.html#cb547-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
 <pre><code>## 
 ##   No  Yes 
 ##  892 4334</code></pre>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="regression.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out the order of the levels in the DV</span></span>
-<span id="cb547-2"><a href="regression.html#cb547-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="regression.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking out the order of the levels in the DV</span></span>
+<span id="cb549-2"><a href="regression.html#cb549-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
 <pre><code>## $levels
 ## [1] &quot;No&quot;  &quot;Yes&quot;
 ## 
@@ -1018,30 +1021,30 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div id="activity-10-preparing-your-dependent-variable" class="section level4" number="9.2.3.1">
 <h4><span class="header-section-number">9.2.3.1</span> Activity 10: Preparing your dependent variable</h4>
 <p>Logistic regression will predict probabilities associated with the level whose first letter is further in the alphabet — this would be ‘yes’, the respondent was released with a summons. But this is not our level of interest. We will need to reorder the levels in the DV using the <code>relevel</code> function:</p>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="regression.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse the order</span></span>
-<span id="cb549-2"><a href="regression.html#cb549-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Rename the levels so that it is clear we now mean &#39;yes&#39; to harsh treatment</span></span>
-<span id="cb549-3"><a href="regression.html#cb549-3" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>harsher <span class="ot">&lt;-</span> <span class="fu">relevel</span>(Arrests<span class="sc">$</span>released, <span class="st">&quot;Yes&quot;</span>)</span>
-<span id="cb549-4"><a href="regression.html#cb549-4" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>harsher <span class="ot">&lt;-</span> <span class="fu">factor</span>(Arrests<span class="sc">$</span>harsher, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb549-5"><a href="regression.html#cb549-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb549-6"><a href="regression.html#cb549-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  Check that it matches the original variable ‘released’ but in reverse order</span></span>
-<span id="cb549-7"><a href="regression.html#cb549-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>harsher)</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="regression.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse the order</span></span>
+<span id="cb551-2"><a href="regression.html#cb551-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Rename the levels so that it is clear we now mean &#39;yes&#39; to harsh treatment</span></span>
+<span id="cb551-3"><a href="regression.html#cb551-3" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>harsher <span class="ot">&lt;-</span> <span class="fu">relevel</span>(Arrests<span class="sc">$</span>released, <span class="st">&quot;Yes&quot;</span>)</span>
+<span id="cb551-4"><a href="regression.html#cb551-4" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>harsher <span class="ot">&lt;-</span> <span class="fu">factor</span>(Arrests<span class="sc">$</span>harsher, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb551-5"><a href="regression.html#cb551-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb551-6"><a href="regression.html#cb551-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  Check that it matches the original variable ‘released’ but in reverse order</span></span>
+<span id="cb551-7"><a href="regression.html#cb551-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>harsher)</span></code></pre></div>
 <pre><code>## 
 ##   No  Yes 
 ## 4334  892</code></pre>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="regression.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="regression.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>released)</span></code></pre></div>
 <pre><code>## 
 ##   No  Yes 
 ##  892 4334</code></pre>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="regression.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We will also reverse the levels in our race variable so that ‘white’ is ‘0’</span></span>
-<span id="cb553-2"><a href="regression.html#cb553-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>colour)</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="regression.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We will also reverse the levels in our race variable so that ‘white’ is ‘0’</span></span>
+<span id="cb555-2"><a href="regression.html#cb555-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>colour)</span></code></pre></div>
 <pre><code>## 
 ## Black White 
 ##  1288  3938</code></pre>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="regression.html#cb555-1" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>race <span class="ot">&lt;-</span> Arrests<span class="sc">$</span>colour</span>
-<span id="cb555-2"><a href="regression.html#cb555-2" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>race <span class="ot">&lt;-</span> <span class="fu">relevel</span>(Arrests<span class="sc">$</span>race, <span class="st">&quot;White&quot;</span>)</span>
-<span id="cb555-3"><a href="regression.html#cb555-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb555-4"><a href="regression.html#cb555-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check to see coding has changed</span></span>
-<span id="cb555-5"><a href="regression.html#cb555-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>race)</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="regression.html#cb557-1" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>race <span class="ot">&lt;-</span> Arrests<span class="sc">$</span>colour</span>
+<span id="cb557-2"><a href="regression.html#cb557-2" aria-hidden="true" tabindex="-1"></a>Arrests<span class="sc">$</span>race <span class="ot">&lt;-</span> <span class="fu">relevel</span>(Arrests<span class="sc">$</span>race, <span class="st">&quot;White&quot;</span>)</span>
+<span id="cb557-3"><a href="regression.html#cb557-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-4"><a href="regression.html#cb557-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check to see coding has changed</span></span>
+<span id="cb557-5"><a href="regression.html#cb557-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Arrests<span class="sc">$</span>race)</span></code></pre></div>
 <pre><code>## 
 ## White Black 
 ##  3938  1288</code></pre>
@@ -1049,8 +1052,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div id="activity-11-fitting-and-interpreting-a-logistic-regression-model" class="section level4" number="9.2.3.2">
 <h4><span class="header-section-number">9.2.3.2</span> Activity 11: Fitting and interpreting a logistic regression model</h4>
 <p>Now that we have arranged the codes of our variables of interest, we fit the logistic regression model using the <code>glm ()</code> function and specify a logit model (<code>family=”binomial”</code>). We include three other variables in the model to see to what extent race seems to matter in harsher police treatment even when we adjust or consider sex, employment, and previous police contacts:</p>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="regression.html#cb557-1" aria-hidden="true" tabindex="-1"></a>fit_3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(harsher <span class="sc">~</span> race <span class="sc">+</span> checks <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb557-2"><a href="regression.html#cb557-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_3)</span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="regression.html#cb559-1" aria-hidden="true" tabindex="-1"></a>fit_3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(harsher <span class="sc">~</span> race <span class="sc">+</span> checks <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb559-2"><a href="regression.html#cb559-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_3)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = harsher ~ race + checks + sex + employed, family = &quot;binomial&quot;, 
@@ -1079,11 +1082,11 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <p>All IVs are significantly associated with harsher police treatment except for sex. We see that every one unit increase in the number of previous police contacts, the log odds of receiving harsher treatment (versus being released on summons) increases by 0.36 adjusting for the other variables in the model.</p>
 <p>Observe that variables that are categorical have a label next to them in the output. For example, sex has ‘male’ next to it; race has ‘black’ next to it; employed has ‘yes’ next to it. These are the categories you are comparing to the reference category (whichever category is coded ‘0’). So, being black increases the log odds of receiving harsh treatment by 0.49 compared to being white, while being employed decreases the log odds of harsh treatment by 0.77 compared to being unemployed.</p>
 <p>This is good, but most people find interpreting log odds, well, odd – it is not very intuitive. It is common to use the <strong>odds ratio</strong> (OR) to interpret logistic regression. We convert these values into ORs:</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="regression.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(fit_3))</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="regression.html#cb561-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(fit_3))</span></code></pre></div>
 <pre><code>## (Intercept)   raceBlack      checks     sexMale employedYes 
 ##   0.1490516   1.6422658   1.4304108   1.0430528   0.4585312</code></pre>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="regression.html#cb561-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can add confidence intervals</span></span>
-<span id="cb561-2"><a href="regression.html#cb561-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">cbind</span>(<span class="at">OR =</span> <span class="fu">coef</span>(fit_3), <span class="fu">confint</span>(fit_3)))</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="regression.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can add confidence intervals</span></span>
+<span id="cb563-2"><a href="regression.html#cb563-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">cbind</span>(<span class="at">OR =</span> <span class="fu">coef</span>(fit_3), <span class="fu">confint</span>(fit_3)))</span></code></pre></div>
 <pre><code>## Waiting for profiling to be done...</code></pre>
 <pre><code>##                    OR     2.5 %    97.5 %
 ## (Intercept) 0.1490516 0.1081600 0.2026495
@@ -1091,9 +1094,9 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 ## checks      1.4304108 1.3601419 1.5049266
 ## sexMale     1.0430528 0.7830594 1.4090622
 ## employedYes 0.4585312 0.3892103 0.5407210</code></pre>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="regression.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Another way of getting the results, which uses less typing, is to use the Logit() function from the lessr package</span></span>
-<span id="cb564-2"><a href="regression.html#cb564-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-3"><a href="regression.html#cb564-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Logit</span>(harsher <span class="sc">~</span> checks <span class="sc">+</span> colour <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">brief=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="regression.html#cb566-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Another way of getting the results, which uses less typing, is to use the Logit() function from the lessr package</span></span>
+<span id="cb566-2"><a href="regression.html#cb566-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb566-3"><a href="regression.html#cb566-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Logit</span>(harsher <span class="sc">~</span> checks <span class="sc">+</span> colour <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">brief=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ## Response Variable:   harsher
 ## Predictor Variable 1:  checks
@@ -1166,7 +1169,7 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <p>A common measure for evaluating model fit is the <strong>deviance</strong>, also known as -2LL. It measures how accurate the prediction is by multiplying the log likelihood statistic by -2. This <em>log-likelihood statistic</em> measures how much unexplained variance remains after the model is fitted, whereby larger values reflect poorer fit. Larger values of -2LL, similarly, indicate worse prediction.</p>
 <p>The logistic regression model can be estimated using an approach of probability called <em>maximum likelihood estimation</em>, which calculates the probability of obtaining a certain result given the IVs in the model. It does so by minimising that -2LL. This is like what OLS regression does with the error sum of squares – tries to minimise it. Thus, -2LL is to logistic regression as the error sum of squares is to OLS regression.</p>
 <p>When we re-run our model, we find that -2LL is in the form of <em>null</em> and <em>residual</em> deviances towards the bottom of the output:</p>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="regression.html#cb566-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Logit</span>(harsher <span class="sc">~</span> checks <span class="sc">+</span> colour <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">brief=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="regression.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Logit</span>(harsher <span class="sc">~</span> checks <span class="sc">+</span> colour <span class="sc">+</span> sex <span class="sc">+</span> employed, <span class="at">data=</span>Arrests, <span class="at">brief=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ## Response Variable:   harsher
 ## Predictor Variable 1:  checks
@@ -1228,8 +1231,8 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 ## 
 ## &gt;&gt;&gt; No collinearity analysis because not all variables are numeric.</code></pre>
 <p>The null deviance is the value of -2LL for a model without any IVs, whereas the residual deviance is the value of -2LL for our present model. We test to see if the null hypothesis, that the regression coefficients (IVs) equal zero, is true. We do so by calculating the <em>model chi-squared</em>. This is the difference between both deviances:</p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="regression.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All the information we need to calculate the model chi-squared is already in our model object</span></span>
-<span id="cb568-2"><a href="regression.html#cb568-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fit_3)</span></code></pre></div>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="regression.html#cb570-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All the information we need to calculate the model chi-squared is already in our model object</span></span>
+<span id="cb570-2"><a href="regression.html#cb570-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fit_3)</span></code></pre></div>
 <pre><code>##  [1] &quot;coefficients&quot;      &quot;residuals&quot;         &quot;fitted.values&quot;    
 ##  [4] &quot;effects&quot;           &quot;R&quot;                 &quot;rank&quot;             
 ##  [7] &quot;qr&quot;                &quot;family&quot;            &quot;linear.predictors&quot;
@@ -1240,19 +1243,19 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 ## [22] &quot;call&quot;              &quot;formula&quot;           &quot;terms&quot;            
 ## [25] &quot;data&quot;              &quot;offset&quot;            &quot;control&quot;          
 ## [28] &quot;method&quot;            &quot;contrasts&quot;         &quot;xlevels&quot;</code></pre>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="regression.html#cb570-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We now calculate said chi-squared by taking the difference of the deviances </span></span>
-<span id="cb570-2"><a href="regression.html#cb570-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, null.deviance <span class="sc">-</span> deviance)</span></code></pre></div>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="regression.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We now calculate said chi-squared by taking the difference of the deviances </span></span>
+<span id="cb572-2"><a href="regression.html#cb572-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, null.deviance <span class="sc">-</span> deviance)</span></code></pre></div>
 <pre><code>## [1] 445.5594</code></pre>
 <p>Our obtained value is: 445.56. We do not know, though, how big or small this value is to determine how predictive our model is. We will need a test of statistical significance:</p>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="regression.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtaining the p-value</span></span>
-<span id="cb572-2"><a href="regression.html#cb572-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, <span class="fu">pchisq</span>(null.deviance <span class="sc">-</span> deviance, df.null <span class="sc">-</span> df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="regression.html#cb574-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtaining the p-value</span></span>
+<span id="cb574-2"><a href="regression.html#cb574-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, <span class="fu">pchisq</span>(null.deviance <span class="sc">-</span> deviance, df.null <span class="sc">-</span> df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
 <pre><code>## [1] 3.961177e-95</code></pre>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="regression.html#cb574-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Incorporating previous calculation of difference between deviances</span></span>
-<span id="cb574-2"><a href="regression.html#cb574-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df.null - df.residual: calculating the degrees of freedom (should equal the number of IVs in the model)</span></span></code></pre></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="regression.html#cb576-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Incorporating previous calculation of difference between deviances</span></span>
+<span id="cb576-2"><a href="regression.html#cb576-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df.null - df.residual: calculating the degrees of freedom (should equal the number of IVs in the model)</span></span></code></pre></div>
 <p>The p-value is smaller than <span class="math inline">\(\alpha = 0.05\)</span>, so we conclude that our model is a better fit than a model with no IVs (or predictors).</p>
 <p>In addition, <a href="https://methods.sagepub.com/book/logistic-regression-from-introductory-to-advanced-concepts-and-applications">Professor Scott Menard (2010)</a> suggests calculating the <em>likelihood ratio <span class="math inline">\(R^2\)</span></em>, also known as the Hosmer/Lemeshow <span class="math inline">\(R^2\)</span>, by taking the difference of the previous deviances and dividing it by the null deviance. The likelihood ratio <span class="math inline">\(R^2\)</span> tells you the extent to which including your IVs in your model reduces the variation, or error, as measured by the null deviance. The value can range from 0 to 1, where higher values mean better predictive accuracy:</p>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="regression.html#cb575-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Likelihood ratio R2</span></span>
-<span id="cb575-2"><a href="regression.html#cb575-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, (null.deviance <span class="sc">-</span> deviance)<span class="sc">/</span>null.deviance)</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="regression.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Likelihood ratio R2</span></span>
+<span id="cb577-2"><a href="regression.html#cb577-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(fit_3, (null.deviance <span class="sc">-</span> deviance)<span class="sc">/</span>null.deviance)</span></code></pre></div>
 <pre><code>## [1] 0.09328629</code></pre>
 <p>This particular <span class="math inline">\(R^2\)</span> is considered a ‘pseudo- <span class="math inline">\(R^2\)</span>’ as it is not the same as the one obtained in OLS/ linear regression. There are many kinds of pseudo ones but Menard recommended the likelihood ratio one because (1) of its conceptual similarity to the <span class="math inline">\(R^2\)</span> in OLS regression; (2) it is not easily swayed by the base rate (the number of cases that have the charateristic of interest); (3) it is easy to interpret; and (4) it can also be used in other generalised linear models, such as ones with categorical DVs with more than two levels.</p>
 <hr />
@@ -1263,7 +1266,59 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <h2><span class="header-section-number">9.3</span> SUMMARY</h2>
 <p>Regression allows us to look at relationships between variables while including other variables, called <strong>covariates</strong>, in the model. For OLS regression, assumptions must be met before embarking on fitting this model, and has to do with building the <strong>regression line</strong> whereby the line starts at the <strong>intercept</strong> and its angle is determined by the <strong>slope</strong>. <strong>Residuals</strong> form the equation to determine the <span class="math inline">\(R^2\)</span> and is the error of the model. When the DV is binary, logistic regression is appropriate. The <strong>odds ratio</strong> is an easier way to interpret logistic regression. We assess model fit through quantitative prediction measures of deviance, and it is recommended to use the likelihood ratio <span class="math inline">\(R^2\)</span> instead of other pseudo <span class="math inline">\(R^2s\)</span></p>
 <p>Homework time!</p>
+<hr />
+<div id="additional-info-diagnosing-violation-of-assumptions" class="section level4" number="9.3.0.1">
+<h4><span class="header-section-number">9.3.0.1</span> Additional info: diagnosing violation of assumptions</h4>
+<p>Although so far we have discussed the practicalities of fitting and interpreting regression models, in practical applications you want to first check your model and proceed from there. There is not much point spending time interpreting your model until you know that the model reasonably fits your data.</p>
+<p>In previous data analysis modules we covered assumptions made by various statistical tests. The regression model also makes assumptions of its own. In fact, there are so many that we could spend an entire class discussing them. Gelman and Hill (2007) point out that the most important regression assumptions by decreasing order of importance are:</p>
+<ul>
+<li><strong>Validity</strong>. The data should be appropriate for the question that you are trying to answer:</li>
+</ul>
+<blockquote>
+<p>“Optimally, this means that the outcome measure should accurately reflect the phenomenon of interest, the model should include all relevant predictors, and the model should generalize to all cases to which it will be applied… Data used in empirical research rarely meet all (if any) of these criteria precisely. However, keeping these goals in mind can help you be precise about the types of questions you can and cannot answer reliably”</p>
+</blockquote>
+<ul>
+<li><p><strong>Additiviy and linearity</strong>. These are the most important mathematical assumptions of the model. We already talked about additivity in the previous section and discussed how you can include interaction effects in your models if the additivity assumption is violated. We will discuss problems with non-linearities today as well as ways to diagnose and solve this problem. If the relationship is non linear (e.g, it is curvilinear) predicted values will be wrong in a biased manner, meaning that predicted values will systematically miss the true pattern of the mean of y (as related to the x-variables).</p></li>
+<li><p><strong>Independence of errors</strong>. Regression assumes that the errors from the prediction line (or hyperplane) are independent. If there is dependency between the observations (you are assessing change across the same units, working with spatial units, or with units that are somehow grouped such as students from the same class), you may have to use models that are more appropriate (e.g., multilevel models, spatial regression, etc.).</p></li>
+<li><p><strong>Equal variances of errors</strong>. When the variance of the residuals is unequal, you may need different estimation methods. This is, nonetheless, considered a minor issue. There is a small effect on the validity of t-test and F-test results, but generally regression inferences are robust with regard to the variance issue.</p></li>
+<li><p><strong>Normality of errors</strong>. The residuals should be normally distributed. Gelman and Hill (2007: 46) discuss this as the least important of the assumptions and in fact “do <em>not</em> recommend diagnostics of the normality of the regression residuals”. If the errors do not have a normal distribution, it usually is not particularly serious. Regression inferences tend to be robust with respect to normality (or nonnormality of the errors). In practice, the residuals may appear to be nonnormal when the wrong regression equation has been used. So, I will show you how to inspect normality of the residuals not because this is a problem on itself, but because it may be give you further evidence that there is some other problem with the model you are applying to your data.</p></li>
+</ul>
+<p>Apart from this, it is convenient to diagnose multicollinearity (this affects interpretation) and influential observations.</p>
+<p>So these are the assumptions of linear regression.</p>
+<p>In this section we can go through very quickly how to test for some of them using visuals. While finding that some of the assumptions are violated do not necessarily mean that you have to scrap your model, it is important to use these diagnostics to illustrate that you have considered what the possible issues with your model is, and if you find any serious issues that you address them.</p>
+<p>In r, we can use the <code>plot()</code> function on our output lm object to look through some diagnostics. This gives us 4 plots, so to show them all, we’ll use the code <code>par(mfrow = c(2, 2))</code> to split our plot window into 4 panes (remember to set back, run <code>par(mfrow = c(1, 1))</code>). For example, let’s return to <code>fit_1</code>, our very first model.</p>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="regression.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb579-2"><a href="regression.html#cb579-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit_1)</span></code></pre></div>
+<p><img src="09-regression_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p>The 4 plots we get are</p>
+<ul>
+<li><strong>Residuals vs Fitted</strong>. Used to check the linear relationship assumptions. A horizontal line, without distinct patterns is an indication for a linear relationship, what is good.</li>
+<li><strong>Normal Q-Q</strong>. Used to examine whether the residuals are normally distributed. It’s good if residuals points follow the straight dashed line.</li>
+<li><strong>Scale-Location (or Spread-Location)</strong>. Used to check the homogeneity of variance of the residuals (homoscedasticity). Horizontal line with equally spread points is a good indication of homoscedasticity. This is not the case in our example, where we have a bit of a heteroscedasticity problem (remember funnel-shape from the video!).</li>
+<li><strong>Residuals vs Leverage</strong>. Used to identify influential cases, that is extreme values that might influence the regression results when included or excluded from the analysis.</li>
+</ul>
+<p>We can also run some tests to confirm what we see in the plots.</p>
+<p>For example, to test for heteroskedasticity (unequal variance in our residuals) we can run a Breusch-Pagan test from the <code>lmtest</code> package or a NCV test from the <code>car</code> package.</p>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="regression.html#cb580-1" aria-hidden="true" tabindex="-1"></a>lmtest<span class="sc">::</span><span class="fu">bptest</span>(fit_1)  <span class="co"># Breusch-Pagan test</span></span></code></pre></div>
+<pre><code>## 
+##  studentized Breusch-Pagan test
+## 
+## data:  fit_1
+## BP = 114.41, df = 1, p-value &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="regression.html#cb582-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">ncvTest</span>(fit_1) <span class="co"># NCV test</span></span></code></pre></div>
+<pre><code>## Non-constant Variance Score Test 
+## Variance formula: ~ fitted.values 
+## Chisquare = 131.0805, Df = 1, p = &lt; 0.000000000000000222</code></pre>
+<p>Both these test have a p-value less that a significance level of 0.05, therefore we can reject the null hypothesis that the variance of the residuals is constant and infer that heteroscedasticity is indeed present, thereby confirming our graphical inference.</p>
+<p>For testing whether the residuals violate the normality assumption, we can use the Anderson-Darling test for the composite hypothesis of normality with the <code>ad.test()</code> function in the <code>nortest</code> package.</p>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="regression.html#cb584-1" aria-hidden="true" tabindex="-1"></a>nortest<span class="sc">::</span><span class="fu">ad.test</span>(fit_1<span class="sc">$</span>residuals)</span></code></pre></div>
+<pre><code>## 
+##  Anderson-Darling normality test
+## 
+## data:  fit_1$residuals
+## A = 89.77, p-value &lt; 0.00000000000000022</code></pre>
 
+</div>
 </div>
 </div>
             </section>
